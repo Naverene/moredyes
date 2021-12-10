@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:leaf_cccccc" }
+		"": { "model": "moredyes:block/leaf_cccccc" }
 	}
 }

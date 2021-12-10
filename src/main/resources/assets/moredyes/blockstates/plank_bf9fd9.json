@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:plank_bf9fd9" }
+		"": { "model": "moredyes:block/plank_bf9fd9" }
 	}
 }

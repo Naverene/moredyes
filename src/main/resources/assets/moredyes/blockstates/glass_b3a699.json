@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:glass_b3a699" }
+		"": { "model": "moredyes:block/glass_b3a699" }
 	}
 }

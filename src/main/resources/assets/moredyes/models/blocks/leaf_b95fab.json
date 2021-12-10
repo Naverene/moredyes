@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "moredyes:blocks/leaf/b95fab"
-	}
-}

@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:soulsand_a6bfcc" }
+		"": { "model": "moredyes:block/soulsand_a6bfcc" }
 	}
 }

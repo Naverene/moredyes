@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:stonebrickcracked_b3ccec" }
+		"": { "model": "moredyes:block/stonebrickcracked_b3ccec" }
 	}
 }

@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:workbench_e57f6c" }
+		"": { "model": "moredyes:block/workbench_bfe68c" }
 	}
 }

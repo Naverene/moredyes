@@ -1,11 +1,6 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.GlassBlock;
-import net.minecraft.client.renderer.BlockModelRenderer;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,17 +9,15 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.BlockInfo;
 
-import java.util.List;
-
 public class BlockGlass extends GlassBlock
 {
     private boolean translucent = false;
-    private final String[] colors;
+    private final String color;
     public String blockName;
-    public BlockGlass(String[] blockColor, BlockInfo info, boolean translucent, int set)
+    public BlockGlass(String blockColor, BlockInfo info, boolean translucent)
     {
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness).harvestLevel(info.harvestLevel));
-        this.colors = blockColor;
+        this.color = blockColor;
         this.blockName=info.blockName;
         //setRegistryName(info.blockName+"_"+set);
         //MDItemBlock itemBlock = new MDItemBlock(this);
@@ -34,10 +27,7 @@ public class BlockGlass extends GlassBlock
     @OnlyIn(Dist.CLIENT)
     public void initModel(String name)
     {
-        for (String color : this.colors)
-        {
-            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + ":" + name + "_" + color, "inventory"));
-        }
+        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + blockName, "inventory"));
     }
     /*
     @OnlyIn(Dist.CLIENT)
@@ -50,17 +40,17 @@ public class BlockGlass extends GlassBlock
     }
 
      */
-    public String[] getColors()
+    public String getColor()
     {
-        return this.colors;
+        return this.color;
     }
     public int getColorCount()
     {
-        return this.colors.length;
+        return 118;
     }
     public String getColorName(ItemStack stack)
     {
-        return this.colors[stack.getDamageValue()];
+        return this.color;
     }
     /*
     @OnlyIn(Dist.CLIENT)

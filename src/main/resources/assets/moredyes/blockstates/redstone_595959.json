@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:redstone_595959" }
+		"": { "model": "moredyes:block/redstone_cccccc" }
 	}
 }

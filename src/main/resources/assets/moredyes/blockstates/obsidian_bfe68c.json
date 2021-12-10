@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:obsidian_bfe68c" }
+		"": { "model": "moredyes:block/obsidian_bfe68c" }
 	}
 }
