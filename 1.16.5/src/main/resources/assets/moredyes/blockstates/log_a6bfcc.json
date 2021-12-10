@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"axis=y":	{ "model": "moredyes:log_a6bfcc" },
+		"axis=z":	{ "model": "moredyes:log_a6bfcc", "x": 90 },
+		"axis=x":	{ "model": "moredyes:log_a6bfcc", "x": 90, "y": 90 },
+		"axis=none":   { "model": "oak_bark" }
+	}
+}
