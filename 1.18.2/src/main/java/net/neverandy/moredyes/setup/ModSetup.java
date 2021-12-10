@@ -22,11 +22,12 @@ public class ModSetup {
     public static final ItemGroup tabTrees = new ItemGroup(Reference.MOD_NAME + " Trees")
     {
         @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(Items.DIAMOND);
+        public ItemStack makeIcon()
+        {
+            return new ItemStack(Blocks.OAK_LOG);
         }
     };
-    public static final ItemGroup tabPlants = new ItemGroup(Reference.MOD_NAME + " Trees")
+    public static final ItemGroup tabPlants = new ItemGroup(Reference.MOD_NAME + " Plants")
     {
         @Override
         public ItemStack makeIcon() {
@@ -40,7 +41,7 @@ public class ModSetup {
             return new ItemStack(Items.LAPIS_LAZULI);
         }
     };
-    public static final ItemGroup tabBlocks = new ItemGroup(Reference.MOD_NAME + " Trees")
+    public static final ItemGroup tabBlocks = new ItemGroup(Reference.MOD_NAME + " Blocks")
     {
         @Override
         public ItemStack makeIcon() {
@@ -50,7 +51,8 @@ public class ModSetup {
 
     public static void init(final FMLCommonSetupEvent event)
     {
-        /*Networking.registerMessages();
+        /*
+        Networking.registerMessages();
         CapabilityEntityCharge.register();
 
         event.enqueueWork(() -> {
