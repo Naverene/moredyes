@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moredyes:blocks/plank/a5bf86"
+	}
+}

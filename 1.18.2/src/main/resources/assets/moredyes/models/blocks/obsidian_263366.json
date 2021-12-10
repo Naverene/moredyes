@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moredyes:blocks/obsidian/263366"
+	}
+}

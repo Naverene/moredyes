@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moredyes:blocks/glassfoggy/e57f6c"
+	}
+}
