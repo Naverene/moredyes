@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:lapis_b3ccec" }
+		"": { "model": "moredyes:block/lapis_b3ccec" }
 	}
 }

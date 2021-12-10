@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:cobble_a6bfcc" }
+		"": { "model": "moredyes:block/cobble_a6bfcc" }
 	}
 }

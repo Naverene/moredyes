@@ -1,20 +1,14 @@
 package net.neverandy.moredyes.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.setup.ModSetup;
-
-import java.util.ArrayList;
 
 public class MDBlock
 {
@@ -62,7 +56,7 @@ public class MDBlock
         for (String color : all)
         {
             String name = "glass_" + color;
-            final BlockGlass glass = new BlockGlass(ColorStrings.ALL, Reference.BLOCK_INFO_GLASS, true, 0);
+            final BlockGlass glass = new BlockGlass(color, Reference.BLOCK_INFO_GLASS, true);
             final BlockItem glassItem = new BlockItem(glass, new Item.Properties().tab(ModSetup.tabBlocks));
             BLOCKS.register(name, () -> glass);
             ITEMS.register(name, () -> glassItem);
