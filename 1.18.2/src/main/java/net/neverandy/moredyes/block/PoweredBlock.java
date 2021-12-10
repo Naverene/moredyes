@@ -10,20 +10,16 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class PoweredBlock extends RedstoneBlock
 {
-    public PoweredBlock(String[] blockColor, BlockInfo info, int set)
+    public String color;
+    public PoweredBlock(String blockColor, BlockInfo info)
     {
         super(Properties.of(info.blockMaterial)
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
                 .sound(info.sound)
                 .strength(info.hardness, info.resistance));
-        this.setRegistryName(info.blockName+"_"+set);
+        this.color = blockColor;
 
 
-    }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel()
-    {
-        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+this.getRegistryName().toString().substring(9),"inventory"));
     }
 }

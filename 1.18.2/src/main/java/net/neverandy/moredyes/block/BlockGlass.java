@@ -24,11 +24,6 @@ public class BlockGlass extends GlassBlock
         //initModel(info.blockName);
         this.translucent=translucent;
     }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel(String name)
-    {
-        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + blockName, "inventory"));
-    }
     /*
     @OnlyIn(Dist.CLIENT)
     public void getSubBlocks(Item itemIn, ItemGroup tab, List<ItemStack> list)

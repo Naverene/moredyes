@@ -7,6 +7,8 @@ import net.minecraftforge.common.ToolType;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.setup.ModSetup;
 
+import java.util.function.ToIntFunction;
+
 public class BlockInfo
 {
     public String blockName;
@@ -17,7 +19,8 @@ public class BlockInfo
     public float resistance;
     public Material blockMaterial;
     public ItemGroup tab;
-    public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType toolType, int hL,float r,ItemGroup tab)
+    public int lightlevel;
+    public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType toolType, int hL,float r,ItemGroup tab, int lightlevel)
     {
         this.blockName=blockName;
         this.blockMaterial=mat;
@@ -27,10 +30,11 @@ public class BlockInfo
         this.harvestLevel=hL;
         this.resistance = r;
         this.tab=tab;
+        this.lightlevel=lightlevel;
     }
     public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType s, int hL,float r)
     {
-        this(blockName,mat,h,t,s,hL,r, ModSetup.tabBlocks);
+        this(blockName,mat,h,t,s,hL,r, ModSetup.tabBlocks, 0);
     }
     public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType s, int hL)
     {
