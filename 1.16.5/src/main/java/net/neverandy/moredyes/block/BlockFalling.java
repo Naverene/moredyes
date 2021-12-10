@@ -20,23 +20,7 @@ public class BlockFalling extends FallingBlock
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness));
         this.color = blockColor;
         this.blockName = info.blockName;
-        //this.setRegistryName(name);
-        //initModel(info.blockName);
     }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel(String name)
-    {
-        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + ":" + name + "_" + this.color));
-    }
-    /*
-    public void getSubBlocks(Item itemIn, ItemGroup tab, List<ItemStack> list)
-    {
-        for (int i = 0; i < this.colors.length; ++i)
-        {
-            list.add(new ItemStack(itemIn, 1, i));
-        }
-    }
-     */
     public String getColor()
     {
         return this.color;

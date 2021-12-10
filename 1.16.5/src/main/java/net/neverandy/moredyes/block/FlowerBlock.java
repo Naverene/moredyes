@@ -22,11 +22,6 @@ public class FlowerBlock extends BushBlock
         //ItemBlock itemBlock = new ItemBlock(this);
         //initModel();
     }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel()
-    {
-        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+this.getRegistryName().toString().substring(9)));
-    }
     /**
      * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
      */
