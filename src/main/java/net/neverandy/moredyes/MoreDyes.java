@@ -54,7 +54,7 @@ public class MoreDyes
     {
         // do something that can only be done on the client
         //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
-        event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(MDBlock.GLASS.get(), RenderType.translucent()));
+        //event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(MDBlock.GLASS.get(), RenderType.translucent()));
 
     }
 

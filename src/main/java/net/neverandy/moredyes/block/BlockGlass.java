@@ -18,7 +18,7 @@ import java.util.List;
 
 public class BlockGlass extends GlassBlock
 {
-    private static final boolean translucent = false;
+    private boolean translucent = false;
     private final String[] colors;
     public String blockName;
     public BlockGlass(String[] blockColor, BlockInfo info, boolean translucent, int set)
@@ -26,7 +26,7 @@ public class BlockGlass extends GlassBlock
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness).harvestLevel(info.harvestLevel));
         this.colors = blockColor;
         this.blockName=info.blockName;
-        setRegistryName(info.blockName+"_"+set);
+        //setRegistryName(info.blockName+"_"+set);
         //MDItemBlock itemBlock = new MDItemBlock(this);
         //initModel(info.blockName);
         this.translucent=translucent;

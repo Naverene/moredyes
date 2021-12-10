@@ -13,24 +13,20 @@ import java.util.List;
 
 public class BlockFalling extends FallingBlock
 {
-    private final String[] colors;
+    private final String color;
     public String blockName;
-    public BlockFalling(String name, String[] blockColors, BlockInfo info)
+    public BlockFalling(String name, String blockColor, BlockInfo info)
     {
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness));
-        this.colors = blockColors;
+        this.color = blockColor;
         this.blockName = info.blockName;
-        this.setRegistryName(info.blockName+"_");
-        //MDItemBlock itemBlock = new MDItemBlock(this);
+        //this.setRegistryName(name);
         //initModel(info.blockName);
     }
     @OnlyIn(Dist.CLIENT)
     public void initModel(String name)
     {
-        for (String color : this.colors)
-        {
-            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + ":" + name + "_" + color));
-        }
+        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + ":" + name + "_" + this.color));
     }
     /*
     public void getSubBlocks(Item itemIn, ItemGroup tab, List<ItemStack> list)
@@ -41,16 +37,17 @@ public class BlockFalling extends FallingBlock
         }
     }
      */
-    public String[] getColors()
+    public String getColor()
     {
-        return this.colors;
+        return this.color;
     }
     public int getColorCount()
     {
-        return this.colors.length;
+        //return this.colors.length;
+        return 118;
     }
     public String getColorName(ItemStack stack)
     {
-        return this.colors[stack.getDamageValue()];
+        return this.color;
     }
 }
