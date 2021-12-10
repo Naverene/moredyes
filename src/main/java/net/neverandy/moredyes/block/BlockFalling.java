@@ -14,15 +14,13 @@ import java.util.List;
 public class BlockFalling extends FallingBlock
 {
     private final String[] colors;
-    private final int set;
     public String blockName;
-    public BlockFalling(String[] blockColors, BlockInfo info, int set)
+    public BlockFalling(String name, String[] blockColors, BlockInfo info)
     {
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness));
-        this.set=set;
         this.colors = blockColors;
         this.blockName = info.blockName;
-        this.setRegistryName(info.blockName+"_"+set);
+        this.setRegistryName(info.blockName+"_");
         //MDItemBlock itemBlock = new MDItemBlock(this);
         //initModel(info.blockName);
     }

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class BlockGlass extends GlassBlock
 {
-    private boolean translucent=false;
+    private static final boolean translucent = false;
     private final String[] colors;
     public String blockName;
     public BlockGlass(String[] blockColor, BlockInfo info, boolean translucent, int set)
@@ -34,9 +34,9 @@ public class BlockGlass extends GlassBlock
     @OnlyIn(Dist.CLIENT)
     public void initModel(String name)
     {
-        for(int i=0;i<this.colors.length;i++)
+        for (String color : this.colors)
         {
-            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+name+"_"+this.colors[i],"inventory"));
+            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + ":" + name + "_" + color, "inventory"));
         }
     }
     /*
