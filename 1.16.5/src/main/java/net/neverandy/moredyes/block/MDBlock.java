@@ -44,14 +44,13 @@ public class MDBlock
     public static Block[] tulip;
     public static Block[] workbench;
 
-    //public static Falli sand;
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-    public static ArrayList<RegistryObject<BlockFalling>> SAND;
-    public static ArrayList<RegistryObject<Item>> SAND_ITEM;
-    public static final RegistryObject<Block> GLASS = BLOCKS.register("glass", () -> new BlockGlass(ColorStrings.ALL, Reference.BLOCK_INFO_SAND, true, 0));
-    public static final RegistryObject<Item> GLASS_ITEM = ITEMS.register("glass", () -> new BlockItem(GLASS.get(), new Item.Properties().tab(ModSetup.tabBlocks)));
+    //public static BlockFalling[] SAND = new BlockFalling[totalColorCount];
+    //public static BlockItem[] SAND_ITEM = new BlockItem[totalColorCount];
+    public static BlockGlass[] GLASS = new BlockGlass[totalColorCount];
+    public static final BlockItem[] GLASS_ITEM = new BlockItem[totalColorCount];
 
 
     public static void initialize()
@@ -59,13 +58,19 @@ public class MDBlock
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         String[] all = ColorStrings.ALL;
-        for(int i = 0; i < all.length; i++)
+
+        for (String color : all)
         {
-            String color = all[i];
-            String name = "sand_" + color;
-            SAND.add(BLOCKS.register(name, () -> new BlockFalling(name, ColorStrings.ALL, Reference.BLOCK_INFO_SAND)));
-            final Block block = SAND.get(i).get();
-            SAND_ITEM.add(ITEMS.register(name, () -> new BlockItem(block, new Item.Properties().tab(ModSetup.tabBlocks))));
+            String name = "glass_" + color;
+            final BlockGlass glass = new BlockGlass(ColorStrings.ALL, Reference.BLOCK_INFO_GLASS, true, 0);
+            final BlockItem glassItem = new BlockItem(glass, new Item.Properties().tab(ModSetup.tabBlocks));
+            BLOCKS.register(name, () -> glass);
+            ITEMS.register(name, () -> glassItem);
+
+            //SAND[i] = new BlockFalling(name, color, Reference.BLOCK_INFO_SAND);
+            //SAND_ITEM[i] = new BlockItem(SAND[i], new Item.Properties().tab(ModSetup.tabBlocks));
+            //BLOCKS.register(name, () -> glass);
+            //ITEMS.register(name, () -> blockItem);
         }
 
 
@@ -286,7 +291,6 @@ public class MDBlock
             sapling[i]=new BlockSapling(ColorStrings.ALL[i],Reference.BLOCK_INFO_SAPLING,i);
             tulip[i]=new FlowerBlock(ColorStrings.ALL[i],Reference.BLOCK_INFO_TULIP);
         }
-
          */
 
     }
