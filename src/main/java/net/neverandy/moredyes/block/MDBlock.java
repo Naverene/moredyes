@@ -63,7 +63,7 @@ public class MDBlock
         {
             String color = all[i];
             String name = "sand_" + color;
-            SAND.add(BLOCKS.register(name, () -> new BlockFalling(name, ColorStrings.ALL, Reference.BLOCK_INFO_SAND)));
+            SAND.add(BLOCKS.register(name, () -> new BlockFalling(name, color, Reference.BLOCK_INFO_SAND)));
             final Block block = SAND.get(i).get();
             SAND_ITEM.add(ITEMS.register(name, () -> new BlockItem(block, new Item.Properties().tab(ModSetup.tabBlocks))));
         }
