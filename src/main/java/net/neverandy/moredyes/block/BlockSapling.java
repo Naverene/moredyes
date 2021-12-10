@@ -25,8 +25,7 @@ import static net.minecraftforge.event.ForgeEventFactory.saplingGrowTree;
 public class BlockSapling extends BushBlock implements IGrowable
 {
     private final String color;
-    private final int index;
-    public BlockSapling(String blockColor, BlockInfo info, int i)
+    public BlockSapling(String blockColor, BlockInfo info)
     {
         super(Properties.of(info.blockMaterial)
                 .harvestLevel(info.harvestLevel)
@@ -34,14 +33,7 @@ public class BlockSapling extends BushBlock implements IGrowable
                 .sound(info.sound)
                 .strength(info.hardness, info.resistance));
         this.color = blockColor;
-        this.index=i;
-        setRegistryName(info.blockName+"_"+this.color);
         //initModel();
-    }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel()
-    {
-        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+this.getRegistryName().toString().substring(9),"inventory"));
     }
     public void grow(World worldIn, BlockPos pos, BlockState state, Random rand)
     {

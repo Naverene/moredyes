@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moredyes:blocks/glowstone/7f7f26"
+	}
+}

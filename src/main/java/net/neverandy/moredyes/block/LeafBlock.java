@@ -20,23 +20,15 @@ import java.util.Random;
 public class LeafBlock extends LeavesBlock
 {
     private final String color;
-    private final int index;
-    public LeafBlock(String blockColor, BlockInfo info, int i)
+    public LeafBlock(String blockColor, BlockInfo info)
     {
         super(Properties.of(info.blockMaterial).sound(info.sound).harvestLevel(info.harvestLevel));
-        this.index=i;
         this.color = blockColor;
-        setRegistryName(info.blockName+"_"+this.color);
-
+        this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, 7).setValue(PERSISTENT, Boolean.FALSE));
         //initModel();
         //this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
-        this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, 7).setValue(PERSISTENT, Boolean.FALSE));
 
-    }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel()
-    {
-        ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+this.getRegistryName().toString().substring(9),"inventory"));
+
     }
     protected BlockState createBlockState()
     {

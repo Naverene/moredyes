@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "moredyes:blocks/tulip/7f99b9"
+	}
+}
