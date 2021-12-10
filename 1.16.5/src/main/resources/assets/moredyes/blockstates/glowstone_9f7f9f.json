@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:glowstone_9f7f9f" }
+		"": { "model": "moredyes:block/glowstone_cccccc" }
 	}
 }

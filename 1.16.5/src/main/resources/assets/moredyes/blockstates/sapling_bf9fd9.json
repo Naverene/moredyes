@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": { "model": "moredyes:sapling_bf9fd9" }
+		"": { "model": "moredyes:block/sapling_bf9fd9" }
 	}
 }

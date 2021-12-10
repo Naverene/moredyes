@@ -1,8 +1,0 @@
-{
-	"parent": "block/cube_bottom_top",
-	"textures": {
-		"bottom": "moredyes:blocks/quartz/bottom/726cc5",
-		"top": "moredyes:blocks/quartz/top/726cc5",
-		"side": "moredyes:blocks/quartz/side/726cc5"
-	}
-}

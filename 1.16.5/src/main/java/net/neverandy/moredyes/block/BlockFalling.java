@@ -15,7 +15,7 @@ public class BlockFalling extends FallingBlock
 {
     private final String color;
     public String blockName;
-    public BlockFalling(String name, String blockColor, BlockInfo info)
+    public BlockFalling(String blockColor, BlockInfo info)
     {
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness));
         this.color = blockColor;
