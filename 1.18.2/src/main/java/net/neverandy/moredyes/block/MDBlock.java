@@ -14,6 +14,8 @@ import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.setup.ModSetup;
 
+import java.util.ArrayList;
+
 public class MDBlock
 {
     private static final int totalColorCount=118;
@@ -46,8 +48,8 @@ public class MDBlock
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-    public static final RegistryObject<BlockFalling> SAND = BLOCKS.register("sand", () -> new BlockFalling(ColorStrings.ALL, Reference.BLOCK_INFO_SAND, 0));
-    public static final RegistryObject<Item> SAND_ITEM = ITEMS.register("sand", () -> new BlockItem(SAND.get(), new Item.Properties().tab(ModSetup.tabBlocks)));
+    public static ArrayList<RegistryObject<BlockFalling>> SAND;
+    public static ArrayList<RegistryObject<Item>> SAND_ITEM;
     public static final RegistryObject<Block> GLASS = BLOCKS.register("glass", () -> new BlockGlass(ColorStrings.ALL, Reference.BLOCK_INFO_SAND, true, 0));
     public static final RegistryObject<Item> GLASS_ITEM = ITEMS.register("glass", () -> new BlockItem(GLASS.get(), new Item.Properties().tab(ModSetup.tabBlocks)));
 
@@ -56,6 +58,16 @@ public class MDBlock
     {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        String[] all = ColorStrings.ALL;
+        for(int i = 0; i < all.length; i++)
+        {
+            String color = all[i];
+            String name = "sand_" + color;
+            SAND.add(BLOCKS.register(name, () -> new BlockFalling(name, ColorStrings.ALL, Reference.BLOCK_INFO_SAND)));
+            final Block block = SAND.get(i).get();
+            SAND_ITEM.add(ITEMS.register(name, () -> new BlockItem(block, new Item.Properties().tab(ModSetup.tabBlocks))));
+        }
+
 
         //sand = new BlockFalling(ColorStrings.SET_0, Reference.BLOCK_INFO_SAND, 0);
         /*

@@ -1,17 +1,10 @@
 package net.neverandy.moredyes;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,8 +18,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
-
-import static net.neverandy.moredyes.MoreDyes.MODID;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MoreDyes.MODID)
@@ -59,7 +50,8 @@ public class MoreDyes
         // some preinit code
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
+    private void doClientStuff(final FMLClientSetupEvent event)
+    {
         // do something that can only be done on the client
         //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(MDBlock.GLASS.get(), RenderType.translucent()));
@@ -69,16 +61,21 @@ public class MoreDyes
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // some example code to dispatch IMC to another mod
-        InterModComms.sendTo(Reference.MOD_ID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+        InterModComms.sendTo(Reference.MOD_ID, "helloworld", () ->
+        {
+            LOGGER.info("Hello world from the MDK");
+            return "Hello world";
+        });
     }
 
     private void processIMC(final InterModProcessEvent event)
     {
         // some example code to receive and process InterModComms from other mods
         LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m->m.getMessageSupplier().get()).
+                map(m -> m.getMessageSupplier().get()).
                 collect(Collectors.toList()));
     }
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event)
