@@ -49,6 +49,7 @@ public class BlockSapling extends BushBlock implements IGrowable
     }
     public void generateTree(World worldIn, BlockPos pos, BlockState state, Random rand)
     {
+        /*
         if (!saplingGrowTree(worldIn, rand, pos)) return;
 
         int i = 0;
@@ -96,6 +97,8 @@ public class BlockSapling extends BushBlock implements IGrowable
                 worldIn.setBlock(pos, state, 4);
             }
         }
+
+         */
     }
     public void updateTick(World worldIn, BlockPos pos, BlockState state, Random rand)
     {
