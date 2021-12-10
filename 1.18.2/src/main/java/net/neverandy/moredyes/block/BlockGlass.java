@@ -18,7 +18,7 @@ import java.util.List;
 
 public class BlockGlass extends GlassBlock
 {
-    private static final boolean translucent = false;
+    private boolean translucent = false;
     private final String[] colors;
     public String blockName;
     public BlockGlass(String[] blockColor, BlockInfo info, boolean translucent, int set)
