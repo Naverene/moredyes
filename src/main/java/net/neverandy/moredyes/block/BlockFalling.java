@@ -1,12 +1,6 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.FallingBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.client.renderer.model.Model;
-import net.minecraft.client.renderer.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,7 +11,7 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 import java.util.List;
 
-public abstract class BlockFalling extends FallingBlock
+public class BlockFalling extends FallingBlock
 {
     private final String[] colors;
     private final int set;
@@ -35,9 +29,9 @@ public abstract class BlockFalling extends FallingBlock
     @OnlyIn(Dist.CLIENT)
     public void initModel(String name)
     {
-        for(int i=0;i<this.colors.length;i++)
+        for (String color : this.colors)
         {
-            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+name+"_"+this.colors[i]));
+            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID + ":" + name + "_" + color));
         }
     }
     /*

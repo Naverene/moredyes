@@ -3,6 +3,7 @@ package net.neverandy.moredyes.block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.GlassBlock;
 import net.minecraft.client.renderer.BlockModelRenderer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
