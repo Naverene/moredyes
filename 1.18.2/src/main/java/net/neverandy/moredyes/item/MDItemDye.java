@@ -23,25 +23,13 @@ import java.util.List;
 
 public class MDItemDye extends Item
 {
-    String[] colors;
-    public MDItemDye(String[] names, int count,int set)
+    String color;
+    public MDItemDye(String name)
     {
         super(new Properties().tab(ModSetup.tabDyes));
-        this.colors=names;
-        this.setRegistryName(set+"_dye");
+        this.color=name;
+        //this.setRegistryName(set+"_dye");
         //initModel();
-    }
-    @OnlyIn(Dist.CLIENT)
-    public void initModel()
-    {
-        for(int i=0;i<this.colors.length;i++)
-        {
-            ModelLoader.addSpecialModel(new ResourceLocation(Reference.MOD_ID+":"+this.colors[i]+"_dye", "inventory"));
-        }
-    }
-    public String getUnlocalizedName(ItemStack stack)
-    {
-        return super.getRegistryName() + "." + (this.colors[stack.getDamageValue()]);
     }
     public ActionResult onItemUse(ItemStack stack, PlayerEntity playerIn, World worldIn, BlockPos pos, Hand hand, Direction facing, float hitX, float hitY, float hitZ)
     {
@@ -68,13 +56,5 @@ public class MDItemDye extends Item
            return false;
        }*/
         return false;
-    }
-    @OnlyIn(Dist.CLIENT)
-    public void getSubItems(Item itemIn, ItemGroup tab, List<ItemStack> subItems)
-    {
-        for (int i = 0; i < this.colors.length; ++i)
-        {
-            //subItems.add(new ItemStack(itemIn, 1,));
-        }
     }
 }
