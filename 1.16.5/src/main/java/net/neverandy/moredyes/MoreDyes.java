@@ -41,7 +41,7 @@ public class MoreDyes
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        RegistryHandler.init();
+        //RegistryHandler.init();
         MDBlock.initialize();
     }
 
