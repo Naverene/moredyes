@@ -19,9 +19,6 @@ public class BlockGlass extends GlassBlock
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness).harvestLevel(info.harvestLevel));
         this.color = blockColor;
         this.blockName=info.blockName;
-        //setRegistryName(info.blockName+"_"+set);
-        //MDItemBlock itemBlock = new MDItemBlock(this);
-        //initModel(info.blockName);
         this.translucent=translucent;
     }
     /*
