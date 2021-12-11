@@ -62,8 +62,8 @@ public class MDBlock
     public static WorkbenchBlock[] workbenchArray = new WorkbenchBlock[totalColorCount];
     public static BlockItem[] workbenchItemBlockArray = new BlockItem[totalColorCount];
 
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
     //public static BlockFalling[] SAND = new BlockFalling[totalColorCount];
 
