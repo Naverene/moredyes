@@ -18,14 +18,13 @@ public class FlowerBlock extends BushBlock
     {
         super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness));
         this.color = blockColor;
-        setRegistryName(info.blockName+"_"+this.color);
-        //ItemBlock itemBlock = new ItemBlock(this);
-        //initModel();
     }
+
     /**
      * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
      */
     @OnlyIn(Dist.CLIENT)
+    @Override
     public AbstractBlock.OffsetType getOffsetType()
     {
         return OffsetType.XZ;
