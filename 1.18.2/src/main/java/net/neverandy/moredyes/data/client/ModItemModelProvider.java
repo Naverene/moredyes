@@ -30,12 +30,15 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        LOGGER.info("Beep");
-        for(String[] blockType : nameArray) {
-            LOGGER.info("Boop");
-            for (String name : blockType)
-            withExistingParent(name, modLoc("block/"+name));
-            LOGGER.info("Moop");
+        LOGGER.info("registerModels");
+//        for(String[] blockType : nameArray) {
+        for (int i = 0; i< nameArray.length; i++){
+            String[] blockType = nameArray[i];
+            LOGGER.info(Reference.BLOCKTYPES[i] + " for loop");
+            for (String name : blockType) {
+                withExistingParent(name, modLoc("block/" + name));
+                LOGGER.info("completed " + name);
+            }
         }
     }
 
