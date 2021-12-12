@@ -16,7 +16,12 @@ public class BlockGlass extends GlassBlock
     public String blockName;
     public BlockGlass(String blockColor, BlockInfo info, boolean translucent)
     {
-        super(Properties.of(info.blockMaterial).sound(info.sound).strength(info.hardness).harvestLevel(info.harvestLevel));
+        super(Properties.create(info.blockMaterial)
+                .hardnessAndResistance(info.hardness,info.resistance)
+                .harvestLevel(info.harvestLevel)
+                .harvestTool(info.harvestTool)
+                .setRequiresTool()
+                .sound(info.sound).setLightLevel(value -> info.lightlevel));
         this.color = blockColor;
         this.blockName=info.blockName;
         this.translucent=translucent;

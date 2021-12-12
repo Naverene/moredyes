@@ -3,7 +3,6 @@ package net.neverandy.moredyes.block;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -61,21 +60,21 @@ public class MDBlock
     public static BlockItem[] tuLipItemBlockArray = new BlockItem[totalColorCount];
     public static WorkbenchBlock[] workbenchArray = new WorkbenchBlock[totalColorCount];
     public static BlockItem[] workbenchItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLog[] logArray = new BlockLog[totalColorCount];
+    public static BlockItem[] logItemBlockArray = new BlockItem[totalColorCount];
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-    //public static BlockFalling[] SAND = new BlockFalling[totalColorCount];
 
     public static void initRegistries()
     {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
-
     public static void initialize()
     {
-        //Init the registeries that are added to in the rest of the calls.
+        //Init the registries that are added to in the rest of the calls.
         initRegistries();
 
         registerGlass();
@@ -111,7 +110,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String glass_name = "glass_" + color;
             final BlockGlass glass = new BlockGlass(color, Reference.BLOCK_INFO_GLASS, true);
-            final BlockItem glassItem = new BlockItem(glass, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem glassItem = new BlockItem(glass, new Item.Properties().group(ModSetup.tabBlocks));
             glassArray[i] = glass;
             //glassArray[i].initModel(glass_name);
             glassItemBlockArray[i] = glassItem;
@@ -129,7 +128,7 @@ public class MDBlock
 
             String sand_name = "sand_" + color;
             final BlockFalling sand = new BlockFalling(color, Reference.BLOCK_INFO_SAND);
-            final BlockItem sandItem = new BlockItem(sand, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem sandItem = new BlockItem(sand, new Item.Properties().group(ModSetup.tabBlocks));
             sandArray[i] = sand;
             //sandArray[i].initModel(sand_name);
             sandItemBlockArray[i] = sandItem;
@@ -146,7 +145,7 @@ public class MDBlock
 
             String leaf_name = "leaf_" + color;
             final LeafBlock leaf = new LeafBlock(color, Reference.BLOCK_INFO_LEAVES);
-            final BlockItem leafItem = new BlockItem(leaf, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem leafItem = new BlockItem(leaf, new Item.Properties().group(ModSetup.tabBlocks));
             leafArray[i] = leaf;
             //leafArray[i].initModel(leaf_name);
             leafItemBlockArray[i] = leafItem;
@@ -163,7 +162,7 @@ public class MDBlock
 
             String brick_name = "brick_" + color;
             final BasicBlock brick = new BasicBlock(color, Reference.BLOCK_INFO_BRICK);
-            final BlockItem brickItem = new BlockItem(brick, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem brickItem = new BlockItem(brick, new Item.Properties().group(ModSetup.tabBlocks));
             brickArray[i] = brick;
             //brickArray[i].initModel(brick_name);
             brickItemBlockArray[i] = brickItem;
@@ -179,7 +178,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String clay_name = "clay_" + color;
             final BasicBlock clay = new BasicBlock(color, Reference.BLOCK_INFO_CLAY);
-            final BlockItem clayItem = new BlockItem(clay, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem clayItem = new BlockItem(clay, new Item.Properties().group(ModSetup.tabBlocks));
             clayArray[i] = clay;
             //clayArray[i].initModel(clay_name);
             clayItemBlockArray[i] = clayItem;
@@ -195,7 +194,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String wool_name = "wool_" + color;
             final BasicBlock wool = new BasicBlock(color, Reference.BLOCK_INFO_WOOL);
-            final BlockItem woolItem = new BlockItem(wool, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem woolItem = new BlockItem(wool, new Item.Properties().group(ModSetup.tabBlocks));
             woolArray[i] = wool;
             //woolArray[i].initModel(wool_name);
             woolItemBlockArray[i] = woolItem;
@@ -211,7 +210,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String cobble_name = "cobble_" + color;
             final BasicBlock cobble = new BasicBlock(color, Reference.BLOCK_INFO_COBBLE);
-            final BlockItem cobbleItem = new BlockItem(cobble, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem cobbleItem = new BlockItem(cobble, new Item.Properties().group(ModSetup.tabBlocks));
             cobbleArray[i] = cobble;
             //cobbleArray[i].initModel(cobble_name);
             cobbleItemBlockArray[i] = cobbleItem;
@@ -227,7 +226,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stonebrick_name = "stonebrick_" + color;
             final BasicBlock stonebrick = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK);
-            final BlockItem stonebrickItem = new BlockItem(stonebrick, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem stonebrickItem = new BlockItem(stonebrick, new Item.Properties().group(ModSetup.tabBlocks));
             stonebrickArray[i] = stonebrick;
             //stonebrickArray[i].initModel(stonebrick_name);
             stonebrickItemBlockArray[i] = stonebrickItem;
@@ -243,7 +242,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stonebrickCracked_name = "stonebrickcracked_" + color;
             final BasicBlock stonebrickCracked = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK_CRACKED);
-            final BlockItem stonebrickCrackedItem = new BlockItem(stonebrickCracked, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem stonebrickCrackedItem = new BlockItem(stonebrickCracked, new Item.Properties().group(ModSetup.tabBlocks));
             stonebrickCrackedArray[i] = stonebrickCracked;
             //stonebrickCrackedArray[i].initModel(stonebrickCracked_name);
             stonebrickCrackedItemBlockArray[i] = stonebrickCrackedItem;
@@ -259,7 +258,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stonebrickCarved_name = "stonebrickcarved_" + color;
             final BasicBlock stonebrickCarved = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK_CARVED);
-            final BlockItem stonebrickCarvedItem = new BlockItem(stonebrickCarved, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem stonebrickCarvedItem = new BlockItem(stonebrickCarved, new Item.Properties().group(ModSetup.tabBlocks));
             stonebrickCarvedArray[i] = stonebrickCarved;
             //stonebrickCarvedArray[i].initModel(stonebrickCarved_name);
             stonebrickCarvedItemBlockArray[i] = stonebrickCarvedItem;
@@ -275,7 +274,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stone_name = "stone_" + color;
             final BasicBlock stone = new BasicBlock(color, Reference.BLOCK_INFO_STONE);
-            final BlockItem stoneItem = new BlockItem(stone, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem stoneItem = new BlockItem(stone, new Item.Properties().group(ModSetup.tabBlocks));
             stoneArray[i] = stone;
             //stoneArray[i].initModel(stone_name);
             stoneItemBlockArray[i] = stoneItem;
@@ -291,7 +290,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String obsidian_name = "obsidian_" + color;
             final BasicBlock obsidian = new BasicBlock(color, Reference.BLOCK_INFO_OBSIDIAN);
-            final BlockItem obsidianItem = new BlockItem(obsidian, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem obsidianItem = new BlockItem(obsidian, new Item.Properties().group(ModSetup.tabBlocks));
             obsidianArray[i] = obsidian;
             //obsidianArray[i].initModel(obsidian_name);
             obsidianItemBlockArray[i] = obsidianItem;
@@ -307,7 +306,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String lapis_name = "lapis_" + color;
             final BasicBlock lapis = new BasicBlock(color, Reference.BLOCK_INFO_LAPIS);
-            final BlockItem lapisItem = new BlockItem(lapis, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem lapisItem = new BlockItem(lapis, new Item.Properties().group(ModSetup.tabBlocks));
             lapisArray[i] = lapis;
             //lapisArray[i].initModel(lapis_name);
             lapisItemBlockArray[i] = lapisItem;
@@ -323,7 +322,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String glowstone_name = "glowstone_" + color;
             final BasicBlock glowstone = new BasicBlock(color, Reference.BLOCK_INFO_GLOWSTONE);
-            final BlockItem glowstoneItem = new BlockItem(glowstone, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem glowstoneItem = new BlockItem(glowstone, new Item.Properties().group(ModSetup.tabBlocks));
             glowstoneArray[i] = glowstone;
             //glowstoneArray[i].initModel(glowstone_name);
             glowstoneItemBlockArray[i] = glowstoneItem;
@@ -339,7 +338,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String coal_name = "coal_" + color;
             final BasicBlock coal = new BasicBlock(color, Reference.BLOCK_INFO_COAL);
-            final BlockItem coalItem = new BlockItem(coal, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem coalItem = new BlockItem(coal, new Item.Properties().group(ModSetup.tabBlocks));
             coalArray[i] = coal;
             //coalArray[i].initModel(coal_name);
             coalItemBlockArray[i] = coalItem;
@@ -355,7 +354,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String soulsand_name = "soulsand_" + color;
             final BasicBlock soulsand = new BasicBlock(color, Reference.BLOCK_INFO_SOULSAND);
-            final BlockItem soulsandItem = new BlockItem(soulsand, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem soulsandItem = new BlockItem(soulsand, new Item.Properties().group(ModSetup.tabBlocks));
             soulsandArray[i] = soulsand;
             //soulsandArray[i].initModel(soulsand_name);
             soulsandItemBlockArray[i] = soulsandItem;
@@ -371,7 +370,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String plank_name = "plank_" + color;
             final BasicBlock plank = new BasicBlock(color, Reference.BLOCK_INFO_PLANK);
-            final BlockItem plankItem = new BlockItem(plank, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem plankItem = new BlockItem(plank, new Item.Properties().group(ModSetup.tabBlocks));
             plankArray[i] = plank;
             //plankArray[i].initModel(plank_name);
             plankItemBlockArray[i] = plankItem;
@@ -388,7 +387,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String redstone_name = "redstone_" + color;
             final PoweredBlock redstone = new PoweredBlock(color, Reference.BLOCK_INFO_REDSTONE);
-            final BlockItem redstoneItem = new BlockItem(redstone, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem redstoneItem = new BlockItem(redstone, new Item.Properties().group(ModSetup.tabBlocks));
             redstoneArray[i] = redstone;
             //redstoneArray[i].initModel(redstone_name);
             redstoneItemBlockArray[i] = redstoneItem;
@@ -405,7 +404,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String quartz_name = "quartz_" + color;
             final BasicBlock quartz = new BasicBlock(color, Reference.BLOCK_INFO_QUARTZ);
-            final BlockItem quartzItem = new BlockItem(quartz, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem quartzItem = new BlockItem(quartz, new Item.Properties().group(ModSetup.tabBlocks));
             quartzArray[i] = quartz;
             //quartzArray[i].initModel(quartz_name);
             quartzItemBlockArray[i] = quartzItem;
@@ -422,7 +421,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String glassFoggy_name = "glassfoggy_" + color;
             final BlockGlass glassFoggy = new BlockGlass(color, Reference.BLOCK_INFO_GLASS_FOGGY, true);
-            final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().group(ModSetup.tabBlocks));
             glassFoggyArray[i] = glassFoggy;
             //glassFoggyArray[i].initModel(glassFoggy_name);
             glassFoggyItemBlockArray[i] = glassFoggyItem;
@@ -438,7 +437,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String sapling_name = "sapling_" + color;
             final BlockSapling sapling = new BlockSapling(color, Reference.BLOCK_INFO_SAPLING);
-            final BlockItem saplingItem = new BlockItem(sapling, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem saplingItem = new BlockItem(sapling, new Item.Properties().group(ModSetup.tabTrees));
             saplingArray[i] = sapling;
             //saplingArray[i].initModel(sapling_name);
             saplingItemBlockArray[i] = saplingItem;
@@ -455,7 +454,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String tulip_name = "tulip_" + color;
             final FlowerBlock tulip = new FlowerBlock(color, Reference.BLOCK_INFO_TULIP);
-            final BlockItem tulipItem = new BlockItem(tulip, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem tulipItem = new BlockItem(tulip, new Item.Properties().group(ModSetup.tabTrees));
             tulipArray[i] = tulip;
             //tulipArray[i].initModel(tulip_name);
             tuLipItemBlockArray[i] = tulipItem;
@@ -471,12 +470,27 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String workbench_name = "workbench_" + color;
             final WorkbenchBlock workbench = new WorkbenchBlock(color, Reference.BLOCK_INFO_WORKBENCH);
-            final BlockItem workbenchItem = new BlockItem(workbench, new Item.Properties().tab(ModSetup.tabBlocks));
+            final BlockItem workbenchItem = new BlockItem(workbench, new Item.Properties().group(ModSetup.tabBlocks));
             workbenchArray[i] = workbench;
             //workbenchArray[i].initModel(workbench_name);
             workbenchItemBlockArray[i] = workbenchItem;
             BLOCKS.register(workbench_name, () -> workbench);
             ITEMS.register(workbench_name, () -> workbenchItem);
+        }
+    }
+    private static void registerLog ()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String workbench_name = "log_" + color;
+            final BlockLog log = new BlockLog(color, Reference.BLOCK_INFO_WORKBENCH);
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(ModSetup.tabBlocks).group(ModSetup.tabTrees));
+            logArray[i] = log;
+            //workbenchArray[i].initModel(workbench_name);
+            logItemBlockArray[i] = logItem;
+            BLOCKS.register(workbench_name, () -> log);
+            ITEMS.register(workbench_name, () -> logItem);
         }
 
     }

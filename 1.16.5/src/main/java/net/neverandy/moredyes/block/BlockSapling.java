@@ -27,11 +27,12 @@ public class BlockSapling extends BushBlock implements IGrowable
     private final String color;
     public BlockSapling(String blockColor, BlockInfo info)
     {
-        super(Properties.of(info.blockMaterial)
+        super(Properties.create(info.blockMaterial)
+                .hardnessAndResistance(info.hardness,info.resistance)
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
-                .sound(info.sound)
-                .strength(info.hardness, info.resistance));
+                .setRequiresTool()
+                .sound(info.sound).setLightLevel(value -> info.lightlevel));
         this.color = blockColor;
         //initModel();
     }
@@ -41,83 +42,23 @@ public class BlockSapling extends BushBlock implements IGrowable
     }
     public void generateTree(World worldIn, BlockPos pos, BlockState state, Random rand)
     {
-        /*
-        if (!saplingGrowTree(worldIn, rand, pos)) return;
 
-        int i = 0;
-        int j = 0;
-        boolean flag = false;
-        int r=rand.nextInt(100);
-        if(r>10)
-        {
-            //worldgenerator = new WorldGenDyeTree(true, false,this.index);
-        }
-        else if(r>1)
-        {
-            //worldgenerator = new WorldGenDyeTreeBig(true,this.index);
-        }
-        else
-        {
-            // worldgenerator = new WorldGenDyeTreeHuge(true,this.index);
-        }
-
-        BlockState iblockstate2 = Blocks.AIR.defaultBlockState();
-
-        if (flag)
-        {
-            worldIn.setBlock(pos.offset(i, 0, j), iblockstate2, 4);
-            worldIn.setBlock(pos.offset(i + 1, 0, j), iblockstate2, 4);
-            worldIn.setBlock(pos.offset(i, 0, j + 1), iblockstate2, 4);
-            worldIn.setBlock(pos.offset(i + 1, 0, j + 1), iblockstate2, 4);
-        }
-        else
-        {
-            worldIn.setBlock(pos, iblockstate2, 4);
-        }
-
-        if (!worldgenerator.generate(worldIn, rand, pos.offset(i, 0, j)))
-        {
-            if (flag)
-            {
-                worldIn.setBlock(pos.offset(i, 0, j), state, 4);
-                worldIn.setBlock(pos.offset(i + 1, 0, j), state, 4);
-                worldIn.setBlock(pos.offset(i, 0, j + 1), state, 4);
-                worldIn.setBlock(pos.offset(i + 1, 0, j + 1), state, 4);
-            }
-            else
-            {
-                worldIn.setBlock(pos, state, 4);
-            }
-        }
-
-         */
     }
-    public void updateTick(World worldIn, BlockPos pos, BlockState state, Random rand)
-    {
-        if(worldIn.isClientSide)
-        {
-            //super.up(worldIn, pos, state, rand);
 
-            if (worldIn.getBestNeighborSignal(pos.above()) >= 9 && rand.nextInt(7) == 0)
-            {
-                this.grow(worldIn, pos, state, rand);
-            }
-        }
-    }
     @Override
-    public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_)
+    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
     {
         return false;
     }
 
     @Override
-    public boolean isBonemealSuccess(World p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_)
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state)
     {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_)
+    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state)
     {
 
     }
