@@ -44,7 +44,7 @@ public class Reference
 
     public static final BlockInfo BLOCK_INFO_ROCK_WOOL= new BlockInfo("woolRock",Material.WOOL,0.8f,SoundType.WOOD,null,0);
 
-    public static final String[] BLOCKTYPES = {"wool", "stone", "cobble", "stone_brick_carved","stone_brick_cracked",
-            "stone_brick", "obsidian", "soulsand", "quartz", "clay", "coal", "glowstone", "redstone", "lapis", "plank", "tulip", "log",
-            "leaf", "sapling", "glass", "glass_foggy", "slab", "workbench", "brick", "sand", "rock_wool"};
+    public static final String[] BLOCKTYPES = {"wool", "stone", "cobble", "stonebrickcarved","stonebrickcracked",
+            "stonebrick", "obsidian", "soulsand", "quartz", "clay", "coal", "glowstone", "redstone", "lapis", "plank", "tulip", "log",
+            "leaf", "sapling", "glass", "glassfoggy", "workbench", "brick"};
 }
