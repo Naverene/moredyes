@@ -8,9 +8,9 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.neverandy.moredyes.MoreDyes;
-import net.neverandy.moredyes.block.*;
+import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.reference.Reference;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
