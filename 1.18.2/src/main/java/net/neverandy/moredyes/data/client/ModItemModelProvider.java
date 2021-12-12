@@ -23,7 +23,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     public static String[][] nameArray = new String[Reference.BLOCKTYPES.length][ColorStrings.ALL.length];
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, MoreDyes.MODID, existingFileHelper);
+        super(generator, Reference.MOD_ID, existingFileHelper);
         createNameArray();
         LOGGER.info("Meep");
     }

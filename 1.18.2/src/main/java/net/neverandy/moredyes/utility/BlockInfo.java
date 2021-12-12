@@ -42,6 +42,6 @@ public class BlockInfo
     }
     public BlockInfo()
     {
-        this("",Material.STONE,1.0f,SoundType.STONE, ToolType.HOE,1);
+        this("",Material.ROCK,1.0f,SoundType.STONE, ToolType.HOE,1);
     }
 }
