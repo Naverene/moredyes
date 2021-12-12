@@ -4,8 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.setup.ModSetup;
@@ -71,6 +73,11 @@ public class MDBlock
     {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
+        ConfigHandler.loadConfigFile(ConfigHandler.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get()
+                .resolve(Reference.MOD_ID + "-client.toml").toString());
+        ConfigHandler.loadConfigFile(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get()
+                .resolve(Reference.MOD_ID + "-server.toml").toString());
     }
     public static void initialize()
     {
