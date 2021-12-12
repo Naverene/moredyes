@@ -8,10 +8,11 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.data.client.ModBlockStateProvider;
 import net.neverandy.moredyes.data.client.ModItemModelProvider;
+import net.neverandy.moredyes.reference.Reference;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod.EventBusSubscriber(modid = MoreDyes.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class DataGen {
     public static final Logger LOGGER = LogManager.getLogger();
     private DataGen(){}

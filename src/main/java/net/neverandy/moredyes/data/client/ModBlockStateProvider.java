@@ -21,7 +21,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, MoreDyes.MODID, exFileHelper);
+        super(gen, Reference.MOD_ID, exFileHelper);
     }
 
     @Override

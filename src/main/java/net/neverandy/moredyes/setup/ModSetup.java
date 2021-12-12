@@ -16,7 +16,7 @@ public class ModSetup {
     public static final ItemGroup tabTrees = new ItemGroup(Reference.MOD_NAME + " Trees")
     {
         @Override
-        public ItemStack makeIcon()
+        public ItemStack createIcon()
         {
             return new ItemStack(Blocks.OAK_LOG);
         }
@@ -24,21 +24,21 @@ public class ModSetup {
     public static final ItemGroup tabPlants = new ItemGroup(Reference.MOD_NAME + " Plants")
     {
         @Override
-        public ItemStack makeIcon() {
+        public ItemStack createIcon() {
             return new ItemStack(Blocks.ACACIA_SAPLING);
         }
     };
     public static final ItemGroup tabDyes = new ItemGroup(Reference.MOD_NAME + " Dyes")
     {
         @Override
-        public ItemStack makeIcon() {
+        public ItemStack createIcon() {
             return new ItemStack(Items.LAPIS_LAZULI);
         }
     };
     public static final ItemGroup tabBlocks = new ItemGroup(Reference.MOD_NAME + " Blocks")
     {
         @Override
-        public ItemStack makeIcon() {
+        public ItemStack createIcon() {
             return new ItemStack(Items.DIAMOND);
         }
     };
