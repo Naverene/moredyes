@@ -1,17 +1,12 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.GlassBlock;
+import net.minecraft.block.AbstractGlassBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.model.ModelLoader;
-import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.BlockInfo;
 
-public class BlockGlass extends GlassBlock
+public class BlockGlass extends AbstractGlassBlock
 {
-    private boolean translucent = false;
+    private boolean translucent;
     private final String color;
     public String blockName;
     public BlockGlass(String blockColor, BlockInfo info, boolean translucent)
