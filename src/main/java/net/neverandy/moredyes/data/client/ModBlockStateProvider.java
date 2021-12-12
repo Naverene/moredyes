@@ -28,7 +28,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         LOGGER.info("Starting for loop");
         for(int i=0; i<ColorStrings.ALL.length;i++){
-            LOGGER.info(blockGlass(i).toString());
             simpleBlock(blockGlass(i),texture(blockGlass(i), "glass", i));
             simpleBlock(blockSand(i),texture(blockSand(i), "sand", i));
             simpleBlock(blockLeaf(i),texture(blockLeaf(i), "leaf", i));
@@ -52,8 +51,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
             simpleBlock(blockSapling(i),texture(blockSapling(i), "sapling", i));
             simpleBlock(blockTulip(i),texture(blockTulip(i), "tulip", i));
             //simpleBlock(blockWorkbench(i),texture(blockWorkbench(i), "workbench", i));
-
-            LOGGER.info(i);
         }
 
     }
@@ -68,9 +65,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private Block blockGlass(int arrayIndex){
             return  MDBlock.glassArray[arrayIndex];
     }
-    private Block blockSand(int arrayIndex){
-        return  MDBlock.sandArray[arrayIndex];
-    }
+    private Block blockSand(int arrayIndex){return  MDBlock.sandArray[arrayIndex];}
     private Block blockLeaf(int arrayIndex){
         return  MDBlock.leafArray[arrayIndex];
     }

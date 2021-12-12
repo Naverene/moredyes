@@ -25,7 +25,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, Reference.MOD_ID, existingFileHelper);
         createNameArray();
-        LOGGER.info("Meep");
     }
 
     @Override
@@ -37,7 +36,6 @@ public class ModItemModelProvider extends ItemModelProvider {
             LOGGER.info(Reference.BLOCKTYPES[i] + " for loop");
             for (String name : blockType) {
                 withExistingParent(name, modLoc("block/" + name));
-                LOGGER.info("completed " + name);
             }
         }
     }
