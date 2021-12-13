@@ -62,71 +62,71 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return models().cubeAll(block.getRegistryName().getPath(), resourceLocation);
     }
 
-    private Block blockGlass(int arrayIndex){
+    public static Block blockGlass(int arrayIndex){
             return  MDBlock.glassArray[arrayIndex];
     }
-    private Block blockSand(int arrayIndex){return  MDBlock.sandArray[arrayIndex];}
-    private Block blockLeaf(int arrayIndex){
+    public static Block blockSand(int arrayIndex){return  MDBlock.sandArray[arrayIndex];}
+    public static Block blockLeaf(int arrayIndex){
         return  MDBlock.leafArray[arrayIndex];
     }
-    private Block blockBrick(int arrayIndex){
+    public static Block blockBrick(int arrayIndex){
         return  MDBlock.brickArray[arrayIndex];
     }
-    private Block blockClay(int arrayIndex){
+    public static Block blockClay(int arrayIndex){
         return  MDBlock.clayArray[arrayIndex];
     }
-    private Block blockWool(int arrayIndex){
+    public static Block blockWool(int arrayIndex){
         return  MDBlock.woolArray[arrayIndex];
     }
-    private Block blockCobble(int arrayIndex){
+    public static Block blockCobble(int arrayIndex){
         return  MDBlock.cobbleArray[arrayIndex];
     }
-    private Block blockStonebrick(int arrayIndex){
+    public static Block blockStonebrick(int arrayIndex){
         return  MDBlock.stonebrickArray[arrayIndex];
     }
-    private Block blockStonebrickCracked(int arrayIndex){
+    public static Block blockStonebrickCracked(int arrayIndex){
         return  MDBlock.stonebrickCrackedArray[arrayIndex];
     }
-    private Block blockStonebrickCarved(int arrayIndex){
+    public static Block blockStonebrickCarved(int arrayIndex){
         return  MDBlock.stonebrickCarvedArray[arrayIndex];
     }
-    private Block blockStone(int arrayIndex){
+    public static Block blockStone(int arrayIndex){
         return  MDBlock.stoneArray[arrayIndex];
     }
-    private Block blockObsidian(int arrayIndex){
+    public static Block blockObsidian(int arrayIndex){
         return  MDBlock.obsidianArray[arrayIndex];
     }
-    private Block blockLapis(int arrayIndex){
+    public static Block blockLapis(int arrayIndex){
         return  MDBlock.lapisArray[arrayIndex];
     }
-    private Block blockGlowstone(int arrayIndex){
+    public static Block blockGlowstone(int arrayIndex){
         return  MDBlock.glowstoneArray[arrayIndex];
     }
-    private Block blockCoal(int arrayIndex){
+    public static Block blockCoal(int arrayIndex){
         return  MDBlock.coalArray[arrayIndex];
     }
-    private Block blockSoulsand(int arrayIndex){
+    public static Block blockSoulsand(int arrayIndex){
         return  MDBlock.soulsandArray[arrayIndex];
     }
-    private Block blockPlank(int arrayIndex){
+    public static Block blockPlank(int arrayIndex){
         return  MDBlock.plankArray[arrayIndex];
     }
-    private Block blockRedstone(int arrayIndex){
+    public static Block blockRedstone(int arrayIndex){
         return  MDBlock.redstoneArray[arrayIndex];
     }
-    private Block blockQuartz(int arrayIndex){
+    public static Block blockQuartz(int arrayIndex){
         return  MDBlock.quartzArray[arrayIndex];
     }
-    private Block blockGlassFoggy(int arrayIndex){
+    public static Block blockGlassFoggy(int arrayIndex){
         return  MDBlock.glassFoggyArray[arrayIndex];
     }
-    private Block blockSapling(int arrayIndex){
+    public static Block blockSapling(int arrayIndex){
         return  MDBlock.saplingArray[arrayIndex];
     }
-    private Block blockTulip(int arrayIndex){
+    public static Block blockTulip(int arrayIndex){
         return  MDBlock.tulipArray[arrayIndex];
     }
-    private Block blockWorkbench(int arrayIndex){
+    public static Block blockWorkbench(int arrayIndex){
         return  MDBlock.workbenchArray[arrayIndex];
     }
 
