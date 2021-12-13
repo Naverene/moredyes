@@ -22,9 +22,7 @@ public final class DataGen {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        LOGGER.info("add provider blocks");
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
-        LOGGER.info("add provider items");
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
     }
 }
