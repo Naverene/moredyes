@@ -1,6 +1,6 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "moredyes:blocks/glassfoggy/d265bf"
-	}
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moredyes:block/glassfoggy/d265bf"
+  }
 }

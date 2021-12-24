@@ -1,6 +1,6 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "moredyes:blocks/stonebrickcracked/a69933"
-	}
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moredyes:block/stonebrickcracked/a69933"
+  }
 }

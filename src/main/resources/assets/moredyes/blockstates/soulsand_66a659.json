@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/soulsand_f2f299" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/soulsand_66a659"
+    }
+  }
 }

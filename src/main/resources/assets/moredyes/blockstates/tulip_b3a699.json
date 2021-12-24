@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/tulip_b3a699" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/tulip_b3a699"
+    }
+  }
 }

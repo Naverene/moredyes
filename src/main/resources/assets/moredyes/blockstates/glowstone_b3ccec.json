@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/glowstone_b3ccec" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/glowstone_b3ccec"
+    }
+  }
 }

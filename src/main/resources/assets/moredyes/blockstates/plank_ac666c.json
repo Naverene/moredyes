@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/plank_f2f299" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/plank_ac666c"
+    }
+  }
 }

@@ -16,7 +16,8 @@ public class BlockGlass extends AbstractGlassBlock
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
                 .setRequiresTool()
-                .sound(info.sound).setLightLevel(value -> info.lightlevel));
+                .sound(info.sound)
+                .setLightLevel(value -> info.lightlevel));
         this.color = blockColor;
         this.blockName=info.blockName;
         this.translucent=translucent;

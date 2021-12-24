@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/stone_ecbf99" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/stone_864c5f"
+    }
+  }
 }
