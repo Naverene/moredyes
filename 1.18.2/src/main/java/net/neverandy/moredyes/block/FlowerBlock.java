@@ -16,7 +16,8 @@ public class FlowerBlock extends BushBlock
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
                 .setRequiresTool()
-                .sound(info.sound).setLightLevel(value -> info.lightlevel));
+                .sound(info.sound)
+                .setLightLevel(value -> info.lightlevel));
         this.color = blockColor;
     }
 

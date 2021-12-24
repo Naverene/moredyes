@@ -1,7 +1,5 @@
 package net.neverandy.moredyes;
 
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -15,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.Reference;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +26,6 @@ public class MoreDyes
 {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final String MODID = "moredyes";
 
     public MoreDyes()
     {
@@ -48,6 +46,7 @@ public class MoreDyes
 
         //RegistryHandler.init();
         MDBlock.initialize();
+        MDItem.initialize();
     }
 
     private void setup(final FMLCommonSetupEvent event)

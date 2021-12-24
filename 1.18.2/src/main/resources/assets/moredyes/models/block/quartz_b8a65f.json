@@ -1,8 +1,6 @@
 {
-	"parent": "block/cube_bottom_top",
-	"textures": {
-		"bottom": "moredyes:blocks/quartz/bottom/b8a65f",
-		"top": "moredyes:blocks/quartz/top/b8a65f",
-		"side": "moredyes:blocks/quartz/side/b8a65f"
-	}
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moredyes:block/quartz/b8a65f"
+  }
 }

@@ -5,9 +5,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.data.client.ModBlockStateProvider;
 import net.neverandy.moredyes.data.client.ModItemModelProvider;
+import net.neverandy.moredyes.data.client.ModLangProvivder;
 import net.neverandy.moredyes.reference.Reference;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,5 +24,7 @@ public final class DataGen {
 
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
+        //gen.addProvider(new ModRecipeProvider(gen));
+        gen.addProvider(new ModLangProvivder(gen, Reference.MOD_ID, "en_US"));
     }
 }
