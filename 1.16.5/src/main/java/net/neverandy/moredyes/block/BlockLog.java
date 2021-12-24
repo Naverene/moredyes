@@ -13,7 +13,8 @@ public class BlockLog extends Block
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
                 .setRequiresTool()
-                .sound(info.sound).setLightLevel(value -> info.lightlevel));
+                .sound(info.sound)
+                .setLightLevel(value -> info.lightlevel));
         WoodType.register(WoodType.OAK);
     }
 }

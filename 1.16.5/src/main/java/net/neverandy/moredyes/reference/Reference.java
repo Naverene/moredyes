@@ -3,7 +3,6 @@ package net.neverandy.moredyes.reference;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
-import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.setup.ModSetup;
 import net.neverandy.moredyes.utility.BlockInfo;
 
@@ -40,6 +39,8 @@ public class Reference
     public static final BlockInfo BLOCK_INFO_WORKBENCH = new BlockInfo("craftingtable",Material.WOOD,2.5f,SoundType.WOOD,ToolType.AXE,0);
     public static final BlockInfo BLOCK_INFO_BRICK = new BlockInfo("brick",Material.ROCK,2.0f,SoundType.METAL,ToolType.PICKAXE,1);
     public static final BlockInfo BLOCK_INFO_SAND = new BlockInfo("sand", Material.SAND, 0.5f, SoundType.SAND, ToolType.SHOVEL, 0);
+    public static final BlockInfo BLOCK_INFO_SANDSTONE = new BlockInfo("sandstone", Material.ROCK, 1.5f, SoundType.STONE, ToolType.PICKAXE, 1);
+
 
 
     public static final BlockInfo BLOCK_INFO_ROCK_WOOL= new BlockInfo("rockwool",Material.ROCK,0.8f,SoundType.WOOD,null,0);
@@ -47,4 +48,5 @@ public class Reference
     public static final String[] BLOCKTYPES = {"wool", "stone", "cobble", "stonebrickcarved","stonebrickcracked",
             "stonebrick", "obsidian", "soulsand", "quartz", "clay", "coal", "glowstone", "redstone", "lapis", "plank", "tulip", "log",
             "leaf", "sapling", "glass", "glassfoggy", "workbench", "brick", "sand"};
+    public static final BlockInfo BLOCK_INFO_ANDESITE = new BlockInfo("andesite", Material.ROCK, 1.5f, SoundType.STONE, ToolType.PICKAXE, 1);;
 }

@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/redstone_f2f299" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/redstone_597392"
+    }
+  }
 }

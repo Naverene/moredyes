@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "moredyes:block/sapling_bf9fd9" }
-	}
+  "variants": {
+    "": {
+      "model": "moredyes:block/sapling_734cc5"
+    }
+  }
 }

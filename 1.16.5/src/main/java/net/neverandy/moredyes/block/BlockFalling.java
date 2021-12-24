@@ -1,7 +1,6 @@
 package net.neverandy.moredyes.block;
 
 import net.minecraft.block.FallingBlock;
-import net.minecraft.item.ItemStack;
 import net.neverandy.moredyes.utility.BlockInfo;
 
 public class BlockFalling extends FallingBlock
@@ -15,7 +14,8 @@ public class BlockFalling extends FallingBlock
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
                 .setRequiresTool()
-                .sound(info.sound).setLightLevel(value -> info.lightlevel));
+                .sound(info.sound)
+                .setLightLevel(value -> info.lightlevel));
         this.color = blockColor;
         this.blockName = info.blockName;
     }
