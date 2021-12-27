@@ -21,7 +21,7 @@ public class Reference
     public static final BlockInfo BLOCK_INFO_OBSIDIAN=new BlockInfo("obsidian",Material.ROCK,50.0f,SoundType.METAL,ToolType.PICKAXE,3,2000.0f);
     public static final BlockInfo BLOCK_INFO_SOULSAND = new BlockInfo("soulsand",Material.SAND,0.5f,SoundType.SAND, ToolType.SHOVEL, 0);
     public static final BlockInfo BLOCK_INFO_QUARTZ = new BlockInfo("quartz",Material.ROCK,0.8f,SoundType.METAL,ToolType.PICKAXE,2);
-    public static final BlockInfo BLOCK_INFO_CLAY = new BlockInfo("clay",Material.CLAY,1.25f, SoundType.METAL, ToolType.PICKAXE, 1, 7.0f);
+    public static final BlockInfo BLOCK_INFO_CLAY = new BlockInfo("clay",Material.CLAY,1.25f, SoundType.GROUND, null, 1, 7.0f);
     public static final BlockInfo BLOCK_INFO_COAL = new BlockInfo("coal",Material.ROCK,5.0f,SoundType.STONE,ToolType.PICKAXE,1,10.0f);
     public static final BlockInfo BLOCK_INFO_GLOWSTONE = new BlockInfo("glowstone",Material.GLASS,0.3f,SoundType.GLASS,ToolType.PICKAXE,1, 0, ModSetup.tabBlocks, 15);
     public static final BlockInfo BLOCK_INFO_REDSTONE = new BlockInfo("redstone",Material.IRON,5.0f,SoundType.METAL,ToolType.PICKAXE,1,10.0f);
@@ -32,21 +32,22 @@ public class Reference
     public static final BlockInfo BLOCK_INFO_LEAVES = new BlockInfo("leaf",Material.LEAVES,0.2f,SoundType.GROUND,ToolType.AXE,0,1.0f,ModSetup.tabTrees, 0);
     public static final BlockInfo BLOCK_INFO_SAPLING = new BlockInfo("sapling",Material.PLANTS,0.0f,SoundType.GROUND,null,0,1.0f,ModSetup.tabTrees, 0);
 
-    public static final BlockInfo BLOCK_INFO_GLASS = new BlockInfo("glass",Material.GLASS,0.4f,SoundType.GLASS,ToolType.PICKAXE,0,1.0f);
-    public static final BlockInfo BLOCK_INFO_GLASS_FOGGY = new BlockInfo("glassfoggy",Material.GLASS,0.4f,SoundType.GLASS,ToolType.PICKAXE,0,1.0f);
+    public static final BlockInfo BLOCK_INFO_GLASS = new BlockInfo("glass",Material.GLASS,0.4f,SoundType.GLASS,null,0,1.0f);
+    public static final BlockInfo BLOCK_INFO_GLASS_FOGGY = new BlockInfo("glassfoggy",Material.GLASS,0.4f,SoundType.GLASS,null,0,1.0f);
 
     public static final BlockInfo BLOCK_INFO_SLAB = new BlockInfo("slab",Material.ROCK,1.0f,SoundType.METAL,ToolType.PICKAXE,1,10.0f);
     public static final BlockInfo BLOCK_INFO_WORKBENCH = new BlockInfo("craftingtable",Material.WOOD,2.5f,SoundType.WOOD,ToolType.AXE,0);
     public static final BlockInfo BLOCK_INFO_BRICK = new BlockInfo("brick",Material.ROCK,2.0f,SoundType.METAL,ToolType.PICKAXE,1);
-    public static final BlockInfo BLOCK_INFO_SAND = new BlockInfo("sand", Material.SAND, 0.5f, SoundType.SAND, ToolType.SHOVEL, 0);
+    public static final BlockInfo BLOCK_INFO_SAND = new BlockInfo("sand", Material.SAND, 0.3f, SoundType.SAND, ToolType.SHOVEL, 0);
     public static final BlockInfo BLOCK_INFO_SANDSTONE = new BlockInfo("sandstone", Material.ROCK, 1.5f, SoundType.STONE, ToolType.PICKAXE, 1);
-
-
-
+    public static final BlockInfo BLOCK_INFO_DIORITE = new BlockInfo("sandstone", Material.ROCK, 1.5f, SoundType.STONE, ToolType.PICKAXE, 1);
+    public static final BlockInfo BLOCK_INFO_ANDESITE = new BlockInfo("andesite", Material.ROCK, 1.5f, SoundType.STONE, ToolType.PICKAXE, 1);
+    public static final BlockInfo BLOCK_INFO_CONCRETE_POWDER = new BlockInfo("concretepowder", Material.SAND, 0.3f, SoundType.SAND, ToolType.SHOVEL, 0);;
     public static final BlockInfo BLOCK_INFO_ROCK_WOOL= new BlockInfo("rockwool",Material.ROCK,0.8f,SoundType.WOOD,null,0);
 
     public static final String[] BLOCKTYPES = {"wool", "stone", "cobble", "stonebrickcarved","stonebrickcracked",
             "stonebrick", "obsidian", "soulsand", "quartz", "clay", "coal", "glowstone", "redstone", "lapis", "plank", "tulip", "log",
-            "leaf", "sapling", "glass", "glassfoggy", "workbench", "brick", "sand"};
-    public static final BlockInfo BLOCK_INFO_ANDESITE = new BlockInfo("andesite", Material.ROCK, 1.5f, SoundType.STONE, ToolType.PICKAXE, 1);;
+            "leaf", "sapling", "glass", "glassfoggy", "workbench", "brick", "sand", "concretepowder"};
+
+
 }
