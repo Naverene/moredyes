@@ -23,6 +23,8 @@ public class MDItemDye extends Item
     {
         return null;
     }
+
+    @Override
     public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand)
     {
 	   /*
