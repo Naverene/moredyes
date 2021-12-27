@@ -1,6 +1,8 @@
 package net.neverandy.moredyes.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -71,6 +73,10 @@ public class MDBlock
     public static BlockItem[] sandstoneSmoothItemBlockArray = new BlockItem[totalColorCount];
     public static BasicBlock[] andesiteArray = new BasicBlock[totalColorCount];
     public static BlockItem[] andesiteItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] dioriteArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] dioriteItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] concretePowderArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] concretePowderArrayItemBlockArray = new BlockItem[totalColorCount];
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
@@ -117,10 +123,41 @@ public class MDBlock
         registerLog();
         registerSandstone();
         registerSandstoneCarved();
-        registerSandstonesmooth();
+        //registerSandstonesmooth();
         registerAndesite();
+        registerDiorite();
+        registerConcretePowder();
     }
+    private static void registerDiorite()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String diorite_name = "diorite_" + color;
+            final BasicBlock diorite = new BasicBlock(color, Reference.BLOCK_INFO_DIORITE);
+            final BlockItem dioriteItem = new BlockItem(diorite, new Item.Properties().group(ModSetup.tabBlocks));
+            dioriteArray[i] = diorite;
+            dioriteItemBlockArray[i] = dioriteItem;
+            BLOCKS.register(diorite_name, () -> diorite);
+            ITEMS.register(diorite_name, () -> dioriteItem);
 
+        }
+    }
+    private static void registerConcretePowder()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String concretePowder_name = "concretepowder_" + color;
+            final BasicBlock concretePowder = new BasicBlock(color, Reference.BLOCK_INFO_CONCRETE_POWDER);
+            final BlockItem concretePowderItem = new BlockItem(concretePowder, new Item.Properties().group(ModSetup.tabBlocks));
+            concretePowderArray[i] = concretePowder;
+            concretePowderArrayItemBlockArray[i] = concretePowderItem;
+            BLOCKS.register(concretePowder_name, () -> concretePowder);
+            ITEMS.register(concretePowder_name, () -> concretePowderItem);
+
+        }
+    }
     private static void registerAndesite()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
@@ -187,6 +224,7 @@ public class MDBlock
             String glass_name = "glass_" + color;
             final BlockGlass glass = new BlockGlass(color, Reference.BLOCK_INFO_GLASS, true);
             final BlockItem glassItem = new BlockItem(glass, new Item.Properties().group(ModSetup.tabBlocks));
+            RenderTypeLookup.setRenderLayer(glass, RenderType.getCutout());
             glassArray[i] = glass;
             glassItemBlockArray[i] = glassItem;
             BLOCKS.register(glass_name, () -> glass);
