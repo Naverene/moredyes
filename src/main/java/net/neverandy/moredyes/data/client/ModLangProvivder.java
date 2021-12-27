@@ -3,6 +3,7 @@ package net.neverandy.moredyes.data.client;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.ColorStrings;
 
 public class ModLangProvivder extends LanguageProvider
@@ -31,7 +32,7 @@ public class ModLangProvivder extends LanguageProvider
             add(MDBlock.cobbleArray[i], ColorStrings.ALL[i].toUpperCase() + " Cobble");
             add(MDBlock.glassArray[i], ColorStrings.ALL[i].toUpperCase() + " Glass");
             add(MDBlock.glassFoggyArray[i], ColorStrings.ALL[i].toUpperCase() + " Stained Glass");
-            add(MDBlock.workbenchArray[i], ColorStrings.ALL[i].toUpperCase() + " Workbench");
+            add(MDBlock.workbenchArray[i], ColorStrings.ALL[i].toUpperCase() + " Crafting Table");
             add(MDBlock.sandArray[i], ColorStrings.ALL[i].toUpperCase() + " Sand");
             add(MDBlock.woolArray[i], ColorStrings.ALL[i].toUpperCase() + " Wool");
             add(MDBlock.redstoneArray[i], ColorStrings.ALL[i].toUpperCase() + " Block of Redstone");
@@ -40,8 +41,12 @@ public class ModLangProvivder extends LanguageProvider
             add(MDBlock.plankArray[i], ColorStrings.ALL[i].toUpperCase() + " Oak Plank");
             add(MDBlock.soulsandArray[i], ColorStrings.ALL[i].toUpperCase() + " Soulsand");
             add(MDBlock.sandstoneArray[i], ColorStrings.ALL[i].toUpperCase() + " Sandstone");
-            add(MDBlock.sandstoneCarvedArray[i], ColorStrings.ALL[i].toUpperCase() + " Carved Sandstone");
-            add(MDBlock.sandstoneSmoothArray[i], ColorStrings.ALL[i].toUpperCase() + " Smooth Sandstone");
+            //add(MDBlock.sandstoneCarvedArray[i], ColorStrings.ALL[i].toUpperCase() + " Carved Sandstone");
+            //add(MDBlock.sandstoneSmoothArray[i], ColorStrings.ALL[i].toUpperCase() + " Smooth Sandstone");
+            add(MDBlock.andesiteArray[i], ColorStrings.ALL[i].toUpperCase() + " Andesite");
+            add(MDBlock.dioriteArray[i], ColorStrings.ALL[i].toUpperCase() + " Diorite");
+            add(MDItem.dye[i],ColorStrings.ALL[i].toUpperCase() + " Dye");
+            add(MDBlock.concretePowderArray[i],ColorStrings.ALL[i].toUpperCase() + " Concrete Powder");
         }
 
     }

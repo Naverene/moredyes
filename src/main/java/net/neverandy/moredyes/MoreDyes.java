@@ -1,5 +1,7 @@
 package net.neverandy.moredyes;
 
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -12,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neverandy.moredyes.block.BlockGlass;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.Reference;
@@ -51,14 +54,17 @@ public class MoreDyes
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)
     {
         // do something that can only be done on the client
         //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
-        //event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(MDBlock.GLASS.get(), RenderType.translucent()));
+        for (BlockGlass block: MDBlock.glassArray)
+        {
+            event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(block, RenderType.getCutout()));
+        }
 
     }
 

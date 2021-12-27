@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.block;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AbstractGlassBlock;
 import net.minecraft.item.ItemStack;
 import net.neverandy.moredyes.utility.BlockInfo;
@@ -11,13 +12,14 @@ public class BlockGlass extends AbstractGlassBlock
     public String blockName;
     public BlockGlass(String blockColor, BlockInfo info, boolean translucent)
     {
-        super(Properties.create(info.blockMaterial)
+        super(AbstractBlock.Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness,info.resistance)
                 .harvestLevel(info.harvestLevel)
                 .harvestTool(info.harvestTool)
                 .setRequiresTool()
                 .sound(info.sound)
-                .setLightLevel(value -> info.lightlevel));
+                .setLightLevel(value -> info.lightlevel)
+                .notSolid().variableOpacity());
         this.color = blockColor;
         this.blockName=info.blockName;
         this.translucent=translucent;

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "moredyes:block/log/log_side",
+    "end": "moredyes:block/log/top/4c4c73"
+  }
+}
