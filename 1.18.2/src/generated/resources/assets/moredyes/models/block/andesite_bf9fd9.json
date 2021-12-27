@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moredyes:block/andesite/bf9fd9"
+  }
+}
