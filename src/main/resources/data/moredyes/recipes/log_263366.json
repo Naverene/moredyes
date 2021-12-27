@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "sds",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:oak_log"
+    },
+    "d": {
+      "item": "moredyes:263366_dye"
+    }
+  },
+  "result": {
+    "item": "moredyes:log_263366",
+    "count": 8
+  }
+}

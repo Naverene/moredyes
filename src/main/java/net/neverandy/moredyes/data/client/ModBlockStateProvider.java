@@ -13,6 +13,7 @@ import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
@@ -57,22 +58,25 @@ public class ModBlockStateProvider extends BlockStateProvider
             simpleBlock(blockLog(i), textureLog(blockLog(i), "log", i));
             simpleBlock(blockWorkbench(i),textureWorkbench(blockWorkbench(i), "workbench", i));
             simpleBlock(blockSandstone(i), textureSandstone(blockSandstone(i), "sandstone", i));
-            simpleBlock(blockSandstoneCarved(i), textureSandstone(blockSandstoneCarved(i), "sandstonecarved", i));
-            simpleBlock(blockSandstoneSmooth(i), textureSandstone(blockSandstoneSmooth(i), "sandstonesmooth", i));
+            //simpleBlock(blockSandstoneCarved(i), textureSandstone(blockSandstoneCarved(i), "sandstonecarved", i));
+            //simpleBlock(blockSandstoneSmooth(i), textureSandstone(blockSandstoneSmooth(i), "sandstonesmooth", i));
             simpleBlock(blockAndesite(i), texture(blockAndesite(i), "andesite", i));
+            simpleBlock(blockDiorite(i), texture(blockDiorite(i), "diorite", i));
+            simpleBlock(blockConcretePowder(i), texture(blockConcretePowder(i), "concretepowder", i));
+
 
         }
 
     }
 
-    public ModelFile texture(Block block, String blockType, int arrayIndex)
+    public ModelFile texture(@NotNull Block block, @NotNull String blockType, int arrayIndex)
     {
         ResourceLocation name = block.getRegistryName();
         ResourceLocation resourceLocation = new ResourceLocation(name.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + blockType.toLowerCase(Locale.ROOT) + "/" + ColorStrings.ALL[arrayIndex]);
         return models().cubeAll(block.getRegistryName().getPath(), resourceLocation);
     }
-    public ModelFile textureLog(Block block, String blockType, int arrayIndex)
+    public ModelFile textureLog(@NotNull Block block, @NotNull String blockType, int arrayIndex)
     {
         ResourceLocation name = block.getRegistryName();
         ResourceLocation top = new ResourceLocation(name.getNamespace(),
@@ -81,7 +85,7 @@ public class ModBlockStateProvider extends BlockStateProvider
                 ModelProvider.BLOCK_FOLDER + "/" + blockType.toLowerCase(Locale.ROOT) + "/log_side");
         return models().cubeColumnHorizontal(block.getRegistryName().getPath(), side, top);
     }
-    public ModelFile textureSandstone(Block block, String blockType, int arrayIndex)
+    public ModelFile textureSandstone(@NotNull Block block, @NotNull String blockType, int arrayIndex)
     {
         ResourceLocation name = block.getRegistryName();
         ResourceLocation side = new ResourceLocation(name.getNamespace(),
@@ -108,7 +112,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         return models().cubeBottomTop(block.getRegistryName().getPath(), side, bottom, top);
     }
 
-    public ModelFile textureWorkbench(Block block, String blockType, int arrayIndex)
+    public ModelFile textureWorkbench(@NotNull Block block, @NotNull String blockType, int arrayIndex)
     {
         ResourceLocation name = block.getRegistryName();
         ResourceLocation top = new ResourceLocation(name.getNamespace(),
@@ -255,6 +259,14 @@ public class ModBlockStateProvider extends BlockStateProvider
     public static Block blockAndesite(int arrayIndex)
     {
         return MDBlock.andesiteArray[arrayIndex];
+    }
+    public static Block blockDiorite(int arrayIndex)
+    {
+        return MDBlock.dioriteArray[arrayIndex];
+    }
+    public static Block blockConcretePowder(int arrayIndex)
+    {
+        return MDBlock.concretePowderArray[arrayIndex];
     }
 
 

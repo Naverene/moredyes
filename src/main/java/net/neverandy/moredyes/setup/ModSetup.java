@@ -1,65 +1,46 @@
 package net.neverandy.moredyes.setup;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.Reference;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModSetup {
 
-    public static final ItemGroup tabTrees = new ItemGroup(Reference.MOD_NAME + " Trees")
+    public static final ItemGroup tabTrees = new ItemGroup("trees")
     {
         @Override
         public ItemStack createIcon()
         {
-            return new ItemStack(Blocks.OAK_LOG);
+            return new ItemStack(MDBlock.logArray[78]);
         }
     };
-    public static final ItemGroup tabPlants = new ItemGroup(Reference.MOD_NAME + " Plants")
+    public static final ItemGroup tabPlants = new ItemGroup("plants")
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Blocks.ACACIA_SAPLING);
+            return new ItemStack(MDBlock.saplingArray[56]);
         }
     };
-    public static final ItemGroup tabDyes = new ItemGroup(Reference.MOD_NAME + " Dyes")
+    public static final ItemGroup tabDyes = new ItemGroup("dyes")
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.LAPIS_LAZULI);
+            return new ItemStack(MDItem.dye[99]);
         }
     };
-    public static final ItemGroup tabBlocks = new ItemGroup(Reference.MOD_NAME + " Blocks")
+    public static final ItemGroup tabBlocks = new ItemGroup("blocks")
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.DIAMOND);
+            return new ItemStack(MDBlock.brickArray[100]);
         }
     };
-
-    public static void init(final FMLCommonSetupEvent event)
-    {
-        /*
-        Networking.registerMessages();
-        CapabilityEntityCharge.register();
-
-        event.enqueueWork(() -> {
-            GlobalEntityTypeAttributes.put(Registration.WEIRDMOB.get(), WeirdMobEntity.prepareAttributes().build());
-
-            Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(MyTutorial.MODID, "chunkgen"),
-                    TutorialChunkGenerator.CODEC);
-            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MyTutorial.MODID, "biomes"),
-                    TutorialBiomeProvider.CODEC);
-        });
-
-         */
-    }
 
     @SubscribeEvent
     public static void serverLoad(RegisterCommandsEvent event)
