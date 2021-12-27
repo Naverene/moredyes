@@ -1,16 +1,14 @@
 package net.neverandy.moredyes.data.server;
 
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.block.Block;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.Items;
-import net.minecraftforge.common.Tags;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.*;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
-import org.jetbrains.annotations.NotNull;
+import net.neverandy.moredyes.reference.ColorStrings;
 
 import java.util.function.Consumer;
 
@@ -20,96 +18,207 @@ public class ModRecipeProvider extends ForgeRecipeProvider
     {
         super(gen);
     }
+
     @Override
     public void registerRecipes(Consumer<IFinishedRecipe> consumer)
     {
-        circleRecipe(MDBlock.stoneArray);
-        circleRecipe(MDBlock.brickArray);
-        circleRecipe(MDBlock.clayArray);
-        circleRecipe(MDBlock.coalArray);
-        circleRecipe(MDBlock.cobbleArray);
-        circleRecipe(MDBlock.glassArray);
-        circleRecipe(MDBlock.glassFoggyArray);
-        circleRecipe(MDBlock.stonebrickArray);
-        circleRecipe(MDBlock.stonebrickCarvedArray);
-        circleRecipe(MDBlock.stonebrickCrackedArray);
-        circleRecipe(MDBlock.glowstoneArray);
-        circleRecipe(MDBlock.redstoneArray);
-        circleRecipe(MDBlock.woolArray);
-        circleRecipe(MDBlock.lapisArray);
-        //circleRecipe(MDBlock.logArray);
-        circleRecipe(MDBlock.obsidianArray);
-        circleRecipe(MDBlock.plankArray);
-        circleRecipe(MDBlock.quartzArray);
-        circleRecipe(MDBlock.workbenchArray);
-        circleRecipe(MDBlock.sandArray);
-        circleRecipe(MDBlock.soulsandArray);
+        circleRecipe(consumer);
+        //woodToPlanks(consumer);
+        smeltingRecipe(consumer);
+
     }
-    public void circleRecipe(Block @NotNull [] blocks)
+
+    public void circleRecipe(Consumer<IFinishedRecipe> consumer)
     {
-        for(int i = 0; i < blocks.length; i++)
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
-            if(Tags.Blocks.STONE.contains(blocks[i]))
-            {
-                ShapedRecipeBuilder.shapedRecipe(blocks[i], 8)
-                        .key('s', Items.STONE)
-                        .key('d', MDItem.dye[i])
-                        .patternLine("sss")
-                        .patternLine("sds")
-                        .patternLine("sss");
-            }
-            if(Tags.Blocks.STORAGE_BLOCKS_LAPIS.contains(blocks[i]))
-            {
-                ShapedRecipeBuilder.shapedRecipe(blocks[i], 8)
-                        .key('s', Items.LAPIS_BLOCK)
-                        .key('d', MDItem.dye[i])
-                        .patternLine("sss")
-                        .patternLine("sds")
-                        .patternLine("sss");
-            }
-            if(Tags.Blocks.GLASS.contains(blocks[i]))
-            {
-                ShapedRecipeBuilder.shapedRecipe(blocks[i], 8)
-                        .key('s', Items.GLASS)
-                        .key('d', MDItem.dye[i])
-                        .patternLine("sss")
-                        .patternLine("sds")
-                        .patternLine("sss");
-            }
-            if(Tags.Blocks.OBSIDIAN.contains(blocks[i]))
-            {
-                ShapedRecipeBuilder.shapedRecipe(blocks[i], 8)
-                        .key('s', Items.OBSIDIAN)
-                        .key('d', MDItem.dye[i])
-                        .patternLine("sss")
-                        .patternLine("sds")
-                        .patternLine("sss");
-            }
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.stoneArray[i], 8)
+                    .key('s', Blocks.STONE)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.lapisArray[i], 8)
+                    .key('s', Blocks.LAPIS_BLOCK)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            /*
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.glassArray[i], 8)
+                    .key('s', Blocks.GLASS)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+
+             */
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.obsidianArray[i], 8)
+                    .key('s', Blocks.OBSIDIAN)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.clayArray[i], 8)
+                    .key('s', Blocks.CLAY)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.coalArray[i], 8)
+                    .key('s', Blocks.COAL_BLOCK)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.brickArray[i], 8)
+                    .key('s', Blocks.BRICKS)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.cobbleArray[i], 8)
+                    .key('s', Blocks.COBBLESTONE)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.plankArray[i], 8)
+                    .key('s', Blocks.OAK_PLANKS)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.logArray[i], 8)
+                    .key('s', Blocks.OAK_LOG)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.sandstoneArray[i], 8)
+                    .key('s', Blocks.SANDSTONE)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.sandArray[i], 8)
+                    .key('s', Blocks.SAND)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.workbenchArray[i], 8)
+                    .key('s', Blocks.CRAFTING_TABLE)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .patternLine("sss");
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.woolArray[i], 8)
+                    .key('s', Blocks.WHITE_WOOL)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.stonebrickCrackedArray[i], 8)
+                    .key('s', Blocks.STONE_BRICKS)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.stonebrickArray[i], 8)
+                    .key('s', Blocks.STONE_BRICKS)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.soulsandArray[i], 8)
+                    .key('s', Blocks.SOUL_SAND)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(MDBlock.stonebrickCarvedArray[i], 8)
+                    .key('s', Blocks.CHISELED_STONE_BRICKS)
+                    .key('d', MDItem.dye[i])
+                    .patternLine("sss")
+                    .patternLine("sds")
+                    .patternLine("sss")
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE))
+                    .build(consumer);
+
         }
     }
-    public void woodToPlanks(Block[] blocks)
+
+    public void smeltingRecipe(Consumer<IFinishedRecipe> consumer)
     {
-        for(int i = 0; i < blocks.length; i++)
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
-            ShapedRecipeBuilder.shapedRecipe(MDBlock.plankArray[i], 4)
-                    .key('s', MDBlock.logArray[i])
-                    .patternLine("ss")
-                    .patternLine("ss");
+            CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(MDBlock.sandArray[i]), MDBlock.glassArray[i], 2.0f, 5)
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE)).build(consumer);
         }
+
     }
-    public void planksToSticks(Block[] blocks)
+
+    public void woodToPlanks(Consumer<IFinishedRecipe> consumer)
     {
+        //Shapeless
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            ShapelessRecipeBuilder.shapelessRecipe(MDBlock.plankArray[i], 4).addIngredient(MDBlock.logArray[i])
+                    .addCriterion("stone",InventoryChangeTrigger.Instance.forItems(Blocks.STONE)).build(consumer);
+        }
+
+    }
+
+    public void planksToSticks()
+    {
+        /*
         for(int i = 0; i < blocks.length; i++)
         {
-            ShapedRecipeBuilder.shapedRecipe(MDBlock.plankArray[i], 4)
+            ShapedRecipeBuilder.shapedRecipe(MDItem.sticksArray[i], 4)
                     .key('s', MDBlock.plankArray[i])
                     .patternLine("s")
                     .patternLine("s");
         }
+        */
     }
+
     public void dyeLogs(Block[] blocks)
     {
-        for(int i = 0; i < blocks.length; i++)
+        for (int i = 0; i < blocks.length; i++)
         {
             ShapelessRecipeBuilder.shapelessRecipe(MDBlock.logArray[i], 1);
         }
