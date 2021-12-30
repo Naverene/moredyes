@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moredyes:cobble_72b279"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cobblestone"
+  }
+}
