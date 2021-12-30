@@ -48,7 +48,7 @@ public class Reference
     public static final String[] BLOCKTYPES = {"wool", "stone", "cobble", "stonebrickcarved","stonebrickcracked",
             "stonebrick", "obsidian", "soulsand", "quartz", "clay", "coal", "glowstone", "redstone", "lapis", "plank", "tulip", "log",
             "leaf", "sapling", "glass", "glassfoggy", "workbench", "brick", "sand", "concretepowder",
-            "sandstonesmooth", "sandstonecarved", "diorite", "andesite", "ladder"};
+            "sandstonesmooth", "sandstonecarved", "diorite", "andesite"};
 
 
 }
