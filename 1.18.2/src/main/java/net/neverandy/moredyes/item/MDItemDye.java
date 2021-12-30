@@ -7,14 +7,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.neverandy.moredyes.setup.ModSetup;
+import net.neverandy.moredyes.MoreDyes;
 
 public class MDItemDye extends Item
 {
     String color;
     public MDItemDye(String name)
     {
-        super(new Properties().group(ModSetup.tabDyes));
+        super(new Properties().group(MoreDyes.tabDyes));
         this.color=name;
         //this.setRegistryName(set+"_dye");
         //initModel();
