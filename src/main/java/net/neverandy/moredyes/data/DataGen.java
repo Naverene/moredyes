@@ -25,6 +25,6 @@ public final class DataGen
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
         gen.addProvider(new ModRecipeProvider(gen));
-        gen.addProvider(new ModLangProvider(gen, Reference.MOD_ID, "en_US"));
+        gen.addProvider(new ModLangProvider(gen, Reference.MOD_ID, "en_us"));
     }
 }

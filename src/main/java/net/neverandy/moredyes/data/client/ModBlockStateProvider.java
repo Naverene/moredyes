@@ -58,8 +58,8 @@ public class ModBlockStateProvider extends BlockStateProvider
             simpleBlock(blockLog(i), textureLog(blockLog(i), "log", i));
             simpleBlock(blockWorkbench(i),textureWorkbench(blockWorkbench(i), "workbench", i));
             simpleBlock(blockSandstone(i), textureSandstone(blockSandstone(i), "sandstone", i));
-            //simpleBlock(blockSandstoneCarved(i), textureSandstone(blockSandstoneCarved(i), "sandstonecarved", i));
-            //simpleBlock(blockSandstoneSmooth(i), textureSandstone(blockSandstoneSmooth(i), "sandstonesmooth", i));
+            simpleBlock(blockSandstoneCarved(i), textureSandstone(blockSandstoneCarved(i), "sandstonecarved", i));
+            simpleBlock(blockSandstoneSmooth(i), textureSandstone(blockSandstoneSmooth(i), "sandstonesmooth", i));
             simpleBlock(blockAndesite(i), texture(blockAndesite(i), "andesite", i));
             simpleBlock(blockDiorite(i), texture(blockDiorite(i), "diorite", i));
             simpleBlock(blockConcretePowder(i), texture(blockConcretePowder(i), "concretepowder", i));

@@ -2,6 +2,8 @@ package net.neverandy.moredyes;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -29,6 +31,35 @@ public class MoreDyes
 {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final ItemGroup tabTrees = new ItemGroup("trees")
+    {
+        @Override
+        public ItemStack createIcon()
+        {
+            return new ItemStack(MDBlock.logArray[78]);
+        }
+    };
+    public static final ItemGroup tabPlants = new ItemGroup("plants")
+    {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(MDBlock.saplingArray[56]);
+        }
+    };
+    public static final ItemGroup tabDyes = new ItemGroup("dyes")
+    {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(MDItem.dye[99]);
+        }
+    };
+    public static final ItemGroup tabBlocks = new ItemGroup("blocks")
+    {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(MDBlock.brickArray[100]);
+        }
+    };
 
     public MoreDyes()
     {

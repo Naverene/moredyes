@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.block;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -10,9 +11,10 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.neverandy.moredyes.ConfigHandler;
+import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
-import net.neverandy.moredyes.setup.ModSetup;
+import net.neverandy.moredyes.utility.BlockInfo;
 
 public class MDBlock
 {
@@ -76,7 +78,9 @@ public class MDBlock
     public static BasicBlock[] dioriteArray = new BasicBlock[totalColorCount];
     public static BlockItem[] dioriteItemBlockArray = new BlockItem[totalColorCount];
     public static BasicBlock[] concretePowderArray = new BasicBlock[totalColorCount];
-    public static BlockItem[] concretePowderArrayItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockItem[] concretePowderItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLadder[] ladderBlockArray = new BlockLadder[totalColorCount];
+    public static BlockItem[] ladderBlockItemBlockArray = new BlockItem[totalColorCount];
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
@@ -123,10 +127,11 @@ public class MDBlock
         registerLog();
         registerSandstone();
         registerSandstoneCarved();
-        //registerSandstonesmooth();
+        registerSandstonesmooth();
         registerAndesite();
         registerDiorite();
         registerConcretePowder();
+        //registerLadder();
     }
     private static void registerDiorite()
     {
@@ -135,11 +140,29 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String diorite_name = "diorite_" + color;
             final BasicBlock diorite = new BasicBlock(color, Reference.BLOCK_INFO_DIORITE);
-            final BlockItem dioriteItem = new BlockItem(diorite, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem dioriteItem = new BlockItem(diorite, new Item.Properties().group(MoreDyes.tabBlocks));
             dioriteArray[i] = diorite;
             dioriteItemBlockArray[i] = dioriteItem;
             BLOCKS.register(diorite_name, () -> diorite);
             ITEMS.register(diorite_name, () -> dioriteItem);
+
+        }
+    }
+    private static void registerLadder()
+    {
+        BlockInfo info = Reference.BLOCK_INFO_LOG;
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String ladder_name = "ladder_" + color;
+            final BlockLadder ladder = new BlockLadder(AbstractBlock.Properties.create(info.blockMaterial)
+                    .hardnessAndResistance(info.hardness,info.resistance)
+                    .harvestLevel(info.harvestLevel).sound(info.sound));
+            final BlockItem ladderItem = new BlockItem(ladder, new Item.Properties().group(MoreDyes.tabBlocks));
+            ladderBlockArray[i] = ladder;
+            ladderBlockItemBlockArray[i] = ladderItem;
+            BLOCKS.register(ladder_name, () -> ladder);
+            ITEMS.register(ladder_name, () -> ladderItem);
 
         }
     }
@@ -150,9 +173,9 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String concretePowder_name = "concretepowder_" + color;
             final BasicBlock concretePowder = new BasicBlock(color, Reference.BLOCK_INFO_CONCRETE_POWDER);
-            final BlockItem concretePowderItem = new BlockItem(concretePowder, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem concretePowderItem = new BlockItem(concretePowder, new Item.Properties().group(MoreDyes.tabBlocks));
             concretePowderArray[i] = concretePowder;
-            concretePowderArrayItemBlockArray[i] = concretePowderItem;
+            concretePowderItemBlockArray[i] = concretePowderItem;
             BLOCKS.register(concretePowder_name, () -> concretePowder);
             ITEMS.register(concretePowder_name, () -> concretePowderItem);
 
@@ -165,7 +188,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String andesite_name = "andesite_" + color;
             final BasicBlock andesite = new BasicBlock(color, Reference.BLOCK_INFO_ANDESITE);
-            final BlockItem andesiteItem = new BlockItem(andesite, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem andesiteItem = new BlockItem(andesite, new Item.Properties().group(MoreDyes.tabBlocks));
             andesiteArray[i] = andesite;
             andesiteItemBlockArray[i] = andesiteItem;
             BLOCKS.register(andesite_name, () -> andesite);
@@ -180,7 +203,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String sandstone_name = "sandstone_" + color;
             final BasicBlock sandstone = new BasicBlock(color, Reference.BLOCK_INFO_SANDSTONE);
-            final BlockItem sandstoneItem = new BlockItem(sandstone, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem sandstoneItem = new BlockItem(sandstone, new Item.Properties().group(MoreDyes.tabBlocks));
             sandstoneArray[i] = sandstone;
             sandstoneItemBlockArray[i] = sandstoneItem;
             BLOCKS.register(sandstone_name, () -> sandstone);
@@ -195,7 +218,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String sandstone_name = "sandstonecarved_" + color;
             final BasicBlock sandstoneCarved = new BasicBlock(color, Reference.BLOCK_INFO_SANDSTONE);
-            final BlockItem sandstoneCarvedItem = new BlockItem(sandstoneCarved, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem sandstoneCarvedItem = new BlockItem(sandstoneCarved, new Item.Properties().group(MoreDyes.tabBlocks));
             sandstoneCarvedArray[i] = sandstoneCarved;
             sandstoneCarvedItemBlockArray[i] = sandstoneCarvedItem;
             BLOCKS.register(sandstone_name, () -> sandstoneCarved);
@@ -209,7 +232,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String sandstone_name = "sandstonesmooth_" + color;
             final BasicBlock sandstoneSmooth = new BasicBlock(color, Reference.BLOCK_INFO_SANDSTONE);
-            final BlockItem sandstoneSmoothItem = new BlockItem(sandstoneSmooth, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem sandstoneSmoothItem = new BlockItem(sandstoneSmooth, new Item.Properties().group(MoreDyes.tabBlocks));
             sandstoneSmoothArray[i] = sandstoneSmooth;
             sandstoneSmoothItemBlockArray[i] = sandstoneSmoothItem;
             BLOCKS.register(sandstone_name, () -> sandstoneSmooth);
@@ -223,7 +246,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String glass_name = "glass_" + color;
             final BlockGlass glass = new BlockGlass(color, Reference.BLOCK_INFO_GLASS, true);
-            final BlockItem glassItem = new BlockItem(glass, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem glassItem = new BlockItem(glass, new Item.Properties().group(MoreDyes.tabBlocks));
             RenderTypeLookup.setRenderLayer(glass, RenderType.getCutout());
             glassArray[i] = glass;
             glassItemBlockArray[i] = glassItem;
@@ -241,7 +264,7 @@ public class MDBlock
 
             String sand_name = "sand_" + color;
             final BlockFalling sand = new BlockFalling(color, Reference.BLOCK_INFO_SAND);
-            final BlockItem sandItem = new BlockItem(sand, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem sandItem = new BlockItem(sand, new Item.Properties().group(MoreDyes.tabBlocks));
             sandArray[i] = sand;
             sandItemBlockArray[i] = sandItem;
             BLOCKS.register(sand_name, () -> sand);
@@ -257,7 +280,7 @@ public class MDBlock
 
             String leaf_name = "leaf_" + color;
             final LeafBlock leaf = new LeafBlock(color, Reference.BLOCK_INFO_LEAVES);
-            final BlockItem leafItem = new BlockItem(leaf, new Item.Properties().group(ModSetup.tabTrees));
+            final BlockItem leafItem = new BlockItem(leaf, new Item.Properties().group(MoreDyes.tabTrees));
             leafArray[i] = leaf;
             leafItemBlockArray[i] = leafItem;
             BLOCKS.register(leaf_name, () -> leaf);
@@ -273,7 +296,7 @@ public class MDBlock
 
             String brick_name = "brick_" + color;
             final BasicBlock brick = new BasicBlock(color, Reference.BLOCK_INFO_BRICK);
-            final BlockItem brickItem = new BlockItem(brick, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem brickItem = new BlockItem(brick, new Item.Properties().group(MoreDyes.tabBlocks));
             brickArray[i] = brick;
             brickItemBlockArray[i] = brickItem;
             BLOCKS.register(brick_name, () -> brick);
@@ -288,7 +311,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String clay_name = "clay_" + color;
             final BasicBlock clay = new BasicBlock(color, Reference.BLOCK_INFO_CLAY);
-            final BlockItem clayItem = new BlockItem(clay, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem clayItem = new BlockItem(clay, new Item.Properties().group(MoreDyes.tabBlocks));
             clayArray[i] = clay;
             clayItemBlockArray[i] = clayItem;
             BLOCKS.register(clay_name, () -> clay);
@@ -303,7 +326,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String wool_name = "wool_" + color;
             final BasicBlock wool = new BasicBlock(color, Reference.BLOCK_INFO_WOOL);
-            final BlockItem woolItem = new BlockItem(wool, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem woolItem = new BlockItem(wool, new Item.Properties().group(MoreDyes.tabBlocks));
             woolArray[i] = wool;
             woolItemBlockArray[i] = woolItem;
             BLOCKS.register(wool_name, () -> wool);
@@ -318,7 +341,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String cobble_name = "cobble_" + color;
             final BasicBlock cobble = new BasicBlock(color, Reference.BLOCK_INFO_COBBLE);
-            final BlockItem cobbleItem = new BlockItem(cobble, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem cobbleItem = new BlockItem(cobble, new Item.Properties().group(MoreDyes.tabBlocks));
             cobbleArray[i] = cobble;
             cobbleItemBlockArray[i] = cobbleItem;
             BLOCKS.register(cobble_name, () -> cobble);
@@ -333,7 +356,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stonebrick_name = "stonebrick_" + color;
             final BasicBlock stonebrick = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK);
-            final BlockItem stonebrickItem = new BlockItem(stonebrick, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem stonebrickItem = new BlockItem(stonebrick, new Item.Properties().group(MoreDyes.tabBlocks));
             stonebrickArray[i] = stonebrick;
             stonebrickItemBlockArray[i] = stonebrickItem;
             BLOCKS.register(stonebrick_name, () -> stonebrick);
@@ -348,7 +371,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stonebrickCracked_name = "stonebrickcracked_" + color;
             final BasicBlock stonebrickCracked = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK_CRACKED);
-            final BlockItem stonebrickCrackedItem = new BlockItem(stonebrickCracked, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem stonebrickCrackedItem = new BlockItem(stonebrickCracked, new Item.Properties().group(MoreDyes.tabBlocks));
             stonebrickCrackedArray[i] = stonebrickCracked;
             stonebrickCrackedItemBlockArray[i] = stonebrickCrackedItem;
             BLOCKS.register(stonebrickCracked_name, () -> stonebrickCracked);
@@ -363,7 +386,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stonebrickCarved_name = "stonebrickcarved_" + color;
             final BasicBlock stonebrickCarved = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK_CARVED);
-            final BlockItem stonebrickCarvedItem = new BlockItem(stonebrickCarved, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem stonebrickCarvedItem = new BlockItem(stonebrickCarved, new Item.Properties().group(MoreDyes.tabBlocks));
             stonebrickCarvedArray[i] = stonebrickCarved;
             stonebrickCarvedItemBlockArray[i] = stonebrickCarvedItem;
             BLOCKS.register(stonebrickCarved_name, () -> stonebrickCarved);
@@ -378,7 +401,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String stone_name = "stone_" + color;
             final BasicBlock stone = new BasicBlock(color, Reference.BLOCK_INFO_STONE);
-            final BlockItem stoneItem = new BlockItem(stone, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem stoneItem = new BlockItem(stone, new Item.Properties().group(MoreDyes.tabBlocks));
             stoneArray[i] = stone;
             stoneItemBlockArray[i] = stoneItem;
             BLOCKS.register(stone_name, () -> stone);
@@ -393,7 +416,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String obsidian_name = "obsidian_" + color;
             final BasicBlock obsidian = new BasicBlock(color, Reference.BLOCK_INFO_OBSIDIAN);
-            final BlockItem obsidianItem = new BlockItem(obsidian, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem obsidianItem = new BlockItem(obsidian, new Item.Properties().group(MoreDyes.tabBlocks));
             obsidianArray[i] = obsidian;
             obsidianItemBlockArray[i] = obsidianItem;
             BLOCKS.register(obsidian_name, () -> obsidian);
@@ -408,7 +431,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String lapis_name = "lapis_" + color;
             final BasicBlock lapis = new BasicBlock(color, Reference.BLOCK_INFO_LAPIS);
-            final BlockItem lapisItem = new BlockItem(lapis, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem lapisItem = new BlockItem(lapis, new Item.Properties().group(MoreDyes.tabBlocks));
             lapisArray[i] = lapis;
             lapisItemBlockArray[i] = lapisItem;
             BLOCKS.register(lapis_name, () -> lapis);
@@ -423,7 +446,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String glowstone_name = "glowstone_" + color;
             final BasicBlock glowstone = new BasicBlock(color, Reference.BLOCK_INFO_GLOWSTONE);
-            final BlockItem glowstoneItem = new BlockItem(glowstone, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem glowstoneItem = new BlockItem(glowstone, new Item.Properties().group(MoreDyes.tabBlocks));
             glowstoneArray[i] = glowstone;
             glowstoneItemBlockArray[i] = glowstoneItem;
             BLOCKS.register(glowstone_name, () -> glowstone);
@@ -438,7 +461,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String coal_name = "coal_" + color;
             final BasicBlock coal = new BasicBlock(color, Reference.BLOCK_INFO_COAL);
-            final BlockItem coalItem = new BlockItem(coal, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem coalItem = new BlockItem(coal, new Item.Properties().group(MoreDyes.tabBlocks));
             coalArray[i] = coal;
             coalItemBlockArray[i] = coalItem;
             BLOCKS.register(coal_name, () -> coal);
@@ -453,7 +476,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String soulsand_name = "soulsand_" + color;
             final BasicBlock soulsand = new BasicBlock(color, Reference.BLOCK_INFO_SOULSAND);
-            final BlockItem soulsandItem = new BlockItem(soulsand, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem soulsandItem = new BlockItem(soulsand, new Item.Properties().group(MoreDyes.tabBlocks));
             soulsandArray[i] = soulsand;
             soulsandItemBlockArray[i] = soulsandItem;
             BLOCKS.register(soulsand_name, () -> soulsand);
@@ -468,7 +491,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String plank_name = "plank_" + color;
             final BasicBlock plank = new BasicBlock(color, Reference.BLOCK_INFO_PLANK);
-            final BlockItem plankItem = new BlockItem(plank, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem plankItem = new BlockItem(plank, new Item.Properties().group(MoreDyes.tabBlocks));
             plankArray[i] = plank;
             plankItemBlockArray[i] = plankItem;
             BLOCKS.register(plank_name, () -> plank);
@@ -484,7 +507,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String redstone_name = "redstone_" + color;
             final PoweredBlock redstone = new PoweredBlock(color, Reference.BLOCK_INFO_REDSTONE);
-            final BlockItem redstoneItem = new BlockItem(redstone, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem redstoneItem = new BlockItem(redstone, new Item.Properties().group(MoreDyes.tabBlocks));
             redstoneArray[i] = redstone;
             redstoneItemBlockArray[i] = redstoneItem;
             BLOCKS.register(redstone_name, () -> redstone);
@@ -500,7 +523,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String quartz_name = "quartz_" + color;
             final BasicBlock quartz = new BasicBlock(color, Reference.BLOCK_INFO_QUARTZ);
-            final BlockItem quartzItem = new BlockItem(quartz, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem quartzItem = new BlockItem(quartz, new Item.Properties().group(MoreDyes.tabBlocks));
             quartzArray[i] = quartz;
             quartzItemBlockArray[i] = quartzItem;
             BLOCKS.register(quartz_name, () -> quartz);
@@ -516,7 +539,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String glassFoggy_name = "glassfoggy_" + color;
             final BlockGlass glassFoggy = new BlockGlass(color, Reference.BLOCK_INFO_GLASS_FOGGY, true);
-            final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().group(MoreDyes.tabBlocks));
             glassFoggyArray[i] = glassFoggy;
             glassFoggyItemBlockArray[i] = glassFoggyItem;
             BLOCKS.register(glassFoggy_name, () -> glassFoggy);
@@ -531,7 +554,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String sapling_name = "sapling_" + color;
             final BlockSapling sapling = new BlockSapling(color, Reference.BLOCK_INFO_SAPLING);
-            final BlockItem saplingItem = new BlockItem(sapling, new Item.Properties().group(ModSetup.tabTrees));
+            final BlockItem saplingItem = new BlockItem(sapling, new Item.Properties().group(MoreDyes.tabTrees));
             saplingArray[i] = sapling;
             saplingItemBlockArray[i] = saplingItem;
             BLOCKS.register(sapling_name, () -> sapling);
@@ -547,7 +570,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String tulip_name = "tulip_" + color;
             final FlowerBlock tulip = new FlowerBlock(color, Reference.BLOCK_INFO_TULIP);
-            final BlockItem tulipItem = new BlockItem(tulip, new Item.Properties().group(ModSetup.tabPlants));
+            final BlockItem tulipItem = new BlockItem(tulip, new Item.Properties().group(MoreDyes.tabPlants));
             tulipArray[i] = tulip;
             tuLipItemBlockArray[i] = tulipItem;
             BLOCKS.register(tulip_name, () -> tulip);
@@ -562,7 +585,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String workbench_name = "workbench_" + color;
             final WorkbenchBlock workbench = new WorkbenchBlock(color, Reference.BLOCK_INFO_WORKBENCH);
-            final BlockItem workbenchItem = new BlockItem(workbench, new Item.Properties().group(ModSetup.tabBlocks));
+            final BlockItem workbenchItem = new BlockItem(workbench, new Item.Properties().group(MoreDyes.tabBlocks));
             workbenchArray[i] = workbench;
             workbenchItemBlockArray[i] = workbenchItem;
             BLOCKS.register(workbench_name, () -> workbench);
@@ -576,7 +599,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String workbench_name = "log_" + color;
             final BlockLog log = new BlockLog(color, Reference.BLOCK_INFO_LOG);
-            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(ModSetup.tabTrees));
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
             logArray[i] = log;
             logItemBlockArray[i] = logItem;
             BLOCKS.register(workbench_name, () -> log);

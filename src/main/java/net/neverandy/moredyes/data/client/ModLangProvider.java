@@ -47,6 +47,8 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.dioriteArray[i], ColorStrings.ALL[i].toUpperCase() + " Diorite");
             add(MDItem.dye[i],ColorStrings.ALL[i].toUpperCase() + " Dye");
             add(MDBlock.concretePowderArray[i],ColorStrings.ALL[i].toUpperCase() + " Concrete Powder");
+            add(MDBlock.ladderBlockArray[i], ColorStrings.ALL[i].toUpperCase() + " Ladder");
+
         }
 
     }

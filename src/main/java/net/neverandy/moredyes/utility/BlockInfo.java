@@ -5,9 +5,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.neverandy.moredyes.MoreDyes;
-import net.neverandy.moredyes.setup.ModSetup;
-
-import java.util.function.ToIntFunction;
 
 public class BlockInfo
 {
@@ -34,7 +31,7 @@ public class BlockInfo
     }
     public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType s, int hL,float r)
     {
-        this(blockName,mat,h,t,s,hL,r, ModSetup.tabBlocks, 0);
+        this(blockName,mat,h,t,s,hL,r, MoreDyes.tabBlocks, 0);
     }
     public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType s, int hL)
     {
