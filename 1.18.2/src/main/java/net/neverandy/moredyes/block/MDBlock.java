@@ -156,7 +156,7 @@ public class MDBlock
             String color = ColorStrings.ALL[i];
             String ladder_name = "ladder_" + color;
             final BlockLadder ladder = new BlockLadder(AbstractBlock.Properties.create(info.blockMaterial)
-                    .hardnessAndResistance(info.hardness,info.resistance)
+                    .hardnessAndResistance(info.hardness, info.resistance)
                     .harvestLevel(info.harvestLevel).sound(info.sound));
             final BlockItem ladderItem = new BlockItem(ladder, new Item.Properties().group(MoreDyes.tabBlocks));
             ladderBlockArray[i] = ladder;
