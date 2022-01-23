@@ -18,10 +18,9 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class WorkbenchBlock extends CraftingTableBlock
 {
-    private String color;
     private static final ITextComponent CONTAINER_NAME = new TranslationTextComponent("container.crafting");
 
-    public WorkbenchBlock(String blockColor, BlockInfo info)
+    public WorkbenchBlock(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness, info.resistance)
@@ -30,7 +29,6 @@ public class WorkbenchBlock extends CraftingTableBlock
                 .setRequiresTool()
                 .sound(info.sound)
                 .setLightLevel(value -> info.lightlevel));
-        this.color = blockColor;
     }
 
     @Override
@@ -38,7 +36,7 @@ public class WorkbenchBlock extends CraftingTableBlock
     {
         if (worldIn.isRemote)
         {
-            return ActionResultType.SUCCESS;
+            return ActionResultType.FAIL;
         } else
         {
             player.openContainer(state.getContainer(worldIn, pos));
@@ -46,7 +44,7 @@ public class WorkbenchBlock extends CraftingTableBlock
             return ActionResultType.CONSUME;
         }
     }
-    
+
     @Override
     public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos)
     {
@@ -54,3 +52,4 @@ public class WorkbenchBlock extends CraftingTableBlock
                 new ContainerWorkbench(id, inventory, IWorldPosCallable.of(worldIn, pos)), CONTAINER_NAME);
     }
 }
+
