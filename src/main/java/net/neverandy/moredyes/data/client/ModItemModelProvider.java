@@ -3,15 +3,12 @@ package net.neverandy.moredyes.data.client;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class ModItemModelProvider extends ItemModelProvider
 {
-
-    public static final Logger LOGGER = LogManager.getLogger();
 
     public static String[][] nameArray = new String[Reference.BLOCKTYPES.length][ColorStrings.ALL.length];
 
@@ -24,12 +21,11 @@ public class ModItemModelProvider extends ItemModelProvider
     @Override
     protected void registerModels()
     {
-        LOGGER.info("registerModels");
-//        for(String[] blockType : nameArray) {
+        MoreDyes.LOGGER.debug("registerModels");
         for (int i = 0; i < nameArray.length; i++)
         {
             String[] blockType = nameArray[i];
-            LOGGER.info(Reference.BLOCKTYPES[i] + " for loop");
+            MoreDyes.LOGGER.info(Reference.BLOCKTYPES[i] + " for loop");
             for (String name : blockType)
             {
                 withExistingParent(name, modLoc("block/" + name));
