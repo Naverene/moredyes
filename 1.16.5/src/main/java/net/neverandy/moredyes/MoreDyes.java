@@ -105,6 +105,9 @@ public class MoreDyes
         InterModComms.sendTo(Reference.MOD_ID, "helloworld", () ->
         {
             LOGGER.info("Hello world from the MDK");
+    
+            
+
             return "Hello world";
         });
     }

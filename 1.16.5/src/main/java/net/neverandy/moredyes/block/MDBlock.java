@@ -16,8 +16,7 @@ import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.BlockInfo;
 
-public class MDBlock
-{
+public class MDBlock {
     private static final int totalColorCount = 118;
     public static BasicBlock[] brickArray = new BasicBlock[totalColorCount];
     public static BlockItem[] brickItemBlockArray = new BlockItem[totalColorCount];
@@ -86,8 +85,7 @@ public class MDBlock
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
 
-    public static void initRegistries()
-    {
+    public static void initRegistries() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
@@ -96,8 +94,8 @@ public class MDBlock
         ConfigHandler.loadConfigFile(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get()
                 .resolve(Reference.MOD_ID + "-server.toml").toString());
     }
-    public static void initialize()
-    {
+
+    public static void initialize() {
         //Init the registries that are added to in the rest of the calls.
         initRegistries();
 
@@ -584,7 +582,7 @@ public class MDBlock
         {
             String color = ColorStrings.ALL[i];
             String workbench_name = "workbench_" + color;
-            final WorkbenchBlock workbench = new WorkbenchBlock(color, Reference.BLOCK_INFO_WORKBENCH);
+            final WorkbenchBlock workbench = new WorkbenchBlock(Reference.BLOCK_INFO_WORKBENCH);
             final BlockItem workbenchItem = new BlockItem(workbench, new Item.Properties().group(MoreDyes.tabBlocks));
             workbenchArray[i] = workbench;
             workbenchItemBlockArray[i] = workbenchItem;

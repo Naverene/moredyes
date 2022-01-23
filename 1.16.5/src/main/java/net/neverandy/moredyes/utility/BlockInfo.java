@@ -1,7 +1,9 @@
 package net.neverandy.moredyes.utility;
 
 import net.minecraft.block.SoundType;
+import net.minecraft.block.WoodType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.neverandy.moredyes.MoreDyes;
@@ -17,7 +19,8 @@ public class BlockInfo
     public Material blockMaterial;
     public ItemGroup tab;
     public int lightlevel;
-    public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType toolType, int hL,float r,ItemGroup tab, int lightlevel)
+    public WoodType woodType;
+    public BlockInfo(String blockName, Material mat, float h, SoundType t, ToolType toolType, int hL, float r, ItemGroup tab, int lightlevel, WoodType woodType)
     {
         this.blockName=blockName;
         this.blockMaterial=mat;
@@ -28,10 +31,15 @@ public class BlockInfo
         this.resistance = r;
         this.tab=tab;
         this.lightlevel=lightlevel;
+        this.woodType = woodType;
+    }
+    public BlockInfo(String blockName, Material mat, float h, SoundType t, ToolType toolType, int hL, float r, ItemGroup tab, int lightlevel)
+    {
+        this(blockName, mat, h, t, toolType, hL, r, tab, lightlevel, null);
     }
     public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType s, int hL,float r)
     {
-        this(blockName,mat,h,t,s,hL,r, MoreDyes.tabBlocks, 0);
+        this(blockName,mat,h,t,s,hL,r, MoreDyes.tabBlocks, 0, null);
     }
     public BlockInfo(String blockName,Material mat,float h,SoundType t, ToolType s, int hL)
     {
@@ -40,5 +48,8 @@ public class BlockInfo
     public BlockInfo()
     {
         this("",Material.ROCK,1.0f,SoundType.STONE, ToolType.HOE,1);
+    }
+
+    public BlockInfo(String glazed_terracotta, Material rock, DyeColor white, float v) {
     }
 }
