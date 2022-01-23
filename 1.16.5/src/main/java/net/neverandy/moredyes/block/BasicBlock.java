@@ -8,7 +8,7 @@ public class BasicBlock extends Block
     public String blockName;
     private String color;
 
-    public BasicBlock(String blockColor, BlockInfo info)
+    public BasicBlock(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness, info.resistance)
@@ -17,7 +17,6 @@ public class BasicBlock extends Block
                 .setRequiresTool()
                 .sound(info.sound)
                 .setLightLevel(value -> info.lightlevel));
-        this.color = blockColor;
         this.blockName = info.blockName;
     }
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cross",
   "textures": {
-    "all": "moredyes:block/sapling/4c2c66"
+    "cross": "moredyes:block/sapling/4c2c66"
   }
 }
