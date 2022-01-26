@@ -39,8 +39,8 @@ public class ModBlockStateProvider extends BlockStateProvider
             simpleBlock(blockWool(i), texture(blockWool(i), "wool", i));
             simpleBlock(blockCobble(i), texture(blockCobble(i), "cobble", i));
             simpleBlock(blockStonebrick(i), texture(blockStonebrick(i), "stonebrick", i));
-            simpleBlock(blockStonebrickCracked(i), texture(blockStonebrickCracked(i), "stonebrickCracked", i));
-            simpleBlock(blockStonebrickCarved(i), texture(blockStonebrickCarved(i), "stonebrickCarved", i));
+            simpleBlock(blockStonebrickCracked(i), texture(blockStonebrickCracked(i), "stonebrickcracked", i));
+            simpleBlock(blockStonebrickCarved(i), texture(blockStonebrickCarved(i), "stonebrickcarved", i));
             simpleBlock(blockStone(i), texture(blockStone(i), "stone", i));
             simpleBlock(blockObsidian(i), texture(blockObsidian(i), "obsidian", i));
             simpleBlock(blockLapis(i), texture(blockLapis(i), "lapis", i));
@@ -49,12 +49,11 @@ public class ModBlockStateProvider extends BlockStateProvider
             simpleBlock(blockSoulsand(i), texture(blockSoulsand(i), "soulsand", i));
             
             //Planks
-            simpleBlock(blockOakPlank(i), texturePlank(blockOakPlank(i), "oakplank", i));
-           // simpleBlock(blockOakPlank(i), texturePlank(blockBirchPlank(i), "birchplank", i));
-            //simpleBlock(blockOakPlank(i), texturePlank(blockAcaciaPlank(i), "acaciaplank", i));
-           // simpleBlock(blockOakPlank(i), texturePlank(blockDarkOakPlank(i), "jungleplank", i));
-           // simpleBlock(blockOakPlank(i), texturePlank(blockSprucePlank(i), "darkoakplank", i));
-           // simpleBlock(blockOakPlank(i), texturePlank(blockJunglePlank(i), "spruceplank", i));
+            simpleBlock(blockOakPlank(i), texturePlank(blockOakPlank(i), "plankoak", i));
+            simpleBlock(blockAcaciaPlank(i), texturePlank(blockAcaciaPlank(i), "plankacacia", i));
+            simpleBlock(blockDarkOakPlank(i), texturePlank(blockDarkOakPlank(i), "plankdarkoak", i));
+            simpleBlock(blockSprucePlank(i), texturePlank(blockSprucePlank(i), "plankspruce", i));
+            simpleBlock(blockJunglePlank(i), texturePlank(blockJunglePlank(i), "plankjungle", i));
 
             simpleBlock(blockRedstone(i), texture(blockRedstone(i), "redstone", i));
             simpleBlock(blockQuartz(i), texture(blockQuartz(i), "quartz", i));
@@ -167,50 +166,36 @@ public class ModBlockStateProvider extends BlockStateProvider
     {
         ResourceLocation name = block.getRegistryName();
         assert name != null;
-        ResourceLocation top = new ResourceLocation(name.getNamespace(),
+        ResourceLocation resourceLocation = new ResourceLocation(name.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + blockType.toLowerCase(Locale.ROOT) + "/top/" + ColorStrings.ALL[arrayIndex]);
-        ResourceLocation side = new ResourceLocation(name.getNamespace(),
-                ModelProvider.BLOCK_FOLDER + "/" + blockType.toLowerCase(Locale.ROOT) + "/side");
         switch (blockType)
         {
             case "acacialeaf":
-                top = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/acacia/top/" + ColorStrings.ALL[arrayIndex]);
-                side = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/acacia/side");
+                resourceLocation = new ResourceLocation(name.getNamespace(),
+                        ModelProvider.BLOCK_FOLDER + "/leaf/acacia/" + ColorStrings.ALL[arrayIndex]);
                 break;
             case "birchleaf":
-                top = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/birch/top/" + ColorStrings.ALL[arrayIndex]);
-                side = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/birch/side");
+                resourceLocation = new ResourceLocation(name.getNamespace(),
+                        ModelProvider.BLOCK_FOLDER + "/leaf/birch/" + ColorStrings.ALL[arrayIndex]);
                 break;
             case "darkoakleaf":
-                top = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/darkoak/top/" + ColorStrings.ALL[arrayIndex]);
-                side = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/darkoak/side");
+                resourceLocation = new ResourceLocation(name.getNamespace(),
+                        ModelProvider.BLOCK_FOLDER + "/leaf/darkoak/" + ColorStrings.ALL[arrayIndex]);
                 break;
             case "spruceleaf":
-                top = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/spruce/top/" + ColorStrings.ALL[arrayIndex]);
-                side = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/spruce/side");
+                resourceLocation = new ResourceLocation(name.getNamespace(),
+                        ModelProvider.BLOCK_FOLDER + "/leaf/spruce/" + ColorStrings.ALL[arrayIndex]);
                 break;
             case "jungleleaf":
-                top = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/jungle/top/" + ColorStrings.ALL[arrayIndex]);
-                side = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/jungle/side");
+                resourceLocation = new ResourceLocation(name.getNamespace(),
+                        ModelProvider.BLOCK_FOLDER + "/leaf/jungle/" + ColorStrings.ALL[arrayIndex]);
                 break;
             case "oakleaf":
-                top = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/oak/top/" + ColorStrings.ALL[arrayIndex]);
-                side = new ResourceLocation(name.getNamespace(),
-                        ModelProvider.BLOCK_FOLDER + "/leaf/oak/side");
+                resourceLocation = new ResourceLocation(name.getNamespace(),
+                        ModelProvider.BLOCK_FOLDER + "/leaf/oak/" + ColorStrings.ALL[arrayIndex]);
                 break;
         }
-        return models().cubeColumnHorizontal(block.getRegistryName().getPath(), side, top);
+        return models().cubeAll(name.getNamespace(), resourceLocation);
     }
 
     public ModelFile textureSandstone(@NotNull Block block, @NotNull String blockType, int arrayIndex)
@@ -266,65 +251,65 @@ public class ModBlockStateProvider extends BlockStateProvider
             case "oaksapling":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/sapling/oak/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("oaksapling_" + ColorStrings.ALL[arrayIndex], resourceLocation);
             case "birchsapling":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/sapling/birch/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("birchsapling_" + ColorStrings.ALL[arrayIndex], resourceLocation);
             case "darkoaksapling":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/sapling/darkoak/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("darkoakapling_" + ColorStrings.ALL[arrayIndex], resourceLocation);
             case "acaciasapling":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/sapling/acacia/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("acaciaapling_" + ColorStrings.ALL[arrayIndex], resourceLocation);
             case "junglesapling":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/sapling/jungle/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("junglesapling_" + ColorStrings.ALL[arrayIndex], resourceLocation);
             case "sprucesapling":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/sapling/spruce/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("sprucesapling_" + ColorStrings.ALL[arrayIndex], resourceLocation);
         }
-        return models().cubeAll(block.getRegistryName().getPath(), resourceLocation);
+        return null;
+
     }
-    public ModelFile texturePlank(Block block, String blockType, int arrayIndex)
+    public ModelFile texturePlank(@NotNull Block block, @NotNull String blockType, int arrayIndex)
     {
         ResourceLocation name = block.getRegistryName();
         assert name != null;
-        ResourceLocation resourceLocation = new ResourceLocation(name.getNamespace(),
-                ModelProvider.BLOCK_FOLDER + "/" + blockType.toLowerCase(Locale.ROOT) + "/" + ColorStrings.ALL[arrayIndex]);
+        ResourceLocation resourceLocation;
 
-        switch(blockType)
+        switch (blockType)
         {
-            case "oakplank":
+            case "plankoak":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/plank/oak/" + ColorStrings.ALL[arrayIndex]);
-                break;
-            case "birchplank":
+                return models().cubeAll("oakplank_" + ColorStrings.ALL[arrayIndex], resourceLocation);
+            case "plankbirch":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/plank/birch/" + ColorStrings.ALL[arrayIndex]);
-                break;
-            case "darkoakplank":
+                return models().cubeAll("birchplank_" + ColorStrings.ALL[arrayIndex], resourceLocation);
+            case "plankdarkoak":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/plank/darkoak/" + ColorStrings.ALL[arrayIndex]);
-                break;
-            case "acaciaplank":
+                return models().cubeAll("darkoakplank_" + ColorStrings.ALL[arrayIndex], resourceLocation);
+            case "plankacacia":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/plank/acacia/" + ColorStrings.ALL[arrayIndex]);
-                break;
-            case "jungleplank":
+                return models().cubeAll("acaciaplank_" + ColorStrings.ALL[arrayIndex], resourceLocation);
+            case "plankjungle":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/plank/jungle/" + ColorStrings.ALL[arrayIndex]);
-                break;
-            case "spruceplank":
+                return models().cubeAll("jungleplank_" + ColorStrings.ALL[arrayIndex], resourceLocation);
+            case "plankspruce":
                 resourceLocation = new ResourceLocation(name.getNamespace(),
                         ModelProvider.BLOCK_FOLDER + "/plank/spruce/" + ColorStrings.ALL[arrayIndex]);
-                break;
+                return models().cubeAll("spruceplank_" + ColorStrings.ALL[arrayIndex], resourceLocation);
         }
-        return models().cubeAll(block.getRegistryName().getPath(), resourceLocation);
+        return null;
     }
 
     public static Block blockGlass(int arrayIndex)

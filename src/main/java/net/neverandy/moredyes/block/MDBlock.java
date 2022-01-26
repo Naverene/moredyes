@@ -82,7 +82,7 @@ public class MDBlock
     public static LeafBlock[] spruceLafArray = new LeafBlock[totalColorCount];
     public static BlockItem[] spruceLeafItemBlockArray = new BlockItem[totalColorCount];
     public static LeafBlock[] jungleLeafArray = new LeafBlock[totalColorCount];
-    public static BlockItem[] juingleLeafItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockItem[] jungleLeafItemBlockArray = new BlockItem[totalColorCount];
     public static LeafBlock[] birchLeafArray = new LeafBlock[totalColorCount];
     public static BlockItem[] birchLeafItemBlockArray = new BlockItem[totalColorCount];
     public static LeafBlock[] acaciaLeafArray = new LeafBlock[totalColorCount];
@@ -211,7 +211,7 @@ public class MDBlock
         registerDarkOakLog();
         registerDarkOakLeaves();
         registerDarkOakPLanks();
-        registerjungleFence();
+        registerJungleFence();
         registerAcaciaFence();
         registerDarkOakFence();
         registerSpruceFence();
@@ -877,6 +877,20 @@ public class MDBlock
             ITEMS.register(blockName, () -> blockItem);
         }
     }
+    private static void registerBlocksNotWorking(String blockname,BlockInfo info) //Do Not use
+    {//TODO: Figure out Lambda and pass class/function as a parameter instead
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = blockname + color;
+            final LeafBlock block = new LeafBlock(info);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            acaciaLeafArray[i] = block;
+            acaciaLeafItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
 
     private static void registerAcaciaLeaves()
     {
@@ -978,7 +992,7 @@ public class MDBlock
             ITEMS.register(blockName, () -> blockItem);
         }
     }
-    private static void registerjungleFence()
+    private static void registerJungleFence()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
