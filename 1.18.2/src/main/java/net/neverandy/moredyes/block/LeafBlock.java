@@ -6,8 +6,7 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class LeafBlock extends LeavesBlock
 {
-    private final String color;
-    public LeafBlock(String blockColor, BlockInfo info)
+    public LeafBlock(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness,info.resistance)
@@ -15,8 +14,8 @@ public class LeafBlock extends LeavesBlock
                 .harvestTool(info.harvestTool)
                 .setRequiresTool()
                 .sound(info.sound)
+                .tickRandomly()
+                .notSolid()
                 .setLightLevel(value -> info.lightlevel));
-        this.color = blockColor;
-
     }
 }

@@ -44,7 +44,7 @@ public class WorkbenchBlock extends CraftingTableBlock
             return ActionResultType.CONSUME;
         }
     }
-
+    
     @Override
     public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos)
     {
@@ -52,4 +52,3 @@ public class WorkbenchBlock extends CraftingTableBlock
                 new ContainerWorkbench(id, inventory, IWorldPosCallable.of(worldIn, pos)), CONTAINER_NAME);
     }
 }
-
