@@ -23,7 +23,7 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.brickArray[i], ColorStrings.ALL[i].toUpperCase() + " Bricks");
             add(MDBlock.coalArray[i], ColorStrings.ALL[i].toUpperCase() + " Block of Coal");
             add(MDBlock.clayArray[i], ColorStrings.ALL[i].toUpperCase() + " Clay");
-            add(MDBlock.logArray[i], ColorStrings.ALL[i].toUpperCase() + " Oak Log");
+            add(MDBlock.oakLogArray[i], ColorStrings.ALL[i].toUpperCase() + " Oak Log");
             add(MDBlock.stonebrickCarvedArray[i], ColorStrings.ALL[i].toUpperCase() + " Stonebrick Carved");
             add(MDBlock.stonebrickCrackedArray[i], ColorStrings.ALL[i].toUpperCase() + " Stonebrick Cracked");
             add(MDBlock.lapisArray[i], ColorStrings.ALL[i].toUpperCase() + " Lapis Lazuli Block");
@@ -38,7 +38,7 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.redstoneArray[i], ColorStrings.ALL[i].toUpperCase() + " Block of Redstone");
             add(MDBlock.tulipArray[i], ColorStrings.ALL[i].toUpperCase() + " Tulip");
             add(MDBlock.quartzArray[i], ColorStrings.ALL[i].toUpperCase() + " Block of Quartz");
-            add(MDBlock.plankArray[i], ColorStrings.ALL[i].toUpperCase() + " Oak Plank");
+            add(MDBlock.oakPlankArray[i], ColorStrings.ALL[i].toUpperCase() + " Oak Plank");
             add(MDBlock.soulsandArray[i], ColorStrings.ALL[i].toUpperCase() + " Soulsand");
             add(MDBlock.sandstoneArray[i], ColorStrings.ALL[i].toUpperCase() + " Sandstone");
             //add(MDBlock.sandstoneCarvedArray[i], ColorStrings.ALL[i].toUpperCase() + " Carved Sandstone");
@@ -47,6 +47,8 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.dioriteArray[i], ColorStrings.ALL[i].toUpperCase() + " Diorite");
             add(MDItem.dye[i],ColorStrings.ALL[i].toUpperCase() + " Dye");
             add(MDBlock.concretePowderArray[i],ColorStrings.ALL[i].toUpperCase() + " Concrete Powder");
+            add(MDBlock.hardenedClayArray[i], ColorStrings.ALL[i].toUpperCase() + " Hardened Clay");
+
             //add(MDBlock.ladderBlockArray[i], ColorStrings.ALL[i].toUpperCase() + " Ladder");
 
         }
