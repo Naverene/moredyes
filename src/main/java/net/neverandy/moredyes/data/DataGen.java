@@ -8,6 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.neverandy.moredyes.data.client.ModBlockStateProvider;
 import net.neverandy.moredyes.data.client.ModItemModelProvider;
 import net.neverandy.moredyes.data.client.ModLangProvider;
+import net.neverandy.moredyes.data.server.ModLootTableProvider;
 import net.neverandy.moredyes.data.server.ModRecipeProvider;
 import net.neverandy.moredyes.reference.Reference;
 
@@ -26,5 +27,6 @@ public final class DataGen
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
         gen.addProvider(new ModRecipeProvider(gen));
         gen.addProvider(new ModLangProvider(gen, Reference.MOD_ID, "en_us"));
+        gen.addProvider(new ModLootTableProvider(gen));
     }
 }

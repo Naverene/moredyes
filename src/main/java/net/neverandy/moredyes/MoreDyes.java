@@ -36,14 +36,14 @@ public class MoreDyes
         @Override
         public ItemStack createIcon()
         {
-            return new ItemStack(MDBlock.logArray[78]);
+            return new ItemStack(MDBlock.darkOakLogArray[78]);
         }
     };
     public static final ItemGroup tabPlants = new ItemGroup("plants")
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(MDBlock.saplingArray[56]);
+            return new ItemStack(MDBlock.oakSaplingArray[56]);
         }
     };
     public static final ItemGroup tabDyes = new ItemGroup("dyes")
