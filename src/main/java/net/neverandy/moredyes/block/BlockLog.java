@@ -6,7 +6,7 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class BlockLog extends Block
 {
-    public BlockLog(String color, BlockInfo info)
+    public BlockLog(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness, info.resistance)
@@ -15,6 +15,6 @@ public class BlockLog extends Block
                 .setRequiresTool()
                 .sound(info.sound)
                 .setLightLevel(value -> info.lightlevel));
-        WoodType.register(WoodType.OAK);
+        WoodType.register(info.woodType);
     }
 }

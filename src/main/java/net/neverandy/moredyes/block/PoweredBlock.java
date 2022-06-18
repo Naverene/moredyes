@@ -5,8 +5,7 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class PoweredBlock extends RedstoneBlock
 {
-    public String color;
-    public PoweredBlock(String blockColor, BlockInfo info)
+    public PoweredBlock(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness,info.resistance)
@@ -15,7 +14,6 @@ public class PoweredBlock extends RedstoneBlock
                 .setRequiresTool()
                 .sound(info.sound)
                 .setLightLevel(value -> info.lightlevel));
-        this.color = blockColor;
 
 
     }

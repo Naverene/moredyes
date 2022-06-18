@@ -5,9 +5,7 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class BlockFalling extends FallingBlock
 {
-    private final String color;
-    public String blockName;
-    public BlockFalling(String blockColor, BlockInfo info)
+    public BlockFalling(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness,info.resistance)
@@ -16,7 +14,5 @@ public class BlockFalling extends FallingBlock
                 .setRequiresTool()
                 .sound(info.sound)
                 .setLightLevel(value -> info.lightlevel));
-        this.color = blockColor;
-        this.blockName = info.blockName;
     }
 }
