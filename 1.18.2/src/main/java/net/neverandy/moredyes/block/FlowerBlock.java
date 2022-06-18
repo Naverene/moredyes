@@ -8,8 +8,7 @@ import net.neverandy.moredyes.utility.BlockInfo;
 
 public class FlowerBlock extends BushBlock
 {
-    private final String color;
-    public FlowerBlock(String blockColor, BlockInfo info)
+    public FlowerBlock(BlockInfo info)
     {
         super(Properties.create(info.blockMaterial)
                 .hardnessAndResistance(info.hardness,info.resistance)
@@ -18,12 +17,8 @@ public class FlowerBlock extends BushBlock
                 .setRequiresTool()
                 .sound(info.sound)
                 .setLightLevel(value -> info.lightlevel));
-        this.color = blockColor;
     }
 
-    /**
-     * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
-     */
     @OnlyIn(Dist.CLIENT)
     @Override
     public AbstractBlock.OffsetType getOffsetType()

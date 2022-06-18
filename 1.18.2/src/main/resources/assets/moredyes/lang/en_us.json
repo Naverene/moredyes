@@ -3185,8 +3185,8 @@
   "item.moredyes.ecbf99_dye": "ECBF99 Dye",
   "item.moredyes.f2f299_dye": "F2F299 Dye",
   "item.moredyes.f9bfd2_dye": "F9BFD2 Dye",
-  "itemGroup.trees": "More Dyes Trees",
-  "itemGroup.plants": "More Dyes Plants",
-  "itemGroup.dyes": "More Dyes Dyes",
-  "itemGroup.blocks": "More Dyes Blocks"
+  "itemGroup.moredyes.trees": "More Dyes Trees",
+  "itemGroup.moredyes.plants": "More Dyes Plants",
+  "itemGroup.moredyes.dyes": "More Dyes Dyes",
+  "itemGroup.moredyes.blocks": "More Dyes Blocks"
 }

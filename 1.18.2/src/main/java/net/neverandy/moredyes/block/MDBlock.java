@@ -16,7 +16,8 @@ import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.BlockInfo;
 
-public class MDBlock {
+public class MDBlock
+{
     private static final int totalColorCount = 118;
     public static BasicBlock[] brickArray = new BasicBlock[totalColorCount];
     public static BlockItem[] brickItemBlockArray = new BlockItem[totalColorCount];
@@ -44,8 +45,6 @@ public class MDBlock {
     public static BlockItem[] coalItemBlockArray = new BlockItem[totalColorCount];
     public static BasicBlock[] soulsandArray = new BasicBlock[totalColorCount];
     public static BlockItem[] soulsandItemBlockArray = new BlockItem[totalColorCount];
-    public static BasicBlock[] plankArray = new BasicBlock[totalColorCount];
-    public static BlockItem[] plankItemBlockArray = new BlockItem[totalColorCount];
     public static PoweredBlock[] redstoneArray = new PoweredBlock[totalColorCount];
     public static BlockItem[] redstoneItemBlockArray = new BlockItem[totalColorCount];
     public static BasicBlock[] quartzArray = new BasicBlock[totalColorCount];
@@ -56,16 +55,70 @@ public class MDBlock {
     public static BlockItem[] glassFoggyItemBlockArray = new BlockItem[totalColorCount];
     public static BlockFalling[] sandArray = new BlockFalling[totalColorCount];
     public static BlockItem[] sandItemBlockArray = new BlockItem[totalColorCount];
-    public static LeafBlock[] leafArray = new LeafBlock[totalColorCount];
-    public static BlockItem[] leafItemBlockArray = new BlockItem[totalColorCount];
     public static BlockSapling[] saplingArray = new BlockSapling[totalColorCount];
     public static BlockItem[] saplingItemBlockArray = new BlockItem[totalColorCount];
     public static FlowerBlock[] tulipArray = new FlowerBlock[totalColorCount];
     public static BlockItem[] tuLipItemBlockArray = new BlockItem[totalColorCount];
     public static WorkbenchBlock[] workbenchArray = new WorkbenchBlock[totalColorCount];
     public static BlockItem[] workbenchItemBlockArray = new BlockItem[totalColorCount];
-    public static BlockLog[] logArray = new BlockLog[totalColorCount];
-    public static BlockItem[] logItemBlockArray = new BlockItem[totalColorCount];
+
+    //Planks
+    public static BasicBlock[] oakPlankArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] oakPlankItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] birchPlankArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] birchPlankItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] acaciaPlankArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] acacicaPlankItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] darkOakPlankArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] darkOakPlankItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] junglePlankArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] junglePlankItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] sprucePlankArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] sprucePlankItemBlockArray = new BlockItem[totalColorCount];
+
+    //Leaves
+    public static LeafBlock[] oakLeafArray = new LeafBlock[totalColorCount];
+    public static BlockItem[] oakLeafItemBlockArray = new BlockItem[totalColorCount];
+    public static LeafBlock[] spruceLafArray = new LeafBlock[totalColorCount];
+    public static BlockItem[] spruceLeafItemBlockArray = new BlockItem[totalColorCount];
+    public static LeafBlock[] jungleLeafArray = new LeafBlock[totalColorCount];
+    public static BlockItem[] jungleLeafItemBlockArray = new BlockItem[totalColorCount];
+    public static LeafBlock[] birchLeafArray = new LeafBlock[totalColorCount];
+    public static BlockItem[] birchLeafItemBlockArray = new BlockItem[totalColorCount];
+    public static LeafBlock[] acaciaLeafArray = new LeafBlock[totalColorCount];
+    public static BlockItem[] acaciaLeafItemBlockArray = new BlockItem[totalColorCount];
+    public static LeafBlock[] darkOakLeafArray = new LeafBlock[totalColorCount];
+    public static BlockItem[] darkOakLeafItemBlockArray = new BlockItem[totalColorCount];
+
+    //Logs
+    public static BlockLog[] oakLogArray = new BlockLog[totalColorCount];
+    public static BlockItem[] oakLogItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLog[] birchLogArray = new BlockLog[totalColorCount];
+    public static BlockItem[] birchLogItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLog[] darkOakLogArray = new BlockLog[totalColorCount];
+    public static BlockItem[] darkOakLogItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLog[] jungleLogArray = new BlockLog[totalColorCount];
+    public static BlockItem[] jungleLogItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLog[] acaciaLogArray = new BlockLog[totalColorCount];
+    public static BlockItem[] acaciaLogItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLog[] spruceLogArray = new BlockLog[totalColorCount];
+    public static BlockItem[] spruceLogItemBlockArray = new BlockItem[totalColorCount];
+    
+    //Fence
+    public static BlockFence[] oakFenceArray = new BlockFence[totalColorCount];
+    public static BlockItem[] oakFenceItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockFence[] birchFenceArray = new BlockFence[totalColorCount];
+    public static BlockItem[] birchFenceItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockFence[] darkOakFenceArray = new BlockFence[totalColorCount];
+    public static BlockItem[] darkOakFenceItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockFence[] jungleFenceArray = new BlockFence[totalColorCount];
+    public static BlockItem[] jungleFenceItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockFence[] acaciaFenceArray = new BlockFence[totalColorCount];
+    public static BlockItem[] acaciaFenceItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockFence[] spruceFenceArray = new BlockFence[totalColorCount];
+    public static BlockItem[] spruceFenceItemBlockArray = new BlockItem[totalColorCount];
+
+
     public static BasicBlock[] sandstoneArray = new BasicBlock[totalColorCount];
     public static BlockItem[] sandstoneItemBlockArray = new BlockItem[totalColorCount];
     public static BasicBlock[] sandstoneCarvedArray = new BasicBlock[totalColorCount];
@@ -76,16 +129,25 @@ public class MDBlock {
     public static BlockItem[] andesiteItemBlockArray = new BlockItem[totalColorCount];
     public static BasicBlock[] dioriteArray = new BasicBlock[totalColorCount];
     public static BlockItem[] dioriteItemBlockArray = new BlockItem[totalColorCount];
-    public static BasicBlock[] concretePowderArray = new BasicBlock[totalColorCount];
+    public static BlockFalling[] concretePowderArray = new BlockFalling[totalColorCount];
     public static BlockItem[] concretePowderItemBlockArray = new BlockItem[totalColorCount];
-    public static BlockLadder[] ladderBlockArray = new BlockLadder[totalColorCount];
+    public static BasicBlock[] concreteArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] concreteItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockLadder[] ladderArray = new BlockLadder[totalColorCount];
     public static BlockItem[] ladderBlockItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockPiston[] pistonArray = new BlockPiston[totalColorCount];
+    public static BlockItem[] pistonItemBlockArray = new BlockItem[totalColorCount];
+    public static BlockPistonHead[] pistonHeadArray = new BlockPistonHead[totalColorCount];
+    public static BlockItem[] pistonHeadItemBlockArray = new BlockItem[totalColorCount];
+    public static BasicBlock[] hardenedClayArray = new BasicBlock[totalColorCount];
+    public static BlockItem[] hardenedClayItemBlockArray = new BlockItem[totalColorCount];
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
 
-    public static void initRegistries() {
+    public static void initRegistries()
+    {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
@@ -95,7 +157,8 @@ public class MDBlock {
                 .resolve(Reference.MOD_ID + "-server.toml").toString());
     }
 
-    public static void initialize() {
+    public static void initialize()
+    {
         //Init the registries that are added to in the rest of the calls.
         initRegistries();
 
@@ -115,29 +178,96 @@ public class MDBlock {
         registerGlowstone();
         registerCoal();
         registerSoulsand();
-        registerPlank();
+        registerOakPlank();
         registerGlassFoggy();
         registerQuartz();
         registerSapling();
         registerWorkbench();
         registerTulip();
         registerRedstone();
-        registerLog();
+        registerOakLog();
         registerSandstone();
         registerSandstoneCarved();
         registerSandstonesmooth();
         registerAndesite();
         registerDiorite();
         registerConcretePowder();
+        registerHardenedClay();
+        registerConcrete();
+
+        //Wood things
+        registerAcaciaLog();
+        registerAcaciaLeaves();
+        registerAcaciaPLanks();
+        registerBirchLog();
+        registerBirchLeaves();
+        registerBirchPlanks();
+        registerJungleLog();
+        registerJungleLeaves();
+        registerJunglePLanks();
+        registerSpruceLog();
+        registerSpruceLeaves();
+        registerSprucePLanks();
+        registerDarkOakLog();
+        registerDarkOakLeaves();
+        registerDarkOakPLanks();
+        registerJungleFence();
+        registerAcaciaFence();
+        registerDarkOakFence();
+        registerSpruceFence();
+        registerOakFence();
+
         //registerLadder();
+        //registerPiston();
     }
+
+    private static void registerHardenedClay()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String hardendClay_name = "hardendclay_" + color;
+            final BasicBlock hardendClay = new BasicBlock(Reference.BLOCK_INFO_TERRACOTTA);
+            final BlockItem hardendClayItem = new BlockItem(hardendClay, new Item.Properties().group(MoreDyes.tabBlocks));
+            hardenedClayArray[i] = hardendClay;
+            hardenedClayItemBlockArray[i] = hardendClayItem;
+            BLOCKS.register(hardendClay_name, () -> hardendClay);
+            ITEMS.register(hardendClay_name, () -> hardendClayItem);
+
+        }
+    }
+
+    private static void registerPiston()
+    {
+        BlockInfo info = Reference.BLOCK_INFO_PISTON;
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String piston_name = "piston_" + color;
+            String piston_head_name = "pistonhead_" + color;
+            final BlockPiston piston = new BlockPiston(false, AbstractBlock.Properties.create(info.blockMaterial)
+                    .hardnessAndResistance(info.hardness, info.resistance).setRequiresTool().sound(info.sound));
+            final BlockPistonHead pistonHead = new BlockPistonHead(AbstractBlock.Properties.from(piston));
+            final BlockItem pistonItem = new BlockItem(piston, new Item.Properties().group(MoreDyes.tabBlocks));
+            final BlockItem pistonHeadItem = new BlockItem(pistonHead, new Item.Properties().group(MoreDyes.tabBlocks));
+            pistonArray[i] = piston;
+            pistonHeadArray[i] = pistonHead;
+            pistonItemBlockArray[i] = pistonItem;
+            pistonHeadItemBlockArray[i] = pistonHeadItem;
+            BLOCKS.register(piston_name, () -> piston);
+            BLOCKS.register(piston_head_name, () -> pistonHead);
+            ITEMS.register(piston_name, () -> pistonItem);
+            ITEMS.register(piston_head_name, () -> pistonHeadItem);
+        }
+    }
+
     private static void registerDiorite()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String diorite_name = "diorite_" + color;
-            final BasicBlock diorite = new BasicBlock(color, Reference.BLOCK_INFO_DIORITE);
+            final BasicBlock diorite = new BasicBlock(Reference.BLOCK_INFO_DIORITE);
             final BlockItem dioriteItem = new BlockItem(diorite, new Item.Properties().group(MoreDyes.tabBlocks));
             dioriteArray[i] = diorite;
             dioriteItemBlockArray[i] = dioriteItem;
@@ -146,9 +276,10 @@ public class MDBlock {
 
         }
     }
+
     private static void registerLadder()
     {
-        BlockInfo info = Reference.BLOCK_INFO_LOG;
+        BlockInfo info = Reference.BLOCK_INFO_OAK_LOG;
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -157,20 +288,21 @@ public class MDBlock {
                     .hardnessAndResistance(info.hardness, info.resistance)
                     .harvestLevel(info.harvestLevel).sound(info.sound));
             final BlockItem ladderItem = new BlockItem(ladder, new Item.Properties().group(MoreDyes.tabBlocks));
-            ladderBlockArray[i] = ladder;
+            ladderArray[i] = ladder;
             ladderBlockItemBlockArray[i] = ladderItem;
             BLOCKS.register(ladder_name, () -> ladder);
             ITEMS.register(ladder_name, () -> ladderItem);
 
         }
     }
+
     private static void registerConcretePowder()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String concretePowder_name = "concretepowder_" + color;
-            final BasicBlock concretePowder = new BasicBlock(color, Reference.BLOCK_INFO_CONCRETE_POWDER);
+            final BlockFalling concretePowder = new BlockFalling(Reference.BLOCK_INFO_CONCRETE_POWDER);
             final BlockItem concretePowderItem = new BlockItem(concretePowder, new Item.Properties().group(MoreDyes.tabBlocks));
             concretePowderArray[i] = concretePowder;
             concretePowderItemBlockArray[i] = concretePowderItem;
@@ -179,13 +311,29 @@ public class MDBlock {
 
         }
     }
+    private static void registerConcrete()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String block_name = "concrete_" + color;
+            final BasicBlock block = new BasicBlock(Reference.BLOCK_INFO_CONCRETE);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabBlocks));
+            concreteArray[i] = block;
+            concretePowderItemBlockArray[i] = blockItem;
+            BLOCKS.register(block_name, () -> block);
+            ITEMS.register(block_name, () -> blockItem);
+
+        }
+    }
+
     private static void registerAndesite()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String andesite_name = "andesite_" + color;
-            final BasicBlock andesite = new BasicBlock(color, Reference.BLOCK_INFO_ANDESITE);
+            final BasicBlock andesite = new BasicBlock(Reference.BLOCK_INFO_ANDESITE);
             final BlockItem andesiteItem = new BlockItem(andesite, new Item.Properties().group(MoreDyes.tabBlocks));
             andesiteArray[i] = andesite;
             andesiteItemBlockArray[i] = andesiteItem;
@@ -194,13 +342,14 @@ public class MDBlock {
 
         }
     }
+
     private static void registerSandstone()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String sandstone_name = "sandstone_" + color;
-            final BasicBlock sandstone = new BasicBlock(color, Reference.BLOCK_INFO_SANDSTONE);
+            final BasicBlock sandstone = new BasicBlock(Reference.BLOCK_INFO_SANDSTONE);
             final BlockItem sandstoneItem = new BlockItem(sandstone, new Item.Properties().group(MoreDyes.tabBlocks));
             sandstoneArray[i] = sandstone;
             sandstoneItemBlockArray[i] = sandstoneItem;
@@ -209,13 +358,14 @@ public class MDBlock {
 
         }
     }
+
     private static void registerSandstoneCarved()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String sandstone_name = "sandstonecarved_" + color;
-            final BasicBlock sandstoneCarved = new BasicBlock(color, Reference.BLOCK_INFO_SANDSTONE);
+            final BasicBlock sandstoneCarved = new BasicBlock(Reference.BLOCK_INFO_SANDSTONE);
             final BlockItem sandstoneCarvedItem = new BlockItem(sandstoneCarved, new Item.Properties().group(MoreDyes.tabBlocks));
             sandstoneCarvedArray[i] = sandstoneCarved;
             sandstoneCarvedItemBlockArray[i] = sandstoneCarvedItem;
@@ -223,13 +373,14 @@ public class MDBlock {
             ITEMS.register(sandstone_name, () -> sandstoneCarvedItem);
         }
     }
+
     private static void registerSandstonesmooth()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String sandstone_name = "sandstonesmooth_" + color;
-            final BasicBlock sandstoneSmooth = new BasicBlock(color, Reference.BLOCK_INFO_SANDSTONE);
+            final BasicBlock sandstoneSmooth = new BasicBlock(Reference.BLOCK_INFO_SANDSTONE);
             final BlockItem sandstoneSmoothItem = new BlockItem(sandstoneSmooth, new Item.Properties().group(MoreDyes.tabBlocks));
             sandstoneSmoothArray[i] = sandstoneSmooth;
             sandstoneSmoothItemBlockArray[i] = sandstoneSmoothItem;
@@ -237,13 +388,14 @@ public class MDBlock {
             ITEMS.register(sandstone_name, () -> sandstoneSmoothItem);
         }
     }
+
     private static void registerGlass()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String glass_name = "glass_" + color;
-            final BlockGlass glass = new BlockGlass(color, Reference.BLOCK_INFO_GLASS, true);
+            final BlockGlass glass = new BlockGlass(Reference.BLOCK_INFO_GLASS);
             final BlockItem glassItem = new BlockItem(glass, new Item.Properties().group(MoreDyes.tabBlocks));
             RenderTypeLookup.setRenderLayer(glass, RenderType.getCutout());
             glassArray[i] = glass;
@@ -261,7 +413,7 @@ public class MDBlock {
             String color = ColorStrings.ALL[i];
 
             String sand_name = "sand_" + color;
-            final BlockFalling sand = new BlockFalling(color, Reference.BLOCK_INFO_SAND);
+            final BlockFalling sand = new BlockFalling(Reference.BLOCK_INFO_SAND);
             final BlockItem sandItem = new BlockItem(sand, new Item.Properties().group(MoreDyes.tabBlocks));
             sandArray[i] = sand;
             sandItemBlockArray[i] = sandItem;
@@ -277,10 +429,10 @@ public class MDBlock {
             String color = ColorStrings.ALL[i];
 
             String leaf_name = "leaf_" + color;
-            final LeafBlock leaf = new LeafBlock(color, Reference.BLOCK_INFO_LEAVES);
+            final LeafBlock leaf = new LeafBlock(Reference.BLOCK_INFO_LEAVES);
             final BlockItem leafItem = new BlockItem(leaf, new Item.Properties().group(MoreDyes.tabTrees));
-            leafArray[i] = leaf;
-            leafItemBlockArray[i] = leafItem;
+            oakLeafArray[i] = leaf;
+            oakLeafItemBlockArray[i] = leafItem;
             BLOCKS.register(leaf_name, () -> leaf);
             ITEMS.register(leaf_name, () -> leafItem);
         }
@@ -293,7 +445,7 @@ public class MDBlock {
             String color = ColorStrings.ALL[i];
 
             String brick_name = "brick_" + color;
-            final BasicBlock brick = new BasicBlock(color, Reference.BLOCK_INFO_BRICK);
+            final BasicBlock brick = new BasicBlock(Reference.BLOCK_INFO_BRICK);
             final BlockItem brickItem = new BlockItem(brick, new Item.Properties().group(MoreDyes.tabBlocks));
             brickArray[i] = brick;
             brickItemBlockArray[i] = brickItem;
@@ -308,7 +460,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String clay_name = "clay_" + color;
-            final BasicBlock clay = new BasicBlock(color, Reference.BLOCK_INFO_CLAY);
+            final BasicBlock clay = new BasicBlock(Reference.BLOCK_INFO_CLAY);
             final BlockItem clayItem = new BlockItem(clay, new Item.Properties().group(MoreDyes.tabBlocks));
             clayArray[i] = clay;
             clayItemBlockArray[i] = clayItem;
@@ -323,7 +475,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String wool_name = "wool_" + color;
-            final BasicBlock wool = new BasicBlock(color, Reference.BLOCK_INFO_WOOL);
+            final BasicBlock wool = new BasicBlock(Reference.BLOCK_INFO_WOOL);
             final BlockItem woolItem = new BlockItem(wool, new Item.Properties().group(MoreDyes.tabBlocks));
             woolArray[i] = wool;
             woolItemBlockArray[i] = woolItem;
@@ -338,7 +490,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String cobble_name = "cobble_" + color;
-            final BasicBlock cobble = new BasicBlock(color, Reference.BLOCK_INFO_COBBLE);
+            final BasicBlock cobble = new BasicBlock(Reference.BLOCK_INFO_COBBLE);
             final BlockItem cobbleItem = new BlockItem(cobble, new Item.Properties().group(MoreDyes.tabBlocks));
             cobbleArray[i] = cobble;
             cobbleItemBlockArray[i] = cobbleItem;
@@ -353,7 +505,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String stonebrick_name = "stonebrick_" + color;
-            final BasicBlock stonebrick = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK);
+            final BasicBlock stonebrick = new BasicBlock(Reference.BLOCK_INFO_STONE_BRICK);
             final BlockItem stonebrickItem = new BlockItem(stonebrick, new Item.Properties().group(MoreDyes.tabBlocks));
             stonebrickArray[i] = stonebrick;
             stonebrickItemBlockArray[i] = stonebrickItem;
@@ -368,7 +520,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String stonebrickCracked_name = "stonebrickcracked_" + color;
-            final BasicBlock stonebrickCracked = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK_CRACKED);
+            final BasicBlock stonebrickCracked = new BasicBlock(Reference.BLOCK_INFO_STONE_BRICK_CRACKED);
             final BlockItem stonebrickCrackedItem = new BlockItem(stonebrickCracked, new Item.Properties().group(MoreDyes.tabBlocks));
             stonebrickCrackedArray[i] = stonebrickCracked;
             stonebrickCrackedItemBlockArray[i] = stonebrickCrackedItem;
@@ -383,7 +535,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String stonebrickCarved_name = "stonebrickcarved_" + color;
-            final BasicBlock stonebrickCarved = new BasicBlock(color, Reference.BLOCK_INFO_STONE_BRICK_CARVED);
+            final BasicBlock stonebrickCarved = new BasicBlock(Reference.BLOCK_INFO_STONE_BRICK_CARVED);
             final BlockItem stonebrickCarvedItem = new BlockItem(stonebrickCarved, new Item.Properties().group(MoreDyes.tabBlocks));
             stonebrickCarvedArray[i] = stonebrickCarved;
             stonebrickCarvedItemBlockArray[i] = stonebrickCarvedItem;
@@ -398,7 +550,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String stone_name = "stone_" + color;
-            final BasicBlock stone = new BasicBlock(color, Reference.BLOCK_INFO_STONE);
+            final BasicBlock stone = new BasicBlock(Reference.BLOCK_INFO_STONE);
             final BlockItem stoneItem = new BlockItem(stone, new Item.Properties().group(MoreDyes.tabBlocks));
             stoneArray[i] = stone;
             stoneItemBlockArray[i] = stoneItem;
@@ -413,7 +565,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String obsidian_name = "obsidian_" + color;
-            final BasicBlock obsidian = new BasicBlock(color, Reference.BLOCK_INFO_OBSIDIAN);
+            final BasicBlock obsidian = new BasicBlock(Reference.BLOCK_INFO_OBSIDIAN);
             final BlockItem obsidianItem = new BlockItem(obsidian, new Item.Properties().group(MoreDyes.tabBlocks));
             obsidianArray[i] = obsidian;
             obsidianItemBlockArray[i] = obsidianItem;
@@ -428,7 +580,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String lapis_name = "lapis_" + color;
-            final BasicBlock lapis = new BasicBlock(color, Reference.BLOCK_INFO_LAPIS);
+            final BasicBlock lapis = new BasicBlock(Reference.BLOCK_INFO_LAPIS);
             final BlockItem lapisItem = new BlockItem(lapis, new Item.Properties().group(MoreDyes.tabBlocks));
             lapisArray[i] = lapis;
             lapisItemBlockArray[i] = lapisItem;
@@ -443,7 +595,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String glowstone_name = "glowstone_" + color;
-            final BasicBlock glowstone = new BasicBlock(color, Reference.BLOCK_INFO_GLOWSTONE);
+            final BasicBlock glowstone = new BasicBlock(Reference.BLOCK_INFO_GLOWSTONE);
             final BlockItem glowstoneItem = new BlockItem(glowstone, new Item.Properties().group(MoreDyes.tabBlocks));
             glowstoneArray[i] = glowstone;
             glowstoneItemBlockArray[i] = glowstoneItem;
@@ -458,7 +610,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String coal_name = "coal_" + color;
-            final BasicBlock coal = new BasicBlock(color, Reference.BLOCK_INFO_COAL);
+            final BasicBlock coal = new BasicBlock(Reference.BLOCK_INFO_COAL);
             final BlockItem coalItem = new BlockItem(coal, new Item.Properties().group(MoreDyes.tabBlocks));
             coalArray[i] = coal;
             coalItemBlockArray[i] = coalItem;
@@ -473,7 +625,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String soulsand_name = "soulsand_" + color;
-            final BasicBlock soulsand = new BasicBlock(color, Reference.BLOCK_INFO_SOULSAND);
+            final BasicBlock soulsand = new BasicBlock(Reference.BLOCK_INFO_SOULSAND);
             final BlockItem soulsandItem = new BlockItem(soulsand, new Item.Properties().group(MoreDyes.tabBlocks));
             soulsandArray[i] = soulsand;
             soulsandItemBlockArray[i] = soulsandItem;
@@ -482,16 +634,16 @@ public class MDBlock {
         }
     }
 
-    private static void registerPlank()
+    private static void registerOakPlank()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             String plank_name = "plank_" + color;
-            final BasicBlock plank = new BasicBlock(color, Reference.BLOCK_INFO_PLANK);
+            final BasicBlock plank = new BasicBlock(Reference.BLOCK_INFO_OAK_PLANKS);
             final BlockItem plankItem = new BlockItem(plank, new Item.Properties().group(MoreDyes.tabBlocks));
-            plankArray[i] = plank;
-            plankItemBlockArray[i] = plankItem;
+            oakPlankArray[i] = plank;
+            oakPlankItemBlockArray[i] = plankItem;
             BLOCKS.register(plank_name, () -> plank);
             ITEMS.register(plank_name, () -> plankItem);
         }
@@ -504,7 +656,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String redstone_name = "redstone_" + color;
-            final PoweredBlock redstone = new PoweredBlock(color, Reference.BLOCK_INFO_REDSTONE);
+            final PoweredBlock redstone = new PoweredBlock(Reference.BLOCK_INFO_REDSTONE);
             final BlockItem redstoneItem = new BlockItem(redstone, new Item.Properties().group(MoreDyes.tabBlocks));
             redstoneArray[i] = redstone;
             redstoneItemBlockArray[i] = redstoneItem;
@@ -520,7 +672,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String quartz_name = "quartz_" + color;
-            final BasicBlock quartz = new BasicBlock(color, Reference.BLOCK_INFO_QUARTZ);
+            final BasicBlock quartz = new BasicBlock(Reference.BLOCK_INFO_QUARTZ);
             final BlockItem quartzItem = new BlockItem(quartz, new Item.Properties().group(MoreDyes.tabBlocks));
             quartzArray[i] = quartz;
             quartzItemBlockArray[i] = quartzItem;
@@ -536,7 +688,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String glassFoggy_name = "glassfoggy_" + color;
-            final BlockGlass glassFoggy = new BlockGlass(color, Reference.BLOCK_INFO_GLASS_FOGGY, true);
+            final BlockGlass glassFoggy = new BlockGlass(Reference.BLOCK_INFO_GLASS_FOGGY);
             final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().group(MoreDyes.tabBlocks));
             glassFoggyArray[i] = glassFoggy;
             glassFoggyItemBlockArray[i] = glassFoggyItem;
@@ -551,7 +703,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String sapling_name = "sapling_" + color;
-            final BlockSapling sapling = new BlockSapling(color, Reference.BLOCK_INFO_SAPLING);
+            final BlockSapling sapling = new BlockSapling(Reference.BLOCK_INFO_SAPLING);
             final BlockItem saplingItem = new BlockItem(sapling, new Item.Properties().group(MoreDyes.tabTrees));
             saplingArray[i] = sapling;
             saplingItemBlockArray[i] = saplingItem;
@@ -567,7 +719,7 @@ public class MDBlock {
         {
             String color = ColorStrings.ALL[i];
             String tulip_name = "tulip_" + color;
-            final FlowerBlock tulip = new FlowerBlock(color, Reference.BLOCK_INFO_TULIP);
+            final FlowerBlock tulip = new FlowerBlock(Reference.BLOCK_INFO_TULIP);
             final BlockItem tulipItem = new BlockItem(tulip, new Item.Properties().group(MoreDyes.tabPlants));
             tulipArray[i] = tulip;
             tuLipItemBlockArray[i] = tulipItem;
@@ -590,19 +742,327 @@ public class MDBlock {
             ITEMS.register(workbench_name, () -> workbenchItem);
         }
     }
-    private static void registerLog ()
+
+    private static void registerOakLog()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
-            String workbench_name = "log_" + color;
-            final BlockLog log = new BlockLog(color, Reference.BLOCK_INFO_LOG);
+            String oaklog_name = "oaklog_" + color;
+            final BlockLog log = new BlockLog(Reference.BLOCK_INFO_OAK_LOG);
             final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
-            logArray[i] = log;
-            logItemBlockArray[i] = logItem;
-            BLOCKS.register(workbench_name, () -> log);
-            ITEMS.register(workbench_name, () -> logItem);
+            oakLogArray[i] = log;
+            oakLogItemBlockArray[i] = logItem;
+            BLOCKS.register(oaklog_name, () -> log);
+            ITEMS.register(oaklog_name, () -> logItem);
         }
+    }
 
+    private static void registerBirchLog()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String log_name = "birchlog_" + color;
+            final BlockLog log = new BlockLog(Reference.BLOCK_INFO_BIRCH_LOG);
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
+            birchLogArray[i] = log;
+            birchLogItemBlockArray[i] = logItem;
+            BLOCKS.register(log_name, () -> log);
+            ITEMS.register(log_name, () -> logItem);
+        }
+    }
+
+    private static void registerBirchLeaves()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String log_name = "birchleaves_" + color;
+            final LeafBlock leaves = new LeafBlock(Reference.BLOCK_INFO_LEAVES);
+            final BlockItem leavesItem = new BlockItem(leaves, new Item.Properties().group(MoreDyes.tabTrees));
+            birchLeafArray[i] = leaves;
+            birchLogItemBlockArray[i] = leavesItem;
+            BLOCKS.register(log_name, () -> leaves);
+            ITEMS.register(log_name, () -> leavesItem);
+        }
+    }
+
+    private static void registerBirchPlanks()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "birchplanks_" + color;
+            final BasicBlock block = new BasicBlock(Reference.BLOCK_INFO_BIRCH_PLANKS);
+            final BlockItem leavesItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            birchPlankArray[i] = block;
+            birchLogItemBlockArray[i] = leavesItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> leavesItem);
+        }
+    }
+
+    private static void registerJungleLog()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String log_name = "junglelog_" + color;
+            final BlockLog log = new BlockLog(Reference.BLOCK_INFO_JUNGLE_LOG);
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
+            jungleLogArray[i] = log;
+            jungleLogItemBlockArray[i] = logItem;
+            BLOCKS.register(log_name, () -> log);
+            ITEMS.register(log_name, () -> logItem);
+        }
+    }
+
+    private static void registerJunglePLanks()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "jungleplanks_" + color;
+            final BasicBlock block = new BasicBlock(Reference.BLOCK_INFO_BIRCH_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            junglePlankArray[i] = block;
+            junglePlankItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+
+    private static void registerJungleLeaves()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "jungleleaves_" + color;
+            final LeafBlock block = new LeafBlock(Reference.BLOCK_INFO_BIRCH_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            jungleLeafArray[i] = block;
+            junglePlankItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+
+    private static void registerAcaciaLog()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String log_name = "acacialog_" + color;
+            final BlockLog log = new BlockLog(Reference.BLOCK_INFO_ACACIA_LOG);
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
+            acaciaLogArray[i] = log;
+            acaciaLogItemBlockArray[i] = logItem;
+            BLOCKS.register(log_name, () -> log);
+            ITEMS.register(log_name, () -> logItem);
+        }
+    }
+
+    private static void registerAcaciaPLanks()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "acaciaplanks_" + color;
+            final BasicBlock block = new BasicBlock(Reference.BLOCK_INFO_BIRCH_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            acaciaPlankArray[i] = block;
+            acacicaPlankItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerBlocksNotWorking(String blockname,BlockInfo info) //Do Not use
+    {//TODO: Figure out Lambda and pass class/function as a parameter instead
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = blockname + color;
+            final LeafBlock block = new LeafBlock(info);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            acaciaLeafArray[i] = block;
+            acaciaLeafItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+
+    private static void registerAcaciaLeaves()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "acacialeaves_" + color;
+            final LeafBlock block = new LeafBlock(Reference.BLOCK_INFO_ACACIA_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            acaciaLeafArray[i] = block;
+            acaciaLeafItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+
+    private static void registerSpruceLog()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String log_name = "sprucelog_" + color;
+            final BlockLog log = new BlockLog(Reference.BLOCK_INFO_SPRUCE_LOG);
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
+            spruceLogArray[i] = log;
+            spruceLogItemBlockArray[i] = logItem;
+            BLOCKS.register(log_name, () -> log);
+            ITEMS.register(log_name, () -> logItem);
+        }
+    }
+
+    private static void registerSprucePLanks()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "spruceplanks_" + color;
+            final BasicBlock block = new BasicBlock(Reference.BLOCK_INFO_SPRUCE_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            sprucePlankArray[i] = block;
+            sprucePlankItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerSpruceFence()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "sprucefence_" + color;
+            final BlockFence block = new BlockFence(Reference.BLOCK_INFO_SPRUCE_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            spruceFenceArray[i] = block;
+            spruceFenceItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerOakFence()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "oakfence_" + color;
+            final BlockFence block = new BlockFence(Reference.BLOCK_INFO_OAK_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            oakFenceArray[i] = block;
+            oakFenceItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerDarkOakFence()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "darkoakfence_" + color;
+            final BlockFence block = new BlockFence(Reference.BLOCK_INFO_DARK_OAK_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            darkOakFenceArray[i] = block;
+            darkOakFenceItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerAcaciaFence()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "acaciafence_" + color;
+            final BlockFence block = new BlockFence(Reference.BLOCK_INFO_ACACIA_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            acaciaFenceArray[i] = block;
+            acaciaFenceItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerJungleFence()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "junglefence_" + color;
+            final BlockFence block = new BlockFence(Reference.BLOCK_INFO_JUNGLE_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            jungleFenceArray[i] = block;
+            jungleFenceItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+    private static void registerSpruceLeaves()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "spruceleaves_" + color;
+            final LeafBlock block = new LeafBlock(Reference.BLOCK_INFO_SPRUCE_LOG);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            spruceLafArray[i] = block;
+            spruceLeafItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+
+    private static void registerDarkOakLog()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String log_name = "darkoaklog_" + color;
+            final BlockLog log = new BlockLog(Reference.BLOCK_INFO_DARK_OAK_LOG);
+            final BlockItem logItem = new BlockItem(log, new Item.Properties().group(MoreDyes.tabTrees));
+            darkOakLogArray[i] = log;
+            darkOakLogItemBlockArray[i] = logItem;
+            BLOCKS.register(log_name, () -> log);
+            ITEMS.register(log_name, () -> logItem);
+        }
+    }
+
+    private static void registerDarkOakPLanks()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "darkoakplanks_" + color;
+            final BasicBlock block = new BasicBlock(Reference.BLOCK_INFO_DARK_OAK_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            darkOakPlankArray[i] = block;
+            acacicaPlankItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
+    }
+
+    private static void registerDarkOakLeaves()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            String blockName = "darkoakleaves_" + color;
+            final LeafBlock block = new LeafBlock(Reference.BLOCK_INFO_BIRCH_PLANKS);
+            final BlockItem blockItem = new BlockItem(block, new Item.Properties().group(MoreDyes.tabTrees));
+            darkOakLeafArray[i] = block;
+            darkOakLeafItemBlockArray[i] = blockItem;
+            BLOCKS.register(blockName, () -> block);
+            ITEMS.register(blockName, () -> blockItem);
+        }
     }
 }
