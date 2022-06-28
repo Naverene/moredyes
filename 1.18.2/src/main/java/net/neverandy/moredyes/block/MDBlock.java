@@ -337,7 +337,6 @@ public class MDBlock
             concreteItemBlockArray[i] = blockItem;
             BLOCKS.register(block_name, () -> block);
             ITEMS.register(block_name, () -> blockItem);
-
         }
     }
 
@@ -353,7 +352,6 @@ public class MDBlock
             andesiteItemBlockArray[i] = andesiteItem;
             BLOCKS.register(andesite_name, () -> andesite);
             ITEMS.register(andesite_name, () -> andesiteItem);
-
         }
     }
 
@@ -369,7 +367,6 @@ public class MDBlock
             sandstoneItemBlockArray[i] = sandstoneItem;
             BLOCKS.register(sandstone_name, () -> sandstone);
             ITEMS.register(sandstone_name, () -> sandstoneItem);
-
         }
     }
 
