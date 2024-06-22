@@ -1,0 +1,3724 @@
+item.whiteDye_0.name=ECBF99 Dye
+item.whiteDye_1.name=D9A6EC Dye
+item.whiteDye_2.name=B3CCEC Dye
+item.whiteDye_3.name=F2F299 Dye
+item.whiteDye_4.name=BFE68C Dye
+item.whiteDye_5.name=F9BFD2 Dye
+item.whiteDye_6.name=CCCCCC Dye
+item.whiteDye_7.name=A6BFCC Dye
+item.whiteDye_8.name=BF9FD9 Dye
+item.whiteDye_9.name=99A6D9 Dye
+item.whiteDye_10.name=B3A699 Dye
+item.whiteDye_11.name=B3BF99 Dye
+item.whiteDye_12.name=CC9999 Dye
+
+tile.whiteMixWool_0.name=ECBF99 Wool
+tile.whiteMixWool_1.name=D9A6EC Wool
+tile.whiteMixWool_2.name=B3CCEC Wool
+tile.whiteMixWool_3.name=F2F299 Wool
+tile.whiteMixWool_4.name=BFE68C Wool
+tile.whiteMixWool_5.name=F9BFD2 Wool
+tile.whiteMixWool_6.name=CCCCCC Wool
+tile.whiteMixWool_7.name=A6BFCC Wool
+tile.whiteMixWool_8.name=BF9FD9 Wool
+tile.whiteMixWool_9.name=99A6D9 Wool
+tile.whiteMixWool_10.name=B3A699 Wool
+tile.whiteMixWool_11.name=B3BF99 Wool
+tile.whiteMixWool_12.name=CC9999 Wool
+
+tile.whiteMixStonebrick_0.name=ECBF99 Stone Brick
+tile.whiteMixStonebrick_1.name=D9A6EC Stone Brick
+tile.whiteMixStonebrick_2.name=B3CCEC Stone Brick
+tile.whiteMixStonebrick_3.name=F2F299 Stone Brick
+tile.whiteMixStonebrick_4.name=BFE68C Stone Brick
+tile.whiteMixStonebrick_5.name=F9BFD2 Stone Brick
+tile.whiteMixStonebrick_6.name=CCCCCC Stone Brick
+tile.whiteMixStonebrick_7.name=A6BFCC Stone Brick
+tile.whiteMixStonebrick_8.name=BF9FD9 Stone Brick
+tile.whiteMixStonebrick_9.name=99A6D9 Stone Brick
+tile.whiteMixStonebrick_10.name=B3A699 Stone Brick
+tile.whiteMixStonebrick_11.name=B3BF99 Stone Brick
+tile.whiteMixStonebrick_12.name=CC9999 Stone Brick
+
+tile.whiteMixStonebrickcracked_0.name=ECBF99 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_1.name=D9A6EC Cracked Stone Brick
+tile.whiteMixStonebrickcracked_2.name=B3CCEC Cracked Stone Brick
+tile.whiteMixStonebrickcracked_3.name=F2F299 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_4.name=BFE68C Cracked Stone Brick
+tile.whiteMixStonebrickcracked_5.name=F9BFD2 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_6.name=CCCCCC Cracked Stone Brick
+tile.whiteMixStonebrickcracked_7.name=A6BFCC Cracked Stone Brick
+tile.whiteMixStonebrickcracked_8.name=BF9FD9 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_9.name=99A6D9 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_10.name=B3A699 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_11.name=B3BF99 Cracked Stone Brick
+tile.whiteMixStonebrickcracked_12.name=CC9999 Cracked Stone Brick
+
+tile.whiteMixStonebrickcarved_0.name=ECBF99 Carved Stone Brick
+tile.whiteMixStonebrickcarved_1.name=D9A6EC Carved Stone Brick
+tile.whiteMixStonebrickcarved_2.name=B3CCEC Carved Stone Brick
+tile.whiteMixStonebrickcarved_3.name=F2F299 Carved Stone Brick
+tile.whiteMixStonebrickcarved_4.name=BFE68C Carved Stone Brick
+tile.whiteMixStonebrickcarved_5.name=F9BFD2 Carved Stone Brick
+tile.whiteMixStonebrickcarved_6.name=CCCCCC Carved Stone Brick
+tile.whiteMixStonebrickcarved_7.name=A6BFCC Carved Stone Brick
+tile.whiteMixStonebrickcarved_8.name=BF9FD9 Carved Stone Brick
+tile.whiteMixStonebrickcarved_9.name=99A6D9 Carved Stone Brick
+tile.whiteMixStonebrickcarved_10.name=B3A699 Carved Stone Brick
+tile.whiteMixStonebrickcarved_11.name=B3BF99 Carved Stone Brick
+tile.whiteMixStonebrickcarved_12.name=CC9999 Carved Stone Brick
+
+tile.whiteMixStone_0.name=ECBF99 Stone
+tile.whiteMixStone_1.name=D9A6EC Stone
+tile.whiteMixStone_2.name=B3CCEC Stone
+tile.whiteMixStone_3.name=F2F299 Stone
+tile.whiteMixStone_4.name=BFE68C Stone
+tile.whiteMixStone_5.name=F9BFD2 Stone
+tile.whiteMixStone_6.name=CCCCCC Stone
+tile.whiteMixStone_7.name=A6BFCC Stone
+tile.whiteMixStone_8.name=BF9FD9 Stone
+tile.whiteMixStone_9.name=99A6D9 Stone
+tile.whiteMixStone_10.name=B3A699 Stone
+tile.whiteMixStone_11.name=B3BF99 Stone
+tile.whiteMixStone_12.name=CC9999 Stone
+
+tile.whiteMixObsidian_0.name=ECBF99 Obsidian
+tile.whiteMixObsidian_1.name=D9A6EC Obsidian
+tile.whiteMixObsidian_2.name=B3CCEC Obsidian
+tile.whiteMixObsidian_3.name=F2F299 Obsidian
+tile.whiteMixObsidian_4.name=BFE68C Obsidian
+tile.whiteMixObsidian_5.name=F9BFD2 Obsidian
+tile.whiteMixObsidian_6.name=CCCCCC Obsidian
+tile.whiteMixObsidian_7.name=A6BFCC Obsidian
+tile.whiteMixObsidian_8.name=BF9FD9 Obsidian
+tile.whiteMixObsidian_9.name=99A6D9 Obsidian
+tile.whiteMixObsidian_10.name=B3A699 Obsidian
+tile.whiteMixObsidian_11.name=B3BF99 Obsidian
+tile.whiteMixObsidian_12.name=CC9999 Obsidian
+
+tile.whiteMixGlowstone_0.name=ECBF99 Glowstone
+tile.whiteMixGlowstone_1.name=D9A6EC Glowstone
+tile.whiteMixGlowstone_2.name=B3CCEC Glowstone
+tile.whiteMixGlowstone_3.name=F2F299 Glowstone
+tile.whiteMixGlowstone_4.name=BFE68C Glowstone
+tile.whiteMixGlowstone_5.name=F9BFD2 Glowstone
+tile.whiteMixGlowstone_6.name=CCCCCC Glowstone
+tile.whiteMixGlowstone_7.name=A6BFCC Glowstone
+tile.whiteMixGlowstone_8.name=BF9FD9 Glowstone
+tile.whiteMixGlowstone_9.name=99A6D9 Glowstone
+tile.whiteMixGlowstone_10.name=B3A699 Glowstone
+tile.whiteMixGlowstone_11.name=B3BF99 Glowstone
+tile.whiteMixGlowstone_12.name=CC9999 Glowstone
+
+tile.whiteMixCoal_0.name=ECBF99 Coal Block
+tile.whiteMixCoal_1.name=D9A6EC Coal Block
+tile.whiteMixCoal_2.name=B3CCEC Coal Block
+tile.whiteMixCoal_3.name=F2F299 Coal Block
+tile.whiteMixCoal_4.name=BFE68C Coal Block
+tile.whiteMixCoal_5.name=F9BFD2 Coal Block
+tile.whiteMixCoal_6.name=CCCCCC Coal Block
+tile.whiteMixCoal_7.name=A6BFCC Coal Block
+tile.whiteMixCoal_8.name=BF9FD9 Coal Block
+tile.whiteMixCoal_9.name=99A6D9 Coal Block
+tile.whiteMixCoal_10.name=B3A699 Coal Block
+tile.whiteMixCoal_11.name=B3BF99 Coal Block
+tile.whiteMixCoal_12.name=CC9999 Coal Block
+
+tile.whiteMixRedstone_0.name=ECBF99 Redstone Block
+tile.whiteMixRedstone_1.name=D9A6EC Redstone Block
+tile.whiteMixRedstone_2.name=B3CCEC Redstone Block
+tile.whiteMixRedstone_3.name=F2F299 Redstone Block
+tile.whiteMixRedstone_4.name=BFE68C Redstone Block
+tile.whiteMixRedstone_5.name=F9BFD2 Redstone Block
+tile.whiteMixRedstone_6.name=CCCCCC Redstone Block
+tile.whiteMixRedstone_7.name=A6BFCC Redstone Block
+tile.whiteMixRedstone_8.name=BF9FD9 Redstone Block
+tile.whiteMixRedstone_9.name=99A6D9 Redstone Block
+tile.whiteMixRedstone_10.name=B3A699 Redstone Block
+tile.whiteMixRedstone_11.name=B3BF99 Redstone Block
+tile.whiteMixRedstone_12.name=CC9999 Redstone Block
+
+tile.whiteMixLapis_0.name=ECBF99 Lapis Block
+tile.whiteMixLapis_1.name=D9A6EC Lapis Block
+tile.whiteMixLapis_2.name=B3CCEC Lapis Block
+tile.whiteMixLapis_3.name=F2F299 Lapis Block
+tile.whiteMixLapis_4.name=BFE68C Lapis Block
+tile.whiteMixLapis_5.name=F9BFD2 Lapis Block
+tile.whiteMixLapis_6.name=CCCCCC Lapis Block
+tile.whiteMixLapis_7.name=A6BFCC Lapis Block
+tile.whiteMixLapis_8.name=BF9FD9 Lapis Block
+tile.whiteMixLapis_9.name=99A6D9 Lapis Block
+tile.whiteMixLapis_10.name=B3A699 Lapis Block
+tile.whiteMixLapis_11.name=B3BF99 Lapis Block
+tile.whiteMixLapis_12.name=CC9999 Lapis Block
+
+tile.whiteMixCobble_0.name=ECBF99 Cobblestone
+tile.whiteMixCobble_1.name=D9A6EC Cobblestone
+tile.whiteMixCobble_2.name=B3CCEC Cobblestone
+tile.whiteMixCobble_3.name=F2F299 Cobblestone
+tile.whiteMixCobble_4.name=BFE68C Cobblestone
+tile.whiteMixCobble_5.name=F9BFD2 Cobblestone
+tile.whiteMixCobble_6.name=CCCCCC Cobblestone
+tile.whiteMixCobble_7.name=A6BFCC Cobblestone
+tile.whiteMixCobble_8.name=BF9FD9 Cobblestone
+tile.whiteMixCobble_9.name=99A6D9 Cobblestone
+tile.whiteMixCobble_10.name=B3A699 Cobblestone
+tile.whiteMixCobble_11.name=B3BF99 Cobblestone
+tile.whiteMixCobble_12.name=CC9999 Cobblestone
+
+tile.whiteMixSoulsand_0.name=ECBF99 Soulsand
+tile.whiteMixSoulsand_1.name=D9A6EC Soulsand
+tile.whiteMixSoulsand_2.name=B3CCEC Soulsand
+tile.whiteMixSoulsand_3.name=F2F299 Soulsand
+tile.whiteMixSoulsand_4.name=BFE68C Soulsand
+tile.whiteMixSoulsand_5.name=F9BFD2 Soulsand
+tile.whiteMixSoulsand_6.name=CCCCCC Soulsand
+tile.whiteMixSoulsand_7.name=A6BFCC Soulsand
+tile.whiteMixSoulsand_8.name=BF9FD9 Soulsand
+tile.whiteMixSoulsand_9.name=99A6D9 Soulsand
+tile.whiteMixSoulsand_10.name=B3A699 Soulsand
+tile.whiteMixSoulsand_11.name=B3BF99 Soulsand
+tile.whiteMixSoulsand_12.name=CC9999 Soulsand
+
+tile.whiteMixQuartz_0.name=ECBF99 Quartz Block
+tile.whiteMixQuartz_1.name=D9A6EC Quartz Block
+tile.whiteMixQuartz_2.name=B3CCEC Quartz Block
+tile.whiteMixQuartz_3.name=F2F299 Quartz Block
+tile.whiteMixQuartz_4.name=BFE68C Quartz Block
+tile.whiteMixQuartz_5.name=F9BFD2 Quartz Block
+tile.whiteMixQuartz_6.name=CCCCCC Quartz Block
+tile.whiteMixQuartz_7.name=A6BFCC Quartz Block
+tile.whiteMixQuartz_8.name=BF9FD9 Quartz Block
+tile.whiteMixQuartz_9.name=99A6D9 Quartz Block
+tile.whiteMixQuartz_10.name=B3A699 Quartz Block
+tile.whiteMixQuartz_11.name=B3BF99 Quartz Block
+tile.whiteMixQuartz_12.name=CC9999 Quartz Block
+
+tile.whiteMixClay_0.name=ECBF99 Hardened Stained Clay
+tile.whiteMixClay_1.name=D9A6EC Hardened Stained Clay
+tile.whiteMixClay_2.name=B3CCEC Hardened Stained Clay
+tile.whiteMixClay_3.name=F2F299 Hardened Stained Clay
+tile.whiteMixClay_4.name=BFE68C Hardened Stained Clay
+tile.whiteMixClay_5.name=F9BFD2 Hardened Stained Clay
+tile.whiteMixClay_6.name=CCCCCC Hardened Stained Clay
+tile.whiteMixClay_7.name=A6BFCC Hardened Stained Clay
+tile.whiteMixClay_8.name=BF9FD9 Hardened Stained Clay
+tile.whiteMixClay_9.name=99A6D9 Hardened Stained Clay
+tile.whiteMixClay_10.name=B3A699 Hardened Stained Clay
+tile.whiteMixClay_11.name=B3BF99 Hardened Stained Clay
+tile.whiteMixClay_12.name=CC9999 Hardened Stained Clay
+
+tile.whiteMixPlank_0.name=ECBF99 Plank
+tile.whiteMixPlank_1.name=D9A6EC Plank
+tile.whiteMixPlank_2.name=B3CCEC Plank
+tile.whiteMixPlank_3.name=F2F299 Plank
+tile.whiteMixPlank_4.name=BFE68C Plank
+tile.whiteMixPlank_5.name=F9BFD2 Plank
+tile.whiteMixPlank_6.name=CCCCCC Plank
+tile.whiteMixPlank_7.name=A6BFCC Plank
+tile.whiteMixPlank_8.name=BF9FD9 Plank
+tile.whiteMixPlank_9.name=99A6D9 Plank
+tile.whiteMixPlank_10.name=B3A699 Plank
+tile.whiteMixPlank_11.name=B3BF99 Plank
+tile.whiteMixPlank_12.name=CC9999 Plank
+
+tile.whiteMixTulip_0.name=ECBF99 Tulip
+tile.whiteMixTulip_1.name=D9A6EC Tulip
+tile.whiteMixTulip_2.name=B3CCEC Tulip
+tile.whiteMixTulip_3.name=F2F299 Tulip
+tile.whiteMixTulip_4.name=BFE68C Tulip
+tile.whiteMixTulip_5.name=F9BFD2 Tulip
+tile.whiteMixTulip_6.name=CCCCCC Tulip
+tile.whiteMixTulip_7.name=A6BFCC Tulip
+tile.whiteMixTulip_8.name=BF9FD9 Tulip
+tile.whiteMixTulip_9.name=99A6D9 Tulip
+tile.whiteMixTulip_10.name=B3A699 Tulip
+tile.whiteMixTulip_11.name=B3BF99 Tulip
+tile.whiteMixTulip_12.name=CC9999 Tulip
+
+tile.whiteMixSapling_0.name=ECBF99 Sapling
+tile.whiteMixSapling_1.name=D9A6EC Sapling
+tile.whiteMixSapling_2.name=B3CCEC Sapling
+tile.whiteMixSapling_3.name=F2F299 Sapling
+tile.whiteMixSapling_4.name=BFE68C Sapling
+tile.whiteMixSapling_5.name=F9BFD2 Sapling
+tile.whiteMixSapling_6.name=CCCCCC Sapling
+tile.whiteMixSapling_7.name=A6BFCC Sapling
+tile.whiteMixSapling_8.name=BF9FD9 Sapling
+tile.whiteMixSapling_9.name=99A6D9 Sapling
+tile.whiteMixSapling_10.name=B3A699 Sapling
+tile.whiteMixSapling_11.name=B3BF99 Sapling
+tile.whiteMixSapling_12.name=CC9999 Sapling
+
+tile.whiteMixLog_0.name=ECBF99 Log
+tile.whiteMixLog_1.name=D9A6EC Log
+tile.whiteMixLog_2.name=B3CCEC Log
+tile.whiteMixLog_3.name=F2F299 Log
+tile.whiteMixLog_4.name=BFE68C Log
+tile.whiteMixLog_5.name=F9BFD2 Log
+tile.whiteMixLog_6.name=CCCCCC Log
+tile.whiteMixLog_7.name=A6BFCC Log
+tile.whiteMixLog_8.name=BF9FD9 Log
+tile.whiteMixLog_9.name=99A6D9 Log
+tile.whiteMixLog_10.name=B3A699 Log
+tile.whiteMixLog_11.name=B3BF99 Log
+tile.whiteMixLog_12.name=CC9999 Log
+
+tile.whiteMixLeaf_0.name=ECBF99 Leaves
+tile.whiteMixLeaf_1.name=D9A6EC Leaves
+tile.whiteMixLeaf_2.name=B3CCEC Leaves
+tile.whiteMixLeaf_3.name=F2F299 Leaves
+tile.whiteMixLeaf_4.name=BFE68C Leaves
+tile.whiteMixLeaf_5.name=F9BFD2 Leaves
+tile.whiteMixLeaf_6.name=CCCCCC Leaves
+tile.whiteMixLeaf_7.name=A6BFCC Leaves
+tile.whiteMixLeaf_8.name=BF9FD9 Leaves
+tile.whiteMixLeaf_9.name=99A6D9 Leaves
+tile.whiteMixLeaf_10.name=B3A699 Leaves
+tile.whiteMixLeaf_11.name=B3BF99 Leaves
+tile.whiteMixLeaf_12.name=CC9999 Leaves
+
+tile.whiteMixGlassClear_0.name=ECBF99 Clear Glass
+tile.whiteMixGlassClear_1.name=D9A6EC Clear Glass
+tile.whiteMixGlassClear_2.name=B3CCEC Clear Glass
+tile.whiteMixGlassClear_3.name=F2F299 Clear Glass
+tile.whiteMixGlassClear_4.name=BFE68C Clear Glass
+tile.whiteMixGlassClear_5.name=F9BFD2 Clear Glass
+tile.whiteMixGlassClear_6.name=CCCCCC Clear Glass
+tile.whiteMixGlassClear_7.name=A6BFCC Clear Glass
+tile.whiteMixGlassClear_8.name=BF9FD9 Clear Glass
+tile.whiteMixGlassClear_9.name=99A6D9 Clear Glass
+tile.whiteMixGlassClear_10.name=B3A699 Clear Glass
+tile.whiteMixGlassClear_11.name=B3BF99 Clear Glass
+tile.whiteMixGlassClear_12.name=CC9999 Clear Glass
+
+tile.whiteMixGlassFoggy_0.name=ECBF99 Foggy Glass
+tile.whiteMixGlassFoggy_1.name=D9A6EC Foggy Glass
+tile.whiteMixGlassFoggy_2.name=B3CCEC Foggy Glass
+tile.whiteMixGlassFoggy_3.name=F2F299 Foggy Glass
+tile.whiteMixGlassFoggy_4.name=BFE68C Foggy Glass
+tile.whiteMixGlassFoggy_5.name=F9BFD2 Foggy Glass
+tile.whiteMixGlassFoggy_6.name=CCCCCC Foggy Glass
+tile.whiteMixGlassFoggy_7.name=A6BFCC Foggy Glass
+tile.whiteMixGlassFoggy_8.name=BF9FD9 Foggy Glass
+tile.whiteMixGlassFoggy_9.name=99A6D9 Foggy Glass
+tile.whiteMixGlassFoggy_10.name=B3A699 Foggy Glass
+tile.whiteMixGlassFoggy_11.name=B3BF99 Foggy Glass
+tile.whiteMixGlassFoggy_12.name=CC9999 Foggy Glass
+
+tile.whiteMixGlassClearPane_0.name=ECBF99 Clear Glass Pane
+tile.whiteMixGlassClearPane_1.name=D9A6EC Clear Glass Pane
+tile.whiteMixGlassClearPane_2.name=B3CCEC Clear Glass Pane
+tile.whiteMixGlassClearPane_3.name=F2F299 Clear Glass Pane
+tile.whiteMixGlassClearPane_4.name=BFE68C Clear Glass Pane
+tile.whiteMixGlassClearPane_5.name=F9BFD2 Clear Glass Pane
+tile.whiteMixGlassClearPane_6.name=CCCCCC Clear Glass Pane
+tile.whiteMixGlassClearPane_7.name=A6BFCC Clear Glass Pane
+tile.whiteMixGlassClearPane_8.name=BF9FD9 Clear Glass Pane
+tile.whiteMixGlassClearPane_9.name=99A6D9 Clear Glass Pane
+tile.whiteMixGlassClearPane_10.name=B3A699 Clear Glass Pane
+tile.whiteMixGlassClearPane_11.name=B3BF99 Clear Glass Pane
+tile.whiteMixGlassClearPane_12.name=CC9999 Clear Glass Pane
+
+tile.whiteMixGlassFoggyPane_0.name=ECBF99 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_1.name=D9A6EC Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_2.name=B3CCEC Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_3.name=F2F299 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_4.name=BFE68C Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_5.name=F9BFD2 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_6.name=CCCCCC Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_7.name=A6BFCC Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_8.name=BF9FD9 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_9.name=99A6D9 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_10.name=B3A699 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_11.name=B3BF99 Foggy Glass Pane
+tile.whiteMixGlassFoggyPane_12.name=CC9999 Foggy Glass Pane
+
+tile.whiteMixBrick_0.name=ECBF99 Brick
+tile.whiteMixBrick_1.name=D9A6EC Brick
+tile.whiteMixBrick_2.name=B3CCEC Brick
+tile.whiteMixBrick_3.name=F2F299 Brick
+tile.whiteMixBrick_4.name=BFE68C Brick
+tile.whiteMixBrick_5.name=F9BFD2 Brick
+tile.whiteMixBrick_6.name=CCCCCC Brick
+tile.whiteMixBrick_7.name=A6BFCC Brick
+tile.whiteMixBrick_8.name=BF9FD9 Brick
+tile.whiteMixBrick_9.name=99A6D9 Brick
+tile.whiteMixBrick_10.name=B3A699 Brick
+tile.whiteMixBrick_11.name=B3BF99 Brick
+tile.whiteMixBrick_12.name=CC9999 Brick
+
+tile.whiteMixWorkbench_0.name=ECBF99 Crafting Table
+tile.whiteMixWorkbench_1.name=D9A6EC Crafting Table
+tile.whiteMixWorkbench_2.name=B3CCEC Crafting Table
+tile.whiteMixWorkbench_3.name=F2F299 Crafting Table
+tile.whiteMixWorkbench_4.name=BFE68C Crafting Table
+tile.whiteMixWorkbench_5.name=F9BFD2 Crafting Table
+tile.whiteMixWorkbench_6.name=CCCCCC Crafting Table
+tile.whiteMixWorkbench_7.name=A6BFCC Crafting Table
+tile.whiteMixWorkbench_8.name=BF9FD9 Crafting Table
+tile.whiteMixWorkbench_9.name=99A6D9 Crafting Table
+tile.whiteMixWorkbench_10.name=B3A699 Crafting Table
+tile.whiteMixWorkbench_11.name=B3BF99 Crafting Table
+tile.whiteMixWorkbench_12.name=CC9999 Crafting Table
+
+tile.whiteMixSand_0.name=ECBF99 Sand
+tile.whiteMixSand_1.name=D9A6EC Sand
+tile.whiteMixSand_2.name=B3CCEC Sand
+tile.whiteMixSand_3.name=F2F299 Sand
+tile.whiteMixSand_4.name=BFE68C Sand
+tile.whiteMixSand_5.name=F9BFD2 Sand
+tile.whiteMixSand_6.name=CCCCCC Sand
+tile.whiteMixSand_7.name=A6BFCC Sand
+tile.whiteMixSand_8.name=BF9FD9 Sand
+tile.whiteMixSand_9.name=99A6D9 Sand
+tile.whiteMixSand_10.name=B3A699 Sand
+tile.whiteMixSand_11.name=B3BF99 Sand
+tile.whiteMixSand_12.name=CC9999 Sand
+
+tile.whiteMixWorkSandstone_0.name=ECBF99 Sandstone
+tile.whiteMixWorkSandstone_1.name=D9A6EC Sandstone
+tile.whiteMixWorkSandstone_2.name=B3CCEC Sandstone
+tile.whiteMixWorkSandstone_3.name=F2F299 Sandstone
+tile.whiteMixWorkSandstone_4.name=BFE68C Sandstone
+tile.whiteMixWorkSandstone_5.name=F9BFD2 Sandstone
+tile.whiteMixWorkSandstone_6.name=CCCCCC Sandstone
+tile.whiteMixWorkSandstone_7.name=A6BFCC Sandstone
+tile.whiteMixWorkSandstone_8.name=BF9FD9 Sandstone
+tile.whiteMixWorkSandstone_9.name=99A6D9 Sandstone
+tile.whiteMixWorkSandstone_10.name=B3A699 Sandstone
+tile.whiteMixWorkSandstone_11.name=B3BF99 Sandstone
+tile.whiteMixWorkSandstone_12.name=CC9999 Sandstone
+
+item.orangeDye_0.name=C56685 Dye
+item.orangeDye_1.name=9F8C85 Dye
+item.orangeDye_2.name=DEB233 Dye
+item.orangeDye_3.name=ACA526 Dye
+item.orangeDye_4.name=E57F6C Dye
+item.orangeDye_5.name=92663F Dye
+item.orangeDye_6.name=B98C66 Dye
+item.orangeDye_7.name=927F66 Dye
+item.orangeDye_8.name=AC5F72 Dye
+item.orangeDye_9.name=866672 Dye
+item.orangeDye_10.name=9F6633 Dye
+item.orangeDye_11.name=9F7F33 Dye
+item.orangeDye_12.name=B95933 Dye
+item.orangeDye_13.name=794C26 Dye
+
+tile.orangeMixWool_0.name=C56685 Wool
+tile.orangeMixWool_1.name=9F8C85 Wool
+tile.orangeMixWool_2.name=DEB233 Wool
+tile.orangeMixWool_3.name=ACA526 Wool
+tile.orangeMixWool_4.name=E57F6C Wool
+tile.orangeMixWool_5.name=92663F Wool
+tile.orangeMixWool_6.name=B98C66 Wool
+tile.orangeMixWool_7.name=927F66 Wool
+tile.orangeMixWool_8.name=AC5F72 Wool
+tile.orangeMixWool_9.name=866672 Wool
+tile.orangeMixWool_10.name=9F6633 Wool
+tile.orangeMixWool_11.name=9F7F33 Wool
+tile.orangeMixWool_12.name=B95933 Wool
+tile.orangeMixWool_13.name=794C26 Wool
+
+tile.orangeMixStonebrick_0.name=C56685 Stone Brick
+tile.orangeMixStonebrick_1.name=9F8C85 Stone Brick
+tile.orangeMixStonebrick_2.name=DEB233 Stone Brick
+tile.orangeMixStonebrick_3.name=ACA526 Stone Brick
+tile.orangeMixStonebrick_4.name=E57F6C Stone Brick
+tile.orangeMixStonebrick_5.name=92663F Stone Brick
+tile.orangeMixStonebrick_6.name=B98C66 Stone Brick
+tile.orangeMixStonebrick_7.name=927F66 Stone Brick
+tile.orangeMixStonebrick_8.name=AC5F72 Stone Brick
+tile.orangeMixStonebrick_9.name=866672 Stone Brick
+tile.orangeMixStonebrick_10.name=9F6633 Stone Brick
+tile.orangeMixStonebrick_11.name=9F7F33 Stone Brick
+tile.orangeMixStonebrick_12.name=B95933 Stone Brick
+tile.orangeMixStonebrick_13.name=794C26 Stone Brick
+
+tile.orangeMixStonebrickcracked_0.name=C56685 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_1.name=9F8C85 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_2.name=DEB233 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_3.name=ACA526 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_4.name=E57F6C Cracked Stone Brick
+tile.orangeMixStonebrickcracked_5.name=92663F Cracked Stone Brick
+tile.orangeMixStonebrickcracked_6.name=B98C66 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_7.name=927F66 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_8.name=AC5F72 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_9.name=866672 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_10.name=9F6633 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_11.name=9F7F33 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_12.name=B95933 Cracked Stone Brick
+tile.orangeMixStonebrickcracked_13.name=794C26 Cracked Stone Brick
+
+tile.orangeMixStonebrickcarved_0.name=C56685 Carved Stone Brick
+tile.orangeMixStonebrickcarved_1.name=9F8C85 Carved Stone Brick
+tile.orangeMixStonebrickcarved_2.name=DEB233 Carved Stone Brick
+tile.orangeMixStonebrickcarved_3.name=ACA526 Carved Stone Brick
+tile.orangeMixStonebrickcarved_4.name=E57F6C Carved Stone Brick
+tile.orangeMixStonebrickcarved_5.name=92663F Carved Stone Brick
+tile.orangeMixStonebrickcarved_6.name=B98C66 Carved Stone Brick
+tile.orangeMixStonebrickcarved_7.name=927F66 Carved Stone Brick
+tile.orangeMixStonebrickcarved_8.name=AC5F72 Carved Stone Brick
+tile.orangeMixStonebrickcarved_9.name=866672 Carved Stone Brick
+tile.orangeMixStonebrickcarved_10.name=9F6633 Carved Stone Brick
+tile.orangeMixStonebrickcarved_11.name=9F7F33 Carved Stone Brick
+tile.orangeMixStonebrickcarved_12.name=B95933 Carved Stone Brick
+tile.orangeMixStonebrickcarved_13.name=794C26 Carved Stone Brick
+
+tile.orangeMixStone_0.name=C56685 Stone
+tile.orangeMixStone_1.name=9F8C85 Stone
+tile.orangeMixStone_2.name=DEB233 Stone
+tile.orangeMixStone_3.name=ACA526 Stone
+tile.orangeMixStone_4.name=E57F6C Stone
+tile.orangeMixStone_5.name=92663F Stone
+tile.orangeMixStone_6.name=B98C66 Stone
+tile.orangeMixStone_7.name=927F66 Stone
+tile.orangeMixStone_8.name=AC5F72 Stone
+tile.orangeMixStone_9.name=866672 Stone
+tile.orangeMixStone_10.name=9F6633 Stone
+tile.orangeMixStone_11.name=9F7F33 Stone
+tile.orangeMixStone_12.name=B95933 Stone
+tile.orangeMixStone_13.name=794C26 Stone
+
+tile.orangeMixObsidian_0.name=C56685 Obsidian
+tile.orangeMixObsidian_1.name=9F8C85 Obsidian
+tile.orangeMixObsidian_2.name=DEB233 Obsidian
+tile.orangeMixObsidian_3.name=ACA526 Obsidian
+tile.orangeMixObsidian_4.name=E57F6C Obsidian
+tile.orangeMixObsidian_5.name=92663F Obsidian
+tile.orangeMixObsidian_6.name=B98C66 Obsidian
+tile.orangeMixObsidian_7.name=927F66 Obsidian
+tile.orangeMixObsidian_8.name=AC5F72 Obsidian
+tile.orangeMixObsidian_9.name=866672 Obsidian
+tile.orangeMixObsidian_10.name=9F6633 Obsidian
+tile.orangeMixObsidian_11.name=9F7F33 Obsidian
+tile.orangeMixObsidian_12.name=B95933 Obsidian
+tile.orangeMixObsidian_13.name=794C26 Obsidian
+
+tile.orangeMixGlowstone_0.name=C56685 Glowstone
+tile.orangeMixGlowstone_1.name=9F8C85 Glowstone
+tile.orangeMixGlowstone_2.name=DEB233 Glowstone
+tile.orangeMixGlowstone_3.name=ACA526 Glowstone
+tile.orangeMixGlowstone_4.name=E57F6C Glowstone
+tile.orangeMixGlowstone_5.name=92663F Glowstone
+tile.orangeMixGlowstone_6.name=B98C66 Glowstone
+tile.orangeMixGlowstone_7.name=927F66 Glowstone
+tile.orangeMixGlowstone_8.name=AC5F72 Glowstone
+tile.orangeMixGlowstone_9.name=866672 Glowstone
+tile.orangeMixGlowstone_10.name=9F6633 Glowstone
+tile.orangeMixGlowstone_11.name=9F7F33 Glowstone
+tile.orangeMixGlowstone_12.name=B95933 Glowstone
+tile.orangeMixGlowstone_13.name=794C26 Glowstone
+
+tile.orangeMixCoal_0.name=C56685 Coal Block
+tile.orangeMixCoal_1.name=9F8C85 Coal Block
+tile.orangeMixCoal_2.name=DEB233 Coal Block
+tile.orangeMixCoal_3.name=ACA526 Coal Block
+tile.orangeMixCoal_4.name=E57F6C Coal Block
+tile.orangeMixCoal_5.name=92663F Coal Block
+tile.orangeMixCoal_6.name=B98C66 Coal Block
+tile.orangeMixCoal_7.name=927F66 Coal Block
+tile.orangeMixCoal_8.name=AC5F72 Coal Block
+tile.orangeMixCoal_9.name=866672 Coal Block
+tile.orangeMixCoal_10.name=9F6633 Coal Block
+tile.orangeMixCoal_11.name=9F7F33 Coal Block
+tile.orangeMixCoal_12.name=B95933 Coal Block
+tile.orangeMixCoal_13.name=794C26 Coal Block
+
+tile.orangeMixRedstone_0.name=C56685 Redstone Block
+tile.orangeMixRedstone_1.name=9F8C85 Redstone Block
+tile.orangeMixRedstone_2.name=DEB233 Redstone Block
+tile.orangeMixRedstone_3.name=ACA526 Redstone Block
+tile.orangeMixRedstone_4.name=E57F6C Redstone Block
+tile.orangeMixRedstone_5.name=92663F Redstone Block
+tile.orangeMixRedstone_6.name=B98C66 Redstone Block
+tile.orangeMixRedstone_7.name=927F66 Redstone Block
+tile.orangeMixRedstone_8.name=AC5F72 Redstone Block
+tile.orangeMixRedstone_9.name=866672 Redstone Block
+tile.orangeMixRedstone_10.name=9F6633 Redstone Block
+tile.orangeMixRedstone_11.name=9F7F33 Redstone Block
+tile.orangeMixRedstone_12.name=B95933 Redstone Block
+tile.orangeMixRedstone_13.name=794C26 Redstone Block
+
+tile.orangeMixLapis_0.name=C56685 Lapis Block
+tile.orangeMixLapis_1.name=9F8C85 Lapis Block
+tile.orangeMixLapis_2.name=DEB233 Lapis Block
+tile.orangeMixLapis_3.name=ACA526 Lapis Block
+tile.orangeMixLapis_4.name=E57F6C Lapis Block
+tile.orangeMixLapis_5.name=92663F Lapis Block
+tile.orangeMixLapis_6.name=B98C66 Lapis Block
+tile.orangeMixLapis_7.name=927F66 Lapis Block
+tile.orangeMixLapis_8.name=AC5F72 Lapis Block
+tile.orangeMixLapis_9.name=866672 Lapis Block
+tile.orangeMixLapis_10.name=9F6633 Lapis Block
+tile.orangeMixLapis_11.name=9F7F33 Lapis Block
+tile.orangeMixLapis_12.name=B95933 Lapis Block
+tile.orangeMixLapis_13.name=794C26 Lapis Block
+
+tile.orangeMixCobble_0.name=C56685 Cobblestone
+tile.orangeMixCobble_1.name=9F8C85 Cobblestone
+tile.orangeMixCobble_2.name=DEB233 Cobblestone
+tile.orangeMixCobble_3.name=ACA526 Cobblestone
+tile.orangeMixCobble_4.name=E57F6C Cobblestone
+tile.orangeMixCobble_5.name=92663F Cobblestone
+tile.orangeMixCobble_6.name=B98C66 Cobblestone
+tile.orangeMixCobble_7.name=927F66 Cobblestone
+tile.orangeMixCobble_8.name=AC5F72 Cobblestone
+tile.orangeMixCobble_9.name=866672 Cobblestone
+tile.orangeMixCobble_10.name=9F6633 Cobblestone
+tile.orangeMixCobble_11.name=9F7F33 Cobblestone
+tile.orangeMixCobble_12.name=B95933 Cobblestone
+tile.orangeMixCobble_13.name=794C26 Cobblestone
+
+tile.orangeMixSoulsand_0.name=C56685 Soulsand
+tile.orangeMixSoulsand_1.name=9F8C85 Soulsand
+tile.orangeMixSoulsand_2.name=DEB233 Soulsand
+tile.orangeMixSoulsand_3.name=ACA526 Soulsand
+tile.orangeMixSoulsand_4.name=E57F6C Soulsand
+tile.orangeMixSoulsand_5.name=92663F Soulsand
+tile.orangeMixSoulsand_6.name=B98C66 Soulsand
+tile.orangeMixSoulsand_7.name=927F66 Soulsand
+tile.orangeMixSoulsand_8.name=AC5F72 Soulsand
+tile.orangeMixSoulsand_9.name=866672 Soulsand
+tile.orangeMixSoulsand_10.name=9F6633 Soulsand
+tile.orangeMixSoulsand_11.name=9F7F33 Soulsand
+tile.orangeMixSoulsand_12.name=B95933 Soulsand
+tile.orangeMixSoulsand_13.name=794C26 Soulsand
+
+tile.orangeMixQuartz_0.name=C56685 Quartz Block
+tile.orangeMixQuartz_1.name=9F8C85 Quartz Block
+tile.orangeMixQuartz_2.name=DEB233 Quartz Block
+tile.orangeMixQuartz_3.name=ACA526 Quartz Block
+tile.orangeMixQuartz_4.name=E57F6C Quartz Block
+tile.orangeMixQuartz_5.name=92663F Quartz Block
+tile.orangeMixQuartz_6.name=B98C66 Quartz Block
+tile.orangeMixQuartz_7.name=927F66 Quartz Block
+tile.orangeMixQuartz_8.name=AC5F72 Quartz Block
+tile.orangeMixQuartz_9.name=866672 Quartz Block
+tile.orangeMixQuartz_10.name=9F6633 Quartz Block
+tile.orangeMixQuartz_11.name=9F7F33 Quartz Block
+tile.orangeMixQuartz_12.name=B95933 Quartz Block
+tile.orangeMixQuartz_13.name=794C26 Quartz Block
+
+tile.orangeMixClay_0.name=C56685 Hardened Stained Clay
+tile.orangeMixClay_1.name=9F8C85 Hardened Stained Clay
+tile.orangeMixClay_2.name=DEB233 Hardened Stained Clay
+tile.orangeMixClay_3.name=ACA526 Hardened Stained Clay
+tile.orangeMixClay_4.name=E57F6C Hardened Stained Clay
+tile.orangeMixClay_5.name=92663F Hardened Stained Clay
+tile.orangeMixClay_6.name=B98C66 Hardened Stained Clay
+tile.orangeMixClay_7.name=927F66 Hardened Stained Clay
+tile.orangeMixClay_8.name=AC5F72 Hardened Stained Clay
+tile.orangeMixClay_9.name=866672 Hardened Stained Clay
+tile.orangeMixClay_10.name=9F6633 Hardened Stained Clay
+tile.orangeMixClay_11.name=9F7F33 Hardened Stained Clay
+tile.orangeMixClay_12.name=B95933 Hardened Stained Clay
+tile.orangeMixClay_13.name=794C26 Hardened Stained Clay
+
+tile.orangeMixPlank_0.name=C56685 Plank
+tile.orangeMixPlank_1.name=9F8C85 Plank
+tile.orangeMixPlank_2.name=DEB233 Plank
+tile.orangeMixPlank_3.name=ACA526 Plank
+tile.orangeMixPlank_4.name=E57F6C Plank
+tile.orangeMixPlank_5.name=92663F Plank
+tile.orangeMixPlank_6.name=B98C66 Plank
+tile.orangeMixPlank_7.name=927F66 Plank
+tile.orangeMixPlank_8.name=AC5F72 Plank
+tile.orangeMixPlank_9.name=866672 Plank
+tile.orangeMixPlank_10.name=9F6633 Plank
+tile.orangeMixPlank_11.name=9F7F33 Plank
+tile.orangeMixPlank_12.name=B95933 Plank
+tile.orangeMixPlank_13.name=794C26 Plank
+
+tile.orangeMixTulip_0.name=C56685 Tulip
+tile.orangeMixTulip_1.name=9F8C85 Tulip
+tile.orangeMixTulip_2.name=DEB233 Tulip
+tile.orangeMixTulip_3.name=ACA526 Tulip
+tile.orangeMixTulip_4.name=E57F6C Tulip
+tile.orangeMixTulip_5.name=92663F Tulip
+tile.orangeMixTulip_6.name=B98C66 Tulip
+tile.orangeMixTulip_7.name=927F66 Tulip
+tile.orangeMixTulip_8.name=AC5F72 Tulip
+tile.orangeMixTulip_9.name=866672 Tulip
+tile.orangeMixTulip_10.name=9F6633 Tulip
+tile.orangeMixTulip_11.name=9F7F33 Tulip
+tile.orangeMixTulip_12.name=B95933 Tulip
+tile.orangeMixTulip_13.name=794C26 Tulip
+
+tile.orangeMixSapling_0.name=C56685 Sapling
+tile.orangeMixSapling_1.name=9F8C85 Sapling
+tile.orangeMixSapling_2.name=DEB233 Sapling
+tile.orangeMixSapling_3.name=ACA526 Sapling
+tile.orangeMixSapling_4.name=E57F6C Sapling
+tile.orangeMixSapling_5.name=92663F Sapling
+tile.orangeMixSapling_6.name=B98C66 Sapling
+tile.orangeMixSapling_7.name=927F66 Sapling
+tile.orangeMixSapling_8.name=AC5F72 Sapling
+tile.orangeMixSapling_9.name=866672 Sapling
+tile.orangeMixSapling_10.name=9F6633 Sapling
+tile.orangeMixSapling_11.name=9F7F33 Sapling
+tile.orangeMixSapling_12.name=B95933 Sapling
+tile.orangeMixSapling_13.name=794C26 Sapling
+
+tile.orangeMixLog_0.name=C56685 Log
+tile.orangeMixLog_1.name=9F8C85 Log
+tile.orangeMixLog_2.name=DEB233 Log
+tile.orangeMixLog_3.name=ACA526 Log
+tile.orangeMixLog_4.name=E57F6C Log
+tile.orangeMixLog_5.name=92663F Log
+tile.orangeMixLog_6.name=B98C66 Log
+tile.orangeMixLog_7.name=927F66 Log
+tile.orangeMixLog_8.name=AC5F72 Log
+tile.orangeMixLog_9.name=866672 Log
+tile.orangeMixLog_10.name=9F6633 Log
+tile.orangeMixLog_11.name=9F7F33 Log
+tile.orangeMixLog_12.name=B95933 Log
+tile.orangeMixLog_13.name=794C26 Log
+
+tile.orangeMixLeaf_0.name=C56685 Leaves
+tile.orangeMixLeaf_1.name=9F8C85 Leaves
+tile.orangeMixLeaf_2.name=DEB233 Leaves
+tile.orangeMixLeaf_3.name=ACA526 Leaves
+tile.orangeMixLeaf_4.name=E57F6C Leaves
+tile.orangeMixLeaf_5.name=92663F Leaves
+tile.orangeMixLeaf_6.name=B98C66 Leaves
+tile.orangeMixLeaf_7.name=927F66 Leaves
+tile.orangeMixLeaf_8.name=AC5F72 Leaves
+tile.orangeMixLeaf_9.name=866672 Leaves
+tile.orangeMixLeaf_10.name=9F6633 Leaves
+tile.orangeMixLeaf_11.name=9F7F33 Leaves
+tile.orangeMixLeaf_12.name=B95933 Leaves
+tile.orangeMixLeaf_13.name=794C26 Leaves
+
+tile.orangeMixGlassClear_0.name=C56685 Clear Glass
+tile.orangeMixGlassClear_1.name=9F8C85 Clear Glass
+tile.orangeMixGlassClear_2.name=DEB233 Clear Glass
+tile.orangeMixGlassClear_3.name=ACA526 Clear Glass
+tile.orangeMixGlassClear_4.name=E57F6C Clear Glass
+tile.orangeMixGlassClear_5.name=92663F Clear Glass
+tile.orangeMixGlassClear_6.name=B98C66 Clear Glass
+tile.orangeMixGlassClear_7.name=927F66 Clear Glass
+tile.orangeMixGlassClear_8.name=AC5F72 Clear Glass
+tile.orangeMixGlassClear_9.name=866672 Clear Glass
+tile.orangeMixGlassClear_10.name=9F6633 Clear Glass
+tile.orangeMixGlassClear_11.name=9F7F33 Clear Glass
+tile.orangeMixGlassClear_12.name=B95933 Clear Glass
+tile.orangeMixGlassClear_13.name=794C26 Clear Glass
+
+tile.orangeMixGlassFoggy_0.name=C56685 Foggy Glass
+tile.orangeMixGlassFoggy_1.name=9F8C85 Foggy Glass
+tile.orangeMixGlassFoggy_2.name=DEB233 Foggy Glass
+tile.orangeMixGlassFoggy_3.name=ACA526 Foggy Glass
+tile.orangeMixGlassFoggy_4.name=E57F6C Foggy Glass
+tile.orangeMixGlassFoggy_5.name=92663F Foggy Glass
+tile.orangeMixGlassFoggy_6.name=B98C66 Foggy Glass
+tile.orangeMixGlassFoggy_7.name=927F66 Foggy Glass
+tile.orangeMixGlassFoggy_8.name=AC5F72 Foggy Glass
+tile.orangeMixGlassFoggy_9.name=866672 Foggy Glass
+tile.orangeMixGlassFoggy_10.name=9F6633 Foggy Glass
+tile.orangeMixGlassFoggy_11.name=9F7F33 Foggy Glass
+tile.orangeMixGlassFoggy_12.name=B95933 Foggy Glass
+tile.orangeMixGlassFoggy_13.name=794C26 Foggy Glass
+
+tile.orangeMixGlassClearPane_0.name=C56685 Clear Glass Pane
+tile.orangeMixGlassClearPane_1.name=9F8C85 Clear Glass Pane
+tile.orangeMixGlassClearPane_2.name=DEB233 Clear Glass Pane
+tile.orangeMixGlassClearPane_3.name=ACA526 Clear Glass Pane
+tile.orangeMixGlassClearPane_4.name=E57F6C Clear Glass Pane
+tile.orangeMixGlassClearPane_5.name=92663F Clear Glass Pane
+tile.orangeMixGlassClearPane_6.name=B98C66 Clear Glass Pane
+tile.orangeMixGlassClearPane_7.name=927F66 Clear Glass Pane
+tile.orangeMixGlassClearPane_8.name=AC5F72 Clear Glass Pane
+tile.orangeMixGlassClearPane_9.name=866672 Clear Glass Pane
+tile.orangeMixGlassClearPane_10.name=9F6633 Clear Glass Pane
+tile.orangeMixGlassClearPane_11.name=9F7F33 Clear Glass Pane
+tile.orangeMixGlassClearPane_12.name=B95933 Clear Glass Pane
+tile.orangeMixGlassClearPane_13.name=794C26 Clear Glass Pane
+
+tile.orangeMixGlassFoggyPane_0.name=C56685 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_1.name=9F8C85 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_2.name=DEB233 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_3.name=ACA526 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_4.name=E57F6C Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_5.name=92663F Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_6.name=B98C66 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_7.name=927F66 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_8.name=AC5F72 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_9.name=866672 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_10.name=9F6633 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_11.name=9F7F33 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_12.name=B95933 Foggy Glass Pane
+tile.orangeMixGlassFoggyPane_13.name=794C26 Foggy Glass Pane
+
+tile.orangeMixBrick_0.name=C56685 Brick
+tile.orangeMixBrick_1.name=9F8C85 Brick
+tile.orangeMixBrick_2.name=DEB233 Brick
+tile.orangeMixBrick_3.name=ACA526 Brick
+tile.orangeMixBrick_4.name=E57F6C Brick
+tile.orangeMixBrick_5.name=92663F Brick
+tile.orangeMixBrick_6.name=B98C66 Brick
+tile.orangeMixBrick_7.name=927F66 Brick
+tile.orangeMixBrick_8.name=AC5F72 Brick
+tile.orangeMixBrick_9.name=866672 Brick
+tile.orangeMixBrick_10.name=9F6633 Brick
+tile.orangeMixBrick_11.name=9F7F33 Brick
+tile.orangeMixBrick_12.name=B95933 Brick
+tile.orangeMixBrick_13.name=794C26 Brick
+
+tile.orangeMixWorkbench_0.name=C56685 Crafting Table
+tile.orangeMixWorkbench_1.name=9F8C85 Crafting Table
+tile.orangeMixWorkbench_2.name=DEB233 Crafting Table
+tile.orangeMixWorkbench_3.name=ACA526 Crafting Table
+tile.orangeMixWorkbench_4.name=E57F6C Crafting Table
+tile.orangeMixWorkbench_5.name=92663F Crafting Table
+tile.orangeMixWorkbench_6.name=B98C66 Crafting Table
+tile.orangeMixWorkbench_7.name=927F66 Crafting Table
+tile.orangeMixWorkbench_8.name=AC5F72 Crafting Table
+tile.orangeMixWorkbench_9.name=866672 Crafting Table
+tile.orangeMixWorkbench_10.name=9F6633 Crafting Table
+tile.orangeMixWorkbench_11.name=9F7F33 Crafting Table
+tile.orangeMixWorkbench_12.name=B95933 Crafting Table
+tile.orangeMixWorkbench_13.name=794C26 Crafting Table
+
+tile.orangeMixSand_0.name=C56685 Sand
+tile.orangeMixSand_1.name=9F8C85 Sand
+tile.orangeMixSand_2.name=DEB233 Sand
+tile.orangeMixSand_3.name=ACA526 Sand
+tile.orangeMixSand_4.name=E57F6C Sand
+tile.orangeMixSand_5.name=92663F Sand
+tile.orangeMixSand_6.name=B98C66 Sand
+tile.orangeMixSand_7.name=927F66 Sand
+tile.orangeMixSand_8.name=AC5F72 Sand
+tile.orangeMixSand_9.name=866672 Sand
+tile.orangeMixSand_10.name=9F6633 Sand
+tile.orangeMixSand_11.name=9F7F33 Sand
+tile.orangeMixSand_12.name=B95933 Sand
+tile.orangeMixSand_13.name=794C26 Sand
+
+tile.orangeMixWorkSandstone_0.name=C56685 Sandstone
+tile.orangeMixWorkSandstone_1.name=9F8C85 Sandstone
+tile.orangeMixWorkSandstone_2.name=DEB233 Sandstone
+tile.orangeMixWorkSandstone_3.name=ACA526 Sandstone
+tile.orangeMixWorkSandstone_4.name=E57F6C Sandstone
+tile.orangeMixWorkSandstone_5.name=92663F Sandstone
+tile.orangeMixWorkSandstone_6.name=B98C66 Sandstone
+tile.orangeMixWorkSandstone_7.name=927F66 Sandstone
+tile.orangeMixWorkSandstone_8.name=AC5F72 Sandstone
+tile.orangeMixWorkSandstone_9.name=866672 Sandstone
+tile.orangeMixWorkSandstone_10.name=9F6633 Sandstone
+tile.orangeMixWorkSandstone_11.name=9F7F33 Sandstone
+tile.orangeMixWorkSandstone_12.name=B95933 Sandstone
+tile.orangeMixWorkSandstone_13.name=794C26 Sandstone
+
+item.magentaDye_0.name=8C72D8 Dye
+item.magentaDye_1.name=CB9886 Dye
+item.magentaDye_2.name=998C79 Dye
+item.magentaDye_3.name=D265BF Dye
+item.magentaDye_4.name=7F4C92 Dye
+item.magentaDye_5.name=A672B9 Dye
+item.magentaDye_6.name=7F65B9 Dye
+item.magentaDye_7.name=9946C5 Dye
+item.magentaDye_8.name=734CC5 Dye
+item.magentaDye_9.name=8C4C86 Dye
+item.magentaDye_10.name=8C6586 Dye
+item.magentaDye_11.name=A64086 Dye
+item.magentaDye_12.name=663379 Dye
+
+tile.magentaMixWool_0.name=8C72D8 Wool
+tile.magentaMixWool_1.name=CB9886 Wool
+tile.magentaMixWool_2.name=998C79 Wool
+tile.magentaMixWool_3.name=D265BF Wool
+tile.magentaMixWool_4.name=7F4C92 Wool
+tile.magentaMixWool_5.name=A672B9 Wool
+tile.magentaMixWool_6.name=7F65B9 Wool
+tile.magentaMixWool_7.name=9946C5 Wool
+tile.magentaMixWool_8.name=734CC5 Wool
+tile.magentaMixWool_9.name=8C4C86 Wool
+tile.magentaMixWool_10.name=8C6586 Wool
+tile.magentaMixWool_11.name=A64086 Wool
+tile.magentaMixWool_12.name=663379 Wool
+
+tile.magentaMixStonebrick_0.name=8C72D8 Stone Brick
+tile.magentaMixStonebrick_1.name=CB9886 Stone Brick
+tile.magentaMixStonebrick_2.name=998C79 Stone Brick
+tile.magentaMixStonebrick_3.name=D265BF Stone Brick
+tile.magentaMixStonebrick_4.name=7F4C92 Stone Brick
+tile.magentaMixStonebrick_5.name=A672B9 Stone Brick
+tile.magentaMixStonebrick_6.name=7F65B9 Stone Brick
+tile.magentaMixStonebrick_7.name=9946C5 Stone Brick
+tile.magentaMixStonebrick_8.name=734CC5 Stone Brick
+tile.magentaMixStonebrick_9.name=8C4C86 Stone Brick
+tile.magentaMixStonebrick_10.name=8C6586 Stone Brick
+tile.magentaMixStonebrick_11.name=A64086 Stone Brick
+tile.magentaMixStonebrick_12.name=663379 Stone Brick
+
+tile.magentaMixStonebrickcracked_0.name=8C72D8 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_1.name=CB9886 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_2.name=998C79 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_3.name=D265BF Cracked Stone Brick
+tile.magentaMixStonebrickcracked_4.name=7F4C92 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_5.name=A672B9 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_6.name=7F65B9 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_7.name=9946C5 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_8.name=734CC5 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_9.name=8C4C86 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_10.name=8C6586 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_11.name=A64086 Cracked Stone Brick
+tile.magentaMixStonebrickcracked_12.name=663379 Cracked Stone Brick
+
+tile.magentaMixStonebrickcarved_0.name=8C72D8 Carved Stone Brick
+tile.magentaMixStonebrickcarved_1.name=CB9886 Carved Stone Brick
+tile.magentaMixStonebrickcarved_2.name=998C79 Carved Stone Brick
+tile.magentaMixStonebrickcarved_3.name=D265BF Carved Stone Brick
+tile.magentaMixStonebrickcarved_4.name=7F4C92 Carved Stone Brick
+tile.magentaMixStonebrickcarved_5.name=A672B9 Carved Stone Brick
+tile.magentaMixStonebrickcarved_6.name=7F65B9 Carved Stone Brick
+tile.magentaMixStonebrickcarved_7.name=9946C5 Carved Stone Brick
+tile.magentaMixStonebrickcarved_8.name=734CC5 Carved Stone Brick
+tile.magentaMixStonebrickcarved_9.name=8C4C86 Carved Stone Brick
+tile.magentaMixStonebrickcarved_10.name=8C6586 Carved Stone Brick
+tile.magentaMixStonebrickcarved_11.name=A64086 Carved Stone Brick
+tile.magentaMixStonebrickcarved_12.name=663379 Carved Stone Brick
+
+tile.magentaMixStone_0.name=8C72D8 Stone
+tile.magentaMixStone_1.name=CB9886 Stone
+tile.magentaMixStone_2.name=998C79 Stone
+tile.magentaMixStone_3.name=D265BF Stone
+tile.magentaMixStone_4.name=7F4C92 Stone
+tile.magentaMixStone_5.name=A672B9 Stone
+tile.magentaMixStone_6.name=7F65B9 Stone
+tile.magentaMixStone_7.name=9946C5 Stone
+tile.magentaMixStone_8.name=734CC5 Stone
+tile.magentaMixStone_9.name=8C4C86 Stone
+tile.magentaMixStone_10.name=8C6586 Stone
+tile.magentaMixStone_11.name=A64086 Stone
+tile.magentaMixStone_12.name=663379 Stone
+
+tile.magentaMixObsidian_0.name=8C72D8 Obsidian
+tile.magentaMixObsidian_1.name=CB9886 Obsidian
+tile.magentaMixObsidian_2.name=998C79 Obsidian
+tile.magentaMixObsidian_3.name=D265BF Obsidian
+tile.magentaMixObsidian_4.name=7F4C92 Obsidian
+tile.magentaMixObsidian_5.name=A672B9 Obsidian
+tile.magentaMixObsidian_6.name=7F65B9 Obsidian
+tile.magentaMixObsidian_7.name=9946C5 Obsidian
+tile.magentaMixObsidian_8.name=734CC5 Obsidian
+tile.magentaMixObsidian_9.name=8C4C86 Obsidian
+tile.magentaMixObsidian_10.name=8C6586 Obsidian
+tile.magentaMixObsidian_11.name=A64086 Obsidian
+tile.magentaMixObsidian_12.name=663379 Obsidian
+
+tile.magentaMixGlowstone_0.name=8C72D8 Glowstone
+tile.magentaMixGlowstone_1.name=CB9886 Glowstone
+tile.magentaMixGlowstone_2.name=998C79 Glowstone
+tile.magentaMixGlowstone_3.name=D265BF Glowstone
+tile.magentaMixGlowstone_4.name=7F4C92 Glowstone
+tile.magentaMixGlowstone_5.name=A672B9 Glowstone
+tile.magentaMixGlowstone_6.name=7F65B9 Glowstone
+tile.magentaMixGlowstone_7.name=9946C5 Glowstone
+tile.magentaMixGlowstone_8.name=734CC5 Glowstone
+tile.magentaMixGlowstone_9.name=8C4C86 Glowstone
+tile.magentaMixGlowstone_10.name=8C6586 Glowstone
+tile.magentaMixGlowstone_11.name=A64086 Glowstone
+tile.magentaMixGlowstone_12.name=663379 Glowstone
+
+tile.magentaMixCoal_0.name=8C72D8 Coal Block
+tile.magentaMixCoal_1.name=CB9886 Coal Block
+tile.magentaMixCoal_2.name=998C79 Coal Block
+tile.magentaMixCoal_3.name=D265BF Coal Block
+tile.magentaMixCoal_4.name=7F4C92 Coal Block
+tile.magentaMixCoal_5.name=A672B9 Coal Block
+tile.magentaMixCoal_6.name=7F65B9 Coal Block
+tile.magentaMixCoal_7.name=9946C5 Coal Block
+tile.magentaMixCoal_8.name=734CC5 Coal Block
+tile.magentaMixCoal_9.name=8C4C86 Coal Block
+tile.magentaMixCoal_10.name=8C6586 Coal Block
+tile.magentaMixCoal_11.name=A64086 Coal Block
+tile.magentaMixCoal_12.name=663379 Coal Block
+
+tile.magentaMixRedstone_0.name=8C72D8 Redstone Block
+tile.magentaMixRedstone_1.name=CB9886 Redstone Block
+tile.magentaMixRedstone_2.name=998C79 Redstone Block
+tile.magentaMixRedstone_3.name=D265BF Redstone Block
+tile.magentaMixRedstone_4.name=7F4C92 Redstone Block
+tile.magentaMixRedstone_5.name=A672B9 Redstone Block
+tile.magentaMixRedstone_6.name=7F65B9 Redstone Block
+tile.magentaMixRedstone_7.name=9946C5 Redstone Block
+tile.magentaMixRedstone_8.name=734CC5 Redstone Block
+tile.magentaMixRedstone_9.name=8C4C86 Redstone Block
+tile.magentaMixRedstone_10.name=8C6586 Redstone Block
+tile.magentaMixRedstone_11.name=A64086 Redstone Block
+tile.magentaMixRedstone_12.name=663379 Redstone Block
+
+tile.magentaMixLapis_0.name=8C72D8 Lapis Block
+tile.magentaMixLapis_1.name=CB9886 Lapis Block
+tile.magentaMixLapis_2.name=998C79 Lapis Block
+tile.magentaMixLapis_3.name=D265BF Lapis Block
+tile.magentaMixLapis_4.name=7F4C92 Lapis Block
+tile.magentaMixLapis_5.name=A672B9 Lapis Block
+tile.magentaMixLapis_6.name=7F65B9 Lapis Block
+tile.magentaMixLapis_7.name=9946C5 Lapis Block
+tile.magentaMixLapis_8.name=734CC5 Lapis Block
+tile.magentaMixLapis_9.name=8C4C86 Lapis Block
+tile.magentaMixLapis_10.name=8C6586 Lapis Block
+tile.magentaMixLapis_11.name=A64086 Lapis Block
+tile.magentaMixLapis_12.name=663379 Lapis Block
+
+tile.magentaMixCobble_0.name=8C72D8 Cobblestone
+tile.magentaMixCobble_1.name=CB9886 Cobblestone
+tile.magentaMixCobble_2.name=998C79 Cobblestone
+tile.magentaMixCobble_3.name=D265BF Cobblestone
+tile.magentaMixCobble_4.name=7F4C92 Cobblestone
+tile.magentaMixCobble_5.name=A672B9 Cobblestone
+tile.magentaMixCobble_6.name=7F65B9 Cobblestone
+tile.magentaMixCobble_7.name=9946C5 Cobblestone
+tile.magentaMixCobble_8.name=734CC5 Cobblestone
+tile.magentaMixCobble_9.name=8C4C86 Cobblestone
+tile.magentaMixCobble_10.name=8C6586 Cobblestone
+tile.magentaMixCobble_11.name=A64086 Cobblestone
+tile.magentaMixCobble_12.name=663379 Cobblestone
+
+tile.magentaMixSoulsand_0.name=8C72D8 Soulsand
+tile.magentaMixSoulsand_1.name=CB9886 Soulsand
+tile.magentaMixSoulsand_2.name=998C79 Soulsand
+tile.magentaMixSoulsand_3.name=D265BF Soulsand
+tile.magentaMixSoulsand_4.name=7F4C92 Soulsand
+tile.magentaMixSoulsand_5.name=A672B9 Soulsand
+tile.magentaMixSoulsand_6.name=7F65B9 Soulsand
+tile.magentaMixSoulsand_7.name=9946C5 Soulsand
+tile.magentaMixSoulsand_8.name=734CC5 Soulsand
+tile.magentaMixSoulsand_9.name=8C4C86 Soulsand
+tile.magentaMixSoulsand_10.name=8C6586 Soulsand
+tile.magentaMixSoulsand_11.name=A64086 Soulsand
+tile.magentaMixSoulsand_12.name=663379 Soulsand
+
+tile.magentaMixQuartz_0.name=8C72D8 Quartz Block
+tile.magentaMixQuartz_1.name=CB9886 Quartz Block
+tile.magentaMixQuartz_2.name=998C79 Quartz Block
+tile.magentaMixQuartz_3.name=D265BF Quartz Block
+tile.magentaMixQuartz_4.name=7F4C92 Quartz Block
+tile.magentaMixQuartz_5.name=A672B9 Quartz Block
+tile.magentaMixQuartz_6.name=7F65B9 Quartz Block
+tile.magentaMixQuartz_7.name=9946C5 Quartz Block
+tile.magentaMixQuartz_8.name=734CC5 Quartz Block
+tile.magentaMixQuartz_9.name=8C4C86 Quartz Block
+tile.magentaMixQuartz_10.name=8C6586 Quartz Block
+tile.magentaMixQuartz_11.name=A64086 Quartz Block
+tile.magentaMixQuartz_12.name=663379 Quartz Block
+
+tile.magentaMixClay_0.name=8C72D8 Hardened Stained Clay
+tile.magentaMixClay_1.name=CB9886 Hardened Stained Clay
+tile.magentaMixClay_2.name=998C79 Hardened Stained Clay
+tile.magentaMixClay_3.name=D265BF Hardened Stained Clay
+tile.magentaMixClay_4.name=7F4C92 Hardened Stained Clay
+tile.magentaMixClay_5.name=A672B9 Hardened Stained Clay
+tile.magentaMixClay_6.name=7F65B9 Hardened Stained Clay
+tile.magentaMixClay_7.name=9946C5 Hardened Stained Clay
+tile.magentaMixClay_8.name=734CC5 Hardened Stained Clay
+tile.magentaMixClay_9.name=8C4C86 Hardened Stained Clay
+tile.magentaMixClay_10.name=8C6586 Hardened Stained Clay
+tile.magentaMixClay_11.name=A64086 Hardened Stained Clay
+tile.magentaMixClay_12.name=663379 Hardened Stained Clay
+
+tile.magentaMixPlank_0.name=8C72D8 Plank
+tile.magentaMixPlank_1.name=CB9886 Plank
+tile.magentaMixPlank_2.name=998C79 Plank
+tile.magentaMixPlank_3.name=D265BF Plank
+tile.magentaMixPlank_4.name=7F4C92 Plank
+tile.magentaMixPlank_5.name=A672B9 Plank
+tile.magentaMixPlank_6.name=7F65B9 Plank
+tile.magentaMixPlank_7.name=9946C5 Plank
+tile.magentaMixPlank_8.name=734CC5 Plank
+tile.magentaMixPlank_9.name=8C4C86 Plank
+tile.magentaMixPlank_10.name=8C6586 Plank
+tile.magentaMixPlank_11.name=A64086 Plank
+tile.magentaMixPlank_12.name=663379 Plank
+
+tile.magentaMixTulip_0.name=8C72D8 Tulip
+tile.magentaMixTulip_1.name=CB9886 Tulip
+tile.magentaMixTulip_2.name=998C79 Tulip
+tile.magentaMixTulip_3.name=D265BF Tulip
+tile.magentaMixTulip_4.name=7F4C92 Tulip
+tile.magentaMixTulip_5.name=A672B9 Tulip
+tile.magentaMixTulip_6.name=7F65B9 Tulip
+tile.magentaMixTulip_7.name=9946C5 Tulip
+tile.magentaMixTulip_8.name=734CC5 Tulip
+tile.magentaMixTulip_9.name=8C4C86 Tulip
+tile.magentaMixTulip_10.name=8C6586 Tulip
+tile.magentaMixTulip_11.name=A64086 Tulip
+tile.magentaMixTulip_12.name=663379 Tulip
+
+tile.magentaMixSapling_0.name=8C72D8 Sapling
+tile.magentaMixSapling_1.name=CB9886 Sapling
+tile.magentaMixSapling_2.name=998C79 Sapling
+tile.magentaMixSapling_3.name=D265BF Sapling
+tile.magentaMixSapling_4.name=7F4C92 Sapling
+tile.magentaMixSapling_5.name=A672B9 Sapling
+tile.magentaMixSapling_6.name=7F65B9 Sapling
+tile.magentaMixSapling_7.name=9946C5 Sapling
+tile.magentaMixSapling_8.name=734CC5 Sapling
+tile.magentaMixSapling_9.name=8C4C86 Sapling
+tile.magentaMixSapling_10.name=8C6586 Sapling
+tile.magentaMixSapling_11.name=A64086 Sapling
+tile.magentaMixSapling_12.name=663379 Sapling
+
+tile.magentaMixLog_0.name=8C72D8 Log
+tile.magentaMixLog_1.name=CB9886 Log
+tile.magentaMixLog_2.name=998C79 Log
+tile.magentaMixLog_3.name=D265BF Log
+tile.magentaMixLog_4.name=7F4C92 Log
+tile.magentaMixLog_5.name=A672B9 Log
+tile.magentaMixLog_6.name=7F65B9 Log
+tile.magentaMixLog_7.name=9946C5 Log
+tile.magentaMixLog_8.name=734CC5 Log
+tile.magentaMixLog_9.name=8C4C86 Log
+tile.magentaMixLog_10.name=8C6586 Log
+tile.magentaMixLog_11.name=A64086 Log
+tile.magentaMixLog_12.name=663379 Log
+
+tile.magentaMixLeaf_0.name=8C72D8 Leaves
+tile.magentaMixLeaf_1.name=CB9886 Leaves
+tile.magentaMixLeaf_2.name=998C79 Leaves
+tile.magentaMixLeaf_3.name=D265BF Leaves
+tile.magentaMixLeaf_4.name=7F4C92 Leaves
+tile.magentaMixLeaf_5.name=A672B9 Leaves
+tile.magentaMixLeaf_6.name=7F65B9 Leaves
+tile.magentaMixLeaf_7.name=9946C5 Leaves
+tile.magentaMixLeaf_8.name=734CC5 Leaves
+tile.magentaMixLeaf_9.name=8C4C86 Leaves
+tile.magentaMixLeaf_10.name=8C6586 Leaves
+tile.magentaMixLeaf_11.name=A64086 Leaves
+tile.magentaMixLeaf_12.name=663379 Leaves
+
+tile.magentaMixGlassClear_0.name=8C72D8 Clear Glass
+tile.magentaMixGlassClear_1.name=CB9886 Clear Glass
+tile.magentaMixGlassClear_2.name=998C79 Clear Glass
+tile.magentaMixGlassClear_3.name=D265BF Clear Glass
+tile.magentaMixGlassClear_4.name=7F4C92 Clear Glass
+tile.magentaMixGlassClear_5.name=A672B9 Clear Glass
+tile.magentaMixGlassClear_6.name=7F65B9 Clear Glass
+tile.magentaMixGlassClear_7.name=9946C5 Clear Glass
+tile.magentaMixGlassClear_8.name=734CC5 Clear Glass
+tile.magentaMixGlassClear_9.name=8C4C86 Clear Glass
+tile.magentaMixGlassClear_10.name=8C6586 Clear Glass
+tile.magentaMixGlassClear_11.name=A64086 Clear Glass
+tile.magentaMixGlassClear_12.name=663379 Clear Glass
+
+tile.magentaMixGlassFoggy_0.name=8C72D8 Foggy Glass
+tile.magentaMixGlassFoggy_1.name=CB9886 Foggy Glass
+tile.magentaMixGlassFoggy_2.name=998C79 Foggy Glass
+tile.magentaMixGlassFoggy_3.name=D265BF Foggy Glass
+tile.magentaMixGlassFoggy_4.name=7F4C92 Foggy Glass
+tile.magentaMixGlassFoggy_5.name=A672B9 Foggy Glass
+tile.magentaMixGlassFoggy_6.name=7F65B9 Foggy Glass
+tile.magentaMixGlassFoggy_7.name=9946C5 Foggy Glass
+tile.magentaMixGlassFoggy_8.name=734CC5 Foggy Glass
+tile.magentaMixGlassFoggy_9.name=8C4C86 Foggy Glass
+tile.magentaMixGlassFoggy_10.name=8C6586 Foggy Glass
+tile.magentaMixGlassFoggy_11.name=A64086 Foggy Glass
+tile.magentaMixGlassFoggy_12.name=663379 Foggy Glass
+
+tile.magentaMixGlassClearPane_0.name=8C72D8 Clear Glass Pane
+tile.magentaMixGlassClearPane_1.name=CB9886 Clear Glass Pane
+tile.magentaMixGlassClearPane_2.name=998C79 Clear Glass Pane
+tile.magentaMixGlassClearPane_3.name=D265BF Clear Glass Pane
+tile.magentaMixGlassClearPane_4.name=7F4C92 Clear Glass Pane
+tile.magentaMixGlassClearPane_5.name=A672B9 Clear Glass Pane
+tile.magentaMixGlassClearPane_6.name=7F65B9 Clear Glass Pane
+tile.magentaMixGlassClearPane_7.name=9946C5 Clear Glass Pane
+tile.magentaMixGlassClearPane_8.name=734CC5 Clear Glass Pane
+tile.magentaMixGlassClearPane_9.name=8C4C86 Clear Glass Pane
+tile.magentaMixGlassClearPane_10.name=8C6586 Clear Glass Pane
+tile.magentaMixGlassClearPane_11.name=A64086 Clear Glass Pane
+tile.magentaMixGlassClearPane_12.name=663379 Clear Glass Pane
+
+tile.magentaMixGlassFoggyPane_0.name=8C72D8 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_1.name=CB9886 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_2.name=998C79 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_3.name=D265BF Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_4.name=7F4C92 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_5.name=A672B9 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_6.name=7F65B9 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_7.name=9946C5 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_8.name=734CC5 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_9.name=8C4C86 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_10.name=8C6586 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_11.name=A64086 Foggy Glass Pane
+tile.magentaMixGlassFoggyPane_12.name=663379 Foggy Glass Pane
+
+tile.magentaMixBrick_0.name=8C72D8 Brick
+tile.magentaMixBrick_1.name=CB9886 Brick
+tile.magentaMixBrick_2.name=998C79 Brick
+tile.magentaMixBrick_3.name=D265BF Brick
+tile.magentaMixBrick_4.name=7F4C92 Brick
+tile.magentaMixBrick_5.name=A672B9 Brick
+tile.magentaMixBrick_6.name=7F65B9 Brick
+tile.magentaMixBrick_7.name=9946C5 Brick
+tile.magentaMixBrick_8.name=734CC5 Brick
+tile.magentaMixBrick_9.name=8C4C86 Brick
+tile.magentaMixBrick_10.name=8C6586 Brick
+tile.magentaMixBrick_11.name=A64086 Brick
+tile.magentaMixBrick_12.name=663379 Brick
+
+tile.magentaMixWorkbench_0.name=8C72D8 Crafting Table
+tile.magentaMixWorkbench_1.name=CB9886 Crafting Table
+tile.magentaMixWorkbench_2.name=998C79 Crafting Table
+tile.magentaMixWorkbench_3.name=D265BF Crafting Table
+tile.magentaMixWorkbench_4.name=7F4C92 Crafting Table
+tile.magentaMixWorkbench_5.name=A672B9 Crafting Table
+tile.magentaMixWorkbench_6.name=7F65B9 Crafting Table
+tile.magentaMixWorkbench_7.name=9946C5 Crafting Table
+tile.magentaMixWorkbench_8.name=734CC5 Crafting Table
+tile.magentaMixWorkbench_9.name=8C4C86 Crafting Table
+tile.magentaMixWorkbench_10.name=8C6586 Crafting Table
+tile.magentaMixWorkbench_11.name=A64086 Crafting Table
+tile.magentaMixWorkbench_12.name=663379 Crafting Table
+
+tile.magentaMixSand_0.name=8C72D8 Sand
+tile.magentaMixSand_1.name=CB9886 Sand
+tile.magentaMixSand_2.name=998C79 Sand
+tile.magentaMixSand_3.name=D265BF Sand
+tile.magentaMixSand_4.name=7F4C92 Sand
+tile.magentaMixSand_5.name=A672B9 Sand
+tile.magentaMixSand_6.name=7F65B9 Sand
+tile.magentaMixSand_7.name=9946C5 Sand
+tile.magentaMixSand_8.name=734CC5 Sand
+tile.magentaMixSand_9.name=8C4C86 Sand
+tile.magentaMixSand_10.name=8C6586 Sand
+tile.magentaMixSand_11.name=A64086 Sand
+tile.magentaMixSand_12.name=663379 Sand
+
+tile.magentaMixWorkSandstone_0.name=8C72D8 Sandstone
+tile.magentaMixWorkSandstone_1.name=CB9886 Sandstone
+tile.magentaMixWorkSandstone_2.name=998C79 Sandstone
+tile.magentaMixWorkSandstone_3.name=D265BF Sandstone
+tile.magentaMixWorkSandstone_4.name=7F4C92 Sandstone
+tile.magentaMixWorkSandstone_5.name=A672B9 Sandstone
+tile.magentaMixWorkSandstone_6.name=7F65B9 Sandstone
+tile.magentaMixWorkSandstone_7.name=9946C5 Sandstone
+tile.magentaMixWorkSandstone_8.name=734CC5 Sandstone
+tile.magentaMixWorkSandstone_9.name=8C4C86 Sandstone
+tile.magentaMixWorkSandstone_10.name=8C6586 Sandstone
+tile.magentaMixWorkSandstone_11.name=A64086 Sandstone
+tile.magentaMixWorkSandstone_12.name=663379 Sandstone
+
+item.lightBlueDye_0.name=A5BF86 Dye
+item.lightBlueDye_1.name=72B279 Dye
+item.lightBlueDye_2.name=AC8CBF Dye
+item.lightBlueDye_3.name=597392 Dye
+item.lightBlueDye_4.name=7F99B9 Dye
+item.lightBlueDye_5.name=598CB9 Dye
+item.lightBlueDye_6.name=726CC5 Dye
+item.lightBlueDye_7.name=4D73C5 Dye
+item.lightBlueDye_8.name=667386 Dye
+item.lightBlueDye_9.name=668C86 Dye
+item.lightBlueDye_10.name=7F6686 Dye
+item.lightBlueDye_11.name=405979 Dye
+
+tile.lightBlueMixWool_0.name=A5BF86 Wool
+tile.lightBlueMixWool_1.name=72B279 Wool
+tile.lightBlueMixWool_2.name=AC8CBF Wool
+tile.lightBlueMixWool_3.name=597392 Wool
+tile.lightBlueMixWool_4.name=7F99B9 Wool
+tile.lightBlueMixWool_5.name=598CB9 Wool
+tile.lightBlueMixWool_6.name=726CC5 Wool
+tile.lightBlueMixWool_7.name=4D73C5 Wool
+tile.lightBlueMixWool_8.name=667386 Wool
+tile.lightBlueMixWool_9.name=668C86 Wool
+tile.lightBlueMixWool_10.name=7F6686 Wool
+tile.lightBlueMixWool_11.name=405979 Wool
+
+tile.lightBlueMixStonebrick_0.name=A5BF86 Stone Brick
+tile.lightBlueMixStonebrick_1.name=72B279 Stone Brick
+tile.lightBlueMixStonebrick_2.name=AC8CBF Stone Brick
+tile.lightBlueMixStonebrick_3.name=597392 Stone Brick
+tile.lightBlueMixStonebrick_4.name=7F99B9 Stone Brick
+tile.lightBlueMixStonebrick_5.name=598CB9 Stone Brick
+tile.lightBlueMixStonebrick_6.name=726CC5 Stone Brick
+tile.lightBlueMixStonebrick_7.name=4D73C5 Stone Brick
+tile.lightBlueMixStonebrick_8.name=667386 Stone Brick
+tile.lightBlueMixStonebrick_9.name=668C86 Stone Brick
+tile.lightBlueMixStonebrick_10.name=7F6686 Stone Brick
+tile.lightBlueMixStonebrick_11.name=405979 Stone Brick
+
+tile.lightBlueMixStonebrickcracked_0.name=A5BF86 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_1.name=72B279 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_2.name=AC8CBF Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_3.name=597392 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_4.name=7F99B9 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_5.name=598CB9 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_6.name=726CC5 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_7.name=4D73C5 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_8.name=667386 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_9.name=668C86 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_10.name=7F6686 Cracked Stone Brick
+tile.lightBlueMixStonebrickcracked_11.name=405979 Cracked Stone Brick
+
+tile.lightBlueMixStonebrickcarved_0.name=A5BF86 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_1.name=72B279 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_2.name=AC8CBF Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_3.name=597392 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_4.name=7F99B9 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_5.name=598CB9 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_6.name=726CC5 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_7.name=4D73C5 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_8.name=667386 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_9.name=668C86 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_10.name=7F6686 Carved Stone Brick
+tile.lightBlueMixStonebrickcarved_11.name=405979 Carved Stone Brick
+
+tile.lightBlueMixStone_0.name=A5BF86 Stone
+tile.lightBlueMixStone_1.name=72B279 Stone
+tile.lightBlueMixStone_2.name=AC8CBF Stone
+tile.lightBlueMixStone_3.name=597392 Stone
+tile.lightBlueMixStone_4.name=7F99B9 Stone
+tile.lightBlueMixStone_5.name=598CB9 Stone
+tile.lightBlueMixStone_6.name=726CC5 Stone
+tile.lightBlueMixStone_7.name=4D73C5 Stone
+tile.lightBlueMixStone_8.name=667386 Stone
+tile.lightBlueMixStone_9.name=668C86 Stone
+tile.lightBlueMixStone_10.name=7F6686 Stone
+tile.lightBlueMixStone_11.name=405979 Stone
+
+tile.lightBlueMixObsidian_0.name=A5BF86 Obsidian
+tile.lightBlueMixObsidian_1.name=72B279 Obsidian
+tile.lightBlueMixObsidian_2.name=AC8CBF Obsidian
+tile.lightBlueMixObsidian_3.name=597392 Obsidian
+tile.lightBlueMixObsidian_4.name=7F99B9 Obsidian
+tile.lightBlueMixObsidian_5.name=598CB9 Obsidian
+tile.lightBlueMixObsidian_6.name=726CC5 Obsidian
+tile.lightBlueMixObsidian_7.name=4D73C5 Obsidian
+tile.lightBlueMixObsidian_8.name=667386 Obsidian
+tile.lightBlueMixObsidian_9.name=668C86 Obsidian
+tile.lightBlueMixObsidian_10.name=7F6686 Obsidian
+tile.lightBlueMixObsidian_11.name=405979 Obsidian
+
+tile.lightBlueMixGlowstone_0.name=A5BF86 Glowstone
+tile.lightBlueMixGlowstone_1.name=72B279 Glowstone
+tile.lightBlueMixGlowstone_2.name=AC8CBF Glowstone
+tile.lightBlueMixGlowstone_3.name=597392 Glowstone
+tile.lightBlueMixGlowstone_4.name=7F99B9 Glowstone
+tile.lightBlueMixGlowstone_5.name=598CB9 Glowstone
+tile.lightBlueMixGlowstone_6.name=726CC5 Glowstone
+tile.lightBlueMixGlowstone_7.name=4D73C5 Glowstone
+tile.lightBlueMixGlowstone_8.name=667386 Glowstone
+tile.lightBlueMixGlowstone_9.name=668C86 Glowstone
+tile.lightBlueMixGlowstone_10.name=7F6686 Glowstone
+tile.lightBlueMixGlowstone_11.name=405979 Glowstone
+
+tile.lightBlueMixCoal_0.name=A5BF86 Coal Block
+tile.lightBlueMixCoal_1.name=72B279 Coal Block
+tile.lightBlueMixCoal_2.name=AC8CBF Coal Block
+tile.lightBlueMixCoal_3.name=597392 Coal Block
+tile.lightBlueMixCoal_4.name=7F99B9 Coal Block
+tile.lightBlueMixCoal_5.name=598CB9 Coal Block
+tile.lightBlueMixCoal_6.name=726CC5 Coal Block
+tile.lightBlueMixCoal_7.name=4D73C5 Coal Block
+tile.lightBlueMixCoal_8.name=667386 Coal Block
+tile.lightBlueMixCoal_9.name=668C86 Coal Block
+tile.lightBlueMixCoal_10.name=7F6686 Coal Block
+tile.lightBlueMixCoal_11.name=405979 Coal Block
+
+tile.lightBlueMixRedstone_0.name=A5BF86 Redstone Block
+tile.lightBlueMixRedstone_1.name=72B279 Redstone Block
+tile.lightBlueMixRedstone_2.name=AC8CBF Redstone Block
+tile.lightBlueMixRedstone_3.name=597392 Redstone Block
+tile.lightBlueMixRedstone_4.name=7F99B9 Redstone Block
+tile.lightBlueMixRedstone_5.name=598CB9 Redstone Block
+tile.lightBlueMixRedstone_6.name=726CC5 Redstone Block
+tile.lightBlueMixRedstone_7.name=4D73C5 Redstone Block
+tile.lightBlueMixRedstone_8.name=667386 Redstone Block
+tile.lightBlueMixRedstone_9.name=668C86 Redstone Block
+tile.lightBlueMixRedstone_10.name=7F6686 Redstone Block
+tile.lightBlueMixRedstone_11.name=405979 Redstone Block
+
+tile.lightBlueMixLapis_0.name=A5BF86 Lapis Block
+tile.lightBlueMixLapis_1.name=72B279 Lapis Block
+tile.lightBlueMixLapis_2.name=AC8CBF Lapis Block
+tile.lightBlueMixLapis_3.name=597392 Lapis Block
+tile.lightBlueMixLapis_4.name=7F99B9 Lapis Block
+tile.lightBlueMixLapis_5.name=598CB9 Lapis Block
+tile.lightBlueMixLapis_6.name=726CC5 Lapis Block
+tile.lightBlueMixLapis_7.name=4D73C5 Lapis Block
+tile.lightBlueMixLapis_8.name=667386 Lapis Block
+tile.lightBlueMixLapis_9.name=668C86 Lapis Block
+tile.lightBlueMixLapis_10.name=7F6686 Lapis Block
+tile.lightBlueMixLapis_11.name=405979 Lapis Block
+
+tile.lightBlueMixCobble_0.name=A5BF86 Cobblestone
+tile.lightBlueMixCobble_1.name=72B279 Cobblestone
+tile.lightBlueMixCobble_2.name=AC8CBF Cobblestone
+tile.lightBlueMixCobble_3.name=597392 Cobblestone
+tile.lightBlueMixCobble_4.name=7F99B9 Cobblestone
+tile.lightBlueMixCobble_5.name=598CB9 Cobblestone
+tile.lightBlueMixCobble_6.name=726CC5 Cobblestone
+tile.lightBlueMixCobble_7.name=4D73C5 Cobblestone
+tile.lightBlueMixCobble_8.name=667386 Cobblestone
+tile.lightBlueMixCobble_9.name=668C86 Cobblestone
+tile.lightBlueMixCobble_10.name=7F6686 Cobblestone
+tile.lightBlueMixCobble_11.name=405979 Cobblestone
+
+tile.lightBlueMixSoulsand_0.name=A5BF86 Soulsand
+tile.lightBlueMixSoulsand_1.name=72B279 Soulsand
+tile.lightBlueMixSoulsand_2.name=AC8CBF Soulsand
+tile.lightBlueMixSoulsand_3.name=597392 Soulsand
+tile.lightBlueMixSoulsand_4.name=7F99B9 Soulsand
+tile.lightBlueMixSoulsand_5.name=598CB9 Soulsand
+tile.lightBlueMixSoulsand_6.name=726CC5 Soulsand
+tile.lightBlueMixSoulsand_7.name=4D73C5 Soulsand
+tile.lightBlueMixSoulsand_8.name=667386 Soulsand
+tile.lightBlueMixSoulsand_9.name=668C86 Soulsand
+tile.lightBlueMixSoulsand_10.name=7F6686 Soulsand
+tile.lightBlueMixSoulsand_11.name=405979 Soulsand
+
+tile.lightBlueMixQuartz_0.name=A5BF86 Quartz Block
+tile.lightBlueMixQuartz_1.name=72B279 Quartz Block
+tile.lightBlueMixQuartz_2.name=AC8CBF Quartz Block
+tile.lightBlueMixQuartz_3.name=597392 Quartz Block
+tile.lightBlueMixQuartz_4.name=7F99B9 Quartz Block
+tile.lightBlueMixQuartz_5.name=598CB9 Quartz Block
+tile.lightBlueMixQuartz_6.name=726CC5 Quartz Block
+tile.lightBlueMixQuartz_7.name=4D73C5 Quartz Block
+tile.lightBlueMixQuartz_8.name=667386 Quartz Block
+tile.lightBlueMixQuartz_9.name=668C86 Quartz Block
+tile.lightBlueMixQuartz_10.name=7F6686 Quartz Block
+tile.lightBlueMixQuartz_11.name=405979 Quartz Block
+
+tile.lightBlueMixClay_0.name=A5BF86 Hardened Stained Clay
+tile.lightBlueMixClay_1.name=72B279 Hardened Stained Clay
+tile.lightBlueMixClay_2.name=AC8CBF Hardened Stained Clay
+tile.lightBlueMixClay_3.name=597392 Hardened Stained Clay
+tile.lightBlueMixClay_4.name=7F99B9 Hardened Stained Clay
+tile.lightBlueMixClay_5.name=598CB9 Hardened Stained Clay
+tile.lightBlueMixClay_6.name=726CC5 Hardened Stained Clay
+tile.lightBlueMixClay_7.name=4D73C5 Hardened Stained Clay
+tile.lightBlueMixClay_8.name=667386 Hardened Stained Clay
+tile.lightBlueMixClay_9.name=668C86 Hardened Stained Clay
+tile.lightBlueMixClay_10.name=7F6686 Hardened Stained Clay
+tile.lightBlueMixClay_11.name=405979 Hardened Stained Clay
+
+tile.lightBlueMixPlank_0.name=A5BF86 Plank
+tile.lightBlueMixPlank_1.name=72B279 Plank
+tile.lightBlueMixPlank_2.name=AC8CBF Plank
+tile.lightBlueMixPlank_3.name=597392 Plank
+tile.lightBlueMixPlank_4.name=7F99B9 Plank
+tile.lightBlueMixPlank_5.name=598CB9 Plank
+tile.lightBlueMixPlank_6.name=726CC5 Plank
+tile.lightBlueMixPlank_7.name=4D73C5 Plank
+tile.lightBlueMixPlank_8.name=667386 Plank
+tile.lightBlueMixPlank_9.name=668C86 Plank
+tile.lightBlueMixPlank_10.name=7F6686 Plank
+tile.lightBlueMixPlank_11.name=405979 Plank
+
+tile.lightBlueMixTulip_0.name=A5BF86 Tulip
+tile.lightBlueMixTulip_1.name=72B279 Tulip
+tile.lightBlueMixTulip_2.name=AC8CBF Tulip
+tile.lightBlueMixTulip_3.name=597392 Tulip
+tile.lightBlueMixTulip_4.name=7F99B9 Tulip
+tile.lightBlueMixTulip_5.name=598CB9 Tulip
+tile.lightBlueMixTulip_6.name=726CC5 Tulip
+tile.lightBlueMixTulip_7.name=4D73C5 Tulip
+tile.lightBlueMixTulip_8.name=667386 Tulip
+tile.lightBlueMixTulip_9.name=668C86 Tulip
+tile.lightBlueMixTulip_10.name=7F6686 Tulip
+tile.lightBlueMixTulip_11.name=405979 Tulip
+
+tile.lightBlueMixSapling_0.name=A5BF86 Sapling
+tile.lightBlueMixSapling_1.name=72B279 Sapling
+tile.lightBlueMixSapling_2.name=AC8CBF Sapling
+tile.lightBlueMixSapling_3.name=597392 Sapling
+tile.lightBlueMixSapling_4.name=7F99B9 Sapling
+tile.lightBlueMixSapling_5.name=598CB9 Sapling
+tile.lightBlueMixSapling_6.name=726CC5 Sapling
+tile.lightBlueMixSapling_7.name=4D73C5 Sapling
+tile.lightBlueMixSapling_8.name=667386 Sapling
+tile.lightBlueMixSapling_9.name=668C86 Sapling
+tile.lightBlueMixSapling_10.name=7F6686 Sapling
+tile.lightBlueMixSapling_11.name=405979 Sapling
+
+tile.lightBlueMixLog_0.name=A5BF86 Log
+tile.lightBlueMixLog_1.name=72B279 Log
+tile.lightBlueMixLog_2.name=AC8CBF Log
+tile.lightBlueMixLog_3.name=597392 Log
+tile.lightBlueMixLog_4.name=7F99B9 Log
+tile.lightBlueMixLog_5.name=598CB9 Log
+tile.lightBlueMixLog_6.name=726CC5 Log
+tile.lightBlueMixLog_7.name=4D73C5 Log
+tile.lightBlueMixLog_8.name=667386 Log
+tile.lightBlueMixLog_9.name=668C86 Log
+tile.lightBlueMixLog_10.name=7F6686 Log
+tile.lightBlueMixLog_11.name=405979 Log
+
+tile.lightBlueMixLeaf_0.name=A5BF86 Leaves
+tile.lightBlueMixLeaf_1.name=72B279 Leaves
+tile.lightBlueMixLeaf_2.name=AC8CBF Leaves
+tile.lightBlueMixLeaf_3.name=597392 Leaves
+tile.lightBlueMixLeaf_4.name=7F99B9 Leaves
+tile.lightBlueMixLeaf_5.name=598CB9 Leaves
+tile.lightBlueMixLeaf_6.name=726CC5 Leaves
+tile.lightBlueMixLeaf_7.name=4D73C5 Leaves
+tile.lightBlueMixLeaf_8.name=667386 Leaves
+tile.lightBlueMixLeaf_9.name=668C86 Leaves
+tile.lightBlueMixLeaf_10.name=7F6686 Leaves
+tile.lightBlueMixLeaf_11.name=405979 Leaves
+
+tile.lightBlueMixGlassClear_0.name=A5BF86 Clear Glass
+tile.lightBlueMixGlassClear_1.name=72B279 Clear Glass
+tile.lightBlueMixGlassClear_2.name=AC8CBF Clear Glass
+tile.lightBlueMixGlassClear_3.name=597392 Clear Glass
+tile.lightBlueMixGlassClear_4.name=7F99B9 Clear Glass
+tile.lightBlueMixGlassClear_5.name=598CB9 Clear Glass
+tile.lightBlueMixGlassClear_6.name=726CC5 Clear Glass
+tile.lightBlueMixGlassClear_7.name=4D73C5 Clear Glass
+tile.lightBlueMixGlassClear_8.name=667386 Clear Glass
+tile.lightBlueMixGlassClear_9.name=668C86 Clear Glass
+tile.lightBlueMixGlassClear_10.name=7F6686 Clear Glass
+tile.lightBlueMixGlassClear_11.name=405979 Clear Glass
+
+tile.lightBlueMixGlassFoggy_0.name=A5BF86 Foggy Glass
+tile.lightBlueMixGlassFoggy_1.name=72B279 Foggy Glass
+tile.lightBlueMixGlassFoggy_2.name=AC8CBF Foggy Glass
+tile.lightBlueMixGlassFoggy_3.name=597392 Foggy Glass
+tile.lightBlueMixGlassFoggy_4.name=7F99B9 Foggy Glass
+tile.lightBlueMixGlassFoggy_5.name=598CB9 Foggy Glass
+tile.lightBlueMixGlassFoggy_6.name=726CC5 Foggy Glass
+tile.lightBlueMixGlassFoggy_7.name=4D73C5 Foggy Glass
+tile.lightBlueMixGlassFoggy_8.name=667386 Foggy Glass
+tile.lightBlueMixGlassFoggy_9.name=668C86 Foggy Glass
+tile.lightBlueMixGlassFoggy_10.name=7F6686 Foggy Glass
+tile.lightBlueMixGlassFoggy_11.name=405979 Foggy Glass
+
+tile.lightBlueMixGlassClearPane_0.name=A5BF86 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_1.name=72B279 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_2.name=AC8CBF Clear Glass Pane
+tile.lightBlueMixGlassClearPane_3.name=597392 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_4.name=7F99B9 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_5.name=598CB9 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_6.name=726CC5 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_7.name=4D73C5 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_8.name=667386 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_9.name=668C86 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_10.name=7F6686 Clear Glass Pane
+tile.lightBlueMixGlassClearPane_11.name=405979 Clear Glass Pane
+
+tile.lightBlueMixGlassFoggyPane_0.name=A5BF86 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_1.name=72B279 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_2.name=AC8CBF Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_3.name=597392 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_4.name=7F99B9 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_5.name=598CB9 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_6.name=726CC5 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_7.name=4D73C5 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_8.name=667386 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_9.name=668C86 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_10.name=7F6686 Foggy Glass Pane
+tile.lightBlueMixGlassFoggyPane_11.name=405979 Foggy Glass Pane
+
+tile.lightBlueMixBrick_0.name=A5BF86 Brick
+tile.lightBlueMixBrick_1.name=72B279 Brick
+tile.lightBlueMixBrick_2.name=AC8CBF Brick
+tile.lightBlueMixBrick_3.name=597392 Brick
+tile.lightBlueMixBrick_4.name=7F99B9 Brick
+tile.lightBlueMixBrick_5.name=598CB9 Brick
+tile.lightBlueMixBrick_6.name=726CC5 Brick
+tile.lightBlueMixBrick_7.name=4D73C5 Brick
+tile.lightBlueMixBrick_8.name=667386 Brick
+tile.lightBlueMixBrick_9.name=668C86 Brick
+tile.lightBlueMixBrick_10.name=7F6686 Brick
+tile.lightBlueMixBrick_11.name=405979 Brick
+
+tile.lightBlueMixWorkbench_0.name=A5BF86 Crafting Table
+tile.lightBlueMixWorkbench_1.name=72B279 Crafting Table
+tile.lightBlueMixWorkbench_2.name=AC8CBF Crafting Table
+tile.lightBlueMixWorkbench_3.name=597392 Crafting Table
+tile.lightBlueMixWorkbench_4.name=7F99B9 Crafting Table
+tile.lightBlueMixWorkbench_5.name=598CB9 Crafting Table
+tile.lightBlueMixWorkbench_6.name=726CC5 Crafting Table
+tile.lightBlueMixWorkbench_7.name=4D73C5 Crafting Table
+tile.lightBlueMixWorkbench_8.name=667386 Crafting Table
+tile.lightBlueMixWorkbench_9.name=668C86 Crafting Table
+tile.lightBlueMixWorkbench_10.name=7F6686 Crafting Table
+tile.lightBlueMixWorkbench_11.name=405979 Crafting Table
+
+tile.lightBlueMixSand_0.name=A5BF86 Sand
+tile.lightBlueMixSand_1.name=72B279 Sand
+tile.lightBlueMixSand_2.name=AC8CBF Sand
+tile.lightBlueMixSand_3.name=597392 Sand
+tile.lightBlueMixSand_4.name=7F99B9 Sand
+tile.lightBlueMixSand_5.name=598CB9 Sand
+tile.lightBlueMixSand_6.name=726CC5 Sand
+tile.lightBlueMixSand_7.name=4D73C5 Sand
+tile.lightBlueMixSand_8.name=667386 Sand
+tile.lightBlueMixSand_9.name=668C86 Sand
+tile.lightBlueMixSand_10.name=7F6686 Sand
+tile.lightBlueMixSand_11.name=405979 Sand
+
+tile.lightBlueMixWorkSandstone_0.name=A5BF86 Sandstone
+tile.lightBlueMixWorkSandstone_1.name=72B279 Sandstone
+tile.lightBlueMixWorkSandstone_2.name=AC8CBF Sandstone
+tile.lightBlueMixWorkSandstone_3.name=597392 Sandstone
+tile.lightBlueMixWorkSandstone_4.name=7F99B9 Sandstone
+tile.lightBlueMixWorkSandstone_5.name=598CB9 Sandstone
+tile.lightBlueMixWorkSandstone_6.name=726CC5 Sandstone
+tile.lightBlueMixWorkSandstone_7.name=4D73C5 Sandstone
+tile.lightBlueMixWorkSandstone_8.name=667386 Sandstone
+tile.lightBlueMixWorkSandstone_9.name=668C86 Sandstone
+tile.lightBlueMixWorkSandstone_10.name=7F6686 Sandstone
+tile.lightBlueMixWorkSandstone_11.name=405979 Sandstone
+
+item.yellowDye_0.name=B2D926 Dye
+item.yellowDye_1.name=EBB26C Dye
+item.yellowDye_2.name=99993F Dye
+item.yellowDye_3.name=BFBF66 Dye
+item.yellowDye_4.name=99B266 Dye
+item.yellowDye_5.name=B29272 Dye
+item.yellowDye_6.name=8C9972 Dye
+item.yellowDye_7.name=A69933 Dye
+item.yellowDye_8.name=A6B233 Dye
+item.yellowDye_9.name=BF8C33 Dye
+item.yellowDye_10.name=7F7F26 Dye
+
+tile.yellowMixWool_0.name=B2D926 Wool
+tile.yellowMixWool_1.name=EBB26C Wool
+tile.yellowMixWool_2.name=99993F Wool
+tile.yellowMixWool_3.name=BFBF66 Wool
+tile.yellowMixWool_4.name=99B266 Wool
+tile.yellowMixWool_5.name=B29272 Wool
+tile.yellowMixWool_6.name=8C9972 Wool
+tile.yellowMixWool_7.name=A69933 Wool
+tile.yellowMixWool_8.name=A6B233 Wool
+tile.yellowMixWool_9.name=BF8C33 Wool
+tile.yellowMixWool_10.name=7F7F26 Wool
+
+tile.yellowMixStonebrick_0.name=B2D926 Stone Brick
+tile.yellowMixStonebrick_1.name=EBB26C Stone Brick
+tile.yellowMixStonebrick_2.name=99993F Stone Brick
+tile.yellowMixStonebrick_3.name=BFBF66 Stone Brick
+tile.yellowMixStonebrick_4.name=99B266 Stone Brick
+tile.yellowMixStonebrick_5.name=B29272 Stone Brick
+tile.yellowMixStonebrick_6.name=8C9972 Stone Brick
+tile.yellowMixStonebrick_7.name=A69933 Stone Brick
+tile.yellowMixStonebrick_8.name=A6B233 Stone Brick
+tile.yellowMixStonebrick_9.name=BF8C33 Stone Brick
+tile.yellowMixStonebrick_10.name=7F7F26 Stone Brick
+
+tile.yellowMixStonebrickcracked_0.name=B2D926 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_1.name=EBB26C Cracked Stone Brick
+tile.yellowMixStonebrickcracked_2.name=99993F Cracked Stone Brick
+tile.yellowMixStonebrickcracked_3.name=BFBF66 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_4.name=99B266 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_5.name=B29272 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_6.name=8C9972 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_7.name=A69933 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_8.name=A6B233 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_9.name=BF8C33 Cracked Stone Brick
+tile.yellowMixStonebrickcracked_10.name=7F7F26 Cracked Stone Brick
+
+tile.yellowMixStonebrickcarved_0.name=B2D926 Carved Stone Brick
+tile.yellowMixStonebrickcarved_1.name=EBB26C Carved Stone Brick
+tile.yellowMixStonebrickcarved_2.name=99993F Carved Stone Brick
+tile.yellowMixStonebrickcarved_3.name=BFBF66 Carved Stone Brick
+tile.yellowMixStonebrickcarved_4.name=99B266 Carved Stone Brick
+tile.yellowMixStonebrickcarved_5.name=B29272 Carved Stone Brick
+tile.yellowMixStonebrickcarved_6.name=8C9972 Carved Stone Brick
+tile.yellowMixStonebrickcarved_7.name=A69933 Carved Stone Brick
+tile.yellowMixStonebrickcarved_8.name=A6B233 Carved Stone Brick
+tile.yellowMixStonebrickcarved_9.name=BF8C33 Carved Stone Brick
+tile.yellowMixStonebrickcarved_10.name=7F7F26 Carved Stone Brick
+
+tile.yellowMixStone_0.name=B2D926 Stone
+tile.yellowMixStone_1.name=EBB26C Stone
+tile.yellowMixStone_2.name=99993F Stone
+tile.yellowMixStone_3.name=BFBF66 Stone
+tile.yellowMixStone_4.name=99B266 Stone
+tile.yellowMixStone_5.name=B29272 Stone
+tile.yellowMixStone_6.name=8C9972 Stone
+tile.yellowMixStone_7.name=A69933 Stone
+tile.yellowMixStone_8.name=A6B233 Stone
+tile.yellowMixStone_9.name=BF8C33 Stone
+tile.yellowMixStone_10.name=7F7F26 Stone
+
+tile.yellowMixObsidian_0.name=B2D926 Obsidian
+tile.yellowMixObsidian_1.name=EBB26C Obsidian
+tile.yellowMixObsidian_2.name=99993F Obsidian
+tile.yellowMixObsidian_3.name=BFBF66 Obsidian
+tile.yellowMixObsidian_4.name=99B266 Obsidian
+tile.yellowMixObsidian_5.name=B29272 Obsidian
+tile.yellowMixObsidian_6.name=8C9972 Obsidian
+tile.yellowMixObsidian_7.name=A69933 Obsidian
+tile.yellowMixObsidian_8.name=A6B233 Obsidian
+tile.yellowMixObsidian_9.name=BF8C33 Obsidian
+tile.yellowMixObsidian_10.name=7F7F26 Obsidian
+
+tile.yellowMixGlowstone_0.name=B2D926 Glowstone
+tile.yellowMixGlowstone_1.name=EBB26C Glowstone
+tile.yellowMixGlowstone_2.name=99993F Glowstone
+tile.yellowMixGlowstone_3.name=BFBF66 Glowstone
+tile.yellowMixGlowstone_4.name=99B266 Glowstone
+tile.yellowMixGlowstone_5.name=B29272 Glowstone
+tile.yellowMixGlowstone_6.name=8C9972 Glowstone
+tile.yellowMixGlowstone_7.name=A69933 Glowstone
+tile.yellowMixGlowstone_8.name=A6B233 Glowstone
+tile.yellowMixGlowstone_9.name=BF8C33 Glowstone
+tile.yellowMixGlowstone_10.name=7F7F26 Glowstone
+
+tile.yellowMixCoal_0.name=B2D926 Coal Block
+tile.yellowMixCoal_1.name=EBB26C Coal Block
+tile.yellowMixCoal_2.name=99993F Coal Block
+tile.yellowMixCoal_3.name=BFBF66 Coal Block
+tile.yellowMixCoal_4.name=99B266 Coal Block
+tile.yellowMixCoal_5.name=B29272 Coal Block
+tile.yellowMixCoal_6.name=8C9972 Coal Block
+tile.yellowMixCoal_7.name=A69933 Coal Block
+tile.yellowMixCoal_8.name=A6B233 Coal Block
+tile.yellowMixCoal_9.name=BF8C33 Coal Block
+tile.yellowMixCoal_10.name=7F7F26 Coal Block
+
+tile.yellowMixRedstone_0.name=B2D926 Redstone Block
+tile.yellowMixRedstone_1.name=EBB26C Redstone Block
+tile.yellowMixRedstone_2.name=99993F Redstone Block
+tile.yellowMixRedstone_3.name=BFBF66 Redstone Block
+tile.yellowMixRedstone_4.name=99B266 Redstone Block
+tile.yellowMixRedstone_5.name=B29272 Redstone Block
+tile.yellowMixRedstone_6.name=8C9972 Redstone Block
+tile.yellowMixRedstone_7.name=A69933 Redstone Block
+tile.yellowMixRedstone_8.name=A6B233 Redstone Block
+tile.yellowMixRedstone_9.name=BF8C33 Redstone Block
+tile.yellowMixRedstone_10.name=7F7F26 Redstone Block
+
+tile.yellowMixLapis_0.name=B2D926 Lapis Block
+tile.yellowMixLapis_1.name=EBB26C Lapis Block
+tile.yellowMixLapis_2.name=99993F Lapis Block
+tile.yellowMixLapis_3.name=BFBF66 Lapis Block
+tile.yellowMixLapis_4.name=99B266 Lapis Block
+tile.yellowMixLapis_5.name=B29272 Lapis Block
+tile.yellowMixLapis_6.name=8C9972 Lapis Block
+tile.yellowMixLapis_7.name=A69933 Lapis Block
+tile.yellowMixLapis_8.name=A6B233 Lapis Block
+tile.yellowMixLapis_9.name=BF8C33 Lapis Block
+tile.yellowMixLapis_10.name=7F7F26 Lapis Block
+
+tile.yellowMixCobble_0.name=B2D926 Cobblestone
+tile.yellowMixCobble_1.name=EBB26C Cobblestone
+tile.yellowMixCobble_2.name=99993F Cobblestone
+tile.yellowMixCobble_3.name=BFBF66 Cobblestone
+tile.yellowMixCobble_4.name=99B266 Cobblestone
+tile.yellowMixCobble_5.name=B29272 Cobblestone
+tile.yellowMixCobble_6.name=8C9972 Cobblestone
+tile.yellowMixCobble_7.name=A69933 Cobblestone
+tile.yellowMixCobble_8.name=A6B233 Cobblestone
+tile.yellowMixCobble_9.name=BF8C33 Cobblestone
+tile.yellowMixCobble_10.name=7F7F26 Cobblestone
+
+tile.yellowMixSoulsand_0.name=B2D926 Soulsand
+tile.yellowMixSoulsand_1.name=EBB26C Soulsand
+tile.yellowMixSoulsand_2.name=99993F Soulsand
+tile.yellowMixSoulsand_3.name=BFBF66 Soulsand
+tile.yellowMixSoulsand_4.name=99B266 Soulsand
+tile.yellowMixSoulsand_5.name=B29272 Soulsand
+tile.yellowMixSoulsand_6.name=8C9972 Soulsand
+tile.yellowMixSoulsand_7.name=A69933 Soulsand
+tile.yellowMixSoulsand_8.name=A6B233 Soulsand
+tile.yellowMixSoulsand_9.name=BF8C33 Soulsand
+tile.yellowMixSoulsand_10.name=7F7F26 Soulsand
+
+tile.yellowMixQuartz_0.name=B2D926 Quartz Block
+tile.yellowMixQuartz_1.name=EBB26C Quartz Block
+tile.yellowMixQuartz_2.name=99993F Quartz Block
+tile.yellowMixQuartz_3.name=BFBF66 Quartz Block
+tile.yellowMixQuartz_4.name=99B266 Quartz Block
+tile.yellowMixQuartz_5.name=B29272 Quartz Block
+tile.yellowMixQuartz_6.name=8C9972 Quartz Block
+tile.yellowMixQuartz_7.name=A69933 Quartz Block
+tile.yellowMixQuartz_8.name=A6B233 Quartz Block
+tile.yellowMixQuartz_9.name=BF8C33 Quartz Block
+tile.yellowMixQuartz_10.name=7F7F26 Quartz Block
+
+tile.yellowMixClay_0.name=B2D926 Hardened Stained Clay
+tile.yellowMixClay_1.name=EBB26C Hardened Stained Clay
+tile.yellowMixClay_2.name=99993F Hardened Stained Clay
+tile.yellowMixClay_3.name=BFBF66 Hardened Stained Clay
+tile.yellowMixClay_4.name=99B266 Hardened Stained Clay
+tile.yellowMixClay_5.name=B29272 Hardened Stained Clay
+tile.yellowMixClay_6.name=8C9972 Hardened Stained Clay
+tile.yellowMixClay_7.name=A69933 Hardened Stained Clay
+tile.yellowMixClay_8.name=A6B233 Hardened Stained Clay
+tile.yellowMixClay_9.name=BF8C33 Hardened Stained Clay
+tile.yellowMixClay_10.name=7F7F26 Hardened Stained Clay
+
+tile.yellowMixPlank_0.name=B2D926 Plank
+tile.yellowMixPlank_1.name=EBB26C Plank
+tile.yellowMixPlank_2.name=99993F Plank
+tile.yellowMixPlank_3.name=BFBF66 Plank
+tile.yellowMixPlank_4.name=99B266 Plank
+tile.yellowMixPlank_5.name=B29272 Plank
+tile.yellowMixPlank_6.name=8C9972 Plank
+tile.yellowMixPlank_7.name=A69933 Plank
+tile.yellowMixPlank_8.name=A6B233 Plank
+tile.yellowMixPlank_9.name=BF8C33 Plank
+tile.yellowMixPlank_10.name=7F7F26 Plank
+
+tile.yellowMixTulip_0.name=B2D926 Tulip
+tile.yellowMixTulip_1.name=EBB26C Tulip
+tile.yellowMixTulip_2.name=99993F Tulip
+tile.yellowMixTulip_3.name=BFBF66 Tulip
+tile.yellowMixTulip_4.name=99B266 Tulip
+tile.yellowMixTulip_5.name=B29272 Tulip
+tile.yellowMixTulip_6.name=8C9972 Tulip
+tile.yellowMixTulip_7.name=A69933 Tulip
+tile.yellowMixTulip_8.name=A6B233 Tulip
+tile.yellowMixTulip_9.name=BF8C33 Tulip
+tile.yellowMixTulip_10.name=7F7F26 Tulip
+
+tile.yellowMixSapling_0.name=B2D926 Sapling
+tile.yellowMixSapling_1.name=EBB26C Sapling
+tile.yellowMixSapling_2.name=99993F Sapling
+tile.yellowMixSapling_3.name=BFBF66 Sapling
+tile.yellowMixSapling_4.name=99B266 Sapling
+tile.yellowMixSapling_5.name=B29272 Sapling
+tile.yellowMixSapling_6.name=8C9972 Sapling
+tile.yellowMixSapling_7.name=A69933 Sapling
+tile.yellowMixSapling_8.name=A6B233 Sapling
+tile.yellowMixSapling_9.name=BF8C33 Sapling
+tile.yellowMixSapling_10.name=7F7F26 Sapling
+
+tile.yellowMixLog_0.name=B2D926 Log
+tile.yellowMixLog_1.name=EBB26C Log
+tile.yellowMixLog_2.name=99993F Log
+tile.yellowMixLog_3.name=BFBF66 Log
+tile.yellowMixLog_4.name=99B266 Log
+tile.yellowMixLog_5.name=B29272 Log
+tile.yellowMixLog_6.name=8C9972 Log
+tile.yellowMixLog_7.name=A69933 Log
+tile.yellowMixLog_8.name=A6B233 Log
+tile.yellowMixLog_9.name=BF8C33 Log
+tile.yellowMixLog_10.name=7F7F26 Log
+
+tile.yellowMixLeaf_0.name=B2D926 Leaves
+tile.yellowMixLeaf_1.name=EBB26C Leaves
+tile.yellowMixLeaf_2.name=99993F Leaves
+tile.yellowMixLeaf_3.name=BFBF66 Leaves
+tile.yellowMixLeaf_4.name=99B266 Leaves
+tile.yellowMixLeaf_5.name=B29272 Leaves
+tile.yellowMixLeaf_6.name=8C9972 Leaves
+tile.yellowMixLeaf_7.name=A69933 Leaves
+tile.yellowMixLeaf_8.name=A6B233 Leaves
+tile.yellowMixLeaf_9.name=BF8C33 Leaves
+tile.yellowMixLeaf_10.name=7F7F26 Leaves
+
+tile.yellowMixGlassClear_0.name=B2D926 Clear Glass
+tile.yellowMixGlassClear_1.name=EBB26C Clear Glass
+tile.yellowMixGlassClear_2.name=99993F Clear Glass
+tile.yellowMixGlassClear_3.name=BFBF66 Clear Glass
+tile.yellowMixGlassClear_4.name=99B266 Clear Glass
+tile.yellowMixGlassClear_5.name=B29272 Clear Glass
+tile.yellowMixGlassClear_6.name=8C9972 Clear Glass
+tile.yellowMixGlassClear_7.name=A69933 Clear Glass
+tile.yellowMixGlassClear_8.name=A6B233 Clear Glass
+tile.yellowMixGlassClear_9.name=BF8C33 Clear Glass
+tile.yellowMixGlassClear_10.name=7F7F26 Clear Glass
+
+tile.yellowMixGlassFoggy_0.name=B2D926 Foggy Glass
+tile.yellowMixGlassFoggy_1.name=EBB26C Foggy Glass
+tile.yellowMixGlassFoggy_2.name=99993F Foggy Glass
+tile.yellowMixGlassFoggy_3.name=BFBF66 Foggy Glass
+tile.yellowMixGlassFoggy_4.name=99B266 Foggy Glass
+tile.yellowMixGlassFoggy_5.name=B29272 Foggy Glass
+tile.yellowMixGlassFoggy_6.name=8C9972 Foggy Glass
+tile.yellowMixGlassFoggy_7.name=A69933 Foggy Glass
+tile.yellowMixGlassFoggy_8.name=A6B233 Foggy Glass
+tile.yellowMixGlassFoggy_9.name=BF8C33 Foggy Glass
+tile.yellowMixGlassFoggy_10.name=7F7F26 Foggy Glass
+
+tile.yellowMixGlassClearPane_0.name=B2D926 Clear Glass Pane
+tile.yellowMixGlassClearPane_1.name=EBB26C Clear Glass Pane
+tile.yellowMixGlassClearPane_2.name=99993F Clear Glass Pane
+tile.yellowMixGlassClearPane_3.name=BFBF66 Clear Glass Pane
+tile.yellowMixGlassClearPane_4.name=99B266 Clear Glass Pane
+tile.yellowMixGlassClearPane_5.name=B29272 Clear Glass Pane
+tile.yellowMixGlassClearPane_6.name=8C9972 Clear Glass Pane
+tile.yellowMixGlassClearPane_7.name=A69933 Clear Glass Pane
+tile.yellowMixGlassClearPane_8.name=A6B233 Clear Glass Pane
+tile.yellowMixGlassClearPane_9.name=BF8C33 Clear Glass Pane
+tile.yellowMixGlassClearPane_10.name=7F7F26 Clear Glass Pane
+
+tile.yellowMixGlassFoggyPane_0.name=B2D926 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_1.name=EBB26C Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_2.name=99993F Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_3.name=BFBF66 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_4.name=99B266 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_5.name=B29272 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_6.name=8C9972 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_7.name=A69933 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_8.name=A6B233 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_9.name=BF8C33 Foggy Glass Pane
+tile.yellowMixGlassFoggyPane_10.name=7F7F26 Foggy Glass Pane
+
+tile.yellowMixBrick_0.name=B2D926 Brick
+tile.yellowMixBrick_1.name=EBB26C Brick
+tile.yellowMixBrick_2.name=99993F Brick
+tile.yellowMixBrick_3.name=BFBF66 Brick
+tile.yellowMixBrick_4.name=99B266 Brick
+tile.yellowMixBrick_5.name=B29272 Brick
+tile.yellowMixBrick_6.name=8C9972 Brick
+tile.yellowMixBrick_7.name=A69933 Brick
+tile.yellowMixBrick_8.name=A6B233 Brick
+tile.yellowMixBrick_9.name=BF8C33 Brick
+tile.yellowMixBrick_10.name=7F7F26 Brick
+
+tile.yellowMixWorkbench_0.name=B2D926 Crafting Table
+tile.yellowMixWorkbench_1.name=EBB26C Crafting Table
+tile.yellowMixWorkbench_2.name=99993F Crafting Table
+tile.yellowMixWorkbench_3.name=BFBF66 Crafting Table
+tile.yellowMixWorkbench_4.name=99B266 Crafting Table
+tile.yellowMixWorkbench_5.name=B29272 Crafting Table
+tile.yellowMixWorkbench_6.name=8C9972 Crafting Table
+tile.yellowMixWorkbench_7.name=A69933 Crafting Table
+tile.yellowMixWorkbench_8.name=A6B233 Crafting Table
+tile.yellowMixWorkbench_9.name=BF8C33 Crafting Table
+tile.yellowMixWorkbench_10.name=7F7F26 Crafting Table
+
+tile.yellowMixSand_0.name=B2D926 Sand
+tile.yellowMixSand_1.name=EBB26C Sand
+tile.yellowMixSand_2.name=99993F Sand
+tile.yellowMixSand_3.name=BFBF66 Sand
+tile.yellowMixSand_4.name=99B266 Sand
+tile.yellowMixSand_5.name=B29272 Sand
+tile.yellowMixSand_6.name=8C9972 Sand
+tile.yellowMixSand_7.name=A69933 Sand
+tile.yellowMixSand_8.name=A6B233 Sand
+tile.yellowMixSand_9.name=BF8C33 Sand
+tile.yellowMixSand_10.name=7F7F26 Sand
+
+tile.yellowMixWorkSandstone_0.name=B2D926 Sandstone
+tile.yellowMixWorkSandstone_1.name=EBB26C Sandstone
+tile.yellowMixWorkSandstone_2.name=99993F Sandstone
+tile.yellowMixWorkSandstone_3.name=BFBF66 Sandstone
+tile.yellowMixWorkSandstone_4.name=99B266 Sandstone
+tile.yellowMixWorkSandstone_5.name=B29272 Sandstone
+tile.yellowMixWorkSandstone_6.name=8C9972 Sandstone
+tile.yellowMixWorkSandstone_7.name=A69933 Sandstone
+tile.yellowMixWorkSandstone_8.name=A6B233 Sandstone
+tile.yellowMixWorkSandstone_9.name=BF8C33 Sandstone
+tile.yellowMixWorkSandstone_10.name=7F7F26 Sandstone
+
+item.limeDye_0.name=B8A65F Dye
+item.limeDye_1.name=668C32 Dye
+item.limeDye_2.name=8CB359 Dye
+item.limeDye_3.name=66A659 Dye
+item.limeDye_4.name=7F5665 Dye
+item.limeDye_5.name=598C65 Dye
+item.limeDye_6.name=738C26 Dye
+item.limeDye_7.name=73A626 Dye
+item.limeDye_8.name=8C8026 Dye
+item.limeDye_9.name=4C7319 Dye
+
+tile.limeMixWool_0.name=B8A65F Wool
+tile.limeMixWool_1.name=668C32 Wool
+tile.limeMixWool_2.name=8CB359 Wool
+tile.limeMixWool_3.name=66A659 Wool
+tile.limeMixWool_4.name=7F5665 Wool
+tile.limeMixWool_5.name=598C65 Wool
+tile.limeMixWool_6.name=738C26 Wool
+tile.limeMixWool_7.name=73A626 Wool
+tile.limeMixWool_8.name=8C8026 Wool
+tile.limeMixWool_9.name=4C7319 Wool
+
+tile.limeMixStonebrick_0.name=B8A65F Stone Brick
+tile.limeMixStonebrick_1.name=668C32 Stone Brick
+tile.limeMixStonebrick_2.name=8CB359 Stone Brick
+tile.limeMixStonebrick_3.name=66A659 Stone Brick
+tile.limeMixStonebrick_4.name=7F5665 Stone Brick
+tile.limeMixStonebrick_5.name=598C65 Stone Brick
+tile.limeMixStonebrick_6.name=738C26 Stone Brick
+tile.limeMixStonebrick_7.name=73A626 Stone Brick
+tile.limeMixStonebrick_8.name=8C8026 Stone Brick
+tile.limeMixStonebrick_9.name=4C7319 Stone Brick
+
+tile.limeMixStonebrickcracked_0.name=B8A65F Cracked Stone Brick
+tile.limeMixStonebrickcracked_1.name=668C32 Cracked Stone Brick
+tile.limeMixStonebrickcracked_2.name=8CB359 Cracked Stone Brick
+tile.limeMixStonebrickcracked_3.name=66A659 Cracked Stone Brick
+tile.limeMixStonebrickcracked_4.name=7F5665 Cracked Stone Brick
+tile.limeMixStonebrickcracked_5.name=598C65 Cracked Stone Brick
+tile.limeMixStonebrickcracked_6.name=738C26 Cracked Stone Brick
+tile.limeMixStonebrickcracked_7.name=73A626 Cracked Stone Brick
+tile.limeMixStonebrickcracked_8.name=8C8026 Cracked Stone Brick
+tile.limeMixStonebrickcracked_9.name=4C7319 Cracked Stone Brick
+
+tile.limeMixStonebrickcarved_0.name=B8A65F Carved Stone Brick
+tile.limeMixStonebrickcarved_1.name=668C32 Carved Stone Brick
+tile.limeMixStonebrickcarved_2.name=8CB359 Carved Stone Brick
+tile.limeMixStonebrickcarved_3.name=66A659 Carved Stone Brick
+tile.limeMixStonebrickcarved_4.name=7F5665 Carved Stone Brick
+tile.limeMixStonebrickcarved_5.name=598C65 Carved Stone Brick
+tile.limeMixStonebrickcarved_6.name=738C26 Carved Stone Brick
+tile.limeMixStonebrickcarved_7.name=73A626 Carved Stone Brick
+tile.limeMixStonebrickcarved_8.name=8C8026 Carved Stone Brick
+tile.limeMixStonebrickcarved_9.name=4C7319 Carved Stone Brick
+
+tile.limeMixStone_0.name=B8A65F Stone
+tile.limeMixStone_1.name=668C32 Stone
+tile.limeMixStone_2.name=8CB359 Stone
+tile.limeMixStone_3.name=66A659 Stone
+tile.limeMixStone_4.name=7F5665 Stone
+tile.limeMixStone_5.name=598C65 Stone
+tile.limeMixStone_6.name=738C26 Stone
+tile.limeMixStone_7.name=73A626 Stone
+tile.limeMixStone_8.name=8C8026 Stone
+tile.limeMixStone_9.name=4C7319 Stone
+
+tile.limeMixObsidian_0.name=B8A65F Obsidian
+tile.limeMixObsidian_1.name=668C32 Obsidian
+tile.limeMixObsidian_2.name=8CB359 Obsidian
+tile.limeMixObsidian_3.name=66A659 Obsidian
+tile.limeMixObsidian_4.name=7F5665 Obsidian
+tile.limeMixObsidian_5.name=598C65 Obsidian
+tile.limeMixObsidian_6.name=738C26 Obsidian
+tile.limeMixObsidian_7.name=73A626 Obsidian
+tile.limeMixObsidian_8.name=8C8026 Obsidian
+tile.limeMixObsidian_9.name=4C7319 Obsidian
+
+tile.limeMixGlowstone_0.name=B8A65F Glowstone
+tile.limeMixGlowstone_1.name=668C32 Glowstone
+tile.limeMixGlowstone_2.name=8CB359 Glowstone
+tile.limeMixGlowstone_3.name=66A659 Glowstone
+tile.limeMixGlowstone_4.name=7F5665 Glowstone
+tile.limeMixGlowstone_5.name=598C65 Glowstone
+tile.limeMixGlowstone_6.name=738C26 Glowstone
+tile.limeMixGlowstone_7.name=73A626 Glowstone
+tile.limeMixGlowstone_8.name=8C8026 Glowstone
+tile.limeMixGlowstone_9.name=4C7319 Glowstone
+
+tile.limeMixCoal_0.name=B8A65F Coal Block
+tile.limeMixCoal_1.name=668C32 Coal Block
+tile.limeMixCoal_2.name=8CB359 Coal Block
+tile.limeMixCoal_3.name=66A659 Coal Block
+tile.limeMixCoal_4.name=7F5665 Coal Block
+tile.limeMixCoal_5.name=598C65 Coal Block
+tile.limeMixCoal_6.name=738C26 Coal Block
+tile.limeMixCoal_7.name=73A626 Coal Block
+tile.limeMixCoal_8.name=8C8026 Coal Block
+tile.limeMixCoal_9.name=4C7319 Coal Block
+
+tile.limeMixRedstone_0.name=B8A65F Redstone Block
+tile.limeMixRedstone_1.name=668C32 Redstone Block
+tile.limeMixRedstone_2.name=8CB359 Redstone Block
+tile.limeMixRedstone_3.name=66A659 Redstone Block
+tile.limeMixRedstone_4.name=7F5665 Redstone Block
+tile.limeMixRedstone_5.name=598C65 Redstone Block
+tile.limeMixRedstone_6.name=738C26 Redstone Block
+tile.limeMixRedstone_7.name=73A626 Redstone Block
+tile.limeMixRedstone_8.name=8C8026 Redstone Block
+tile.limeMixRedstone_9.name=4C7319 Redstone Block
+
+tile.limeMixLapis_0.name=B8A65F Lapis Block
+tile.limeMixLapis_1.name=668C32 Lapis Block
+tile.limeMixLapis_2.name=8CB359 Lapis Block
+tile.limeMixLapis_3.name=66A659 Lapis Block
+tile.limeMixLapis_4.name=7F5665 Lapis Block
+tile.limeMixLapis_5.name=598C65 Lapis Block
+tile.limeMixLapis_6.name=738C26 Lapis Block
+tile.limeMixLapis_7.name=73A626 Lapis Block
+tile.limeMixLapis_8.name=8C8026 Lapis Block
+tile.limeMixLapis_9.name=4C7319 Lapis Block
+
+tile.limeMixCobble_0.name=B8A65F Cobblestone
+tile.limeMixCobble_1.name=668C32 Cobblestone
+tile.limeMixCobble_2.name=8CB359 Cobblestone
+tile.limeMixCobble_3.name=66A659 Cobblestone
+tile.limeMixCobble_4.name=7F5665 Cobblestone
+tile.limeMixCobble_5.name=598C65 Cobblestone
+tile.limeMixCobble_6.name=738C26 Cobblestone
+tile.limeMixCobble_7.name=73A626 Cobblestone
+tile.limeMixCobble_8.name=8C8026 Cobblestone
+tile.limeMixCobble_9.name=4C7319 Cobblestone
+
+tile.limeMixSoulsand_0.name=B8A65F Soulsand
+tile.limeMixSoulsand_1.name=668C32 Soulsand
+tile.limeMixSoulsand_2.name=8CB359 Soulsand
+tile.limeMixSoulsand_3.name=66A659 Soulsand
+tile.limeMixSoulsand_4.name=7F5665 Soulsand
+tile.limeMixSoulsand_5.name=598C65 Soulsand
+tile.limeMixSoulsand_6.name=738C26 Soulsand
+tile.limeMixSoulsand_7.name=73A626 Soulsand
+tile.limeMixSoulsand_8.name=8C8026 Soulsand
+tile.limeMixSoulsand_9.name=4C7319 Soulsand
+
+tile.limeMixQuartz_0.name=B8A65F Quartz Block
+tile.limeMixQuartz_1.name=668C32 Quartz Block
+tile.limeMixQuartz_2.name=8CB359 Quartz Block
+tile.limeMixQuartz_3.name=66A659 Quartz Block
+tile.limeMixQuartz_4.name=7F5665 Quartz Block
+tile.limeMixQuartz_5.name=598C65 Quartz Block
+tile.limeMixQuartz_6.name=738C26 Quartz Block
+tile.limeMixQuartz_7.name=73A626 Quartz Block
+tile.limeMixQuartz_8.name=8C8026 Quartz Block
+tile.limeMixQuartz_9.name=4C7319 Quartz Block
+
+tile.limeMixClay_0.name=B8A65F Hardened Stained Clay
+tile.limeMixClay_1.name=668C32 Hardened Stained Clay
+tile.limeMixClay_2.name=8CB359 Hardened Stained Clay
+tile.limeMixClay_3.name=66A659 Hardened Stained Clay
+tile.limeMixClay_4.name=7F5665 Hardened Stained Clay
+tile.limeMixClay_5.name=598C65 Hardened Stained Clay
+tile.limeMixClay_6.name=738C26 Hardened Stained Clay
+tile.limeMixClay_7.name=73A626 Hardened Stained Clay
+tile.limeMixClay_8.name=8C8026 Hardened Stained Clay
+tile.limeMixClay_9.name=4C7319 Hardened Stained Clay
+
+tile.limeMixPlank_0.name=B8A65F Plank
+tile.limeMixPlank_1.name=668C32 Plank
+tile.limeMixPlank_2.name=8CB359 Plank
+tile.limeMixPlank_3.name=66A659 Plank
+tile.limeMixPlank_4.name=7F5665 Plank
+tile.limeMixPlank_5.name=598C65 Plank
+tile.limeMixPlank_6.name=738C26 Plank
+tile.limeMixPlank_7.name=73A626 Plank
+tile.limeMixPlank_8.name=8C8026 Plank
+tile.limeMixPlank_9.name=4C7319 Plank
+
+tile.limeMixTulip_0.name=B8A65F Tulip
+tile.limeMixTulip_1.name=668C32 Tulip
+tile.limeMixTulip_2.name=8CB359 Tulip
+tile.limeMixTulip_3.name=66A659 Tulip
+tile.limeMixTulip_4.name=7F5665 Tulip
+tile.limeMixTulip_5.name=598C65 Tulip
+tile.limeMixTulip_6.name=738C26 Tulip
+tile.limeMixTulip_7.name=73A626 Tulip
+tile.limeMixTulip_8.name=8C8026 Tulip
+tile.limeMixTulip_9.name=4C7319 Tulip
+
+tile.limeMixSapling_0.name=B8A65F Sapling
+tile.limeMixSapling_1.name=668C32 Sapling
+tile.limeMixSapling_2.name=8CB359 Sapling
+tile.limeMixSapling_3.name=66A659 Sapling
+tile.limeMixSapling_4.name=7F5665 Sapling
+tile.limeMixSapling_5.name=598C65 Sapling
+tile.limeMixSapling_6.name=738C26 Sapling
+tile.limeMixSapling_7.name=73A626 Sapling
+tile.limeMixSapling_8.name=8C8026 Sapling
+tile.limeMixSapling_9.name=4C7319 Sapling
+
+tile.limeMixLog_0.name=B8A65F Log
+tile.limeMixLog_1.name=668C32 Log
+tile.limeMixLog_2.name=8CB359 Log
+tile.limeMixLog_3.name=66A659 Log
+tile.limeMixLog_4.name=7F5665 Log
+tile.limeMixLog_5.name=598C65 Log
+tile.limeMixLog_6.name=738C26 Log
+tile.limeMixLog_7.name=73A626 Log
+tile.limeMixLog_8.name=8C8026 Log
+tile.limeMixLog_9.name=4C7319 Log
+
+tile.limeMixLeaf_0.name=B8A65F Leaves
+tile.limeMixLeaf_1.name=668C32 Leaves
+tile.limeMixLeaf_2.name=8CB359 Leaves
+tile.limeMixLeaf_3.name=66A659 Leaves
+tile.limeMixLeaf_4.name=7F5665 Leaves
+tile.limeMixLeaf_5.name=598C65 Leaves
+tile.limeMixLeaf_6.name=738C26 Leaves
+tile.limeMixLeaf_7.name=73A626 Leaves
+tile.limeMixLeaf_8.name=8C8026 Leaves
+tile.limeMixLeaf_9.name=4C7319 Leaves
+
+tile.limeMixGlassClear_0.name=B8A65F Clear Glass
+tile.limeMixGlassClear_1.name=668C32 Clear Glass
+tile.limeMixGlassClear_2.name=8CB359 Clear Glass
+tile.limeMixGlassClear_3.name=66A659 Clear Glass
+tile.limeMixGlassClear_4.name=7F5665 Clear Glass
+tile.limeMixGlassClear_5.name=598C65 Clear Glass
+tile.limeMixGlassClear_6.name=738C26 Clear Glass
+tile.limeMixGlassClear_7.name=73A626 Clear Glass
+tile.limeMixGlassClear_8.name=8C8026 Clear Glass
+tile.limeMixGlassClear_9.name=4C7319 Clear Glass
+
+tile.limeMixGlassFoggy_0.name=B8A65F Foggy Glass
+tile.limeMixGlassFoggy_1.name=668C32 Foggy Glass
+tile.limeMixGlassFoggy_2.name=8CB359 Foggy Glass
+tile.limeMixGlassFoggy_3.name=66A659 Foggy Glass
+tile.limeMixGlassFoggy_4.name=7F5665 Foggy Glass
+tile.limeMixGlassFoggy_5.name=598C65 Foggy Glass
+tile.limeMixGlassFoggy_6.name=738C26 Foggy Glass
+tile.limeMixGlassFoggy_7.name=73A626 Foggy Glass
+tile.limeMixGlassFoggy_8.name=8C8026 Foggy Glass
+tile.limeMixGlassFoggy_9.name=4C7319 Foggy Glass
+
+tile.limeMixGlassClearPane_0.name=B8A65F Clear Glass Pane
+tile.limeMixGlassClearPane_1.name=668C32 Clear Glass Pane
+tile.limeMixGlassClearPane_2.name=8CB359 Clear Glass Pane
+tile.limeMixGlassClearPane_3.name=66A659 Clear Glass Pane
+tile.limeMixGlassClearPane_4.name=7F5665 Clear Glass Pane
+tile.limeMixGlassClearPane_5.name=598C65 Clear Glass Pane
+tile.limeMixGlassClearPane_6.name=738C26 Clear Glass Pane
+tile.limeMixGlassClearPane_7.name=73A626 Clear Glass Pane
+tile.limeMixGlassClearPane_8.name=8C8026 Clear Glass Pane
+tile.limeMixGlassClearPane_9.name=4C7319 Clear Glass Pane
+
+tile.limeMixGlassFoggyPane_0.name=B8A65F Foggy Glass Pane
+tile.limeMixGlassFoggyPane_1.name=668C32 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_2.name=8CB359 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_3.name=66A659 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_4.name=7F5665 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_5.name=598C65 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_6.name=738C26 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_7.name=73A626 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_8.name=8C8026 Foggy Glass Pane
+tile.limeMixGlassFoggyPane_9.name=4C7319 Foggy Glass Pane
+
+tile.limeMixBrick_0.name=B8A65F Brick
+tile.limeMixBrick_1.name=668C32 Brick
+tile.limeMixBrick_2.name=8CB359 Brick
+tile.limeMixBrick_3.name=66A659 Brick
+tile.limeMixBrick_4.name=7F5665 Brick
+tile.limeMixBrick_5.name=598C65 Brick
+tile.limeMixBrick_6.name=738C26 Brick
+tile.limeMixBrick_7.name=73A626 Brick
+tile.limeMixBrick_8.name=8C8026 Brick
+tile.limeMixBrick_9.name=4C7319 Brick
+
+tile.limeMixWorkbench_0.name=B8A65F Crafting Table
+tile.limeMixWorkbench_1.name=668C32 Crafting Table
+tile.limeMixWorkbench_2.name=8CB359 Crafting Table
+tile.limeMixWorkbench_3.name=66A659 Crafting Table
+tile.limeMixWorkbench_4.name=7F5665 Crafting Table
+tile.limeMixWorkbench_5.name=598C65 Crafting Table
+tile.limeMixWorkbench_6.name=738C26 Crafting Table
+tile.limeMixWorkbench_7.name=73A626 Crafting Table
+tile.limeMixWorkbench_8.name=8C8026 Crafting Table
+tile.limeMixWorkbench_9.name=4C7319 Crafting Table
+
+tile.limeMixSand_0.name=B8A65F Sand
+tile.limeMixSand_1.name=668C32 Sand
+tile.limeMixSand_2.name=8CB359 Sand
+tile.limeMixSand_3.name=66A659 Sand
+tile.limeMixSand_4.name=7F5665 Sand
+tile.limeMixSand_5.name=598C65 Sand
+tile.limeMixSand_6.name=738C26 Sand
+tile.limeMixSand_7.name=73A626 Sand
+tile.limeMixSand_8.name=8C8026 Sand
+tile.limeMixSand_9.name=4C7319 Sand
+
+tile.limeMixWorkSandstone_0.name=B8A65F Sandstone
+tile.limeMixWorkSandstone_1.name=668C32 Sandstone
+tile.limeMixWorkSandstone_2.name=8CB359 Sandstone
+tile.limeMixWorkSandstone_3.name=66A659 Sandstone
+tile.limeMixWorkSandstone_4.name=7F5665 Sandstone
+tile.limeMixWorkSandstone_5.name=598C65 Sandstone
+tile.limeMixWorkSandstone_6.name=738C26 Sandstone
+tile.limeMixWorkSandstone_7.name=73A626 Sandstone
+tile.limeMixWorkSandstone_8.name=8C8026 Sandstone
+tile.limeMixWorkSandstone_9.name=4C7319 Sandstone
+
+item.pinkDye_0.name=864C5F Dye
+item.pinkDye_1.name=C6596C Dye
+item.pinkDye_2.name=AC7F6C Dye
+item.pinkDye_3.name=AC666C Dye
+item.pinkDye_4.name=9366AB Dye
+item.pinkDye_5.name=B95FAB Dye
+item.pinkDye_6.name=9F7F9F Dye
+item.pinkDye_7.name=C68C9F Dye
+item.pinkDye_8.name=9F6679 Dye
+
+tile.pinkMixWool_0.name=864C5F Wool
+tile.pinkMixWool_1.name=C6596C Wool
+tile.pinkMixWool_2.name=AC7F6C Wool
+tile.pinkMixWool_3.name=AC666C Wool
+tile.pinkMixWool_4.name=9366AB Wool
+tile.pinkMixWool_5.name=B95FAB Wool
+tile.pinkMixWool_6.name=9F7F9F Wool
+tile.pinkMixWool_7.name=C68C9F Wool
+tile.pinkMixWool_8.name=9F6679 Wool
+
+tile.pinkMixStonebrick_0.name=864C5F Stone Brick
+tile.pinkMixStonebrick_1.name=C6596C Stone Brick
+tile.pinkMixStonebrick_2.name=AC7F6C Stone Brick
+tile.pinkMixStonebrick_3.name=AC666C Stone Brick
+tile.pinkMixStonebrick_4.name=9366AB Stone Brick
+tile.pinkMixStonebrick_5.name=B95FAB Stone Brick
+tile.pinkMixStonebrick_6.name=9F7F9F Stone Brick
+tile.pinkMixStonebrick_7.name=C68C9F Stone Brick
+tile.pinkMixStonebrick_8.name=9F6679 Stone Brick
+
+tile.pinkMixStonebrickcracked_0.name=864C5F Cracked Stone Brick
+tile.pinkMixStonebrickcracked_1.name=C6596C Cracked Stone Brick
+tile.pinkMixStonebrickcracked_2.name=AC7F6C Cracked Stone Brick
+tile.pinkMixStonebrickcracked_3.name=AC666C Cracked Stone Brick
+tile.pinkMixStonebrickcracked_4.name=9366AB Cracked Stone Brick
+tile.pinkMixStonebrickcracked_5.name=B95FAB Cracked Stone Brick
+tile.pinkMixStonebrickcracked_6.name=9F7F9F Cracked Stone Brick
+tile.pinkMixStonebrickcracked_7.name=C68C9F Cracked Stone Brick
+tile.pinkMixStonebrickcracked_8.name=9F6679 Cracked Stone Brick
+
+tile.pinkMixStonebrickcarved_0.name=864C5F Carved Stone Brick
+tile.pinkMixStonebrickcarved_1.name=C6596C Carved Stone Brick
+tile.pinkMixStonebrickcarved_2.name=AC7F6C Carved Stone Brick
+tile.pinkMixStonebrickcarved_3.name=AC666C Carved Stone Brick
+tile.pinkMixStonebrickcarved_4.name=9366AB Carved Stone Brick
+tile.pinkMixStonebrickcarved_5.name=B95FAB Carved Stone Brick
+tile.pinkMixStonebrickcarved_6.name=9F7F9F Carved Stone Brick
+tile.pinkMixStonebrickcarved_7.name=C68C9F Carved Stone Brick
+tile.pinkMixStonebrickcarved_8.name=9F6679 Carved Stone Brick
+
+tile.pinkMixStone_0.name=864C5F Stone
+tile.pinkMixStone_1.name=C6596C Stone
+tile.pinkMixStone_2.name=AC7F6C Stone
+tile.pinkMixStone_3.name=AC666C Stone
+tile.pinkMixStone_4.name=9366AB Stone
+tile.pinkMixStone_5.name=B95FAB Stone
+tile.pinkMixStone_6.name=9F7F9F Stone
+tile.pinkMixStone_7.name=C68C9F Stone
+tile.pinkMixStone_8.name=9F6679 Stone
+
+tile.pinkMixObsidian_0.name=864C5F Obsidian
+tile.pinkMixObsidian_1.name=C6596C Obsidian
+tile.pinkMixObsidian_2.name=AC7F6C Obsidian
+tile.pinkMixObsidian_3.name=AC666C Obsidian
+tile.pinkMixObsidian_4.name=9366AB Obsidian
+tile.pinkMixObsidian_5.name=B95FAB Obsidian
+tile.pinkMixObsidian_6.name=9F7F9F Obsidian
+tile.pinkMixObsidian_7.name=C68C9F Obsidian
+tile.pinkMixObsidian_8.name=9F6679 Obsidian
+
+tile.pinkMixGlowstone_0.name=864C5F Glowstone
+tile.pinkMixGlowstone_1.name=C6596C Glowstone
+tile.pinkMixGlowstone_2.name=AC7F6C Glowstone
+tile.pinkMixGlowstone_3.name=AC666C Glowstone
+tile.pinkMixGlowstone_4.name=9366AB Glowstone
+tile.pinkMixGlowstone_5.name=B95FAB Glowstone
+tile.pinkMixGlowstone_6.name=9F7F9F Glowstone
+tile.pinkMixGlowstone_7.name=C68C9F Glowstone
+tile.pinkMixGlowstone_8.name=9F6679 Glowstone
+
+tile.pinkMixCoal_0.name=864C5F Coal Block
+tile.pinkMixCoal_1.name=C6596C Coal Block
+tile.pinkMixCoal_2.name=AC7F6C Coal Block
+tile.pinkMixCoal_3.name=AC666C Coal Block
+tile.pinkMixCoal_4.name=9366AB Coal Block
+tile.pinkMixCoal_5.name=B95FAB Coal Block
+tile.pinkMixCoal_6.name=9F7F9F Coal Block
+tile.pinkMixCoal_7.name=C68C9F Coal Block
+tile.pinkMixCoal_8.name=9F6679 Coal Block
+
+tile.pinkMixRedstone_0.name=864C5F Redstone Block
+tile.pinkMixRedstone_1.name=C6596C Redstone Block
+tile.pinkMixRedstone_2.name=AC7F6C Redstone Block
+tile.pinkMixRedstone_3.name=AC666C Redstone Block
+tile.pinkMixRedstone_4.name=9366AB Redstone Block
+tile.pinkMixRedstone_5.name=B95FAB Redstone Block
+tile.pinkMixRedstone_6.name=9F7F9F Redstone Block
+tile.pinkMixRedstone_7.name=C68C9F Redstone Block
+tile.pinkMixRedstone_8.name=9F6679 Redstone Block
+
+tile.pinkMixLapis_0.name=864C5F Lapis Block
+tile.pinkMixLapis_1.name=C6596C Lapis Block
+tile.pinkMixLapis_2.name=AC7F6C Lapis Block
+tile.pinkMixLapis_3.name=AC666C Lapis Block
+tile.pinkMixLapis_4.name=9366AB Lapis Block
+tile.pinkMixLapis_5.name=B95FAB Lapis Block
+tile.pinkMixLapis_6.name=9F7F9F Lapis Block
+tile.pinkMixLapis_7.name=C68C9F Lapis Block
+tile.pinkMixLapis_8.name=9F6679 Lapis Block
+
+tile.pinkMixCobble_0.name=864C5F Cobblestone
+tile.pinkMixCobble_1.name=C6596C Cobblestone
+tile.pinkMixCobble_2.name=AC7F6C Cobblestone
+tile.pinkMixCobble_3.name=AC666C Cobblestone
+tile.pinkMixCobble_4.name=9366AB Cobblestone
+tile.pinkMixCobble_5.name=B95FAB Cobblestone
+tile.pinkMixCobble_6.name=9F7F9F Cobblestone
+tile.pinkMixCobble_7.name=C68C9F Cobblestone
+tile.pinkMixCobble_8.name=9F6679 Cobblestone
+
+tile.pinkMixSoulsand_0.name=864C5F Soulsand
+tile.pinkMixSoulsand_1.name=C6596C Soulsand
+tile.pinkMixSoulsand_2.name=AC7F6C Soulsand
+tile.pinkMixSoulsand_3.name=AC666C Soulsand
+tile.pinkMixSoulsand_4.name=9366AB Soulsand
+tile.pinkMixSoulsand_5.name=B95FAB Soulsand
+tile.pinkMixSoulsand_6.name=9F7F9F Soulsand
+tile.pinkMixSoulsand_7.name=C68C9F Soulsand
+tile.pinkMixSoulsand_8.name=9F6679 Soulsand
+
+tile.pinkMixQuartz_0.name=864C5F Quartz Block
+tile.pinkMixQuartz_1.name=C6596C Quartz Block
+tile.pinkMixQuartz_2.name=AC7F6C Quartz Block
+tile.pinkMixQuartz_3.name=AC666C Quartz Block
+tile.pinkMixQuartz_4.name=9366AB Quartz Block
+tile.pinkMixQuartz_5.name=B95FAB Quartz Block
+tile.pinkMixQuartz_6.name=9F7F9F Quartz Block
+tile.pinkMixQuartz_7.name=C68C9F Quartz Block
+tile.pinkMixQuartz_8.name=9F6679 Quartz Block
+
+tile.pinkMixClay_0.name=864C5F Hardened Stained Clay
+tile.pinkMixClay_1.name=C6596C Hardened Stained Clay
+tile.pinkMixClay_2.name=AC7F6C Hardened Stained Clay
+tile.pinkMixClay_3.name=AC666C Hardened Stained Clay
+tile.pinkMixClay_4.name=9366AB Hardened Stained Clay
+tile.pinkMixClay_5.name=B95FAB Hardened Stained Clay
+tile.pinkMixClay_6.name=9F7F9F Hardened Stained Clay
+tile.pinkMixClay_7.name=C68C9F Hardened Stained Clay
+tile.pinkMixClay_8.name=9F6679 Hardened Stained Clay
+
+tile.pinkMixPlank_0.name=864C5F Plank
+tile.pinkMixPlank_1.name=C6596C Plank
+tile.pinkMixPlank_2.name=AC7F6C Plank
+tile.pinkMixPlank_3.name=AC666C Plank
+tile.pinkMixPlank_4.name=9366AB Plank
+tile.pinkMixPlank_5.name=B95FAB Plank
+tile.pinkMixPlank_6.name=9F7F9F Plank
+tile.pinkMixPlank_7.name=C68C9F Plank
+tile.pinkMixPlank_8.name=9F6679 Plank
+
+tile.pinkMixTulip_0.name=864C5F Tulip
+tile.pinkMixTulip_1.name=C6596C Tulip
+tile.pinkMixTulip_2.name=AC7F6C Tulip
+tile.pinkMixTulip_3.name=AC666C Tulip
+tile.pinkMixTulip_4.name=9366AB Tulip
+tile.pinkMixTulip_5.name=B95FAB Tulip
+tile.pinkMixTulip_6.name=9F7F9F Tulip
+tile.pinkMixTulip_7.name=C68C9F Tulip
+tile.pinkMixTulip_8.name=9F6679 Tulip
+
+tile.pinkMixSapling_0.name=864C5F Sapling
+tile.pinkMixSapling_1.name=C6596C Sapling
+tile.pinkMixSapling_2.name=AC7F6C Sapling
+tile.pinkMixSapling_3.name=AC666C Sapling
+tile.pinkMixSapling_4.name=9366AB Sapling
+tile.pinkMixSapling_5.name=B95FAB Sapling
+tile.pinkMixSapling_6.name=9F7F9F Sapling
+tile.pinkMixSapling_7.name=C68C9F Sapling
+tile.pinkMixSapling_8.name=9F6679 Sapling
+
+tile.pinkMixLog_0.name=864C5F Log
+tile.pinkMixLog_1.name=C6596C Log
+tile.pinkMixLog_2.name=AC7F6C Log
+tile.pinkMixLog_3.name=AC666C Log
+tile.pinkMixLog_4.name=9366AB Log
+tile.pinkMixLog_5.name=B95FAB Log
+tile.pinkMixLog_6.name=9F7F9F Log
+tile.pinkMixLog_7.name=C68C9F Log
+tile.pinkMixLog_8.name=9F6679 Log
+
+tile.pinkMixLeaf_0.name=864C5F Leaves
+tile.pinkMixLeaf_1.name=C6596C Leaves
+tile.pinkMixLeaf_2.name=AC7F6C Leaves
+tile.pinkMixLeaf_3.name=AC666C Leaves
+tile.pinkMixLeaf_4.name=9366AB Leaves
+tile.pinkMixLeaf_5.name=B95FAB Leaves
+tile.pinkMixLeaf_6.name=9F7F9F Leaves
+tile.pinkMixLeaf_7.name=C68C9F Leaves
+tile.pinkMixLeaf_8.name=9F6679 Leaves
+
+tile.pinkMixGlassClear_0.name=864C5F Clear Glass
+tile.pinkMixGlassClear_1.name=C6596C Clear Glass
+tile.pinkMixGlassClear_2.name=AC7F6C Clear Glass
+tile.pinkMixGlassClear_3.name=AC666C Clear Glass
+tile.pinkMixGlassClear_4.name=9366AB Clear Glass
+tile.pinkMixGlassClear_5.name=B95FAB Clear Glass
+tile.pinkMixGlassClear_6.name=9F7F9F Clear Glass
+tile.pinkMixGlassClear_7.name=C68C9F Clear Glass
+tile.pinkMixGlassClear_8.name=9F6679 Clear Glass
+
+tile.pinkMixGlassFoggy_0.name=864C5F Foggy Glass
+tile.pinkMixGlassFoggy_1.name=C6596C Foggy Glass
+tile.pinkMixGlassFoggy_2.name=AC7F6C Foggy Glass
+tile.pinkMixGlassFoggy_3.name=AC666C Foggy Glass
+tile.pinkMixGlassFoggy_4.name=9366AB Foggy Glass
+tile.pinkMixGlassFoggy_5.name=B95FAB Foggy Glass
+tile.pinkMixGlassFoggy_6.name=9F7F9F Foggy Glass
+tile.pinkMixGlassFoggy_7.name=C68C9F Foggy Glass
+tile.pinkMixGlassFoggy_8.name=9F6679 Foggy Glass
+
+tile.pinkMixGlassClearPane_0.name=864C5F Clear Glass Pane
+tile.pinkMixGlassClearPane_1.name=C6596C Clear Glass Pane
+tile.pinkMixGlassClearPane_2.name=AC7F6C Clear Glass Pane
+tile.pinkMixGlassClearPane_3.name=AC666C Clear Glass Pane
+tile.pinkMixGlassClearPane_4.name=9366AB Clear Glass Pane
+tile.pinkMixGlassClearPane_5.name=B95FAB Clear Glass Pane
+tile.pinkMixGlassClearPane_6.name=9F7F9F Clear Glass Pane
+tile.pinkMixGlassClearPane_7.name=C68C9F Clear Glass Pane
+tile.pinkMixGlassClearPane_8.name=9F6679 Clear Glass Pane
+
+tile.pinkMixGlassFoggyPane_0.name=864C5F Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_1.name=C6596C Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_2.name=AC7F6C Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_3.name=AC666C Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_4.name=9366AB Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_5.name=B95FAB Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_6.name=9F7F9F Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_7.name=C68C9F Foggy Glass Pane
+tile.pinkMixGlassFoggyPane_8.name=9F6679 Foggy Glass Pane
+
+tile.pinkMixBrick_0.name=864C5F Brick
+tile.pinkMixBrick_1.name=C6596C Brick
+tile.pinkMixBrick_2.name=AC7F6C Brick
+tile.pinkMixBrick_3.name=AC666C Brick
+tile.pinkMixBrick_4.name=9366AB Brick
+tile.pinkMixBrick_5.name=B95FAB Brick
+tile.pinkMixBrick_6.name=9F7F9F Brick
+tile.pinkMixBrick_7.name=C68C9F Brick
+tile.pinkMixBrick_8.name=9F6679 Brick
+
+tile.pinkMixWorkbench_0.name=864C5F Crafting Table
+tile.pinkMixWorkbench_1.name=C6596C Crafting Table
+tile.pinkMixWorkbench_2.name=AC7F6C Crafting Table
+tile.pinkMixWorkbench_3.name=AC666C Crafting Table
+tile.pinkMixWorkbench_4.name=9366AB Crafting Table
+tile.pinkMixWorkbench_5.name=B95FAB Crafting Table
+tile.pinkMixWorkbench_6.name=9F7F9F Crafting Table
+tile.pinkMixWorkbench_7.name=C68C9F Crafting Table
+tile.pinkMixWorkbench_8.name=9F6679 Crafting Table
+
+tile.pinkMixSand_0.name=864C5F Sand
+tile.pinkMixSand_1.name=C6596C Sand
+tile.pinkMixSand_2.name=AC7F6C Sand
+tile.pinkMixSand_3.name=AC666C Sand
+tile.pinkMixSand_4.name=9366AB Sand
+tile.pinkMixSand_5.name=B95FAB Sand
+tile.pinkMixSand_6.name=9F7F9F Sand
+tile.pinkMixSand_7.name=C68C9F Sand
+tile.pinkMixSand_8.name=9F6679 Sand
+
+tile.pinkMixWorkSandstone_0.name=864C5F Sandstone
+tile.pinkMixWorkSandstone_1.name=C6596C Sandstone
+tile.pinkMixWorkSandstone_2.name=AC7F6C Sandstone
+tile.pinkMixWorkSandstone_3.name=AC666C Sandstone
+tile.pinkMixWorkSandstone_4.name=9366AB Sandstone
+tile.pinkMixWorkSandstone_5.name=B95FAB Sandstone
+tile.pinkMixWorkSandstone_6.name=9F7F9F Sandstone
+tile.pinkMixWorkSandstone_7.name=C68C9F Sandstone
+tile.pinkMixWorkSandstone_8.name=9F6679 Sandstone
+
+item.darkGrayDye_0.name=727272 Dye
+item.darkGrayDye_1.name=4C6572 Dye
+item.darkGrayDye_2.name=65467F Dye
+item.darkGrayDye_3.name=404C7F Dye
+item.darkGrayDye_4.name=594C40 Dye
+item.darkGrayDye_5.name=596540 Dye
+item.darkGrayDye_6.name=724040 Dye
+item.darkGrayDye_7.name=333333 Dye
+
+tile.darkGrayMixWool_0.name=727272 Wool
+tile.darkGrayMixWool_1.name=4C6572 Wool
+tile.darkGrayMixWool_2.name=65467F Wool
+tile.darkGrayMixWool_3.name=404C7F Wool
+tile.darkGrayMixWool_4.name=594C40 Wool
+tile.darkGrayMixWool_5.name=596540 Wool
+tile.darkGrayMixWool_6.name=724040 Wool
+tile.darkGrayMixWool_7.name=333333 Wool
+
+tile.darkGrayMixStonebrick_0.name=727272 Stone Brick
+tile.darkGrayMixStonebrick_1.name=4C6572 Stone Brick
+tile.darkGrayMixStonebrick_2.name=65467F Stone Brick
+tile.darkGrayMixStonebrick_3.name=404C7F Stone Brick
+tile.darkGrayMixStonebrick_4.name=594C40 Stone Brick
+tile.darkGrayMixStonebrick_5.name=596540 Stone Brick
+tile.darkGrayMixStonebrick_6.name=724040 Stone Brick
+tile.darkGrayMixStonebrick_7.name=333333 Stone Brick
+
+tile.darkGrayMixStonebrickcracked_0.name=727272 Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_1.name=4C6572 Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_2.name=65467F Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_3.name=404C7F Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_4.name=594C40 Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_5.name=596540 Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_6.name=724040 Cracked Stone Brick
+tile.darkGrayMixStonebrickcracked_7.name=333333 Cracked Stone Brick
+
+tile.darkGrayMixStonebrickcarved_0.name=727272 Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_1.name=4C6572 Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_2.name=65467F Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_3.name=404C7F Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_4.name=594C40 Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_5.name=596540 Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_6.name=724040 Carved Stone Brick
+tile.darkGrayMixStonebrickcarved_7.name=333333 Carved Stone Brick
+
+tile.darkGrayMixStone_0.name=727272 Stone
+tile.darkGrayMixStone_1.name=4C6572 Stone
+tile.darkGrayMixStone_2.name=65467F Stone
+tile.darkGrayMixStone_3.name=404C7F Stone
+tile.darkGrayMixStone_4.name=594C40 Stone
+tile.darkGrayMixStone_5.name=596540 Stone
+tile.darkGrayMixStone_6.name=724040 Stone
+tile.darkGrayMixStone_7.name=333333 Stone
+
+tile.darkGrayMixObsidian_0.name=727272 Obsidian
+tile.darkGrayMixObsidian_1.name=4C6572 Obsidian
+tile.darkGrayMixObsidian_2.name=65467F Obsidian
+tile.darkGrayMixObsidian_3.name=404C7F Obsidian
+tile.darkGrayMixObsidian_4.name=594C40 Obsidian
+tile.darkGrayMixObsidian_5.name=596540 Obsidian
+tile.darkGrayMixObsidian_6.name=724040 Obsidian
+tile.darkGrayMixObsidian_7.name=333333 Obsidian
+
+tile.darkGrayMixGlowstone_0.name=727272 Glowstone
+tile.darkGrayMixGlowstone_1.name=4C6572 Glowstone
+tile.darkGrayMixGlowstone_2.name=65467F Glowstone
+tile.darkGrayMixGlowstone_3.name=404C7F Glowstone
+tile.darkGrayMixGlowstone_4.name=594C40 Glowstone
+tile.darkGrayMixGlowstone_5.name=596540 Glowstone
+tile.darkGrayMixGlowstone_6.name=724040 Glowstone
+tile.darkGrayMixGlowstone_7.name=333333 Glowstone
+
+tile.darkGrayMixCoal_0.name=727272 Coal Block
+tile.darkGrayMixCoal_1.name=4C6572 Coal Block
+tile.darkGrayMixCoal_2.name=65467F Coal Block
+tile.darkGrayMixCoal_3.name=404C7F Coal Block
+tile.darkGrayMixCoal_4.name=594C40 Coal Block
+tile.darkGrayMixCoal_5.name=596540 Coal Block
+tile.darkGrayMixCoal_6.name=724040 Coal Block
+tile.darkGrayMixCoal_7.name=333333 Coal Block
+
+tile.darkGrayMixRedstone_0.name=727272 Redstone Block
+tile.darkGrayMixRedstone_1.name=4C6572 Redstone Block
+tile.darkGrayMixRedstone_2.name=65467F Redstone Block
+tile.darkGrayMixRedstone_3.name=404C7F Redstone Block
+tile.darkGrayMixRedstone_4.name=594C40 Redstone Block
+tile.darkGrayMixRedstone_5.name=596540 Redstone Block
+tile.darkGrayMixRedstone_6.name=724040 Redstone Block
+tile.darkGrayMixRedstone_7.name=333333 Redstone Block
+
+tile.darkGrayMixLapis_0.name=727272 Lapis Block
+tile.darkGrayMixLapis_1.name=4C6572 Lapis Block
+tile.darkGrayMixLapis_2.name=65467F Lapis Block
+tile.darkGrayMixLapis_3.name=404C7F Lapis Block
+tile.darkGrayMixLapis_4.name=594C40 Lapis Block
+tile.darkGrayMixLapis_5.name=596540 Lapis Block
+tile.darkGrayMixLapis_6.name=724040 Lapis Block
+tile.darkGrayMixLapis_7.name=333333 Lapis Block
+
+tile.darkGrayMixCobble_0.name=727272 Cobblestone
+tile.darkGrayMixCobble_1.name=4C6572 Cobblestone
+tile.darkGrayMixCobble_2.name=65467F Cobblestone
+tile.darkGrayMixCobble_3.name=404C7F Cobblestone
+tile.darkGrayMixCobble_4.name=594C40 Cobblestone
+tile.darkGrayMixCobble_5.name=596540 Cobblestone
+tile.darkGrayMixCobble_6.name=724040 Cobblestone
+tile.darkGrayMixCobble_7.name=333333 Cobblestone
+
+tile.darkGrayMixSoulsand_0.name=727272 Soulsand
+tile.darkGrayMixSoulsand_1.name=4C6572 Soulsand
+tile.darkGrayMixSoulsand_2.name=65467F Soulsand
+tile.darkGrayMixSoulsand_3.name=404C7F Soulsand
+tile.darkGrayMixSoulsand_4.name=594C40 Soulsand
+tile.darkGrayMixSoulsand_5.name=596540 Soulsand
+tile.darkGrayMixSoulsand_6.name=724040 Soulsand
+tile.darkGrayMixSoulsand_7.name=333333 Soulsand
+
+tile.darkGrayMixQuartz_0.name=727272 Quartz Block
+tile.darkGrayMixQuartz_1.name=4C6572 Quartz Block
+tile.darkGrayMixQuartz_2.name=65467F Quartz Block
+tile.darkGrayMixQuartz_3.name=404C7F Quartz Block
+tile.darkGrayMixQuartz_4.name=594C40 Quartz Block
+tile.darkGrayMixQuartz_5.name=596540 Quartz Block
+tile.darkGrayMixQuartz_6.name=724040 Quartz Block
+tile.darkGrayMixQuartz_7.name=333333 Quartz Block
+
+tile.darkGrayMixClay_0.name=727272 Hardened Stained Clay
+tile.darkGrayMixClay_1.name=4C6572 Hardened Stained Clay
+tile.darkGrayMixClay_2.name=65467F Hardened Stained Clay
+tile.darkGrayMixClay_3.name=404C7F Hardened Stained Clay
+tile.darkGrayMixClay_4.name=594C40 Hardened Stained Clay
+tile.darkGrayMixClay_5.name=596540 Hardened Stained Clay
+tile.darkGrayMixClay_6.name=724040 Hardened Stained Clay
+tile.darkGrayMixClay_7.name=333333 Hardened Stained Clay
+
+tile.darkGrayMixPlank_0.name=727272 Plank
+tile.darkGrayMixPlank_1.name=4C6572 Plank
+tile.darkGrayMixPlank_2.name=65467F Plank
+tile.darkGrayMixPlank_3.name=404C7F Plank
+tile.darkGrayMixPlank_4.name=594C40 Plank
+tile.darkGrayMixPlank_5.name=596540 Plank
+tile.darkGrayMixPlank_6.name=724040 Plank
+tile.darkGrayMixPlank_7.name=333333 Plank
+
+tile.darkGrayMixTulip_0.name=727272 Tulip
+tile.darkGrayMixTulip_1.name=4C6572 Tulip
+tile.darkGrayMixTulip_2.name=65467F Tulip
+tile.darkGrayMixTulip_3.name=404C7F Tulip
+tile.darkGrayMixTulip_4.name=594C40 Tulip
+tile.darkGrayMixTulip_5.name=596540 Tulip
+tile.darkGrayMixTulip_6.name=724040 Tulip
+tile.darkGrayMixTulip_7.name=333333 Tulip
+
+tile.darkGrayMixSapling_0.name=727272 Sapling
+tile.darkGrayMixSapling_1.name=4C6572 Sapling
+tile.darkGrayMixSapling_2.name=65467F Sapling
+tile.darkGrayMixSapling_3.name=404C7F Sapling
+tile.darkGrayMixSapling_4.name=594C40 Sapling
+tile.darkGrayMixSapling_5.name=596540 Sapling
+tile.darkGrayMixSapling_6.name=724040 Sapling
+tile.darkGrayMixSapling_7.name=333333 Sapling
+
+tile.darkGrayMixLog_0.name=727272 Log
+tile.darkGrayMixLog_1.name=4C6572 Log
+tile.darkGrayMixLog_2.name=65467F Log
+tile.darkGrayMixLog_3.name=404C7F Log
+tile.darkGrayMixLog_4.name=594C40 Log
+tile.darkGrayMixLog_5.name=596540 Log
+tile.darkGrayMixLog_6.name=724040 Log
+tile.darkGrayMixLog_7.name=333333 Log
+
+tile.darkGrayMixLeaf_0.name=727272 Leaves
+tile.darkGrayMixLeaf_1.name=4C6572 Leaves
+tile.darkGrayMixLeaf_2.name=65467F Leaves
+tile.darkGrayMixLeaf_3.name=404C7F Leaves
+tile.darkGrayMixLeaf_4.name=594C40 Leaves
+tile.darkGrayMixLeaf_5.name=596540 Leaves
+tile.darkGrayMixLeaf_6.name=724040 Leaves
+tile.darkGrayMixLeaf_7.name=333333 Leaves
+
+tile.darkGrayMixGlassClear_0.name=727272 Clear Glass
+tile.darkGrayMixGlassClear_1.name=4C6572 Clear Glass
+tile.darkGrayMixGlassClear_2.name=65467F Clear Glass
+tile.darkGrayMixGlassClear_3.name=404C7F Clear Glass
+tile.darkGrayMixGlassClear_4.name=594C40 Clear Glass
+tile.darkGrayMixGlassClear_5.name=596540 Clear Glass
+tile.darkGrayMixGlassClear_6.name=724040 Clear Glass
+tile.darkGrayMixGlassClear_7.name=333333 Clear Glass
+
+tile.darkGrayMixGlassFoggy_0.name=727272 Foggy Glass
+tile.darkGrayMixGlassFoggy_1.name=4C6572 Foggy Glass
+tile.darkGrayMixGlassFoggy_2.name=65467F Foggy Glass
+tile.darkGrayMixGlassFoggy_3.name=404C7F Foggy Glass
+tile.darkGrayMixGlassFoggy_4.name=594C40 Foggy Glass
+tile.darkGrayMixGlassFoggy_5.name=596540 Foggy Glass
+tile.darkGrayMixGlassFoggy_6.name=724040 Foggy Glass
+tile.darkGrayMixGlassFoggy_7.name=333333 Foggy Glass
+
+tile.darkGrayMixGlassClearPane_0.name=727272 Clear Glass Pane
+tile.darkGrayMixGlassClearPane_1.name=4C6572 Clear Glass Pane
+tile.darkGrayMixGlassClearPane_2.name=65467F Clear Glass Pane
+tile.darkGrayMixGlassClearPane_3.name=404C7F Clear Glass Pane
+tile.darkGrayMixGlassClearPane_4.name=594C40 Clear Glass Pane
+tile.darkGrayMixGlassClearPane_5.name=596540 Clear Glass Pane
+tile.darkGrayMixGlassClearPane_6.name=724040 Clear Glass Pane
+tile.darkGrayMixGlassClearPane_7.name=333333 Clear Glass Pane
+
+tile.darkGrayMixGlassFoggyPane_0.name=727272 Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_1.name=4C6572 Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_2.name=65467F Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_3.name=404C7F Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_4.name=594C40 Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_5.name=596540 Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_6.name=724040 Foggy Glass Pane
+tile.darkGrayMixGlassFoggyPane_7.name=333333 Foggy Glass Pane
+
+tile.darkGrayMixBrick_0.name=727272 Brick
+tile.darkGrayMixBrick_1.name=4C6572 Brick
+tile.darkGrayMixBrick_2.name=65467F Brick
+tile.darkGrayMixBrick_3.name=404C7F Brick
+tile.darkGrayMixBrick_4.name=594C40 Brick
+tile.darkGrayMixBrick_5.name=596540 Brick
+tile.darkGrayMixBrick_6.name=724040 Brick
+tile.darkGrayMixBrick_7.name=333333 Brick
+
+tile.darkGrayMixWorkbench_0.name=727272 Crafting Table
+tile.darkGrayMixWorkbench_1.name=4C6572 Crafting Table
+tile.darkGrayMixWorkbench_2.name=65467F Crafting Table
+tile.darkGrayMixWorkbench_3.name=404C7F Crafting Table
+tile.darkGrayMixWorkbench_4.name=594C40 Crafting Table
+tile.darkGrayMixWorkbench_5.name=596540 Crafting Table
+tile.darkGrayMixWorkbench_6.name=724040 Crafting Table
+tile.darkGrayMixWorkbench_7.name=333333 Crafting Table
+
+tile.darkGrayMixSand_0.name=727272 Sand
+tile.darkGrayMixSand_1.name=4C6572 Sand
+tile.darkGrayMixSand_2.name=65467F Sand
+tile.darkGrayMixSand_3.name=404C7F Sand
+tile.darkGrayMixSand_4.name=594C40 Sand
+tile.darkGrayMixSand_5.name=596540 Sand
+tile.darkGrayMixSand_6.name=724040 Sand
+tile.darkGrayMixSand_7.name=333333 Sand
+
+tile.darkGrayMixWorkSandstone_0.name=727272 Sandstone
+tile.darkGrayMixWorkSandstone_1.name=4C6572 Sandstone
+tile.darkGrayMixWorkSandstone_2.name=65467F Sandstone
+tile.darkGrayMixWorkSandstone_3.name=404C7F Sandstone
+tile.darkGrayMixWorkSandstone_4.name=594C40 Sandstone
+tile.darkGrayMixWorkSandstone_5.name=596540 Sandstone
+tile.darkGrayMixWorkSandstone_6.name=724040 Sandstone
+tile.darkGrayMixWorkSandstone_7.name=333333 Sandstone
+
+item.lightGrayDye_0.name=738C99 Dye
+item.lightGrayDye_1.name=8C6CA5 Dye
+item.lightGrayDye_2.name=6673A5 Dye
+item.lightGrayDye_3.name=807366 Dye
+item.lightGrayDye_4.name=808C66 Dye
+item.lightGrayDye_5.name=996666 Dye
+item.lightGrayDye_6.name=595959 Dye
+
+tile.lightGrayMixWool_0.name=738C99 Wool
+tile.lightGrayMixWool_1.name=8C6CA5 Wool
+tile.lightGrayMixWool_2.name=6673A5 Wool
+tile.lightGrayMixWool_3.name=807366 Wool
+tile.lightGrayMixWool_4.name=808C66 Wool
+tile.lightGrayMixWool_5.name=996666 Wool
+tile.lightGrayMixWool_6.name=595959 Wool
+
+tile.lightGrayMixStonebrick_0.name=738C99 Stone Brick
+tile.lightGrayMixStonebrick_1.name=8C6CA5 Stone Brick
+tile.lightGrayMixStonebrick_2.name=6673A5 Stone Brick
+tile.lightGrayMixStonebrick_3.name=807366 Stone Brick
+tile.lightGrayMixStonebrick_4.name=808C66 Stone Brick
+tile.lightGrayMixStonebrick_5.name=996666 Stone Brick
+tile.lightGrayMixStonebrick_6.name=595959 Stone Brick
+
+tile.lightGrayMixStonebrickcracked_0.name=738C99 Cracked Stone Brick
+tile.lightGrayMixStonebrickcracked_1.name=8C6CA5 Cracked Stone Brick
+tile.lightGrayMixStonebrickcracked_2.name=6673A5 Cracked Stone Brick
+tile.lightGrayMixStonebrickcracked_3.name=807366 Cracked Stone Brick
+tile.lightGrayMixStonebrickcracked_4.name=808C66 Cracked Stone Brick
+tile.lightGrayMixStonebrickcracked_5.name=996666 Cracked Stone Brick
+tile.lightGrayMixStonebrickcracked_6.name=595959 Cracked Stone Brick
+
+tile.lightGrayMixStonebrickcarved_0.name=738C99 Carved Stone Brick
+tile.lightGrayMixStonebrickcarved_1.name=8C6CA5 Carved Stone Brick
+tile.lightGrayMixStonebrickcarved_2.name=6673A5 Carved Stone Brick
+tile.lightGrayMixStonebrickcarved_3.name=807366 Carved Stone Brick
+tile.lightGrayMixStonebrickcarved_4.name=808C66 Carved Stone Brick
+tile.lightGrayMixStonebrickcarved_5.name=996666 Carved Stone Brick
+tile.lightGrayMixStonebrickcarved_6.name=595959 Carved Stone Brick
+
+tile.lightGrayMixStone_0.name=738C99 Stone
+tile.lightGrayMixStone_1.name=8C6CA5 Stone
+tile.lightGrayMixStone_2.name=6673A5 Stone
+tile.lightGrayMixStone_3.name=807366 Stone
+tile.lightGrayMixStone_4.name=808C66 Stone
+tile.lightGrayMixStone_5.name=996666 Stone
+tile.lightGrayMixStone_6.name=595959 Stone
+
+tile.lightGrayMixObsidian_0.name=738C99 Obsidian
+tile.lightGrayMixObsidian_1.name=8C6CA5 Obsidian
+tile.lightGrayMixObsidian_2.name=6673A5 Obsidian
+tile.lightGrayMixObsidian_3.name=807366 Obsidian
+tile.lightGrayMixObsidian_4.name=808C66 Obsidian
+tile.lightGrayMixObsidian_5.name=996666 Obsidian
+tile.lightGrayMixObsidian_6.name=595959 Obsidian
+
+tile.lightGrayMixGlowstone_0.name=738C99 Glowstone
+tile.lightGrayMixGlowstone_1.name=8C6CA5 Glowstone
+tile.lightGrayMixGlowstone_2.name=6673A5 Glowstone
+tile.lightGrayMixGlowstone_3.name=807366 Glowstone
+tile.lightGrayMixGlowstone_4.name=808C66 Glowstone
+tile.lightGrayMixGlowstone_5.name=996666 Glowstone
+tile.lightGrayMixGlowstone_6.name=595959 Glowstone
+
+tile.lightGrayMixCoal_0.name=738C99 Coal Block
+tile.lightGrayMixCoal_1.name=8C6CA5 Coal Block
+tile.lightGrayMixCoal_2.name=6673A5 Coal Block
+tile.lightGrayMixCoal_3.name=807366 Coal Block
+tile.lightGrayMixCoal_4.name=808C66 Coal Block
+tile.lightGrayMixCoal_5.name=996666 Coal Block
+tile.lightGrayMixCoal_6.name=595959 Coal Block
+
+tile.lightGrayMixRedstone_0.name=738C99 Redstone Block
+tile.lightGrayMixRedstone_1.name=8C6CA5 Redstone Block
+tile.lightGrayMixRedstone_2.name=6673A5 Redstone Block
+tile.lightGrayMixRedstone_3.name=807366 Redstone Block
+tile.lightGrayMixRedstone_4.name=808C66 Redstone Block
+tile.lightGrayMixRedstone_5.name=996666 Redstone Block
+tile.lightGrayMixRedstone_6.name=595959 Redstone Block
+
+tile.lightGrayMixLapis_0.name=738C99 Lapis Block
+tile.lightGrayMixLapis_1.name=8C6CA5 Lapis Block
+tile.lightGrayMixLapis_2.name=6673A5 Lapis Block
+tile.lightGrayMixLapis_3.name=807366 Lapis Block
+tile.lightGrayMixLapis_4.name=808C66 Lapis Block
+tile.lightGrayMixLapis_5.name=996666 Lapis Block
+tile.lightGrayMixLapis_6.name=595959 Lapis Block
+
+tile.lightGrayMixCobble_0.name=738C99 Cobblestone
+tile.lightGrayMixCobble_1.name=8C6CA5 Cobblestone
+tile.lightGrayMixCobble_2.name=6673A5 Cobblestone
+tile.lightGrayMixCobble_3.name=807366 Cobblestone
+tile.lightGrayMixCobble_4.name=808C66 Cobblestone
+tile.lightGrayMixCobble_5.name=996666 Cobblestone
+tile.lightGrayMixCobble_6.name=595959 Cobblestone
+
+tile.lightGrayMixSoulsand_0.name=738C99 Soulsand
+tile.lightGrayMixSoulsand_1.name=8C6CA5 Soulsand
+tile.lightGrayMixSoulsand_2.name=6673A5 Soulsand
+tile.lightGrayMixSoulsand_3.name=807366 Soulsand
+tile.lightGrayMixSoulsand_4.name=808C66 Soulsand
+tile.lightGrayMixSoulsand_5.name=996666 Soulsand
+tile.lightGrayMixSoulsand_6.name=595959 Soulsand
+
+tile.lightGrayMixQuartz_0.name=738C99 Quartz Block
+tile.lightGrayMixQuartz_1.name=8C6CA5 Quartz Block
+tile.lightGrayMixQuartz_2.name=6673A5 Quartz Block
+tile.lightGrayMixQuartz_3.name=807366 Quartz Block
+tile.lightGrayMixQuartz_4.name=808C66 Quartz Block
+tile.lightGrayMixQuartz_5.name=996666 Quartz Block
+tile.lightGrayMixQuartz_6.name=595959 Quartz Block
+
+tile.lightGrayMixClay_0.name=738C99 Hardened Stained Clay
+tile.lightGrayMixClay_1.name=8C6CA5 Hardened Stained Clay
+tile.lightGrayMixClay_2.name=6673A5 Hardened Stained Clay
+tile.lightGrayMixClay_3.name=807366 Hardened Stained Clay
+tile.lightGrayMixClay_4.name=808C66 Hardened Stained Clay
+tile.lightGrayMixClay_5.name=996666 Hardened Stained Clay
+tile.lightGrayMixClay_6.name=595959 Hardened Stained Clay
+
+tile.lightGrayMixPlank_0.name=738C99 Plank
+tile.lightGrayMixPlank_1.name=8C6CA5 Plank
+tile.lightGrayMixPlank_2.name=6673A5 Plank
+tile.lightGrayMixPlank_3.name=807366 Plank
+tile.lightGrayMixPlank_4.name=808C66 Plank
+tile.lightGrayMixPlank_5.name=996666 Plank
+tile.lightGrayMixPlank_6.name=595959 Plank
+
+tile.lightGrayMixTulip_0.name=738C99 Tulip
+tile.lightGrayMixTulip_1.name=8C6CA5 Tulip
+tile.lightGrayMixTulip_2.name=6673A5 Tulip
+tile.lightGrayMixTulip_3.name=807366 Tulip
+tile.lightGrayMixTulip_4.name=808C66 Tulip
+tile.lightGrayMixTulip_5.name=996666 Tulip
+tile.lightGrayMixTulip_6.name=595959 Tulip
+
+tile.lightGrayMixSapling_0.name=738C99 Sapling
+tile.lightGrayMixSapling_1.name=8C6CA5 Sapling
+tile.lightGrayMixSapling_2.name=6673A5 Sapling
+tile.lightGrayMixSapling_3.name=807366 Sapling
+tile.lightGrayMixSapling_4.name=808C66 Sapling
+tile.lightGrayMixSapling_5.name=996666 Sapling
+tile.lightGrayMixSapling_6.name=595959 Sapling
+
+tile.lightGrayMixLog_0.name=738C99 Log
+tile.lightGrayMixLog_1.name=8C6CA5 Log
+tile.lightGrayMixLog_2.name=6673A5 Log
+tile.lightGrayMixLog_3.name=807366 Log
+tile.lightGrayMixLog_4.name=808C66 Log
+tile.lightGrayMixLog_5.name=996666 Log
+tile.lightGrayMixLog_6.name=595959 Log
+
+tile.lightGrayMixLeaf_0.name=738C99 Leaves
+tile.lightGrayMixLeaf_1.name=8C6CA5 Leaves
+tile.lightGrayMixLeaf_2.name=6673A5 Leaves
+tile.lightGrayMixLeaf_3.name=807366 Leaves
+tile.lightGrayMixLeaf_4.name=808C66 Leaves
+tile.lightGrayMixLeaf_5.name=996666 Leaves
+tile.lightGrayMixLeaf_6.name=595959 Leaves
+
+tile.lightGrayMixGlassClear_0.name=738C99 Clear Glass
+tile.lightGrayMixGlassClear_1.name=8C6CA5 Clear Glass
+tile.lightGrayMixGlassClear_2.name=6673A5 Clear Glass
+tile.lightGrayMixGlassClear_3.name=807366 Clear Glass
+tile.lightGrayMixGlassClear_4.name=808C66 Clear Glass
+tile.lightGrayMixGlassClear_5.name=996666 Clear Glass
+tile.lightGrayMixGlassClear_6.name=595959 Clear Glass
+
+tile.lightGrayMixGlassFoggy_0.name=738C99 Foggy Glass
+tile.lightGrayMixGlassFoggy_1.name=8C6CA5 Foggy Glass
+tile.lightGrayMixGlassFoggy_2.name=6673A5 Foggy Glass
+tile.lightGrayMixGlassFoggy_3.name=807366 Foggy Glass
+tile.lightGrayMixGlassFoggy_4.name=808C66 Foggy Glass
+tile.lightGrayMixGlassFoggy_5.name=996666 Foggy Glass
+tile.lightGrayMixGlassFoggy_6.name=595959 Foggy Glass
+
+tile.lightGrayMixGlassClearPane_0.name=738C99 Clear Glass Pane
+tile.lightGrayMixGlassClearPane_1.name=8C6CA5 Clear Glass Pane
+tile.lightGrayMixGlassClearPane_2.name=6673A5 Clear Glass Pane
+tile.lightGrayMixGlassClearPane_3.name=807366 Clear Glass Pane
+tile.lightGrayMixGlassClearPane_4.name=808C66 Clear Glass Pane
+tile.lightGrayMixGlassClearPane_5.name=996666 Clear Glass Pane
+tile.lightGrayMixGlassClearPane_6.name=595959 Clear Glass Pane
+
+tile.lightGrayMixGlassFoggyPane_0.name=738C99 Foggy Glass Pane
+tile.lightGrayMixGlassFoggyPane_1.name=8C6CA5 Foggy Glass Pane
+tile.lightGrayMixGlassFoggyPane_2.name=6673A5 Foggy Glass Pane
+tile.lightGrayMixGlassFoggyPane_3.name=807366 Foggy Glass Pane
+tile.lightGrayMixGlassFoggyPane_4.name=808C66 Foggy Glass Pane
+tile.lightGrayMixGlassFoggyPane_5.name=996666 Foggy Glass Pane
+tile.lightGrayMixGlassFoggyPane_6.name=595959 Foggy Glass Pane
+
+tile.lightGrayMixBrick_0.name=738C99 Brick
+tile.lightGrayMixBrick_1.name=8C6CA5 Brick
+tile.lightGrayMixBrick_2.name=6673A5 Brick
+tile.lightGrayMixBrick_3.name=807366 Brick
+tile.lightGrayMixBrick_4.name=808C66 Brick
+tile.lightGrayMixBrick_5.name=996666 Brick
+tile.lightGrayMixBrick_6.name=595959 Brick
+
+tile.lightGrayMixWorkbench_0.name=738C99 Crafting Table
+tile.lightGrayMixWorkbench_1.name=8C6CA5 Crafting Table
+tile.lightGrayMixWorkbench_2.name=6673A5 Crafting Table
+tile.lightGrayMixWorkbench_3.name=807366 Crafting Table
+tile.lightGrayMixWorkbench_4.name=808C66 Crafting Table
+tile.lightGrayMixWorkbench_5.name=996666 Crafting Table
+tile.lightGrayMixWorkbench_6.name=595959 Crafting Table
+
+tile.lightGrayMixSand_0.name=738C99 Sand
+tile.lightGrayMixSand_1.name=8C6CA5 Sand
+tile.lightGrayMixSand_2.name=6673A5 Sand
+tile.lightGrayMixSand_3.name=807366 Sand
+tile.lightGrayMixSand_4.name=808C66 Sand
+tile.lightGrayMixSand_5.name=996666 Sand
+tile.lightGrayMixSand_6.name=595959 Sand
+
+tile.lightGrayMixWorkSandstone_0.name=738C99 Sandstone
+tile.lightGrayMixWorkSandstone_1.name=8C6CA5 Sandstone
+tile.lightGrayMixWorkSandstone_2.name=6673A5 Sandstone
+tile.lightGrayMixWorkSandstone_3.name=807366 Sandstone
+tile.lightGrayMixWorkSandstone_4.name=808C66 Sandstone
+tile.lightGrayMixWorkSandstone_5.name=996666 Sandstone
+tile.lightGrayMixWorkSandstone_6.name=595959 Sandstone
+
+item.cyanDye_0.name=655FA5 Dye
+item.cyanDye_1.name=4066A5 Dye
+item.cyanDye_2.name=596666 Dye
+item.cyanDye_3.name=597F66 Dye
+item.cyanDye_4.name=725966 Dye
+item.cyanDye_5.name=334C59 Dye
+
+tile.cyanMixWool_0.name=655FA5 Wool
+tile.cyanMixWool_1.name=4066A5 Wool
+tile.cyanMixWool_2.name=596666 Wool
+tile.cyanMixWool_3.name=597F66 Wool
+tile.cyanMixWool_4.name=725966 Wool
+tile.cyanMixWool_5.name=334C59 Wool
+
+tile.cyanMixStonebrick_0.name=655FA5 Stone Brick
+tile.cyanMixStonebrick_1.name=4066A5 Stone Brick
+tile.cyanMixStonebrick_2.name=596666 Stone Brick
+tile.cyanMixStonebrick_3.name=597F66 Stone Brick
+tile.cyanMixStonebrick_4.name=725966 Stone Brick
+tile.cyanMixStonebrick_5.name=334C59 Stone Brick
+
+tile.cyanMixStonebrickcracked_0.name=655FA5 Cracked Stone Brick
+tile.cyanMixStonebrickcracked_1.name=4066A5 Cracked Stone Brick
+tile.cyanMixStonebrickcracked_2.name=596666 Cracked Stone Brick
+tile.cyanMixStonebrickcracked_3.name=597F66 Cracked Stone Brick
+tile.cyanMixStonebrickcracked_4.name=725966 Cracked Stone Brick
+tile.cyanMixStonebrickcracked_5.name=334C59 Cracked Stone Brick
+
+tile.cyanMixStonebrickcarved_0.name=655FA5 Carved Stone Brick
+tile.cyanMixStonebrickcarved_1.name=4066A5 Carved Stone Brick
+tile.cyanMixStonebrickcarved_2.name=596666 Carved Stone Brick
+tile.cyanMixStonebrickcarved_3.name=597F66 Carved Stone Brick
+tile.cyanMixStonebrickcarved_4.name=725966 Carved Stone Brick
+tile.cyanMixStonebrickcarved_5.name=334C59 Carved Stone Brick
+
+tile.cyanMixStone_0.name=655FA5 Stone
+tile.cyanMixStone_1.name=4066A5 Stone
+tile.cyanMixStone_2.name=596666 Stone
+tile.cyanMixStone_3.name=597F66 Stone
+tile.cyanMixStone_4.name=725966 Stone
+tile.cyanMixStone_5.name=334C59 Stone
+
+tile.cyanMixObsidian_0.name=655FA5 Obsidian
+tile.cyanMixObsidian_1.name=4066A5 Obsidian
+tile.cyanMixObsidian_2.name=596666 Obsidian
+tile.cyanMixObsidian_3.name=597F66 Obsidian
+tile.cyanMixObsidian_4.name=725966 Obsidian
+tile.cyanMixObsidian_5.name=334C59 Obsidian
+
+tile.cyanMixGlowstone_0.name=655FA5 Glowstone
+tile.cyanMixGlowstone_1.name=4066A5 Glowstone
+tile.cyanMixGlowstone_2.name=596666 Glowstone
+tile.cyanMixGlowstone_3.name=597F66 Glowstone
+tile.cyanMixGlowstone_4.name=725966 Glowstone
+tile.cyanMixGlowstone_5.name=334C59 Glowstone
+
+tile.cyanMixCoal_0.name=655FA5 Coal Block
+tile.cyanMixCoal_1.name=4066A5 Coal Block
+tile.cyanMixCoal_2.name=596666 Coal Block
+tile.cyanMixCoal_3.name=597F66 Coal Block
+tile.cyanMixCoal_4.name=725966 Coal Block
+tile.cyanMixCoal_5.name=334C59 Coal Block
+
+tile.cyanMixRedstone_0.name=655FA5 Redstone Block
+tile.cyanMixRedstone_1.name=4066A5 Redstone Block
+tile.cyanMixRedstone_2.name=596666 Redstone Block
+tile.cyanMixRedstone_3.name=597F66 Redstone Block
+tile.cyanMixRedstone_4.name=725966 Redstone Block
+tile.cyanMixRedstone_5.name=334C59 Redstone Block
+
+tile.cyanMixLapis_0.name=655FA5 Lapis Block
+tile.cyanMixLapis_1.name=4066A5 Lapis Block
+tile.cyanMixLapis_2.name=596666 Lapis Block
+tile.cyanMixLapis_3.name=597F66 Lapis Block
+tile.cyanMixLapis_4.name=725966 Lapis Block
+tile.cyanMixLapis_5.name=334C59 Lapis Block
+
+tile.cyanMixCobble_0.name=655FA5 Cobblestone
+tile.cyanMixCobble_1.name=4066A5 Cobblestone
+tile.cyanMixCobble_2.name=596666 Cobblestone
+tile.cyanMixCobble_3.name=597F66 Cobblestone
+tile.cyanMixCobble_4.name=725966 Cobblestone
+tile.cyanMixCobble_5.name=334C59 Cobblestone
+
+tile.cyanMixSoulsand_0.name=655FA5 Soulsand
+tile.cyanMixSoulsand_1.name=4066A5 Soulsand
+tile.cyanMixSoulsand_2.name=596666 Soulsand
+tile.cyanMixSoulsand_3.name=597F66 Soulsand
+tile.cyanMixSoulsand_4.name=725966 Soulsand
+tile.cyanMixSoulsand_5.name=334C59 Soulsand
+
+tile.cyanMixQuartz_0.name=655FA5 Quartz Block
+tile.cyanMixQuartz_1.name=4066A5 Quartz Block
+tile.cyanMixQuartz_2.name=596666 Quartz Block
+tile.cyanMixQuartz_3.name=597F66 Quartz Block
+tile.cyanMixQuartz_4.name=725966 Quartz Block
+tile.cyanMixQuartz_5.name=334C59 Quartz Block
+
+tile.cyanMixClay_0.name=655FA5 Hardened Stained Clay
+tile.cyanMixClay_1.name=4066A5 Hardened Stained Clay
+tile.cyanMixClay_2.name=596666 Hardened Stained Clay
+tile.cyanMixClay_3.name=597F66 Hardened Stained Clay
+tile.cyanMixClay_4.name=725966 Hardened Stained Clay
+tile.cyanMixClay_5.name=334C59 Hardened Stained Clay
+
+tile.cyanMixPlank_0.name=655FA5 Plank
+tile.cyanMixPlank_1.name=4066A5 Plank
+tile.cyanMixPlank_2.name=596666 Plank
+tile.cyanMixPlank_3.name=597F66 Plank
+tile.cyanMixPlank_4.name=725966 Plank
+tile.cyanMixPlank_5.name=334C59 Plank
+
+tile.cyanMixTulip_0.name=655FA5 Tulip
+tile.cyanMixTulip_1.name=4066A5 Tulip
+tile.cyanMixTulip_2.name=596666 Tulip
+tile.cyanMixTulip_3.name=597F66 Tulip
+tile.cyanMixTulip_4.name=725966 Tulip
+tile.cyanMixTulip_5.name=334C59 Tulip
+
+tile.cyanMixSapling_0.name=655FA5 Sapling
+tile.cyanMixSapling_1.name=4066A5 Sapling
+tile.cyanMixSapling_2.name=596666 Sapling
+tile.cyanMixSapling_3.name=597F66 Sapling
+tile.cyanMixSapling_4.name=725966 Sapling
+tile.cyanMixSapling_5.name=334C59 Sapling
+
+tile.cyanMixLog_0.name=655FA5 Log
+tile.cyanMixLog_1.name=4066A5 Log
+tile.cyanMixLog_2.name=596666 Log
+tile.cyanMixLog_3.name=597F66 Log
+tile.cyanMixLog_4.name=725966 Log
+tile.cyanMixLog_5.name=334C59 Log
+
+tile.cyanMixLeaf_0.name=655FA5 Leaves
+tile.cyanMixLeaf_1.name=4066A5 Leaves
+tile.cyanMixLeaf_2.name=596666 Leaves
+tile.cyanMixLeaf_3.name=597F66 Leaves
+tile.cyanMixLeaf_4.name=725966 Leaves
+tile.cyanMixLeaf_5.name=334C59 Leaves
+
+tile.cyanMixGlassClear_0.name=655FA5 Clear Glass
+tile.cyanMixGlassClear_1.name=4066A5 Clear Glass
+tile.cyanMixGlassClear_2.name=596666 Clear Glass
+tile.cyanMixGlassClear_3.name=597F66 Clear Glass
+tile.cyanMixGlassClear_4.name=725966 Clear Glass
+tile.cyanMixGlassClear_5.name=334C59 Clear Glass
+
+tile.cyanMixGlassFoggy_0.name=655FA5 Foggy Glass
+tile.cyanMixGlassFoggy_1.name=4066A5 Foggy Glass
+tile.cyanMixGlassFoggy_2.name=596666 Foggy Glass
+tile.cyanMixGlassFoggy_3.name=597F66 Foggy Glass
+tile.cyanMixGlassFoggy_4.name=725966 Foggy Glass
+tile.cyanMixGlassFoggy_5.name=334C59 Foggy Glass
+
+tile.cyanMixGlassClearPane_0.name=655FA5 Clear Glass Pane
+tile.cyanMixGlassClearPane_1.name=4066A5 Clear Glass Pane
+tile.cyanMixGlassClearPane_2.name=596666 Clear Glass Pane
+tile.cyanMixGlassClearPane_3.name=597F66 Clear Glass Pane
+tile.cyanMixGlassClearPane_4.name=725966 Clear Glass Pane
+tile.cyanMixGlassClearPane_5.name=334C59 Clear Glass Pane
+
+tile.cyanMixGlassFoggyPane_0.name=655FA5 Foggy Glass Pane
+tile.cyanMixGlassFoggyPane_1.name=4066A5 Foggy Glass Pane
+tile.cyanMixGlassFoggyPane_2.name=596666 Foggy Glass Pane
+tile.cyanMixGlassFoggyPane_3.name=597F66 Foggy Glass Pane
+tile.cyanMixGlassFoggyPane_4.name=725966 Foggy Glass Pane
+tile.cyanMixGlassFoggyPane_5.name=334C59 Foggy Glass Pane
+
+tile.cyanMixBrick_0.name=655FA5 Brick
+tile.cyanMixBrick_1.name=4066A5 Brick
+tile.cyanMixBrick_2.name=596666 Brick
+tile.cyanMixBrick_3.name=597F66 Brick
+tile.cyanMixBrick_4.name=725966 Brick
+tile.cyanMixBrick_5.name=334C59 Brick
+
+tile.cyanMixWorkbench_0.name=655FA5 Crafting Table
+tile.cyanMixWorkbench_1.name=4066A5 Crafting Table
+tile.cyanMixWorkbench_2.name=596666 Crafting Table
+tile.cyanMixWorkbench_3.name=597F66 Crafting Table
+tile.cyanMixWorkbench_4.name=725966 Crafting Table
+tile.cyanMixWorkbench_5.name=334C59 Crafting Table
+
+tile.cyanMixSand_0.name=655FA5 Sand
+tile.cyanMixSand_1.name=4066A5 Sand
+tile.cyanMixSand_2.name=596666 Sand
+tile.cyanMixSand_3.name=597F66 Sand
+tile.cyanMixSand_4.name=725966 Sand
+tile.cyanMixSand_5.name=334C59 Sand
+
+tile.cyanMixWorkSandstone_0.name=655FA5 Sandstone
+tile.cyanMixWorkSandstone_1.name=4066A5 Sandstone
+tile.cyanMixWorkSandstone_2.name=596666 Sandstone
+tile.cyanMixWorkSandstone_3.name=597F66 Sandstone
+tile.cyanMixWorkSandstone_4.name=725966 Sandstone
+tile.cyanMixWorkSandstone_5.name=334C59 Sandstone
+
+item.purpleDye_0.name=5945B2 Dye
+item.purpleDye_1.name=734573 Dye
+item.purpleDye_2.name=735F73 Dye
+item.purpleDye_3.name=8C3973 Dye
+item.purpleDye_4.name=4C2C66 Dye
+
+tile.purpleMixWool_0.name=5945B2 Wool
+tile.purpleMixWool_1.name=734573 Wool
+tile.purpleMixWool_2.name=735F73 Wool
+tile.purpleMixWool_3.name=8C3973 Wool
+tile.purpleMixWool_4.name=4C2C66 Wool
+
+tile.purpleMixStonebrick_0.name=5945B2 Stone Brick
+tile.purpleMixStonebrick_1.name=734573 Stone Brick
+tile.purpleMixStonebrick_2.name=735F73 Stone Brick
+tile.purpleMixStonebrick_3.name=8C3973 Stone Brick
+tile.purpleMixStonebrick_4.name=4C2C66 Stone Brick
+
+tile.purpleMixStonebrickcracked_0.name=5945B2 Cracked Stone Brick
+tile.purpleMixStonebrickcracked_1.name=734573 Cracked Stone Brick
+tile.purpleMixStonebrickcracked_2.name=735F73 Cracked Stone Brick
+tile.purpleMixStonebrickcracked_3.name=8C3973 Cracked Stone Brick
+tile.purpleMixStonebrickcracked_4.name=4C2C66 Cracked Stone Brick
+
+tile.purpleMixStonebrickcarved_0.name=5945B2 Carved Stone Brick
+tile.purpleMixStonebrickcarved_1.name=734573 Carved Stone Brick
+tile.purpleMixStonebrickcarved_2.name=735F73 Carved Stone Brick
+tile.purpleMixStonebrickcarved_3.name=8C3973 Carved Stone Brick
+tile.purpleMixStonebrickcarved_4.name=4C2C66 Carved Stone Brick
+
+tile.purpleMixStone_0.name=5945B2 Stone
+tile.purpleMixStone_1.name=734573 Stone
+tile.purpleMixStone_2.name=735F73 Stone
+tile.purpleMixStone_3.name=8C3973 Stone
+tile.purpleMixStone_4.name=4C2C66 Stone
+
+tile.purpleMixObsidian_0.name=5945B2 Obsidian
+tile.purpleMixObsidian_1.name=734573 Obsidian
+tile.purpleMixObsidian_2.name=735F73 Obsidian
+tile.purpleMixObsidian_3.name=8C3973 Obsidian
+tile.purpleMixObsidian_4.name=4C2C66 Obsidian
+
+tile.purpleMixGlowstone_0.name=5945B2 Glowstone
+tile.purpleMixGlowstone_1.name=734573 Glowstone
+tile.purpleMixGlowstone_2.name=735F73 Glowstone
+tile.purpleMixGlowstone_3.name=8C3973 Glowstone
+tile.purpleMixGlowstone_4.name=4C2C66 Glowstone
+
+tile.purpleMixCoal_0.name=5945B2 Coal Block
+tile.purpleMixCoal_1.name=734573 Coal Block
+tile.purpleMixCoal_2.name=735F73 Coal Block
+tile.purpleMixCoal_3.name=8C3973 Coal Block
+tile.purpleMixCoal_4.name=4C2C66 Coal Block
+
+tile.purpleMixRedstone_0.name=5945B2 Redstone Block
+tile.purpleMixRedstone_1.name=734573 Redstone Block
+tile.purpleMixRedstone_2.name=735F73 Redstone Block
+tile.purpleMixRedstone_3.name=8C3973 Redstone Block
+tile.purpleMixRedstone_4.name=4C2C66 Redstone Block
+
+tile.purpleMixLapis_0.name=5945B2 Lapis Block
+tile.purpleMixLapis_1.name=734573 Lapis Block
+tile.purpleMixLapis_2.name=735F73 Lapis Block
+tile.purpleMixLapis_3.name=8C3973 Lapis Block
+tile.purpleMixLapis_4.name=4C2C66 Lapis Block
+
+tile.purpleMixCobble_0.name=5945B2 Cobblestone
+tile.purpleMixCobble_1.name=734573 Cobblestone
+tile.purpleMixCobble_2.name=735F73 Cobblestone
+tile.purpleMixCobble_3.name=8C3973 Cobblestone
+tile.purpleMixCobble_4.name=4C2C66 Cobblestone
+
+tile.purpleMixSoulsand_0.name=5945B2 Soulsand
+tile.purpleMixSoulsand_1.name=734573 Soulsand
+tile.purpleMixSoulsand_2.name=735F73 Soulsand
+tile.purpleMixSoulsand_3.name=8C3973 Soulsand
+tile.purpleMixSoulsand_4.name=4C2C66 Soulsand
+
+tile.purpleMixQuartz_0.name=5945B2 Quartz Block
+tile.purpleMixQuartz_1.name=734573 Quartz Block
+tile.purpleMixQuartz_2.name=735F73 Quartz Block
+tile.purpleMixQuartz_3.name=8C3973 Quartz Block
+tile.purpleMixQuartz_4.name=4C2C66 Quartz Block
+
+tile.purpleMixClay_0.name=5945B2 Hardened Stained Clay
+tile.purpleMixClay_1.name=734573 Hardened Stained Clay
+tile.purpleMixClay_2.name=735F73 Hardened Stained Clay
+tile.purpleMixClay_3.name=8C3973 Hardened Stained Clay
+tile.purpleMixClay_4.name=4C2C66 Hardened Stained Clay
+
+tile.purpleMixPlank_0.name=5945B2 Plank
+tile.purpleMixPlank_1.name=734573 Plank
+tile.purpleMixPlank_2.name=735F73 Plank
+tile.purpleMixPlank_3.name=8C3973 Plank
+tile.purpleMixPlank_4.name=4C2C66 Plank
+
+tile.purpleMixTulip_0.name=5945B2 Tulip
+tile.purpleMixTulip_1.name=734573 Tulip
+tile.purpleMixTulip_2.name=735F73 Tulip
+tile.purpleMixTulip_3.name=8C3973 Tulip
+tile.purpleMixTulip_4.name=4C2C66 Tulip
+
+tile.purpleMixSapling_0.name=5945B2 Sapling
+tile.purpleMixSapling_1.name=734573 Sapling
+tile.purpleMixSapling_2.name=735F73 Sapling
+tile.purpleMixSapling_3.name=8C3973 Sapling
+tile.purpleMixSapling_4.name=4C2C66 Sapling
+
+tile.purpleMixLog_0.name=5945B2 Log
+tile.purpleMixLog_1.name=734573 Log
+tile.purpleMixLog_2.name=735F73 Log
+tile.purpleMixLog_3.name=8C3973 Log
+tile.purpleMixLog_4.name=4C2C66 Log
+
+tile.purpleMixLeaf_0.name=5945B2 Leaves
+tile.purpleMixLeaf_1.name=734573 Leaves
+tile.purpleMixLeaf_2.name=735F73 Leaves
+tile.purpleMixLeaf_3.name=8C3973 Leaves
+tile.purpleMixLeaf_4.name=4C2C66 Leaves
+
+tile.purpleMixGlassClear_0.name=5945B2 Clear Glass
+tile.purpleMixGlassClear_1.name=734573 Clear Glass
+tile.purpleMixGlassClear_2.name=735F73 Clear Glass
+tile.purpleMixGlassClear_3.name=8C3973 Clear Glass
+tile.purpleMixGlassClear_4.name=4C2C66 Clear Glass
+
+tile.purpleMixGlassFoggy_0.name=5945B2 Foggy Glass
+tile.purpleMixGlassFoggy_1.name=734573 Foggy Glass
+tile.purpleMixGlassFoggy_2.name=735F73 Foggy Glass
+tile.purpleMixGlassFoggy_3.name=8C3973 Foggy Glass
+tile.purpleMixGlassFoggy_4.name=4C2C66 Foggy Glass
+
+tile.purpleMixGlassClearPane_0.name=5945B2 Clear Glass Pane
+tile.purpleMixGlassClearPane_1.name=734573 Clear Glass Pane
+tile.purpleMixGlassClearPane_2.name=735F73 Clear Glass Pane
+tile.purpleMixGlassClearPane_3.name=8C3973 Clear Glass Pane
+tile.purpleMixGlassClearPane_4.name=4C2C66 Clear Glass Pane
+
+tile.purpleMixGlassFoggyPane_0.name=5945B2 Foggy Glass Pane
+tile.purpleMixGlassFoggyPane_1.name=734573 Foggy Glass Pane
+tile.purpleMixGlassFoggyPane_2.name=735F73 Foggy Glass Pane
+tile.purpleMixGlassFoggyPane_3.name=8C3973 Foggy Glass Pane
+tile.purpleMixGlassFoggyPane_4.name=4C2C66 Foggy Glass Pane
+
+tile.purpleMixBrick_0.name=5945B2 Brick
+tile.purpleMixBrick_1.name=734573 Brick
+tile.purpleMixBrick_2.name=735F73 Brick
+tile.purpleMixBrick_3.name=8C3973 Brick
+tile.purpleMixBrick_4.name=4C2C66 Brick
+
+tile.purpleMixWorkbench_0.name=5945B2 Crafting Table
+tile.purpleMixWorkbench_1.name=734573 Crafting Table
+tile.purpleMixWorkbench_2.name=735F73 Crafting Table
+tile.purpleMixWorkbench_3.name=8C3973 Crafting Table
+tile.purpleMixWorkbench_4.name=4C2C66 Crafting Table
+
+tile.purpleMixSand_0.name=5945B2 Sand
+tile.purpleMixSand_1.name=734573 Sand
+tile.purpleMixSand_2.name=735F73 Sand
+tile.purpleMixSand_3.name=8C3973 Sand
+tile.purpleMixSand_4.name=4C2C66 Sand
+
+tile.purpleMixWorkSandstone_0.name=5945B2 Sandstone
+tile.purpleMixWorkSandstone_1.name=734573 Sandstone
+tile.purpleMixWorkSandstone_2.name=735F73 Sandstone
+tile.purpleMixWorkSandstone_3.name=8C3973 Sandstone
+tile.purpleMixWorkSandstone_4.name=4C2C66 Sandstone
+
+item.blueDye_0.name=4C4C73 Dye
+item.blueDye_1.name=4C6573 Dye
+item.blueDye_2.name=664073 Dye
+item.blueDye_3.name=263366 Dye
+
+tile.blueMixWool_0.name=4C4C73 Wool
+tile.blueMixWool_1.name=4C6573 Wool
+tile.blueMixWool_2.name=664073 Wool
+tile.blueMixWool_3.name=263366 Wool
+
+tile.blueMixStonebrick_0.name=4C4C73 Stone Brick
+tile.blueMixStonebrick_1.name=4C6573 Stone Brick
+tile.blueMixStonebrick_2.name=664073 Stone Brick
+tile.blueMixStonebrick_3.name=263366 Stone Brick
+
+tile.blueMixStonebrickcracked_0.name=4C4C73 Cracked Stone Brick
+tile.blueMixStonebrickcracked_1.name=4C6573 Cracked Stone Brick
+tile.blueMixStonebrickcracked_2.name=664073 Cracked Stone Brick
+tile.blueMixStonebrickcracked_3.name=263366 Cracked Stone Brick
+
+tile.blueMixStonebrickcarved_0.name=4C4C73 Carved Stone Brick
+tile.blueMixStonebrickcarved_1.name=4C6573 Carved Stone Brick
+tile.blueMixStonebrickcarved_2.name=664073 Carved Stone Brick
+tile.blueMixStonebrickcarved_3.name=263366 Carved Stone Brick
+
+tile.blueMixStone_0.name=4C4C73 Stone
+tile.blueMixStone_1.name=4C6573 Stone
+tile.blueMixStone_2.name=664073 Stone
+tile.blueMixStone_3.name=263366 Stone
+
+tile.blueMixObsidian_0.name=4C4C73 Obsidian
+tile.blueMixObsidian_1.name=4C6573 Obsidian
+tile.blueMixObsidian_2.name=664073 Obsidian
+tile.blueMixObsidian_3.name=263366 Obsidian
+
+tile.blueMixGlowstone_0.name=4C4C73 Glowstone
+tile.blueMixGlowstone_1.name=4C6573 Glowstone
+tile.blueMixGlowstone_2.name=664073 Glowstone
+tile.blueMixGlowstone_3.name=263366 Glowstone
+
+tile.blueMixCoal_0.name=4C4C73 Coal Block
+tile.blueMixCoal_1.name=4C6573 Coal Block
+tile.blueMixCoal_2.name=664073 Coal Block
+tile.blueMixCoal_3.name=263366 Coal Block
+
+tile.blueMixRedstone_0.name=4C4C73 Redstone Block
+tile.blueMixRedstone_1.name=4C6573 Redstone Block
+tile.blueMixRedstone_2.name=664073 Redstone Block
+tile.blueMixRedstone_3.name=263366 Redstone Block
+
+tile.blueMixLapis_0.name=4C4C73 Lapis Block
+tile.blueMixLapis_1.name=4C6573 Lapis Block
+tile.blueMixLapis_2.name=664073 Lapis Block
+tile.blueMixLapis_3.name=263366 Lapis Block
+
+tile.blueMixCobble_0.name=4C4C73 Cobblestone
+tile.blueMixCobble_1.name=4C6573 Cobblestone
+tile.blueMixCobble_2.name=664073 Cobblestone
+tile.blueMixCobble_3.name=263366 Cobblestone
+
+tile.blueMixSoulsand_0.name=4C4C73 Soulsand
+tile.blueMixSoulsand_1.name=4C6573 Soulsand
+tile.blueMixSoulsand_2.name=664073 Soulsand
+tile.blueMixSoulsand_3.name=263366 Soulsand
+
+tile.blueMixQuartz_0.name=4C4C73 Quartz Block
+tile.blueMixQuartz_1.name=4C6573 Quartz Block
+tile.blueMixQuartz_2.name=664073 Quartz Block
+tile.blueMixQuartz_3.name=263366 Quartz Block
+
+tile.blueMixClay_0.name=4C4C73 Hardened Stained Clay
+tile.blueMixClay_1.name=4C6573 Hardened Stained Clay
+tile.blueMixClay_2.name=664073 Hardened Stained Clay
+tile.blueMixClay_3.name=263366 Hardened Stained Clay
+
+tile.blueMixPlank_0.name=4C4C73 Plank
+tile.blueMixPlank_1.name=4C6573 Plank
+tile.blueMixPlank_2.name=664073 Plank
+tile.blueMixPlank_3.name=263366 Plank
+
+tile.blueMixTulip_0.name=4C4C73 Tulip
+tile.blueMixTulip_1.name=4C6573 Tulip
+tile.blueMixTulip_2.name=664073 Tulip
+tile.blueMixTulip_3.name=263366 Tulip
+
+tile.blueMixSapling_0.name=4C4C73 Sapling
+tile.blueMixSapling_1.name=4C6573 Sapling
+tile.blueMixSapling_2.name=664073 Sapling
+tile.blueMixSapling_3.name=263366 Sapling
+
+tile.blueMixLog_0.name=4C4C73 Log
+tile.blueMixLog_1.name=4C6573 Log
+tile.blueMixLog_2.name=664073 Log
+tile.blueMixLog_3.name=263366 Log
+
+tile.blueMixLeaf_0.name=4C4C73 Leaves
+tile.blueMixLeaf_1.name=4C6573 Leaves
+tile.blueMixLeaf_2.name=664073 Leaves
+tile.blueMixLeaf_3.name=263366 Leaves
+
+tile.blueMixGlassClear_0.name=4C4C73 Clear Glass
+tile.blueMixGlassClear_1.name=4C6573 Clear Glass
+tile.blueMixGlassClear_2.name=664073 Clear Glass
+tile.blueMixGlassClear_3.name=263366 Clear Glass
+
+tile.blueMixGlassFoggy_0.name=4C4C73 Foggy Glass
+tile.blueMixGlassFoggy_1.name=4C6573 Foggy Glass
+tile.blueMixGlassFoggy_2.name=664073 Foggy Glass
+tile.blueMixGlassFoggy_3.name=263366 Foggy Glass
+
+tile.blueMixGlassClearPane_0.name=4C4C73 Clear Glass Pane
+tile.blueMixGlassClearPane_1.name=4C6573 Clear Glass Pane
+tile.blueMixGlassClearPane_2.name=664073 Clear Glass Pane
+tile.blueMixGlassClearPane_3.name=263366 Clear Glass Pane
+
+tile.blueMixGlassFoggyPane_0.name=4C4C73 Foggy Glass Pane
+tile.blueMixGlassFoggyPane_1.name=4C6573 Foggy Glass Pane
+tile.blueMixGlassFoggyPane_2.name=664073 Foggy Glass Pane
+tile.blueMixGlassFoggyPane_3.name=263366 Foggy Glass Pane
+
+tile.blueMixBrick_0.name=4C4C73 Brick
+tile.blueMixBrick_1.name=4C6573 Brick
+tile.blueMixBrick_2.name=664073 Brick
+tile.blueMixBrick_3.name=263366 Brick
+
+tile.blueMixWorkbench_0.name=4C4C73 Crafting Table
+tile.blueMixWorkbench_1.name=4C6573 Crafting Table
+tile.blueMixWorkbench_2.name=664073 Crafting Table
+tile.blueMixWorkbench_3.name=263366 Crafting Table
+
+tile.blueMixSand_0.name=4C4C73 Sand
+tile.blueMixSand_1.name=4C6573 Sand
+tile.blueMixSand_2.name=664073 Sand
+tile.blueMixSand_3.name=263366 Sand
+
+tile.blueMixWorkSandstone_0.name=4C4C73 Sandstone
+tile.blueMixWorkSandstone_1.name=4C6573 Sandstone
+tile.blueMixWorkSandstone_2.name=664073 Sandstone
+tile.blueMixWorkSandstone_3.name=263366 Sandstone
+
+item.brownDye_0.name=403326 Dye
+item.brownDye_1.name=7F4033 Dye
+item.brownDye_2.name=666533 Dye
+
+tile.brownMixWool_0.name=403326 Wool
+tile.brownMixWool_1.name=7F4033 Wool
+tile.brownMixWool_2.name=666533 Wool
+
+tile.brownMixStonebrick_0.name=403326 Stone Brick
+tile.brownMixStonebrick_1.name=7F4033 Stone Brick
+tile.brownMixStonebrick_2.name=666533 Stone Brick
+
+tile.brownMixStonebrickcracked_0.name=403326 Cracked Stone Brick
+tile.brownMixStonebrickcracked_1.name=7F4033 Cracked Stone Brick
+tile.brownMixStonebrickcracked_2.name=666533 Cracked Stone Brick
+
+tile.brownMixStonebrickcarved_0.name=403326 Carved Stone Brick
+tile.brownMixStonebrickcarved_1.name=7F4033 Carved Stone Brick
+tile.brownMixStonebrickcarved_2.name=666533 Carved Stone Brick
+
+tile.brownMixStone_0.name=403326 Stone
+tile.brownMixStone_1.name=7F4033 Stone
+tile.brownMixStone_2.name=666533 Stone
+
+tile.brownMixObsidian_0.name=403326 Obsidian
+tile.brownMixObsidian_1.name=7F4033 Obsidian
+tile.brownMixObsidian_2.name=666533 Obsidian
+
+tile.brownMixGlowstone_0.name=403326 Glowstone
+tile.brownMixGlowstone_1.name=7F4033 Glowstone
+tile.brownMixGlowstone_2.name=666533 Glowstone
+
+tile.brownMixCoal_0.name=403326 Coal Block
+tile.brownMixCoal_1.name=7F4033 Coal Block
+tile.brownMixCoal_2.name=666533 Coal Block
+
+tile.brownMixRedstone_0.name=403326 Redstone Block
+tile.brownMixRedstone_1.name=7F4033 Redstone Block
+tile.brownMixRedstone_2.name=666533 Redstone Block
+
+tile.brownMixLapis_0.name=403326 Lapis Block
+tile.brownMixLapis_1.name=7F4033 Lapis Block
+tile.brownMixLapis_2.name=666533 Lapis Block
+
+tile.brownMixCobble_0.name=403326 Cobblestone
+tile.brownMixCobble_1.name=7F4033 Cobblestone
+tile.brownMixCobble_2.name=666533 Cobblestone
+
+tile.brownMixSoulsand_0.name=403326 Soulsand
+tile.brownMixSoulsand_1.name=7F4033 Soulsand
+tile.brownMixSoulsand_2.name=666533 Soulsand
+
+tile.brownMixQuartz_0.name=403326 Quartz Block
+tile.brownMixQuartz_1.name=7F4033 Quartz Block
+tile.brownMixQuartz_2.name=666533 Quartz Block
+
+tile.brownMixClay_0.name=403326 Hardened Stained Clay
+tile.brownMixClay_1.name=7F4033 Hardened Stained Clay
+tile.brownMixClay_2.name=666533 Hardened Stained Clay
+
+tile.brownMixPlank_0.name=403326 Plank
+tile.brownMixPlank_1.name=7F4033 Plank
+tile.brownMixPlank_2.name=666533 Plank
+
+tile.brownMixTulip_0.name=403326 Tulip
+tile.brownMixTulip_1.name=7F4033 Tulip
+tile.brownMixTulip_2.name=666533 Tulip
+
+tile.brownMixSapling_0.name=403326 Sapling
+tile.brownMixSapling_1.name=7F4033 Sapling
+tile.brownMixSapling_2.name=666533 Sapling
+
+tile.brownMixLog_0.name=403326 Log
+tile.brownMixLog_1.name=7F4033 Log
+tile.brownMixLog_2.name=666533 Log
+
+tile.brownMixLeaf_0.name=403326 Leaves
+tile.brownMixLeaf_1.name=7F4033 Leaves
+tile.brownMixLeaf_2.name=666533 Leaves
+
+tile.brownMixGlassClear_0.name=403326 Clear Glass
+tile.brownMixGlassClear_1.name=7F4033 Clear Glass
+tile.brownMixGlassClear_2.name=666533 Clear Glass
+
+tile.brownMixGlassFoggy_0.name=403326 Foggy Glass
+tile.brownMixGlassFoggy_1.name=7F4033 Foggy Glass
+tile.brownMixGlassFoggy_2.name=666533 Foggy Glass
+
+tile.brownMixGlassClearPane_0.name=403326 Clear Glass Pane
+tile.brownMixGlassClearPane_1.name=7F4033 Clear Glass Pane
+tile.brownMixGlassClearPane_2.name=666533 Clear Glass Pane
+
+tile.brownMixGlassFoggyPane_0.name=403326 Foggy Glass Pane
+tile.brownMixGlassFoggyPane_1.name=7F4033 Foggy Glass Pane
+tile.brownMixGlassFoggyPane_2.name=666533 Foggy Glass Pane
+
+tile.brownMixBrick_0.name=403326 Brick
+tile.brownMixBrick_1.name=7F4033 Brick
+tile.brownMixBrick_2.name=666533 Brick
+
+tile.brownMixWorkbench_0.name=403326 Crafting Table
+tile.brownMixWorkbench_1.name=7F4033 Crafting Table
+tile.brownMixWorkbench_2.name=666533 Crafting Table
+
+tile.brownMixSand_0.name=403326 Sand
+tile.brownMixSand_1.name=7F4033 Sand
+tile.brownMixSand_2.name=666533 Sand
+
+tile.brownMixWorkSandstone_0.name=403326 Sandstone
+tile.brownMixWorkSandstone_1.name=7F4033 Sandstone
+tile.brownMixWorkSandstone_2.name=666533 Sandstone
+
+item.greenDye_0.name=7F5933 Dye
+item.greenDye_1.name=404C26 Dye
+
+tile.greenMixWool_0.name=7F5933 Wool
+tile.greenMixWool_1.name=404C26 Wool
+
+tile.greenMixStonebrick_0.name=7F5933 Stone Brick
+tile.greenMixStonebrick_1.name=404C26 Stone Brick
+
+tile.greenMixStonebrickcracked_0.name=7F5933 Cracked Stone Brick
+tile.greenMixStonebrickcracked_1.name=404C26 Cracked Stone Brick
+
+tile.greenMixStonebrickcarved_0.name=7F5933 Carved Stone Brick
+tile.greenMixStonebrickcarved_1.name=404C26 Carved Stone Brick
+
+tile.greenMixStone_0.name=7F5933 Stone
+tile.greenMixStone_1.name=404C26 Stone
+
+tile.greenMixObsidian_0.name=7F5933 Obsidian
+tile.greenMixObsidian_1.name=404C26 Obsidian
+
+tile.greenMixGlowstone_0.name=7F5933 Glowstone
+tile.greenMixGlowstone_1.name=404C26 Glowstone
+
+tile.greenMixCoal_0.name=7F5933 Coal Block
+tile.greenMixCoal_1.name=404C26 Coal Block
+
+tile.greenMixRedstone_0.name=7F5933 Redstone Block
+tile.greenMixRedstone_1.name=404C26 Redstone Block
+
+tile.greenMixLapis_0.name=7F5933 Lapis Block
+tile.greenMixLapis_1.name=404C26 Lapis Block
+
+tile.greenMixCobble_0.name=7F5933 Cobblestone
+tile.greenMixCobble_1.name=404C26 Cobblestone
+
+tile.greenMixSoulsand_0.name=7F5933 Soulsand
+tile.greenMixSoulsand_1.name=404C26 Soulsand
+
+tile.greenMixQuartz_0.name=7F5933 Quartz Block
+tile.greenMixQuartz_1.name=404C26 Quartz Block
+
+tile.greenMixClay_0.name=7F5933 Hardened Stained Clay
+tile.greenMixClay_1.name=404C26 Hardened Stained Clay
+
+tile.greenMixPlank_0.name=7F5933 Plank
+tile.greenMixPlank_1.name=404C26 Plank
+
+tile.greenMixTulip_0.name=7F5933 Tulip
+tile.greenMixTulip_1.name=404C26 Tulip
+
+tile.greenMixSapling_0.name=7F5933 Sapling
+tile.greenMixSapling_1.name=404C26 Sapling
+
+tile.greenMixLog_0.name=7F5933 Log
+tile.greenMixLog_1.name=404C26 Log
+
+tile.greenMixLeaf_0.name=7F5933 Leaves
+tile.greenMixLeaf_1.name=404C26 Leaves
+
+tile.greenMixGlassClear_0.name=7F5933 Clear Glass
+tile.greenMixGlassClear_1.name=404C26 Clear Glass
+
+tile.greenMixGlassFoggy_0.name=7F5933 Foggy Glass
+tile.greenMixGlassFoggy_1.name=404C26 Foggy Glass
+
+tile.greenMixGlassClearPane_0.name=7F5933 Clear Glass Pane
+tile.greenMixGlassClearPane_1.name=404C26 Clear Glass Pane
+
+tile.greenMixGlassFoggyPane_0.name=7F5933 Foggy Glass Pane
+tile.greenMixGlassFoggyPane_1.name=404C26 Foggy Glass Pane
+
+tile.greenMixBrick_0.name=7F5933 Brick
+tile.greenMixBrick_1.name=404C26 Brick
+
+tile.greenMixWorkbench_0.name=7F5933 Crafting Table
+tile.greenMixWorkbench_1.name=404C26 Crafting Table
+
+tile.greenMixSand_0.name=7F5933 Sand
+tile.greenMixSand_1.name=404C26 Sand
+
+tile.greenMixWorkSandstone_0.name=7F5933 Sandstone
+tile.greenMixWorkSandstone_1.name=404C26 Sandstone
+
+item.redDye_0.name=592626 Dye
+
+tile.redMixWool_0.name=592626 Wool
+
+tile.redMixStonebrick_0.name=592626 Stone Brick
+
+tile.redMixStonebrickcracked_0.name=592626 Cracked Stone Brick
+
+tile.redMixStonebrickcarved_0.name=592626 Carved Stone Brick
+
+tile.redMixStone_0.name=592626 Stone
+
+tile.redMixObsidian_0.name=592626 Obsidian
+
+tile.redMixGlowstone_0.name=592626 Glowstone
+
+tile.redMixCoal_0.name=592626 Coal Block
+
+tile.redMixRedstone_0.name=592626 Redstone Block
+
+tile.redMixLapis_0.name=592626 Lapis Block
+
+tile.redMixCobble_0.name=592626 Cobblestone
+
+tile.redMixSoulsand_0.name=592626 Soulsand
+
+tile.redMixQuartz_0.name=592626 Quartz Block
+
+tile.redMixClay_0.name=592626 Hardened Stained Clay
+
+tile.redMixPlank_0.name=592626 Plank
+
+tile.redMixTulip_0.name=592626 Tulip
+
+tile.redMixSapling_0.name=592626 Sapling
+
+tile.redMixLog_0.name=592626 Log
+
+tile.redMixLeaf_0.name=592626 Leaves
+
+tile.redMixGlassClear_0.name=592626 Clear Glass
+
+tile.redMixGlassFoggy_0.name=592626 Foggy Glass
+
+tile.redMixGlassClearPane_0.name=592626 Clear Glass Pane
+
+tile.redMixGlassFoggyPane_0.name=592626 Foggy Glass Pane
+
+tile.redMixBrick_0.name=592626 Brick
+
+tile.redMixWorkbench_0.name=592626 Crafting Table
+
+tile.redMixSand_0.name=592626 Sand
+
+tile.redMixWorkSandstone_0.name=592626 Sandstone
+
