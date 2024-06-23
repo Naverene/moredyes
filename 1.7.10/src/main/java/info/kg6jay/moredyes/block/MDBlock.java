@@ -56,7 +56,8 @@ public class MDBlock
 			Reference.BLOCK_INFO_BRICK,
 			Reference.BLOCK_INFO_SAND,
             Reference.BLOCK_INFO_CHEST,
-			Reference.BLOCK_INFO_HARDENED_CLAY
+			Reference.BLOCK_INFO_HARDENED_CLAY,
+			Reference.BLOCK_INFO_SANDSTONE
 			};
 	public static String[] colors=new String[]{"white","orange","magenta","lightBlue","yellow","lime","pink","darkGray","lightGray","cyan","purple","blue","brown","green","red"};
 	public static Block[] wool;
@@ -92,6 +93,7 @@ public class MDBlock
 	public static Block[] workbench;
     public static Block[] chest;
 	public static Block[] hardenedClay;
+	public static Block[] sandstone;
 
 	public static void initialize()
 	{
@@ -127,6 +129,7 @@ public class MDBlock
 		workbench = new Block[l];
         chest = new Block[l];
 		hardenedClay = new Block[l];
+		sandstone = new Block[l];
 
 		for(int i=0;i<colors.length;i++)
 		{
@@ -157,7 +160,8 @@ public class MDBlock
 			sand[i]=new MDBlockColoredSand(colorStrings[i],info[22],colors[i]);
             workbench[i]=new MDBlockWorkbench(colorStrings[i],info[20],colors[i]);
             chest[i] = new MDColoredChest(colorStrings[i], info[23], colors[i]);
-			hardenedClay[i] = new MDBlockColored(colorStrings[i], info[23], colors[i]);
+			hardenedClay[i] = new MDBlockColored(colorStrings[i], info[24], colors[i]);
+			sandstone[i] = new MDBlockColoredMulti(colorStrings[i], info[25], colors[i]);
 		}
 	}
 	public static void register()
@@ -191,6 +195,7 @@ public class MDBlock
 			GameRegistry.registerBlock(sand[i], MDItemBlockColored.class,((IBlockColored) sand[i]).getColorSet()+"MixSand");
             GameRegistry.registerBlock(workbench[i],MDItemBlockColored.class,((IBlockColored) workbench[i]).getColorSet()+"MixWorkbench");
 			GameRegistry.registerBlock(hardenedClay[i],MDItemBlockColored.class,((IBlockColored) hardenedClay[i]).getColorSet()+"MixHardenedClay");
+			GameRegistry.registerBlock(sandstone[i],MDItemBlockColored.class,((IBlockColored) sandstone[i]).getColorSet()+"MixSandstone");
 		}
 	}
 	public static void registerTileEntities()
@@ -206,6 +211,8 @@ public class MDBlock
 			OreDictionary.registerOre("stainedClay",new ItemStack(Blocks.stained_hardened_clay,1,i));
 		}
 		OreDictionary.registerOre("soulsand",new ItemStack(Blocks.soul_sand,1));
+		OreDictionary.registerOre("sand",new ItemStack(Blocks.sand,1));
+		OreDictionary.registerOre("sandstone",new ItemStack(Blocks.sandstone,1));
 		for(int a=0;a<wool.length;a++)
 		{
 			for(int i=0;i<=((MDBlockColored)wool[a]).getMaxMeta();i++)
@@ -231,6 +238,8 @@ public class MDBlock
                 OreDictionary.registerOre("workbench", new ItemStack(workbench[a], 1, i));
 				OreDictionary.registerOre("chest", new ItemStack(chest[a], 1, i));
 				OreDictionary.registerOre("hardenedClay", new ItemStack(hardenedClay[a], 1, i));
+				OreDictionary.registerOre("sandstone", new ItemStack(sandstone[a], 1, i));
+				OreDictionary.registerOre("sand", new ItemStack(sand[a], 1, i));
 			}
 		}
 	}

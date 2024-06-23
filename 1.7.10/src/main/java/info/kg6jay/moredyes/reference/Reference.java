@@ -18,8 +18,8 @@ public class Reference
 	public static final BlockInfo BLOCK_INFO_STONE=new BlockInfo("stone",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
     public static final BlockInfo BLOCK_INFO_HARDENED_CLAY=new BlockInfo("hardenedClay",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
 	public static final BlockInfo BLOCK_INFO_COBBLE=new BlockInfo("cobble",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
-	public static final BlockInfo BLOCK_INFO_STONE_BRICK_CARVED=new BlockInfo("stonebrickcarved",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
-	public static final BlockInfo BLOCK_INFO_STONE_BRICK_CRACKED=new BlockInfo("stonebrickcracked",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
+	public static final BlockInfo BLOCK_INFO_STONE_BRICK_CARVED=new BlockInfo("stonebrickCarved",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
+	public static final BlockInfo BLOCK_INFO_STONE_BRICK_CRACKED=new BlockInfo("stonebrickCracked",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
 	public static final BlockInfo BLOCK_INFO_STONE_BRICK=new BlockInfo("stonebrick",Material.rock,1.5f,Block.soundTypeStone,"pickaxe",1,10.0f);
 	public static final BlockInfo BLOCK_INFO_OBSIDIAN=new BlockInfo("obsidian",Material.rock,50.0f,Block.soundTypePiston,"pickaxe",3,2000.0f);
 	public static final BlockInfo BLOCK_INFO_SOULSAND = new BlockInfo("soulsand",Material.sand,0.5f,Block.soundTypeSand, "shovel", 0);

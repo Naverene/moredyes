@@ -376,19 +376,47 @@ tile.whiteMixSand_10.name=B3A699 Sand
 tile.whiteMixSand_11.name=B3BF99 Sand
 tile.whiteMixSand_12.name=CC9999 Sand
 
-tile.whiteMixWorkSandstone_0.name=ECBF99 Sandstone
-tile.whiteMixWorkSandstone_1.name=D9A6EC Sandstone
-tile.whiteMixWorkSandstone_2.name=B3CCEC Sandstone
-tile.whiteMixWorkSandstone_3.name=F2F299 Sandstone
-tile.whiteMixWorkSandstone_4.name=BFE68C Sandstone
-tile.whiteMixWorkSandstone_5.name=F9BFD2 Sandstone
-tile.whiteMixWorkSandstone_6.name=CCCCCC Sandstone
-tile.whiteMixWorkSandstone_7.name=A6BFCC Sandstone
-tile.whiteMixWorkSandstone_8.name=BF9FD9 Sandstone
-tile.whiteMixWorkSandstone_9.name=99A6D9 Sandstone
-tile.whiteMixWorkSandstone_10.name=B3A699 Sandstone
-tile.whiteMixWorkSandstone_11.name=B3BF99 Sandstone
-tile.whiteMixWorkSandstone_12.name=CC9999 Sandstone
+tile.whiteMixSandstone_0.name=ECBF99 Sandstone
+tile.whiteMixSandstone_1.name=D9A6EC Sandstone
+tile.whiteMixSandstone_2.name=B3CCEC Sandstone
+tile.whiteMixSandstone_3.name=F2F299 Sandstone
+tile.whiteMixSandstone_4.name=BFE68C Sandstone
+tile.whiteMixSandstone_5.name=F9BFD2 Sandstone
+tile.whiteMixSandstone_6.name=CCCCCC Sandstone
+tile.whiteMixSandstone_7.name=A6BFCC Sandstone
+tile.whiteMixSandstone_8.name=BF9FD9 Sandstone
+tile.whiteMixSandstone_9.name=99A6D9 Sandstone
+tile.whiteMixSandstone_10.name=B3A699 Sandstone
+tile.whiteMixSandstone_11.name=B3BF99 Sandstone
+tile.whiteMixSandstone_12.name=CC9999 Sandstone
+
+tile.whiteMixChest_0.name=ECBF99 Chest
+tile.whiteMixChest_1.name=D9A6EC Chest
+tile.whiteMixChest_2.name=B3CCEC Chest
+tile.whiteMixChest_3.name=F2F299 Chest
+tile.whiteMixChest_4.name=BFE68C Chest
+tile.whiteMixChest_5.name=F9BFD2 Chest
+tile.whiteMixChest_6.name=CCCCCC Chest
+tile.whiteMixChest_7.name=A6BFCC Chest
+tile.whiteMixChest_8.name=BF9FD9 Chest
+tile.whiteMixChest_9.name=99A6D9 Chest
+tile.whiteMixChest_10.name=B3A699 Chest
+tile.whiteMixChest_11.name=B3BF99 Chest
+tile.whiteMixChest_12.name=CC9999 Chest
+
+tile.whiteMixBookshelf_0.name=ECBF99 Bookshelf
+tile.whiteMixBookshelf_1.name=D9A6EC Bookshelf
+tile.whiteMixBookshelf_2.name=B3CCEC Bookshelf
+tile.whiteMixBookshelf_3.name=F2F299 Bookshelf
+tile.whiteMixBookshelf_4.name=BFE68C Bookshelf
+tile.whiteMixBookshelf_5.name=F9BFD2 Bookshelf
+tile.whiteMixBookshelf_6.name=CCCCCC Bookshelf
+tile.whiteMixBookshelf_7.name=A6BFCC Bookshelf
+tile.whiteMixBookshelf_8.name=BF9FD9 Bookshelf
+tile.whiteMixBookshelf_9.name=99A6D9 Bookshelf
+tile.whiteMixBookshelf_10.name=B3A699 Bookshelf
+tile.whiteMixBookshelf_11.name=B3BF99 Bookshelf
+tile.whiteMixBookshelf_12.name=CC9999 Bookshelf
 
 item.orangeDye_0.name=C56685 Dye
 item.orangeDye_1.name=9F8C85 Dye
@@ -795,20 +823,50 @@ tile.orangeMixSand_11.name=9F7F33 Sand
 tile.orangeMixSand_12.name=B95933 Sand
 tile.orangeMixSand_13.name=794C26 Sand
 
-tile.orangeMixWorkSandstone_0.name=C56685 Sandstone
-tile.orangeMixWorkSandstone_1.name=9F8C85 Sandstone
-tile.orangeMixWorkSandstone_2.name=DEB233 Sandstone
-tile.orangeMixWorkSandstone_3.name=ACA526 Sandstone
-tile.orangeMixWorkSandstone_4.name=E57F6C Sandstone
-tile.orangeMixWorkSandstone_5.name=92663F Sandstone
-tile.orangeMixWorkSandstone_6.name=B98C66 Sandstone
-tile.orangeMixWorkSandstone_7.name=927F66 Sandstone
-tile.orangeMixWorkSandstone_8.name=AC5F72 Sandstone
-tile.orangeMixWorkSandstone_9.name=866672 Sandstone
-tile.orangeMixWorkSandstone_10.name=9F6633 Sandstone
-tile.orangeMixWorkSandstone_11.name=9F7F33 Sandstone
-tile.orangeMixWorkSandstone_12.name=B95933 Sandstone
-tile.orangeMixWorkSandstone_13.name=794C26 Sandstone
+tile.orangeMixSandstone_0.name=C56685 Sandstone
+tile.orangeMixSandstone_1.name=9F8C85 Sandstone
+tile.orangeMixSandstone_2.name=DEB233 Sandstone
+tile.orangeMixSandstone_3.name=ACA526 Sandstone
+tile.orangeMixSandstone_4.name=E57F6C Sandstone
+tile.orangeMixSandstone_5.name=92663F Sandstone
+tile.orangeMixSandstone_6.name=B98C66 Sandstone
+tile.orangeMixSandstone_7.name=927F66 Sandstone
+tile.orangeMixSandstone_8.name=AC5F72 Sandstone
+tile.orangeMixSandstone_9.name=866672 Sandstone
+tile.orangeMixSandstone_10.name=9F6633 Sandstone
+tile.orangeMixSandstone_11.name=9F7F33 Sandstone
+tile.orangeMixSandstone_12.name=B95933 Sandstone
+tile.orangeMixSandstone_13.name=794C26 Sandstone
+
+tile.orangeMixChest_0.name=C56685 Chest
+tile.orangeMixChest_1.name=9F8C85 Chest
+tile.orangeMixChest_2.name=DEB233 Chest
+tile.orangeMixChest_3.name=ACA526 Chest
+tile.orangeMixChest_4.name=E57F6C Chest
+tile.orangeMixChest_5.name=92663F Chest
+tile.orangeMixChest_6.name=B98C66 Chest
+tile.orangeMixChest_7.name=927F66 Chest
+tile.orangeMixChest_8.name=AC5F72 Chest
+tile.orangeMixChest_9.name=866672 Chest
+tile.orangeMixChest_10.name=9F6633 Chest
+tile.orangeMixChest_11.name=9F7F33 Chest
+tile.orangeMixChest_12.name=B95933 Chest
+tile.orangeMixChest_13.name=794C26 Chest
+
+tile.orangeMixBookshelf_0.name=C56685 Bookshelf
+tile.orangeMixBookshelf_1.name=9F8C85 Bookshelf
+tile.orangeMixBookshelf_2.name=DEB233 Bookshelf
+tile.orangeMixBookshelf_3.name=ACA526 Bookshelf
+tile.orangeMixBookshelf_4.name=E57F6C Bookshelf
+tile.orangeMixBookshelf_5.name=92663F Bookshelf
+tile.orangeMixBookshelf_6.name=B98C66 Bookshelf
+tile.orangeMixBookshelf_7.name=927F66 Bookshelf
+tile.orangeMixBookshelf_8.name=AC5F72 Bookshelf
+tile.orangeMixBookshelf_9.name=866672 Bookshelf
+tile.orangeMixBookshelf_10.name=9F6633 Bookshelf
+tile.orangeMixBookshelf_11.name=9F7F33 Bookshelf
+tile.orangeMixBookshelf_12.name=B95933 Bookshelf
+tile.orangeMixBookshelf_13.name=794C26 Bookshelf
 
 item.magentaDye_0.name=8C72D8 Dye
 item.magentaDye_1.name=CB9886 Dye
@@ -1188,19 +1246,47 @@ tile.magentaMixSand_10.name=8C6586 Sand
 tile.magentaMixSand_11.name=A64086 Sand
 tile.magentaMixSand_12.name=663379 Sand
 
-tile.magentaMixWorkSandstone_0.name=8C72D8 Sandstone
-tile.magentaMixWorkSandstone_1.name=CB9886 Sandstone
-tile.magentaMixWorkSandstone_2.name=998C79 Sandstone
-tile.magentaMixWorkSandstone_3.name=D265BF Sandstone
-tile.magentaMixWorkSandstone_4.name=7F4C92 Sandstone
-tile.magentaMixWorkSandstone_5.name=A672B9 Sandstone
-tile.magentaMixWorkSandstone_6.name=7F65B9 Sandstone
-tile.magentaMixWorkSandstone_7.name=9946C5 Sandstone
-tile.magentaMixWorkSandstone_8.name=734CC5 Sandstone
-tile.magentaMixWorkSandstone_9.name=8C4C86 Sandstone
-tile.magentaMixWorkSandstone_10.name=8C6586 Sandstone
-tile.magentaMixWorkSandstone_11.name=A64086 Sandstone
-tile.magentaMixWorkSandstone_12.name=663379 Sandstone
+tile.magentaMixSandstone_0.name=8C72D8 Sandstone
+tile.magentaMixSandstone_1.name=CB9886 Sandstone
+tile.magentaMixSandstone_2.name=998C79 Sandstone
+tile.magentaMixSandstone_3.name=D265BF Sandstone
+tile.magentaMixSandstone_4.name=7F4C92 Sandstone
+tile.magentaMixSandstone_5.name=A672B9 Sandstone
+tile.magentaMixSandstone_6.name=7F65B9 Sandstone
+tile.magentaMixSandstone_7.name=9946C5 Sandstone
+tile.magentaMixSandstone_8.name=734CC5 Sandstone
+tile.magentaMixSandstone_9.name=8C4C86 Sandstone
+tile.magentaMixSandstone_10.name=8C6586 Sandstone
+tile.magentaMixSandstone_11.name=A64086 Sandstone
+tile.magentaMixSandstone_12.name=663379 Sandstone
+
+tile.magentaMixChest_0.name=8C72D8 Chest
+tile.magentaMixChest_1.name=CB9886 Chest
+tile.magentaMixChest_2.name=998C79 Chest
+tile.magentaMixChest_3.name=D265BF Chest
+tile.magentaMixChest_4.name=7F4C92 Chest
+tile.magentaMixChest_5.name=A672B9 Chest
+tile.magentaMixChest_6.name=7F65B9 Chest
+tile.magentaMixChest_7.name=9946C5 Chest
+tile.magentaMixChest_8.name=734CC5 Chest
+tile.magentaMixChest_9.name=8C4C86 Chest
+tile.magentaMixChest_10.name=8C6586 Chest
+tile.magentaMixChest_11.name=A64086 Chest
+tile.magentaMixChest_12.name=663379 Chest
+
+tile.magentaMixBookshelf_0.name=8C72D8 Bookshelf
+tile.magentaMixBookshelf_1.name=CB9886 Bookshelf
+tile.magentaMixBookshelf_2.name=998C79 Bookshelf
+tile.magentaMixBookshelf_3.name=D265BF Bookshelf
+tile.magentaMixBookshelf_4.name=7F4C92 Bookshelf
+tile.magentaMixBookshelf_5.name=A672B9 Bookshelf
+tile.magentaMixBookshelf_6.name=7F65B9 Bookshelf
+tile.magentaMixBookshelf_7.name=9946C5 Bookshelf
+tile.magentaMixBookshelf_8.name=734CC5 Bookshelf
+tile.magentaMixBookshelf_9.name=8C4C86 Bookshelf
+tile.magentaMixBookshelf_10.name=8C6586 Bookshelf
+tile.magentaMixBookshelf_11.name=A64086 Bookshelf
+tile.magentaMixBookshelf_12.name=663379 Bookshelf
 
 item.lightBlueDye_0.name=A5BF86 Dye
 item.lightBlueDye_1.name=72B279 Dye
@@ -1553,18 +1639,44 @@ tile.lightBlueMixSand_9.name=668C86 Sand
 tile.lightBlueMixSand_10.name=7F6686 Sand
 tile.lightBlueMixSand_11.name=405979 Sand
 
-tile.lightBlueMixWorkSandstone_0.name=A5BF86 Sandstone
-tile.lightBlueMixWorkSandstone_1.name=72B279 Sandstone
-tile.lightBlueMixWorkSandstone_2.name=AC8CBF Sandstone
-tile.lightBlueMixWorkSandstone_3.name=597392 Sandstone
-tile.lightBlueMixWorkSandstone_4.name=7F99B9 Sandstone
-tile.lightBlueMixWorkSandstone_5.name=598CB9 Sandstone
-tile.lightBlueMixWorkSandstone_6.name=726CC5 Sandstone
-tile.lightBlueMixWorkSandstone_7.name=4D73C5 Sandstone
-tile.lightBlueMixWorkSandstone_8.name=667386 Sandstone
-tile.lightBlueMixWorkSandstone_9.name=668C86 Sandstone
-tile.lightBlueMixWorkSandstone_10.name=7F6686 Sandstone
-tile.lightBlueMixWorkSandstone_11.name=405979 Sandstone
+tile.lightBlueMixSandstone_0.name=A5BF86 Sandstone
+tile.lightBlueMixSandstone_1.name=72B279 Sandstone
+tile.lightBlueMixSandstone_2.name=AC8CBF Sandstone
+tile.lightBlueMixSandstone_3.name=597392 Sandstone
+tile.lightBlueMixSandstone_4.name=7F99B9 Sandstone
+tile.lightBlueMixSandstone_5.name=598CB9 Sandstone
+tile.lightBlueMixSandstone_6.name=726CC5 Sandstone
+tile.lightBlueMixSandstone_7.name=4D73C5 Sandstone
+tile.lightBlueMixSandstone_8.name=667386 Sandstone
+tile.lightBlueMixSandstone_9.name=668C86 Sandstone
+tile.lightBlueMixSandstone_10.name=7F6686 Sandstone
+tile.lightBlueMixSandstone_11.name=405979 Sandstone
+
+tile.lightBlueMixChest_0.name=A5BF86 Chest
+tile.lightBlueMixChest_1.name=72B279 Chest
+tile.lightBlueMixChest_2.name=AC8CBF Chest
+tile.lightBlueMixChest_3.name=597392 Chest
+tile.lightBlueMixChest_4.name=7F99B9 Chest
+tile.lightBlueMixChest_5.name=598CB9 Chest
+tile.lightBlueMixChest_6.name=726CC5 Chest
+tile.lightBlueMixChest_7.name=4D73C5 Chest
+tile.lightBlueMixChest_8.name=667386 Chest
+tile.lightBlueMixChest_9.name=668C86 Chest
+tile.lightBlueMixChest_10.name=7F6686 Chest
+tile.lightBlueMixChest_11.name=405979 Chest
+
+tile.lightBlueMixBookshelf_0.name=A5BF86 Bookshelf
+tile.lightBlueMixBookshelf_1.name=72B279 Bookshelf
+tile.lightBlueMixBookshelf_2.name=AC8CBF Bookshelf
+tile.lightBlueMixBookshelf_3.name=597392 Bookshelf
+tile.lightBlueMixBookshelf_4.name=7F99B9 Bookshelf
+tile.lightBlueMixBookshelf_5.name=598CB9 Bookshelf
+tile.lightBlueMixBookshelf_6.name=726CC5 Bookshelf
+tile.lightBlueMixBookshelf_7.name=4D73C5 Bookshelf
+tile.lightBlueMixBookshelf_8.name=667386 Bookshelf
+tile.lightBlueMixBookshelf_9.name=668C86 Bookshelf
+tile.lightBlueMixBookshelf_10.name=7F6686 Bookshelf
+tile.lightBlueMixBookshelf_11.name=405979 Bookshelf
 
 item.yellowDye_0.name=B2D926 Dye
 item.yellowDye_1.name=EBB26C Dye
@@ -1890,17 +2002,41 @@ tile.yellowMixSand_8.name=A6B233 Sand
 tile.yellowMixSand_9.name=BF8C33 Sand
 tile.yellowMixSand_10.name=7F7F26 Sand
 
-tile.yellowMixWorkSandstone_0.name=B2D926 Sandstone
-tile.yellowMixWorkSandstone_1.name=EBB26C Sandstone
-tile.yellowMixWorkSandstone_2.name=99993F Sandstone
-tile.yellowMixWorkSandstone_3.name=BFBF66 Sandstone
-tile.yellowMixWorkSandstone_4.name=99B266 Sandstone
-tile.yellowMixWorkSandstone_5.name=B29272 Sandstone
-tile.yellowMixWorkSandstone_6.name=8C9972 Sandstone
-tile.yellowMixWorkSandstone_7.name=A69933 Sandstone
-tile.yellowMixWorkSandstone_8.name=A6B233 Sandstone
-tile.yellowMixWorkSandstone_9.name=BF8C33 Sandstone
-tile.yellowMixWorkSandstone_10.name=7F7F26 Sandstone
+tile.yellowMixSandstone_0.name=B2D926 Sandstone
+tile.yellowMixSandstone_1.name=EBB26C Sandstone
+tile.yellowMixSandstone_2.name=99993F Sandstone
+tile.yellowMixSandstone_3.name=BFBF66 Sandstone
+tile.yellowMixSandstone_4.name=99B266 Sandstone
+tile.yellowMixSandstone_5.name=B29272 Sandstone
+tile.yellowMixSandstone_6.name=8C9972 Sandstone
+tile.yellowMixSandstone_7.name=A69933 Sandstone
+tile.yellowMixSandstone_8.name=A6B233 Sandstone
+tile.yellowMixSandstone_9.name=BF8C33 Sandstone
+tile.yellowMixSandstone_10.name=7F7F26 Sandstone
+
+tile.yellowMixChest_0.name=B2D926 Chest
+tile.yellowMixChest_1.name=EBB26C Chest
+tile.yellowMixChest_2.name=99993F Chest
+tile.yellowMixChest_3.name=BFBF66 Chest
+tile.yellowMixChest_4.name=99B266 Chest
+tile.yellowMixChest_5.name=B29272 Chest
+tile.yellowMixChest_6.name=8C9972 Chest
+tile.yellowMixChest_7.name=A69933 Chest
+tile.yellowMixChest_8.name=A6B233 Chest
+tile.yellowMixChest_9.name=BF8C33 Chest
+tile.yellowMixChest_10.name=7F7F26 Chest
+
+tile.yellowMixBookshelf_0.name=B2D926 Bookshelf
+tile.yellowMixBookshelf_1.name=EBB26C Bookshelf
+tile.yellowMixBookshelf_2.name=99993F Bookshelf
+tile.yellowMixBookshelf_3.name=BFBF66 Bookshelf
+tile.yellowMixBookshelf_4.name=99B266 Bookshelf
+tile.yellowMixBookshelf_5.name=B29272 Bookshelf
+tile.yellowMixBookshelf_6.name=8C9972 Bookshelf
+tile.yellowMixBookshelf_7.name=A69933 Bookshelf
+tile.yellowMixBookshelf_8.name=A6B233 Bookshelf
+tile.yellowMixBookshelf_9.name=BF8C33 Bookshelf
+tile.yellowMixBookshelf_10.name=7F7F26 Bookshelf
 
 item.limeDye_0.name=B8A65F Dye
 item.limeDye_1.name=668C32 Dye
@@ -2199,16 +2335,38 @@ tile.limeMixSand_7.name=73A626 Sand
 tile.limeMixSand_8.name=8C8026 Sand
 tile.limeMixSand_9.name=4C7319 Sand
 
-tile.limeMixWorkSandstone_0.name=B8A65F Sandstone
-tile.limeMixWorkSandstone_1.name=668C32 Sandstone
-tile.limeMixWorkSandstone_2.name=8CB359 Sandstone
-tile.limeMixWorkSandstone_3.name=66A659 Sandstone
-tile.limeMixWorkSandstone_4.name=7F5665 Sandstone
-tile.limeMixWorkSandstone_5.name=598C65 Sandstone
-tile.limeMixWorkSandstone_6.name=738C26 Sandstone
-tile.limeMixWorkSandstone_7.name=73A626 Sandstone
-tile.limeMixWorkSandstone_8.name=8C8026 Sandstone
-tile.limeMixWorkSandstone_9.name=4C7319 Sandstone
+tile.limeMixSandstone_0.name=B8A65F Sandstone
+tile.limeMixSandstone_1.name=668C32 Sandstone
+tile.limeMixSandstone_2.name=8CB359 Sandstone
+tile.limeMixSandstone_3.name=66A659 Sandstone
+tile.limeMixSandstone_4.name=7F5665 Sandstone
+tile.limeMixSandstone_5.name=598C65 Sandstone
+tile.limeMixSandstone_6.name=738C26 Sandstone
+tile.limeMixSandstone_7.name=73A626 Sandstone
+tile.limeMixSandstone_8.name=8C8026 Sandstone
+tile.limeMixSandstone_9.name=4C7319 Sandstone
+
+tile.limeMixChest_0.name=B8A65F Chest
+tile.limeMixChest_1.name=668C32 Chest
+tile.limeMixChest_2.name=8CB359 Chest
+tile.limeMixChest_3.name=66A659 Chest
+tile.limeMixChest_4.name=7F5665 Chest
+tile.limeMixChest_5.name=598C65 Chest
+tile.limeMixChest_6.name=738C26 Chest
+tile.limeMixChest_7.name=73A626 Chest
+tile.limeMixChest_8.name=8C8026 Chest
+tile.limeMixChest_9.name=4C7319 Chest
+
+tile.limeMixBookshelf_0.name=B8A65F Bookshelf
+tile.limeMixBookshelf_1.name=668C32 Bookshelf
+tile.limeMixBookshelf_2.name=8CB359 Bookshelf
+tile.limeMixBookshelf_3.name=66A659 Bookshelf
+tile.limeMixBookshelf_4.name=7F5665 Bookshelf
+tile.limeMixBookshelf_5.name=598C65 Bookshelf
+tile.limeMixBookshelf_6.name=738C26 Bookshelf
+tile.limeMixBookshelf_7.name=73A626 Bookshelf
+tile.limeMixBookshelf_8.name=8C8026 Bookshelf
+tile.limeMixBookshelf_9.name=4C7319 Bookshelf
 
 item.pinkDye_0.name=864C5F Dye
 item.pinkDye_1.name=C6596C Dye
@@ -2480,15 +2638,35 @@ tile.pinkMixSand_6.name=9F7F9F Sand
 tile.pinkMixSand_7.name=C68C9F Sand
 tile.pinkMixSand_8.name=9F6679 Sand
 
-tile.pinkMixWorkSandstone_0.name=864C5F Sandstone
-tile.pinkMixWorkSandstone_1.name=C6596C Sandstone
-tile.pinkMixWorkSandstone_2.name=AC7F6C Sandstone
-tile.pinkMixWorkSandstone_3.name=AC666C Sandstone
-tile.pinkMixWorkSandstone_4.name=9366AB Sandstone
-tile.pinkMixWorkSandstone_5.name=B95FAB Sandstone
-tile.pinkMixWorkSandstone_6.name=9F7F9F Sandstone
-tile.pinkMixWorkSandstone_7.name=C68C9F Sandstone
-tile.pinkMixWorkSandstone_8.name=9F6679 Sandstone
+tile.pinkMixSandstone_0.name=864C5F Sandstone
+tile.pinkMixSandstone_1.name=C6596C Sandstone
+tile.pinkMixSandstone_2.name=AC7F6C Sandstone
+tile.pinkMixSandstone_3.name=AC666C Sandstone
+tile.pinkMixSandstone_4.name=9366AB Sandstone
+tile.pinkMixSandstone_5.name=B95FAB Sandstone
+tile.pinkMixSandstone_6.name=9F7F9F Sandstone
+tile.pinkMixSandstone_7.name=C68C9F Sandstone
+tile.pinkMixSandstone_8.name=9F6679 Sandstone
+
+tile.pinkMixChest_0.name=864C5F Chest
+tile.pinkMixChest_1.name=C6596C Chest
+tile.pinkMixChest_2.name=AC7F6C Chest
+tile.pinkMixChest_3.name=AC666C Chest
+tile.pinkMixChest_4.name=9366AB Chest
+tile.pinkMixChest_5.name=B95FAB Chest
+tile.pinkMixChest_6.name=9F7F9F Chest
+tile.pinkMixChest_7.name=C68C9F Chest
+tile.pinkMixChest_8.name=9F6679 Chest
+
+tile.pinkMixBookshelf_0.name=864C5F Bookshelf
+tile.pinkMixBookshelf_1.name=C6596C Bookshelf
+tile.pinkMixBookshelf_2.name=AC7F6C Bookshelf
+tile.pinkMixBookshelf_3.name=AC666C Bookshelf
+tile.pinkMixBookshelf_4.name=9366AB Bookshelf
+tile.pinkMixBookshelf_5.name=B95FAB Bookshelf
+tile.pinkMixBookshelf_6.name=9F7F9F Bookshelf
+tile.pinkMixBookshelf_7.name=C68C9F Bookshelf
+tile.pinkMixBookshelf_8.name=9F6679 Bookshelf
 
 item.darkGrayDye_0.name=727272 Dye
 item.darkGrayDye_1.name=4C6572 Dye
@@ -2733,14 +2911,32 @@ tile.darkGrayMixSand_5.name=596540 Sand
 tile.darkGrayMixSand_6.name=724040 Sand
 tile.darkGrayMixSand_7.name=333333 Sand
 
-tile.darkGrayMixWorkSandstone_0.name=727272 Sandstone
-tile.darkGrayMixWorkSandstone_1.name=4C6572 Sandstone
-tile.darkGrayMixWorkSandstone_2.name=65467F Sandstone
-tile.darkGrayMixWorkSandstone_3.name=404C7F Sandstone
-tile.darkGrayMixWorkSandstone_4.name=594C40 Sandstone
-tile.darkGrayMixWorkSandstone_5.name=596540 Sandstone
-tile.darkGrayMixWorkSandstone_6.name=724040 Sandstone
-tile.darkGrayMixWorkSandstone_7.name=333333 Sandstone
+tile.darkGrayMixSandstone_0.name=727272 Sandstone
+tile.darkGrayMixSandstone_1.name=4C6572 Sandstone
+tile.darkGrayMixSandstone_2.name=65467F Sandstone
+tile.darkGrayMixSandstone_3.name=404C7F Sandstone
+tile.darkGrayMixSandstone_4.name=594C40 Sandstone
+tile.darkGrayMixSandstone_5.name=596540 Sandstone
+tile.darkGrayMixSandstone_6.name=724040 Sandstone
+tile.darkGrayMixSandstone_7.name=333333 Sandstone
+
+tile.darkGrayMixChest_0.name=727272 Chest
+tile.darkGrayMixChest_1.name=4C6572 Chest
+tile.darkGrayMixChest_2.name=65467F Chest
+tile.darkGrayMixChest_3.name=404C7F Chest
+tile.darkGrayMixChest_4.name=594C40 Chest
+tile.darkGrayMixChest_5.name=596540 Chest
+tile.darkGrayMixChest_6.name=724040 Chest
+tile.darkGrayMixChest_7.name=333333 Chest
+
+tile.darkGrayMixBookshelf_0.name=727272 Bookshelf
+tile.darkGrayMixBookshelf_1.name=4C6572 Bookshelf
+tile.darkGrayMixBookshelf_2.name=65467F Bookshelf
+tile.darkGrayMixBookshelf_3.name=404C7F Bookshelf
+tile.darkGrayMixBookshelf_4.name=594C40 Bookshelf
+tile.darkGrayMixBookshelf_5.name=596540 Bookshelf
+tile.darkGrayMixBookshelf_6.name=724040 Bookshelf
+tile.darkGrayMixBookshelf_7.name=333333 Bookshelf
 
 item.lightGrayDye_0.name=738C99 Dye
 item.lightGrayDye_1.name=8C6CA5 Dye
@@ -2958,13 +3154,29 @@ tile.lightGrayMixSand_4.name=808C66 Sand
 tile.lightGrayMixSand_5.name=996666 Sand
 tile.lightGrayMixSand_6.name=595959 Sand
 
-tile.lightGrayMixWorkSandstone_0.name=738C99 Sandstone
-tile.lightGrayMixWorkSandstone_1.name=8C6CA5 Sandstone
-tile.lightGrayMixWorkSandstone_2.name=6673A5 Sandstone
-tile.lightGrayMixWorkSandstone_3.name=807366 Sandstone
-tile.lightGrayMixWorkSandstone_4.name=808C66 Sandstone
-tile.lightGrayMixWorkSandstone_5.name=996666 Sandstone
-tile.lightGrayMixWorkSandstone_6.name=595959 Sandstone
+tile.lightGrayMixSandstone_0.name=738C99 Sandstone
+tile.lightGrayMixSandstone_1.name=8C6CA5 Sandstone
+tile.lightGrayMixSandstone_2.name=6673A5 Sandstone
+tile.lightGrayMixSandstone_3.name=807366 Sandstone
+tile.lightGrayMixSandstone_4.name=808C66 Sandstone
+tile.lightGrayMixSandstone_5.name=996666 Sandstone
+tile.lightGrayMixSandstone_6.name=595959 Sandstone
+
+tile.lightGrayMixChest_0.name=738C99 Chest
+tile.lightGrayMixChest_1.name=8C6CA5 Chest
+tile.lightGrayMixChest_2.name=6673A5 Chest
+tile.lightGrayMixChest_3.name=807366 Chest
+tile.lightGrayMixChest_4.name=808C66 Chest
+tile.lightGrayMixChest_5.name=996666 Chest
+tile.lightGrayMixChest_6.name=595959 Chest
+
+tile.lightGrayMixBookshelf_0.name=738C99 Bookshelf
+tile.lightGrayMixBookshelf_1.name=8C6CA5 Bookshelf
+tile.lightGrayMixBookshelf_2.name=6673A5 Bookshelf
+tile.lightGrayMixBookshelf_3.name=807366 Bookshelf
+tile.lightGrayMixBookshelf_4.name=808C66 Bookshelf
+tile.lightGrayMixBookshelf_5.name=996666 Bookshelf
+tile.lightGrayMixBookshelf_6.name=595959 Bookshelf
 
 item.cyanDye_0.name=655FA5 Dye
 item.cyanDye_1.name=4066A5 Dye
@@ -3155,12 +3367,26 @@ tile.cyanMixSand_3.name=597F66 Sand
 tile.cyanMixSand_4.name=725966 Sand
 tile.cyanMixSand_5.name=334C59 Sand
 
-tile.cyanMixWorkSandstone_0.name=655FA5 Sandstone
-tile.cyanMixWorkSandstone_1.name=4066A5 Sandstone
-tile.cyanMixWorkSandstone_2.name=596666 Sandstone
-tile.cyanMixWorkSandstone_3.name=597F66 Sandstone
-tile.cyanMixWorkSandstone_4.name=725966 Sandstone
-tile.cyanMixWorkSandstone_5.name=334C59 Sandstone
+tile.cyanMixSandstone_0.name=655FA5 Sandstone
+tile.cyanMixSandstone_1.name=4066A5 Sandstone
+tile.cyanMixSandstone_2.name=596666 Sandstone
+tile.cyanMixSandstone_3.name=597F66 Sandstone
+tile.cyanMixSandstone_4.name=725966 Sandstone
+tile.cyanMixSandstone_5.name=334C59 Sandstone
+
+tile.cyanMixChest_0.name=655FA5 Chest
+tile.cyanMixChest_1.name=4066A5 Chest
+tile.cyanMixChest_2.name=596666 Chest
+tile.cyanMixChest_3.name=597F66 Chest
+tile.cyanMixChest_4.name=725966 Chest
+tile.cyanMixChest_5.name=334C59 Chest
+
+tile.cyanMixBookshelf_0.name=655FA5 Bookshelf
+tile.cyanMixBookshelf_1.name=4066A5 Bookshelf
+tile.cyanMixBookshelf_2.name=596666 Bookshelf
+tile.cyanMixBookshelf_3.name=597F66 Bookshelf
+tile.cyanMixBookshelf_4.name=725966 Bookshelf
+tile.cyanMixBookshelf_5.name=334C59 Bookshelf
 
 item.purpleDye_0.name=5945B2 Dye
 item.purpleDye_1.name=734573 Dye
@@ -3324,11 +3550,23 @@ tile.purpleMixSand_2.name=735F73 Sand
 tile.purpleMixSand_3.name=8C3973 Sand
 tile.purpleMixSand_4.name=4C2C66 Sand
 
-tile.purpleMixWorkSandstone_0.name=5945B2 Sandstone
-tile.purpleMixWorkSandstone_1.name=734573 Sandstone
-tile.purpleMixWorkSandstone_2.name=735F73 Sandstone
-tile.purpleMixWorkSandstone_3.name=8C3973 Sandstone
-tile.purpleMixWorkSandstone_4.name=4C2C66 Sandstone
+tile.purpleMixSandstone_0.name=5945B2 Sandstone
+tile.purpleMixSandstone_1.name=734573 Sandstone
+tile.purpleMixSandstone_2.name=735F73 Sandstone
+tile.purpleMixSandstone_3.name=8C3973 Sandstone
+tile.purpleMixSandstone_4.name=4C2C66 Sandstone
+
+tile.purpleMixChest_0.name=5945B2 Chest
+tile.purpleMixChest_1.name=734573 Chest
+tile.purpleMixChest_2.name=735F73 Chest
+tile.purpleMixChest_3.name=8C3973 Chest
+tile.purpleMixChest_4.name=4C2C66 Chest
+
+tile.purpleMixBookshelf_0.name=5945B2 Bookshelf
+tile.purpleMixBookshelf_1.name=734573 Bookshelf
+tile.purpleMixBookshelf_2.name=735F73 Bookshelf
+tile.purpleMixBookshelf_3.name=8C3973 Bookshelf
+tile.purpleMixBookshelf_4.name=4C2C66 Bookshelf
 
 item.blueDye_0.name=4C4C73 Dye
 item.blueDye_1.name=4C6573 Dye
@@ -3465,10 +3703,20 @@ tile.blueMixSand_1.name=4C6573 Sand
 tile.blueMixSand_2.name=664073 Sand
 tile.blueMixSand_3.name=263366 Sand
 
-tile.blueMixWorkSandstone_0.name=4C4C73 Sandstone
-tile.blueMixWorkSandstone_1.name=4C6573 Sandstone
-tile.blueMixWorkSandstone_2.name=664073 Sandstone
-tile.blueMixWorkSandstone_3.name=263366 Sandstone
+tile.blueMixSandstone_0.name=4C4C73 Sandstone
+tile.blueMixSandstone_1.name=4C6573 Sandstone
+tile.blueMixSandstone_2.name=664073 Sandstone
+tile.blueMixSandstone_3.name=263366 Sandstone
+
+tile.blueMixChest_0.name=4C4C73 Chest
+tile.blueMixChest_1.name=4C6573 Chest
+tile.blueMixChest_2.name=664073 Chest
+tile.blueMixChest_3.name=263366 Chest
+
+tile.blueMixBookshelf_0.name=4C4C73 Bookshelf
+tile.blueMixBookshelf_1.name=4C6573 Bookshelf
+tile.blueMixBookshelf_2.name=664073 Bookshelf
+tile.blueMixBookshelf_3.name=263366 Bookshelf
 
 item.brownDye_0.name=403326 Dye
 item.brownDye_1.name=7F4033 Dye
@@ -3578,9 +3826,17 @@ tile.brownMixSand_0.name=403326 Sand
 tile.brownMixSand_1.name=7F4033 Sand
 tile.brownMixSand_2.name=666533 Sand
 
-tile.brownMixWorkSandstone_0.name=403326 Sandstone
-tile.brownMixWorkSandstone_1.name=7F4033 Sandstone
-tile.brownMixWorkSandstone_2.name=666533 Sandstone
+tile.brownMixSandstone_0.name=403326 Sandstone
+tile.brownMixSandstone_1.name=7F4033 Sandstone
+tile.brownMixSandstone_2.name=666533 Sandstone
+
+tile.brownMixChest_0.name=403326 Chest
+tile.brownMixChest_1.name=7F4033 Chest
+tile.brownMixChest_2.name=666533 Chest
+
+tile.brownMixBookshelf_0.name=403326 Bookshelf
+tile.brownMixBookshelf_1.name=7F4033 Bookshelf
+tile.brownMixBookshelf_2.name=666533 Bookshelf
 
 item.greenDye_0.name=7F5933 Dye
 item.greenDye_1.name=404C26 Dye
@@ -3663,8 +3919,14 @@ tile.greenMixWorkbench_1.name=404C26 Crafting Table
 tile.greenMixSand_0.name=7F5933 Sand
 tile.greenMixSand_1.name=404C26 Sand
 
-tile.greenMixWorkSandstone_0.name=7F5933 Sandstone
-tile.greenMixWorkSandstone_1.name=404C26 Sandstone
+tile.greenMixSandstone_0.name=7F5933 Sandstone
+tile.greenMixSandstone_1.name=404C26 Sandstone
+
+tile.greenMixChest_0.name=7F5933 Chest
+tile.greenMixChest_1.name=404C26 Chest
+
+tile.greenMixBookshelf_0.name=7F5933 Bookshelf
+tile.greenMixBookshelf_1.name=404C26 Bookshelf
 
 item.redDye_0.name=592626 Dye
 
@@ -3720,5 +3982,8 @@ tile.redMixWorkbench_0.name=592626 Crafting Table
 
 tile.redMixSand_0.name=592626 Sand
 
-tile.redMixWorkSandstone_0.name=592626 Sandstone
+tile.redMixSandstone_0.name=592626 Sandstone
 
+tile.redMixChest_0.name=592626 Chest
+
+tile.redMixBookshelf_0.name=592626 Bookshelf

@@ -200,6 +200,7 @@ public class CraftManager
 				GameRegistry.addShapedRecipe(new ItemStack(MDBlock.stoneBrickCarved[a],8,i),"SSS","SDS","SSS",'S',new ItemStack(Blocks.stonebrick,1,3),'D',new ItemStack(MDItem.dye[a],1,i));
 				GameRegistry.addShapedRecipe(new ItemStack(MDBlock.sand[a],8,i), "SSS","SDS","SSS",'S',new ItemStack(Blocks.sand),'D',new ItemStack(MDItem.dye[a],1,i));
 				GameRegistry.addShapedRecipe(new ItemStack(MDBlock.brick[a],8,i), "SSS","SDS","SSS",'S',new ItemStack(Blocks.brick_block),'D',new ItemStack(MDItem.dye[a],1,i));
+				GameRegistry.addShapedRecipe(new ItemStack(MDBlock.hardenedClay[a],8,i), "SSS","SDS","SSS",'S',new ItemStack(Blocks.hardened_clay),'D',new ItemStack(MDItem.dye[a],1,i));
 
 				//Cleaning Recipes
 				GameRegistry.addShapelessRecipe(new ItemStack(Blocks.sand,1,0),new ItemStack(MDBlock.sand[a],1,i),new ItemStack(Items.water_bucket));
@@ -236,6 +237,7 @@ public class CraftManager
 				FurnaceRecipes.smelting().func_151394_a(new ItemStack(MDBlock.stoneBrick[a],1,i),new ItemStack(MDBlock.stoneBrickCracked[a],1,i),1.0f);
 				FurnaceRecipes.smelting().func_151394_a(new ItemStack(MDBlock.sand[a],1,i), new ItemStack(MDBlock.glassClear[a],1,i), 1.0f);
 				FurnaceRecipes.smelting().func_151394_a(new ItemStack(MDBlock.glassClear[a],1,i), new ItemStack(MDBlock.glassFoggy[a],1,i), 1.0f);
+				FurnaceRecipes.smelting().func_151394_a(new ItemStack(MDBlock.clay[a],1,i), new ItemStack(MDBlock.hardenedClay[a],1,i), 1.0f);
 			}
 		}
 	}
