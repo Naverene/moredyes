@@ -2,6 +2,7 @@ package info.kg6jay.moredyes.block;
 
 import java.util.List;
 
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import cpw.mods.fml.relauncher.Side;
@@ -9,11 +10,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored
@@ -39,6 +42,18 @@ public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored
     public int damageDropped(int meta)
     {
         return meta;
+    }
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z)
+    {
+        if(ConfigHandler.overrideDefaultMobSpawning)
+        {
+            return ConfigHandler.mobSpawnOnBlock;
+        }
+        else
+        {
+            return super.canCreatureSpawn(type, world, x, y, z);
+        }
     }
 
     /**

@@ -2,8 +2,10 @@ package info.kg6jay.moredyes.block;
 
 import java.util.Random;
 
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -50,7 +52,18 @@ public class MDBlockLog extends MDBlockColoredMulti
             }
         }
     }
-
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z)
+    {
+        if(ConfigHandler.overrideDefaultMobSpawning)
+        {
+            return ConfigHandler.mobSpawnOnBlock;
+        }
+        else
+        {
+            return super.canCreatureSpawn(type, world, x, y, z);
+        }
+    }
     @Override
     public boolean canSustainLeaves(IBlockAccess world, int x, int y, int z)
     {

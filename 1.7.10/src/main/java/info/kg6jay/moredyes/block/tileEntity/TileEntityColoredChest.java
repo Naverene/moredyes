@@ -221,15 +221,15 @@ public class TileEntityColoredChest extends TileEntityChest implements ITickable
     }
     private boolean func_145977_a(int p_145977_1_, int p_145977_2_, int p_145977_3_)
     {
-        if (this.worldObj == null)
-        {
-            return false;
-        }
-        else
+        if (this.worldObj != null)
         {
             Block block = this.worldObj.getBlock(p_145977_1_, p_145977_2_, p_145977_3_);
-            return block instanceof MDColoredChest && ((MDColoredChest)block).field_149956_a == this.func_145980_j();
+            if (block instanceof MDColoredChest)
+            {
+                this.func_145980_j();
+            }
         }
+        return false;
     }
     public int func_145980_j()
     {

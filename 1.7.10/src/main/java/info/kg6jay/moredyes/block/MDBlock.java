@@ -57,7 +57,8 @@ public class MDBlock
 			Reference.BLOCK_INFO_SAND,
             Reference.BLOCK_INFO_CHEST,
 			Reference.BLOCK_INFO_HARDENED_CLAY,
-			Reference.BLOCK_INFO_SANDSTONE
+			Reference.BLOCK_INFO_SANDSTONE,
+			Reference.BLOCK_INFO_BOOKSHELF
 			};
 	public static String[] colors=new String[]{"white","orange","magenta","lightBlue","yellow","lime","pink","darkGray","lightGray","cyan","purple","blue","brown","green","red"};
 	public static Block[] wool;
@@ -94,6 +95,7 @@ public class MDBlock
     public static Block[] chest;
 	public static Block[] hardenedClay;
 	public static Block[] sandstone;
+	public static Block[] bookshelf;
 
 	public static void initialize()
 	{
@@ -130,6 +132,7 @@ public class MDBlock
         chest = new Block[l];
 		hardenedClay = new Block[l];
 		sandstone = new Block[l];
+		bookshelf = new Block[l];
 
 		for(int i=0;i<colors.length;i++)
 		{
@@ -159,9 +162,10 @@ public class MDBlock
 			brick[i]=new MDBlockColored(colorStrings[i],info[21],colors[i]);
 			sand[i]=new MDBlockColoredSand(colorStrings[i],info[22],colors[i]);
             workbench[i]=new MDBlockWorkbench(colorStrings[i],info[20],colors[i]);
-            chest[i] = new MDColoredChest(colorStrings[i], info[23], colors[i]);
+            chest[i] = new MDColoredChest(colorStrings[i], Reference.BLOCK_INFO_CHEST, colors[i]);
 			hardenedClay[i] = new MDBlockColored(colorStrings[i], info[24], colors[i]);
 			sandstone[i] = new MDBlockColoredMulti(colorStrings[i], info[25], colors[i]);
+			bookshelf[i] = new MDBlockBookshelf(colorStrings[i],Reference.BLOCK_INFO_BOOKSHELF,colors[i]);
 		}
 	}
 	public static void register()
@@ -196,11 +200,13 @@ public class MDBlock
             GameRegistry.registerBlock(workbench[i],MDItemBlockColored.class,((IBlockColored) workbench[i]).getColorSet()+"MixWorkbench");
 			GameRegistry.registerBlock(hardenedClay[i],MDItemBlockColored.class,((IBlockColored) hardenedClay[i]).getColorSet()+"MixHardenedClay");
 			GameRegistry.registerBlock(sandstone[i],MDItemBlockColored.class,((IBlockColored) sandstone[i]).getColorSet()+"MixSandstone");
+			GameRegistry.registerBlock(bookshelf[i], MDItemBlockColored.class, ((IBlockColored) bookshelf[i]).getColorSet()+"MixBookshelf");
+			GameRegistry.registerBlock(chest[i], MDItemBlockColored.class, ((IBlockColored) chest[i]).getColorSet()+"MixChest");
 		}
 	}
 	public static void registerTileEntities()
 	{
-
+        
 	}
 	public static void registerOreDictionary()
 	{
@@ -213,11 +219,12 @@ public class MDBlock
 		OreDictionary.registerOre("soulsand",new ItemStack(Blocks.soul_sand,1));
 		OreDictionary.registerOre("sand",new ItemStack(Blocks.sand,1));
 		OreDictionary.registerOre("sandstone",new ItemStack(Blocks.sandstone,1));
+		OreDictionary.registerOre("bookshelf", new ItemStack(Blocks.bookshelf));
+		OreDictionary.registerOre("chest", new ItemStack(Blocks.chest));
 		for(int a=0;a<wool.length;a++)
 		{
 			for(int i=0;i<=((MDBlockColored)wool[a]).getMaxMeta();i++)
 			{
-
 				OreDictionary.registerOre("wool", new ItemStack(wool[a],1,i));
 				OreDictionary.registerOre("blockWool", new ItemStack(wool[a],1,i));
 				OreDictionary.registerOre("bricksStone", new ItemStack(stoneBrick[a],1,i));
@@ -240,6 +247,8 @@ public class MDBlock
 				OreDictionary.registerOre("hardenedClay", new ItemStack(hardenedClay[a], 1, i));
 				OreDictionary.registerOre("sandstone", new ItemStack(sandstone[a], 1, i));
 				OreDictionary.registerOre("sand", new ItemStack(sand[a], 1, i));
+				OreDictionary.registerOre("bookshelf", new ItemStack(bookshelf[a], 1, i));
+
 			}
 		}
 	}

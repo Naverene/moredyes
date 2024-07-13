@@ -3,6 +3,7 @@ package info.kg6jay.moredyes.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.BlockInfo;
 
@@ -74,7 +75,14 @@ public class MDBlockColored extends Block implements IBlockColored
     @Override
     public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z)
     {
-        return false;
+        if(ConfigHandler.overrideDefaultMobSpawning)
+        {
+            return ConfigHandler.mobSpawnOnBlock;
+        }
+        else
+        {
+            return super.canCreatureSpawn(type, world, x, y, z);
+        }
     }
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)

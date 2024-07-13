@@ -15,6 +15,8 @@ public class ConfigHandler
 	public static boolean chisel_support=true;
 	public static boolean worldgen_flower=true;
 	public static boolean worldgen_tree=true;
+	public static boolean mobSpawnOnBlock = false;
+	public static boolean overrideDefaultMobSpawning = false;
 	
 	public static void init(File configFile)
 	{
@@ -37,6 +39,8 @@ public class ConfigHandler
 		chisel_plank = config.getBoolean("ChiselSupport_Plank",Configuration.CATEGORY_GENERAL,true,"Set to false to disable Chisel support for dyed planks");
 		worldgen_flower=config.getBoolean("WorldGen_Flower",Configuration.CATEGORY_GENERAL,true,"Set to false to disable world gen of flowers");
 		worldgen_tree=config.getBoolean("WorldGen_Tree", Configuration.CATEGORY_GENERAL, true, "Set to false to disable world gen of dye trees");
+		mobSpawnOnBlock = config.getBoolean("mobSpawnOnBlock", Configuration. CATEGORY_GENERAL, false, "Set to false to disable mob spawning on blocks");
+		overrideDefaultMobSpawning = config.getBoolean("overrideDefaultMobSpawning", Configuration.CATEGORY_GENERAL, true, "This option will allow you to override the mob spawning ability of certain blocks that are dyed");
 		if(config.hasChanged())
 		{
 			config.save();

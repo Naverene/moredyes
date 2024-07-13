@@ -7,27 +7,32 @@ import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class MDBlockColoredMulti extends MDBlockColored
+import java.util.Random;
+
+public class MDBlockBookshelf extends MDBlockColoredMulti
 {
-	public IIcon[] topIcons,sideIcons,bottomIcons;
-	public MDBlockColoredMulti(String[] colors, BlockInfo info,String colorSet)
-	{
-		super(colors, info, colorSet);
-	}
+    public IIcon[] topIcons,sideIcons,bottomIcons;
+    public MDBlockBookshelf(String[] colors, BlockInfo info, String colorSet)
+    {
+        super(colors, info, colorSet);
+    }
 
     /**
      * Gets the block's texture. Args: side, meta
      */
+    @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
-    	if(meta>=this.sideIcons.length)
-    	{
-    		meta=0;
-    	}
+        if(meta>=this.sideIcons.length)
+        {
+            meta=0;
+        }
         return switch (side)
         {
             case 0 -> this.bottomIcons[meta];
@@ -57,9 +62,19 @@ public class MDBlockColoredMulti extends MDBlockColored
 
         for (int i = 0; i < this.topIcons.length; ++i)
         {
-            this.topIcons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":"+blockName+"/top/"+ blockColors[i]);
-            this.sideIcons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":"+blockName+"/side/"+ blockColors[i]);
-            this.bottomIcons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":"+blockName+"/bottom/"+ blockColors[i]);
+            this.topIcons[i] = iconRegister.registerIcon(":plank/" + blockColors[i]);
+            this.sideIcons[i] = iconRegister.registerIcon(Reference.MOD_ID +":" + blockName + "/" + blockColors[i]);
+            this.bottomIcons[i] = iconRegister.registerIcon(":plank/" + blockColors[i]);
         }
+    }
+    @Override
+    public int quantityDropped(Random random)
+    {
+        return 3;
+    }
+    @Override
+    public Item getItemDropped(int meta, Random random, int fortune)
+    {
+        return Items.book;
     }
 }

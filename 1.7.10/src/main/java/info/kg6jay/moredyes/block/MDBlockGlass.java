@@ -2,11 +2,13 @@ package info.kg6jay.moredyes.block;
 
 import java.util.List;
 
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.BlockStainedGlass;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -73,6 +75,11 @@ public class MDBlockGlass extends BlockStainedGlass implements IBlockColored
         {
             this.icons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":"+blockName+"/" + this.variant + "/" + blockColors[i]);
         }
+    }
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z)
+    {
+        return false;
     }
     /**
      * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
