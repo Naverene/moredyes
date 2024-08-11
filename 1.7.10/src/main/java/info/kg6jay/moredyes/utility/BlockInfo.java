@@ -1,4 +1,5 @@
 package info.kg6jay.moredyes.utility;
+
 import info.kg6jay.moredyes.MoreDyes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Block.SoundType;

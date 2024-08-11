@@ -1,9 +1,5 @@
 package info.kg6jay.moredyes;
 
-import info.kg6jay.moredyes.proxy.ClientProxy;
-import info.kg6jay.moredyes.proxy.CommonProxy;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
@@ -17,10 +13,12 @@ import info.kg6jay.moredyes.compat.thermalexpansion.TECompat;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
-import info.kg6jay.moredyes.proxy.IProxy;
+import info.kg6jay.moredyes.proxy.CommonProxy;
 import info.kg6jay.moredyes.recipe.CraftManager;
-import info.kg6jay.moredyes.reference.*;
+import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.LogHelper;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 
 @Mod(modid=Reference.MOD_ID,name=Reference.MOD_NAME,version=Reference.MOD_VERSION, dependencies="after:ThermalExpansion")
 public class MoreDyes

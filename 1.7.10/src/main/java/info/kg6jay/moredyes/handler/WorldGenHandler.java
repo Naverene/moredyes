@@ -1,6 +1,5 @@
 package info.kg6jay.moredyes.handler;
 
-import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.world.gen.FlowerGenerator;
 import info.kg6jay.moredyes.world.gen.TreeGenerator;
 import cpw.mods.fml.common.IWorldGenerator;
