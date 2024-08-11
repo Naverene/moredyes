@@ -54,6 +54,8 @@ jobs:
       contents: write
 
     steps:
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
     - uses: actions/checkout@v4
     - name: Set up JDK 17
       uses: actions/setup-java@v4
