@@ -129,7 +129,7 @@ public class MDBlock
 		sand= new Block[l];
 
 		workbench = new Block[l];
-        chest = new Block[l];
+        //chest = new Block[l];
 		hardenedClay = new Block[l];
 		sandstone = new Block[l];
 		bookshelf = new Block[l];
@@ -162,7 +162,7 @@ public class MDBlock
 			brick[i]=new MDBlockColored(colorStrings[i],info[21],colors[i]);
 			sand[i]=new MDBlockColoredSand(colorStrings[i],info[22],colors[i]);
             workbench[i]=new MDBlockWorkbench(colorStrings[i],info[20],colors[i]);
-            chest[i] = new MDColoredChest(colorStrings[i], Reference.BLOCK_INFO_CHEST, colors[i]);
+            //chest[i] = new MDColoredChest(colorStrings[i], Reference.BLOCK_INFO_CHEST, colors[i]);
 			hardenedClay[i] = new MDBlockColored(colorStrings[i], info[24], colors[i]);
 			sandstone[i] = new MDBlockColoredMulti(colorStrings[i], info[25], colors[i]);
 			bookshelf[i] = new MDBlockBookshelf(colorStrings[i],Reference.BLOCK_INFO_BOOKSHELF,colors[i]);
@@ -201,7 +201,7 @@ public class MDBlock
 			GameRegistry.registerBlock(hardenedClay[i],MDItemBlockColored.class,((IBlockColored) hardenedClay[i]).getColorSet()+"MixHardenedClay");
 			GameRegistry.registerBlock(sandstone[i],MDItemBlockColored.class,((IBlockColored) sandstone[i]).getColorSet()+"MixSandstone");
 			GameRegistry.registerBlock(bookshelf[i], MDItemBlockColored.class, ((IBlockColored) bookshelf[i]).getColorSet()+"MixBookshelf");
-			GameRegistry.registerBlock(chest[i], MDItemBlockColored.class, ((IBlockColored) chest[i]).getColorSet()+"MixChest");
+			//GameRegistry.registerBlock(chest[i], MDItemBlockColored.class, ((IBlockColored) chest[i]).getColorSet()+"MixChest");
 		}
 	}
 	public static void registerTileEntities()
@@ -220,7 +220,7 @@ public class MDBlock
 		OreDictionary.registerOre("sand",new ItemStack(Blocks.sand,1));
 		OreDictionary.registerOre("sandstone",new ItemStack(Blocks.sandstone,1));
 		OreDictionary.registerOre("bookshelf", new ItemStack(Blocks.bookshelf));
-		OreDictionary.registerOre("chest", new ItemStack(Blocks.chest));
+		//OreDictionary.registerOre("chest", new ItemStack(Blocks.chest));
 		for(int a=0;a<wool.length;a++)
 		{
 			for(int i=0;i<=((MDBlockColored)wool[a]).getMaxMeta();i++)
