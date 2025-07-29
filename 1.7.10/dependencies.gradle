@@ -34,7 +34,7 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.6.14-GTNH:dev")
+    runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.69-GTNH:dev")
     api(project.files("lib/Chisel-2.9.5.11-api.jar"))
     api(project.files("lib/CoFHCore-[1.7.10]3.1.4-329-dev.jar"))
     api(project.files("lib/ThermalExpansion-[1.7.10]4.1.5-248-API.zip"))
