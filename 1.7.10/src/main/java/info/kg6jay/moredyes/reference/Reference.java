@@ -8,7 +8,7 @@ import info.kg6jay.moredyes.utility.BlockInfo;
 
 public class Reference {
 
-    public static final String MOD_ID = "MoreDyes";
+    public static final String MOD_ID = "moredyes";
     public static final String MOD_NAME = "More Dyes";
     public static final String MOD_VERSION = "@VERSION@";
 

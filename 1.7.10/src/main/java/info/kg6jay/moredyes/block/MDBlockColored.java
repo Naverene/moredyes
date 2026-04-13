@@ -1,7 +1,10 @@
 package info.kg6jay.moredyes.block;
 
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import info.kg6jay.moredyes.handler.ConfigHandler;
+import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.utility.BlockInfo;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,11 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import info.kg6jay.moredyes.handler.ConfigHandler;
-import info.kg6jay.moredyes.reference.Reference;
-import info.kg6jay.moredyes.utility.BlockInfo;
+import java.util.List;
 
 public class MDBlockColored extends Block implements IBlockColored {
 

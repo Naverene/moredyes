@@ -1,0 +1,15 @@
+{
+  "cols": 4,
+  "rows": 2,
+  "names": [
+    "front",
+    "back",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "lid",
+    "extra"
+  ]
+}
+

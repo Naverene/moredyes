@@ -12,7 +12,8 @@ public class MDItemBlockColored extends ItemBlockWithMetadata {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + stack.getItemDamage();
+        // Use the superclass implementation to avoid recursion and append metadata
+        return super.getUnlocalizedName(stack) + "_" + stack.getItemDamage();
     }
 
 }

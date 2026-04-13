@@ -104,7 +104,13 @@ public class MDBlock {
         diorite = new Block[l];
 
         for (int i = 0; i < colors.length; i++) {
+            // Instantiate colored chest; registration happens in register()
             chest[i] = new MDBlockColoredChest(colors[i], Reference.BLOCK_INFO_CHEST, colors);
+            System.out.println(
+                "[DEBUG] Instantiated colored chest: " + colors[i]
+                    + " class: "
+                    + (chest[i] != null ? chest[i].getClass()
+                        .getName() : "null"));
             wool[i] = new MDBlockColored(colorStrings[i], info[0], colors[i]);
             stoneBrick[i] = new MDBlockColored(colorStrings[i], info[1], colors[i]);
             stoneBrickCarved[i] = new MDBlockColored(colorStrings[i], info[2], colors[i]);
@@ -297,8 +303,6 @@ public class MDBlock {
                 OreDictionary.registerOre("sand", new ItemStack(sand[a], 1, i));
                 OreDictionary.registerOre("bookshelf", new ItemStack(bookshelf[a], 1, i));
                 OreDictionary.registerOre("diorite", new ItemStack(diorite[a], 1, i));
-                // Register colored chests in OreDictionary
-                OreDictionary.registerOre("chest", new ItemStack(chest[a], 1, i));
             }
         }
     }
