@@ -22,3 +22,16 @@ Blocks are not stored as one texture file per color. Each block type has one gre
 The grey textures are made from the vanilla textures when the game loads, so they follow whatever resource pack the player uses. The list of which vanilla texture each block uses is in `client/TintSources.java`. Blocks that do not exist in vanilla 1.7.10 use a grey file in `textures/blocks/base/` instead (diorite, foggy glass).
 
 To give a new block a texture, add a line to `TintSources` and call `TintedTextures.register(iconRegister, "<key>")` from the block's `registerBlockIcons`. Parts that should keep their natural color, such as a flower's stem or a log's bark, are drawn as a separate untinted layer (see `ILayeredBlock`).
+
+## Downloads and releases
+
+GitHub Actions builds the mod on every push. Pushing or merging to `main` updates the **Development build** pre-release on the Releases page with the newest jar. These builds are for testing.
+
+To publish a proper release, tag the commit with a version number starting with `v` and push the tag:
+
+```
+git tag v1.2.0
+git push origin v1.2.0
+```
+
+The workflow builds that commit and creates a release named after the tag, with the jar attached and release notes generated from the merged pull requests and commits.
