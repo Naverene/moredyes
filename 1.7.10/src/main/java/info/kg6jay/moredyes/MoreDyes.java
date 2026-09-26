@@ -2,6 +2,7 @@ package info.kg6jay.moredyes;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
@@ -11,10 +12,14 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.compat.chisel.ChiselCompat;
+import info.kg6jay.moredyes.compat.gregtech.GTCompat;
 import info.kg6jay.moredyes.compat.thermalexpansion.TECompat;
+import info.kg6jay.moredyes.handler.CauldronWashHandler;
 import info.kg6jay.moredyes.handler.ConfigHandler;
+import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
@@ -27,7 +32,7 @@ import info.kg6jay.moredyes.utility.LogHelper;
     modid = Reference.MOD_ID,
     name = Reference.MOD_NAME,
     version = Reference.MOD_VERSION,
-    dependencies = "after:ThermalExpansion")
+    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech")
 public class MoreDyes {
 
     @Mod.Instance(Reference.MOD_ID)
@@ -45,6 +50,7 @@ public class MoreDyes {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         ConfigHandler.init(event.getSuggestedConfigurationFile());
+        proxy.preInit();
         FMLCommonHandler.instance()
             .bus()
             .register(new ConfigHandler());
@@ -70,10 +76,11 @@ public class MoreDyes {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        if (Loader.isModLoaded("chisel")) {
-            ChiselCompat.registerChisel();
-        }
         proxy.registerRenderThings();
+        MDBlock.registerFlammability();
+        MDBlock.registerWashing();
+        MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
+        GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();
         LogHelper.info("Initialization Complete");
@@ -81,6 +88,14 @@ public class MoreDyes {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
+        MDBlock.detectDiorite();
+        CraftManager.addDioriteRecipe();
+        if (Loader.isModLoaded("chisel")) {
+            ChiselCompat.registerChisel();
+        }
+        if (Loader.isModLoaded("gregtech")) {
+            GTCompat.registerRecipes();
+        }
         ((Tab) tabDyes).setTabIconItem(MDItem.dye[0]);
         ((Tab) tabBlocks).setTabIconItem(Item.getItemFromBlock(MDBlock.wool[0]));
         ((Tab) tabPlants).setTabIconItem(Item.getItemFromBlock(MDBlock.tulip[0]));

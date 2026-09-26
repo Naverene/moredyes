@@ -1,5 +1,6 @@
 package info.kg6jay.moredyes.block;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,32 +19,91 @@ import info.kg6jay.moredyes.utility.BlockInfo;
 
 public class MDBlockLeaf extends MDBlockColored implements IShearable {
 
+    private static final int DECAY_RANGE = 4;
+    private static final int DECAY_DELAY_MIN = 10;
+    private static final int DECAY_DELAY_RANDOM = 100;
+    private static final int[][] NEIGHBOURS = { { 1, 0, 0 }, { -1, 0, 0 }, { 0, 1, 0 }, { 0, -1, 0 }, { 0, 0, 1 },
+        { 0, 0, -1 } };
+
     int blockIndex;
-    int[] field_150128_a;
 
     public MDBlockLeaf(String[] colors, BlockInfo info, String colorSet, int blockIndex) {
         super(colors, info, colorSet);
-        this.setTickRandomly(true);
         this.setLightOpacity(1);
         this.blockIndex = blockIndex;
     }
 
-    public void breakBlock(World world, int x, int y, int z, Block block, int p_149749_6_) {
-        byte b0 = 1;
-        int i1 = b0 + 1;
+    /**
+     * Vanilla leaves keep "check decay" and "placed by a player" flags in their metadata, but here the metadata holds
+     * the shade, so there is no room for them. Instead, a decay check is scheduled when a nearby log is removed (logs
+     * call beginLeavesDecay) and passed on to the neighbours when a leaf decays, so a whole canopy falls apart once
+     * its tree is gone. Breaking a leaf by hand does not start a check, so leaves used for building are safe unless
+     * a log next to them is removed.
+     */
+    @Override
+    public void beginLeavesDecay(World world, int x, int y, int z) {
+        world.scheduleBlockUpdate(x, y, z, this, DECAY_DELAY_MIN + world.rand.nextInt(DECAY_DELAY_RANDOM));
+    }
 
-        if (world.checkChunksExist(x - i1, y - i1, z - i1, x + i1, y + i1, z + i1)) {
-            for (int j1 = -b0; j1 <= b0; ++j1) {
-                for (int k1 = -b0; k1 <= b0; ++k1) {
-                    for (int l1 = -b0; l1 <= b0; ++l1) {
-                        Block b = world.getBlock(x + j1, y + k1, z + l1);
-                        if (b.isLeaves(world, x + j1, y + k1, z + l1)) {
-                            b.beginLeavesDecay(world, x + j1, y + k1, z + l1);
-                        }
+    @Override
+    public void updateTick(World world, int x, int y, int z, Random rand) {
+        if (world.isRemote || this.isSupported(world, x, y, z)) {
+            return;
+        }
+        this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+        world.setBlockToAir(x, y, z);
+
+        for (int dx = -1; dx <= 1; ++dx) {
+            for (int dy = -1; dy <= 1; ++dy) {
+                for (int dz = -1; dz <= 1; ++dz) {
+                    Block neighbour = world.getBlock(x + dx, y + dy, z + dz);
+                    if (neighbour.isLeaves(world, x + dx, y + dy, z + dz)) {
+                        neighbour.beginLeavesDecay(world, x + dx, y + dy, z + dz);
                     }
                 }
             }
         }
+    }
+
+    /**
+     * True if a log (or anything else that sustains leaves) can be reached within DECAY_RANGE steps, moving only
+     * through leaves. This is the same rule vanilla leaves use.
+     */
+    private boolean isSupported(World world, int x, int y, int z) {
+        int r = DECAY_RANGE;
+        if (!world.checkChunksExist(x - r - 1, y - r - 1, z - r - 1, x + r + 1, y + r + 1, z + r + 1)) {
+            // Never decay into unloaded chunks; the tree may continue there.
+            return true;
+        }
+        int size = 2 * r + 1;
+        boolean[] visited = new boolean[size * size * size];
+        ArrayDeque<int[]> queue = new ArrayDeque<>();
+        queue.add(new int[] { x, y, z, 0 });
+        visited[((r * size) + r) * size + r] = true;
+
+        while (!queue.isEmpty()) {
+            int[] pos = queue.poll();
+            for (int[] d : NEIGHBOURS) {
+                int nx = pos[0] + d[0], ny = pos[1] + d[1], nz = pos[2] + d[2];
+                int ox = nx - x + r, oy = ny - y + r, oz = nz - z + r;
+                if (ox < 0 || oy < 0 || oz < 0 || ox >= size || oy >= size || oz >= size) {
+                    continue;
+                }
+                int index = (ox * size + oy) * size + oz;
+                if (visited[index]) {
+                    continue;
+                }
+                visited[index] = true;
+                Block block = world.getBlock(nx, ny, nz);
+                if (block.canSustainLeaves(world, nx, ny, nz)) {
+                    return true;
+                }
+                if (pos[3] + 1 < r && block.isLeaves(world, nx, ny, nz)) {
+                    queue.add(new int[] { nx, ny, nz, pos[3] + 1 });
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -53,107 +113,6 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
         return super.shouldSideBeRendered(blockAccess, x, y, z, side);
-    }
-
-    /**
-     * Ticks the block if it's been scheduled
-     */
-    public void updateTick(World world, int x, int y, int z, Random rand) {
-        if (!world.isRemote) {
-            int meta = world.getBlockMetadata(x, y, z);
-
-            if ((meta & 8) != 0 && (meta & 4) == 0) {
-                int range = 4;
-                int i1 = range + 1;
-                byte b1 = 32;
-                int j1 = b1 * b1;
-                int k1 = b1 / 2;
-
-                if (this.field_150128_a == null) {
-                    this.field_150128_a = new int[b1 * b1 * b1];
-                }
-
-                int xOffset;
-
-                if (world.checkChunksExist(x - i1, y - i1, z - i1, x + i1, y + i1, z + i1)) {
-                    int i2;
-                    int j2;
-
-                    for (xOffset = -range; xOffset <= range; ++xOffset) {
-                        for (i2 = -range; i2 <= range; ++i2) {
-                            for (j2 = -range; j2 <= range; ++j2) {
-                                Block block = world.getBlock(x + xOffset, y + i2, z + j2);
-
-                                if (!block.canSustainLeaves(world, x + xOffset, y + i2, z + j2)) {
-                                    if (block.isLeaves(world, x + xOffset, y + i2, z + j2)) {
-                                        this.field_150128_a[(xOffset + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -2;
-                                    } else {
-                                        this.field_150128_a[(xOffset + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -1;
-                                    }
-                                } else {
-                                    this.field_150128_a[(xOffset + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = 0;
-                                }
-                            }
-                        }
-                    }
-
-                    for (xOffset = 1; xOffset <= 4; ++xOffset) {
-                        for (i2 = -range; i2 <= range; ++i2) {
-                            for (j2 = -range; j2 <= range; ++j2) {
-                                for (int k2 = -range; k2 <= range; ++k2) {
-                                    if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1] == xOffset - 1) {
-                                        if (this.field_150128_a[(i2 + k1 - 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1 - 1) * j1 + (j2 + k1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1 + 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1 + 1) * j1 + (j2 + k1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 - 1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 - 1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 + 1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 + 1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1 + (k2 + k1 - 1)]
-                                            == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1
-                                                + (k2 + k1 - 1)] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1 + 1] == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1
-                                                + k2
-                                                + k1
-                                                + 1] = xOffset;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                xOffset = this.field_150128_a[k1 * j1 + k1 * b1 + k1];
-
-                if (xOffset >= 0) {
-                    world.setBlockMetadataWithNotify(x, y, z, meta & -9, 4);
-                } else {
-                    this.removeLeaves(world, x, y, z);
-                }
-            }
-        }
     }
 
     /**
@@ -168,11 +127,6 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
             double d2 = (double) ((float) z + rand.nextFloat());
             world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
-    }
-
-    private void removeLeaves(World world, int x, int y, int z) {
-        this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-        world.setBlockToAir(x, y, z);
     }
 
     /**
@@ -228,11 +182,6 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
         return ret;
-    }
-
-    @Override
-    public void beginLeavesDecay(World world, int x, int y, int z) {
-        world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z), 4);
     }
 
     @Override

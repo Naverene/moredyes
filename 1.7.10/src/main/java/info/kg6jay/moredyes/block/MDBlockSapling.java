@@ -10,8 +10,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -20,12 +18,12 @@ import net.minecraftforge.common.util.ForgeDirection;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.world.feature.WorldGenTreeDye;
 
-public class MDBlockSapling extends MDBlockColored implements IGrowable, IPlantable {
+public class MDBlockSapling extends MDBlockColoredPlant implements IGrowable, IPlantable {
 
     private final int colorIndex;
 
     public MDBlockSapling(String[] colors, BlockInfo info, String colorSet, int index) {
-        super(colors, info, colorSet);
+        super(colors, info, colorSet, "sapling/leaves", "sapling/trunk");
         float f = 0.4F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         this.setTickRandomly(true);
@@ -82,28 +80,6 @@ public class MDBlockSapling extends MDBlockColored implements IGrowable, IPlanta
         return null;
     }
 
-    /**
-     * Is this block (a) opaque and (b) a full 1m cube? This determines whether or not to render the shared face of two
-     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-     */
-    public boolean isOpaqueCube() {
-        return false;
-    }
-
-    /**
-     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-     */
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    /**
-     * The type of render function that is called for this block
-     */
-    public int getRenderType() {
-        return 1;
-    }
-
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
         return Plains;
     }
@@ -137,12 +113,10 @@ public class MDBlockSapling extends MDBlockColored implements IGrowable, IPlanta
     public void func_149878_d(World world, int x, int y, int z, Random rand) {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, rand, x, y, z)) return;
         int meta = world.getBlockMetadata(x, y, z);
-        Object object = rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
-        object = new WorldGenTreeDye(false, 3, meta, this.colorIndex);
+        WorldGenerator tree = new WorldGenTreeDye(false, 3, meta, this.colorIndex);
         world.setBlockToAir(x, y, z);
-        Block block = Blocks.air;
 
-        if (!((WorldGenerator) object).generate(world, rand, x, y, z)) {
+        if (!tree.generate(world, rand, x, y, z)) {
             world.setBlock(x, y, z, this, meta, 4);
         }
     }

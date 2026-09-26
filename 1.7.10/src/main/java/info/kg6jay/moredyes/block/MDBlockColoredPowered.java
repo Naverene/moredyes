@@ -1,9 +1,7 @@
 package info.kg6jay.moredyes.block;
 
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.IBlockAccess;
 
-import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.utility.BlockInfo;
 
 public class MDBlockColoredPowered extends MDBlockColored {
@@ -15,15 +13,6 @@ public class MDBlockColoredPowered extends MDBlockColored {
     @Override
     public boolean canProvidePower() {
         return true;
-    }
-
-    @Override
-    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
-        if (ConfigHandler.overrideDefaultMobSpawning) {
-            return ConfigHandler.mobSpawnOnBlock;
-        } else {
-            return super.canCreatureSpawn(type, world, x, y, z);
-        }
     }
 
     @Override

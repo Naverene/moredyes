@@ -1,5 +1,8 @@
 package info.kg6jay.moredyes.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -7,10 +10,10 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
+import info.kg6jay.moredyes.item.MDItemBlockChest;
 import info.kg6jay.moredyes.item.MDItemBlockColored;
 import info.kg6jay.moredyes.reference.ColorStrings;
 import info.kg6jay.moredyes.reference.Reference;
-import info.kg6jay.moredyes.utility.BlockInfo;
 
 public class MDBlock {
 
@@ -18,15 +21,6 @@ public class MDBlock {
         ColorStrings.MAGENTA, ColorStrings.LBLUE, ColorStrings.YELLOW, ColorStrings.LIME, ColorStrings.PINK,
         ColorStrings.DGRAY, ColorStrings.LGRAY, ColorStrings.CYAN, ColorStrings.PURPLE, ColorStrings.BLUE,
         ColorStrings.BROWN, ColorStrings.GREEN, ColorStrings.RED };
-    public static BlockInfo[] info = new BlockInfo[] { Reference.BLOCK_INFO_WOOL, Reference.BLOCK_INFO_STONE_BRICK,
-        Reference.BLOCK_INFO_STONE_BRICK_CARVED, Reference.BLOCK_INFO_STONE_BRICK_CRACKED, Reference.BLOCK_INFO_STONE,
-        Reference.BLOCK_INFO_COBBLE, Reference.BLOCK_INFO_OBSIDIAN, Reference.BLOCK_INFO_SOULSAND,
-        Reference.BLOCK_INFO_QUARTZ, Reference.BLOCK_INFO_CLAY, Reference.BLOCK_INFO_COAL,
-        Reference.BLOCK_INFO_GLOWSTONE, Reference.BLOCK_INFO_LAPIS, Reference.BLOCK_INFO_REDSTONE,
-        Reference.BLOCK_INFO_PLANK, Reference.BLOCK_INFO_TULIP, Reference.BLOCK_INFO_LOG, Reference.BLOCK_INFO_LEAVES,
-        Reference.BLOCK_INFO_SAPLING, Reference.BLOCK_INFO_GLASS, Reference.BLOCK_INFO_WORKBENCH,
-        Reference.BLOCK_INFO_BRICK, Reference.BLOCK_INFO_SAND, Reference.BLOCK_INFO_CHEST,
-        Reference.BLOCK_INFO_HARDENED_CLAY, Reference.BLOCK_INFO_SANDSTONE, Reference.BLOCK_INFO_BOOKSHELF };
     public static String[] colors = new String[] { "white", "orange", "magenta", "lightBlue", "yellow", "lime", "pink",
         "darkGray", "lightGray", "cyan", "purple", "blue", "brown", "green", "red" };
     public static Block[] wool;
@@ -65,9 +59,12 @@ public class MDBlock {
     public static Block[] sandstone;
     public static Block[] bookshelf;
     public static Block[] diorite;
+    /** Plain diorite, the base for dyed diorite. */
+    public static Block dioritePlain;
 
     public static void initialize() {
         int l = colors.length;
+        dioritePlain = new MDBlockDiorite(Reference.BLOCK_INFO_DIORITE);
 
         wool = new Block[l];
         stoneBrick = new Block[l];
@@ -104,161 +101,137 @@ public class MDBlock {
         diorite = new Block[l];
 
         for (int i = 0; i < colors.length; i++) {
-            // Instantiate colored chest; registration happens in register()
-            chest[i] = new MDBlockColoredChest(colors[i], Reference.BLOCK_INFO_CHEST, colors);
-            System.out.println(
-                "[DEBUG] Instantiated colored chest: " + colors[i]
-                    + " class: "
-                    + (chest[i] != null ? chest[i].getClass()
-                        .getName() : "null"));
-            wool[i] = new MDBlockColored(colorStrings[i], info[0], colors[i]);
-            stoneBrick[i] = new MDBlockColored(colorStrings[i], info[1], colors[i]);
-            stoneBrickCarved[i] = new MDBlockColored(colorStrings[i], info[2], colors[i]);
-            stoneBrickCracked[i] = new MDBlockColored(colorStrings[i], info[3], colors[i]);
-            stone[i] = new MDBlockColored(colorStrings[i], info[4], colors[i]);
-            cobble[i] = new MDBlockColored(colorStrings[i], info[5], colors[i]);
-            obsidian[i] = new MDBlockColored(colorStrings[i], info[6], colors[i]);
-            soulsand[i] = new MDBlockColored(colorStrings[i], info[7], colors[i]);
-            quartz[i] = new MDBlockColoredMulti(colorStrings[i], info[8], colors[i]);
-            clay[i] = new MDBlockColored(colorStrings[i], info[9], colors[i]);
-            coal[i] = new MDBlockColored(colorStrings[i], info[10], colors[i]);
-            glowstone[i] = new MDBlockColored(colorStrings[i], info[11], colors[i]).setLightLevel(1.0f);
-            lapis[i] = new MDBlockColored(colorStrings[i], info[12], colors[i]);
-            redstone[i] = new MDBlockColoredPowered(colorStrings[i], info[13], colors[i]);
-            plank[i] = new MDBlockColored(colorStrings[i], info[14], colors[i]);
-            tulip[i] = new MDBlockFlower(colorStrings[i], info[15], colors[i]);
-            log[i] = new MDBlockLog(colorStrings[i], info[16], colors[i]);
-            leaf[i] = new MDBlockLeaf(colorStrings[i], info[17], colors[i], i);
-            sapling[i] = new MDBlockSapling(colorStrings[i], info[18], colors[i], i);
-            glassClear[i] = new MDBlockGlass(colorStrings[i], info[19], colors[i], i, "clear");
-            glassFoggy[i] = new MDBlockGlass(colorStrings[i], info[19], colors[i], i, "foggy");
-            glassClearPane[i] = new MDBlockGlassPane(colorStrings[i], info[19], colors[i], i, "clear");
-            glassFoggyPane[i] = new MDBlockGlassPane(colorStrings[i], info[19], colors[i], i, "foggy");
-            brick[i] = new MDBlockColored(colorStrings[i], info[21], colors[i]);
-            sand[i] = new MDBlockColoredSand(colorStrings[i], info[22], colors[i]);
-            workbench[i] = new MDBlockWorkbench(colorStrings[i], info[20], colors[i]);
-            hardenedClay[i] = new MDBlockColored(colorStrings[i], info[24], colors[i]);
-            sandstone[i] = new MDBlockColoredMulti(colorStrings[i], info[25], colors[i]);
-            bookshelf[i] = new MDBlockBookshelf(colorStrings[i], Reference.BLOCK_INFO_BOOKSHELF, colors[i]);
-            diorite[i] = new MDBlockColored(colorStrings[i], Reference.BLOCK_INFO_DIORITE, colors[i]);
+            String[] shades = colorStrings[i];
+            String set = colors[i];
+            wool[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_WOOL, set);
+            stoneBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK, set);
+            stoneBrickCarved[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK_CARVED, set);
+            stoneBrickCracked[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK_CRACKED, set);
+            stone[i] = new MDBlockStone(shades, Reference.BLOCK_INFO_STONE, set, i);
+            cobble[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_COBBLE, set);
+            obsidian[i] = new MDBlockObsidian(shades, Reference.BLOCK_INFO_OBSIDIAN, set);
+            soulsand[i] = new MDBlockSoulSand(shades, Reference.BLOCK_INFO_SOULSAND, set);
+            quartz[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_QUARTZ, set);
+            clay[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_CLAY, set);
+            coal[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_COAL, set);
+            glowstone[i] = new MDBlockGlowstone(shades, Reference.BLOCK_INFO_GLOWSTONE, set);
+            lapis[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_LAPIS, set);
+            redstone[i] = new MDBlockColoredPowered(shades, Reference.BLOCK_INFO_REDSTONE, set);
+            plank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_PLANK, set);
+            tulip[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_TULIP, set);
+            log[i] = new MDBlockLog(shades, Reference.BLOCK_INFO_LOG, set);
+            leaf[i] = new MDBlockLeaf(shades, Reference.BLOCK_INFO_LEAVES, set, i);
+            sapling[i] = new MDBlockSapling(shades, Reference.BLOCK_INFO_SAPLING, set, i);
+            glassClear[i] = new MDBlockGlass(shades, Reference.BLOCK_INFO_GLASS, set, i, "clear");
+            glassFoggy[i] = new MDBlockGlass(shades, Reference.BLOCK_INFO_GLASS, set, i, "foggy");
+            glassClearPane[i] = new MDBlockGlassPane(shades, Reference.BLOCK_INFO_GLASS, set, i, "clear");
+            glassFoggyPane[i] = new MDBlockGlassPane(shades, Reference.BLOCK_INFO_GLASS, set, i, "foggy");
+            brick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_BRICK, set);
+            sand[i] = new MDBlockColoredSand(shades, Reference.BLOCK_INFO_SAND, set);
+            workbench[i] = new MDBlockWorkbench(shades, Reference.BLOCK_INFO_WORKBENCH, set);
+            chest[i] = new MDBlockColoredChest(shades, Reference.BLOCK_INFO_CHEST, set);
+            hardenedClay[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_HARDENED_CLAY, set);
+            sandstone[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_SANDSTONE, set);
+            bookshelf[i] = new MDBlockBookshelf(shades, Reference.BLOCK_INFO_BOOKSHELF, set);
+            diorite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_DIORITE, set);
         }
     }
 
     public static void register() {
-        for (int i = 0; i < wool.length; i++) {
+        register(wool, "Wool");
+        register(stoneBrick, "Stonebrick");
+        register(stoneBrickCarved, "StonebrickCarved");
+        register(stoneBrickCracked, "StonebrickCracked");
+        register(stone, "Stone");
+        register(cobble, "Cobble");
+        register(obsidian, "Obsidian");
+        register(soulsand, "Soulsand");
+        register(quartz, "Quartz");
+        register(clay, "Clay");
+        register(coal, "Coal");
+        register(glowstone, "Glowstone");
+        register(lapis, "Lapis");
+        register(redstone, "Redstone");
+        register(plank, "Plank");
+        register(tulip, "Tulip");
+        register(log, "Log");
+        register(leaf, "Leaf");
+        register(sapling, "Sapling");
+        register(glassClear, "GlassClear");
+        register(glassFoggy, "GlassFoggy");
+        register(glassClearPane, "GlassClearPane");
+        register(glassFoggyPane, "GlassFoggyPane");
+        register(brick, "Brick");
+        register(sand, "Sand");
+        register(workbench, "Workbench");
+        register(hardenedClay, "HardenedClay");
+        register(sandstone, "Sandstone");
+        register(bookshelf, "Bookshelf");
+        register(diorite, "Diorite");
+        GameRegistry.registerBlock(dioritePlain, "diorite");
+        for (Block block : chest) {
             GameRegistry
-                .registerBlock(wool[i], MDItemBlockColored.class, ((IBlockColored) wool[i]).getColorSet() + "MixWool");
-            GameRegistry.registerBlock(
-                stoneBrick[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) stoneBrick[i]).getColorSet() + "MixStonebrick");
-            GameRegistry.registerBlock(
-                stoneBrickCarved[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) stoneBrickCarved[i]).getColorSet() + "MixStonebrickCarved");
-            GameRegistry.registerBlock(
-                stoneBrickCracked[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) stoneBrickCracked[i]).getColorSet() + "MixStonebrickCracked");
-            GameRegistry.registerBlock(
-                stone[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) stone[i]).getColorSet() + "MixStone");
-            GameRegistry.registerBlock(
-                cobble[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) cobble[i]).getColorSet() + "MixCobble");
-            GameRegistry.registerBlock(
-                obsidian[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) obsidian[i]).getColorSet() + "MixObsidian");
-            GameRegistry.registerBlock(
-                soulsand[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) soulsand[i]).getColorSet() + "MixSoulsand");
-            GameRegistry.registerBlock(
-                quartz[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) quartz[i]).getColorSet() + "MixQuartz");
-            GameRegistry
-                .registerBlock(clay[i], MDItemBlockColored.class, ((IBlockColored) clay[i]).getColorSet() + "MixClay");
-            GameRegistry
-                .registerBlock(coal[i], MDItemBlockColored.class, ((IBlockColored) coal[i]).getColorSet() + "MixCoal");
-            GameRegistry.registerBlock(
-                glowstone[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) glowstone[i]).getColorSet() + "MixGlowstone");
-            GameRegistry.registerBlock(
-                lapis[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) lapis[i]).getColorSet() + "MixLapis");
-            GameRegistry.registerBlock(
-                redstone[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) redstone[i]).getColorSet() + "MixRedstone");
-            GameRegistry.registerBlock(
-                plank[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) plank[i]).getColorSet() + "MixPlank");
-            GameRegistry.registerBlock(
-                tulip[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) tulip[i]).getColorSet() + "MixTulip");
-            GameRegistry
-                .registerBlock(log[i], MDItemBlockColored.class, ((IBlockColored) log[i]).getColorSet() + "MixLog");
-            GameRegistry
-                .registerBlock(leaf[i], MDItemBlockColored.class, ((IBlockColored) leaf[i]).getColorSet() + "MixLeaf");
-            GameRegistry.registerBlock(
-                sapling[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) sapling[i]).getColorSet() + "MixSapling");
-            GameRegistry.registerBlock(
-                glassClear[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) glassClear[i]).getColorSet() + "MixGlassClear");
-            GameRegistry.registerBlock(
-                glassFoggy[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) glassFoggy[i]).getColorSet() + "MixGlassFoggy");
-            GameRegistry.registerBlock(
-                glassClearPane[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) glassClearPane[i]).getColorSet() + "MixGlassClearPane");
-            GameRegistry.registerBlock(
-                glassFoggyPane[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) glassFoggyPane[i]).getColorSet() + "MixGlassFoggyPane");
-            GameRegistry.registerBlock(
-                brick[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) brick[i]).getColorSet() + "MixBrick");
-            GameRegistry
-                .registerBlock(sand[i], MDItemBlockColored.class, ((IBlockColored) sand[i]).getColorSet() + "MixSand");
-            GameRegistry.registerBlock(
-                workbench[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) workbench[i]).getColorSet() + "MixWorkbench");
-            GameRegistry.registerBlock(
-                hardenedClay[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) hardenedClay[i]).getColorSet() + "MixHardenedClay");
-            GameRegistry.registerBlock(
-                sandstone[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) sandstone[i]).getColorSet() + "MixSandstone");
-            GameRegistry.registerBlock(
-                bookshelf[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) bookshelf[i]).getColorSet() + "MixBookshelf");
-            GameRegistry.registerBlock(
-                diorite[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) diorite[i]).getColorSet() + "MixDiorite");
-            // Register colored chests
-            GameRegistry.registerBlock(
-                chest[i],
-                MDItemBlockColored.class,
-                ((IBlockColored) chest[i]).getColorSet() + "MixChest");
+                .registerBlock(block, MDItemBlockChest.class, ((IBlockColored) block).getColorSet() + "MixChest");
+        }
+    }
+
+    /**
+     * Registers one block per color set as "colorSet + Mix + suffix". These names are saved in worlds, so they must
+     * not change.
+     */
+    public static void register(Block[] blocks, String suffix) {
+        for (Block block : blocks) {
+            String name = ((IBlockColored) block).getColorSet() + "Mix" + suffix;
+            GameRegistry.registerBlock(block, MDItemBlockColored.class, name);
+        }
+    }
+
+    /** The vanilla block each dyed block turns back into when washed in a cauldron. */
+    public static final Map<Block, ItemStack> WASHED = new HashMap<>();
+
+    public static void registerWashing() {
+        for (int i = 0; i < colors.length; i++) {
+            WASHED.put(wool[i], new ItemStack(Blocks.wool, 1, 0));
+            WASHED.put(stoneBrick[i], new ItemStack(Blocks.stonebrick, 1, 0));
+            WASHED.put(stoneBrickCracked[i], new ItemStack(Blocks.stonebrick, 1, 2));
+            WASHED.put(stoneBrickCarved[i], new ItemStack(Blocks.stonebrick, 1, 3));
+            WASHED.put(stone[i], new ItemStack(Blocks.stone));
+            WASHED.put(cobble[i], new ItemStack(Blocks.cobblestone));
+            WASHED.put(obsidian[i], new ItemStack(Blocks.obsidian));
+            WASHED.put(soulsand[i], new ItemStack(Blocks.soul_sand));
+            WASHED.put(quartz[i], new ItemStack(Blocks.quartz_block));
+            WASHED.put(clay[i], new ItemStack(Blocks.stained_hardened_clay, 1, 0));
+            WASHED.put(hardenedClay[i], new ItemStack(Blocks.hardened_clay));
+            WASHED.put(coal[i], new ItemStack(Blocks.coal_block));
+            WASHED.put(glowstone[i], new ItemStack(Blocks.glowstone));
+            WASHED.put(lapis[i], new ItemStack(Blocks.lapis_block));
+            WASHED.put(redstone[i], new ItemStack(Blocks.redstone_block));
+            WASHED.put(plank[i], new ItemStack(Blocks.planks, 1, 0));
+            WASHED.put(log[i], new ItemStack(Blocks.log, 1, 0));
+            WASHED.put(leaf[i], new ItemStack(Blocks.leaves, 1, 0));
+            WASHED.put(sapling[i], new ItemStack(Blocks.sapling, 1, 0));
+            WASHED.put(glassClear[i], new ItemStack(Blocks.glass));
+            WASHED.put(glassClearPane[i], new ItemStack(Blocks.glass_pane));
+            WASHED.put(brick[i], new ItemStack(Blocks.brick_block));
+            WASHED.put(sand[i], new ItemStack(Blocks.sand, 1, 0));
+            WASHED.put(workbench[i], new ItemStack(Blocks.crafting_table));
+            WASHED.put(chest[i], new ItemStack(Blocks.chest));
+            WASHED.put(sandstone[i], new ItemStack(Blocks.sandstone, 1, 0));
+            WASHED.put(bookshelf[i], new ItemStack(Blocks.bookshelf));
+            WASHED.put(diorite[i], new ItemStack(dioritePlain));
+        }
+    }
+
+    /** Same fire settings as the vanilla blocks (encouragement, flammability). */
+    public static void registerFlammability() {
+        for (int i = 0; i < colors.length; i++) {
+            Blocks.fire.setFireInfo(wool[i], 30, 60);
+            Blocks.fire.setFireInfo(plank[i], 5, 20);
+            Blocks.fire.setFireInfo(log[i], 5, 5);
+            Blocks.fire.setFireInfo(leaf[i], 30, 60);
+            Blocks.fire.setFireInfo(bookshelf[i], 30, 20);
+            Blocks.fire.setFireInfo(tulip[i], 60, 100);
+            Blocks.fire.setFireInfo(coal[i], 5, 5);
         }
     }
 
@@ -266,43 +239,77 @@ public class MDBlock {
         GameRegistry.registerTileEntity(TileEntityMDBlockColoredChest.class, "MDBlockColoredChest");
     }
 
+    /**
+     * Ore dictionary names, matching the names Forge gives the vanilla blocks (and GregTech's where Forge has none),
+     * so recipes from other mods accept the dyed blocks wherever they accept the vanilla ones.
+     */
     public static void registerOreDictionary() {
         for (int i = 0; i < 16; i++) {
             OreDictionary.registerOre("wool", new ItemStack(Blocks.wool, 1, i));
             OreDictionary.registerOre("blockWool", new ItemStack(Blocks.wool, 1, i));
             OreDictionary.registerOre("stainedClay", new ItemStack(Blocks.stained_hardened_clay, 1, i));
         }
-        OreDictionary.registerOre("soulsand", new ItemStack(Blocks.soul_sand, 1));
-        OreDictionary.registerOre("sand", new ItemStack(Blocks.sand, 1));
-        OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone, 1));
+        OreDictionary.registerOre("soulsand", new ItemStack(Blocks.soul_sand));
         OreDictionary.registerOre("bookshelf", new ItemStack(Blocks.bookshelf));
         OreDictionary.registerOre("chest", new ItemStack(Blocks.chest));
-        for (int a = 0; a < wool.length; a++) {
-            for (int i = 0; i <= ((MDBlockColored) wool[a]).getMaxMeta(); i++) {
-                OreDictionary.registerOre("wool", new ItemStack(wool[a], 1, i));
-                OreDictionary.registerOre("blockWool", new ItemStack(wool[a], 1, i));
-                OreDictionary.registerOre("bricksStone", new ItemStack(stoneBrick[a], 1, i));
-                OreDictionary.registerOre("bricksStoneCracked", new ItemStack(stoneBrickCracked[a], 1, i));
-                OreDictionary.registerOre("bricksStoneCarved", new ItemStack(stoneBrickCarved[a], 1, i));
-                OreDictionary.registerOre("blockObsidian", new ItemStack(obsidian[a], 1, i));
-                OreDictionary.registerOre("stone", new ItemStack(stone[a], 1, i));
-                OreDictionary.registerOre("cobblestone", new ItemStack(cobble[a], 1, i));
-                OreDictionary.registerOre("soulsand", new ItemStack(soulsand[a], 1, i));
-                OreDictionary.registerOre("blockQuartz", new ItemStack(quartz[a], 1, i));
-                OreDictionary.registerOre("blockRedstone", new ItemStack(redstone[a], 1, i));
-                OreDictionary.registerOre("blockCoal", new ItemStack(coal[a], 1, i));
-                OreDictionary.registerOre("plankWood", new ItemStack(plank[a], 1, i));
-                OreDictionary.registerOre("glowstone", new ItemStack(glowstone[a], 1, i));
-                OreDictionary.registerOre("lapisBlock", new ItemStack(lapis[a], 1, i));
-                OreDictionary.registerOre("stainedClay", new ItemStack(clay[a], 1, i));
-                OreDictionary.registerOre("logWood", new ItemStack(log[a], 1, i));
-                OreDictionary.registerOre("workbench", new ItemStack(workbench[a], 1, i));
-                OreDictionary.registerOre("chest", new ItemStack(chest[a], 1, i));
-                OreDictionary.registerOre("hardenedClay", new ItemStack(hardenedClay[a], 1, i));
-                OreDictionary.registerOre("sandstone", new ItemStack(sandstone[a], 1, i));
-                OreDictionary.registerOre("sand", new ItemStack(sand[a], 1, i));
-                OreDictionary.registerOre("bookshelf", new ItemStack(bookshelf[a], 1, i));
-                OreDictionary.registerOre("diorite", new ItemStack(diorite[a], 1, i));
+        OreDictionary.registerOre("chestWood", new ItemStack(Blocks.chest));
+        OreDictionary.registerOre("craftingTableWood", new ItemStack(Blocks.crafting_table));
+        OreDictionary.registerOre("stoneDiorite", new ItemStack(dioritePlain));
+        OreDictionary.registerOre("blockDiorite", new ItemStack(dioritePlain));
+
+        for (int a = 0; a < colors.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) wool[a]).getMaxMeta(); i++) {
+                ore(wool[a], i, "wool", "blockWool");
+                ore(stoneBrick[a], i, "bricksStone", "stoneBricks");
+                ore(stoneBrickCracked[a], i, "bricksStoneCracked");
+                ore(stoneBrickCarved[a], i, "bricksStoneCarved");
+                ore(obsidian[a], i, "blockObsidian", "stoneObsidian");
+                ore(stone[a], i, "stone");
+                ore(cobble[a], i, "cobblestone");
+                ore(soulsand[a], i, "soulsand");
+                ore(quartz[a], i, "blockQuartz");
+                ore(redstone[a], i, "blockRedstone");
+                ore(coal[a], i, "blockCoal");
+                ore(plank[a], i, "plankWood");
+                ore(log[a], i, "logWood");
+                ore(leaf[a], i, "treeLeaves");
+                ore(sapling[a], i, "treeSapling");
+                ore(glowstone[a], i, "glowstone");
+                ore(lapis[a], i, "blockLapis");
+                ore(clay[a], i, "stainedClay");
+                ore(hardenedClay[a], i, "hardenedClay");
+                ore(glassClear[a], i, "blockGlass");
+                ore(glassFoggy[a], i, "blockGlass");
+                ore(glassClearPane[a], i, "paneGlass");
+                ore(glassFoggyPane[a], i, "paneGlass");
+                ore(workbench[a], i, "craftingTableWood", "workbench");
+                ore(chest[a], i, "chestWood", "chest");
+                ore(sand[a], i, "sand");
+                ore(sandstone[a], i, "sandstone");
+                ore(bookshelf[a], i, "bookshelf");
+                ore(diorite[a], i, "stoneDiorite", "blockDiorite");
+            }
+        }
+    }
+
+    private static void ore(Block block, int meta, String... names) {
+        for (String name : names) {
+            OreDictionary.registerOre(name, new ItemStack(block, 1, meta));
+        }
+    }
+
+    /**
+     * True when no other mod provides diorite, so this mod generates it in the world and adds its crafting recipe.
+     * Decided in postInit, once every mod has registered its ore names.
+     */
+    public static boolean useOwnDiorite = true;
+
+    public static void detectDiorite() {
+        for (ItemStack stack : OreDictionary.getOres("stoneDiorite")) {
+            Block block = Block.getBlockFromItem(stack.getItem());
+            if (block != dioritePlain && !(block instanceof IBlockColored)) {
+                useOwnDiorite = false;
+                return;
             }
         }
     }

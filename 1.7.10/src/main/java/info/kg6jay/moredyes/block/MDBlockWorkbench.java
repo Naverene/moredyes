@@ -18,19 +18,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.BlockInfo;
-import info.kg6jay.moredyes.utility.LogHelper;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored {
 
     protected String[] blockColors;
     protected String blockName, colorSet;
-    public IIcon[] topIcons, sideIcons, frontIcons, bottomIcons;
+    @SideOnly(Side.CLIENT)
+    protected IIcon topIcon, sideIcon, frontIcon, bottomIcon;
 
     public MDBlockWorkbench(String[] colors, BlockInfo info, String colorSet) {
         this.blockColors = colors;
-        this.colorSet = colorSet;
         this.blockName = info.blockName;
         this.colorSet = colorSet;
         this.setHardness(info.hardness);
@@ -48,11 +48,7 @@ public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored {
 
     @Override
     public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
-        if (ConfigHandler.overrideDefaultMobSpawning) {
-            return ConfigHandler.mobSpawnOnBlock;
-        } else {
-            return super.canCreatureSpawn(type, world, x, y, z);
-        }
+        return !ConfigHandler.preventMobSpawning && super.canCreatureSpawn(type, world, x, y, z);
     }
 
     /**
@@ -70,32 +66,32 @@ public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored {
      */
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (meta >= this.sideIcons.length) {
-            meta = 0;
-        }
         return switch (side) {
-            case 0 -> this.bottomIcons[meta];
-            case 1 -> this.topIcons[meta];
-            case 2 -> this.frontIcons[meta];
-            default -> this.sideIcons[meta];
+            case 0 -> this.bottomIcon;
+            case 1 -> this.topIcon;
+            case 2, 4 -> this.frontIcon;
+            default -> this.sideIcon;
         };
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int meta) {
+        return ColorUtil.shade(this.blockColors, meta);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
+        return this.getRenderColor(world.getBlockMetadata(x, y, z));
     }
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.topIcons = new IIcon[blockColors.length];
-        this.bottomIcons = new IIcon[blockColors.length];
-        this.sideIcons = new IIcon[blockColors.length];
-        this.frontIcons = new IIcon[blockColors.length];
-
-        for (int i = 0; i < this.topIcons.length; ++i) {
-            this.topIcons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":" + blockName + "/top/" + blockColors[i]);
-            this.bottomIcons[i] = iconRegister.registerIcon(Reference.MOD_ID + "plank/" + blockColors[i]);
-            this.frontIcons[i] = iconRegister
-                .registerIcon(Reference.MOD_ID + ":" + blockName + "/front/" + blockColors[i]);
-            this.sideIcons[i] = iconRegister
-                .registerIcon(Reference.MOD_ID + ":" + blockName + "/side/" + blockColors[i]);
-        }
+        this.topIcon = TintedTextures.register(iconRegister, this.blockName + "/top");
+        this.bottomIcon = TintedTextures.register(iconRegister, "plank");
+        this.frontIcon = TintedTextures.register(iconRegister, this.blockName + "/front");
+        this.sideIcon = TintedTextures.register(iconRegister, this.blockName + "/side");
     }
 
     @Override
@@ -109,9 +105,8 @@ public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_,
-        float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        LogHelper.info("Colored workbench activated at " + x + "," + y + "," + z);
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX,
+        float hitY, float hitZ) {
         if (!world.isRemote) {
             player.openGui(MoreDyes.instance, GuiHandler.COLORED_WORKBENCH_GUI_ID, world, x, y, z);
         }

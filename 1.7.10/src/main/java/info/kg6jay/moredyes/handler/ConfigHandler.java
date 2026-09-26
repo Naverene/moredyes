@@ -15,8 +15,8 @@ public class ConfigHandler {
     public static boolean chisel_support = true;
     public static boolean worldgen_flower = true;
     public static boolean worldgen_tree = true;
-    public static boolean mobSpawnOnBlock = false;
-    public static boolean overrideDefaultMobSpawning = false;
+    public static boolean worldgen_diorite = true;
+    public static boolean preventMobSpawning = true;
 
     public static void init(File configFile) {
         if (config == null) {
@@ -53,16 +53,21 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "Set to false to disable world gen of dye trees");
-        mobSpawnOnBlock = config.getBoolean(
-            "mobSpawnOnBlock",
-            Configuration.CATEGORY_GENERAL,
-            false,
-            "Set to false to disable mob spawning on blocks");
-        overrideDefaultMobSpawning = config.getBoolean(
-            "overrideDefaultMobSpawning",
+        worldgen_diorite = config.getBoolean(
+            "WorldGen_Diorite",
             Configuration.CATEGORY_GENERAL,
             true,
-            "This option will allow you to override the mob spawning ability of certain blocks that are dyed");
+            "Set to false to disable world gen of diorite. It is also skipped when another mod provides diorite.");
+        preventMobSpawning = config.getBoolean(
+            "preventMobSpawning",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "If true, mobs cannot spawn on any block from this mod. If false, the blocks follow the vanilla rules.");
+        // Replaced by preventMobSpawning.
+        config.getCategory(Configuration.CATEGORY_GENERAL)
+            .remove("mobSpawnOnBlock");
+        config.getCategory(Configuration.CATEGORY_GENERAL)
+            .remove("overrideDefaultMobSpawning");
         if (config.hasChanged()) {
             config.save();
         }

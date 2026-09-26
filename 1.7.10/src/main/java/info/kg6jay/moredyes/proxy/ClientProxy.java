@@ -1,30 +1,31 @@
 package info.kg6jay.moredyes.proxy;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import info.kg6jay.moredyes.block.RenderIds;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
+import info.kg6jay.moredyes.client.LayeredBlockRenderer;
+import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
 
-@SideOnly(Side.CLIENT)
-public class ClientProxy extends CommonProxy
-{
-    @SideOnly(Side.CLIENT)
+public class ClientProxy extends CommonProxy {
+
     @Override
-    public void registerRenderThings() {
-        // Do not bind a TileEntitySpecialRenderer for the colored chest.
-        // The vanilla chest renderer handles chest models correctly. Our custom
-        // TESR previously bound a single flat-color texture and produced the
-        // magenta/weird-looking chest in-world. If we need custom coloring,
-        // implement a proper renderer that re-uses the vanilla chest texture or
-        // tints it appropriately.
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDBlockColoredChest.class, new TileEntityMDBlockColoredChestRenderer());
-
-
+    public void preInit() {
+        // Must be in place before the game loads its textures at the end of mod loading.
+        TintedTextures.install();
     }
 
     @Override
-    public void registerTileEntities() {
+    public void registerRenderThings() {
+        RenderIds.chest = RenderingRegistry.getNextAvailableRenderId();
+        TileEntityMDBlockColoredChestRenderer chestRenderer = new TileEntityMDBlockColoredChestRenderer();
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDBlockColoredChest.class, chestRenderer);
+        RenderingRegistry.registerBlockHandler(chestRenderer);
 
+        RenderIds.layeredCube = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredCube, false));
+        RenderIds.layeredPlant = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredPlant, true));
     }
 }

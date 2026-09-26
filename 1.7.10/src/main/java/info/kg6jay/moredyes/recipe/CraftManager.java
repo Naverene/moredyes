@@ -1,14 +1,17 @@
 package info.kg6jay.moredyes.recipe;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import info.kg6jay.moredyes.block.IBlockColored;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.MDBlockColored;
 import info.kg6jay.moredyes.item.MDItem;
@@ -194,7 +197,7 @@ public class CraftManager {
                             "SDS",
                             "SSS",
                             'S',
-                            Blocks.stonebrick,
+                            new ItemStack(Blocks.stonebrick, 1, 0),
                             'D',
                             new ItemStack(MDItem.dye[a], 1, i)));
                 CraftingManager.getInstance()
@@ -255,18 +258,6 @@ public class CraftManager {
                             "SSS",
                             'S',
                             Blocks.glowstone,
-                            'D',
-                            new ItemStack(MDItem.dye[a], 1, i)));
-                CraftingManager.getInstance()
-                    .getRecipeList()
-                    .add(
-                        new ShapedOreRecipe(
-                            new ItemStack(MDBlock.clay[a], 8, i),
-                            "SSS",
-                            "SDS",
-                            "SSS",
-                            'S',
-                            Blocks.hardened_clay,
                             'D',
                             new ItemStack(MDItem.dye[a], 1, i)));
                 CraftingManager.getInstance()
@@ -371,10 +362,6 @@ public class CraftManager {
                 GameRegistry
                     .addShapelessRecipe(new ItemStack(Items.redstone, 9), new ItemStack(MDBlock.redstone[a], 1, i));
                 GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 9, 4), new ItemStack(MDBlock.lapis[a], 1, i));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.glass, 1),
-                    new ItemStack(MDBlock.glassClear[a], 1, i),
-                    new ItemStack(Items.water_bucket));
                 GameRegistry.addShapedRecipe(
                     new ItemStack(MDBlock.stoneBrickCarved[a], 8, i),
                     "SSS",
@@ -412,135 +399,101 @@ public class CraftManager {
                     'D',
                     new ItemStack(MDItem.dye[a], 1, i));
 
-                // Cleaning Recipes
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.sand, 1, 0),
-                    new ItemStack(MDBlock.sand[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.stone, 1, 0),
-                    new ItemStack(MDBlock.stone[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.cobblestone, 1, 0),
-                    new ItemStack(MDBlock.cobble[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.wool, 1, 0),
-                    new ItemStack(MDBlock.wool[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.planks, 1, 0),
-                    new ItemStack(MDBlock.plank[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.glowstone, 1, 0),
-                    new ItemStack(MDBlock.glowstone[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.obsidian, 1, 0),
-                    new ItemStack(MDBlock.obsidian[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.stonebrick, 1, 0),
-                    new ItemStack(MDBlock.stoneBrick[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.soul_sand, 1, 0),
-                    new ItemStack(MDBlock.soulsand[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.quartz_block, 1, 0),
-                    new ItemStack(MDBlock.quartz[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-                GameRegistry.addShapelessRecipe(
-                    new ItemStack(Blocks.hardened_clay, 1, 0),
-                    new ItemStack(MDBlock.hardenedClay[a], 1, i),
-                    new ItemStack(Items.water_bucket));
-
             }
         }
-        // --- Colored Chest Recipes ---
-        /*
-         * for (int i = 0; i < MDBlock.colors.length; i++) {
-         * // 1. Crafting with planks
-         * GameRegistry.addRecipe(
-         * new ItemStack(MDBlock.chest[i], 1, i),
-         * "PPP",
-         * "PCP",
-         * "PPP",
-         * 'P',
-         * new ItemStack(MDBlock.plank[i], 1, i),
-         * 'C',
-         * new ItemStack(Blocks.chest));
-         * // 2. Dyeing vanilla chest
-         * GameRegistry.addShapelessRecipe(
-         * new ItemStack(MDBlock.chest[i], 1, i),
-         * new ItemStack(Blocks.chest),
-         * new ItemStack(Items.dye, 1, 15 - i) // Vanilla dye meta: 0=black, 15=white, so invert
-         * );
-         * // 3. Cleaning recipe
-         * GameRegistry.addShapelessRecipe(
-         * new ItemStack(Blocks.chest),
-         * new ItemStack(MDBlock.chest[i], 1, i),
-         * new ItemStack(Items.water_bucket));
-         * }
-         */
-        // --- Colored Workbench Recipes ---
-        for (int i = 0; i < MDBlock.colors.length; i++) {
-            // 1. Crafting with planks
-            GameRegistry.addRecipe(
-                new ItemStack(MDBlock.workbench[i], 1, i),
-                "PP",
-                "PP",
-                'P',
-                new ItemStack(MDBlock.plank[i], 1, i));
+        // --- Chests, crafting tables and the blocks that had no recipe ---
+        for (int a = 0; a < MDBlock.chest.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) MDBlock.chest[a]).getMaxMeta(); i++) {
+                ItemStack plank = new ItemStack(MDBlock.plank[a], 1, i);
+                ItemStack dye = new ItemStack(MDItem.dye[a], 1, i);
 
-            // 2. Dyeing vanilla workbench
-            GameRegistry.addShapelessRecipe(
-                new ItemStack(MDBlock.workbench[i], 1, i),
-                new ItemStack(Blocks.crafting_table),
-                new ItemStack(Items.dye, 1, 15 - i) // Vanilla dye meta: 0=black, 15=white, so invert
-            );
+                // Dyed planks are registered as "plankWood", so the vanilla chest and crafting table recipes also
+                // match them. Put these recipes first so a single shade of planks gives the dyed version.
+                addPriorityRecipe(
+                    new ShapedOreRecipe(new ItemStack(MDBlock.chest[a], 1, i), "PPP", "P P", "PPP", 'P', plank));
+                addPriorityRecipe(
+                    new ShapedOreRecipe(new ItemStack(MDBlock.workbench[a], 1, i), "PP", "PP", 'P', plank));
 
-            // 3. Cleaning recipe
-            GameRegistry.addShapelessRecipe(
-                new ItemStack(Blocks.crafting_table),
-                new ItemStack(MDBlock.workbench[i], 1, i),
-                new ItemStack(Items.water_bucket));
+                // Dyeing the vanilla blocks
+                GameRegistry
+                    .addShapelessRecipe(new ItemStack(MDBlock.chest[a], 1, i), new ItemStack(Blocks.chest), dye);
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(MDBlock.workbench[a], 1, i),
+                    new ItemStack(Blocks.crafting_table),
+                    dye);
+
+                // Blocks that had no recipe yet: eight vanilla blocks around a dye
+                addSurroundRecipe(MDBlock.stoneBrickCracked[a], i, new ItemStack(Blocks.stonebrick, 1, 2), dye);
+                addSurroundRecipe(MDBlock.sandstone[a], i, new ItemStack(Blocks.sandstone), dye);
+                addSurroundRecipe(MDBlock.bookshelf[a], i, new ItemStack(Blocks.bookshelf), dye);
+                addSurroundRecipe(MDBlock.glassClearPane[a], i, new ItemStack(Blocks.glass_pane), dye);
+                // Any mod's diorite can be dyed
+                GameRegistry.addRecipe(
+                    new ShapedOreRecipe(
+                        new ItemStack(MDBlock.diorite[a], 8, i),
+                        "SSS",
+                        "SDS",
+                        "SSS",
+                        'S',
+                        "stoneDiorite",
+                        'D',
+                        dye));
+
+                // Glass panes from dyed glass, like vanilla (six glass make sixteen panes)
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.glassClearPane[a], 16, i),
+                    "GGG",
+                    "GGG",
+                    'G',
+                    new ItemStack(MDBlock.glassClear[a], 1, i));
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.glassFoggyPane[a], 16, i),
+                    "GGG",
+                    "GGG",
+                    'G',
+                    new ItemStack(MDBlock.glassFoggy[a], 1, i));
+            }
         }
-        // CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new
-        // ItemStack(Blocks.stonebrick,1,0),"bricksStone",new ItemStack(Items.water_bucket)));
-        // CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new
-        // ItemStack(Blocks.stonebrick,1,3),"bricksStoneCarved",new ItemStack(Items.water_bucket)));
-        // CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new
-        // ItemStack(Blocks.stonebrick,1,2),"bricksStoneCracked",new ItemStack(Items.water_bucket)))
-        CraftingManager.getInstance()
-            .getRecipeList()
-            .add(
-                new ShapelessOreRecipe(
-                    new ItemStack(Blocks.quartz_block, 1),
-                    "blockQuartz",
-                    new ItemStack(Items.water_bucket)));
-        CraftingManager.getInstance()
-            .getRecipeList()
-            .add(
-                new ShapelessOreRecipe(
-                    new ItemStack(Blocks.hardened_clay, 1),
-                    "stainedClay",
-                    new ItemStack(Items.water_bucket)));
-        CraftingManager.getInstance()
-            .getRecipeList()
-            .add(new ShapelessOreRecipe(new ItemStack(Blocks.log, 1, 0), "logWood", new ItemStack(Items.water_bucket)));
         CraftingManager.getInstance()
             .getRecipeList()
             .add(new ShapelessOreRecipe(new ItemStack(Items.coal, 9, 0), "blockCoal"));
 
     }
 
+    /**
+     * Plain diorite from cobblestone and nether quartz, the Minecraft 1.8 recipe. Only added when no other mod
+     * provides diorite (it would clash with theirs), so it runs in postInit after MDBlock.detectDiorite.
+     */
+    public static void addDioriteRecipe() {
+        if (MDBlock.useOwnDiorite) {
+            GameRegistry.addRecipe(
+                new ShapedOreRecipe(
+                    new ItemStack(MDBlock.dioritePlain, 2),
+                    "CQ",
+                    "QC",
+                    'C',
+                    "cobblestone",
+                    'Q',
+                    "gemQuartz"));
+        }
+    }
+
+    private static void addSurroundRecipe(Block output, int meta, ItemStack surround, ItemStack dye) {
+        GameRegistry.addShapedRecipe(new ItemStack(output, 8, meta), "SSS", "SDS", "SSS", 'S', surround, 'D', dye);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void addPriorityRecipe(IRecipe recipe) {
+        CraftingManager.getInstance()
+            .getRecipeList()
+            .add(0, recipe);
+    }
+
     public static void addSmeltingRecipes() {
         for (int a = 0; a < MDBlock.cobble.length; a++) {
             for (int i = 0; i <= ((MDBlockColored) MDBlock.cobble[a]).getMaxMeta(); i++) {
+                FurnaceRecipes.smelting()
+                    .func_151394_a(new ItemStack(MDBlock.log[a], 1, i), new ItemStack(Items.coal, 1, 1), 0.15F);
                 FurnaceRecipes.smelting()
                     .func_151394_a(new ItemStack(MDBlock.cobble[a], 1, i), new ItemStack(MDBlock.stone[a], 1, i), 1.0f);
                 FurnaceRecipes.smelting()

@@ -17,7 +17,6 @@ public class BlockInfo {
     public float resistance;
     public Material blockMaterial;
     public CreativeTabs tab;
-    public int woodType;
 
     public BlockInfo(String blockName, Material mat, float h, SoundType t, String s, int hL, float r,
         CreativeTabs tab) {
@@ -37,12 +36,6 @@ public class BlockInfo {
 
     public BlockInfo(String blockName, Material mat, float h, SoundType t, String s, int hL) {
         this(blockName, mat, h, t, s, hL, 1.0F);
-    }
-
-    public BlockInfo(String blockName, Material mat, float hardness, SoundType soundType, String harvestTool,
-        int harvestLevel, int woodType) {
-        this(blockName, mat, hardness, soundType, harvestTool, harvestLevel);
-        this.woodType = 0;
     }
 
     public BlockInfo() {
