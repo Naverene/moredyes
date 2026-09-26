@@ -13,13 +13,14 @@ import net.minecraft.world.IBlockAccess;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.BlockInfo;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDBlockGlass extends BlockStainedGlass implements IBlockColored {
 
     @SideOnly(Side.CLIENT)
-    protected IIcon[] icons;
+    protected IIcon icon;
     protected String[] blockColors;
     protected String blockName, colorSet;
     private int blockIndex;
@@ -53,21 +54,25 @@ public class MDBlockGlass extends BlockStainedGlass implements IBlockColored {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (meta >= this.icons.length) {
-            meta = 0;
-        }
-        return this.icons[meta];
+        return this.icon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int meta) {
+        return ColorUtil.shade(this.blockColors, meta);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
+        return this.getRenderColor(world.getBlockMetadata(x, y, z));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.icons = new IIcon[blockColors.length];
-
-        for (int i = 0; i < this.icons.length; ++i) {
-            this.icons[i] = iconRegister
-                .registerIcon(Reference.MOD_ID + ":" + blockName + "/" + this.variant + "/" + blockColors[i]);
-        }
+        this.icon = TintedTextures.register(iconRegister, this.blockName + "/" + this.variant);
     }
 
     @Override

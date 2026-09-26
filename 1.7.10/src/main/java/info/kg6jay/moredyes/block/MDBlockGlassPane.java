@@ -14,8 +14,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.BlockInfo;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDBlockGlassPane extends BlockPane implements IBlockColored {
 
@@ -23,7 +24,7 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
     protected String blockName, colorSet, variant;
     private int blockIndex;
     @SideOnly(Side.CLIENT)
-    protected IIcon[] iconsBlock, iconsPane;
+    protected IIcon iconBlock, iconPane;
 
     protected MDBlockGlassPane(String[] colors, BlockInfo info, String colorSet, int index, String variant) {
         super("", "", info.blockMaterial, true);
@@ -56,7 +57,7 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
 
     @SideOnly(Side.CLIENT)
     public IIcon func_150097_e() {
-        return this.iconsPane[0];
+        return this.iconPane;
     }
 
     /**
@@ -68,15 +69,8 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.iconsBlock = new IIcon[blockColors.length];
-        this.iconsPane = new IIcon[blockColors.length];
-
-        for (int i = 0; i < this.iconsBlock.length; ++i) {
-            this.iconsBlock[i] = iconRegister
-                .registerIcon(Reference.MOD_ID + ":" + blockName + "/" + this.variant + "/" + blockColors[i]);
-            this.iconsPane[i] = iconRegister
-                .registerIcon(Reference.MOD_ID + ":" + blockName + "/pane/" + blockColors[i]);
-        }
+        this.iconBlock = TintedTextures.register(iconRegister, this.blockName + "/" + this.variant);
+        this.iconPane = TintedTextures.register(iconRegister, this.blockName + "/pane");
     }
 
     public boolean canPaneConnectTo(IBlockAccess world, int x, int y, int z, ForgeDirection dir) {
@@ -94,10 +88,19 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (meta >= this.iconsBlock.length) {
-            meta = 0;
-        }
-        return this.iconsBlock[meta];
+        return this.iconBlock;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int meta) {
+        return ColorUtil.shade(this.blockColors, meta);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
+        return this.getRenderColor(world.getBlockMetadata(x, y, z));
     }
 
     public String getColorSet() {

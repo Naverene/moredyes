@@ -19,13 +19,14 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.entity.passive.MDEntitySheep;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDItemDye extends Item {
 
     public String[] dyeNames;
     @SideOnly(Side.CLIENT)
-    private IIcon[] icon;
+    private IIcon icon;
 
     public MDItemDye(String[] names, String dyeSet) {
         this.setHasSubtypes(true);
@@ -39,9 +40,16 @@ public class MDItemDye extends Item {
      * Gets an icon index based on an item's damage value
      */
     @SideOnly(Side.CLIENT)
+    @Override
     public IIcon getIconFromDamage(int meta) {
-        int j = MathHelper.clamp_int(meta, 0, dyeNames.length - 1);
-        return this.icon[j];
+        return this.icon;
+    }
+
+    /** The dye's color; the grey dye texture is multiplied by it. */
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack stack, int pass) {
+        return ColorUtil.shade(this.dyeNames, stack.getItemDamage());
     }
 
     /**
@@ -138,11 +146,8 @@ public class MDItemDye extends Item {
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void registerIcons(IIconRegister iconRegister) {
-        this.icon = new IIcon[dyeNames.length];
-
-        for (int i = 0; i < dyeNames.length; ++i) {
-            this.icon[i] = iconRegister.registerIcon(Reference.MOD_ID + ":dye/dye_" + dyeNames[i]);
-        }
+        this.icon = TintedTextures.register(iconRegister, "dye");
     }
 }

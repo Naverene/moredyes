@@ -18,12 +18,12 @@ import net.minecraftforge.common.util.ForgeDirection;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.world.feature.WorldGenTreeDye;
 
-public class MDBlockSapling extends MDBlockColored implements IGrowable, IPlantable {
+public class MDBlockSapling extends MDBlockColoredPlant implements IGrowable, IPlantable {
 
     private final int colorIndex;
 
     public MDBlockSapling(String[] colors, BlockInfo info, String colorSet, int index) {
-        super(colors, info, colorSet);
+        super(colors, info, colorSet, "sapling/leaves", "sapling/trunk");
         float f = 0.4F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         this.setTickRandomly(true);
@@ -78,28 +78,6 @@ public class MDBlockSapling extends MDBlockColored implements IGrowable, IPlanta
      */
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         return null;
-    }
-
-    /**
-     * Is this block (a) opaque and (b) a full 1m cube? This determines whether or not to render the shared face of two
-     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-     */
-    public boolean isOpaqueCube() {
-        return false;
-    }
-
-    /**
-     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-     */
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    /**
-     * The type of render function that is called for this block
-     */
-    public int getRenderType() {
-        return 1;
     }
 
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {

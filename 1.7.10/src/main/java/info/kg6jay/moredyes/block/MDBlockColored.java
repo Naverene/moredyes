@@ -3,7 +3,8 @@ package info.kg6jay.moredyes.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.handler.ConfigHandler;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.utility.ColorUtil;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,7 +20,7 @@ import java.util.List;
 public class MDBlockColored extends Block implements IBlockColored {
 
     @SideOnly(Side.CLIENT)
-    protected IIcon[] icons;
+    protected IIcon icon;
     protected String[] blockColors;
     protected String blockName, colorSet;
 
@@ -40,12 +41,23 @@ public class MDBlockColored extends Block implements IBlockColored {
     /**
      * Gets the block's texture. Args: side, meta
      */
+    @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (meta > this.getMaxMeta()) {
-            meta = 0;
-        }
-        return this.icons[meta];
+        return this.icon;
+    }
+
+    /** The dye color of the shade stored in this metadata; the grey texture is multiplied by it. */
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int meta) {
+        return ColorUtil.shade(this.blockColors, meta);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
+        return this.getRenderColor(world.getBlockMetadata(x, y, z));
     }
 
     public String getColorSet() {
@@ -83,12 +95,9 @@ public class MDBlockColored extends Block implements IBlockColored {
         }
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.icons = new IIcon[blockColors.length];
-
-        for (int i = 0; i < this.icons.length; ++i) {
-            this.icons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":" + blockName + "/" + blockColors[i]);
-        }
+        this.icon = TintedTextures.register(iconRegister, this.blockName);
     }
 }

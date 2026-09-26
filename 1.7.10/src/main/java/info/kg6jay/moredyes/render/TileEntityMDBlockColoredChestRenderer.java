@@ -1,8 +1,5 @@
 package info.kg6jay.moredyes.render;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelChest;
@@ -21,10 +18,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.MDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.block.RenderIds;
+import info.kg6jay.moredyes.client.TintedTextures;
 
 /**
- * Draws the dyed chests with the vanilla chest models, using textures/model/chest/{normal,double}/&lt;hex&gt;.png.
+ * Draws the dyed chests with the vanilla chest models: a grey copy of the vanilla chest texture tinted with the dye
+ * color, with the latch left untinted.
  * Also acts as the inventory renderer, because the vanilla chest item renderer always draws a plain vanilla chest.
  */
 @SideOnly(Side.CLIENT)
@@ -33,13 +32,8 @@ public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRend
 
     private final ModelChest modelSingle = new ModelChest();
     private final ModelChest modelDouble = new ModelLargeChest();
-    private final Map<String, ResourceLocation> textures = new HashMap<>();
-
-    private ResourceLocation getTexture(String type, String hex) {
-        return this.textures.computeIfAbsent(
-            type + "/" + hex,
-            key -> new ResourceLocation(Reference.MOD_ID, "textures/model/chest/" + key + ".png"));
-    }
+    private final ResourceLocation textureSingle = TintedTextures.modelTexture("chest/normal");
+    private final ResourceLocation textureDouble = TintedTextures.modelTexture("chest/double");
 
     @Override
     public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float partialTicks) {
@@ -54,10 +48,11 @@ public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRend
         }
 
         boolean isDouble = chest.adjacentChestXPos != null || chest.adjacentChestZPos != null;
-        this.bindTexture(this.getTexture(isDouble ? "double" : "normal", block.getColorHex(chest.getBlockMetadata())));
+        this.bindTexture(isDouble ? this.textureDouble : this.textureSingle);
         float lid = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * partialTicks;
         this.renderModel(
             isDouble ? this.modelDouble : this.modelSingle,
+            block.getRenderColor(chest.getBlockMetadata()),
             chest.getFacing(),
             chest.adjacentChestXPos != null,
             chest.adjacentChestZPos != null,
@@ -68,11 +63,10 @@ public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRend
     }
 
     /** Same transforms as the vanilla chest renderer. */
-    private void renderModel(ModelChest model, int facing, boolean partnerXPos, boolean partnerZPos, float lid,
-        double x, double y, double z) {
+    private void renderModel(ModelChest model, int color, int facing, boolean partnerXPos, boolean partnerZPos,
+        float lid, double x, double y, double z) {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glTranslatef((float) x, (float) y + 1.0F, (float) z + 1.0F);
         GL11.glScalef(1.0F, -1.0F, -1.0F);
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
@@ -95,7 +89,14 @@ public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRend
         lid = 1.0F - lid;
         lid = 1.0F - lid * lid * lid;
         model.chestLid.rotateAngleX = -(lid * (float) Math.PI / 2.0F);
-        model.renderAll();
+        model.chestKnob.rotateAngleX = model.chestLid.rotateAngleX;
+
+        // Same parts as ModelChest.renderAll, with the wood tinted and the latch in its natural color.
+        GL11.glColor4f((color >> 16 & 255) / 255.0F, (color >> 8 & 255) / 255.0F, (color & 255) / 255.0F, 1.0F);
+        model.chestLid.render(0.0625F);
+        model.chestBelow.render(0.0625F);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        model.chestKnob.render(0.0625F);
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
@@ -112,8 +113,8 @@ public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRend
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
         Minecraft.getMinecraft()
             .getTextureManager()
-            .bindTexture(this.getTexture("normal", chest.getColorHex(metadata)));
-        this.renderModel(this.modelSingle, 3, false, false, 0.0F, 0.0D, 0.0D, 0.0D);
+            .bindTexture(this.textureSingle);
+        this.renderModel(this.modelSingle, chest.getRenderColor(metadata), 3, false, false, 0.0F, 0.0D, 0.0D, 0.0D);
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
     }
 
@@ -131,6 +132,6 @@ public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRend
 
     @Override
     public int getRenderId() {
-        return MDBlockColoredChest.renderId;
+        return RenderIds.chest;
     }
 }

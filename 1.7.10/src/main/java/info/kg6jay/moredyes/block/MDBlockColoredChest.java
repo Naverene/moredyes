@@ -25,8 +25,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.BlockInfo;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 /**
  * A dyed chest. Like every other block in the mod, one block exists per color set and the metadata selects the shade
@@ -36,16 +37,13 @@ import info.kg6jay.moredyes.utility.BlockInfo;
  */
 public class MDBlockColoredChest extends BlockContainer implements IBlockColored {
 
-    /** Render type used for the inventory model. Replaced with a real id by the client proxy. */
-    public static int renderId = 22;
-
     private static final int[][] HORIZONTAL = { { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 } };
 
     private final Random random = new Random();
     protected String[] blockColors;
     protected String blockName, colorSet;
     @SideOnly(Side.CLIENT)
-    protected IIcon[] icons;
+    protected IIcon icon;
 
     public MDBlockColoredChest(String[] colors, BlockInfo info, String colorSet) {
         super(info.blockMaterial);
@@ -60,16 +58,6 @@ public class MDBlockColoredChest extends BlockContainer implements IBlockColored
         this.setBlockName(colorSet + "Mix" + tmp + this.blockName.substring(1));
         this.setCreativeTab(info.tab);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
-    }
-
-    /**
-     * Returns the hex name of the shade stored in the given metadata, used to pick the chest model texture.
-     */
-    public String getColorHex(int meta) {
-        if (meta < 0 || meta >= this.blockColors.length) {
-            meta = 0;
-        }
-        return this.blockColors[meta];
     }
 
     @Override
@@ -99,7 +87,7 @@ public class MDBlockColoredChest extends BlockContainer implements IBlockColored
 
     @Override
     public int getRenderType() {
-        return renderId;
+        return RenderIds.chest;
     }
 
     @Override
@@ -116,26 +104,32 @@ public class MDBlockColoredChest extends BlockContainer implements IBlockColored
     }
 
     /**
-     * The chest model is drawn by the tile entity renderer; these icons (the matching dyed planks) are only used for
-     * the breaking particles, just like vanilla chests use the plank texture.
+     * The chest model is drawn by the tile entity renderer; this icon (dyed planks) is only used for the breaking
+     * particles, just like vanilla chests use the plank texture.
      */
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.icons = new IIcon[this.blockColors.length];
-        for (int i = 0; i < this.icons.length; ++i) {
-            this.icons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":plank/" + this.blockColors[i]);
-        }
-        this.blockIcon = this.icons[0];
+        this.icon = TintedTextures.register(iconRegister, "plank");
+        this.blockIcon = this.icon;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (meta < 0 || meta >= this.icons.length) {
-            meta = 0;
-        }
-        return this.icons[meta];
+        return this.icon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int meta) {
+        return ColorUtil.shade(this.blockColors, meta);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
+        return this.getRenderColor(world.getBlockMetadata(x, y, z));
     }
 
     /**

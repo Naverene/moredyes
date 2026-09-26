@@ -17,10 +17,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.utility.BlockInfo;
 
-public class MDBlockFlower extends MDBlockColored implements IPlantable {
+public class MDBlockFlower extends MDBlockColoredPlant implements IPlantable {
 
     protected MDBlockFlower(String[] colors, BlockInfo info, String colorSet) {
-        super(colors, info, colorSet);
+        super(colors, info, colorSet, "tulip/petals", "tulip/stem");
         this.setTickRandomly(true);
         float f = 0.2F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);
@@ -84,28 +84,6 @@ public class MDBlockFlower extends MDBlockColored implements IPlantable {
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_,
         int p_149668_4_) {
         return null;
-    }
-
-    /**
-     * Is this block (a) opaque and (b) a full 1m cube? This determines whether or not to render the shared face of two
-     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-     */
-    public boolean isOpaqueCube() {
-        return false;
-    }
-
-    /**
-     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-     */
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    /**
-     * The type of render function that is called for this block
-     */
-    public int getRenderType() {
-        return 1;
     }
 
     @Override

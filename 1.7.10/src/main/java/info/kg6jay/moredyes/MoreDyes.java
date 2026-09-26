@@ -45,6 +45,7 @@ public class MoreDyes {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         ConfigHandler.init(event.getSuggestedConfigurationFile());
+        proxy.preInit();
         FMLCommonHandler.instance()
             .bus()
             .register(new ConfigHandler());
