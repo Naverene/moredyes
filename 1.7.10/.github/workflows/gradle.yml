@@ -1,7 +1,8 @@
 # Builds the mod on every push and pull request, and publishes the jar:
 # - every push (including merges) to main updates the rolling "Development build" pre-release
 # - pushing a version tag such as v1.2.0 publishes a normal release for that version
-# Every run also keeps its jar as a downloadable artifact on the run's page.
+# Every run also starts a server with the mod to catch crashes while loading, and keeps its jar
+# as a downloadable artifact on the run's page.
 
 name: Build
 
@@ -36,6 +37,19 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+
+    # Starts a dedicated server with the release jar and a fresh world, and fails on a crash or a
+    # mod loading error (for example a block or item registered wrongly).
+    - name: Check the mod loads on a server
+      run: ./scripts/check-server-starts.sh
+
+    - name: Upload the server log
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: server-log
+        path: build/server-check.log
+        if-no-files-found: ignore
 
     # Keep only the jar players install (not the -dev, -sources or -api jars).
     - name: Collect the mod jar

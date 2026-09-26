@@ -25,7 +25,7 @@ To give a new block a texture, add a line to `TintSources` and call `TintedTextu
 
 ## Downloads and releases
 
-GitHub Actions builds the mod on every push. Pushing or merging to `main` updates the **Development build** pre-release on the Releases page with the newest jar. These builds are for testing.
+GitHub Actions builds the mod on every push, then starts a server with it and a fresh world; the build fails if the mod crashes or throws an error while loading. Pushing or merging to `main` updates the **Development build** pre-release on the Releases page with the newest jar. These builds are for testing.
 
 To publish a proper release, tag the commit with a version number starting with `v` and push the tag:
 
