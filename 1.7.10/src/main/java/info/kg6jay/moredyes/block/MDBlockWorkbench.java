@@ -48,11 +48,7 @@ public class MDBlockWorkbench extends BlockWorkbench implements IBlockColored {
 
     @Override
     public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
-        if (ConfigHandler.overrideDefaultMobSpawning) {
-            return ConfigHandler.mobSpawnOnBlock;
-        } else {
-            return super.canCreatureSpawn(type, world, x, y, z);
-        }
+        return !ConfigHandler.preventMobSpawning && super.canCreatureSpawn(type, world, x, y, z);
     }
 
     /**

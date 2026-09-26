@@ -1,5 +1,8 @@
 package info.kg6jay.moredyes.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -101,14 +104,14 @@ public class MDBlock {
             stoneBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK, set);
             stoneBrickCarved[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK_CARVED, set);
             stoneBrickCracked[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK_CRACKED, set);
-            stone[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE, set);
+            stone[i] = new MDBlockStone(shades, Reference.BLOCK_INFO_STONE, set, i);
             cobble[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_COBBLE, set);
-            obsidian[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_OBSIDIAN, set);
-            soulsand[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SOULSAND, set);
+            obsidian[i] = new MDBlockObsidian(shades, Reference.BLOCK_INFO_OBSIDIAN, set);
+            soulsand[i] = new MDBlockSoulSand(shades, Reference.BLOCK_INFO_SOULSAND, set);
             quartz[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_QUARTZ, set);
             clay[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_CLAY, set);
             coal[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_COAL, set);
-            glowstone[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_GLOWSTONE, set).setLightLevel(1.0f);
+            glowstone[i] = new MDBlockGlowstone(shades, Reference.BLOCK_INFO_GLOWSTONE, set);
             lapis[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_LAPIS, set);
             redstone[i] = new MDBlockColoredPowered(shades, Reference.BLOCK_INFO_REDSTONE, set);
             plank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_PLANK, set);
@@ -176,6 +179,54 @@ public class MDBlock {
         for (Block block : blocks) {
             String name = ((IBlockColored) block).getColorSet() + "Mix" + suffix;
             GameRegistry.registerBlock(block, MDItemBlockColored.class, name);
+        }
+    }
+
+    /** The vanilla block each dyed block turns back into when washed in a cauldron. */
+    public static final Map<Block, ItemStack> WASHED = new HashMap<>();
+
+    public static void registerWashing() {
+        for (int i = 0; i < colors.length; i++) {
+            WASHED.put(wool[i], new ItemStack(Blocks.wool, 1, 0));
+            WASHED.put(stoneBrick[i], new ItemStack(Blocks.stonebrick, 1, 0));
+            WASHED.put(stoneBrickCracked[i], new ItemStack(Blocks.stonebrick, 1, 2));
+            WASHED.put(stoneBrickCarved[i], new ItemStack(Blocks.stonebrick, 1, 3));
+            WASHED.put(stone[i], new ItemStack(Blocks.stone));
+            WASHED.put(cobble[i], new ItemStack(Blocks.cobblestone));
+            WASHED.put(obsidian[i], new ItemStack(Blocks.obsidian));
+            WASHED.put(soulsand[i], new ItemStack(Blocks.soul_sand));
+            WASHED.put(quartz[i], new ItemStack(Blocks.quartz_block));
+            WASHED.put(clay[i], new ItemStack(Blocks.stained_hardened_clay, 1, 0));
+            WASHED.put(hardenedClay[i], new ItemStack(Blocks.hardened_clay));
+            WASHED.put(coal[i], new ItemStack(Blocks.coal_block));
+            WASHED.put(glowstone[i], new ItemStack(Blocks.glowstone));
+            WASHED.put(lapis[i], new ItemStack(Blocks.lapis_block));
+            WASHED.put(redstone[i], new ItemStack(Blocks.redstone_block));
+            WASHED.put(plank[i], new ItemStack(Blocks.planks, 1, 0));
+            WASHED.put(log[i], new ItemStack(Blocks.log, 1, 0));
+            WASHED.put(leaf[i], new ItemStack(Blocks.leaves, 1, 0));
+            WASHED.put(sapling[i], new ItemStack(Blocks.sapling, 1, 0));
+            WASHED.put(glassClear[i], new ItemStack(Blocks.glass));
+            WASHED.put(glassClearPane[i], new ItemStack(Blocks.glass_pane));
+            WASHED.put(brick[i], new ItemStack(Blocks.brick_block));
+            WASHED.put(sand[i], new ItemStack(Blocks.sand, 1, 0));
+            WASHED.put(workbench[i], new ItemStack(Blocks.crafting_table));
+            WASHED.put(chest[i], new ItemStack(Blocks.chest));
+            WASHED.put(sandstone[i], new ItemStack(Blocks.sandstone, 1, 0));
+            WASHED.put(bookshelf[i], new ItemStack(Blocks.bookshelf));
+        }
+    }
+
+    /** Same fire settings as the vanilla blocks (encouragement, flammability). */
+    public static void registerFlammability() {
+        for (int i = 0; i < colors.length; i++) {
+            Blocks.fire.setFireInfo(wool[i], 30, 60);
+            Blocks.fire.setFireInfo(plank[i], 5, 20);
+            Blocks.fire.setFireInfo(log[i], 5, 5);
+            Blocks.fire.setFireInfo(leaf[i], 30, 60);
+            Blocks.fire.setFireInfo(bookshelf[i], 30, 20);
+            Blocks.fire.setFireInfo(tulip[i], 60, 100);
+            Blocks.fire.setFireInfo(coal[i], 5, 5);
         }
     }
 

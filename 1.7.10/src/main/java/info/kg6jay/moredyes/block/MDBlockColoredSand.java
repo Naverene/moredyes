@@ -3,6 +3,7 @@ package info.kg6jay.moredyes.block;
 import java.util.List;
 
 import net.minecraft.block.BlockFalling;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EnumCreatureType;
@@ -10,6 +11,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -73,11 +77,28 @@ public class MDBlockColoredSand extends BlockFalling implements IBlockColored {
 
     @Override
     public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
-        if (ConfigHandler.overrideDefaultMobSpawning) {
-            return ConfigHandler.mobSpawnOnBlock;
-        } else {
-            return super.canCreatureSpawn(type, world, x, y, z);
+        return !ConfigHandler.preventMobSpawning && super.canCreatureSpawn(type, world, x, y, z);
+    }
+
+    /** Grows cactus and dead bushes, and sugar cane next to water, like vanilla sand. */
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction,
+        IPlantable plantable) {
+        EnumPlantType type = plantable.getPlantType(world, x, y + 1, z);
+        if (type == EnumPlantType.Desert) {
+            return true;
         }
+        if (type == EnumPlantType.Beach) {
+            return world.getBlock(x - 1, y, z)
+                .getMaterial() == Material.water
+                || world.getBlock(x + 1, y, z)
+                    .getMaterial() == Material.water
+                || world.getBlock(x, y, z - 1)
+                    .getMaterial() == Material.water
+                || world.getBlock(x, y, z + 1)
+                    .getMaterial() == Material.water;
+        }
+        return super.canSustainPlant(world, x, y, z, direction, plantable);
     }
 
     public int damageDropped(int meta) {

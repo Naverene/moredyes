@@ -19,6 +19,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -26,6 +27,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
@@ -314,5 +316,10 @@ public class MDBlockColoredChest extends BlockContainer implements IBlockColored
     @Override
     public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
         return Container.calcRedstoneFromInventory(this.getInventory(world, x, y, z));
+    }
+
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+        return !ConfigHandler.preventMobSpawning && super.canCreatureSpawn(type, world, x, y, z);
     }
 }

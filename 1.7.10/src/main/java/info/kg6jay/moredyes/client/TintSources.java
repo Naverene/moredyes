@@ -65,7 +65,7 @@ public final class TintSources {
         block("quartz/top", "quartz_block_top");
         block("quartz/side", "quartz_block_side");
         block("quartz/bottom", "quartz_block_bottom");
-        block("clay", "clay");
+        block("clay", "hardened_clay_stained_white");
         block("hardenedClay", "hardened_clay");
         block("coal", "coal_block");
         block("glowstone", "glowstone");

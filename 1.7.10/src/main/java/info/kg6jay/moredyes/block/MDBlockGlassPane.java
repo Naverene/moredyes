@@ -10,11 +10,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
@@ -27,7 +29,8 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
     protected IIcon iconBlock, iconPane;
 
     protected MDBlockGlassPane(String[] colors, BlockInfo info, String colorSet, int index, String variant) {
-        super("", "", info.blockMaterial, true);
+        // false: like vanilla glass panes, drops nothing unless broken with silk touch
+        super("", "", info.blockMaterial, false);
         this.blockIndex = index;
         this.blockColors = colors;
         this.blockName = info.blockName;
@@ -109,5 +112,10 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
 
     public int getMaxMeta() {
         return this.blockColors.length - 1;
+    }
+
+    @Override
+    public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+        return !ConfigHandler.preventMobSpawning && super.canCreatureSpawn(type, world, x, y, z);
     }
 }
