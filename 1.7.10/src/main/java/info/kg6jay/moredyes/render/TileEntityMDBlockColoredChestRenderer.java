@@ -17,8 +17,8 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.MDBlockColoredChest;
-import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.RenderIds;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.client.TintedTextures;
 
 /**
