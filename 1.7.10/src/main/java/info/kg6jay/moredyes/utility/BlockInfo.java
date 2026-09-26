@@ -12,6 +12,7 @@ public class BlockInfo {
     public String blockName;
     public float hardness;
     public SoundType sound;
+    /** Tool class that mines this block fastest, or null for none (like vanilla leaves, wool and glass). */
     public String harvestTool;
     public int harvestLevel;
     public float resistance;

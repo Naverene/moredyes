@@ -20,7 +20,7 @@ public class Reference {
         Material.cloth,
         0.8f,
         Block.soundTypeCloth,
-        "sword",
+        null,
         0);
     public static final BlockInfo BLOCK_INFO_STONE = new BlockInfo(
         "stone",
@@ -145,7 +145,7 @@ public class Reference {
         Material.plants,
         0.0f,
         Block.soundTypeGrass,
-        "",
+        null,
         0);
     public static final BlockInfo BLOCK_INFO_LOG = new BlockInfo(
         "log",
@@ -161,7 +161,7 @@ public class Reference {
         Material.leaves,
         0.2f,
         Block.soundTypeGrass,
-        "axe",
+        null,
         0,
         1.0f,
         MoreDyes.tabTrees);
@@ -170,7 +170,7 @@ public class Reference {
         Material.plants,
         0.0f,
         Block.soundTypeGrass,
-        "",
+        null,
         0,
         1.0f,
         MoreDyes.tabTrees);
@@ -180,7 +180,7 @@ public class Reference {
         Material.glass,
         0.4f,
         Block.soundTypeGlass,
-        "pickaxe",
+        null,
         0,
         1.0f);
 
@@ -2373,6 +2373,6 @@ public class Reference {
         Material.cloth,
         0.8f,
         Block.soundTypeCloth,
-        "sword",
+        null,
         0);
 }
