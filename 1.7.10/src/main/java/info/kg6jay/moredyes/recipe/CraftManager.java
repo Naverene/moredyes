@@ -427,6 +427,17 @@ public class CraftManager {
                 addSurroundRecipe(MDBlock.sandstone[a], i, new ItemStack(Blocks.sandstone), dye);
                 addSurroundRecipe(MDBlock.bookshelf[a], i, new ItemStack(Blocks.bookshelf), dye);
                 addSurroundRecipe(MDBlock.glassClearPane[a], i, new ItemStack(Blocks.glass_pane), dye);
+                // Any mod's diorite can be dyed
+                GameRegistry.addRecipe(
+                    new ShapedOreRecipe(
+                        new ItemStack(MDBlock.diorite[a], 8, i),
+                        "SSS",
+                        "SDS",
+                        "SSS",
+                        'S',
+                        "stoneDiorite",
+                        'D',
+                        dye));
 
                 // Glass panes from dyed glass, like vanilla (six glass make sixteen panes)
                 GameRegistry.addShapedRecipe(
@@ -447,6 +458,24 @@ public class CraftManager {
             .getRecipeList()
             .add(new ShapelessOreRecipe(new ItemStack(Items.coal, 9, 0), "blockCoal"));
 
+    }
+
+    /**
+     * Plain diorite from cobblestone and nether quartz, the Minecraft 1.8 recipe. Only added when no other mod
+     * provides diorite (it would clash with theirs), so it runs in postInit after MDBlock.detectDiorite.
+     */
+    public static void addDioriteRecipe() {
+        if (MDBlock.useOwnDiorite) {
+            GameRegistry.addRecipe(
+                new ShapedOreRecipe(
+                    new ItemStack(MDBlock.dioritePlain, 2),
+                    "CQ",
+                    "QC",
+                    'C',
+                    "cobblestone",
+                    'Q',
+                    "gemQuartz"));
+        }
     }
 
     private static void addSurroundRecipe(Block output, int meta, ItemStack surround, ItemStack dye) {

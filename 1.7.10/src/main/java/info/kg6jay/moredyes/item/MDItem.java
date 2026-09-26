@@ -1,6 +1,8 @@
 package info.kg6jay.moredyes.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.MDBlock;
@@ -23,6 +25,8 @@ public class MDItem {
     }
 
     public static void registerOreDict() {
-
+        for (Item item : dye) {
+            OreDictionary.registerOre("dye", new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+        }
     }
 }

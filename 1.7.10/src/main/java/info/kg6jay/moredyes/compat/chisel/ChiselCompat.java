@@ -14,8 +14,8 @@ import info.kg6jay.moredyes.reference.Reference;
 
 /**
  * Makes the dyed blocks chiselable. Every shade is added to the carving group of its vanilla block (Chisel's own
- * group if it has one, otherwise a new group holding the vanilla block), so a chisel turns the vanilla block into
- * any dyed shade and back. Chisel's Auto Chisel and GregTech's auto chisels read the same groups, so they work too.
+ * group if it has one, such as its stone or diorite groups, otherwise a new group holding the vanilla block), so a
+ * chisel turns the vanilla block into any dyed shade and back. Chisel's Auto Chisel and GregTech's auto chisels read the same groups, so they work too.
  * Must run after Chisel has registered its own groups (postInit).
  */
 public class ChiselCompat {
@@ -56,15 +56,22 @@ public class ChiselCompat {
         add(chisel, "glass", MDBlock.glassClear, Blocks.glass, 0);
         add(chisel, "glassPane", MDBlock.glassClearPane, Blocks.glass_pane, 0);
         add(chisel, "bookshelf", MDBlock.bookshelf, Blocks.bookshelf, 0);
+        add(chisel, "diorite", MDBlock.diorite, MDBlock.dioritePlain, 0);
     }
 
     private static void add(ICarvingRegistry chisel, String name, Block[] blocks, Block vanilla, int vanillaMeta) {
         ICarvingGroup group = chisel.getGroup(vanilla, vanillaMeta);
+        if (group == null) {
+            // Chisel's own group of the same name, such as its diorite
+            group = chisel.getGroup(name);
+        }
         String groupName;
         if (group != null) {
             groupName = group.getName();
         } else {
             groupName = Reference.MOD_ID + ":" + name;
+        }
+        if (chisel.getGroup(vanilla, vanillaMeta) == null) {
             chisel.addVariation(groupName, vanilla, vanillaMeta, 0);
         }
 

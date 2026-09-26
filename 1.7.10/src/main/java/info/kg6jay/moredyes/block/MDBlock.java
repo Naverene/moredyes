@@ -59,9 +59,12 @@ public class MDBlock {
     public static Block[] sandstone;
     public static Block[] bookshelf;
     public static Block[] diorite;
+    /** Plain diorite, the base for dyed diorite. */
+    public static Block dioritePlain;
 
     public static void initialize() {
         int l = colors.length;
+        dioritePlain = new MDBlockDiorite(Reference.BLOCK_INFO_DIORITE);
 
         wool = new Block[l];
         stoneBrick = new Block[l];
@@ -165,6 +168,7 @@ public class MDBlock {
         register(sandstone, "Sandstone");
         register(bookshelf, "Bookshelf");
         register(diorite, "Diorite");
+        GameRegistry.registerBlock(dioritePlain, "diorite");
         for (Block block : chest) {
             GameRegistry
                 .registerBlock(block, MDItemBlockChest.class, ((IBlockColored) block).getColorSet() + "MixChest");
@@ -214,6 +218,7 @@ public class MDBlock {
             WASHED.put(chest[i], new ItemStack(Blocks.chest));
             WASHED.put(sandstone[i], new ItemStack(Blocks.sandstone, 1, 0));
             WASHED.put(bookshelf[i], new ItemStack(Blocks.bookshelf));
+            WASHED.put(diorite[i], new ItemStack(dioritePlain));
         }
     }
 
@@ -234,47 +239,77 @@ public class MDBlock {
         GameRegistry.registerTileEntity(TileEntityMDBlockColoredChest.class, "MDBlockColoredChest");
     }
 
+    /**
+     * Ore dictionary names, matching the names Forge gives the vanilla blocks (and GregTech's where Forge has none),
+     * so recipes from other mods accept the dyed blocks wherever they accept the vanilla ones.
+     */
     public static void registerOreDictionary() {
         for (int i = 0; i < 16; i++) {
             OreDictionary.registerOre("wool", new ItemStack(Blocks.wool, 1, i));
             OreDictionary.registerOre("blockWool", new ItemStack(Blocks.wool, 1, i));
             OreDictionary.registerOre("stainedClay", new ItemStack(Blocks.stained_hardened_clay, 1, i));
         }
-        OreDictionary.registerOre("soulsand", new ItemStack(Blocks.soul_sand, 1));
-        OreDictionary.registerOre("sand", new ItemStack(Blocks.sand, 1));
-        OreDictionary.registerOre("sandstone", new ItemStack(Blocks.sandstone, 1));
+        OreDictionary.registerOre("soulsand", new ItemStack(Blocks.soul_sand));
         OreDictionary.registerOre("bookshelf", new ItemStack(Blocks.bookshelf));
         OreDictionary.registerOre("chest", new ItemStack(Blocks.chest));
         OreDictionary.registerOre("chestWood", new ItemStack(Blocks.chest));
         OreDictionary.registerOre("craftingTableWood", new ItemStack(Blocks.crafting_table));
-        for (int a = 0; a < wool.length; a++) {
-            for (int i = 0; i <= ((MDBlockColored) wool[a]).getMaxMeta(); i++) {
-                OreDictionary.registerOre("wool", new ItemStack(wool[a], 1, i));
-                OreDictionary.registerOre("blockWool", new ItemStack(wool[a], 1, i));
-                OreDictionary.registerOre("bricksStone", new ItemStack(stoneBrick[a], 1, i));
-                OreDictionary.registerOre("bricksStoneCracked", new ItemStack(stoneBrickCracked[a], 1, i));
-                OreDictionary.registerOre("bricksStoneCarved", new ItemStack(stoneBrickCarved[a], 1, i));
-                OreDictionary.registerOre("blockObsidian", new ItemStack(obsidian[a], 1, i));
-                OreDictionary.registerOre("stone", new ItemStack(stone[a], 1, i));
-                OreDictionary.registerOre("cobblestone", new ItemStack(cobble[a], 1, i));
-                OreDictionary.registerOre("soulsand", new ItemStack(soulsand[a], 1, i));
-                OreDictionary.registerOre("blockQuartz", new ItemStack(quartz[a], 1, i));
-                OreDictionary.registerOre("blockRedstone", new ItemStack(redstone[a], 1, i));
-                OreDictionary.registerOre("blockCoal", new ItemStack(coal[a], 1, i));
-                OreDictionary.registerOre("plankWood", new ItemStack(plank[a], 1, i));
-                OreDictionary.registerOre("glowstone", new ItemStack(glowstone[a], 1, i));
-                OreDictionary.registerOre("lapisBlock", new ItemStack(lapis[a], 1, i));
-                OreDictionary.registerOre("stainedClay", new ItemStack(clay[a], 1, i));
-                OreDictionary.registerOre("logWood", new ItemStack(log[a], 1, i));
-                OreDictionary.registerOre("workbench", new ItemStack(workbench[a], 1, i));
-                OreDictionary.registerOre("craftingTableWood", new ItemStack(workbench[a], 1, i));
-                OreDictionary.registerOre("chest", new ItemStack(chest[a], 1, i));
-                OreDictionary.registerOre("chestWood", new ItemStack(chest[a], 1, i));
-                OreDictionary.registerOre("hardenedClay", new ItemStack(hardenedClay[a], 1, i));
-                OreDictionary.registerOre("sandstone", new ItemStack(sandstone[a], 1, i));
-                OreDictionary.registerOre("sand", new ItemStack(sand[a], 1, i));
-                OreDictionary.registerOre("bookshelf", new ItemStack(bookshelf[a], 1, i));
-                OreDictionary.registerOre("diorite", new ItemStack(diorite[a], 1, i));
+        OreDictionary.registerOre("stoneDiorite", new ItemStack(dioritePlain));
+        OreDictionary.registerOre("blockDiorite", new ItemStack(dioritePlain));
+
+        for (int a = 0; a < colors.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) wool[a]).getMaxMeta(); i++) {
+                ore(wool[a], i, "wool", "blockWool");
+                ore(stoneBrick[a], i, "bricksStone", "stoneBricks");
+                ore(stoneBrickCracked[a], i, "bricksStoneCracked");
+                ore(stoneBrickCarved[a], i, "bricksStoneCarved");
+                ore(obsidian[a], i, "blockObsidian", "stoneObsidian");
+                ore(stone[a], i, "stone");
+                ore(cobble[a], i, "cobblestone");
+                ore(soulsand[a], i, "soulsand");
+                ore(quartz[a], i, "blockQuartz");
+                ore(redstone[a], i, "blockRedstone");
+                ore(coal[a], i, "blockCoal");
+                ore(plank[a], i, "plankWood");
+                ore(log[a], i, "logWood");
+                ore(leaf[a], i, "treeLeaves");
+                ore(sapling[a], i, "treeSapling");
+                ore(glowstone[a], i, "glowstone");
+                ore(lapis[a], i, "blockLapis");
+                ore(clay[a], i, "stainedClay");
+                ore(hardenedClay[a], i, "hardenedClay");
+                ore(glassClear[a], i, "blockGlass");
+                ore(glassFoggy[a], i, "blockGlass");
+                ore(glassClearPane[a], i, "paneGlass");
+                ore(glassFoggyPane[a], i, "paneGlass");
+                ore(workbench[a], i, "craftingTableWood", "workbench");
+                ore(chest[a], i, "chestWood", "chest");
+                ore(sand[a], i, "sand");
+                ore(sandstone[a], i, "sandstone");
+                ore(bookshelf[a], i, "bookshelf");
+                ore(diorite[a], i, "stoneDiorite", "blockDiorite");
+            }
+        }
+    }
+
+    private static void ore(Block block, int meta, String... names) {
+        for (String name : names) {
+            OreDictionary.registerOre(name, new ItemStack(block, 1, meta));
+        }
+    }
+
+    /**
+     * True when no other mod provides diorite, so this mod generates it in the world and adds its crafting recipe.
+     * Decided in postInit, once every mod has registered its ore names.
+     */
+    public static boolean useOwnDiorite = true;
+
+    public static void detectDiorite() {
+        for (ItemStack stack : OreDictionary.getOres("stoneDiorite")) {
+            Block block = Block.getBlockFromItem(stack.getItem());
+            if (block != dioritePlain && !(block instanceof IBlockColored)) {
+                useOwnDiorite = false;
+                return;
             }
         }
     }

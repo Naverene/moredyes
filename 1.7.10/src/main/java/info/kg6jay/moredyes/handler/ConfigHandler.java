@@ -15,6 +15,7 @@ public class ConfigHandler {
     public static boolean chisel_support = true;
     public static boolean worldgen_flower = true;
     public static boolean worldgen_tree = true;
+    public static boolean worldgen_diorite = true;
     public static boolean preventMobSpawning = true;
 
     public static void init(File configFile) {
@@ -52,6 +53,11 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "Set to false to disable world gen of dye trees");
+        worldgen_diorite = config.getBoolean(
+            "WorldGen_Diorite",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Set to false to disable world gen of diorite. It is also skipped when another mod provides diorite.");
         preventMobSpawning = config.getBoolean(
             "preventMobSpawning",
             Configuration.CATEGORY_GENERAL,

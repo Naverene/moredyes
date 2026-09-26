@@ -42,7 +42,8 @@ public class MDBlockGlassPane extends BlockPane implements IBlockColored {
         this.setResistance(info.resistance);
         char tmp = (char) (((int) this.blockName.charAt(0)) - 32);
         char tmpVar = (char) (((int) this.variant.charAt(0)) - 32);
-        this.setBlockName(colorSet + "Mix" + tmp + this.blockName.substring(1) + tmpVar + this.variant.substring(1));
+        this.setBlockName(
+            colorSet + "Mix" + tmp + this.blockName.substring(1) + tmpVar + this.variant.substring(1) + "Pane");
         this.setCreativeTab(info.tab);
     }
 

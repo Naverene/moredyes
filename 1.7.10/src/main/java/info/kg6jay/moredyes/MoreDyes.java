@@ -88,6 +88,8 @@ public class MoreDyes {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
+        MDBlock.detectDiorite();
+        CraftManager.addDioriteRecipe();
         if (Loader.isModLoaded("chisel")) {
             ChiselCompat.registerChisel();
         }
