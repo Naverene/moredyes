@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
+import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
-import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.utility.ColorUtil;
 

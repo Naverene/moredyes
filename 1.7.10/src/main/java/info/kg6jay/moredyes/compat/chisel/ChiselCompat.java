@@ -15,7 +15,8 @@ import info.kg6jay.moredyes.reference.Reference;
 /**
  * Makes the dyed blocks chiselable. Every shade is added to the carving group of its vanilla block (Chisel's own
  * group if it has one, such as its stone or diorite groups, otherwise a new group holding the vanilla block), so a
- * chisel turns the vanilla block into any dyed shade and back. Chisel's Auto Chisel and GregTech's auto chisels read the same groups, so they work too.
+ * chisel turns the vanilla block into any dyed shade and back. Chisel's Auto Chisel and GregTech's auto chisels read
+ * the same groups, so they work too.
  * Must run after Chisel has registered its own groups (postInit).
  */
 public class ChiselCompat {
