@@ -5,10 +5,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import info.kg6jay.moredyes.block.IBlockColored;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.MDBlockColored;
 import info.kg6jay.moredyes.item.MDItem;
@@ -460,54 +462,37 @@ public class CraftManager {
 
             }
         }
-        // --- Colored Chest Recipes ---
-        /*
-         * for (int i = 0; i < MDBlock.colors.length; i++) {
-         * // 1. Crafting with planks
-         * GameRegistry.addRecipe(
-         * new ItemStack(MDBlock.chest[i], 1, i),
-         * "PPP",
-         * "PCP",
-         * "PPP",
-         * 'P',
-         * new ItemStack(MDBlock.plank[i], 1, i),
-         * 'C',
-         * new ItemStack(Blocks.chest));
-         * // 2. Dyeing vanilla chest
-         * GameRegistry.addShapelessRecipe(
-         * new ItemStack(MDBlock.chest[i], 1, i),
-         * new ItemStack(Blocks.chest),
-         * new ItemStack(Items.dye, 1, 15 - i) // Vanilla dye meta: 0=black, 15=white, so invert
-         * );
-         * // 3. Cleaning recipe
-         * GameRegistry.addShapelessRecipe(
-         * new ItemStack(Blocks.chest),
-         * new ItemStack(MDBlock.chest[i], 1, i),
-         * new ItemStack(Items.water_bucket));
-         * }
-         */
-        // --- Colored Workbench Recipes ---
-        for (int i = 0; i < MDBlock.colors.length; i++) {
-            // 1. Crafting with planks
-            GameRegistry.addRecipe(
-                new ItemStack(MDBlock.workbench[i], 1, i),
-                "PP",
-                "PP",
-                'P',
-                new ItemStack(MDBlock.plank[i], 1, i));
+        // --- Colored Chest and Crafting Table Recipes ---
+        for (int a = 0; a < MDBlock.chest.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) MDBlock.chest[a]).getMaxMeta(); i++) {
+                ItemStack plank = new ItemStack(MDBlock.plank[a], 1, i);
+                ItemStack dye = new ItemStack(MDItem.dye[a], 1, i);
 
-            // 2. Dyeing vanilla workbench
-            GameRegistry.addShapelessRecipe(
-                new ItemStack(MDBlock.workbench[i], 1, i),
-                new ItemStack(Blocks.crafting_table),
-                new ItemStack(Items.dye, 1, 15 - i) // Vanilla dye meta: 0=black, 15=white, so invert
-            );
+                // Dyed planks are registered as "plankWood", so the vanilla chest and crafting table recipes also
+                // match them. Put these recipes first so a single shade of planks gives the dyed version.
+                addPriorityRecipe(
+                    new ShapedOreRecipe(new ItemStack(MDBlock.chest[a], 1, i), "PPP", "P P", "PPP", 'P', plank));
+                addPriorityRecipe(
+                    new ShapedOreRecipe(new ItemStack(MDBlock.workbench[a], 1, i), "PP", "PP", 'P', plank));
 
-            // 3. Cleaning recipe
-            GameRegistry.addShapelessRecipe(
-                new ItemStack(Blocks.crafting_table),
-                new ItemStack(MDBlock.workbench[i], 1, i),
-                new ItemStack(Items.water_bucket));
+                // Dyeing the vanilla blocks
+                GameRegistry
+                    .addShapelessRecipe(new ItemStack(MDBlock.chest[a], 1, i), new ItemStack(Blocks.chest), dye);
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(MDBlock.workbench[a], 1, i),
+                    new ItemStack(Blocks.crafting_table),
+                    dye);
+
+                // Cleaning Recipes
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(Blocks.chest),
+                    new ItemStack(MDBlock.chest[a], 1, i),
+                    new ItemStack(Items.water_bucket));
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(Blocks.crafting_table),
+                    new ItemStack(MDBlock.workbench[a], 1, i),
+                    new ItemStack(Items.water_bucket));
+            }
         }
         // CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new
         // ItemStack(Blocks.stonebrick,1,0),"bricksStone",new ItemStack(Items.water_bucket)));
@@ -536,6 +521,13 @@ public class CraftManager {
             .getRecipeList()
             .add(new ShapelessOreRecipe(new ItemStack(Items.coal, 9, 0), "blockCoal"));
 
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void addPriorityRecipe(IRecipe recipe) {
+        CraftingManager.getInstance()
+            .getRecipeList()
+            .add(0, recipe);
     }
 
     public static void addSmeltingRecipes() {

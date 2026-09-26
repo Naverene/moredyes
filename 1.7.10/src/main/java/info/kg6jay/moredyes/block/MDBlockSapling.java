@@ -10,8 +10,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -137,12 +135,10 @@ public class MDBlockSapling extends MDBlockColored implements IGrowable, IPlanta
     public void func_149878_d(World world, int x, int y, int z, Random rand) {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, rand, x, y, z)) return;
         int meta = world.getBlockMetadata(x, y, z);
-        Object object = rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
-        object = new WorldGenTreeDye(false, 3, meta, this.colorIndex);
+        WorldGenerator tree = new WorldGenTreeDye(false, 3, meta, this.colorIndex);
         world.setBlockToAir(x, y, z);
-        Block block = Blocks.air;
 
-        if (!((WorldGenerator) object).generate(world, rand, x, y, z)) {
+        if (!tree.generate(world, rand, x, y, z)) {
             world.setBlock(x, y, z, this, meta, 4);
         }
     }

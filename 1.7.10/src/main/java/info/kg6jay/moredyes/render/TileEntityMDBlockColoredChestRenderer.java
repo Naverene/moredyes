@@ -1,152 +1,136 @@
 package info.kg6jay.moredyes.render;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelChest;
+import net.minecraft.client.model.ModelLargeChest;
+import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import info.kg6jay.moredyes.block.MDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.reference.Reference;
-import info.kg6jay.moredyes.reference.ColorStrings;
 
-public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRenderer {
+/**
+ * Draws the dyed chests with the vanilla chest models, using textures/model/chest/{normal,double}/&lt;hex&gt;.png.
+ * Also acts as the inventory renderer, because the vanilla chest item renderer always draws a plain vanilla chest.
+ */
+@SideOnly(Side.CLIENT)
+public class TileEntityMDBlockColoredChestRenderer extends TileEntitySpecialRenderer
+    implements ISimpleBlockRenderingHandler {
 
-    private final ModelChest modelChest = new ModelChest();
-    private final ModelChest modelDoubleChest = new ModelChest(); // For simplicity, using the same model.
+    private final ModelChest modelSingle = new ModelChest();
+    private final ModelChest modelDouble = new ModelLargeChest();
+    private final Map<String, ResourceLocation> textures = new HashMap<>();
+
+    private ResourceLocation getTexture(String type, String hex) {
+        return this.textures.computeIfAbsent(
+            type + "/" + hex,
+            key -> new ResourceLocation(Reference.MOD_ID, "textures/model/chest/" + key + ".png"));
+    }
 
     @Override
     public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float partialTicks) {
-        if (!(tile instanceof TileEntityMDBlockColoredChest)) return;
-        TileEntityMDBlockColoredChest chest = (TileEntityMDBlockColoredChest) tile;
-
-        // Determine color from block metadata (or tile entity if you store it there)
-        int meta = chest.getBlockMetadata();
-        String colorHex = getHexFromMeta(meta); // Map meta to the hex texture filename that exists
-
-        // Determine if this is a double chest (adjacent chest check)
-        boolean isDouble = isDoubleChest(chest); // Implement this method if needed
-
-        // Build texture path
-        String type = isDouble ? "double" : "normal";
-        ResourceLocation texture = null;
-        // 1) Try to get the block's registered icon name and bind the matching file under textures/blocks
-        try {
-            if (chest.getWorldObj() != null) {
-                net.minecraft.block.Block block = chest.getBlockType();
-                if (block != null) {
-                    net.minecraft.util.IIcon icon = block.getIcon(0, chest.getBlockMetadata());
-                    if (icon != null) {
-                        String iconName = icon.getIconName(); // e.g. "moredyes:chest/normal/a5bf86"
-                        String ns = Reference.MOD_ID;
-                        String path = iconName;
-                        if (iconName.contains(":")) {
-                            String[] parts = iconName.split(":", 2);
-                            ns = parts[0];
-                            path = parts[1];
-                        }
-                        ResourceLocation rl = new ResourceLocation(ns, "textures/blocks/" + path + ".png");
-                        try {
-                            this.bindTexture(rl);
-                            texture = rl;
-                        } catch (Exception ignored) {}
-                    }
-                }
-            }
-        } catch (Throwable ignored) {}
-
-        // 2) Fallback: explicit chest file path under textures/blocks/chest/<type>/<hex>.png
-        if (texture == null) {
-            ResourceLocation cand = new ResourceLocation(Reference.MOD_ID,
-                "textures/blocks/chest/" + type + "/" + colorHex + ".png");
-            try {
-                this.bindTexture(cand);
-                texture = cand;
-            } catch (Exception ignored) {}
+        if (!(tile instanceof TileEntityMDBlockColoredChest chest)
+            || !(chest.getBlockType() instanceof MDBlockColoredChest block)) {
+            return;
+        }
+        chest.checkForAdjacentChests();
+        // The half at the lower coordinate draws the whole double chest.
+        if (chest.adjacentChestXNeg != null || chest.adjacentChestZNeg != null) {
+            return;
         }
 
-        // 3) Final fallback: default white texture
-        if (texture == null) {
-            ResourceLocation fallback = new ResourceLocation(Reference.MOD_ID, "textures/blocks/chest/normal/ecbf99.png");
-            try { this.bindTexture(fallback); } catch (Exception ignored) {}
-        }
+        boolean isDouble = chest.adjacentChestXPos != null || chest.adjacentChestZPos != null;
+        this.bindTexture(this.getTexture(isDouble ? "double" : "normal", block.getColorHex(chest.getBlockMetadata())));
+        float lid = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * partialTicks;
+        this.renderModel(
+            isDouble ? this.modelDouble : this.modelSingle,
+            chest.getFacing(),
+            chest.adjacentChestXPos != null,
+            chest.adjacentChestZPos != null,
+            lid,
+            x,
+            y,
+            z);
+    }
 
+    /** Same transforms as the vanilla chest renderer. */
+    private void renderModel(ModelChest model, int facing, boolean partnerXPos, boolean partnerZPos, float lid,
+        double x, double y, double z) {
         GL11.glPushMatrix();
-        // Vanilla chest TESR sequence: enable rescale normal, translate to center of block, scale, rotate, translate down, render
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
-        // Determine facing like vanilla (consider adjacent chests for correct rotation)
-        int short1 = 0;
-        try {
-            if (chest.getWorldObj() != null) {
-                short1 = chest.getBlockMetadata();
-                if (chest.adjacentChestZNeg != null) short1 = 2;
-                if (chest.adjacentChestXNeg != null) short1 = 5;
-            }
-        } catch (Throwable ignored) { short1 = meta; }
-        int angle = 0;
-        if (short1 == 2) angle = 180;
-        if (short1 == 3) angle = 0;
-        if (short1 == 4) angle = 90;
-        if (short1 == 5) angle = -90;
-        GL11.glRotatef((float) angle, 0.0F, 1.0F, 0.0F);
-        // Translate down to model origin, then apply negative Y/Z scale (vanilla order)
-        GL11.glTranslatef(0.0F, -1.0F, 0.0F);
+        GL11.glTranslatef((float) x, (float) y + 1.0F, (float) z + 1.0F);
         GL11.glScalef(1.0F, -1.0F, -1.0F);
+        GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 
-        if (isDouble) {
-            modelDoubleChest.renderAll();
-        } else {
-            modelChest.renderAll();
+        int angle = switch (facing) {
+            case 2 -> 180;
+            case 4 -> 90;
+            case 5 -> -90;
+            default -> 0;
+        };
+        if (facing == 2 && partnerXPos) {
+            GL11.glTranslatef(1.0F, 0.0F, 0.0F);
         }
+        if (facing == 5 && partnerZPos) {
+            GL11.glTranslatef(0.0F, 0.0F, -1.0F);
+        }
+        GL11.glRotatef((float) angle, 0.0F, 1.0F, 0.0F);
+        GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
+
+        lid = 1.0F - lid;
+        lid = 1.0F - lid * lid * lid;
+        model.chestLid.rotateAngleX = -(lid * (float) Math.PI / 2.0F);
+        model.renderAll();
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
-    private String getHexFromMeta(int meta) {
-        // Map the 0..14 metadata to the first hex in each ColorStrings array.
-        // This matches the texture files present under textures/blocks/chest/normal/<hex>.png
-        switch (meta) {
-            case 1:
-                return ColorStrings.ORANGE[0];
-            case 2:
-                return ColorStrings.MAGENTA[0];
-            case 3:
-                return ColorStrings.LBLUE[0];
-            case 4:
-                return ColorStrings.YELLOW[0];
-            case 5:
-                return ColorStrings.LIME[0];
-            case 6:
-                return ColorStrings.PINK[0];
-            case 7:
-                return ColorStrings.DGRAY[0];
-            case 8:
-                return ColorStrings.LGRAY[0];
-            case 9:
-                return ColorStrings.CYAN[0];
-            case 10:
-                return ColorStrings.PURPLE[0];
-            case 11:
-                return ColorStrings.BLUE[0];
-            case 12:
-                return ColorStrings.BROWN[0];
-            case 13:
-                return ColorStrings.GREEN[0];
-            case 14:
-                return ColorStrings.RED[0];
-            default:
-                return ColorStrings.WHITE[0];
+    @Override
+    public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+        if (!(block instanceof MDBlockColoredChest chest)) {
+            return;
         }
+        // Matches what RenderBlocks does before drawing a vanilla chest item.
+        GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
+        GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
+        Minecraft.getMinecraft()
+            .getTextureManager()
+            .bindTexture(this.getTexture("normal", chest.getColorHex(metadata)));
+        this.renderModel(this.modelSingle, 3, false, false, 0.0F, 0.0D, 0.0D, 0.0D);
+        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
     }
 
-    private boolean isDoubleChest(TileEntityMDBlockColoredChest chest) {
-        // TODO: Implement adjacency check for double chests if needed
-        // For now, always return false (single chest)
+    @Override
+    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId,
+        RenderBlocks renderer) {
+        // Nothing to draw in the chunk mesh; the tile entity renderer draws the chest.
         return false;
+    }
+
+    @Override
+    public boolean shouldRender3DInInventory(int modelId) {
+        return true;
+    }
+
+    @Override
+    public int getRenderId() {
+        return MDBlockColoredChest.renderId;
     }
 }

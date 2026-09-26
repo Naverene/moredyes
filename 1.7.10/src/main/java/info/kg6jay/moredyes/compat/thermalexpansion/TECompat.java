@@ -11,13 +11,17 @@ import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.MDBlockColored;
 import info.kg6jay.moredyes.item.MDItem;
 import info.kg6jay.moredyes.item.MDItemBlockColored;
+import info.kg6jay.moredyes.reference.Reference;
 
 public class TECompat {
 
     public static void registerThermalExpansion() {
         MDBlock.rockwool = new Block[MDBlock.colors.length];
         for (int i = 0; i < MDBlock.colors.length; i++) {
-            MDBlock.rockwool[i] = new MDBlockColored(MDBlock.colorStrings[i], MDBlock.info[0], MDBlock.colors[i]);
+            MDBlock.rockwool[i] = new MDBlockColored(
+                MDBlock.colorStrings[i],
+                Reference.BLOCK_INFO_ROCK_WOOL,
+                MDBlock.colors[i]);
             GameRegistry.registerBlock(
                 MDBlock.rockwool[i],
                 MDItemBlockColored.class,

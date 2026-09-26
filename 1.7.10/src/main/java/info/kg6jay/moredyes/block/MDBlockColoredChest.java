@@ -1,18 +1,18 @@
 package info.kg6jay.moredyes.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import info.kg6jay.moredyes.MoreDyes;
-import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
-import info.kg6jay.moredyes.handler.GuiHandler;
-import info.kg6jay.moredyes.reference.Reference;
-import info.kg6jay.moredyes.utility.BlockInfo;
-import net.minecraft.block.BlockChest;
+import java.util.List;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -22,55 +22,69 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
+import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.utility.BlockInfo;
 
-public class MDBlockColoredChest extends BlockChest implements IBlockColored {
+/**
+ * A dyed chest. Like every other block in the mod, one block exists per color set and the metadata selects the shade
+ * within that set. Because the metadata is used for the color, the facing is stored in the tile entity instead of in
+ * the metadata (vanilla chests keep their facing in the metadata, which is why this cannot extend BlockChest).
+ * Two adjacent chests of the same block and shade join into a double chest.
+ */
+public class MDBlockColoredChest extends BlockContainer implements IBlockColored {
 
-    private final String[] colors;
-    private final String color;
+    /** Render type used for the inventory model. Replaced with a real id by the client proxy. */
+    public static int renderId = 22;
 
+    private static final int[][] HORIZONTAL = { { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 } };
+
+    private final Random random = new Random();
+    protected String[] blockColors;
+    protected String blockName, colorSet;
     @SideOnly(Side.CLIENT)
-    private IIcon[] colorIcons;
+    protected IIcon[] icons;
 
-    public MDBlockColoredChest(String name, BlockInfo info, String[] colors) {
-        super(info.woodType);
-        this.colors = colors;
-        this.color = name;
-        this.setBlockName(name);
+    public MDBlockColoredChest(String[] colors, BlockInfo info, String colorSet) {
+        super(info.blockMaterial);
+        this.blockColors = colors;
+        this.blockName = info.blockName;
+        this.colorSet = colorSet;
+        this.setHardness(info.hardness);
+        this.setHarvestLevel(info.harvestTool, info.harvestLevel);
+        this.setStepSound(info.sound);
+        this.setResistance(info.resistance);
+        char tmp = (char) (((int) this.blockName.charAt(0)) - 32);
+        this.setBlockName(colorSet + "Mix" + tmp + this.blockName.substring(1));
         this.setCreativeTab(info.tab);
-        this.setBlockBounds(0.0625F, 0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
-        // Map the color name to the actual hex texture filename available in assets
-        String hex = getHexForColorName(name);
-        // Register texture name without an extra 'blocks/' segment. The resource loader will map
-        // 'moredyes:chest/normal/<hex>' -> 'assets/moredyes/textures/blocks/chest/normal/<hex>.png'
-        this.setBlockTextureName(Reference.MOD_ID + ":chest/normal/" + hex);
+        this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
-        // Register a per-color icon array based on the configured colors for this block
-        if (this.colors != null && this.colors.length > 0) {
-            this.colorIcons = new IIcon[this.colors.length];
-            for (int i = 0; i < this.colors.length; i++) {
-                String hex = getHexForColorName(this.colors[i]);
-                // Register icon name without the extra 'blocks/' segment to avoid doubling when
-                // the texture system prefixes 'textures/blocks/'.
-                String path = Reference.MOD_ID + ":chest/normal/" + hex;
-                this.colorIcons[i] = iconRegister.registerIcon(path);
-            }
-            // Keep a fallback blockIcon (use first color or the named texture)
-            this.blockIcon = this.colorIcons[0] != null ? this.colorIcons[0] : iconRegister.registerIcon(this.getTextureName());
-        } else {
-            this.blockIcon = iconRegister.registerIcon(this.getTextureName());
+    /**
+     * Returns the hex name of the shade stored in the given metadata, used to pick the chest model texture.
+     */
+    public String getColorHex(int meta) {
+        if (meta < 0 || meta >= this.blockColors.length) {
+            meta = 0;
         }
+        return this.blockColors[meta];
     }
 
     @Override
-    public int getRenderType() {
-        // Return the vanilla chest render type to avoid mismatches with renderers
-        return Blocks.chest.getRenderType();
+    public String getColorSet() {
+        return this.colorSet;
+    }
+
+    @Override
+    public int getMaxMeta() {
+        return this.blockColors.length - 1;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world, int meta) {
+        return new TileEntityMDBlockColoredChest();
     }
 
     @Override
@@ -84,149 +98,227 @@ public class MDBlockColoredChest extends BlockChest implements IBlockColored {
     }
 
     @Override
-    public boolean hasComparatorInputOverride() {
-        return true;
-    }
-
-    // Add this override to use different textures per color
-    @Override
-    public IIcon getIcon(int side, int meta) {
-        // Defensive bounds check for meta (color index)
-        if (meta < 0) meta = 0;
-        if (this.colorIcons != null && meta < this.colorIcons.length) {
-            IIcon ico = this.colorIcons[meta];
-            if (ico != null) return ico;
-        }
-        // Fallback
-        return this.blockIcon;
-    }
-
-    // Add this override for correct unlocalized name per color
-    public String getUnlocalizedName(ItemStack stack) {
-        int meta = stack.getItemDamage();
-        if (meta < 0 || meta >= colors.length) meta = 0;
-        return super.getUnlocalizedName() + "." + colors[meta];
+    public int getRenderType() {
+        return renderId;
     }
 
     @Override
     public int damageDropped(int meta) {
-        // Ensure the dropped item keeps its color (metadata)
         return meta;
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-        for (int i = 0; i < colors.length; i++) {
+        for (int i = 0; i < this.blockColors.length; ++i) {
             list.add(new ItemStack(item, 1, i));
         }
     }
 
+    /**
+     * The chest model is drawn by the tile entity renderer; these icons (the matching dyed planks) are only used for
+     * the breaking particles, just like vanilla chests use the plank texture.
+     */
     @Override
-    public String getUnlocalizedName() {
-        return super.getUnlocalizedName();
-    }
-
-    public String getUnlocalizedName(int meta) {
-        return super.getUnlocalizedName() + "." + colors[meta];
-    }
-
-    @Override
-    public String getColorSet() {
-        return color;
-    }
-
-    @Override
-    public int getMaxMeta() {
-        return colors.length - 1;
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        this.icons = new IIcon[this.blockColors.length];
+        for (int i = 0; i < this.icons.length; ++i) {
+            this.icons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":plank/" + this.blockColors[i]);
+        }
+        this.blockIcon = this.icons[0];
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int meta) {
-        return new TileEntityMDBlockColoredChest();
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 0 || meta >= this.icons.length) {
+            meta = 0;
+        }
+        return this.icons[meta];
     }
 
-    @Override
-    public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer player, int i1, float f1, float f2,
-        float f3) {
-        TileEntity te = world.getTileEntity(i, j, k);
-
-        if (te == null || !(te instanceof TileEntityMDBlockColoredChest)) {
-            return true;
-        }
-
-        if (world.isSideSolid(i, j + 1, k, ForgeDirection.DOWN)) {
-            return true;
-        }
-
-        if (world.isRemote) {
-            return true;
-        }
-
-        player.openGui(MoreDyes.instance, GuiHandler.COLORED_CHEST_GUI_ID, world, i, j, k);
-        return true;
+    /**
+     * True if the block at the given position is this chest in the same shade, meaning the two can join.
+     */
+    public boolean isSameChest(IBlockAccess world, int x, int y, int z, int meta) {
+        return world.getBlock(x, y, z) == this && world.getBlockMetadata(x, y, z) == meta;
     }
 
-    @Override
-    public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack) {
-        byte chestFacing = 0;
-        int facing = MathHelper.floor_double((double) ((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
-        if (facing == 0) {
-            chestFacing = 2;
-        }
-        if (facing == 1) {
-            chestFacing = 5;
-        }
-        if (facing == 2) {
-            chestFacing = 3;
-        }
-        if (facing == 3) {
-            chestFacing = 4;
-        }
-        TileEntity te = world.getTileEntity(i, j, k);
-        if (te != null && te instanceof TileEntityMDBlockColoredChest teic)
-        {
-            teic.wasPlaced(entityliving, itemStack);
-            teic.setFacing(chestFacing);
-            world.markBlockForUpdate(i, j, k);
-        }
-    }
-
-    private String getHexForColorName(String name) {
-        if (name == null) return "ecbf99";
-        for (int i = 0; i < MDBlock.colors.length; i++) {
-            if (MDBlock.colors[i].equalsIgnoreCase(name)) {
-                if (i < MDBlock.colorStrings.length && MDBlock.colorStrings[i] != null
-                    && MDBlock.colorStrings[i].length > 0) {
-                    return MDBlock.colorStrings[i][0];
-                }
+    private boolean isPartOfDoubleChest(World world, int x, int y, int z, int meta) {
+        for (int[] d : HORIZONTAL) {
+            if (this.isSameChest(world, x + d[0], y, z + d[1], meta)) {
+                return true;
             }
         }
-        return "ecbf99";
+        return false;
+    }
+
+    /**
+     * Mirrors the vanilla rule that a chest may join at most one other chest. Called by the item block before placing,
+     * because the shade (metadata) is not known in canPlaceBlockAt.
+     */
+    public boolean canPlaceChestAt(World world, int x, int y, int z, int meta) {
+        int neighbours = 0;
+        for (int[] d : HORIZONTAL) {
+            if (this.isSameChest(world, x + d[0], y, z + d[1], meta)) {
+                if (this.isPartOfDoubleChest(world, x + d[0], y, z + d[1], meta)) {
+                    return false;
+                }
+                ++neighbours;
+            }
+        }
+        return neighbours <= 1;
     }
 
     @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess worldIn, int x, int y, int z)
-    {
-        if (worldIn.getBlock(x, y, z - 1) == this)
-        {
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+        int meta = world.getBlockMetadata(x, y, z);
+        if (this.isSameChest(world, x, y, z - 1, meta)) {
             this.setBlockBounds(0.0625F, 0.0F, 0.0F, 0.9375F, 0.875F, 0.9375F);
-        }
-        else if (worldIn.getBlock(x, y, z + 1) == this)
-        {
+        } else if (this.isSameChest(world, x, y, z + 1, meta)) {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 1.0F);
-        }
-        else if (worldIn.getBlock(x - 1, y, z) == this)
-        {
+        } else if (this.isSameChest(world, x - 1, y, z, meta)) {
             this.setBlockBounds(0.0F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
-        }
-        else if (worldIn.getBlock(x + 1, y, z) == this)
-        {
+        } else if (this.isSameChest(world, x + 1, y, z, meta)) {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 1.0F, 0.875F, 0.9375F);
-        }
-        else
-        {
+        } else {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         }
     }
 
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase placer, ItemStack stack) {
+        int meta = world.getBlockMetadata(x, y, z);
+        int facing = switch (MathHelper.floor_double((double) (placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) {
+            case 0 -> 2;
+            case 1 -> 5;
+            case 2 -> 3;
+            default -> 4;
+        };
+
+        // A double chest must face perpendicular to the axis it lies on, and both halves must face the same way.
+        boolean partnerOnXAxis = this.isSameChest(world, x - 1, y, z, meta)
+            || this.isSameChest(world, x + 1, y, z, meta);
+        boolean partnerOnZAxis = this.isSameChest(world, x, y, z - 1, meta)
+            || this.isSameChest(world, x, y, z + 1, meta);
+        if (partnerOnXAxis && facing != 2 && facing != 3) {
+            facing = 3;
+        } else if (partnerOnZAxis && facing != 4 && facing != 5) {
+            facing = 5;
+        }
+
+        this.setFacing(world, x, y, z, facing);
+        for (int[] d : HORIZONTAL) {
+            if (this.isSameChest(world, x + d[0], y, z + d[1], meta)) {
+                this.setFacing(world, x + d[0], y, z + d[1], facing);
+            }
+        }
+
+        TileEntity te = world.getTileEntity(x, y, z);
+        if (te instanceof TileEntityMDBlockColoredChest chest && stack.hasDisplayName()) {
+            chest.func_145976_a(stack.getDisplayName());
+        }
+    }
+
+    private void setFacing(World world, int x, int y, int z, int facing) {
+        TileEntity te = world.getTileEntity(x, y, z);
+        if (te instanceof TileEntityMDBlockColoredChest chest) {
+            chest.setFacing(facing);
+            world.markBlockForUpdate(x, y, z);
+        }
+    }
+
+    @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {
+        super.onNeighborBlockChange(world, x, y, z, neighbor);
+        TileEntity te = world.getTileEntity(x, y, z);
+        if (te instanceof TileEntityMDBlockColoredChest) {
+            te.updateContainingBlockInfo();
+        }
+    }
+
+    @Override
+    public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+        TileEntity te = world.getTileEntity(x, y, z);
+        if (te instanceof TileEntityMDBlockColoredChest chest && !world.isRemote) {
+            for (int i = 0; i < chest.getSizeInventory(); ++i) {
+                ItemStack stack = chest.getStackInSlot(i);
+                if (stack != null) {
+                    float dx = this.random.nextFloat() * 0.8F + 0.1F;
+                    float dy = this.random.nextFloat() * 0.8F + 0.1F;
+                    float dz = this.random.nextFloat() * 0.8F + 0.1F;
+                    EntityItem entity = new EntityItem(world, x + dx, y + dy, z + dz, stack.copy());
+                    entity.motionX = this.random.nextGaussian() * 0.05D;
+                    entity.motionY = this.random.nextGaussian() * 0.05D + 0.2D;
+                    entity.motionZ = this.random.nextGaussian() * 0.05D;
+                    world.spawnEntityInWorld(entity);
+                    chest.setInventorySlotContents(i, null);
+                }
+            }
+            world.func_147453_f(x, y, z, block);
+        }
+        super.breakBlock(world, x, y, z, block, meta);
+    }
+
+    /**
+     * Returns the inventory to open at the given position (a combined inventory for a double chest), or null if the
+     * chest is blocked from opening.
+     */
+    public IInventory getInventory(World world, int x, int y, int z) {
+        TileEntity te = world.getTileEntity(x, y, z);
+        if (!(te instanceof TileEntityMDBlockColoredChest)) {
+            return null;
+        }
+        if (world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN)) {
+            return null;
+        }
+
+        IInventory inventory = (IInventory) te;
+        int meta = world.getBlockMetadata(x, y, z);
+        for (int[] d : HORIZONTAL) {
+            int nx = x + d[0];
+            int nz = z + d[1];
+            if (!this.isSameChest(world, nx, y, nz, meta)) {
+                continue;
+            }
+            if (world.isSideSolid(nx, y + 1, nz, ForgeDirection.DOWN)) {
+                return null;
+            }
+            TileEntity other = world.getTileEntity(nx, y, nz);
+            if (other instanceof TileEntityMDBlockColoredChest) {
+                // Same ordering as vanilla: the chest at the lower coordinate is the top half of the GUI.
+                if (d[0] < 0 || d[1] < 0) {
+                    inventory = new InventoryLargeChest("container.chestDouble", (IInventory) other, inventory);
+                } else {
+                    inventory = new InventoryLargeChest("container.chestDouble", inventory, (IInventory) other);
+                }
+            }
+        }
+        return inventory;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX,
+        float hitY, float hitZ) {
+        if (world.isRemote) {
+            return true;
+        }
+        IInventory inventory = this.getInventory(world, x, y, z);
+        if (inventory != null) {
+            // The vanilla chest GUI works for any inventory, so no custom GUI or container is needed.
+            player.displayGUIChest(inventory);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean hasComparatorInputOverride() {
+        return true;
+    }
+
+    @Override
+    public int getComparatorInputOverride(World world, int x, int y, int z, int side) {
+        return Container.calcRedstoneFromInventory(this.getInventory(world, x, y, z));
+    }
 }

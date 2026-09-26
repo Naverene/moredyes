@@ -19,11 +19,11 @@ import info.kg6jay.moredyes.utility.BlockInfo;
 public class MDBlockLeaf extends MDBlockColored implements IShearable {
 
     int blockIndex;
-    int[] field_150128_a;
 
     public MDBlockLeaf(String[] colors, BlockInfo info, String colorSet, int blockIndex) {
         super(colors, info, colorSet);
-        this.setTickRandomly(true);
+        // Leaves do not decay: the metadata holds the shade (up to 14 values), so there are no spare bits for the
+        // vanilla decay flags. The old decay code read shades 8-11 as decay flags and changed their color.
         this.setLightOpacity(1);
         this.blockIndex = blockIndex;
     }
@@ -56,107 +56,6 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
     }
 
     /**
-     * Ticks the block if it's been scheduled
-     */
-    public void updateTick(World world, int x, int y, int z, Random rand) {
-        if (!world.isRemote) {
-            int meta = world.getBlockMetadata(x, y, z);
-
-            if ((meta & 8) != 0 && (meta & 4) == 0) {
-                int range = 4;
-                int i1 = range + 1;
-                byte b1 = 32;
-                int j1 = b1 * b1;
-                int k1 = b1 / 2;
-
-                if (this.field_150128_a == null) {
-                    this.field_150128_a = new int[b1 * b1 * b1];
-                }
-
-                int xOffset;
-
-                if (world.checkChunksExist(x - i1, y - i1, z - i1, x + i1, y + i1, z + i1)) {
-                    int i2;
-                    int j2;
-
-                    for (xOffset = -range; xOffset <= range; ++xOffset) {
-                        for (i2 = -range; i2 <= range; ++i2) {
-                            for (j2 = -range; j2 <= range; ++j2) {
-                                Block block = world.getBlock(x + xOffset, y + i2, z + j2);
-
-                                if (!block.canSustainLeaves(world, x + xOffset, y + i2, z + j2)) {
-                                    if (block.isLeaves(world, x + xOffset, y + i2, z + j2)) {
-                                        this.field_150128_a[(xOffset + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -2;
-                                    } else {
-                                        this.field_150128_a[(xOffset + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -1;
-                                    }
-                                } else {
-                                    this.field_150128_a[(xOffset + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = 0;
-                                }
-                            }
-                        }
-                    }
-
-                    for (xOffset = 1; xOffset <= 4; ++xOffset) {
-                        for (i2 = -range; i2 <= range; ++i2) {
-                            for (j2 = -range; j2 <= range; ++j2) {
-                                for (int k2 = -range; k2 <= range; ++k2) {
-                                    if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1] == xOffset - 1) {
-                                        if (this.field_150128_a[(i2 + k1 - 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1 - 1) * j1 + (j2 + k1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1 + 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1 + 1) * j1 + (j2 + k1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 - 1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 - 1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 + 1) * b1 + k2 + k1] == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1 + 1) * b1
-                                                + k2
-                                                + k1] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1 + (k2 + k1 - 1)]
-                                            == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1
-                                                + (k2 + k1 - 1)] = xOffset;
-                                        }
-
-                                        if (this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1 + 1] == -2) {
-                                            this.field_150128_a[(i2 + k1) * j1 + (j2 + k1) * b1
-                                                + k2
-                                                + k1
-                                                + 1] = xOffset;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                xOffset = this.field_150128_a[k1 * j1 + k1 * b1 + k1];
-
-                if (xOffset >= 0) {
-                    world.setBlockMetadataWithNotify(x, y, z, meta & -9, 4);
-                } else {
-                    this.removeLeaves(world, x, y, z);
-                }
-            }
-        }
-    }
-
-    /**
      * A randomly called display update to be able to add particles or other items for display
      */
     @SideOnly(Side.CLIENT)
@@ -168,11 +67,6 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
             double d2 = (double) ((float) z + rand.nextFloat());
             world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
-    }
-
-    private void removeLeaves(World world, int x, int y, int z) {
-        this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-        world.setBlockToAir(x, y, z);
     }
 
     /**
