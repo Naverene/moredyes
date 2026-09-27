@@ -15,13 +15,37 @@ Tulips in all the colors are available from the creative menu. Worldgen now exis
 
 Dyed crafting tables and chests are available in every color. Craft them from four (crafting table) or eight (chest) dyed planks of one color, or combine a vanilla crafting table or chest with a dye. Two chests of the same color placed side by side join into a double chest. Craft either with a bucket of water to get the vanilla block back.
 
+## Blocks from newer Minecraft versions
+
+Many blocks from Minecraft 1.8 to 1.16 are available in every color: granite, andesite and their polished versions (and polished diorite), concrete and concrete powder, soul soil, basalt and polished basalt, smooth stone, smooth sandstone, smooth quartz, cut sandstone, end stone bricks, cracked and chiseled nether bricks, bone blocks, glazed terracotta, blocks of netherite, crying obsidian, chains and cornflowers. Mossy cobblestone, mossy stone bricks and nether bricks come in every color too, because their stairs and walls are made from them.
+
+Plain granite and andesite generate underground and are crafted as in 1.8, unless another mod already provides them (the same as diorite). Concrete powder turns into concrete when it touches water.
+
+Stairs, slabs and walls come in every color for stone, granite, diorite, andesite, the polished stones, mossy cobblestone, mossy stone bricks, end stone bricks, smooth sandstone, smooth quartz, nether bricks, bricks, stone bricks, sandstone and cut sandstone (not every material has all three shapes, the same as in vanilla). They are crafted from dyed blocks of one shade with the vanilla recipes and are in their own creative tab. Iron trapdoors come in every color as well and, like iron doors, only open with redstone.
+
+Most of these use their vanilla recipe with dyed blocks of one shade, or eight blocks around a dye. Blocks that have no recipe in 1.7:
+
+- Soul soil: dyed soul sand and dirt make two.
+- Basalt: smelt dyed soul soil.
+- Crying obsidian: eight dyed obsidian around a ghast tear.
+- Block of netherite: obsidian in the corners, gold ingots on the sides and a dye in the middle make four.
+- Chain: an iron ingot above and below a dye make four.
+- Bone block: eight bone meal around a dye.
+- Iron trapdoor: four iron ingots and a dye.
+
+Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks and nether bricks) can be washed back. Stairs, slabs and walls cannot be washed.
+
+Workstations from newer versions (loom, smoker, barrel and so on) are left to other mods.
+
 ## How the colors are drawn
 
 Blocks are not stored as one texture file per color. Each block type has one grey texture, and the game multiplies it by the dye color when it draws the block, the same way it colors grass and leaves.
 
-The grey textures are made from the vanilla textures when the game loads, so they follow whatever resource pack the player uses. The list of which vanilla texture each block uses is in `client/TintSources.java`. Blocks that do not exist in vanilla 1.7.10 use a grey file in `textures/blocks/base/` instead (diorite, foggy glass).
+The grey textures are made from the vanilla textures when the game loads, so they follow whatever resource pack the player uses. The list of which vanilla texture each block uses is in `client/TintSources.java`. Blocks that do not exist in vanilla 1.7.10 use a grey file in `textures/blocks/base/` instead (diorite, granite, concrete and the other newer blocks, and foggy glass).
 
 To give a new block a texture, add a line to `TintSources` and call `TintedTextures.register(iconRegister, "<key>")` from the block's `registerBlockIcons`. Parts that should keep their natural color, such as a flower's stem or a log's bark, are drawn as a separate untinted layer (see `ILayeredBlock`).
+
+Stairs, slabs, walls and trapdoors need their metadata for their direction or shape, so they keep their color in a small tile entity instead. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
 
 ## Downloads and releases
 

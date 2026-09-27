@@ -50,6 +50,17 @@ public final class TintSources {
     /** Unchanged where the pixel is not green, transparent elsewhere (the trunk of a sapling). */
     public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> isGreen(argb) ? 0 : argb;
 
+    /**
+     * Grey and this many times brighter, for textures that are dark because of their color rather than their material
+     * (vanilla nether brick is dark red), so the dye still shows.
+     */
+    public static PixelTransform greyBrighter(float factor) {
+        return argb -> {
+            int lum = Math.min(255, Math.round((grey(argb) & 255) * factor));
+            return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
+        };
+    }
+
     private static final Map<String, Source> SOURCES = new HashMap<>();
 
     static {
@@ -88,6 +99,45 @@ public final class TintSources {
         add("glass/foggy", modTexture("blocks/base/glass_foggy"), GREY, false);
         add("diorite", modTexture("blocks/base/diorite"), GREY, false);
 
+        // Blocks from newer Minecraft versions. Where 1.7 has a texture that fits, that is used; the rest have a grey
+        // texture of their own in textures/blocks/base.
+        block("smoothStone", "stone_slab_top");
+        block("smoothSandstone", "sandstone_top");
+        block("smoothQuartz", "quartz_block_bottom");
+        block("cutSandstone/top", "sandstone_top");
+        block("cutSandstone/side", "sandstone_smooth");
+        block("cutSandstone/bottom", "sandstone_top");
+        block("mossyCobble", "cobblestone_mossy");
+        block("mossyStonebrick", "stonebrick_mossy");
+        add("netherBrick", vanillaBlock("nether_brick"), greyBrighter(4.0F), false);
+        base("granite");
+        base("andesite");
+        base("polishedGranite");
+        base("polishedDiorite");
+        base("polishedAndesite");
+        base("concrete");
+        base("concretePowder");
+        base("soulSoil");
+        base("basalt/top");
+        base("basalt/side");
+        add("basalt/bottom", modTexture("blocks/base/basalt/top"), GREY, false);
+        base("polishedBasalt/top");
+        base("polishedBasalt/side");
+        add("polishedBasalt/bottom", modTexture("blocks/base/polishedBasalt/top"), GREY, false);
+        base("crackedNetherBrick");
+        base("chiseledNetherBrick");
+        base("endStoneBrick");
+        base("boneBlock/top");
+        base("boneBlock/side");
+        add("boneBlock/bottom", modTexture("blocks/base/boneBlock/top"), GREY, false);
+        base("glazedTerracotta");
+        base("netheriteBlock");
+        base("cryingObsidian");
+        base("ironTrapdoor");
+        base("chain");
+        add("cornflower/petals", modTexture("blocks/base/cornflower"), GREY_IF_NOT_GREEN, false);
+        add("cornflower/stem", modTexture("blocks/base/cornflower"), KEEP_IF_GREEN, false);
+
         add("tulip/petals", vanillaBlock("flower_tulip_white"), GREY_IF_NOT_GREEN, false);
         add("tulip/stem", vanillaBlock("flower_tulip_white"), KEEP_IF_GREEN, false);
         add("sapling/leaves", vanillaBlock("sapling_oak"), GREY_IF_GREEN, false);
@@ -107,6 +157,11 @@ public final class TintSources {
 
     private static void block(String key, String vanillaName) {
         add(key, vanillaBlock(vanillaName), GREY, false);
+    }
+
+    /** A texture of this mod's own, at textures/blocks/base/&lt;key&gt;.png. */
+    private static void base(String key) {
+        add(key, modTexture("blocks/base/" + key), GREY, false);
     }
 
     private static void add(String key, ResourceLocation location, PixelTransform transform, boolean model) {

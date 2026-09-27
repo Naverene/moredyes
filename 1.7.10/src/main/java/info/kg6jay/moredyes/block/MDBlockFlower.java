@@ -20,7 +20,12 @@ import info.kg6jay.moredyes.utility.BlockInfo;
 public class MDBlockFlower extends MDBlockColoredPlant implements IPlantable {
 
     protected MDBlockFlower(String[] colors, BlockInfo info, String colorSet) {
-        super(colors, info, colorSet, "tulip/petals", "tulip/stem");
+        this(colors, info, colorSet, "tulip");
+    }
+
+    /** @param texture the flower's texture key; its petals are "texture/petals" and its stem "texture/stem" */
+    protected MDBlockFlower(String[] colors, BlockInfo info, String colorSet, String texture) {
+        super(colors, info, colorSet, texture + "/petals", texture + "/stem");
         this.setTickRandomly(true);
         float f = 0.2F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);

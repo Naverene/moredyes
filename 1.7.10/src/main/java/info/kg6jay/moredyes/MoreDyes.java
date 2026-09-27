@@ -46,6 +46,7 @@ public class MoreDyes {
     public static CreativeTabs tabBlocks = new Tab("Blocks");
     public static CreativeTabs tabPlants = new Tab("Plants");
     public static CreativeTabs tabTrees = new Tab("Trees");
+    public static CreativeTabs tabShapes = new Tab("Stairs, Slabs & Walls");
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -88,8 +89,8 @@ public class MoreDyes {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        MDBlock.detectDiorite();
-        CraftManager.addDioriteRecipe();
+        MDBlock.detectStones();
+        CraftManager.addStoneRecipes();
         if (Loader.isModLoaded("chisel")) {
             ChiselCompat.registerChisel();
         }
@@ -100,6 +101,7 @@ public class MoreDyes {
         ((Tab) tabBlocks).setTabIconItem(Item.getItemFromBlock(MDBlock.wool[0]));
         ((Tab) tabPlants).setTabIconItem(Item.getItemFromBlock(MDBlock.tulip[0]));
         ((Tab) tabTrees).setTabIconItem(Item.getItemFromBlock(MDBlock.sapling[0]));
+        ((Tab) tabShapes).setTabIconItem(Item.getItemFromBlock(MDBlock.stoneStairs));
         LogHelper.info("Post Initialization Complete");
     }
 }

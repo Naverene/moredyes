@@ -58,6 +58,12 @@ public class ChiselCompat {
         add(chisel, "glassPane", MDBlock.glassClearPane, Blocks.glass_pane, 0);
         add(chisel, "bookshelf", MDBlock.bookshelf, Blocks.bookshelf, 0);
         add(chisel, "diorite", MDBlock.diorite, MDBlock.dioritePlain, 0);
+        add(chisel, "granite", MDBlock.granite, MDBlock.granitePlain, 0);
+        add(chisel, "andesite", MDBlock.andesite, MDBlock.andesitePlain, 0);
+        add(chisel, "cobblestoneMossy", MDBlock.mossyCobble, Blocks.mossy_cobblestone, 0);
+        add(chisel, "stonebrickMossy", MDBlock.mossyStoneBrick, Blocks.stonebrick, 1);
+        add(chisel, "netherBrick", MDBlock.netherBrick, Blocks.nether_brick, 0);
+        add(chisel, "sandstoneCut", MDBlock.cutSandstone, Blocks.sandstone, 2);
     }
 
     private static void add(ICarvingRegistry chisel, String name, Block[] blocks, Block vanilla, int vanillaMeta) {

@@ -2,6 +2,7 @@ package info.kg6jay.moredyes.world.gen;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
@@ -30,13 +31,18 @@ public class FlowerGenerator implements IWorldGenerator {
     }
 
     private void generateSurface(Random random, int x, int z, World world) {
-        for (int a = 0; a < MDBlock.tulip.length; a++) {
-            for (int b = 0; b <= ((MDBlockColored) MDBlock.tulip[a]).getMaxMeta(); b++) {
+        generateFlowers(MDBlock.tulip, random, x, z, world);
+        generateFlowers(MDBlock.cornflower, random, x, z, world);
+    }
+
+    private void generateFlowers(Block[] flowers, Random random, int x, int z, World world) {
+        for (int a = 0; a < flowers.length; a++) {
+            for (int b = 0; b <= ((MDBlockColored) flowers[a]).getMaxMeta(); b++) {
                 if (random.nextInt(100) <= 5) {
                     int xGen = random.nextInt(16) + x;
                     int zGen = random.nextInt(16) + z;
                     int yGen = world.getTopSolidOrLiquidBlock(xGen, zGen);
-                    new WorldGenFlower(MDBlock.tulip[a], b).generate(world, random, xGen, yGen, zGen);
+                    new WorldGenFlower(flowers[a], b).generate(world, random, xGen, yGen, zGen);
                 }
             }
         }
