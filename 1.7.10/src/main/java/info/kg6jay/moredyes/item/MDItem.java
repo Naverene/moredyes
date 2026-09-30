@@ -14,7 +14,7 @@ public class MDItem {
     public static void initialize() {
         dye = new Item[MDBlock.colors.length];
         for (int i = 0; i < MDBlock.colors.length; i++) {
-            dye[i] = new MDItemDye(MDBlock.colorStrings[i], MDBlock.colors[i]);
+            dye[i] = new MDItemDye(MDBlock.colorStrings[i], MDBlock.colors[i], i);
         }
     }
 
