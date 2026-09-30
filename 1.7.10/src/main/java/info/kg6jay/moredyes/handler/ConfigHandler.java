@@ -15,7 +15,9 @@ public class ConfigHandler {
     public static boolean chisel_support = true;
     public static boolean worldgen_flower = true;
     public static boolean worldgen_tree = true;
+    public static boolean worldgen_granite = true;
     public static boolean worldgen_diorite = true;
+    public static boolean worldgen_andesite = true;
     public static boolean preventMobSpawning = true;
     public static double sheepSpawnChance = 0.05;
 
@@ -54,6 +56,16 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "Set to false to disable world gen of dye trees");
+        worldgen_granite = config.getBoolean(
+            "WorldGen_Granite",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Set to false to disable world gen of granite. It is also skipped when another mod provides granite.");
+        worldgen_andesite = config.getBoolean(
+            "WorldGen_Andesite",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Set to false to disable world gen of andesite. It is also skipped when another mod provides andesite.");
         worldgen_diorite = config.getBoolean(
             "WorldGen_Diorite",
             Configuration.CATEGORY_GENERAL,

@@ -1,6 +1,8 @@
 package info.kg6jay.moredyes.block;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
@@ -10,10 +12,14 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.item.MDItemBlockChest;
 import info.kg6jay.moredyes.item.MDItemBlockColored;
+import info.kg6jay.moredyes.item.MDItemBlockDyedSlab;
+import info.kg6jay.moredyes.item.MDItemBlockTileColored;
 import info.kg6jay.moredyes.reference.ColorStrings;
 import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDBlock {
 
@@ -59,12 +65,76 @@ public class MDBlock {
     public static Block[] sandstone;
     public static Block[] bookshelf;
     public static Block[] diorite;
-    /** Plain diorite, the base for dyed diorite. */
-    public static Block dioritePlain;
+    /** Plain granite, diorite and andesite, the bases for the dyed versions. */
+    public static Block granitePlain, dioritePlain, andesitePlain;
+
+    // Blocks from newer Minecraft versions, and the 1.7 blocks their stairs and walls are made from
+    public static Block[] granite;
+    public static Block[] andesite;
+    public static Block[] polishedGranite;
+    public static Block[] polishedDiorite;
+    public static Block[] polishedAndesite;
+    public static Block[] concrete;
+    public static Block[] concretePowder;
+    public static Block[] soulSoil;
+    public static Block[] basalt;
+    public static Block[] polishedBasalt;
+    public static Block[] smoothStone;
+    public static Block[] smoothSandstone;
+    public static Block[] smoothQuartz;
+    public static Block[] cutSandstone;
+    public static Block[] mossyCobble;
+    public static Block[] mossyStoneBrick;
+    public static Block[] netherBrick;
+    public static Block[] crackedNetherBrick;
+    public static Block[] chiseledNetherBrick;
+    public static Block[] endStoneBrick;
+    public static Block[] boneBlock;
+    public static Block[] glazedTerracotta;
+    public static Block[] netheriteBlock;
+    public static Block[] cryingObsidian;
+    public static Block[] cornflower;
+    public static Block[] chain;
+
+    /**
+     * Stairs, slabs and walls. Each is one block for every color, with the color in a tile entity, so these are not
+     * arrays. See SHAPES for what each is made from.
+     */
+    public static Block stoneStairs, graniteStairs, polishedGraniteStairs, dioriteStairs, polishedDioriteStairs,
+        andesiteStairs, polishedAndesiteStairs, mossyCobbleStairs, mossyStoneBrickStairs, endStoneBrickStairs,
+        smoothSandstoneStairs, smoothQuartzStairs, netherBrickStairs;
+    public static Block stoneSlab, cutSandstoneSlab, dioriteSlab;
+    public static Block brickWall, stoneBrickWall, mossyStoneBrickWall, graniteWall, dioriteWall, andesiteWall,
+        netherBrickWall, sandstoneWall, endStoneBrickWall;
+    public static Block ironTrapdoor;
+
+    /** A stair, slab or wall block and the dyed blocks it is crafted from. */
+    public static final class Shape {
+
+        public enum Kind {
+            STAIRS,
+            SLAB,
+            WALL
+        }
+
+        public final Block block;
+        public final Block[] base;
+        public final Kind kind;
+
+        Shape(Block block, Block[] base, Kind kind) {
+            this.block = block;
+            this.base = base;
+            this.kind = kind;
+        }
+    }
+
+    public static final List<Shape> SHAPES = new ArrayList<>();
 
     public static void initialize() {
         int l = colors.length;
-        dioritePlain = new MDBlockDiorite(Reference.BLOCK_INFO_DIORITE);
+        granitePlain = new MDBlockPlainStone(Reference.BLOCK_INFO_GRANITE, 0xC89680);
+        dioritePlain = new MDBlockPlainStone(Reference.BLOCK_INFO_DIORITE, ColorUtil.WHITE);
+        andesitePlain = new MDBlockPlainStone(Reference.BLOCK_INFO_ANDESITE, ColorUtil.WHITE);
 
         wool = new Block[l];
         stoneBrick = new Block[l];
@@ -99,6 +169,32 @@ public class MDBlock {
         sandstone = new Block[l];
         bookshelf = new Block[l];
         diorite = new Block[l];
+        granite = new Block[l];
+        andesite = new Block[l];
+        polishedGranite = new Block[l];
+        polishedDiorite = new Block[l];
+        polishedAndesite = new Block[l];
+        concrete = new Block[l];
+        concretePowder = new Block[l];
+        soulSoil = new Block[l];
+        basalt = new Block[l];
+        polishedBasalt = new Block[l];
+        smoothStone = new Block[l];
+        smoothSandstone = new Block[l];
+        smoothQuartz = new Block[l];
+        cutSandstone = new Block[l];
+        mossyCobble = new Block[l];
+        mossyStoneBrick = new Block[l];
+        netherBrick = new Block[l];
+        crackedNetherBrick = new Block[l];
+        chiseledNetherBrick = new Block[l];
+        endStoneBrick = new Block[l];
+        boneBlock = new Block[l];
+        glazedTerracotta = new Block[l];
+        netheriteBlock = new Block[l];
+        cryingObsidian = new Block[l];
+        cornflower = new Block[l];
+        chain = new Block[l];
 
         for (int i = 0; i < colors.length; i++) {
             String[] shades = colorStrings[i];
@@ -134,7 +230,92 @@ public class MDBlock {
             sandstone[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_SANDSTONE, set);
             bookshelf[i] = new MDBlockBookshelf(shades, Reference.BLOCK_INFO_BOOKSHELF, set);
             diorite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_DIORITE, set);
+
+            granite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_GRANITE, set);
+            andesite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_ANDESITE, set);
+            polishedGranite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_POLISHED_GRANITE, set);
+            polishedDiorite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_POLISHED_DIORITE, set);
+            polishedAndesite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_POLISHED_ANDESITE, set);
+            concrete[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_CONCRETE, set);
+            concretePowder[i] = new MDBlockConcretePowder(
+                shades,
+                Reference.BLOCK_INFO_CONCRETE_POWDER,
+                set,
+                concrete[i]);
+            soulSoil[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SOUL_SOIL, set);
+            basalt[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_BASALT, set);
+            polishedBasalt[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_POLISHED_BASALT, set);
+            smoothStone[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SMOOTH_STONE, set);
+            smoothSandstone[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SMOOTH_SANDSTONE, set);
+            smoothQuartz[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SMOOTH_QUARTZ, set);
+            cutSandstone[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_CUT_SANDSTONE, set);
+            mossyCobble[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_MOSSY_COBBLESTONE, set);
+            mossyStoneBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_MOSSY_STONE_BRICKS, set);
+            netherBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_NETHER_BRICKS, set);
+            crackedNetherBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_CRACKED_NETHER_BRICKS, set);
+            chiseledNetherBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_CHISELED_NETHER_BRICKS, set);
+            endStoneBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_END_STONE_BRICKS, set);
+            boneBlock[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_BONE_BLOCK, set);
+            glazedTerracotta[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_GLAZED_TERRACOTTA, set);
+            netheriteBlock[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_NETHERITE_BLOCK, set);
+            cryingObsidian[i] = new MDBlockObsidian(shades, Reference.BLOCK_INFO_CRYING_OBSIDIAN, set)
+                .setLightLevel(10.0F / 15.0F);
+            cornflower[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_CORNFLOWER, set, "cornflower");
+            chain[i] = new MDBlockChain(shades, Reference.BLOCK_INFO_CHAIN, set);
         }
+
+        stoneStairs = stairs(stone, "stoneStairs", "stone");
+        graniteStairs = stairs(granite, "graniteStairs", "granite");
+        polishedGraniteStairs = stairs(polishedGranite, "polishedGraniteStairs", "polishedGranite");
+        dioriteStairs = stairs(diorite, "dioriteStairs", "diorite");
+        polishedDioriteStairs = stairs(polishedDiorite, "polishedDioriteStairs", "polishedDiorite");
+        andesiteStairs = stairs(andesite, "andesiteStairs", "andesite");
+        polishedAndesiteStairs = stairs(polishedAndesite, "polishedAndesiteStairs", "polishedAndesite");
+        mossyCobbleStairs = stairs(mossyCobble, "mossyCobbleStairs", "mossyCobble");
+        mossyStoneBrickStairs = stairs(mossyStoneBrick, "mossyStonebrickStairs", "mossyStonebrick");
+        endStoneBrickStairs = stairs(endStoneBrick, "endStoneBrickStairs", "endStoneBrick");
+        smoothSandstoneStairs = stairs(smoothSandstone, "smoothSandstoneStairs", "smoothSandstone");
+        smoothQuartzStairs = stairs(smoothQuartz, "smoothQuartzStairs", "smoothQuartz");
+        netherBrickStairs = stairs(netherBrick, "netherBrickStairs", "netherBrick");
+
+        stoneSlab = slab(stone, "stoneSlab", "stone");
+        cutSandstoneSlab = slab(
+            cutSandstone,
+            "cutSandstoneSlab",
+            "cutSandstone/top",
+            "cutSandstone/side",
+            "cutSandstone/bottom");
+        dioriteSlab = slab(diorite, "dioriteSlab", "diorite");
+
+        brickWall = wall(brick, "brickWall", "brick");
+        stoneBrickWall = wall(stoneBrick, "stonebrickWall", "stonebrick");
+        mossyStoneBrickWall = wall(mossyStoneBrick, "mossyStonebrickWall", "mossyStonebrick");
+        graniteWall = wall(granite, "graniteWall", "granite");
+        dioriteWall = wall(diorite, "dioriteWall", "diorite");
+        andesiteWall = wall(andesite, "andesiteWall", "andesite");
+        netherBrickWall = wall(netherBrick, "netherBrickWall", "netherBrick");
+        sandstoneWall = wall(sandstone, "sandstoneWall", "sandstone/top", "sandstone/side", "sandstone/bottom");
+        endStoneBrickWall = wall(endStoneBrick, "endStoneBrickWall", "endStoneBrick");
+
+        ironTrapdoor = new MDBlockDyedTrapdoor(Reference.BLOCK_INFO_IRON_TRAPDOOR, "ironTrapdoor");
+    }
+
+    private static Block stairs(Block[] base, String name, String... textures) {
+        Block block = new MDBlockDyedStairs(base[0], name, textures);
+        SHAPES.add(new Shape(block, base, Shape.Kind.STAIRS));
+        return block;
+    }
+
+    private static Block slab(Block[] base, String name, String... textures) {
+        Block block = new MDBlockDyedSlab(base[0], name, textures);
+        SHAPES.add(new Shape(block, base, Shape.Kind.SLAB));
+        return block;
+    }
+
+    private static Block wall(Block[] base, String name, String... textures) {
+        Block block = new MDBlockDyedWall(base[0], name, textures);
+        SHAPES.add(new Shape(block, base, Shape.Kind.WALL));
+        return block;
     }
 
     public static void register() {
@@ -173,6 +354,48 @@ public class MDBlock {
             GameRegistry
                 .registerBlock(block, MDItemBlockChest.class, ((IBlockColored) block).getColorSet() + "MixChest");
         }
+
+        GameRegistry.registerBlock(granitePlain, "granite");
+        GameRegistry.registerBlock(andesitePlain, "andesite");
+        register(granite, "Granite");
+        register(andesite, "Andesite");
+        register(polishedGranite, "PolishedGranite");
+        register(polishedDiorite, "PolishedDiorite");
+        register(polishedAndesite, "PolishedAndesite");
+        register(concrete, "Concrete");
+        register(concretePowder, "ConcretePowder");
+        register(soulSoil, "SoulSoil");
+        register(basalt, "Basalt");
+        register(polishedBasalt, "PolishedBasalt");
+        register(smoothStone, "SmoothStone");
+        register(smoothSandstone, "SmoothSandstone");
+        register(smoothQuartz, "SmoothQuartz");
+        register(cutSandstone, "CutSandstone");
+        register(mossyCobble, "MossyCobble");
+        register(mossyStoneBrick, "MossyStonebrick");
+        register(netherBrick, "NetherBrick");
+        register(crackedNetherBrick, "CrackedNetherBrick");
+        register(chiseledNetherBrick, "ChiseledNetherBrick");
+        register(endStoneBrick, "EndStoneBrick");
+        register(boneBlock, "BoneBlock");
+        register(glazedTerracotta, "GlazedTerracotta");
+        register(netheriteBlock, "NetheriteBlock");
+        register(cryingObsidian, "CryingObsidian");
+        register(cornflower, "Cornflower");
+        register(chain, "Chain");
+
+        for (Shape shape : SHAPES) {
+            Class<? extends MDItemBlockTileColored> item = shape.kind == Shape.Kind.SLAB ? MDItemBlockDyedSlab.class
+                : MDItemBlockTileColored.class;
+            GameRegistry.registerBlock(shape.block, item, registryName(shape.block));
+        }
+        GameRegistry.registerBlock(ironTrapdoor, MDItemBlockTileColored.class, registryName(ironTrapdoor));
+    }
+
+    /** The registry name of a block named "moredyes.name" is "name". */
+    private static String registryName(Block block) {
+        return block.getUnlocalizedName()
+            .substring(("tile." + Reference.MOD_ID + ".").length());
     }
 
     /**
@@ -219,6 +442,12 @@ public class MDBlock {
             WASHED.put(sandstone[i], new ItemStack(Blocks.sandstone, 1, 0));
             WASHED.put(bookshelf[i], new ItemStack(Blocks.bookshelf));
             WASHED.put(diorite[i], new ItemStack(dioritePlain));
+            WASHED.put(granite[i], new ItemStack(granitePlain));
+            WASHED.put(andesite[i], new ItemStack(andesitePlain));
+            WASHED.put(cutSandstone[i], new ItemStack(Blocks.sandstone, 1, 2));
+            WASHED.put(mossyCobble[i], new ItemStack(Blocks.mossy_cobblestone));
+            WASHED.put(mossyStoneBrick[i], new ItemStack(Blocks.stonebrick, 1, 1));
+            WASHED.put(netherBrick[i], new ItemStack(Blocks.nether_brick));
         }
     }
 
@@ -232,11 +461,13 @@ public class MDBlock {
             Blocks.fire.setFireInfo(bookshelf[i], 30, 20);
             Blocks.fire.setFireInfo(tulip[i], 60, 100);
             Blocks.fire.setFireInfo(coal[i], 5, 5);
+            Blocks.fire.setFireInfo(cornflower[i], 60, 100);
         }
     }
 
     public static void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityMDBlockColoredChest.class, "MDBlockColoredChest");
+        GameRegistry.registerTileEntity(TileEntityMDColor.class, "MDColor");
     }
 
     /**
@@ -256,6 +487,10 @@ public class MDBlock {
         OreDictionary.registerOre("craftingTableWood", new ItemStack(Blocks.crafting_table));
         OreDictionary.registerOre("stoneDiorite", new ItemStack(dioritePlain));
         OreDictionary.registerOre("blockDiorite", new ItemStack(dioritePlain));
+        OreDictionary.registerOre("stoneGranite", new ItemStack(granitePlain));
+        OreDictionary.registerOre("blockGranite", new ItemStack(granitePlain));
+        OreDictionary.registerOre("stoneAndesite", new ItemStack(andesitePlain));
+        OreDictionary.registerOre("blockAndesite", new ItemStack(andesitePlain));
 
         for (int a = 0; a < colors.length; a++) {
             for (int i = 0; i <= ((IBlockColored) wool[a]).getMaxMeta(); i++) {
@@ -289,6 +524,16 @@ public class MDBlock {
                 ore(bookshelf[a], i, "bookshelf");
                 ore(diorite[a], i, "stoneDiorite", "blockDiorite");
             }
+            for (int i = 0; i <= ((IBlockColored) granite[a]).getMaxMeta(); i++) {
+                ore(granite[a], i, "stoneGranite", "blockGranite");
+                ore(andesite[a], i, "stoneAndesite", "blockAndesite");
+                ore(polishedGranite[a], i, "stoneGranitePolished");
+                ore(polishedDiorite[a], i, "stoneDioritePolished");
+                ore(polishedAndesite[a], i, "stoneAndesitePolished");
+                ore(smoothQuartz[a], i, "blockQuartz");
+                ore(smoothSandstone[a], i, "sandstone");
+                ore(cutSandstone[a], i, "sandstone");
+            }
         }
     }
 
@@ -299,18 +544,24 @@ public class MDBlock {
     }
 
     /**
-     * True when no other mod provides diorite, so this mod generates it in the world and adds its crafting recipe.
+     * True when no other mod provides that stone, so this mod generates it in the world and adds its crafting recipe.
      * Decided in postInit, once every mod has registered its ore names.
      */
-    public static boolean useOwnDiorite = true;
+    public static boolean useOwnGranite = true, useOwnDiorite = true, useOwnAndesite = true;
 
-    public static void detectDiorite() {
-        for (ItemStack stack : OreDictionary.getOres("stoneDiorite")) {
+    public static void detectStones() {
+        useOwnGranite = !providedByOtherMod("stoneGranite", granitePlain);
+        useOwnDiorite = !providedByOtherMod("stoneDiorite", dioritePlain);
+        useOwnAndesite = !providedByOtherMod("stoneAndesite", andesitePlain);
+    }
+
+    private static boolean providedByOtherMod(String oreName, Block own) {
+        for (ItemStack stack : OreDictionary.getOres(oreName)) {
             Block block = Block.getBlockFromItem(stack.getItem());
-            if (block != dioritePlain && !(block instanceof IBlockColored)) {
-                useOwnDiorite = false;
-                return;
+            if (block != own && !(block instanceof IBlockColored)) {
+                return true;
             }
         }
+        return false;
     }
 }

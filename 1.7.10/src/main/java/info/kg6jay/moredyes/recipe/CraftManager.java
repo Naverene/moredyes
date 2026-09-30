@@ -15,6 +15,7 @@ import info.kg6jay.moredyes.block.IBlockColored;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.MDBlockColored;
 import info.kg6jay.moredyes.item.MDItem;
+import info.kg6jay.moredyes.utility.ColorIndex;
 
 public class CraftManager {
 
@@ -458,13 +459,137 @@ public class CraftManager {
             .getRecipeList()
             .add(new ShapelessOreRecipe(new ItemStack(Items.coal, 9, 0), "blockCoal"));
 
+        addNewerBlockRecipes();
+        addShapeRecipes();
     }
 
     /**
-     * Plain diorite from cobblestone and nether quartz, the Minecraft 1.8 recipe. Only added when no other mod
-     * provides diorite (it would clash with theirs), so it runs in postInit after MDBlock.detectDiorite.
+     * The blocks from newer Minecraft versions. Where a block has a vanilla recipe made from blocks this mod dyes, the
+     * same recipe works with dyed blocks of one shade (four dyed granite make four dyed polished granite). Blocks
+     * that have a vanilla or plain version are dyed like the other blocks: eight around a dye. The rest have recipes
+     * of their own, noted below.
      */
-    public static void addDioriteRecipe() {
+    private static void addNewerBlockRecipes() {
+        for (int a = 0; a < MDBlock.colors.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) MDBlock.granite[a]).getMaxMeta(); i++) {
+                ItemStack dye = new ItemStack(MDItem.dye[a], 1, i);
+
+                addOreSurroundRecipe(MDBlock.granite[a], i, "stoneGranite", dye);
+                addOreSurroundRecipe(MDBlock.andesite[a], i, "stoneAndesite", dye);
+                addSurroundRecipe(MDBlock.mossyCobble[a], i, new ItemStack(Blocks.mossy_cobblestone), dye);
+                addSurroundRecipe(MDBlock.mossyStoneBrick[a], i, new ItemStack(Blocks.stonebrick, 1, 1), dye);
+                addSurroundRecipe(MDBlock.netherBrick[a], i, new ItemStack(Blocks.nether_brick), dye);
+                addSurroundRecipe(MDBlock.cutSandstone[a], i, new ItemStack(Blocks.sandstone, 1, 2), dye);
+                addSurroundRecipe(MDBlock.endStoneBrick[a], i, new ItemStack(Blocks.end_stone), dye);
+
+                addSquareRecipe(MDBlock.polishedGranite[a], MDBlock.granite[a], i);
+                addSquareRecipe(MDBlock.polishedDiorite[a], MDBlock.diorite[a], i);
+                addSquareRecipe(MDBlock.polishedAndesite[a], MDBlock.andesite[a], i);
+                addSquareRecipe(MDBlock.polishedBasalt[a], MDBlock.basalt[a], i);
+                addSquareRecipe(MDBlock.cutSandstone[a], MDBlock.sandstone[a], i);
+
+                // Concrete powder: four sand, four gravel and a dye (Minecraft 1.12)
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(MDBlock.concretePowder[a], 8, i),
+                    dye,
+                    Blocks.sand,
+                    Blocks.sand,
+                    Blocks.sand,
+                    Blocks.sand,
+                    Blocks.gravel,
+                    Blocks.gravel,
+                    Blocks.gravel,
+                    Blocks.gravel);
+                // Soul soil: dyed soul sand and dirt
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(MDBlock.soulSoil[a], 2, i),
+                    new ItemStack(MDBlock.soulsand[a], 1, i),
+                    Blocks.dirt);
+                // Chiseled nether bricks: two dyed nether bricks on top of each other
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.chiseledNetherBrick[a], 1, i),
+                    "N",
+                    "N",
+                    'N',
+                    new ItemStack(MDBlock.netherBrick[a], 1, i));
+                // Bone block: eight bone meal around a dye, and back to bone meal
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.boneBlock[a], 1, i),
+                    "BBB",
+                    "BDB",
+                    "BBB",
+                    'B',
+                    new ItemStack(Items.dye, 1, 15),
+                    'D',
+                    dye);
+                GameRegistry
+                    .addShapelessRecipe(new ItemStack(Items.dye, 8, 15), new ItemStack(MDBlock.boneBlock[a], 1, i));
+                // Crying obsidian: eight dyed obsidian around a ghast tear
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.cryingObsidian[a], 8, i),
+                    "OOO",
+                    "OTO",
+                    "OOO",
+                    'O',
+                    new ItemStack(MDBlock.obsidian[a], 1, i),
+                    'T',
+                    Items.ghast_tear);
+                // Netherite does not exist in 1.7: obsidian, gold and a dye
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.netheriteBlock[a], 4, i),
+                    "OGO",
+                    "GDG",
+                    "OGO",
+                    'O',
+                    Blocks.obsidian,
+                    'G',
+                    Items.gold_ingot,
+                    'D',
+                    dye);
+                // Iron trapdoor: four iron ingots (Minecraft 1.8) and a dye
+                GameRegistry.addShapelessRecipe(
+                    new ItemStack(MDBlock.ironTrapdoor, 1, ColorIndex.of(a, i)),
+                    Items.iron_ingot,
+                    Items.iron_ingot,
+                    Items.iron_ingot,
+                    Items.iron_ingot,
+                    dye);
+                GameRegistry.addShapelessRecipe(dye.copy(), new ItemStack(MDBlock.cornflower[a], 1, i));
+                // Chain: an iron ingot between two iron nuggets in 1.16; 1.7 has no nuggets, so iron ingots and a dye
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.chain[a], 4, i),
+                    "I",
+                    "D",
+                    "I",
+                    'I',
+                    Items.iron_ingot,
+                    'D',
+                    dye);
+            }
+        }
+    }
+
+    /** Stairs, slabs and walls from dyed blocks of one shade, with the vanilla shapes and amounts. */
+    private static void addShapeRecipes() {
+        for (MDBlock.Shape shape : MDBlock.SHAPES) {
+            for (int color = 0; color < ColorIndex.count(); color++) {
+                ItemStack base = new ItemStack(shape.base[ColorIndex.set(color)], 1, ColorIndex.shade(color));
+                switch (shape.kind) {
+                    case STAIRS -> GameRegistry
+                        .addShapedRecipe(new ItemStack(shape.block, 4, color), "S  ", "SS ", "SSS", 'S', base);
+                    case SLAB -> GameRegistry.addShapedRecipe(new ItemStack(shape.block, 6, color), "SSS", 'S', base);
+                    case WALL -> GameRegistry
+                        .addShapedRecipe(new ItemStack(shape.block, 6, color), "SSS", "SSS", 'S', base);
+                }
+            }
+        }
+    }
+
+    /**
+     * Plain granite, diorite and andesite with their Minecraft 1.8 recipes. Each is only added when no other mod
+     * provides that stone (it would clash with theirs), so this runs in postInit after MDBlock.detectStones.
+     */
+    public static void addStoneRecipes() {
         if (MDBlock.useOwnDiorite) {
             GameRegistry.addRecipe(
                 new ShapedOreRecipe(
@@ -476,10 +601,34 @@ public class CraftManager {
                     'Q',
                     "gemQuartz"));
         }
+        if (MDBlock.useOwnGranite) {
+            GameRegistry.addRecipe(
+                new ShapelessOreRecipe(
+                    new ItemStack(MDBlock.granitePlain),
+                    new ItemStack(MDBlock.dioritePlain),
+                    "gemQuartz"));
+        }
+        if (MDBlock.useOwnAndesite) {
+            GameRegistry.addRecipe(
+                new ShapelessOreRecipe(
+                    new ItemStack(MDBlock.andesitePlain, 2),
+                    new ItemStack(MDBlock.dioritePlain),
+                    "cobblestone"));
+        }
     }
 
     private static void addSurroundRecipe(Block output, int meta, ItemStack surround, ItemStack dye) {
         GameRegistry.addShapedRecipe(new ItemStack(output, 8, meta), "SSS", "SDS", "SSS", 'S', surround, 'D', dye);
+    }
+
+    private static void addOreSurroundRecipe(Block output, int meta, String surround, ItemStack dye) {
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(new ItemStack(output, 8, meta), "SSS", "SDS", "SSS", 'S', surround, 'D', dye));
+    }
+
+    /** Four of a dyed block in a square make four of another in the same shade. */
+    private static void addSquareRecipe(Block output, Block input, int meta) {
+        GameRegistry.addShapedRecipe(new ItemStack(output, 4, meta), "SS", "SS", 'S', new ItemStack(input, 1, meta));
     }
 
     @SuppressWarnings("unchecked")
@@ -487,6 +636,11 @@ public class CraftManager {
         CraftingManager.getInstance()
             .getRecipeList()
             .add(0, recipe);
+    }
+
+    private static void addSmelting(Block input, Block output, int meta) {
+        FurnaceRecipes.smelting()
+            .func_151394_a(new ItemStack(input, 1, meta), new ItemStack(output, 1, meta), 0.1F);
     }
 
     public static void addSmeltingRecipes() {
@@ -516,6 +670,15 @@ public class CraftManager {
                         new ItemStack(MDBlock.clay[a], 1, i),
                         new ItemStack(MDBlock.hardenedClay[a], 1, i),
                         1.0f);
+                // Minecraft 1.12 to 1.16 smelting recipes
+                addSmelting(MDBlock.stone[a], MDBlock.smoothStone[a], i);
+                addSmelting(MDBlock.sandstone[a], MDBlock.smoothSandstone[a], i);
+                addSmelting(MDBlock.quartz[a], MDBlock.smoothQuartz[a], i);
+                addSmelting(MDBlock.netherBrick[a], MDBlock.crackedNetherBrick[a], i);
+                addSmelting(MDBlock.hardenedClay[a], MDBlock.glazedTerracotta[a], i);
+                // Basalt does not generate in 1.7; it forms from lava over soul soil in 1.16, so it is smelted from
+                // dyed soul soil here.
+                addSmelting(MDBlock.soulSoil[a], MDBlock.basalt[a], i);
             }
         }
     }

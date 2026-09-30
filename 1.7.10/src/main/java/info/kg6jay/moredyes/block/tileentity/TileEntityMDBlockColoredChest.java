@@ -1,11 +1,13 @@
 package info.kg6jay.moredyes.block.tileentity;
 
+import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.world.World;
 
 /**
  * Tile entity for the dyed chests. Reuses the vanilla chest inventory and lid animation, but stores the facing itself
@@ -72,6 +74,29 @@ public class TileEntityMDBlockColoredChest extends TileEntityChest {
                 chest.adjacentChestChecked = false;
             }
         }
+    }
+
+    /**
+     * Keep this tile entity while the block stays the same. Forge's default replaces a modded tile entity whenever the
+     * metadata changes, which would lose what is stored here when the block turns or opens.
+     */
+    @Override
+    public boolean shouldRefresh(Block oldBlock, Block newBlock, int oldMeta, int newMeta, World world, int x, int y,
+        int z) {
+        return oldBlock != newBlock;
+    }
+
+    /**
+     * Vanilla only counts the player out (and closes the lid) when the block is a vanilla BlockChest, which the dyed
+     * chest is not, so without this the lid stays open.
+     */
+    @Override
+    public void closeInventory() {
+        --this.numPlayersUsing;
+        this.worldObj
+            .addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType(), 1, this.numPlayersUsing);
+        this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType());
+        this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType());
     }
 
     @Override
