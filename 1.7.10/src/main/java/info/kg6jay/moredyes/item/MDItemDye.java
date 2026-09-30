@@ -19,16 +19,20 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.client.TintedTextures;
-import info.kg6jay.moredyes.entity.passive.MDEntitySheep;
+import info.kg6jay.moredyes.entity.SheepColor;
+import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDItemDye extends Item {
 
     public String[] dyeNames;
+    /** The index of this dye's color set in MDBlock.colorStrings. */
+    public final int set;
     @SideOnly(Side.CLIENT)
     private IIcon icon;
 
-    public MDItemDye(String[] names, String dyeSet) {
+    public MDItemDye(String[] names, String dyeSet, int set) {
+        this.set = set;
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
         dyeNames = names;
@@ -111,28 +115,24 @@ public class MDItemDye extends Item {
         }
     }
 
-    /**
-     * Returns true if the item can be used on the given entity, e.g. shears on sheep.
-     */
-    // TODO: Implement custom sheep then update this code to interact with them instead, as I can't adjust the fleece
-    // options in vanilla sheep.
+    /** Dyes a sheep this dye's shade, like vanilla dyes do with their colors. */
+    @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase entityLiving) {
-        if (entityLiving instanceof EntitySheep) {
-            /*
-             * EntitySheep entitysheep = (EntitySheep)entityLiving;
-             * int i = BlockColored.func_150032_b(stack.getItemDamage());
-             * if (!entitysheep.getSheared() && entitysheep.getFleeceColor() != i)
-             * {
-             * entitysheep.setFleeceColor(i);
-             * --stack.stackSize;
-             * }
-             */
-            return false;// true;
-        } else if (entityLiving instanceof MDEntitySheep) {
-            return false;
-        } else {
+        SheepColor color = SheepColor.of(entityLiving);
+        int shade = stack.getItemDamage();
+        int packed = SheepColor.pack(this.set, shade);
+        if (color == null || packed == SheepColor.NONE) {
             return false;
         }
+        EntitySheep sheep = (EntitySheep) entityLiving;
+        if (sheep.getSheared() || color.get() == packed) {
+            return false;
+        }
+        if (!sheep.worldObj.isRemote) {
+            SheepHandler.applyShade(sheep, color, this.set, shade);
+        }
+        --stack.stackSize;
+        return true;
     }
 
     /**

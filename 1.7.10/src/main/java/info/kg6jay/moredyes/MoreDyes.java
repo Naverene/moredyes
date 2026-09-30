@@ -21,8 +21,10 @@ import info.kg6jay.moredyes.handler.CauldronWashHandler;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
+import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
+import info.kg6jay.moredyes.network.PacketHandler;
 import info.kg6jay.moredyes.proxy.CommonProxy;
 import info.kg6jay.moredyes.recipe.CraftManager;
 import info.kg6jay.moredyes.reference.Reference;
@@ -66,6 +68,7 @@ public class MoreDyes {
 
         // Register GUI handler
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        PacketHandler.initialize();
 
         WorldGenHandler.initializeWorldGen();
         if (Loader.isModLoaded("ThermalExpansion")) {
@@ -81,6 +84,7 @@ public class MoreDyes {
         MDBlock.registerFlammability();
         MDBlock.registerWashing();
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
+        MinecraftForge.EVENT_BUS.register(new SheepHandler());
         GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();

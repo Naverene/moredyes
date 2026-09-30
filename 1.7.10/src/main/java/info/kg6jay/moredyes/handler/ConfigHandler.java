@@ -19,6 +19,7 @@ public class ConfigHandler {
     public static boolean worldgen_diorite = true;
     public static boolean worldgen_andesite = true;
     public static boolean preventMobSpawning = true;
+    public static double sheepSpawnChance = 0.05;
 
     public static void init(File configFile) {
         if (config == null) {
@@ -75,6 +76,15 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "If true, mobs cannot spawn on any block from this mod. If false, the blocks follow the vanilla rules.");
+        sheepSpawnChance = config
+            .get(
+                Configuration.CATEGORY_GENERAL,
+                "sheepSpawnChance",
+                0.05,
+                "Chance, from 0 to 1, that a new sheep spawns in a random More Dyes shade. 0 turns it off.",
+                0.0,
+                1.0)
+            .getDouble();
         // Replaced by preventMobSpawning.
         config.getCategory(Configuration.CATEGORY_GENERAL)
             .remove("mobSpawnOnBlock");

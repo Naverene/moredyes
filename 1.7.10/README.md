@@ -36,6 +36,7 @@ Most of these use their vanilla recipe with dyed blocks of one shade, or eight b
 Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks and nether bricks) can be washed back. Stairs, slabs and walls cannot be washed.
 
 Workstations from newer versions (loom, smoker, barrel and so on) are left to other mods.
+Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and shearing or killing it gives wool in that color. A vanilla dye puts it back on a vanilla color. Some new sheep also spawn in a random mod color; the `sheepSpawnChance` config option sets how often (5% by default, 0 to turn it off).
 
 ## How the colors are drawn
 
@@ -49,7 +50,7 @@ Stairs, slabs, walls and trapdoors need their metadata for their direction or sh
 
 ## Downloads and releases
 
-GitHub Actions builds the mod on every push. Pushing or merging to `main` updates the **Development build** pre-release on the Releases page with the newest jar. These builds are for testing.
+GitHub Actions builds the mod on every push, then starts a server with it and a fresh world; the build fails if the mod crashes or throws an error while loading. Pushing or merging to `main` updates the **Development build** pre-release on the Releases page with the newest jar. These builds are for testing.
 
 To publish a proper release, tag the commit with a version number starting with `v` and push the tag:
 
