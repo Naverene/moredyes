@@ -28,3 +28,7 @@ The jar is written to `build/libs`.
 To run the game from the project, import it into your IDE first (or run `./gradlew eclipse` once). That makes ForgeGradle decompile Minecraft, which `runClient` and `runServer` need on 1.12.2; without it they crash while Forge loads.
 
 Every color of a block shares one grey texture, which the game tints with the dye color. The textures, models and blockstate files are written by `tools/make_assets.py`; run it again after changing it.
+
+## Builds and releases
+
+GitHub Actions builds every push and pull request, and starts a server with the mod to check that it loads. Every push to `main` updates the "Development build" pre-release with the newest jar. To publish a release, push a version tag such as `v1.0.0`; the build attaches the jar to a release with that name.
