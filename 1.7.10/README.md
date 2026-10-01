@@ -21,7 +21,7 @@ Many blocks from Minecraft 1.8 to 1.16 are available in every color: granite, an
 
 Plain granite and andesite generate underground and are crafted as in 1.8, unless another mod already provides them (the same as diorite). Concrete powder turns into concrete when it touches water.
 
-Stairs, slabs and walls come in every color for stone, granite, diorite, andesite, the polished stones, mossy cobblestone, mossy stone bricks, end stone bricks, smooth sandstone, smooth quartz, nether bricks, bricks, stone bricks, sandstone and cut sandstone (not every material has all three shapes, the same as in vanilla). They are crafted from dyed blocks of one shade with the vanilla recipes and are in their own creative tab. Iron trapdoors come in every color as well and, like iron doors, only open with redstone.
+Stairs, slabs and walls come in every color for stone, granite, diorite, andesite, the polished stones, mossy cobblestone, mossy stone bricks, end stone bricks, smooth sandstone, smooth quartz, nether bricks, bricks, stone bricks, sandstone and cut sandstone (not every material has all three shapes, the same as in vanilla). They are crafted from dyed blocks of one shade with the vanilla recipes and are in their own creative tab. Iron trapdoors come in every color as well and, like iron doors, only open with redstone. Pistons and sticky pistons come in every color too and work like the vanilla ones; craft a piston or sticky piston with a dye, or put a slimeball on top of a dyed piston to make it sticky. The rod of an extended piston keeps its wood color, and other pistons cannot push a dyed piston (in 1.7.10 pistons cannot move blocks that store extra data, the same as chests).
 
 Most of these use their vanilla recipe with dyed blocks of one shade, or eight blocks around a dye. Blocks that have no recipe in 1.7:
 
@@ -46,7 +46,7 @@ The grey textures are made from the vanilla textures when the game loads, so the
 
 To give a new block a texture, add a line to `TintSources` and call `TintedTextures.register(iconRegister, "<key>")` from the block's `registerBlockIcons`. Parts that should keep their natural color, such as a flower's stem or a log's bark, are drawn as a separate untinted layer (see `ILayeredBlock`).
 
-Stairs, slabs, walls and trapdoors need their metadata for their direction or shape, so they keep their color in a small tile entity instead. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
+Stairs, slabs, walls, trapdoors and pistons need their metadata for their direction or shape, so they keep their color in a small tile entity instead. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
 
 ## Downloads and releases
 

@@ -9,8 +9,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 /**
- * Holds the color of a stair, slab, wall or trapdoor (see ColorIndex). Those blocks need their metadata for their
- * direction or shape, so the color is kept here instead.
+ * Holds the color of a stair, slab, wall, trapdoor or piston (see ColorIndex). Those blocks need their metadata for
+ * their direction or shape, so the color is kept here instead.
  */
 public class TileEntityMDColor extends TileEntity {
 

@@ -135,6 +135,11 @@ public final class TintSources {
         base("cryingObsidian");
         base("ironTrapdoor");
         base("chain");
+        block("piston/side", "piston_side");
+        block("piston/top", "piston_top_normal");
+        block("piston/topSticky", "piston_top_sticky");
+        block("piston/inner", "piston_inner");
+        block("piston/bottom", "piston_bottom");
         add("cornflower/petals", modTexture("blocks/base/cornflower"), GREY_IF_NOT_GREEN, false);
         add("cornflower/stem", modTexture("blocks/base/cornflower"), KEEP_IF_GREEN, false);
 

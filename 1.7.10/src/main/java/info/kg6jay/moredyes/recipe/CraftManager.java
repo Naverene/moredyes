@@ -554,6 +554,12 @@ public class CraftManager {
                     Items.iron_ingot,
                     Items.iron_ingot,
                     dye);
+                // Pistons: a vanilla piston or sticky piston and a dye, and a dyed piston with a slimeball on top
+                ItemStack piston = new ItemStack(MDBlock.piston, 1, ColorIndex.of(a, i));
+                ItemStack stickyPiston = new ItemStack(MDBlock.stickyPiston, 1, ColorIndex.of(a, i));
+                GameRegistry.addShapelessRecipe(piston, Blocks.piston, dye);
+                GameRegistry.addShapelessRecipe(stickyPiston, Blocks.sticky_piston, dye);
+                GameRegistry.addShapedRecipe(stickyPiston, "S", "P", 'S', Items.slime_ball, 'P', piston);
                 GameRegistry.addShapelessRecipe(dye.copy(), new ItemStack(MDBlock.cornflower[a], 1, i));
                 // Chain: an iron ingot between two iron nuggets in 1.16; 1.7 has no nuggets, so iron ingots and a dye
                 GameRegistry.addShapedRecipe(
