@@ -1,19 +1,19 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.WorkbenchContainer;
-import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.CraftingMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 
-public class ContainerWorkbench extends WorkbenchContainer
+public class ContainerWorkbench extends CraftingMenu
 {
-    public ContainerWorkbench(int id, PlayerInventory player, IWorldPosCallable pos)
+    public ContainerWorkbench(int id, Inventory player, ContainerLevelAccess pos)
     {
         super(id, player, pos);
     }
-    public boolean canInteractWith(PlayerEntity player)
+    public boolean stillValid(Player player)
     {
-        //return isWithinUsableDistance(IWorldPosCallable.of(player.world, player.getPosition()), player);
+        //return isWithinUsableDistance(ContainerLevelAccess.of(player.world, player.getPosition()), player);
         return true;
     }
 }

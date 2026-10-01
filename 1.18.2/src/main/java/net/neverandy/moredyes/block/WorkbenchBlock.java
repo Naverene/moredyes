@@ -1,53 +1,53 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CraftingTableBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.CraftingTableBlock;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.IWorldPosCallable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.level.Level;
 import net.neverandy.moredyes.utility.BlockInfo;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class WorkbenchBlock extends CraftingTableBlock
 {
-    private static final ITextComponent CONTAINER_NAME = new TranslationTextComponent("container.crafting");
+    private static final Component CONTAINER_NAME = new TranslatableComponent("container.crafting");
 
     public WorkbenchBlock(BlockInfo info)
     {
-        super(Properties.create(info.blockMaterial)
-                .hardnessAndResistance(info.hardness, info.resistance)
-                .harvestLevel(info.harvestLevel)
-                .harvestTool(info.harvestTool)
+        super(Properties.of(info.blockMaterial)
+                .strength(info.hardness, info.resistance)
                 .sound(info.sound)
-                .setLightLevel(value -> info.lightlevel));
+                .lightLevel(value -> info.lightlevel));
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit)
     {
-        if (worldIn.isRemote)
+        if (worldIn.isClientSide)
         {
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
         } else
         {
-            player.openContainer(state.getContainer(worldIn, pos));
-            player.addStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
-            return ActionResultType.CONSUME;
+            player.openMenu(state.getMenuProvider(worldIn, pos));
+            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+            return InteractionResult.CONSUME;
         }
     }
     
     @Override
-    public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos)
+    public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos)
     {
-        return new SimpleNamedContainerProvider((id, inventory, player) ->
-                new ContainerWorkbench(id, inventory, IWorldPosCallable.of(worldIn, pos)), CONTAINER_NAME);
+        return new SimpleMenuProvider((id, inventory, player) ->
+                new ContainerWorkbench(id, inventory, ContainerLevelAccess.create(worldIn, pos)), CONTAINER_NAME);
     }
 }

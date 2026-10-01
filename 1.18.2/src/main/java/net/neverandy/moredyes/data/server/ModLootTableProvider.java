@@ -2,22 +2,22 @@ package net.neverandy.moredyes.data.server;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.LootTableProvider;
-import net.minecraft.data.loot.BlockLootTables;
-import net.minecraft.item.Items;
-import net.minecraft.loot.ConstantRange;
-import net.minecraft.loot.LootParameterSet;
-import net.minecraft.loot.LootParameterSets;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.LootTableManager;
-import net.minecraft.loot.ValidationTracker;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootTables;
+import net.minecraft.world.level.storage.loot.ValidationContext;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neverandy.moredyes.block.BlockPistonHead;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.DyedWallBlock;
@@ -41,18 +41,18 @@ public class ModLootTableProvider extends LootTableProvider
     }
 
     @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables()
+    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables()
     {
-        return ImmutableList.of(Pair.of(ModBlockLootTables::new, LootParameterSets.BLOCK));
+        return ImmutableList.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK));
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker)
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker)
     {
-        map.forEach((name, table) -> LootTableManager.validateLootTable(validationtracker, name, table));
+        map.forEach((name, table) -> LootTables.validate(validationtracker, name, table));
     }
 
-    public static class ModBlockLootTables extends BlockLootTables
+    public static class ModBlockLootTables extends BlockLoot
     {
         private static final float[] SAPLING_CHANCES = {0.05F, 0.0625F, 0.083333336F, 0.1F};
 
@@ -61,31 +61,31 @@ public class ModLootTableProvider extends LootTableProvider
         {
             for (Block block : getKnownBlocks())
             {
-                registerDropSelfLootTable(block);
+                dropSelf(block);
             }
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
                 Block cobble = MDBlock.cobbleArray[i];
-                registerLootTable(MDBlock.stoneArray[i], stone -> droppingWithSilkTouch(stone, cobble));
-                registerLootTable(MDBlock.glassArray[i], BlockLootTables::onlyWithSilkTouch);
-                registerLootTable(MDBlock.glassFoggyArray[i], BlockLootTables::onlyWithSilkTouch);
-                registerLootTable(MDBlock.glassPaneArray[i], BlockLootTables::onlyWithSilkTouch);
-                registerLootTable(MDBlock.bookshelfArray[i], shelf -> droppingWithSilkTouchOrRandomly(shelf, Items.BOOK, ConstantRange.of(3)));
-                registerLootTable(MDBlock.glassFoggyPaneArray[i], BlockLootTables::onlyWithSilkTouch);
-                registerLootTable(MDBlock.iceArray[i], BlockLootTables::onlyWithSilkTouch);
-                registerLootTable(MDBlock.packedIceArray[i], BlockLootTables::onlyWithSilkTouch);
+                add(MDBlock.stoneArray[i], stone -> createSingleItemTableWithSilkTouch(stone, cobble));
+                add(MDBlock.glassArray[i], BlockLoot::createSilkTouchOnlyTable);
+                add(MDBlock.glassFoggyArray[i], BlockLoot::createSilkTouchOnlyTable);
+                add(MDBlock.glassPaneArray[i], BlockLoot::createSilkTouchOnlyTable);
+                add(MDBlock.bookshelfArray[i], shelf -> createSingleItemTableWithSilkTouch(shelf, Items.BOOK, ConstantValue.exactly(3)));
+                add(MDBlock.glassFoggyPaneArray[i], BlockLoot::createSilkTouchOnlyTable);
+                add(MDBlock.iceArray[i], BlockLoot::createSilkTouchOnlyTable);
+                add(MDBlock.packedIceArray[i], BlockLoot::createSilkTouchOnlyTable);
                 for (TallFlowerBlock[] flowers : MDBlock.tallFlowerArrays)
                 {
-                    registerLootTable(flowers[i], flower -> droppingWhen(flower, TallFlowerBlock.HALF, DoubleBlockHalf.LOWER));
+                    add(flowers[i], flower -> createSinglePropConditionTable(flower, TallFlowerBlock.HALF, DoubleBlockHalf.LOWER));
                 }
                 for (DyedShapes shapes : DyedShapes.ALL)
                 {
-                    registerLootTable(shapes.slabs[i], BlockLootTables::droppingSlab);
+                    add(shapes.slabs[i], BlockLoot::createSlabItemTable);
                 }
                 for (String wood : DyeTrees.WOODS)
                 {
                     Block sapling = DyeTrees.saplings(wood)[i];
-                    registerLootTable(DyeTrees.leaves(wood)[i], leaves -> droppingWithChancesAndSticks(leaves, sapling, SAPLING_CHANCES));
+                    add(DyeTrees.leaves(wood)[i], leaves -> createLeavesDrops(leaves, sapling, SAPLING_CHANCES));
                 }
             }
         }

@@ -1,18 +1,18 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.PistonBlock;
-import net.minecraft.block.PistonHeadBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.properties.PistonType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.piston.PistonBaseBlock;
+import net.minecraft.world.level.block.piston.PistonHeadBlock;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.properties.PistonType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.Level;
 
 /**
  * The head of a dyed piston. One head block per color serves both the piston and the sticky piston of that color,
@@ -26,7 +26,7 @@ public class BlockPistonHead extends PistonHeadBlock
 
     public BlockPistonHead()
     {
-        super(AbstractBlock.Properties.create(Material.PISTON).hardnessAndResistance(1.5F).noDrops());
+        super(BlockBehaviour.Properties.of(Material.PISTON).strength(1.5F).noDrops());
     }
 
     public void setBases(BlockPiston piston, BlockPiston stickyPiston)
@@ -37,46 +37,46 @@ public class BlockPistonHead extends PistonHeadBlock
 
     private BlockPiston base(BlockState head)
     {
-        return head.get(TYPE) == PistonType.STICKY ? stickyPiston : piston;
+        return head.getValue(TYPE) == PistonType.STICKY ? stickyPiston : piston;
     }
 
     /** Whether the block behind this head is its extended base. */
     private boolean isAttached(BlockState head, BlockState behind)
     {
-        return behind.matchesBlock(base(head)) && behind.get(PistonBlock.EXTENDED) && behind.get(FACING) == head.get(FACING);
+        return behind.is(base(head)) && behind.getValue(PistonBaseBlock.EXTENDED) && behind.getValue(FACING) == head.getValue(FACING);
     }
 
     @Override
-    public void onBlockHarvested(World world, BlockPos pos, BlockState state, PlayerEntity player)
+    public void playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player)
     {
-        BlockPos behind = pos.offset(state.get(FACING).getOpposite());
-        if (!world.isRemote && player.abilities.isCreativeMode && isAttached(state, world.getBlockState(behind)))
+        BlockPos behind = pos.relative(state.getValue(FACING).getOpposite());
+        if (!world.isClientSide && player.getAbilities().instabuild && isAttached(state, world.getBlockState(behind)))
         {
             world.destroyBlock(behind, false);
         }
-        super.onBlockHarvested(world, pos, state, player);
+        super.playerWillDestroy(world, pos, state, player);
     }
 
     @Override
-    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving)
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving)
     {
-        super.onReplaced(state, world, pos, newState, isMoving);
-        BlockPos behind = pos.offset(state.get(FACING).getOpposite());
-        if (!state.matchesBlock(newState.getBlock()) && isAttached(state, world.getBlockState(behind)))
+        super.onRemove(state, world, pos, newState, isMoving);
+        BlockPos behind = pos.relative(state.getValue(FACING).getOpposite());
+        if (!state.is(newState.getBlock()) && isAttached(state, world.getBlockState(behind)))
         {
             world.destroyBlock(behind, true);
         }
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
     {
-        BlockState behind = world.getBlockState(pos.offset(state.get(FACING).getOpposite()));
-        return isAttached(state, behind) || behind.matchesBlock(Blocks.MOVING_PISTON) && behind.get(FACING) == state.get(FACING);
+        BlockState behind = world.getBlockState(pos.relative(state.getValue(FACING).getOpposite()));
+        return isAttached(state, behind) || behind.is(Blocks.MOVING_PISTON) && behind.getValue(FACING) == state.getValue(FACING);
     }
 
     @Override
-    public ItemStack getItem(IBlockReader world, BlockPos pos, BlockState state)
+    public ItemStack getCloneItemStack(BlockGetter world, BlockPos pos, BlockState state)
     {
         return new ItemStack(base(state));
     }

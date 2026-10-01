@@ -1,15 +1,15 @@
 package net.neverandy.moredyes.handler;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CauldronBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,14 +31,14 @@ public final class CauldronWashing
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event)
     {
-        World world = event.getWorld();
+        Level world = event.getWorld();
         BlockState state = world.getBlockState(event.getPos());
         ItemStack held = event.getItemStack();
-        if (!state.matchesBlock(Blocks.CAULDRON) || held.isEmpty())
+        if (!state.is(Blocks.WATER_CAULDRON) || held.isEmpty())
         {
             return;
         }
-        int water = state.get(CauldronBlock.LEVEL);
+        int water = state.getValue(LayeredCauldronBlock.LEVEL);
         ItemStack washed = washed(world, held);
         if (water <= 0 || washed.isEmpty())
         {
@@ -47,29 +47,29 @@ public final class CauldronWashing
 
         // Cancelled on both sides so the held block is not placed; the client still sends the click to the server.
         event.setCanceled(true);
-        event.setCancellationResult(ActionResultType.func_233537_a_(world.isRemote));
-        if (world.isRemote)
+        event.setCancellationResult(InteractionResult.sidedSuccess(world.isClientSide));
+        if (world.isClientSide)
         {
             return;
         }
-        PlayerEntity player = event.getPlayer();
+        Player player = event.getPlayer();
         ItemStack result = washed.copy();
         result.setCount(held.getCount());
-        player.setHeldItem(event.getHand(), result);
-        ((CauldronBlock) Blocks.CAULDRON).setWaterLevel(world, event.getPos(), state, water - 1);
-        player.addStat(Stats.USE_CAULDRON);
+        player.setItemInHand(event.getHand(), result);
+        LayeredCauldronBlock.lowerFillLevel(state, world, event.getPos());
+        player.awardStat(Stats.USE_CAULDRON);
     }
 
     /** The vanilla block a dyed block washes back into, or an empty stack if it isn't a dyed block. */
-    private static ItemStack washed(World world, ItemStack dyed)
+    private static ItemStack washed(Level world, ItemStack dyed)
     {
         ResourceLocation item = dyed.getItem().getRegistryName();
         if (item == null || !Reference.MOD_ID.equals(item.getNamespace()))
         {
             return ItemStack.EMPTY;
         }
-        Optional<? extends IRecipe<?>> recipe = world.getRecipeManager()
-                .getRecipe(new ResourceLocation(Reference.MOD_ID, "washing/" + item.getPath()));
-        return recipe.map(IRecipe::getRecipeOutput).orElse(ItemStack.EMPTY);
+        Optional<? extends Recipe<?>> recipe = world.getRecipeManager()
+                .byKey(new ResourceLocation(Reference.MOD_ID, "washing/" + item.getPath()));
+        return recipe.map(Recipe::getResultItem).orElse(ItemStack.EMPTY);
     }
 }

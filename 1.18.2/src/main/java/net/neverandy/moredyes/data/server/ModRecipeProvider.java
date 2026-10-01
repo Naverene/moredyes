@@ -1,21 +1,21 @@
 package net.neverandy.moredyes.data.server;
 
 import com.google.gson.JsonObject;
-import net.minecraft.block.Block;
-import net.minecraft.data.CookingRecipeBuilder;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.data.SingleItemRecipeBuilder;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.HashCache;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.neverandy.moredyes.block.DyedShapes;
@@ -163,7 +163,7 @@ public class ModRecipeProvider extends RecipeProvider
         {"592626", "2", "red", "black"},
     };
 
-    private Consumer<IFinishedRecipe> out;
+    private Consumer<FinishedRecipe> out;
 
     public ModRecipeProvider(DataGenerator generatorIn)
     {
@@ -172,29 +172,29 @@ public class ModRecipeProvider extends RecipeProvider
 
     /** Recipes unlock without advancements, so none are written. */
     @Override
-    protected void saveRecipeAdvancement(DirectoryCache cache, JsonObject json, Path path)
+    protected void saveAdvancement(HashCache cache, JsonObject json, Path path)
     {
     }
 
     @Override
-    protected void registerRecipes(Consumer<IFinishedRecipe> consumer)
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer)
     {
         out = consumer;
         for (String[] mix : DYE_MIXES)
         {
             int color = Arrays.asList(ColorStrings.ALL).indexOf(mix[0]);
-            ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapelessRecipe(MDItem.dye[color], Integer.parseInt(mix[1]));
+            ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(MDItem.dye[color], Integer.parseInt(mix[1]));
             for (int d = 2; d < mix.length; d++)
             {
-                builder.addIngredient(mc(mix[d] + "_dye"));
+                builder.requires(mc(mix[d] + "_dye"));
             }
-            builder.addCriterion("has_dye", hasItem(mc(mix[2] + "_dye"))).build(out, id("dye/" + mix[0]));
+            builder.unlockedBy("has_dye", has(mc(mix[2] + "_dye"))).save(out, id("dye/" + mix[0]));
         }
 
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
-            ShapelessRecipeBuilder.shapelessRecipe(MDItem.dye[i]).addIngredient(MDBlock.tulipArray[i])
-                    .addCriterion("has_tulip", hasItem(MDBlock.tulipArray[i])).build(out, id("dye/" + ColorStrings.ALL[i] + "_from_tulip"));
+            ShapelessRecipeBuilder.shapeless(MDItem.dye[i]).requires(MDBlock.tulipArray[i])
+                    .unlockedBy("has_tulip", has(MDBlock.tulipArray[i])).save(out, id("dye/" + ColorStrings.ALL[i] + "_from_tulip"));
 
             dyeable(i, MDBlock.woolArray[i], "white_wool");
             dyeable(i, MDBlock.stoneArray[i], "stone");
@@ -243,35 +243,35 @@ public class ModRecipeProvider extends RecipeProvider
             }
 
             Block workbench = MDBlock.workbenchArray[i];
-            ShapedRecipeBuilder.shapedRecipe(workbench).key('P', Ingredient.fromItems(allPlanks)).patternLine("PP").patternLine("PP")
-                    .addCriterion("has_planks", hasItem(allPlanks[0])).build(out, id(name(workbench)));
-            ShapelessRecipeBuilder.shapelessRecipe(workbench).addIngredient(Items.CRAFTING_TABLE).addIngredient(MDItem.dye[i])
-                    .addCriterion("has_dye", hasItem(MDItem.dye[i])).build(out, id("dyeing/" + name(workbench)));
+            ShapedRecipeBuilder.shaped(workbench).define('P', Ingredient.of(allPlanks)).pattern("PP").pattern("PP")
+                    .unlockedBy("has_planks", has(allPlanks[0])).save(out, id(name(workbench)));
+            ShapelessRecipeBuilder.shapeless(workbench).requires(Items.CRAFTING_TABLE).requires(MDItem.dye[i])
+                    .unlockedBy("has_dye", has(MDItem.dye[i])).save(out, id("dyeing/" + name(workbench)));
             washable(workbench, "crafting_table");
 
             Block chest = MDBlock.chestArray[i];
-            ShapedRecipeBuilder.shapedRecipe(chest).key('P', Ingredient.fromItems(allPlanks)).patternLine("PPP").patternLine("P P").patternLine("PPP")
-                    .addCriterion("has_planks", hasItem(allPlanks[0])).build(out, id(name(chest)));
-            ShapelessRecipeBuilder.shapelessRecipe(chest).addIngredient(Items.CHEST).addIngredient(MDItem.dye[i])
-                    .addCriterion("has_dye", hasItem(MDItem.dye[i])).build(out, id("dyeing/" + name(chest)));
+            ShapedRecipeBuilder.shaped(chest).define('P', Ingredient.of(allPlanks)).pattern("PPP").pattern("P P").pattern("PPP")
+                    .unlockedBy("has_planks", has(allPlanks[0])).save(out, id(name(chest)));
+            ShapelessRecipeBuilder.shapeless(chest).requires(Items.CHEST).requires(MDItem.dye[i])
+                    .unlockedBy("has_dye", has(MDItem.dye[i])).save(out, id("dyeing/" + name(chest)));
             washable(chest, "chest");
 
             Block shelf = MDBlock.bookshelfArray[i];
-            ShapedRecipeBuilder.shapedRecipe(shelf).key('P', Ingredient.fromItems(allPlanks)).key('B', Items.BOOK)
-                    .patternLine("PPP").patternLine("BBB").patternLine("PPP")
-                    .addCriterion("has_planks", hasItem(allPlanks[0])).build(out, id(name(shelf)));
+            ShapedRecipeBuilder.shaped(shelf).define('P', Ingredient.of(allPlanks)).define('B', Items.BOOK)
+                    .pattern("PPP").pattern("BBB").pattern("PPP")
+                    .unlockedBy("has_planks", has(allPlanks[0])).save(out, id(name(shelf)));
             dyeable(i, shelf, "bookshelf");
 
             // The vanilla piston recipe in dyed planks and dyed cobblestone of one color, and slime makes it sticky.
             Block piston = MDBlock.pistonArray[i];
             Block stickyPiston = MDBlock.stickyPistonArray[i];
-            ShapedRecipeBuilder.shapedRecipe(piston).key('P', Ingredient.fromItems(allPlanks)).key('C', MDBlock.cobbleArray[i])
-                    .key('I', Items.IRON_INGOT).key('R', Items.REDSTONE)
-                    .patternLine("PPP").patternLine("CIC").patternLine("CRC")
-                    .addCriterion("has_planks", hasItem(allPlanks[0])).build(out, id(name(piston)));
-            ShapedRecipeBuilder.shapedRecipe(stickyPiston).key('S', Items.SLIME_BALL).key('P', piston)
-                    .patternLine("S").patternLine("P")
-                    .addCriterion("has_piston", hasItem(piston)).build(out, id(name(stickyPiston)));
+            ShapedRecipeBuilder.shaped(piston).define('P', Ingredient.of(allPlanks)).define('C', MDBlock.cobbleArray[i])
+                    .define('I', Items.IRON_INGOT).define('R', Items.REDSTONE)
+                    .pattern("PPP").pattern("CIC").pattern("CRC")
+                    .unlockedBy("has_planks", has(allPlanks[0])).save(out, id(name(piston)));
+            ShapedRecipeBuilder.shaped(stickyPiston).define('S', Items.SLIME_BALL).define('P', piston)
+                    .pattern("S").pattern("P")
+                    .unlockedBy("has_piston", has(piston)).save(out, id(name(stickyPiston)));
             dyeable(i, piston, "piston");
             dyeable(i, stickyPiston, "sticky_piston");
 
@@ -303,11 +303,11 @@ public class ModRecipeProvider extends RecipeProvider
             smelt(MDBlock.quartzArray[i], MDBlock.quartzSmoothArray[i], 0.1F);
             mossy(MDBlock.cobbleArray[i], MDBlock.mossyCobbleArray[i]);
             mossy(MDBlock.stonebrickArray[i], MDBlock.mossyStonebrickArray[i]);
-            ShapedRecipeBuilder.shapedRecipe(MDBlock.quartzPillarArray[i], 2).key('Q', MDBlock.quartzArray[i]).patternLine("Q").patternLine("Q")
-                    .addCriterion("has_block", hasItem(MDBlock.quartzArray[i])).build(out, id(name(MDBlock.quartzPillarArray[i])));
-            ShapedRecipeBuilder.shapedRecipe(MDBlock.packedIceArray[i]).key('I', MDBlock.iceArray[i])
-                    .patternLine("III").patternLine("III").patternLine("III")
-                    .addCriterion("has_block", hasItem(MDBlock.iceArray[i])).build(out, id(name(MDBlock.packedIceArray[i])));
+            ShapedRecipeBuilder.shaped(MDBlock.quartzPillarArray[i], 2).define('Q', MDBlock.quartzArray[i]).pattern("Q").pattern("Q")
+                    .unlockedBy("has_block", has(MDBlock.quartzArray[i])).save(out, id(name(MDBlock.quartzPillarArray[i])));
+            ShapedRecipeBuilder.shaped(MDBlock.packedIceArray[i]).define('I', MDBlock.iceArray[i])
+                    .pattern("III").pattern("III").pattern("III")
+                    .unlockedBy("has_block", has(MDBlock.iceArray[i])).save(out, id(name(MDBlock.packedIceArray[i])));
             unpack(MDBlock.boneBlockArray[i], Items.BONE_MEAL);
 
             // Dyed flowers are for decoration; they don't make dye, or eight flowers and a dye would make eight dyes.
@@ -333,11 +333,11 @@ public class ModRecipeProvider extends RecipeProvider
         Block full = shapes.full[i];
         Block slab = shapes.slabs[i];
         Block stairs = shapes.stairs[i];
-        ShapedRecipeBuilder.shapedRecipe(slab, 6).key('#', full).patternLine("###")
-                .addCriterion("has_block", hasItem(full)).build(out, id(name(slab)));
-        ShapedRecipeBuilder.shapedRecipe(stairs, 4).key('#', full).patternLine("#  ").patternLine("## ").patternLine("###")
-                .addCriterion("has_block", hasItem(full)).build(out, id(name(stairs)));
-        boolean stone = full.getDefaultState().getMaterial() == Material.ROCK;
+        ShapedRecipeBuilder.shaped(slab, 6).define('#', full).pattern("###")
+                .unlockedBy("has_block", has(full)).save(out, id(name(slab)));
+        ShapedRecipeBuilder.shaped(stairs, 4).define('#', full).pattern("#  ").pattern("## ").pattern("###")
+                .unlockedBy("has_block", has(full)).save(out, id(name(stairs)));
+        boolean stone = full.defaultBlockState().getMaterial() == Material.STONE;
         if (stone)
         {
             stonecutting(full, slab, 2);
@@ -348,14 +348,14 @@ public class ModRecipeProvider extends RecipeProvider
             // Only loaded while walls are turned on, since the wall items don't exist otherwise.
             Block wall = shapes.walls[i];
             ConditionalRecipe.builder().addCondition(WallsEnabledCondition.INSTANCE)
-                    .addRecipe(ShapedRecipeBuilder.shapedRecipe(wall, 6).key('#', full).patternLine("###").patternLine("###")
-                            .addCriterion("has_block", hasItem(full))::build)
+                    .addRecipe(ShapedRecipeBuilder.shaped(wall, 6).define('#', full).pattern("###").pattern("###")
+                            .unlockedBy("has_block", has(full))::save)
                     .build(out, id(name(wall)));
             if (stone)
             {
                 ConditionalRecipe.builder().addCondition(WallsEnabledCondition.INSTANCE)
-                        .addRecipe(c -> SingleItemRecipeBuilder.stonecuttingRecipe(Ingredient.fromItems(full), wall, 1)
-                                .addCriterion("has_block", hasItem(full)).build(c, id("stonecutting/" + name(wall))))
+                        .addRecipe(c -> SingleItemRecipeBuilder.stonecutting(Ingredient.of(full), wall, 1)
+                                .unlockedBy("has_block", has(full)).save(c, id("stonecutting/" + name(wall))))
                         .build(out, id("stonecutting/" + name(wall)));
             }
         }
@@ -363,22 +363,22 @@ public class ModRecipeProvider extends RecipeProvider
         {
             // Two quartz slabs make chiseled quartz, like vanilla.
             Block chiseled = MDBlock.quartzChiseledArray[i];
-            ShapedRecipeBuilder.shapedRecipe(chiseled).key('#', slab).patternLine("#").patternLine("#")
-                    .addCriterion("has_slab", hasItem(slab)).build(out, id(name(chiseled)));
+            ShapedRecipeBuilder.shaped(chiseled).define('#', slab).pattern("#").pattern("#")
+                    .unlockedBy("has_slab", has(slab)).save(out, id(name(chiseled)));
         }
     }
 
     private void stonecutting(Block input, Block result, int count)
     {
-        SingleItemRecipeBuilder.stonecuttingRecipe(Ingredient.fromItems(input), result, count)
-                .addCriterion("has_block", hasItem(input)).build(out, id("stonecutting/" + name(result)));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), result, count)
+                .unlockedBy("has_block", has(input)).save(out, id("stonecutting/" + name(result)));
     }
 
     /** A dyed block and a vine make its mossy kind, like vanilla. */
     private void mossy(Block block, Block result)
     {
-        ShapelessRecipeBuilder.shapelessRecipe(result).addIngredient(block).addIngredient(Items.VINE)
-                .addCriterion("has_block", hasItem(block)).build(out, id(name(result)));
+        ShapelessRecipeBuilder.shapeless(result).requires(block).requires(Items.VINE)
+                .unlockedBy("has_block", has(block)).save(out, id(name(result)));
     }
 
     private void wood(int i, String wood)
@@ -391,54 +391,54 @@ public class ModRecipeProvider extends RecipeProvider
         dyeable(i, planks, wood + "_planks");
         dyeable(i, DyeTrees.leaves(wood)[i], wood + "_leaves");
         dyeable(i, fence, wood + "_fence");
-        ShapelessRecipeBuilder.shapelessRecipe(sapling).addIngredient(mc(wood + "_sapling")).addIngredient(MDItem.dye[i])
-                .addCriterion("has_dye", hasItem(MDItem.dye[i])).build(out, id("dyeing/" + name(sapling)));
+        ShapelessRecipeBuilder.shapeless(sapling).requires(mc(wood + "_sapling")).requires(MDItem.dye[i])
+                .unlockedBy("has_dye", has(MDItem.dye[i])).save(out, id("dyeing/" + name(sapling)));
         washable(sapling, wood + "_sapling");
 
-        ShapelessRecipeBuilder.shapelessRecipe(planks, 4).addIngredient(log)
-                .addCriterion("has_log", hasItem(log)).build(out, id(name(planks)));
-        ShapedRecipeBuilder.shapedRecipe(fence, 3).key('W', planks).key('#', Items.STICK).patternLine("W#W").patternLine("W#W")
-                .addCriterion("has_planks", hasItem(planks)).build(out, id(name(fence)));
+        ShapelessRecipeBuilder.shapeless(planks, 4).requires(log)
+                .unlockedBy("has_log", has(log)).save(out, id(name(planks)));
+        ShapedRecipeBuilder.shaped(fence, 3).define('W', planks).define('#', Items.STICK).pattern("W#W").pattern("W#W")
+                .unlockedBy("has_planks", has(planks)).save(out, id(name(fence)));
     }
 
     /** Eight vanilla blocks around a dye make eight dyed blocks, and water washes the color out again. */
     private void panes(Block glass, Block pane)
     {
-        ShapedRecipeBuilder.shapedRecipe(pane, 16).key('G', glass).patternLine("GGG").patternLine("GGG")
-                .addCriterion("has_glass", hasItem(glass)).build(out, id(name(pane)));
+        ShapedRecipeBuilder.shaped(pane, 16).define('G', glass).pattern("GGG").pattern("GGG")
+                .unlockedBy("has_glass", has(glass)).save(out, id(name(pane)));
     }
 
     private void dyeable(int i, Block dyed, String vanilla)
     {
-        ShapedRecipeBuilder.shapedRecipe(dyed, 8).key('S', mc(vanilla)).key('D', MDItem.dye[i])
-                .patternLine("SSS").patternLine("SDS").patternLine("SSS")
-                .addCriterion("has_dye", hasItem(MDItem.dye[i])).build(out, id("dyeing/" + name(dyed)));
+        ShapedRecipeBuilder.shaped(dyed, 8).define('S', mc(vanilla)).define('D', MDItem.dye[i])
+                .pattern("SSS").pattern("SDS").pattern("SSS")
+                .unlockedBy("has_dye", has(MDItem.dye[i])).save(out, id("dyeing/" + name(dyed)));
         washable(dyed, vanilla);
     }
 
     private void washable(Block dyed, String vanilla)
     {
-        ShapelessRecipeBuilder.shapelessRecipe(mc(vanilla)).addIngredient(dyed).addIngredient(Items.WATER_BUCKET)
-                .addCriterion("has_block", hasItem(dyed)).build(out, id("washing/" + name(dyed)));
+        ShapelessRecipeBuilder.shapeless(mc(vanilla)).requires(dyed).requires(Items.WATER_BUCKET)
+                .unlockedBy("has_block", has(dyed)).save(out, id("washing/" + name(dyed)));
     }
 
     private void smelt(Block input, Block result, float xp)
     {
-        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(input), result, xp, 200)
-                .addCriterion("has_block", hasItem(input)).build(out, id(name(result) + "_from_smelting"));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), result, xp, 200)
+                .unlockedBy("has_block", has(input)).save(out, id(name(result) + "_from_smelting"));
     }
 
     /** Four blocks in a square make four of the next block, like stone to stone bricks. */
     private void square(Block input, Block result)
     {
-        ShapedRecipeBuilder.shapedRecipe(result, 4).key('S', input).patternLine("SS").patternLine("SS")
-                .addCriterion("has_block", hasItem(input)).build(out, id(name(result)));
+        ShapedRecipeBuilder.shaped(result, 4).define('S', input).pattern("SS").pattern("SS")
+                .unlockedBy("has_block", has(input)).save(out, id(name(result)));
     }
 
-    private void unpack(Block block, IItemProvider item)
+    private void unpack(Block block, ItemLike item)
     {
-        ShapelessRecipeBuilder.shapelessRecipe(item, 9).addIngredient(block)
-                .addCriterion("has_block", hasItem(block)).build(out, id("unpacking/" + name(block)));
+        ShapelessRecipeBuilder.shapeless(item, 9).requires(block)
+                .unlockedBy("has_block", has(block)).save(out, id("unpacking/" + name(block)));
     }
 
     private static Item mc(String name)

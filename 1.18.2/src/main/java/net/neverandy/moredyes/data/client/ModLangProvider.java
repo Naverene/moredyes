@@ -1,6 +1,6 @@
 package net.neverandy.moredyes.data.client;
 
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.neverandy.moredyes.block.DyedShapes;

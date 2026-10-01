@@ -3,7 +3,7 @@
 
 Each dyed block is drawn from one grey texture multiplied by its dye color (see
 client/ColorHandlers.java), the same way 1.7.10 MoreDyes and vanilla grass work.
-The grey textures are made from the vanilla 1.16.5 textures: the pixel keeps its
+The grey textures are made from the vanilla 1.18.2 textures: the pixel keeps its
 brightness and loses its color.
 
 Run after `./gradlew build` has downloaded Minecraft (needs Pillow):
@@ -161,9 +161,9 @@ CHESTS = {'normal': (6, 5), 'normal_left': (4, 5), 'normal_right': (4, 5)}
 
 
 def client_jar():
-    jars = glob.glob(os.path.expanduser('~/.gradle/caches/forge_gradle/minecraft_repo/versions/1.16.5/client.jar'))
+    jars = glob.glob(os.path.expanduser('~/.gradle/caches/forge_gradle/minecraft_repo/versions/1.18.2/client.jar'))
     if not jars:
-        sys.exit('Minecraft 1.16.5 client.jar not found; run ./gradlew build first.')
+        sys.exit('Minecraft 1.18.2 client.jar not found; run ./gradlew build first.')
     return zipfile.ZipFile(jars[0])
 
 

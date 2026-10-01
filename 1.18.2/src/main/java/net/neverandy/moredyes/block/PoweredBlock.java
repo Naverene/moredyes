@@ -1,18 +1,17 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.RedstoneBlock;
 import net.neverandy.moredyes.utility.BlockInfo;
 
-public class PoweredBlock extends RedstoneBlock
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+
+public class PoweredBlock extends net.minecraft.world.level.block.PoweredBlock
 {
     public PoweredBlock(BlockInfo info)
     {
-        super(info.requireToolIfStone(Properties.create(info.blockMaterial)
-                .hardnessAndResistance(info.hardness,info.resistance)
-                .harvestLevel(info.harvestLevel)
-                .harvestTool(info.harvestTool)
+        super(info.requireToolIfStone(Properties.of(info.blockMaterial)
+                .strength(info.hardness,info.resistance)
                 .sound(info.sound)
-                .setLightLevel(value -> info.lightlevel)));
+                .lightLevel(value -> info.lightlevel)));
 
 
     }

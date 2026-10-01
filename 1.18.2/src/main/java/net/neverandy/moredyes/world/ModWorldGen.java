@@ -1,26 +1,27 @@
 package net.neverandy.moredyes.world;
 
-import net.minecraft.block.Block;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
@@ -38,23 +39,26 @@ public final class ModWorldGen
     private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Reference.MOD_ID);
 
     /** Places one tree of a random color and wood. */
-    public static final RegistryObject<Feature<NoFeatureConfig>> DYE_TREE = FEATURES.register("dye_tree", () -> new Feature<NoFeatureConfig>(NoFeatureConfig.CODEC)
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> DYE_TREE = FEATURES.register("dye_tree", () -> new Feature<NoneFeatureConfiguration>(NoneFeatureConfiguration.CODEC)
     {
         @Override
-        public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config)
+        public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
         {
+            Random rand = context.random();
             String wood = DyeTrees.WOODS[rand.nextInt(DyeTrees.WOODS.length)];
-            return DyeTrees.tree(wood, rand.nextInt(ColorStrings.ALL.length)).generate(reader, generator, rand, pos);
+            return DyeTrees.tree(wood, rand.nextInt(ColorStrings.ALL.length))
+                    .place(context.level(), context.chunkGenerator(), rand, context.origin());
         }
     });
 
     /** Biomes the trees and flowers don't grow in. */
-    private static final EnumSet<Biome.Category> EXCLUDED = EnumSet.of(Biome.Category.NONE, Biome.Category.THEEND, Biome.Category.NETHER,
-            Biome.Category.OCEAN, Biome.Category.RIVER, Biome.Category.BEACH, Biome.Category.DESERT, Biome.Category.MESA,
-            Biome.Category.ICY, Biome.Category.MUSHROOM);
+    private static final EnumSet<Biome.BiomeCategory> EXCLUDED = EnumSet.of(Biome.BiomeCategory.NONE, Biome.BiomeCategory.THEEND,
+            Biome.BiomeCategory.NETHER, Biome.BiomeCategory.OCEAN, Biome.BiomeCategory.RIVER, Biome.BiomeCategory.BEACH,
+            Biome.BiomeCategory.DESERT, Biome.BiomeCategory.MESA, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MUSHROOM,
+            Biome.BiomeCategory.UNDERGROUND);
 
-    private static ConfiguredFeature<?, ?> dyeTrees;
-    private static ConfiguredFeature<?, ?> tulips;
+    private static Holder<PlacedFeature> dyeTrees;
+    private static Holder<PlacedFeature> tulips;
 
     private ModWorldGen() {}
 
@@ -63,28 +67,24 @@ public final class ModWorldGen
         FEATURES.register(modBus);
     }
 
-    /** Builds and registers the configured features. Call from common setup, after the blocks exist. */
+    /** Builds and registers the configured and placed features. Call from common setup, after the blocks exist. */
     public static void setup()
     {
         // About one dye tree every four chunks.
-        dyeTrees = register("dye_trees", DYE_TREE.get().withConfiguration(NoFeatureConfig.INSTANCE)
-                .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).square().chance(4));
+        dyeTrees = PlacementUtils.register(Reference.MOD_ID + ":dye_trees",
+                FeatureUtils.register(Reference.MOD_ID + ":dye_trees", DYE_TREE.get()),
+                RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
-        WeightedBlockStateProvider anyTulip = new WeightedBlockStateProvider();
+        SimpleWeightedRandomList.Builder<BlockState> anyTulip = SimpleWeightedRandomList.builder();
         for (Block tulip : MDBlock.tulipArray)
         {
-            anyTulip.addWeightedBlockstate(tulip.getDefaultState(), 1);
+            anyTulip.add(tulip.defaultBlockState(), 1);
         }
         // A patch of tulips about every other chunk, placed the same way as vanilla flowers.
-        tulips = register("tulips", Feature.FLOWER.withConfiguration(
-                new BlockClusterFeatureConfig.Builder(anyTulip, SimpleBlockPlacer.PLACER).tries(32).build())
-                .withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
-                .chance(2));
-    }
-
-    private static ConfiguredFeature<?, ?> register(String name, ConfiguredFeature<?, ?> feature)
-    {
-        return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(Reference.MOD_ID, name), feature);
+        tulips = PlacementUtils.register(Reference.MOD_ID + ":tulips",
+                FeatureUtils.register(Reference.MOD_ID + ":tulips", Feature.FLOWER, FeatureUtils.simpleRandomPatchConfiguration(32,
+                        PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(anyTulip))))),
+                RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
     }
 
     /** Adds the features to each biome as it loads. Registered on the Forge event bus. */
@@ -96,11 +96,11 @@ public final class ModWorldGen
         }
         if (ConfigHandler.worldGenTree.get())
         {
-            event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, dyeTrees);
+            event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, dyeTrees);
         }
         if (ConfigHandler.worldGenFlower.get())
         {
-            event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tulips);
+            event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, tulips);
         }
     }
 }

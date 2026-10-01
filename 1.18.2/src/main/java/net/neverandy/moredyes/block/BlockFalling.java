@@ -1,17 +1,17 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.FallingBlock;
+import net.minecraft.world.level.block.FallingBlock;
 import net.neverandy.moredyes.utility.BlockInfo;
+
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class BlockFalling extends FallingBlock
 {
     public BlockFalling(BlockInfo info)
     {
-        super(Properties.create(info.blockMaterial)
-                .hardnessAndResistance(info.hardness,info.resistance)
-                .harvestLevel(info.harvestLevel)
-                .harvestTool(info.harvestTool)
+        super(Properties.of(info.blockMaterial)
+                .strength(info.hardness,info.resistance)
                 .sound(info.sound)
-                .setLightLevel(value -> info.lightlevel));
+                .lightLevel(value -> info.lightlevel));
     }
 }
