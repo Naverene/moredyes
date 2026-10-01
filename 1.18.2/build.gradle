@@ -38,6 +38,9 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
+            // The generated data (recipes, loot tables, models for every color) needs about 2.5 GB
+            // of live heap while the server loads, more than the JVM default on a CI runner.
+            jvmArg '-Xmx4G'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
