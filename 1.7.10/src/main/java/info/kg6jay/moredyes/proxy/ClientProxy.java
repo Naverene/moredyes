@@ -8,11 +8,13 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import info.kg6jay.moredyes.block.RenderIds;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
+import info.kg6jay.moredyes.render.TileEntityMDPistonRenderer;
 
 public class ClientProxy extends CommonProxy {
 
@@ -28,6 +30,7 @@ public class ClientProxy extends CommonProxy {
         TileEntityMDBlockColoredChestRenderer chestRenderer = new TileEntityMDBlockColoredChestRenderer();
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDBlockColoredChest.class, chestRenderer);
         RenderingRegistry.registerBlockHandler(chestRenderer);
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDPiston.class, new TileEntityMDPistonRenderer());
 
         RenderIds.layeredCube = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredCube, false));

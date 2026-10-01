@@ -7,12 +7,14 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
 import info.kg6jay.moredyes.item.MDItemBlockChest;
 import info.kg6jay.moredyes.item.MDItemBlockColored;
 import info.kg6jay.moredyes.item.MDItemBlockDyedSlab;
@@ -107,6 +109,8 @@ public class MDBlock {
     public static Block brickWall, stoneBrickWall, mossyStoneBrickWall, graniteWall, dioriteWall, andesiteWall,
         netherBrickWall, sandstoneWall, endStoneBrickWall;
     public static Block ironTrapdoor;
+    /** Pistons, like trapdoors, keep their color in a tile entity. The head has no item and is shared by both. */
+    public static Block piston, stickyPiston, pistonHead;
 
     /** A stair, slab or wall block and the dyed blocks it is crafted from. */
     public static final class Shape {
@@ -298,6 +302,9 @@ public class MDBlock {
         endStoneBrickWall = wall(endStoneBrick, "endStoneBrickWall", "endStoneBrick");
 
         ironTrapdoor = new MDBlockDyedTrapdoor(Reference.BLOCK_INFO_IRON_TRAPDOOR, "ironTrapdoor");
+        piston = new MDBlockDyedPiston(false, "piston");
+        stickyPiston = new MDBlockDyedPiston(true, "stickyPiston");
+        pistonHead = new MDBlockDyedPistonHead();
     }
 
     private static Block stairs(Block[] base, String name, String... textures) {
@@ -390,6 +397,9 @@ public class MDBlock {
             GameRegistry.registerBlock(shape.block, item, registryName(shape.block));
         }
         GameRegistry.registerBlock(ironTrapdoor, MDItemBlockTileColored.class, registryName(ironTrapdoor));
+        GameRegistry.registerBlock(piston, MDItemBlockTileColored.class, registryName(piston));
+        GameRegistry.registerBlock(stickyPiston, MDItemBlockTileColored.class, registryName(stickyPiston));
+        GameRegistry.registerBlock(pistonHead, (Class<? extends ItemBlock>) null, registryName(pistonHead));
     }
 
     /** The registry name of a block named "moredyes.name" is "name". */
@@ -468,6 +478,7 @@ public class MDBlock {
     public static void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityMDBlockColoredChest.class, "MDBlockColoredChest");
         GameRegistry.registerTileEntity(TileEntityMDColor.class, "MDColor");
+        GameRegistry.registerTileEntity(TileEntityMDPiston.class, "MDPiston");
     }
 
     /**
