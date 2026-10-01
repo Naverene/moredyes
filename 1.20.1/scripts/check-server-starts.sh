@@ -20,6 +20,10 @@ echo "eula=true" > run/eula.txt
 [ -f run/server.properties ] || echo "online-mode=false" > run/server.properties
 rm -rf run/world
 
+# The default heap (a quarter of the runner's memory) is too small to load every dyed block, so
+# give the server 4 GB unless _JAVA_OPTIONS already sets something.
+export _JAVA_OPTIONS="${_JAVA_OPTIONS:--Xmx4g}"
+
 # runServer does not read commands from stdin under Gradle, so the server is stopped by ending
 # its process once it has started.
 ./gradlew --no-daemon runServer > "$LOG" 2>&1 &
