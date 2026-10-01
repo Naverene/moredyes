@@ -17,6 +17,8 @@ public class TileEntityMDPiston extends TileEntityPiston {
     private static final String TAG_COLOR = "color";
 
     private int color;
+    /** Whether a retracting piston draws its head sliding in. Kept here because vanilla keeps its own private. */
+    private boolean renderHead;
     /** How far it has moved (0 to 1), for drawing. Kept here because vanilla keeps its own private. */
     private float renderProgress, lastRenderProgress;
 
@@ -25,10 +27,15 @@ public class TileEntityMDPiston extends TileEntityPiston {
     public TileEntityMDPiston(Block block, int meta, int facing, boolean extending, boolean renderHead, int color) {
         super(block, meta, facing, extending, renderHead);
         this.color = color;
+        this.renderHead = renderHead;
     }
 
     public int getColor() {
         return this.color;
+    }
+
+    public boolean shouldRenderHead() {
+        return this.renderHead;
     }
 
     /** How far it has moved, between the last tick and this one. Advances like vanilla's progress. */

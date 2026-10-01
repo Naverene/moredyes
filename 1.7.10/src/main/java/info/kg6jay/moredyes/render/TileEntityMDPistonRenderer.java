@@ -62,7 +62,7 @@ public class TileEntityMDPistonRenderer extends TileEntitySpecialRenderer {
             z - pz + offset * Facing.offsetsZForSide[facing]);
         tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
 
-        boolean retracting = block instanceof MDBlockDyedPiston && piston.shouldPistonHeadBeRendered()
+        boolean retracting = block instanceof MDBlockDyedPiston && piston.shouldRenderHead()
             && !piston.isExtending();
         if (block instanceof MDBlockDyedPistonHead && progress < 0.5F) {
             // A head that has only just started moving out: a short rod, so it does not show behind the piston
