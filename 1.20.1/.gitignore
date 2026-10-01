@@ -19,3 +19,19 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# Minecraft and Forge
+bin
+*.launch
+.settings
+.metadata
+out
+*.ipr
+*.iws
+*.iml
+.idea
+build
+eclipse
+run
+run-data
+forge*changelog.txt
