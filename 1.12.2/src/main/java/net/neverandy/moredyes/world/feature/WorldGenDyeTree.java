@@ -13,8 +13,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class WorldGenDyeTree extends WorldGenAbstractTree {
 
-    private static IBlockState LOG;
-    private static IBlockState LEAF;
+    private final IBlockState LOG;
+    private final IBlockState LEAF;
     private final boolean useExtraRandomHeight;
 
     public WorldGenDyeTree(boolean notify, boolean useExtraRandomHeightIn,int index)
@@ -105,7 +105,7 @@ public class WorldGenDyeTree extends WorldGenAbstractTree {
                                     BlockPos blockpos = new BlockPos(i3, i2, k1);
                                     IBlockState state2 = worldIn.getBlockState(blockpos);
 
-                                    if (state2.getBlock().isAir(state2, worldIn, blockpos) || state2.getBlock().isAir(state2, worldIn, blockpos))
+                                    if (state2.getBlock().isAir(state2, worldIn, blockpos) || state2.getBlock().isLeaves(state2, worldIn, blockpos))
                                     {
                                         this.setBlockAndNotifyAdequately(worldIn, blockpos, LEAF);
                                     }

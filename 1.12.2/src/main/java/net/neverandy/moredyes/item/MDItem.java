@@ -1,33 +1,47 @@
 package net.neverandy.moredyes.item;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
-import net.minecraft.item.Item;
+import net.neverandy.moredyes.reference.Reference;
 
+@EventBusSubscriber(modid=Reference.MOD_ID)
 public class MDItem
 {
+	/** One dye item per color group; the metadata is the shade. */
 	public static Item[] dye;
+
 	public static void initialize()
 	{
-		dye=new Item[8];
-		dye[0]=new MDItemDye(ColorStrings.SET_0,ColorStrings.SET_0.length,0);
-		dye[1]=new MDItemDye(ColorStrings.SET_1,ColorStrings.SET_1.length,1);
-		dye[2]=new MDItemDye(ColorStrings.SET_2,ColorStrings.SET_2.length,2);
-		dye[3]=new MDItemDye(ColorStrings.SET_3,ColorStrings.SET_3.length,3);
-		dye[4]=new MDItemDye(ColorStrings.SET_4,ColorStrings.SET_4.length,4);
-		dye[5]=new MDItemDye(ColorStrings.SET_5,ColorStrings.SET_5.length,5);
-		dye[6]=new MDItemDye(ColorStrings.SET_6,ColorStrings.SET_6.length,6);
-		dye[7]=new MDItemDye(ColorStrings.SET_7,ColorStrings.SET_7.length,7);
+		dye=new Item[ColorStrings.GROUPS.length];
+		for(int g=0;g<dye.length;g++)
+		{
+			dye[g]=new MDItemDye(g);
+		}
 	}
-
+	/** The dye of a color, by its position in ColorStrings.ALL. */
+	public static ItemStack dyeStack(int colorIndex,int count)
+	{
+		return new ItemStack(dye[ColorStrings.groupOf(colorIndex)],count,ColorStrings.shadeOf(colorIndex));
+	}
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
 	{
-		IForgeRegistry<Item> registry = event.getRegistry();
-		registry.registerAll(dye);
-		registry.registerAll(Item.getItemFromBlock(MDBlock.log[0]));
+		event.getRegistry().registerAll(dye);
+		for(Block block:MDBlock.ALL)
+		{
+			event.getRegistry().register(new ItemBlockColored(block).setRegistryName(block.getRegistryName()));
+		}
+		for(Item item:dye)
+		{
+			OreDictionary.registerOre("dye",new ItemStack(item,1,OreDictionary.WILDCARD_VALUE));
+		}
+		MDBlock.registerOreDictionary();
 	}
 }

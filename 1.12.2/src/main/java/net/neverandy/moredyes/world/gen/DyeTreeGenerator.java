@@ -1,62 +1,36 @@
 package net.neverandy.moredyes.world.gen;
 
-import net.neverandy.moredyes.ConfigHandler;
-import net.neverandy.moredyes.reference.ColorStrings;
-import net.neverandy.moredyes.world.feature.WorldGenDyeTree;
-import net.neverandy.moredyes.world.feature.WorldGenDyeTreeBig;
-import net.neverandy.moredyes.world.feature.WorldGenDyeTreeHuge;
+import java.util.Random;
+
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.neverandy.moredyes.block.BlockColoredSapling;
+import net.neverandy.moredyes.handler.ConfigHandler;
+import net.neverandy.moredyes.reference.ColorStrings;
 
-import java.util.Random;
-
-
+/** Scatters dye trees of every color over the surface of new chunks. */
 public class DyeTreeGenerator implements IWorldGenerator
 {
-	public void generate(Random random, int chunkX, int chunkZ, World world, net.minecraft.world.gen.IChunkGenerator chunkGenerator,IChunkProvider chunkProvider)
+	@Override
+	public void generate(Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider)
 	{
-		if(!ConfigHandler.worldGenTree)
+		int dimension=world.provider.getDimension();
+		if(!ConfigHandler.worldGenTree||dimension==-1||dimension==1)
 		{
 			return;
 		}
-
-		switch(world.provider.getDimension())
-		{
-		case -1:
-			break;
-		case 0:
-			generateSurface(random,chunkX*16,chunkZ*16,world);
-			break;
-		case 1:
-			break;
-		default:
-			generateSurface(random,chunkX*16,chunkZ*16,world);
-		}
-	}
-	private void generateSurface(Random random, int x, int z, World world)
-	{
-		for(int b = 0; b< ColorStrings.ALL.length; b++)
+		for(int color=0;color<ColorStrings.ALL.length;color++)
 		{
 			if(random.nextInt(100)==0)
 			{
-				int xGen = random.nextInt(16)+x;
-				int zGen = random.nextInt(16)+z;
-				BlockPos genPos = world.getTopSolidOrLiquidBlock(new BlockPos(xGen,0,zGen));
-				int r=random.nextInt(100);
-				if(r>10)
-				{
-					new WorldGenDyeTree(true, false, b).generate(world, random, genPos);
-				}
-				else if(r>1)
-				{
-					new WorldGenDyeTreeBig(true, b).generate(world, random, genPos);
-				}
-				else
-				{
-					new WorldGenDyeTreeHuge(true, b).generate(world, random, genPos);
-				}
+				// Inside the middle of the 2x2 chunks around the corner, so the tree never reaches unloaded chunks.
+				int x=chunkX*16+8+random.nextInt(16);
+				int z=chunkZ*16+8+random.nextInt(16);
+				BlockPos pos=world.getTopSolidOrLiquidBlock(new BlockPos(x,0,z));
+				BlockColoredSapling.randomTree(random,false,color).generate(world,random,pos);
 			}
 		}
 	}
