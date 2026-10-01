@@ -1,15 +1,15 @@
 package net.neverandy.moredyes.data.client;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.block.WallBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.block.BlockChest;
 import net.neverandy.moredyes.block.BlockFence;
@@ -38,7 +38,7 @@ public class ModItemModelProvider extends ItemModelProvider
         for (RegistryObject<Block> entry : MDBlock.BLOCKS.getEntries())
         {
             Block block = entry.get();
-            if (block instanceof BlockPistonHead || block instanceof SlabBlock || block instanceof StairsBlock || block instanceof WallBlock)
+            if (block instanceof BlockPistonHead || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
             {
                 // Piston heads have no item; slabs, stairs and walls are below.
                 continue;

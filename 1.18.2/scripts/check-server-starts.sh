@@ -29,7 +29,7 @@ until grep -qE 'Done \([0-9.]+s\)!|BUILD (FAILED|SUCCESSFUL)' "$LOG" || [ "$wait
     sleep 2
     waited=$((waited + 2))
 done
-pkill -f '[L]aunchTesting' || true
+pkill -f '[B]ootstrapLauncher' || true
 wait "$gradle_pid"
 
 if grep -qE -e "$FAILURE_PATTERN" "$LOG"; then

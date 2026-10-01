@@ -1,18 +1,18 @@
 package net.neverandy.moredyes.client;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PistonBlock;
-import net.minecraft.block.PistonHeadBlock;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.piston.PistonBaseBlock;
+import net.minecraft.world.level.block.piston.PistonHeadBlock;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BlockModelRenderer;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.tileentity.PistonTileEntityRenderer;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.state.properties.PistonType;
-import net.minecraft.tileentity.PistonTileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.client.renderer.block.ModelBlockRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.PistonHeadRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.world.level.block.state.properties.PistonType;
+import net.minecraft.world.level.block.piston.PistonMovingBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.neverandy.moredyes.block.BlockPiston;
 import net.neverandy.moredyes.block.BlockPistonHead;
@@ -22,56 +22,56 @@ import net.neverandy.moredyes.block.BlockPistonHead;
  * and only shortens the arm of the vanilla head, so a dyed piston gets the same drawing with its own dyed head.
  * Everything else is drawn by the vanilla renderer.
  */
-public class DyedPistonRenderer extends PistonTileEntityRenderer
+public class DyedPistonRenderer extends PistonHeadRenderer
 {
-    public DyedPistonRenderer(TileEntityRendererDispatcher dispatcher)
+    public DyedPistonRenderer(BlockEntityRendererProvider.Context context)
     {
-        super(dispatcher);
+        super(context);
     }
 
     @Override
-    public void render(PistonTileEntity piston, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buffer, int light, int overlay)
+    public void render(PistonMovingBlockEntity piston, float partialTicks, PoseStack matrix, MultiBufferSource buffer, int light, int overlay)
     {
-        World world = piston.getWorld();
-        BlockState state = piston.getPistonState();
+        Level world = piston.getLevel();
+        BlockState state = piston.getMovedState();
         if (world == null || !(state.getBlock() instanceof BlockPiston || state.getBlock() instanceof BlockPistonHead))
         {
             super.render(piston, partialTicks, matrix, buffer, light, overlay);
             return;
         }
 
-        BlockPos pos = piston.getPos().offset(piston.getMotionDirection().getOpposite());
+        BlockPos pos = piston.getBlockPos().relative(piston.getMovementDirection().getOpposite());
         float progress = piston.getProgress(partialTicks);
-        BlockModelRenderer.enableCache();
-        matrix.push();
-        matrix.translate(piston.getOffsetX(partialTicks), piston.getOffsetY(partialTicks), piston.getOffsetZ(partialTicks));
+        ModelBlockRenderer.enableCaching();
+        matrix.pushPose();
+        matrix.translate(piston.getXOff(partialTicks), piston.getYOff(partialTicks), piston.getZOff(partialTicks));
         if (state.getBlock() instanceof BlockPistonHead && progress <= 4.0F)
         {
-            draw(pos, state.with(PistonHeadBlock.SHORT, progress <= 0.5F), matrix, buffer, world, false, overlay);
+            draw(pos, state.setValue(PistonHeadBlock.SHORT, progress <= 0.5F), matrix, buffer, world, false, overlay);
         }
-        else if (piston.shouldPistonHeadBeRendered() && !piston.isExtending() && state.getBlock() instanceof BlockPiston)
+        else if (piston.isSourcePiston() && !piston.isExtending() && state.getBlock() instanceof BlockPiston)
         {
             BlockPiston base = (BlockPiston) state.getBlock();
-            BlockState head = base.getHead().getDefaultState()
-                    .with(PistonHeadBlock.TYPE, base.isSticky() ? PistonType.STICKY : PistonType.DEFAULT)
-                    .with(PistonHeadBlock.FACING, state.get(PistonBlock.FACING))
-                    .with(PistonHeadBlock.SHORT, progress >= 0.5F);
+            BlockState head = base.getHead().defaultBlockState()
+                    .setValue(PistonHeadBlock.TYPE, base.isSticky() ? PistonType.STICKY : PistonType.DEFAULT)
+                    .setValue(PistonHeadBlock.FACING, state.getValue(PistonBaseBlock.FACING))
+                    .setValue(PistonHeadBlock.SHORT, progress >= 0.5F);
             draw(pos, head, matrix, buffer, world, false, overlay);
-            matrix.pop();
-            matrix.push();
-            draw(pos.offset(piston.getMotionDirection()), state.with(PistonBlock.EXTENDED, true), matrix, buffer, world, true, overlay);
+            matrix.popPose();
+            matrix.pushPose();
+            draw(pos.relative(piston.getMovementDirection()), state.setValue(PistonBaseBlock.EXTENDED, true), matrix, buffer, world, true, overlay);
         }
         else
         {
             draw(pos, state, matrix, buffer, world, false, overlay);
         }
-        matrix.pop();
-        BlockModelRenderer.disableCache();
+        matrix.popPose();
+        ModelBlockRenderer.clearCache();
     }
 
-    private static void draw(BlockPos pos, BlockState state, MatrixStack matrix, IRenderTypeBuffer buffer, World world, boolean checkSides, int overlay)
+    private static void draw(BlockPos pos, BlockState state, PoseStack matrix, MultiBufferSource buffer, Level world, boolean checkSides, int overlay)
     {
         ForgeHooksClient.renderPistonMovedBlocks(pos, state, matrix, buffer, world, checkSides, overlay,
-                Minecraft.getInstance().getBlockRendererDispatcher());
+                Minecraft.getInstance().getBlockRenderer());
     }
 }

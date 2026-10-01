@@ -1,16 +1,16 @@
 package net.neverandy.moredyes.entity;
 
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.DyeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -21,7 +21,7 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.network.PacketDistributor;
+import net.minecraftforge.network.PacketDistributor;
 import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.network.ModNetwork;
@@ -44,9 +44,9 @@ public final class DyedSheep
     private DyedSheep() {}
 
     /** The sheep's MoreDyes color as an index into ColorStrings.ALL, or -1 if it has a vanilla color. */
-    public static int getColor(SheepEntity sheep)
+    public static int getColor(Sheep sheep)
     {
-        CompoundNBT data = sheep.getPersistentData();
+        CompoundTag data = sheep.getPersistentData();
         if (!data.contains(KEY))
         {
             return -1;
@@ -63,7 +63,7 @@ public final class DyedSheep
     }
 
     /** Sets the MoreDyes color (-1 for none) and, on the server, tells the players who can see the sheep. */
-    public static void setColor(SheepEntity sheep, int color)
+    public static void setColor(Sheep sheep, int color)
     {
         if (color < 0)
         {
@@ -73,25 +73,25 @@ public final class DyedSheep
         {
             sheep.getPersistentData().putString(KEY, ColorStrings.ALL[color]);
         }
-        if (!sheep.world.isRemote && sheep.isAddedToWorld())
+        if (!sheep.level.isClientSide && sheep.isAddedToWorld())
         {
-            ModNetwork.CHANNEL.send(PacketDistributor.TRACKING_ENTITY.with(() -> sheep), new SheepColorPacket(sheep.getEntityId(), color));
+            ModNetwork.CHANNEL.send(PacketDistributor.TRACKING_ENTITY.with(() -> sheep), new SheepColorPacket(sheep.getId(), color));
         }
     }
 
     /** Dyes a sheep with a MoreDyes dye. Called from MDItemDye. */
-    public static ActionResultType dye(SheepEntity sheep, int color, ItemStack stack)
+    public static InteractionResult dye(Sheep sheep, int color, ItemStack stack)
     {
-        if (!sheep.isAlive() || sheep.getSheared() || getColor(sheep) == color)
+        if (!sheep.isAlive() || sheep.isSheared() || getColor(sheep) == color)
         {
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
         }
-        if (!sheep.world.isRemote)
+        if (!sheep.level.isClientSide)
         {
             setColor(sheep, color);
             stack.shrink(1);
         }
-        return ActionResultType.func_233537_a_(sheep.world.isRemote);
+        return InteractionResult.sidedSuccess(sheep.level.isClientSide);
     }
 
     /** A vanilla dye on a sheep with a MoreDyes color gives it that vanilla color again. */
@@ -99,25 +99,25 @@ public final class DyedSheep
     public static void onInteract(PlayerInteractEvent.EntityInteract event)
     {
         ItemStack stack = event.getItemStack();
-        if (!(event.getTarget() instanceof SheepEntity) || !(stack.getItem() instanceof DyeItem))
+        if (!(event.getTarget() instanceof Sheep) || !(stack.getItem() instanceof DyeItem))
         {
             return;
         }
-        SheepEntity sheep = (SheepEntity) event.getTarget();
-        if (!sheep.isAlive() || sheep.getSheared() || getColor(sheep) < 0)
+        Sheep sheep = (Sheep) event.getTarget();
+        if (!sheep.isAlive() || sheep.isSheared() || getColor(sheep) < 0)
         {
             return;
         }
-        if (!sheep.world.isRemote)
+        if (!sheep.level.isClientSide)
         {
             setColor(sheep, -1);
-            sheep.setFleeceColor(((DyeItem) stack.getItem()).getDyeColor());
-            if (!event.getPlayer().abilities.isCreativeMode)
+            sheep.setColor(((DyeItem) stack.getItem()).getDyeColor());
+            if (!event.getPlayer().getAbilities().instabuild)
             {
                 stack.shrink(1);
             }
         }
-        event.setCancellationResult(ActionResultType.func_233537_a_(sheep.world.isRemote));
+        event.setCancellationResult(InteractionResult.sidedSuccess(sheep.level.isClientSide));
         event.setCanceled(true);
     }
 
@@ -128,7 +128,7 @@ public final class DyedSheep
     @SubscribeEvent
     public static void onItemSpawn(EntityJoinWorldEvent event)
     {
-        if (event.getWorld().isRemote || !(event.getEntity() instanceof ItemEntity))
+        if (event.getWorld().isClientSide || !(event.getEntity() instanceof ItemEntity))
         {
             return;
         }
@@ -138,16 +138,16 @@ public final class DyedSheep
         {
             return;
         }
-        double x = item.getPosX(), y = item.getPosY() - 1.0D, z = item.getPosZ();
+        double x = item.getX(), y = item.getY() - 1.0D, z = item.getZ();
         // Items also join the world when their chunk loads from disk. Asking that chunk for its sheep then would wait
         // for the chunk to finish loading, which never happens, and the world hangs at "Preparing spawn area".
-        if (event.getWorld().getChunkProvider().getChunkNow(MathHelper.floor(x) >> 4, MathHelper.floor(z) >> 4) == null)
+        if (event.getWorld().getChunkSource().getChunkNow(Mth.floor(x) >> 4, Mth.floor(z) >> 4) == null)
         {
             return;
         }
-        List<SheepEntity> sheep = event.getWorld().getEntitiesWithinAABB(SheepEntity.class,
-                new AxisAlignedBB(x - 0.01D, y - 0.01D, z - 0.01D, x + 0.01D, y + 0.01D, z + 0.01D),
-                s -> s.getSheared() && getColor(s) >= 0);
+        List<Sheep> sheep = event.getWorld().getEntitiesOfClass(Sheep.class,
+                new AABB(x - 0.01D, y - 0.01D, z - 0.01D, x + 0.01D, y + 0.01D, z + 0.01D),
+                s -> s.isSheared() && getColor(s) >= 0);
         if (!sheep.isEmpty())
         {
             item.setItem(new ItemStack(MDBlock.woolArray[getColor(sheep.get(0))], stack.getCount()));
@@ -158,11 +158,11 @@ public final class DyedSheep
     @SubscribeEvent
     public static void onDrops(LivingDropsEvent event)
     {
-        if (!(event.getEntityLiving() instanceof SheepEntity))
+        if (!(event.getEntityLiving() instanceof Sheep))
         {
             return;
         }
-        int color = getColor((SheepEntity) event.getEntityLiving());
+        int color = getColor((Sheep) event.getEntityLiving());
         if (color < 0)
         {
             return;
@@ -184,15 +184,15 @@ public final class DyedSheep
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onSpawn(LivingSpawnEvent.CheckSpawn event)
     {
-        if (!(event.getEntity() instanceof SheepEntity) || event.getResult() == Event.Result.DENY
-                || (event.getSpawnReason() != SpawnReason.NATURAL && event.getSpawnReason() != SpawnReason.CHUNK_GENERATION))
+        if (!(event.getEntity() instanceof Sheep) || event.getResult() == Event.Result.DENY
+                || (event.getSpawnReason() != MobSpawnType.NATURAL && event.getSpawnReason() != MobSpawnType.CHUNK_GENERATION))
         {
             return;
         }
-        SheepEntity sheep = (SheepEntity) event.getEntity();
-        if (sheep.getRNG().nextDouble() < ConfigHandler.sheepSpawnChance.get())
+        Sheep sheep = (Sheep) event.getEntity();
+        if (sheep.getRandom().nextDouble() < ConfigHandler.sheepSpawnChance.get())
         {
-            setColor(sheep, sheep.getRNG().nextInt(ColorStrings.ALL.length));
+            setColor(sheep, sheep.getRandom().nextInt(ColorStrings.ALL.length));
         }
     }
 
@@ -200,26 +200,26 @@ public final class DyedSheep
     @SubscribeEvent
     public static void onBreed(BabyEntitySpawnEvent event)
     {
-        if (!(event.getParentA() instanceof SheepEntity) || !(event.getParentB() instanceof SheepEntity)
-                || !(event.getChild() instanceof SheepEntity))
+        if (!(event.getParentA() instanceof Sheep) || !(event.getParentB() instanceof Sheep)
+                || !(event.getChild() instanceof Sheep))
         {
             return;
         }
-        SheepEntity a = (SheepEntity) event.getParentA();
-        SheepEntity b = (SheepEntity) event.getParentB();
-        SheepEntity child = (SheepEntity) event.getChild();
+        Sheep a = (Sheep) event.getParentA();
+        Sheep b = (Sheep) event.getParentB();
+        Sheep child = (Sheep) event.getChild();
         if (getColor(a) < 0 && getColor(b) < 0)
         {
             return;
         }
-        SheepEntity parent = child.getRNG().nextBoolean() ? a : b;
+        Sheep parent = child.getRandom().nextBoolean() ? a : b;
         if (getColor(parent) >= 0)
         {
             setColor(child, getColor(parent));
         }
         else
         {
-            child.setFleeceColor(parent.getFleeceColor());
+            child.setColor(parent.getColor());
         }
     }
 
@@ -227,19 +227,19 @@ public final class DyedSheep
     @SubscribeEvent
     public static void onStartTracking(PlayerEvent.StartTracking event)
     {
-        if (event.getTarget() instanceof SheepEntity && event.getPlayer() instanceof ServerPlayerEntity)
+        if (event.getTarget() instanceof Sheep && event.getPlayer() instanceof ServerPlayer)
         {
-            int color = getColor((SheepEntity) event.getTarget());
+            int color = getColor((Sheep) event.getTarget());
             if (color >= 0)
             {
-                ModNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
-                        new SheepColorPacket(event.getTarget().getEntityId(), color));
+                ModNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()),
+                        new SheepColorPacket(event.getTarget().getId(), color));
             }
         }
     }
 
     private static boolean isVanillaWool(ItemStack stack)
     {
-        return stack.getItem().isIn(ItemTags.WOOL) && "minecraft".equals(stack.getItem().getRegistryName().getNamespace());
+        return stack.is(ItemTags.WOOL) && "minecraft".equals(stack.getItem().getRegistryName().getNamespace());
     }
 }

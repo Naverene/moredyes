@@ -1,34 +1,30 @@
 package net.neverandy.moredyes.item;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.neverandy.moredyes.MoreDyes;
-import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.world.entity.animal.Sheep;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.reference.ColorStrings;
+
+import net.minecraft.world.item.Item.Properties;
 
 public class MDItemDye extends Item
 {
     String color;
     public MDItemDye(String name)
     {
-        super(new Properties().group(MoreDyes.tabDyes));
+        super(new Properties().tab(MoreDyes.tabDyes));
         this.color=name;
         //this.setRegistryName(set+"_dye");
         //initModel();
     }
-    public ActionResult onItemUse(ItemStack stack, PlayerEntity playerIn, World worldIn, BlockPos pos, Hand hand, Direction facing, float hitX, float hitY, float hitZ)
-    {
-        return null;
-    }
-
     @Override
-    public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand)
+    public InteractionResult interactLivingEntity(ItemStack stack, Player playerIn, LivingEntity target, InteractionHand hand)
     {
 	   /*
        if (target instanceof EntitySheep)
@@ -48,11 +44,11 @@ public class MDItemDye extends Item
        {
            return false;
        }*/
-        if (target instanceof SheepEntity)
+        if (target instanceof Sheep)
         {
-            return DyedSheep.dye((SheepEntity) target, colorIndex(), stack);
+            return DyedSheep.dye((Sheep) target, colorIndex(), stack);
         }
-        return ActionResultType.PASS;
+        return InteractionResult.PASS;
     }
 
     /** This dye's index in ColorStrings.ALL. */

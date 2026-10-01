@@ -4,10 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IDataProvider;
+import net.minecraft.data.HashCache;
+import net.minecraft.data.DataProvider;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.Reference;
 
@@ -24,7 +24,7 @@ import java.util.Map;
  * appended to it (a file with the same id and "overwrite": false); otherwise a moredyes group is made that also
  * holds the vanilla block. These are plain data files, so nothing happens when Rechiseled isn't installed.
  */
-public class ModChiselProvider implements IDataProvider
+public class ModChiselProvider implements DataProvider
 {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
@@ -99,7 +99,7 @@ public class ModChiselProvider implements IDataProvider
     }
 
     @Override
-    public void act(DirectoryCache cache) throws IOException
+    public void run(HashCache cache) throws IOException
     {
         groups.clear();
         registerGroups();
@@ -112,7 +112,7 @@ public class ModChiselProvider implements IDataProvider
             JsonArray entries = new JsonArray();
             group.getValue().forEach(entries::add);
             json.add("entries", entries);
-            IDataProvider.save(GSON, cache, json,
+            DataProvider.save(GSON, cache, json,
                     gen.getOutputFolder().resolve("data/" + id[0] + "/chiseling_recipes/" + id[1] + ".json"));
         }
     }

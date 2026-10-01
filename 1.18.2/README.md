@@ -1,3 +1,5 @@
+This is the Minecraft 1.18.2 (Forge) version of More Dyes. It needs Java 17 to build and play.
+
 This mod adds more than 100 new dyes to Minecraft. For now they are all combinations of the 16 vanilla dye colors. Each color also has a variety of blocks that can be colored with the dye. These include stone, stonebrick(in all varieties), wool, glowstone, even redstone and lapis blocks.
 
 Blocks can be cleaned and returned to their vanilla color by crafting them with a bucket of water.

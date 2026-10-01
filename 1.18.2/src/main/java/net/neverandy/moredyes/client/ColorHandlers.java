@@ -1,13 +1,13 @@
 package net.neverandy.moredyes.client;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Item;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
@@ -68,7 +68,7 @@ public final class ColorHandlers
         }
         float saturation = Math.min(1.0F, (max - min) / max * 1.25F);
         float value = Math.min(1.0F, max / 0.8F);
-        return MathHelper.hsvToRGB(hue, saturation, value);
+        return Mth.hsvToRgb(hue, saturation, value);
     }
 
     @SubscribeEvent

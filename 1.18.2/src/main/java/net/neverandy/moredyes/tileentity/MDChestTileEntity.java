@@ -1,11 +1,13 @@
 package net.neverandy.moredyes.tileentity;
 
-import net.minecraft.tileentity.ChestTileEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class MDChestTileEntity extends ChestTileEntity
+public class MDChestTileEntity extends ChestBlockEntity
 {
-    public MDChestTileEntity()
+    public MDChestTileEntity(BlockPos pos, BlockState state)
     {
-        super(ModTileEntities.CHEST.get());
+        super(ModTileEntities.CHEST.get(), pos, state);
     }
 }

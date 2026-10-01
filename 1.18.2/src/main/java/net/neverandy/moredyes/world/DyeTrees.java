@@ -1,20 +1,22 @@
 package net.neverandy.moredyes.world;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureSpread;
-import net.minecraft.world.gen.feature.TwoLayerFeature;
-import net.minecraft.world.gen.foliageplacer.AcaciaFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
-import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.ForkyTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
+import net.minecraft.core.Holder;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.neverandy.moredyes.block.MDBlock;
 
 import java.util.Random;
@@ -30,52 +32,51 @@ public final class DyeTrees
     private DyeTrees() {}
 
     /** The tree a dyed sapling grows into. */
-    public static Tree sapling(String wood, int colorIndex)
+    public static AbstractTreeGrower sapling(String wood, int colorIndex)
     {
-        return new Tree()
+        return new AbstractTreeGrower()
         {
             @Override
-            protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random rand, boolean largeHive)
+            protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random rand, boolean largeHive)
             {
-                return tree(wood, colorIndex);
+                return Holder.direct(tree(wood, colorIndex));
             }
         };
     }
 
-    public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tree(String wood, int colorIndex)
+    public static ConfiguredFeature<TreeConfiguration, ?> tree(String wood, int colorIndex)
     {
         Block log = logs(wood)[colorIndex];
         Block leaves = leaves(wood)[colorIndex];
         FoliagePlacer foliage;
-        AbstractTrunkPlacer trunk;
+        TrunkPlacer trunk;
         switch (wood)
         {
             case "birch":
-                foliage = new BlobFoliagePlacer(FeatureSpread.create(2), FeatureSpread.create(0), 3);
+                foliage = new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3);
                 trunk = new StraightTrunkPlacer(5, 2, 0);
                 break;
             case "spruce":
-                foliage = new SpruceFoliagePlacer(FeatureSpread.create(2, 1), FeatureSpread.create(0, 2), FeatureSpread.create(1, 1));
+                foliage = new SpruceFoliagePlacer(UniformInt.of(2, 3), UniformInt.of(0, 2), UniformInt.of(1, 2));
                 trunk = new StraightTrunkPlacer(5, 2, 1);
                 break;
             case "jungle":
-                foliage = new BlobFoliagePlacer(FeatureSpread.create(2), FeatureSpread.create(0), 3);
+                foliage = new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3);
                 trunk = new StraightTrunkPlacer(4, 8, 0);
                 break;
             case "acacia":
-                foliage = new AcaciaFoliagePlacer(FeatureSpread.create(2), FeatureSpread.create(0));
-                trunk = new ForkyTrunkPlacer(5, 2, 2);
+                foliage = new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0));
+                trunk = new ForkingTrunkPlacer(5, 2, 2);
                 break;
             default:
-                foliage = new BlobFoliagePlacer(FeatureSpread.create(2), FeatureSpread.create(0), 3);
+                foliage = new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3);
                 trunk = new StraightTrunkPlacer(4, 2, 0);
                 break;
         }
-        return Feature.TREE.withConfiguration(new BaseTreeFeatureConfig.Builder(
-                new SimpleBlockStateProvider(log.getDefaultState()),
-                new SimpleBlockStateProvider(leaves.getDefaultState()),
-                foliage, trunk, new TwoLayerFeature(1, 0, wood.equals("spruce") ? 2 : 1))
-                .setIgnoreVines().build());
+        return new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(log), trunk, BlockStateProvider.simple(leaves),
+                foliage, new TwoLayersFeatureSize(1, 0, wood.equals("spruce") ? 2 : 1))
+                .ignoreVines().build());
     }
 
     public static Block[] logs(String wood)

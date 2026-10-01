@@ -1,9 +1,9 @@
 package net.neverandy.moredyes.network;
 
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
@@ -19,13 +19,13 @@ public class SheepColorPacket
         this.color = color;
     }
 
-    public static void encode(SheepColorPacket packet, PacketBuffer buffer)
+    public static void encode(SheepColorPacket packet, FriendlyByteBuf buffer)
     {
         buffer.writeVarInt(packet.entityId);
         buffer.writeVarInt(packet.color);
     }
 
-    public static SheepColorPacket decode(PacketBuffer buffer)
+    public static SheepColorPacket decode(FriendlyByteBuf buffer)
     {
         return new SheepColorPacket(buffer.readVarInt(), buffer.readVarInt());
     }

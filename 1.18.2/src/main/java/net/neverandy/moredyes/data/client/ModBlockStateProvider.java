@@ -1,19 +1,19 @@
 package net.neverandy.moredyes.data.client;
 
 
-import net.minecraft.block.Block;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.PaneBlock;
-import net.minecraft.block.PistonBlock;
-import net.minecraft.block.PistonHeadBlock;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.state.properties.PistonType;
-import net.minecraft.util.Direction;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.IronBarsBlock;
+import net.minecraft.world.level.block.piston.PistonBaseBlock;
+import net.minecraft.world.level.block.piston.PistonHeadBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.PistonType;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -198,7 +198,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         ModelFile top = models().withExistingParent(name + "_top", modLoc("block/tinted/cross_layered"))
                 .texture("cross", tex(type + "_top_petals")).texture("overlay", tex(type + "_top_stem"));
         getVariantBuilder(flower).forAllStates(state -> ConfiguredModel.builder()
-                .modelFile(state.get(TallFlowerBlock.HALF) == DoubleBlockHalf.LOWER ? bottom : top).build());
+                .modelFile(state.getValue(TallFlowerBlock.HALF) == DoubleBlockHalf.LOWER ? bottom : top).build());
     }
 
     private void wood(int i, String wood, Block[] planks, Block[] logs, Block[] leaves, Block[] saplings, Block[] fences)
@@ -226,28 +226,28 @@ public class ModBlockStateProvider extends BlockStateProvider
     {
         ModelFile retracted = models().getExistingFile(modLoc("block/tinted/" + model));
         ModelFile extended = models().getExistingFile(modLoc("block/tinted/piston_base"));
-        getVariantBuilder(piston).forAllStates(state -> facing(state.get(PistonBlock.EXTENDED) ? extended : retracted,
-                state.get(PistonBlock.FACING)));
+        getVariantBuilder(piston).forAllStates(state -> facing(state.getValue(PistonBaseBlock.EXTENDED) ? extended : retracted,
+                state.getValue(PistonBaseBlock.FACING)));
     }
 
     private void pistonHead(Block head)
     {
         getVariantBuilder(head).forAllStates(state ->
         {
-            String model = "block/tinted/piston_head" + (state.get(PistonHeadBlock.SHORT) ? "_short" : "")
-                    + (state.get(PistonHeadBlock.TYPE) == PistonType.STICKY ? "_sticky" : "");
-            return facing(models().getExistingFile(modLoc(model)), state.get(PistonHeadBlock.FACING));
+            String model = "block/tinted/piston_head" + (state.getValue(PistonHeadBlock.SHORT) ? "_short" : "")
+                    + (state.getValue(PistonHeadBlock.TYPE) == PistonType.STICKY ? "_sticky" : "");
+            return facing(models().getExistingFile(modLoc(model)), state.getValue(PistonHeadBlock.FACING));
         });
     }
 
     private static ConfiguredModel[] facing(ModelFile model, Direction facing)
     {
         int x = facing == Direction.DOWN ? 90 : facing == Direction.UP ? 270 : 0;
-        int y = facing.getAxis().isVertical() ? 0 : ((int) facing.getHorizontalAngle() + 180) % 360;
+        int y = facing.getAxis().isVertical() ? 0 : ((int) facing.toYRot() + 180) % 360;
         return ConfiguredModel.builder().modelFile(model).rotationX(x).rotationY(y).build();
     }
 
-    private void pane(PaneBlock pane, String texture)
+    private void pane(IronBarsBlock pane, String texture)
     {
         String name = name(pane);
         ModelFile[] parts = new ModelFile[5];

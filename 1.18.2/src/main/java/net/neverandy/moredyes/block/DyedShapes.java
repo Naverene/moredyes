@@ -1,12 +1,12 @@
 package net.neverandy.moredyes.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.reference.ColorStrings;
@@ -52,7 +52,7 @@ public final class DyedShapes
     public final String vanilla;
 
     public final SlabBlock[] slabs = new SlabBlock[ColorStrings.ALL.length];
-    public final StairsBlock[] stairs = new StairsBlock[ColorStrings.ALL.length];
+    public final StairBlock[] stairs = new StairBlock[ColorStrings.ALL.length];
     /** Empty for types without walls, and when walls are turned off in the config. */
     public final WallBlock[] walls;
 
@@ -89,14 +89,14 @@ public final class DyedShapes
         {
             String color = ColorStrings.ALL[i];
             Block block = full[i];
-            AbstractBlock.Properties properties = AbstractBlock.Properties.from(block);
+            BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(block);
             slabs[i] = add(type + "slab_" + color, new SlabBlock(properties));
-            stairs[i] = add(type + "stairs_" + color, new StairsBlock(block::getDefaultState, properties));
+            stairs[i] = add(type + "stairs_" + color, new StairBlock(block::defaultBlockState, properties));
             if (walls.length > 0)
             {
                 // Not solid, so the game skips caching six face-occlusion shapes for each of a wall's 324 states.
                 // That cache is most of what walls cost in memory, and walls rarely hide a neighbor's face anyway.
-                walls[i] = add(type + "wall_" + color, new DyedWallBlock(AbstractBlock.Properties.from(block).notSolid()));
+                walls[i] = add(type + "wall_" + color, new DyedWallBlock(BlockBehaviour.Properties.copy(block).noOcclusion()));
             }
         }
     }
@@ -104,7 +104,7 @@ public final class DyedShapes
     private static <B extends Block> B add(String name, B block)
     {
         MDBlock.BLOCKS.register(name, () -> block);
-        MDBlock.ITEMS.register(name, () -> new BlockItem(block, new Item.Properties().group(MoreDyes.tabShapes)));
+        MDBlock.ITEMS.register(name, () -> new BlockItem(block, new Item.Properties().tab(MoreDyes.tabShapes)));
         return block;
     }
 }
