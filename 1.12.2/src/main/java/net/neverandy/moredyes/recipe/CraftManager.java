@@ -1,231 +1,221 @@
 package net.neverandy.moredyes.recipe;
 
-import net.neverandy.moredyes.block.IColoredBlock;
-import net.neverandy.moredyes.block.MDBlock;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.neverandy.moredyes.block.IColoredBlock;
+import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.utility.LogHelper;
 
+/**
+ * The recipes of the mod:
+ * <ul>
+ * <li>dyes are mixed from two vanilla dyes, and a tulip makes one dye of its color;</li>
+ * <li>eight vanilla blocks around a dye make eight dyed blocks;</li>
+ * <li>a dyed block with a water bucket gives the vanilla block back;</li>
+ * <li>dyed blocks turn into each other the way their vanilla blocks do (logs to planks, cobble to stone...).</li>
+ * </ul>
+ */
+@EventBusSubscriber(modid=Reference.MOD_ID)
 public class CraftManager
 {
-	public static void registerCraftingRecipes()
+	/**
+	 * The vanilla dyes in the order the color groups follow. A group holds the mixes of its own dye with each dye
+	 * after it, so the shade of a mix is the position of the second dye among those.
+	 */
+	private static final String[] DYES={"dyeWhite","dyeOrange","dyeMagenta","dyeLightBlue","dyeYellow","dyeLime","dyePink","dyeGray",
+			"dyeLightGray","dyeCyan","dyePurple","dyeBlue","dyeBrown","dyeGreen","dyeRed","dyeBlack"};
+	private static final int WHITE=0,YELLOW=4,PINK=6,GRAY=7,PURPLE=10,BLUE=11,GREEN=13,RED=14,BLACK=15;
+
+	private static IForgeRegistry<IRecipe> registry;
+
+	// Runs after the other recipes are registered, so the vanilla recipes replaced below exist.
+	@SubscribeEvent(priority=EventPriority.LOW)
+	public static void onRecipeRegister(RegistryEvent.Register<IRecipe> event)
 	{
-		ItemStack WHITE=new ItemStack(Items.DYE,1,15);
-		ItemStack ORANGE=new ItemStack(Items.DYE,1,14);
-		ItemStack MAGENTA=new ItemStack(Items.DYE,1,13);
-		ItemStack LBLUE=new ItemStack(Items.DYE,1,12);
-		ItemStack YELLOW=new ItemStack(Items.DYE,1,11);
-		ItemStack LIME=new ItemStack(Items.DYE,1,10);
-		ItemStack PINK=new ItemStack(Items.DYE,1,9);
-		ItemStack DGRAY=new ItemStack(Items.DYE,1,8);
-		ItemStack LGRAY=new ItemStack(Items.DYE,1,7);
-		ItemStack CYAN=new ItemStack(Items.DYE,1,6);
-		ItemStack PURPLE=new ItemStack(Items.DYE,1,5);
-		ItemStack BLUE=new ItemStack(Items.DYE,1,4);
-		ItemStack BROWN=new ItemStack(Items.DYE,1,3);
-		ItemStack GREEN=new ItemStack(Items.DYE,1,2);
-		ItemStack RED=new ItemStack(Items.DYE,1,1);
-		ItemStack BLACK=new ItemStack(Items.DYE,1,0);
-		/*
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,0),WHITE,ORANGE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,1),WHITE,MAGENTA);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,2),WHITE,LBLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,3),WHITE,YELLOW);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,4),WHITE,LIME);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,5),WHITE,PINK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,6),WHITE,DGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,7),WHITE,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,8),WHITE,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,9),WHITE,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,10),WHITE,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,11),WHITE,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,12),WHITE,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,13),ORANGE,MAGENTA);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,14),ORANGE,LBLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0],2,15),ORANGE,YELLOW);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,0),ORANGE,LIME);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,1),ORANGE,PINK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,2),ORANGE,DGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,3),ORANGE,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,4),ORANGE,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,5),ORANGE,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,6),ORANGE,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,7),ORANGE,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,8),ORANGE,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,9),ORANGE,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,10),ORANGE,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,11),MAGENTA,LBLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,12),MAGENTA,YELLOW);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,13),MAGENTA,LIME);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,14),MAGENTA,PINK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1],2,15),MAGENTA,DGRAY);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,0),MAGENTA,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,1),MAGENTA,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,2),MAGENTA,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,3),MAGENTA,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,4),MAGENTA,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,5),MAGENTA,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,6),MAGENTA,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,7),MAGENTA,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,8),LBLUE,YELLOW);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,9),LBLUE,LIME);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,10),LBLUE,PINK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,11),LBLUE,DGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,12),LBLUE,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,13),LBLUE,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,14),LBLUE,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[2],2,15),LBLUE,BLUE);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,0),LBLUE,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,1),LBLUE,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,2),LBLUE,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,3),LBLUE,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,4),YELLOW,LIME);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,5),YELLOW,PINK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,6),YELLOW,DGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,7),YELLOW,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,8),YELLOW,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,9),YELLOW,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,10),YELLOW,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,11),YELLOW,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,12),YELLOW,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,13),YELLOW,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,14),YELLOW,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[3],2,15),LIME,PINK);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,0),LIME,DGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,1),LIME,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,2),LIME,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,3),LIME,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,4),LIME,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,5),LIME,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,6),LIME,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,7),LIME,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,8),LIME,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,9),PINK,DGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,10),PINK,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,11),PINK,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,12),PINK,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,13),PINK,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,14),PINK,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4],2,15),PINK,GREEN);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,0),PINK,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,1),PINK,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,2),DGRAY,LGRAY);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,3),DGRAY,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,4),DGRAY,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,5),DGRAY,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,6),DGRAY,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,7),DGRAY,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,8),DGRAY,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,9),DGRAY,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,10),LGRAY,CYAN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,11),LGRAY,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,12),LGRAY,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,13),LGRAY,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,14),LGRAY,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5],2,15),LGRAY,RED);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,0),LGRAY,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,1),CYAN,PURPLE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,2),CYAN,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,3),CYAN,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,4),CYAN,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,5),CYAN,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,6),CYAN,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,7),PURPLE,BLUE);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,8),PURPLE,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,9),PURPLE,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,10),PURPLE,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,11),PURPLE,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,12),BLUE,BROWN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,13),BLUE,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,14),BLUE,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6],2,15),BLUE,BLACK);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[7],2,0),BROWN,GREEN);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[7],2,1),BROWN,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[7],2,2),BROWN,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[7],2,3),GREEN,RED);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[7],2,4),GREEN,BLACK);
-		GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[7],2,5),RED,BLACK);
-
-
-		for(int i=0;i<8;i++)
+		registry=event.getRegistry();
+		registerDyeMixes();
+		List<IRecipe> chests=new ArrayList<IRecipe>();
+		List<IRecipe> workbenches=new ArrayList<IRecipe>();
+		List<IRecipe> bookshelves=new ArrayList<IRecipe>();
+		for(int i=0;i<ColorStrings.ALL.length;i++)
 		{
-			for(int meta=0;meta<((IColoredBlock)MDBlock.sand[i]).getColorCount();meta++)
-			{
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.cobble[i],8,meta),"SSS","SDS","SSS", 'S', "cobblestone", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.COBBLESTONE, "cobblestone", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.sand[i],8,meta),"SSS","SDS","SSS", 'S', "sand", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.SAND, "sand", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.wool[i],8,meta),"SSS","SDS","SSS", 'S', "blockWool", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.WOOL, "blockWool", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.brick[i],8,meta),"SSS","SDS","SSS", 'S', "blockBrick", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.BRICK_BLOCK, "blockBrick", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.clay[i],8,meta),"SSS","SDS","SSS", 'S', "stainedClay", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.STAINED_HARDENED_CLAY, "stainedClay", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.lapis[i],8,meta),"SSS","SDS","SSS", 'S', "lapisBlock", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.LAPIS_BLOCK, "lapisBlock", new ItemStack(Items.WATER_BUCKET)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Items.DYE,9,4),"lapisBlock"));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.redstone[i],8,meta),"SSS","SDS","SSS", 'S', "blockRedstone", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.REDSTONE_BLOCK, "blockRedstone", new ItemStack(Items.WATER_BUCKET)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Items.REDSTONE,9),"blockRedstone"));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.coal[i],8,meta),"SSS","SDS","SSS", 'S', "blockCoal", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.COAL_BLOCK, "blockCoal", new ItemStack(Items.WATER_BUCKET)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Items.COAL,9),"blockCoal"));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.glowstone[i],8,meta),"SSS","SDS","SSS", 'S', "glowstone", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.GLOWSTONE, "glowstone", new ItemStack(Items.WATER_BUCKET)));
-				
-				GameRegistry.addShapedRecipe(new ItemStack(MDBlock.stonebrick[i],4,meta), "SS","SS",'S',new ItemStack(MDBlock.stone[i],1,meta));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.obsidian[i],8,meta),"SSS","SDS","SSS", 'S', "blockObsidian", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.OBSIDIAN, "blockObsidian", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.soulsand[i],8,meta),"SSS","SDS","SSS", 'S', "soulsand", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(Blocks.SOUL_SAND, "soulsand", new ItemStack(Items.WATER_BUCKET)));
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.stonebrickCarved[i],8,meta),"SSS","SDS","SSS", 'S', "bricksStoneCarved", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Blocks.STONEBRICK,1,3), "bricksStoneCarved", new ItemStack(Items.WATER_BUCKET)));	
-				
-				CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MDBlock.quartz[i],8,meta),"SSS","SDS","SSS", 'S', "blockQuartz", 'D', new ItemStack(MDItem.dye[i],1,meta)));
-				CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Blocks.QUARTZ_BLOCK,1), "blockQuartz", new ItemStack(Items.WATER_BUCKET)));	
-			}
+			registerColor(i,chests,workbenches,bookshelves);
 		}
-		for(int i=0;i<118;i++)
-		{
-			//Gets block index and meta for meta based blocks
-			int colorSet = ColorStrings.getColorSet(ColorStrings.ALL[i]);
-			int meta = ColorStrings.getColorIndexInSet(ColorStrings.ALL[i], colorSet);
-			
-			GameRegistry.addShapelessRecipe(new ItemStack(MDBlock.plank[colorSet],4,meta), new ItemStack(MDBlock.log[i],1));
-			GameRegistry.addShapelessRecipe(new ItemStack(MDBlock.sapling[i]), new ItemStack(MDItem.dye[colorSet],1,meta),new ItemStack(Blocks.SAPLING));
-			GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[colorSet],1,meta), new ItemStack(MDBlock.tulip[i]));
-		}
-		*/
+		registerWashing();
+		guard("chest",chests);
+		guard("crafting_table",workbenches);
+		guard("bookshelf",bookshelves);
+		registry=null;
 	}
-	public static void registerSmeltingRecipes()
+
+	private static void registerDyeMixes()
 	{
-		for(int i=0;i<8;i++)
+		for(int group=0;group<ColorStrings.GROUPS.length;group++)
 		{
-			for(int meta=0;meta<((IColoredBlock)MDBlock.sand[i]).getColorCount();meta++)
+			int shade=0;
+			for(int other=group+1;other<DYES.length;other++)
 			{
-				FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(MDBlock.cobble[i],1,meta), new ItemStack(MDBlock.stone[i],1,meta), 1.0F);
-				FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(MDBlock.sand[i],1,meta), new ItemStack(MDBlock.glass[i],1,meta), 1.0F);
-				FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(MDBlock.glass[i],1,meta), new ItemStack(MDBlock.glassFoggy[i],1,meta), 1.0F);
-				FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(MDBlock.stonebrick[i],1,meta), new ItemStack(MDBlock.stonebrickCracked[i],1,meta), 1.0F);
+				// White with gray or black are the vanilla light gray and gray, so those two have no shade.
+				if(group==WHITE&&(other==GRAY||other==BLACK))
+				{
+					continue;
+				}
+				ItemStack result=new ItemStack(MDItem.dye[group],2,shade);
+				String name="dye/"+ColorStrings.GROUPS[group][shade];
+				if(isVanillaMix(group,other))
+				{
+					// One of each already makes a vanilla dye, so these take two of each and give four.
+					result.setCount(4);
+					shapeless(name,"dye",result,DYES[group],DYES[group],DYES[other],DYES[other]);
+				}
+				else
+				{
+					shapeless(name,"dye",result,DYES[group],DYES[other]);
+				}
+				shade++;
 			}
 		}
+	}
+	/** True for the pairs of dyes that vanilla already mixes into one of its own dyes. */
+	private static boolean isVanillaMix(int first,int second)
+	{
+		return first==WHITE&&(second==RED||second==GREEN||second==BLUE)
+				||first==YELLOW&&second==RED
+				||first==PINK&&second==PURPLE
+				||first==BLUE&&(second==GREEN||second==RED);
+	}
+
+	private static void registerColor(int index,List<IRecipe> chests,List<IRecipe> workbenches,List<IRecipe> bookshelves)
+	{
+		int g=ColorStrings.groupOf(index);
+		int s=ColorStrings.shadeOf(index);
+		String color=ColorStrings.ALL[index];
+		ItemStack dye=new ItemStack(MDItem.dye[g],1,s);
+		ItemStack plank=new ItemStack(MDBlock.plank[g],1,s);
+
+		shapeless("dye_from_tulip/"+color,"dye_from_tulip",dye.copy(),new ItemStack(MDBlock.tulip[g],1,s));
+
+		// Eight blocks around a dye. The ore names also take dyed blocks, so a block can be dyed again.
+		dyeing(MDBlock.wool,g,s,"wool");
+		dyeing(MDBlock.stone,g,s,"stone");
+		dyeing(MDBlock.cobble,g,s,"cobblestone");
+		dyeing(MDBlock.stonebrick,g,s,"bricksStone");
+		dyeing(MDBlock.stonebrickCracked,g,s,"bricksStoneCracked");
+		dyeing(MDBlock.stonebrickCarved,g,s,"bricksStoneCarved");
+		dyeing(MDBlock.diorite,g,s,"stoneDiorite");
+		dyeing(MDBlock.obsidian,g,s,"obsidian");
+		dyeing(MDBlock.soulsand,g,s,"soulsand");
+		dyeing(MDBlock.quartz,g,s,"blockQuartz");
+		dyeing(MDBlock.clay,g,s,"stainedClay");
+		dyeing(MDBlock.hardenedClay,g,s,"hardenedClay");
+		dyeing(MDBlock.coal,g,s,"blockCoal");
+		dyeing(MDBlock.glowstone,g,s,"glowstone");
+		dyeing(MDBlock.lapis,g,s,"blockLapis");
+		dyeing(MDBlock.redstone,g,s,"blockRedstone");
+		dyeing(MDBlock.brick,g,s,"blockBrick");
+		dyeing(MDBlock.sand,g,s,"sand");
+		dyeing(MDBlock.sandstone,g,s,"sandstone");
+		dyeing(MDBlock.glass,g,s,"blockGlassColorless");
+		dyeing(MDBlock.glassPane,g,s,"paneGlassColorless");
+		dyeing(MDBlock.bookshelf,g,s,"bookshelf");
+		dyeing(MDBlock.plank,g,s,"plankWood");
+		if(MDBlock.rockwool!=null)
+		{
+			dyeing(MDBlock.rockwool,g,s,"blockRockwool");
+		}
+
+		// One at a time
+		shapeless("dyeing/sapling_"+color,"sapling",new ItemStack(MDBlock.sapling[g],1,s),dye,"treeSapling");
+		shapeless("dyeing/chest_"+color,"chest",new ItemStack(MDBlock.chest[index]),dye,"chestWood");
+		shapeless("dyeing/workbench_"+color,"workbench",new ItemStack(MDBlock.workbench[g],1,s),dye,"workbench");
+
+		// Like the vanilla blocks
+		shapeless("plank/"+color,"plank",new ItemStack(MDBlock.plank[g],4,s),new ItemStack(MDBlock.log[index]));
+		shaped("stonebrick/"+color,"stonebrick",new ItemStack(MDBlock.stonebrick[g],4,s),"SS","SS",'S',new ItemStack(MDBlock.stone[g],1,s));
+		shaped("sandstone/"+color,"sandstone",new ItemStack(MDBlock.sandstone[g],1,s),"SS","SS",'S',new ItemStack(MDBlock.sand[g],1,s));
+		shaped("glass_pane/"+color,"glass_pane",new ItemStack(MDBlock.glassPane[g],16,s),"GGG","GGG",'G',new ItemStack(MDBlock.glass[g],1,s));
+		shaped("glass_foggy_pane/"+color,"glass_foggy_pane",new ItemStack(MDBlock.glassFoggyPane[g],16,s),"GGG","GGG",'G',new ItemStack(MDBlock.glassFoggy[g],1,s));
+		shapeless("redstone/"+color,"redstone",new ItemStack(Items.REDSTONE,9),new ItemStack(MDBlock.redstone[g],1,s));
+		shapeless("lapis/"+color,"lapis",new ItemStack(Items.DYE,9,4),new ItemStack(MDBlock.lapis[g],1,s));
+		shapeless("coal/"+color,"coal",new ItemStack(Items.COAL,9),new ItemStack(MDBlock.coal[g],1,s));
+
+		// The vanilla recipes in dyed planks of one shade give the dyed block
+		chests.add(shaped("chest/"+color,"chest",new ItemStack(MDBlock.chest[index]),"PPP","P P","PPP",'P',plank));
+		workbenches.add(shaped("workbench/"+color,"workbench",new ItemStack(MDBlock.workbench[g],1,s),"PP","PP",'P',plank));
+		bookshelves.add(shaped("bookshelf/"+color,"bookshelf",new ItemStack(MDBlock.bookshelf[g],1,s),"PPP","BBB","PPP",'P',plank,'B',Items.BOOK));
+
+		smelting(new ItemStack(MDBlock.log[index]),new ItemStack(Items.COAL,1,1),0.15F);
+		smelting(new ItemStack(MDBlock.cobble[g],1,s),new ItemStack(MDBlock.stone[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.stonebrick[g],1,s),new ItemStack(MDBlock.stonebrickCracked[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.sand[g],1,s),new ItemStack(MDBlock.glass[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.glass[g],1,s),new ItemStack(MDBlock.glassFoggy[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.clay[g],1,s),new ItemStack(MDBlock.hardenedClay[g],1,s),0.1F);
+	}
+	/** Eight of the given blocks around a dye make eight dyed blocks of its shade. */
+	private static void dyeing(Block[] dyed,int group,int shade,String ore)
+	{
+		String type=((IColoredBlock)dyed[group]).getTypeName();
+		shaped("dyeing/"+type+"_"+ColorStrings.GROUPS[group][shade],type,new ItemStack(dyed[group],8,shade),
+				"SSS","SDS","SSS",'S',ore,'D',new ItemStack(MDItem.dye[group],1,shade));
+	}
+	/** A dyed block (any shade) and a water bucket give the vanilla block back; the bucket is returned empty. */
+	private static void registerWashing()
+	{
+		for(Map.Entry<Block,ItemStack> entry:MDBlock.WASHED.entrySet())
+		{
+			Block dyed=entry.getKey();
+			shapeless("washing/"+dyed.getRegistryName().getResourcePath(),"washing",entry.getValue().copy(),
+					new ItemStack(dyed,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
+		}
+	}
+	/** Makes a vanilla recipe step aside for the mod's recipes that use the same shape. */
+	private static void guard(String vanillaName,List<IRecipe> preferred)
+	{
+		IRecipe original=registry.getValue(new ResourceLocation("minecraft",vanillaName));
+		if(original!=null&&original.getClass()==ShapedRecipes.class)
+		{
+			registry.register(new GuardedShapedRecipe((ShapedRecipes)original,preferred));
+		}
+		else
+		{
+			LogHelper.warn("The vanilla recipe "+vanillaName+" was changed by another mod; dyed planks of one shade may give its result");
+		}
+	}
+
+	private static IRecipe shaped(String name,String group,ItemStack result,Object... recipe)
+	{
+		IRecipe r=new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID,group),result,recipe).setRegistryName(Reference.MOD_ID,name);
+		registry.register(r);
+		return r;
+	}
+	private static IRecipe shapeless(String name,String group,ItemStack result,Object... recipe)
+	{
+		IRecipe r=new ShapelessOreRecipe(new ResourceLocation(Reference.MOD_ID,group),result,recipe).setRegistryName(Reference.MOD_ID,name);
+		registry.register(r);
+		return r;
+	}
+	private static void smelting(ItemStack input,ItemStack output,float xp)
+	{
+		GameRegistry.addSmelting(input,output,xp);
 	}
 }

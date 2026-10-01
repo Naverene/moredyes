@@ -1,62 +1,42 @@
 package net.neverandy.moredyes.world.gen;
 
-import net.neverandy.moredyes.ConfigHandler;
-import net.neverandy.moredyes.block.MDBlock;
-import net.neverandy.moredyes.reference.ColorStrings;
+import java.util.Random;
+
 import net.minecraft.block.BlockBush;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.neverandy.moredyes.block.BlockColored;
+import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.handler.ConfigHandler;
+import net.neverandy.moredyes.reference.ColorStrings;
 
-import java.util.Random;
-
-
+/** Scatters dyed tulips of every color over the surface of new chunks. */
 public class FlowerGenerator implements IWorldGenerator
 {
-	public void generate(Random random, int chunkX, int chunkZ, World world, net.minecraft.world.gen.IChunkGenerator chunkGenerator,IChunkProvider chunkProvider)
+	@Override
+	public void generate(Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider)
 	{
-		if(!ConfigHandler.worldGenFlower)
+		int dimension=world.provider.getDimension();
+		if(!ConfigHandler.worldGenFlower||dimension==-1||dimension==1||!world.provider.hasSkyLight())
 		{
 			return;
 		}
-		switch(world.provider.getDimension())
-		{
-		case -1:
-			break;
-		case 0:
-			generateSurface(random,chunkX*16,chunkZ*16,world);
-			break;
-		case 1:
-			break;
-		default:
-			generateSurface(random,chunkX*16,chunkZ*16,world);
-		}
-	}
-	private void generateSurface(Random random, int x, int z, World world)
-	{
-		for(int b = 0; b< ColorStrings.ALL.length; b++)
+		for(int color=0;color<ColorStrings.ALL.length;color++)
 		{
 			if(random.nextInt(100)<=5)
 			{
-				int xGen = random.nextInt(16)+x;
-				int zGen = random.nextInt(16)+z;
-				BlockPos genPos = world.getTopSolidOrLiquidBlock(new BlockPos(xGen,0,zGen));
-				if(world.isAirBlock(genPos))
+				int x=chunkX*16+8+random.nextInt(16);
+				int z=chunkZ*16+8+random.nextInt(16);
+				BlockPos pos=world.getTopSolidOrLiquidBlock(new BlockPos(x,0,z));
+				BlockBush tulip=(BlockBush)MDBlock.tulip[ColorStrings.groupOf(color)];
+				IBlockState state=tulip.getDefaultState().withProperty(BlockColored.SHADE,ColorStrings.shadeOf(color));
+				if(pos.getY()<255&&world.isAirBlock(pos)&&tulip.canBlockStay(world,pos,state))
 				{
-					if(world.provider.hasSkyLight())
-					{
-						if(genPos.getY()<255)
-						{
-							BlockPos dirtPos=genPos;
-							dirtPos.offset(EnumFacing.DOWN);
-							if(((BlockBush) MDBlock.tulip[b]).canBlockStay(world, dirtPos,MDBlock.tulip[b].getDefaultState()))
-							{
-								world.setBlockState(genPos, MDBlock.tulip[b].getDefaultState());
-							}
-						}
-					}
+					world.setBlockState(pos,state,2);
 				}
 			}
 		}

@@ -1,23 +1,16 @@
 package net.neverandy.moredyes.proxy;
 
-public abstract class CommonProxy implements IProxy
+/** Work that differs between the game client and a dedicated server. */
+public class CommonProxy
 {
-	public int addArmor(String armor)
+	public void preInit()
 	{
-		return 0;
 	}
-
-	public void initializeModels() {
-		
+	public void init()
+	{
 	}
-
-	public void registerBlocks() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void registerTileEntities() {
-		// TODO Auto-generated method stub
-		
+	/** Client only: records the color the server sent for a sheep. */
+	public void setSheepColor(int entityId,int color)
+	{
 	}
 }

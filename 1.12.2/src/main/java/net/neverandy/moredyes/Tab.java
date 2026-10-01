@@ -2,7 +2,6 @@ package net.neverandy.moredyes;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -10,27 +9,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Tab extends CreativeTabs
 {
-	private Item tabIconItem;
-	private String tabLabel;
+	private ItemStack tabIcon=new ItemStack(Items.DIAMOND);
+
 	public Tab(String tabID)
 	{
-		super(CreativeTabs.getNextID(), "MoreDyes"+tabID);
-		tabIconItem = Items.DIAMOND;
-		tabLabel="More Dyes "+tabID;
+		super("moredyes."+tabID.toLowerCase());
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack getTabIconItem()
 	{
-		return new ItemStack(tabIconItem);
+		return this.tabIcon;
 	}
-	public String getTranslatedTabLabel()
+	/** Set once the items exist; the tabs are made before them. */
+	public void setTabIcon(ItemStack icon)
 	{
-		return tabLabel;
-	}
-	public void setTabIconItem(Item tabItem)
-	{
-		tabIconItem = tabItem;
+		this.tabIcon=icon;
 	}
 }
