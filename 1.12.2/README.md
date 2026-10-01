@@ -8,13 +8,14 @@ More Dyes adds 118 dyes to Minecraft, each a mix of two of the 16 vanilla dyes, 
 - **Dyed blocks.** Put eight blocks around a dye to get eight dyed blocks. This works for wool, stone, cobblestone, the three kinds of stone bricks, diorite, bricks, terracotta and stained terracotta, sand, sandstone, glass, glass panes, quartz, obsidian, soul sand, glowstone, bookshelves, planks, and the blocks of coal, lapis and redstone.
 - **Dyed chests and crafting tables.** Craft a chest or crafting table with a dye, or build one from dyed planks of a single color. Two dyed chests of the same color join into a double chest.
 - **Dye trees and tulips.** Both generate in the overworld in every color. Craft a sapling with a dye to get a dyed sapling. The leaves drop their sapling and their dye, and a tulip crafts into one dye.
+- **Dyed sheep.** Right-click a sheep with one of the dyes to color it. Shearing or killing it gives wool of that color, the wool grows back in it, and lambs take after a parent. A few sheep (5% by default) get a random color when they first appear in the world.
 - **Washing.** Craft a dyed block with a water bucket to get the vanilla block back, or right-click a cauldron holding water with a stack of dyed blocks to wash the whole stack for one level of water.
 
 Dyed blocks behave like the vanilla blocks they are made from: dyed stone drops dyed cobblestone, dyed cobblestone smelts into dyed stone, dyed sand falls and smelts into dyed glass, dyed bookshelves power an enchanting table, and so on. They are also in the ore dictionary under the same names as the vanilla blocks, so recipes from other mods accept them.
 
 If Thermal Foundation is installed, rockwool can be dyed too.
 
-The config file has switches for the tree and tulip generation, and for whether mobs can spawn on the dyed blocks.
+The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.
 
 ## Building
 

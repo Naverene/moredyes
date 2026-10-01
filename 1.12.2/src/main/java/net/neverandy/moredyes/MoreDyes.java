@@ -13,9 +13,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
 import net.neverandy.moredyes.handler.ConfigHandler;
+import net.neverandy.moredyes.handler.DyedSheepHandler;
 import net.neverandy.moredyes.handler.FuelHandler;
 import net.neverandy.moredyes.handler.GuiHandler;
 import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.proxy.CommonProxy;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.LogHelper;
@@ -46,6 +48,7 @@ public class MoreDyes
 		MDItem.initialize();
 		MDBlock.initialize();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this,new GuiHandler());
+		ModNetwork.register();
 		GameRegistry.registerWorldGenerator(new FlowerGenerator(),1);
 		GameRegistry.registerWorldGenerator(new DyeTreeGenerator(),1);
 		proxy.preInit();
@@ -57,6 +60,7 @@ public class MoreDyes
 		MDBlock.registerFlammability();
 		MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
 		MinecraftForge.EVENT_BUS.register(new FuelHandler());
+		MinecraftForge.EVENT_BUS.register(new DyedSheepHandler());
 		proxy.init();
 		((Tab)tabDyes).setTabIcon(new ItemStack(MDItem.dye[0]));
 		((Tab)tabBlocks).setTabIcon(new ItemStack(MDBlock.wool[0]));
