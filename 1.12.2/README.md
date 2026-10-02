@@ -15,7 +15,7 @@ Dyed blocks behave like the vanilla blocks they are made from: dyed stone drops 
 
 If Thermal Foundation is installed, rockwool can be dyed too: eight rockwool of any color around a dye. Washing it gives back light gray rockwool, the color it is made in.
 
-If GregTech CEu is installed, a mixer dyes eight vanilla blocks with one dye (30 EU/t, 8 seconds), and a chemical bath bleaches a dyed block back to its vanilla block with 50 L of chlorine, the way GregTech bleaches wool. The `gregtechRecipes` config option turns these off.
+If GregTech CEu is installed, a mixer dyes a stack of 64 vanilla blocks with one dye (30 EU/t, 64 seconds) and mixes the mod's dyes from vanilla dyes with twice the crafting table's output, so two dyes make four (30 EU/t, 5 seconds), and a chemical bath bleaches a dyed block back to its vanilla block with 50 L of chlorine, the way GregTech bleaches wool. The `gregtechRecipes` config option turns these off.
 
 If Chisel or Rechiseled is installed, every dyed shade can be chiseled to and from its vanilla block (stone, wool, planks, chests and the rest). Where the chisel mod already has a group for the vanilla block, the shades join it. Neither mod is needed.
 

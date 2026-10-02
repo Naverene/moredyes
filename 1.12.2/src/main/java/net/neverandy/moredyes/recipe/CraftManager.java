@@ -51,6 +51,24 @@ public class CraftManager
 
 	private static IForgeRegistry<IRecipe> registry;
 
+	/** One crafting table dye mix: {@code count} of each of two vanilla dyes (by ore name) make {@code result}. */
+	public static class DyeMix
+	{
+		public final String first,second;
+		public final int count;
+		public final ItemStack result;
+
+		DyeMix(String first,String second,int count,ItemStack result)
+		{
+			this.first=first;
+			this.second=second;
+			this.count=count;
+			this.result=result;
+		}
+	}
+	/** Every dye mix, for the GregTech mixer recipes. */
+	public static final List<DyeMix> DYE_MIXES=new ArrayList<DyeMix>();
+
 	// Runs after the other recipes are registered, so the vanilla recipes replaced below exist.
 	@SubscribeEvent(priority=EventPriority.LOW)
 	public static void onRecipeRegister(RegistryEvent.Register<IRecipe> event)
@@ -85,6 +103,7 @@ public class CraftManager
 
 	private static void registerDyeMixes()
 	{
+		DYE_MIXES.clear();
 		for(int group=0;group<ColorStrings.GROUPS.length;group++)
 		{
 			int shade=0;
@@ -102,10 +121,12 @@ public class CraftManager
 					// One of each already makes a vanilla dye, so these take two of each and give four.
 					result.setCount(4);
 					shapeless(name,"dye",result,DYES[group],DYES[group],DYES[other],DYES[other]);
+					DYE_MIXES.add(new DyeMix(DYES[group],DYES[other],2,result));
 				}
 				else
 				{
 					shapeless(name,"dye",result,DYES[group],DYES[other]);
+					DYE_MIXES.add(new DyeMix(DYES[group],DYES[other],1,result));
 				}
 				shade++;
 			}

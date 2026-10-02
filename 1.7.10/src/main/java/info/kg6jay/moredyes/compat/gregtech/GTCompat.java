@@ -1,9 +1,15 @@
 package info.kg6jay.moredyes.compat.gregtech;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapelessRecipes;
 
 import gregtech.api.enums.GTValues;
 import gregtech.api.enums.Materials;
@@ -16,18 +22,23 @@ import info.kg6jay.moredyes.item.MDItem;
 /**
  * GregTech (GTNH) machine recipes. Only loaded when GregTech is installed.
  * <ul>
- * <li>Mixer (LV): eight vanilla blocks and one dye make eight dyed blocks.</li>
+ * <li>Mixer (LV): a stack of 64 vanilla blocks and one dye make 64 dyed blocks.</li>
+ * <li>Mixer (LV): the vanilla dyes of every crafting table dye mix make twice the dyes the crafting table gives, so two
+ * dyes make four.</li>
  * <li>Chemical Bath: a dyed block and 50 L of chlorine bleach it back to the vanilla block, the same recipe GregTech
  * uses to bleach dyed wool.</li>
  * </ul>
  */
 public class GTCompat {
 
-    private static final int DYE_DURATION = 8 * 20;
+    private static final int STACK = 64;
+    private static final int DYE_DURATION = 64 * 20;
+    private static final int MIX_DURATION = 5 * 20;
     private static final int BLEACH_DURATION = 20 * 20;
     private static final int BLEACH_EUT = 2;
 
     public static void registerRecipes() {
+        registerDyeMixes();
         for (Map.Entry<Block, ItemStack> entry : MDBlock.WASHED.entrySet()) {
             Block dyed = entry.getKey();
             ItemStack vanilla = entry.getValue();
@@ -37,8 +48,8 @@ public class GTCompat {
             for (int meta = 0; meta <= ((IBlockColored) dyed).getMaxMeta(); meta++) {
                 if (dyeable) {
                     GTValues.RA.stdBuilder()
-                        .itemInputs(copy(vanilla, 8), new ItemStack(MDItem.dye[setIndex], 1, meta))
-                        .itemOutputs(new ItemStack(dyed, 8, meta))
+                        .itemInputs(copy(vanilla, STACK), new ItemStack(MDItem.dye[setIndex], 1, meta))
+                        .itemOutputs(new ItemStack(dyed, STACK, meta))
                         .duration(DYE_DURATION)
                         .eut(TierEU.RECIPE_LV)
                         .addTo(RecipeMaps.mixerRecipes);
@@ -52,6 +63,55 @@ public class GTCompat {
                     .addTo(RecipeMaps.chemicalBathRecipes);
             }
         }
+    }
+
+    /**
+     * A mixer recipe for each crafting table recipe that mixes vanilla dyes into this mod's dyes, with twice the
+     * output.
+     */
+    private static void registerDyeMixes() {
+        List<ShapelessRecipes> mixes = new ArrayList<ShapelessRecipes>();
+        for (Object recipe : CraftingManager.getInstance()
+            .getRecipeList()) {
+            if (recipe instanceof ShapelessRecipes && isDye(((IRecipe) recipe).getRecipeOutput())
+                && ((ShapelessRecipes) recipe).recipeItems.size() >= 2) {
+                mixes.add((ShapelessRecipes) recipe);
+            }
+        }
+        for (ShapelessRecipes mix : mixes) {
+            ItemStack result = mix.getRecipeOutput();
+            GTValues.RA.stdBuilder()
+                .itemInputs(merge(mix.recipeItems))
+                .itemOutputs(copy(result, result.stackSize * 2))
+                .duration(MIX_DURATION)
+                .eut(TierEU.RECIPE_LV)
+                .addTo(RecipeMaps.mixerRecipes);
+        }
+    }
+
+    private static boolean isDye(ItemStack stack) {
+        return stack != null && Arrays.asList(MDItem.dye)
+            .contains(stack.getItem());
+    }
+
+    /** The crafting grid's single items, with equal ones stacked together. */
+    private static ItemStack[] merge(List<?> items) {
+        List<ItemStack> merged = new ArrayList<ItemStack>();
+        for (Object item : items) {
+            ItemStack stack = (ItemStack) item;
+            ItemStack same = null;
+            for (ItemStack m : merged) {
+                if (ItemStack.areItemStacksEqual(copy(m, 1), copy(stack, 1))) {
+                    same = m;
+                }
+            }
+            if (same != null) {
+                same.stackSize += stack.stackSize;
+            } else {
+                merged.add(stack.copy());
+            }
+        }
+        return merged.toArray(new ItemStack[0]);
     }
 
     private static ItemStack copy(ItemStack stack, int size) {
