@@ -12,9 +12,10 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = "${mc_version}-${mod_version}"
+// The jar is named moredyes-<mod version>-<Minecraft version>.jar.
+version = "${mod_version}-${mc_version}"
 group = 'net.neverandy.moredyes' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'MoreDyes'
+archivesBaseName = 'moredyes'
 
 // Minecraft 1.12.2 runs on Java 8, so the mod targets Java 8.
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
