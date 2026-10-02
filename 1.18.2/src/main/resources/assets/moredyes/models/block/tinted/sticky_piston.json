@@ -4,7 +4,8 @@
     "bottom": "moredyes:block/tinted/piston_bottom",
     "side": "moredyes:block/tinted/piston_side",
     "side_overlay": "moredyes:block/tinted/piston_side_overlay",
-    "platform": "minecraft:block/piston_top_sticky"
+    "platform": "minecraft:block/piston_top_sticky",
+    "bottom_overlay": "moredyes:block/tinted/piston_bottom_overlay"
   },
   "elements": [
     {
@@ -121,6 +122,16 @@
           ],
           "texture": "#side_overlay",
           "cullface": "up"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#bottom_overlay",
+          "cullface": "south"
         },
         "west": {
           "uv": [

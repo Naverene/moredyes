@@ -76,11 +76,12 @@ TEXTURES = {
     'block/crafting_table_side': [('block/crafting_table_side', GREY, True)],
     'block/crafting_table_front': [('block/crafting_table_front', GREY, True)],
     'block/bookshelf': [('block/bookshelf', GREY, True)],
-    # Only the cobblestone on a piston takes the dye: its wood and iron are drawn over it in their own colors, and the
-    # face (piston_top and piston_top_sticky) is not listed, so it stays vanilla.
+    # Only the cobblestone on a piston takes the dye: its wood, iron and darkest greys (see PISTON_DARK) are drawn over
+    # it in their own colors, and the face (piston_top and piston_top_sticky) is not listed, so it stays vanilla.
     'block/piston_side': [('block/piston_side', GREY, True),
                           ('block/piston_side_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
-    'block/piston_bottom': [('block/piston_bottom', GREY, True)],
+    'block/piston_bottom': [('block/piston_bottom', GREY, True),
+                            ('block/piston_bottom_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/piston_inner': [('block/piston_inner', GREY, True),
                            ('block/piston_inner_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/white_tulip': [('block/tulip', GREY_IF_NOT_GREEN, True), ('block/tulip_stem', KEEP_IF_GREEN, False)],
@@ -112,6 +113,10 @@ def is_green(p):
         return False
     h, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
     return s > 0.15 and 65 <= h * 360 <= 170
+
+
+# The darkest greys of a piston's cobblestone (the cracks and edges) stay grey: they are drawn over the dye too.
+PISTON_DARK = 0x60
 
 
 def is_piston_cobblestone(source, x, y):
@@ -187,7 +192,8 @@ def main():
                 pixels = [(0, 0, 0, 0) if is_green(p) else p for p in pixels]
             elif how == KEEP_IF_NOT_COBBLESTONE:
                 w, h = image.size
-                pixels = [(0, 0, 0, 0) if is_piston_cobblestone(source, i % w * 16 // w, i // w * 16 // h) else p
+                pixels = [(0, 0, 0, 0) if grey(p)[0] >= PISTON_DARK
+                          and is_piston_cobblestone(source, i % w * 16 // w, i // w * 16 // h) else p
                           for i, p in enumerate(pixels)]
             if tinted and source not in STAY_DARK:
                 pixels = brighten(pixels)

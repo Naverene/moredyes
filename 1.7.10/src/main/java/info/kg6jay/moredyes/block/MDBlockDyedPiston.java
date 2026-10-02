@@ -44,7 +44,7 @@ import info.kg6jay.moredyes.utility.ColorUtil;
  * Other pistons cannot push it: blocks with a tile entity cannot be moved in 1.7.10.
  * <p>
  * Only its cobblestone takes the dye. It is drawn in two layers: layer 0 is the tinted cobblestone, layer 1 the
- * untinted wooden face and the wood and iron drawn over the sides and the inside.
+ * untinted wooden face and the wood, iron and cracks drawn over the cobblestone.
  */
 public class MDBlockDyedPiston extends BlockPistonBase implements ILayeredBlock {
 
@@ -52,7 +52,8 @@ public class MDBlockDyedPiston extends BlockPistonBase implements ILayeredBlock 
 
     private final boolean sticky;
     @SideOnly(Side.CLIENT)
-    private IIcon sideIcon, faceIcon, innerIcon, bottomIcon, sideOverlayIcon, innerOverlayIcon, blankIcon;
+    private IIcon sideIcon, faceIcon, innerIcon, bottomIcon, sideOverlayIcon, innerOverlayIcon, bottomOverlayIcon,
+        blankIcon;
 
     public MDBlockDyedPiston(boolean sticky, String name) {
         super(sticky);
@@ -340,7 +341,7 @@ public class MDBlockDyedPiston extends BlockPistonBase implements ILayeredBlock 
                 : face == INNER ? this.innerIcon : face == BOTTOM ? this.bottomIcon : this.sideIcon;
         }
         return face == FACE ? this.faceIcon
-            : face == INNER ? this.innerOverlayIcon : face == BOTTOM ? null : this.sideOverlayIcon;
+            : face == INNER ? this.innerOverlayIcon : face == BOTTOM ? this.bottomOverlayIcon : this.sideOverlayIcon;
     }
 
     @Override
@@ -390,6 +391,7 @@ public class MDBlockDyedPiston extends BlockPistonBase implements ILayeredBlock 
         this.bottomIcon = TintedTextures.register(register, "piston/bottom");
         this.sideOverlayIcon = TintedTextures.register(register, "piston/sideOverlay");
         this.innerOverlayIcon = TintedTextures.register(register, "piston/innerOverlay");
+        this.bottomOverlayIcon = TintedTextures.register(register, "piston/bottomOverlay");
         this.blankIcon = TintedTextures.register(register, "piston/blank");
     }
 

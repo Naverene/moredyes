@@ -2,9 +2,10 @@
   "parent": "minecraft:block/sticky_piston_inventory",
   "textures": {
     "t0": "moredyes:block/piston_bottom",
-    "t1": "minecraft:block/piston_top_sticky",
-    "t2": "moredyes:block/piston_side",
-    "t3": "moredyes:block/piston_side_overlay",
+    "t1": "moredyes:block/piston_bottom_overlay",
+    "t2": "minecraft:block/piston_top_sticky",
+    "t3": "moredyes:block/piston_side",
+    "t4": "moredyes:block/piston_side_overlay",
     "particle": "moredyes:block/piston_side"
   },
   "elements": [
@@ -26,26 +27,26 @@
           "tintindex": 0
         },
         "up": {
-          "texture": "#t1",
+          "texture": "#t2",
           "cullface": "up"
         },
         "north": {
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "north",
           "tintindex": 0
         },
         "south": {
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "south",
           "tintindex": 0
         },
         "west": {
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "west",
           "tintindex": 0
         },
         "east": {
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "east",
           "tintindex": 0
         }
@@ -63,20 +64,24 @@
         16
       ],
       "faces": {
+        "down": {
+          "texture": "#t1",
+          "cullface": "down"
+        },
         "north": {
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "north"
         },
         "south": {
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "south"
         },
         "west": {
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "west"
         },
         "east": {
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "east"
         }
       }
