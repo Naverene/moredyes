@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:azurebluet_ecbf99"
+      },
+      {
+        "item": "moredyes:azurebluet_d9a6ec"
+      },
+      {
+        "item": "moredyes:azurebluet_b3ccec"
+      },
+      {
+        "item": "moredyes:azurebluet_f2f299"
+      },
+      {
+        "item": "moredyes:azurebluet_bfe68c"
+      },
+      {
+        "item": "moredyes:azurebluet_f9bfd2"
+      },
+      {
+        "item": "moredyes:azurebluet_cccccc"
+      },
+      {
+        "item": "moredyes:azurebluet_a6bfcc"
+      },
+      {
+        "item": "moredyes:azurebluet_bf9fd9"
+      },
+      {
+        "item": "moredyes:azurebluet_99a6d9"
+      },
+      {
+        "item": "moredyes:azurebluet_b3a699"
+      },
+      {
+        "item": "moredyes:azurebluet_b3bf99"
+      },
+      {
+        "item": "moredyes:azurebluet_cc9999"
+      },
+      {
+        "item": "moredyes:azurebluet_c56685"
+      },
+      {
+        "item": "moredyes:azurebluet_9f8c85"
+      },
+      {
+        "item": "moredyes:azurebluet_deb233"
+      },
+      {
+        "item": "moredyes:azurebluet_aca526"
+      },
+      {
+        "item": "moredyes:azurebluet_e57f6c"
+      },
+      {
+        "item": "moredyes:azurebluet_92663f"
+      },
+      {
+        "item": "moredyes:azurebluet_b98c66"
+      },
+      {
+        "item": "moredyes:azurebluet_927f66"
+      },
+      {
+        "item": "moredyes:azurebluet_ac5f72"
+      },
+      {
+        "item": "moredyes:azurebluet_866672"
+      },
+      {
+        "item": "moredyes:azurebluet_9f6633"
+      },
+      {
+        "item": "moredyes:azurebluet_9f7f33"
+      },
+      {
+        "item": "moredyes:azurebluet_b95933"
+      },
+      {
+        "item": "moredyes:azurebluet_794c26"
+      },
+      {
+        "item": "moredyes:azurebluet_8c72d8"
+      },
+      {
+        "item": "moredyes:azurebluet_cb9886"
+      },
+      {
+        "item": "moredyes:azurebluet_998c79"
+      },
+      {
+        "item": "moredyes:azurebluet_d265bf"
+      },
+      {
+        "item": "moredyes:azurebluet_7f4c92"
+      },
+      {
+        "item": "moredyes:azurebluet_a672b9"
+      },
+      {
+        "item": "moredyes:azurebluet_7f65b9"
+      },
+      {
+        "item": "moredyes:azurebluet_9946c5"
+      },
+      {
+        "item": "moredyes:azurebluet_734cc5"
+      },
+      {
+        "item": "moredyes:azurebluet_8c4c86"
+      },
+      {
+        "item": "moredyes:azurebluet_8c6586"
+      },
+      {
+        "item": "moredyes:azurebluet_a64086"
+      },
+      {
+        "item": "moredyes:azurebluet_663379"
+      },
+      {
+        "item": "moredyes:azurebluet_a5bf86"
+      },
+      {
+        "item": "moredyes:azurebluet_72b279"
+      },
+      {
+        "item": "moredyes:azurebluet_ac8cbf"
+      },
+      {
+        "item": "moredyes:azurebluet_597392"
+      },
+      {
+        "item": "moredyes:azurebluet_7f99b9"
+      },
+      {
+        "item": "moredyes:azurebluet_598cb9"
+      },
+      {
+        "item": "moredyes:azurebluet_726cc5"
+      },
+      {
+        "item": "moredyes:azurebluet_4d73c5"
+      },
+      {
+        "item": "moredyes:azurebluet_667386"
+      },
+      {
+        "item": "moredyes:azurebluet_668c86"
+      },
+      {
+        "item": "moredyes:azurebluet_7f6686"
+      },
+      {
+        "item": "moredyes:azurebluet_405979"
+      },
+      {
+        "item": "moredyes:azurebluet_b2d926"
+      },
+      {
+        "item": "moredyes:azurebluet_ebb26c"
+      },
+      {
+        "item": "moredyes:azurebluet_99993f"
+      },
+      {
+        "item": "moredyes:azurebluet_bfbf66"
+      },
+      {
+        "item": "moredyes:azurebluet_99b266"
+      },
+      {
+        "item": "moredyes:azurebluet_b29272"
+      },
+      {
+        "item": "moredyes:azurebluet_8c9972"
+      },
+      {
+        "item": "moredyes:azurebluet_a69933"
+      },
+      {
+        "item": "moredyes:azurebluet_a6b233"
+      },
+      {
+        "item": "moredyes:azurebluet_bf8c33"
+      },
+      {
+        "item": "moredyes:azurebluet_7f7f26"
+      },
+      {
+        "item": "moredyes:azurebluet_b8a65f"
+      },
+      {
+        "item": "moredyes:azurebluet_668c32"
+      },
+      {
+        "item": "moredyes:azurebluet_8cb359"
+      },
+      {
+        "item": "moredyes:azurebluet_66a659"
+      },
+      {
+        "item": "moredyes:azurebluet_7f5665"
+      },
+      {
+        "item": "moredyes:azurebluet_598c65"
+      },
+      {
+        "item": "moredyes:azurebluet_738c26"
+      },
+      {
+        "item": "moredyes:azurebluet_73a626"
+      },
+      {
+        "item": "moredyes:azurebluet_8c8026"
+      },
+      {
+        "item": "moredyes:azurebluet_4c7319"
+      },
+      {
+        "item": "moredyes:azurebluet_864c5f"
+      },
+      {
+        "item": "moredyes:azurebluet_c6596c"
+      },
+      {
+        "item": "moredyes:azurebluet_ac7f6c"
+      },
+      {
+        "item": "moredyes:azurebluet_ac666c"
+      },
+      {
+        "item": "moredyes:azurebluet_9366ab"
+      },
+      {
+        "item": "moredyes:azurebluet_b95fab"
+      },
+      {
+        "item": "moredyes:azurebluet_9f7f9f"
+      },
+      {
+        "item": "moredyes:azurebluet_c68c9f"
+      },
+      {
+        "item": "moredyes:azurebluet_9f6679"
+      },
+      {
+        "item": "moredyes:azurebluet_727272"
+      },
+      {
+        "item": "moredyes:azurebluet_4c6572"
+      },
+      {
+        "item": "moredyes:azurebluet_65467f"
+      },
+      {
+        "item": "moredyes:azurebluet_404c7f"
+      },
+      {
+        "item": "moredyes:azurebluet_594c40"
+      },
+      {
+        "item": "moredyes:azurebluet_596540"
+      },
+      {
+        "item": "moredyes:azurebluet_724040"
+      },
+      {
+        "item": "moredyes:azurebluet_333333"
+      },
+      {
+        "item": "moredyes:azurebluet_738c99"
+      },
+      {
+        "item": "moredyes:azurebluet_8c6ca5"
+      },
+      {
+        "item": "moredyes:azurebluet_6673a5"
+      },
+      {
+        "item": "moredyes:azurebluet_807366"
+      },
+      {
+        "item": "moredyes:azurebluet_808c66"
+      },
+      {
+        "item": "moredyes:azurebluet_996666"
+      },
+      {
+        "item": "moredyes:azurebluet_595959"
+      },
+      {
+        "item": "moredyes:azurebluet_655fa5"
+      },
+      {
+        "item": "moredyes:azurebluet_4066a5"
+      },
+      {
+        "item": "moredyes:azurebluet_596666"
+      },
+      {
+        "item": "moredyes:azurebluet_597f66"
+      },
+      {
+        "item": "moredyes:azurebluet_725966"
+      },
+      {
+        "item": "moredyes:azurebluet_334c59"
+      },
+      {
+        "item": "moredyes:azurebluet_5945b2"
+      },
+      {
+        "item": "moredyes:azurebluet_734573"
+      },
+      {
+        "item": "moredyes:azurebluet_735f73"
+      },
+      {
+        "item": "moredyes:azurebluet_8c3973"
+      },
+      {
+        "item": "moredyes:azurebluet_4c2c66"
+      },
+      {
+        "item": "moredyes:azurebluet_4c4c73"
+      },
+      {
+        "item": "moredyes:azurebluet_4c6573"
+      },
+      {
+        "item": "moredyes:azurebluet_664073"
+      },
+      {
+        "item": "moredyes:azurebluet_263366"
+      },
+      {
+        "item": "moredyes:azurebluet_403326"
+      },
+      {
+        "item": "moredyes:azurebluet_7f4033"
+      },
+      {
+        "item": "moredyes:azurebluet_666533"
+      },
+      {
+        "item": "moredyes:azurebluet_7f5933"
+      },
+      {
+        "item": "moredyes:azurebluet_404c26"
+      },
+      {
+        "item": "moredyes:azurebluet_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:azure_bluet"
+  }
+}

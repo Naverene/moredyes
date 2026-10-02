@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:gravel_ecbf99"
+      },
+      {
+        "item": "moredyes:gravel_d9a6ec"
+      },
+      {
+        "item": "moredyes:gravel_b3ccec"
+      },
+      {
+        "item": "moredyes:gravel_f2f299"
+      },
+      {
+        "item": "moredyes:gravel_bfe68c"
+      },
+      {
+        "item": "moredyes:gravel_f9bfd2"
+      },
+      {
+        "item": "moredyes:gravel_cccccc"
+      },
+      {
+        "item": "moredyes:gravel_a6bfcc"
+      },
+      {
+        "item": "moredyes:gravel_bf9fd9"
+      },
+      {
+        "item": "moredyes:gravel_99a6d9"
+      },
+      {
+        "item": "moredyes:gravel_b3a699"
+      },
+      {
+        "item": "moredyes:gravel_b3bf99"
+      },
+      {
+        "item": "moredyes:gravel_cc9999"
+      },
+      {
+        "item": "moredyes:gravel_c56685"
+      },
+      {
+        "item": "moredyes:gravel_9f8c85"
+      },
+      {
+        "item": "moredyes:gravel_deb233"
+      },
+      {
+        "item": "moredyes:gravel_aca526"
+      },
+      {
+        "item": "moredyes:gravel_e57f6c"
+      },
+      {
+        "item": "moredyes:gravel_92663f"
+      },
+      {
+        "item": "moredyes:gravel_b98c66"
+      },
+      {
+        "item": "moredyes:gravel_927f66"
+      },
+      {
+        "item": "moredyes:gravel_ac5f72"
+      },
+      {
+        "item": "moredyes:gravel_866672"
+      },
+      {
+        "item": "moredyes:gravel_9f6633"
+      },
+      {
+        "item": "moredyes:gravel_9f7f33"
+      },
+      {
+        "item": "moredyes:gravel_b95933"
+      },
+      {
+        "item": "moredyes:gravel_794c26"
+      },
+      {
+        "item": "moredyes:gravel_8c72d8"
+      },
+      {
+        "item": "moredyes:gravel_cb9886"
+      },
+      {
+        "item": "moredyes:gravel_998c79"
+      },
+      {
+        "item": "moredyes:gravel_d265bf"
+      },
+      {
+        "item": "moredyes:gravel_7f4c92"
+      },
+      {
+        "item": "moredyes:gravel_a672b9"
+      },
+      {
+        "item": "moredyes:gravel_7f65b9"
+      },
+      {
+        "item": "moredyes:gravel_9946c5"
+      },
+      {
+        "item": "moredyes:gravel_734cc5"
+      },
+      {
+        "item": "moredyes:gravel_8c4c86"
+      },
+      {
+        "item": "moredyes:gravel_8c6586"
+      },
+      {
+        "item": "moredyes:gravel_a64086"
+      },
+      {
+        "item": "moredyes:gravel_663379"
+      },
+      {
+        "item": "moredyes:gravel_a5bf86"
+      },
+      {
+        "item": "moredyes:gravel_72b279"
+      },
+      {
+        "item": "moredyes:gravel_ac8cbf"
+      },
+      {
+        "item": "moredyes:gravel_597392"
+      },
+      {
+        "item": "moredyes:gravel_7f99b9"
+      },
+      {
+        "item": "moredyes:gravel_598cb9"
+      },
+      {
+        "item": "moredyes:gravel_726cc5"
+      },
+      {
+        "item": "moredyes:gravel_4d73c5"
+      },
+      {
+        "item": "moredyes:gravel_667386"
+      },
+      {
+        "item": "moredyes:gravel_668c86"
+      },
+      {
+        "item": "moredyes:gravel_7f6686"
+      },
+      {
+        "item": "moredyes:gravel_405979"
+      },
+      {
+        "item": "moredyes:gravel_b2d926"
+      },
+      {
+        "item": "moredyes:gravel_ebb26c"
+      },
+      {
+        "item": "moredyes:gravel_99993f"
+      },
+      {
+        "item": "moredyes:gravel_bfbf66"
+      },
+      {
+        "item": "moredyes:gravel_99b266"
+      },
+      {
+        "item": "moredyes:gravel_b29272"
+      },
+      {
+        "item": "moredyes:gravel_8c9972"
+      },
+      {
+        "item": "moredyes:gravel_a69933"
+      },
+      {
+        "item": "moredyes:gravel_a6b233"
+      },
+      {
+        "item": "moredyes:gravel_bf8c33"
+      },
+      {
+        "item": "moredyes:gravel_7f7f26"
+      },
+      {
+        "item": "moredyes:gravel_b8a65f"
+      },
+      {
+        "item": "moredyes:gravel_668c32"
+      },
+      {
+        "item": "moredyes:gravel_8cb359"
+      },
+      {
+        "item": "moredyes:gravel_66a659"
+      },
+      {
+        "item": "moredyes:gravel_7f5665"
+      },
+      {
+        "item": "moredyes:gravel_598c65"
+      },
+      {
+        "item": "moredyes:gravel_738c26"
+      },
+      {
+        "item": "moredyes:gravel_73a626"
+      },
+      {
+        "item": "moredyes:gravel_8c8026"
+      },
+      {
+        "item": "moredyes:gravel_4c7319"
+      },
+      {
+        "item": "moredyes:gravel_864c5f"
+      },
+      {
+        "item": "moredyes:gravel_c6596c"
+      },
+      {
+        "item": "moredyes:gravel_ac7f6c"
+      },
+      {
+        "item": "moredyes:gravel_ac666c"
+      },
+      {
+        "item": "moredyes:gravel_9366ab"
+      },
+      {
+        "item": "moredyes:gravel_b95fab"
+      },
+      {
+        "item": "moredyes:gravel_9f7f9f"
+      },
+      {
+        "item": "moredyes:gravel_c68c9f"
+      },
+      {
+        "item": "moredyes:gravel_9f6679"
+      },
+      {
+        "item": "moredyes:gravel_727272"
+      },
+      {
+        "item": "moredyes:gravel_4c6572"
+      },
+      {
+        "item": "moredyes:gravel_65467f"
+      },
+      {
+        "item": "moredyes:gravel_404c7f"
+      },
+      {
+        "item": "moredyes:gravel_594c40"
+      },
+      {
+        "item": "moredyes:gravel_596540"
+      },
+      {
+        "item": "moredyes:gravel_724040"
+      },
+      {
+        "item": "moredyes:gravel_333333"
+      },
+      {
+        "item": "moredyes:gravel_738c99"
+      },
+      {
+        "item": "moredyes:gravel_8c6ca5"
+      },
+      {
+        "item": "moredyes:gravel_6673a5"
+      },
+      {
+        "item": "moredyes:gravel_807366"
+      },
+      {
+        "item": "moredyes:gravel_808c66"
+      },
+      {
+        "item": "moredyes:gravel_996666"
+      },
+      {
+        "item": "moredyes:gravel_595959"
+      },
+      {
+        "item": "moredyes:gravel_655fa5"
+      },
+      {
+        "item": "moredyes:gravel_4066a5"
+      },
+      {
+        "item": "moredyes:gravel_596666"
+      },
+      {
+        "item": "moredyes:gravel_597f66"
+      },
+      {
+        "item": "moredyes:gravel_725966"
+      },
+      {
+        "item": "moredyes:gravel_334c59"
+      },
+      {
+        "item": "moredyes:gravel_5945b2"
+      },
+      {
+        "item": "moredyes:gravel_734573"
+      },
+      {
+        "item": "moredyes:gravel_735f73"
+      },
+      {
+        "item": "moredyes:gravel_8c3973"
+      },
+      {
+        "item": "moredyes:gravel_4c2c66"
+      },
+      {
+        "item": "moredyes:gravel_4c4c73"
+      },
+      {
+        "item": "moredyes:gravel_4c6573"
+      },
+      {
+        "item": "moredyes:gravel_664073"
+      },
+      {
+        "item": "moredyes:gravel_263366"
+      },
+      {
+        "item": "moredyes:gravel_403326"
+      },
+      {
+        "item": "moredyes:gravel_7f4033"
+      },
+      {
+        "item": "moredyes:gravel_666533"
+      },
+      {
+        "item": "moredyes:gravel_7f5933"
+      },
+      {
+        "item": "moredyes:gravel_404c26"
+      },
+      {
+        "item": "moredyes:gravel_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:gravel"
+  }
+}

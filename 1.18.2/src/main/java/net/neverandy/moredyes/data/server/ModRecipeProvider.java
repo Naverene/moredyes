@@ -27,7 +27,12 @@ import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.world.DyeTrees;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -164,6 +169,9 @@ public class ModRecipeProvider extends RecipeProvider
     };
 
     private Consumer<FinishedRecipe> out;
+    /** Every color of each washable type, by type ("wool"), and the vanilla item washing gives back. */
+    private final Map<String, List<Block>> washing = new LinkedHashMap<>();
+    private final Map<String, String> washedInto = new HashMap<>();
 
     public ModRecipeProvider(DataGenerator generatorIn)
     {
@@ -325,6 +333,16 @@ public class ModRecipeProvider extends RecipeProvider
                 shapes(i, shapes);
             }
         }
+
+        // One washing recipe per type takes any of its colors, rather than one recipe file per color.
+        for (Map.Entry<String, List<Block>> entry : washing.entrySet())
+        {
+            List<Block> dyed = entry.getValue();
+            ShapelessRecipeBuilder.shapeless(mc(washedInto.get(entry.getKey())))
+                    .requires(Ingredient.of(dyed.toArray(new Block[0]))).requires(Items.WATER_BUCKET)
+                    .unlockedBy("has_block", has(dyed.get(0))).save(out, id("washing/" + entry.getKey()));
+        }
+        washing.clear();
     }
 
     /** The vanilla slab, stairs and wall recipes from the dyed full block, and the stonecutter for stone kinds. */
@@ -418,8 +436,11 @@ public class ModRecipeProvider extends RecipeProvider
 
     private void washable(Block dyed, String vanilla)
     {
-        ShapelessRecipeBuilder.shapeless(mc(vanilla)).requires(dyed).requires(Items.WATER_BUCKET)
-                .unlockedBy("has_block", has(dyed)).save(out, id("washing/" + name(dyed)));
+        String name = name(dyed);
+        // Registry names look like "<type>_<color>".
+        String type = name.substring(0, name.lastIndexOf('_'));
+        washing.computeIfAbsent(type, t -> new ArrayList<>()).add(dyed);
+        washedInto.put(type, vanilla);
     }
 
     private void smelt(Block input, Block result, float xp)

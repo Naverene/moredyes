@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:birchplanks_ecbf99"
+      },
+      {
+        "item": "moredyes:birchplanks_d9a6ec"
+      },
+      {
+        "item": "moredyes:birchplanks_b3ccec"
+      },
+      {
+        "item": "moredyes:birchplanks_f2f299"
+      },
+      {
+        "item": "moredyes:birchplanks_bfe68c"
+      },
+      {
+        "item": "moredyes:birchplanks_f9bfd2"
+      },
+      {
+        "item": "moredyes:birchplanks_cccccc"
+      },
+      {
+        "item": "moredyes:birchplanks_a6bfcc"
+      },
+      {
+        "item": "moredyes:birchplanks_bf9fd9"
+      },
+      {
+        "item": "moredyes:birchplanks_99a6d9"
+      },
+      {
+        "item": "moredyes:birchplanks_b3a699"
+      },
+      {
+        "item": "moredyes:birchplanks_b3bf99"
+      },
+      {
+        "item": "moredyes:birchplanks_cc9999"
+      },
+      {
+        "item": "moredyes:birchplanks_c56685"
+      },
+      {
+        "item": "moredyes:birchplanks_9f8c85"
+      },
+      {
+        "item": "moredyes:birchplanks_deb233"
+      },
+      {
+        "item": "moredyes:birchplanks_aca526"
+      },
+      {
+        "item": "moredyes:birchplanks_e57f6c"
+      },
+      {
+        "item": "moredyes:birchplanks_92663f"
+      },
+      {
+        "item": "moredyes:birchplanks_b98c66"
+      },
+      {
+        "item": "moredyes:birchplanks_927f66"
+      },
+      {
+        "item": "moredyes:birchplanks_ac5f72"
+      },
+      {
+        "item": "moredyes:birchplanks_866672"
+      },
+      {
+        "item": "moredyes:birchplanks_9f6633"
+      },
+      {
+        "item": "moredyes:birchplanks_9f7f33"
+      },
+      {
+        "item": "moredyes:birchplanks_b95933"
+      },
+      {
+        "item": "moredyes:birchplanks_794c26"
+      },
+      {
+        "item": "moredyes:birchplanks_8c72d8"
+      },
+      {
+        "item": "moredyes:birchplanks_cb9886"
+      },
+      {
+        "item": "moredyes:birchplanks_998c79"
+      },
+      {
+        "item": "moredyes:birchplanks_d265bf"
+      },
+      {
+        "item": "moredyes:birchplanks_7f4c92"
+      },
+      {
+        "item": "moredyes:birchplanks_a672b9"
+      },
+      {
+        "item": "moredyes:birchplanks_7f65b9"
+      },
+      {
+        "item": "moredyes:birchplanks_9946c5"
+      },
+      {
+        "item": "moredyes:birchplanks_734cc5"
+      },
+      {
+        "item": "moredyes:birchplanks_8c4c86"
+      },
+      {
+        "item": "moredyes:birchplanks_8c6586"
+      },
+      {
+        "item": "moredyes:birchplanks_a64086"
+      },
+      {
+        "item": "moredyes:birchplanks_663379"
+      },
+      {
+        "item": "moredyes:birchplanks_a5bf86"
+      },
+      {
+        "item": "moredyes:birchplanks_72b279"
+      },
+      {
+        "item": "moredyes:birchplanks_ac8cbf"
+      },
+      {
+        "item": "moredyes:birchplanks_597392"
+      },
+      {
+        "item": "moredyes:birchplanks_7f99b9"
+      },
+      {
+        "item": "moredyes:birchplanks_598cb9"
+      },
+      {
+        "item": "moredyes:birchplanks_726cc5"
+      },
+      {
+        "item": "moredyes:birchplanks_4d73c5"
+      },
+      {
+        "item": "moredyes:birchplanks_667386"
+      },
+      {
+        "item": "moredyes:birchplanks_668c86"
+      },
+      {
+        "item": "moredyes:birchplanks_7f6686"
+      },
+      {
+        "item": "moredyes:birchplanks_405979"
+      },
+      {
+        "item": "moredyes:birchplanks_b2d926"
+      },
+      {
+        "item": "moredyes:birchplanks_ebb26c"
+      },
+      {
+        "item": "moredyes:birchplanks_99993f"
+      },
+      {
+        "item": "moredyes:birchplanks_bfbf66"
+      },
+      {
+        "item": "moredyes:birchplanks_99b266"
+      },
+      {
+        "item": "moredyes:birchplanks_b29272"
+      },
+      {
+        "item": "moredyes:birchplanks_8c9972"
+      },
+      {
+        "item": "moredyes:birchplanks_a69933"
+      },
+      {
+        "item": "moredyes:birchplanks_a6b233"
+      },
+      {
+        "item": "moredyes:birchplanks_bf8c33"
+      },
+      {
+        "item": "moredyes:birchplanks_7f7f26"
+      },
+      {
+        "item": "moredyes:birchplanks_b8a65f"
+      },
+      {
+        "item": "moredyes:birchplanks_668c32"
+      },
+      {
+        "item": "moredyes:birchplanks_8cb359"
+      },
+      {
+        "item": "moredyes:birchplanks_66a659"
+      },
+      {
+        "item": "moredyes:birchplanks_7f5665"
+      },
+      {
+        "item": "moredyes:birchplanks_598c65"
+      },
+      {
+        "item": "moredyes:birchplanks_738c26"
+      },
+      {
+        "item": "moredyes:birchplanks_73a626"
+      },
+      {
+        "item": "moredyes:birchplanks_8c8026"
+      },
+      {
+        "item": "moredyes:birchplanks_4c7319"
+      },
+      {
+        "item": "moredyes:birchplanks_864c5f"
+      },
+      {
+        "item": "moredyes:birchplanks_c6596c"
+      },
+      {
+        "item": "moredyes:birchplanks_ac7f6c"
+      },
+      {
+        "item": "moredyes:birchplanks_ac666c"
+      },
+      {
+        "item": "moredyes:birchplanks_9366ab"
+      },
+      {
+        "item": "moredyes:birchplanks_b95fab"
+      },
+      {
+        "item": "moredyes:birchplanks_9f7f9f"
+      },
+      {
+        "item": "moredyes:birchplanks_c68c9f"
+      },
+      {
+        "item": "moredyes:birchplanks_9f6679"
+      },
+      {
+        "item": "moredyes:birchplanks_727272"
+      },
+      {
+        "item": "moredyes:birchplanks_4c6572"
+      },
+      {
+        "item": "moredyes:birchplanks_65467f"
+      },
+      {
+        "item": "moredyes:birchplanks_404c7f"
+      },
+      {
+        "item": "moredyes:birchplanks_594c40"
+      },
+      {
+        "item": "moredyes:birchplanks_596540"
+      },
+      {
+        "item": "moredyes:birchplanks_724040"
+      },
+      {
+        "item": "moredyes:birchplanks_333333"
+      },
+      {
+        "item": "moredyes:birchplanks_738c99"
+      },
+      {
+        "item": "moredyes:birchplanks_8c6ca5"
+      },
+      {
+        "item": "moredyes:birchplanks_6673a5"
+      },
+      {
+        "item": "moredyes:birchplanks_807366"
+      },
+      {
+        "item": "moredyes:birchplanks_808c66"
+      },
+      {
+        "item": "moredyes:birchplanks_996666"
+      },
+      {
+        "item": "moredyes:birchplanks_595959"
+      },
+      {
+        "item": "moredyes:birchplanks_655fa5"
+      },
+      {
+        "item": "moredyes:birchplanks_4066a5"
+      },
+      {
+        "item": "moredyes:birchplanks_596666"
+      },
+      {
+        "item": "moredyes:birchplanks_597f66"
+      },
+      {
+        "item": "moredyes:birchplanks_725966"
+      },
+      {
+        "item": "moredyes:birchplanks_334c59"
+      },
+      {
+        "item": "moredyes:birchplanks_5945b2"
+      },
+      {
+        "item": "moredyes:birchplanks_734573"
+      },
+      {
+        "item": "moredyes:birchplanks_735f73"
+      },
+      {
+        "item": "moredyes:birchplanks_8c3973"
+      },
+      {
+        "item": "moredyes:birchplanks_4c2c66"
+      },
+      {
+        "item": "moredyes:birchplanks_4c4c73"
+      },
+      {
+        "item": "moredyes:birchplanks_4c6573"
+      },
+      {
+        "item": "moredyes:birchplanks_664073"
+      },
+      {
+        "item": "moredyes:birchplanks_263366"
+      },
+      {
+        "item": "moredyes:birchplanks_403326"
+      },
+      {
+        "item": "moredyes:birchplanks_7f4033"
+      },
+      {
+        "item": "moredyes:birchplanks_666533"
+      },
+      {
+        "item": "moredyes:birchplanks_7f5933"
+      },
+      {
+        "item": "moredyes:birchplanks_404c26"
+      },
+      {
+        "item": "moredyes:birchplanks_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:birch_planks"
+  }
+}

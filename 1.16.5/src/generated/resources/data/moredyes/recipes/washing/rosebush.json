@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:rosebush_ecbf99"
+      },
+      {
+        "item": "moredyes:rosebush_d9a6ec"
+      },
+      {
+        "item": "moredyes:rosebush_b3ccec"
+      },
+      {
+        "item": "moredyes:rosebush_f2f299"
+      },
+      {
+        "item": "moredyes:rosebush_bfe68c"
+      },
+      {
+        "item": "moredyes:rosebush_f9bfd2"
+      },
+      {
+        "item": "moredyes:rosebush_cccccc"
+      },
+      {
+        "item": "moredyes:rosebush_a6bfcc"
+      },
+      {
+        "item": "moredyes:rosebush_bf9fd9"
+      },
+      {
+        "item": "moredyes:rosebush_99a6d9"
+      },
+      {
+        "item": "moredyes:rosebush_b3a699"
+      },
+      {
+        "item": "moredyes:rosebush_b3bf99"
+      },
+      {
+        "item": "moredyes:rosebush_cc9999"
+      },
+      {
+        "item": "moredyes:rosebush_c56685"
+      },
+      {
+        "item": "moredyes:rosebush_9f8c85"
+      },
+      {
+        "item": "moredyes:rosebush_deb233"
+      },
+      {
+        "item": "moredyes:rosebush_aca526"
+      },
+      {
+        "item": "moredyes:rosebush_e57f6c"
+      },
+      {
+        "item": "moredyes:rosebush_92663f"
+      },
+      {
+        "item": "moredyes:rosebush_b98c66"
+      },
+      {
+        "item": "moredyes:rosebush_927f66"
+      },
+      {
+        "item": "moredyes:rosebush_ac5f72"
+      },
+      {
+        "item": "moredyes:rosebush_866672"
+      },
+      {
+        "item": "moredyes:rosebush_9f6633"
+      },
+      {
+        "item": "moredyes:rosebush_9f7f33"
+      },
+      {
+        "item": "moredyes:rosebush_b95933"
+      },
+      {
+        "item": "moredyes:rosebush_794c26"
+      },
+      {
+        "item": "moredyes:rosebush_8c72d8"
+      },
+      {
+        "item": "moredyes:rosebush_cb9886"
+      },
+      {
+        "item": "moredyes:rosebush_998c79"
+      },
+      {
+        "item": "moredyes:rosebush_d265bf"
+      },
+      {
+        "item": "moredyes:rosebush_7f4c92"
+      },
+      {
+        "item": "moredyes:rosebush_a672b9"
+      },
+      {
+        "item": "moredyes:rosebush_7f65b9"
+      },
+      {
+        "item": "moredyes:rosebush_9946c5"
+      },
+      {
+        "item": "moredyes:rosebush_734cc5"
+      },
+      {
+        "item": "moredyes:rosebush_8c4c86"
+      },
+      {
+        "item": "moredyes:rosebush_8c6586"
+      },
+      {
+        "item": "moredyes:rosebush_a64086"
+      },
+      {
+        "item": "moredyes:rosebush_663379"
+      },
+      {
+        "item": "moredyes:rosebush_a5bf86"
+      },
+      {
+        "item": "moredyes:rosebush_72b279"
+      },
+      {
+        "item": "moredyes:rosebush_ac8cbf"
+      },
+      {
+        "item": "moredyes:rosebush_597392"
+      },
+      {
+        "item": "moredyes:rosebush_7f99b9"
+      },
+      {
+        "item": "moredyes:rosebush_598cb9"
+      },
+      {
+        "item": "moredyes:rosebush_726cc5"
+      },
+      {
+        "item": "moredyes:rosebush_4d73c5"
+      },
+      {
+        "item": "moredyes:rosebush_667386"
+      },
+      {
+        "item": "moredyes:rosebush_668c86"
+      },
+      {
+        "item": "moredyes:rosebush_7f6686"
+      },
+      {
+        "item": "moredyes:rosebush_405979"
+      },
+      {
+        "item": "moredyes:rosebush_b2d926"
+      },
+      {
+        "item": "moredyes:rosebush_ebb26c"
+      },
+      {
+        "item": "moredyes:rosebush_99993f"
+      },
+      {
+        "item": "moredyes:rosebush_bfbf66"
+      },
+      {
+        "item": "moredyes:rosebush_99b266"
+      },
+      {
+        "item": "moredyes:rosebush_b29272"
+      },
+      {
+        "item": "moredyes:rosebush_8c9972"
+      },
+      {
+        "item": "moredyes:rosebush_a69933"
+      },
+      {
+        "item": "moredyes:rosebush_a6b233"
+      },
+      {
+        "item": "moredyes:rosebush_bf8c33"
+      },
+      {
+        "item": "moredyes:rosebush_7f7f26"
+      },
+      {
+        "item": "moredyes:rosebush_b8a65f"
+      },
+      {
+        "item": "moredyes:rosebush_668c32"
+      },
+      {
+        "item": "moredyes:rosebush_8cb359"
+      },
+      {
+        "item": "moredyes:rosebush_66a659"
+      },
+      {
+        "item": "moredyes:rosebush_7f5665"
+      },
+      {
+        "item": "moredyes:rosebush_598c65"
+      },
+      {
+        "item": "moredyes:rosebush_738c26"
+      },
+      {
+        "item": "moredyes:rosebush_73a626"
+      },
+      {
+        "item": "moredyes:rosebush_8c8026"
+      },
+      {
+        "item": "moredyes:rosebush_4c7319"
+      },
+      {
+        "item": "moredyes:rosebush_864c5f"
+      },
+      {
+        "item": "moredyes:rosebush_c6596c"
+      },
+      {
+        "item": "moredyes:rosebush_ac7f6c"
+      },
+      {
+        "item": "moredyes:rosebush_ac666c"
+      },
+      {
+        "item": "moredyes:rosebush_9366ab"
+      },
+      {
+        "item": "moredyes:rosebush_b95fab"
+      },
+      {
+        "item": "moredyes:rosebush_9f7f9f"
+      },
+      {
+        "item": "moredyes:rosebush_c68c9f"
+      },
+      {
+        "item": "moredyes:rosebush_9f6679"
+      },
+      {
+        "item": "moredyes:rosebush_727272"
+      },
+      {
+        "item": "moredyes:rosebush_4c6572"
+      },
+      {
+        "item": "moredyes:rosebush_65467f"
+      },
+      {
+        "item": "moredyes:rosebush_404c7f"
+      },
+      {
+        "item": "moredyes:rosebush_594c40"
+      },
+      {
+        "item": "moredyes:rosebush_596540"
+      },
+      {
+        "item": "moredyes:rosebush_724040"
+      },
+      {
+        "item": "moredyes:rosebush_333333"
+      },
+      {
+        "item": "moredyes:rosebush_738c99"
+      },
+      {
+        "item": "moredyes:rosebush_8c6ca5"
+      },
+      {
+        "item": "moredyes:rosebush_6673a5"
+      },
+      {
+        "item": "moredyes:rosebush_807366"
+      },
+      {
+        "item": "moredyes:rosebush_808c66"
+      },
+      {
+        "item": "moredyes:rosebush_996666"
+      },
+      {
+        "item": "moredyes:rosebush_595959"
+      },
+      {
+        "item": "moredyes:rosebush_655fa5"
+      },
+      {
+        "item": "moredyes:rosebush_4066a5"
+      },
+      {
+        "item": "moredyes:rosebush_596666"
+      },
+      {
+        "item": "moredyes:rosebush_597f66"
+      },
+      {
+        "item": "moredyes:rosebush_725966"
+      },
+      {
+        "item": "moredyes:rosebush_334c59"
+      },
+      {
+        "item": "moredyes:rosebush_5945b2"
+      },
+      {
+        "item": "moredyes:rosebush_734573"
+      },
+      {
+        "item": "moredyes:rosebush_735f73"
+      },
+      {
+        "item": "moredyes:rosebush_8c3973"
+      },
+      {
+        "item": "moredyes:rosebush_4c2c66"
+      },
+      {
+        "item": "moredyes:rosebush_4c4c73"
+      },
+      {
+        "item": "moredyes:rosebush_4c6573"
+      },
+      {
+        "item": "moredyes:rosebush_664073"
+      },
+      {
+        "item": "moredyes:rosebush_263366"
+      },
+      {
+        "item": "moredyes:rosebush_403326"
+      },
+      {
+        "item": "moredyes:rosebush_7f4033"
+      },
+      {
+        "item": "moredyes:rosebush_666533"
+      },
+      {
+        "item": "moredyes:rosebush_7f5933"
+      },
+      {
+        "item": "moredyes:rosebush_404c26"
+      },
+      {
+        "item": "moredyes:rosebush_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:rose_bush"
+  }
+}

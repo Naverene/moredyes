@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:saplingjungle_ecbf99"
+      },
+      {
+        "item": "moredyes:saplingjungle_d9a6ec"
+      },
+      {
+        "item": "moredyes:saplingjungle_b3ccec"
+      },
+      {
+        "item": "moredyes:saplingjungle_f2f299"
+      },
+      {
+        "item": "moredyes:saplingjungle_bfe68c"
+      },
+      {
+        "item": "moredyes:saplingjungle_f9bfd2"
+      },
+      {
+        "item": "moredyes:saplingjungle_cccccc"
+      },
+      {
+        "item": "moredyes:saplingjungle_a6bfcc"
+      },
+      {
+        "item": "moredyes:saplingjungle_bf9fd9"
+      },
+      {
+        "item": "moredyes:saplingjungle_99a6d9"
+      },
+      {
+        "item": "moredyes:saplingjungle_b3a699"
+      },
+      {
+        "item": "moredyes:saplingjungle_b3bf99"
+      },
+      {
+        "item": "moredyes:saplingjungle_cc9999"
+      },
+      {
+        "item": "moredyes:saplingjungle_c56685"
+      },
+      {
+        "item": "moredyes:saplingjungle_9f8c85"
+      },
+      {
+        "item": "moredyes:saplingjungle_deb233"
+      },
+      {
+        "item": "moredyes:saplingjungle_aca526"
+      },
+      {
+        "item": "moredyes:saplingjungle_e57f6c"
+      },
+      {
+        "item": "moredyes:saplingjungle_92663f"
+      },
+      {
+        "item": "moredyes:saplingjungle_b98c66"
+      },
+      {
+        "item": "moredyes:saplingjungle_927f66"
+      },
+      {
+        "item": "moredyes:saplingjungle_ac5f72"
+      },
+      {
+        "item": "moredyes:saplingjungle_866672"
+      },
+      {
+        "item": "moredyes:saplingjungle_9f6633"
+      },
+      {
+        "item": "moredyes:saplingjungle_9f7f33"
+      },
+      {
+        "item": "moredyes:saplingjungle_b95933"
+      },
+      {
+        "item": "moredyes:saplingjungle_794c26"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c72d8"
+      },
+      {
+        "item": "moredyes:saplingjungle_cb9886"
+      },
+      {
+        "item": "moredyes:saplingjungle_998c79"
+      },
+      {
+        "item": "moredyes:saplingjungle_d265bf"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f4c92"
+      },
+      {
+        "item": "moredyes:saplingjungle_a672b9"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f65b9"
+      },
+      {
+        "item": "moredyes:saplingjungle_9946c5"
+      },
+      {
+        "item": "moredyes:saplingjungle_734cc5"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c4c86"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c6586"
+      },
+      {
+        "item": "moredyes:saplingjungle_a64086"
+      },
+      {
+        "item": "moredyes:saplingjungle_663379"
+      },
+      {
+        "item": "moredyes:saplingjungle_a5bf86"
+      },
+      {
+        "item": "moredyes:saplingjungle_72b279"
+      },
+      {
+        "item": "moredyes:saplingjungle_ac8cbf"
+      },
+      {
+        "item": "moredyes:saplingjungle_597392"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f99b9"
+      },
+      {
+        "item": "moredyes:saplingjungle_598cb9"
+      },
+      {
+        "item": "moredyes:saplingjungle_726cc5"
+      },
+      {
+        "item": "moredyes:saplingjungle_4d73c5"
+      },
+      {
+        "item": "moredyes:saplingjungle_667386"
+      },
+      {
+        "item": "moredyes:saplingjungle_668c86"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f6686"
+      },
+      {
+        "item": "moredyes:saplingjungle_405979"
+      },
+      {
+        "item": "moredyes:saplingjungle_b2d926"
+      },
+      {
+        "item": "moredyes:saplingjungle_ebb26c"
+      },
+      {
+        "item": "moredyes:saplingjungle_99993f"
+      },
+      {
+        "item": "moredyes:saplingjungle_bfbf66"
+      },
+      {
+        "item": "moredyes:saplingjungle_99b266"
+      },
+      {
+        "item": "moredyes:saplingjungle_b29272"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c9972"
+      },
+      {
+        "item": "moredyes:saplingjungle_a69933"
+      },
+      {
+        "item": "moredyes:saplingjungle_a6b233"
+      },
+      {
+        "item": "moredyes:saplingjungle_bf8c33"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f7f26"
+      },
+      {
+        "item": "moredyes:saplingjungle_b8a65f"
+      },
+      {
+        "item": "moredyes:saplingjungle_668c32"
+      },
+      {
+        "item": "moredyes:saplingjungle_8cb359"
+      },
+      {
+        "item": "moredyes:saplingjungle_66a659"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f5665"
+      },
+      {
+        "item": "moredyes:saplingjungle_598c65"
+      },
+      {
+        "item": "moredyes:saplingjungle_738c26"
+      },
+      {
+        "item": "moredyes:saplingjungle_73a626"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c8026"
+      },
+      {
+        "item": "moredyes:saplingjungle_4c7319"
+      },
+      {
+        "item": "moredyes:saplingjungle_864c5f"
+      },
+      {
+        "item": "moredyes:saplingjungle_c6596c"
+      },
+      {
+        "item": "moredyes:saplingjungle_ac7f6c"
+      },
+      {
+        "item": "moredyes:saplingjungle_ac666c"
+      },
+      {
+        "item": "moredyes:saplingjungle_9366ab"
+      },
+      {
+        "item": "moredyes:saplingjungle_b95fab"
+      },
+      {
+        "item": "moredyes:saplingjungle_9f7f9f"
+      },
+      {
+        "item": "moredyes:saplingjungle_c68c9f"
+      },
+      {
+        "item": "moredyes:saplingjungle_9f6679"
+      },
+      {
+        "item": "moredyes:saplingjungle_727272"
+      },
+      {
+        "item": "moredyes:saplingjungle_4c6572"
+      },
+      {
+        "item": "moredyes:saplingjungle_65467f"
+      },
+      {
+        "item": "moredyes:saplingjungle_404c7f"
+      },
+      {
+        "item": "moredyes:saplingjungle_594c40"
+      },
+      {
+        "item": "moredyes:saplingjungle_596540"
+      },
+      {
+        "item": "moredyes:saplingjungle_724040"
+      },
+      {
+        "item": "moredyes:saplingjungle_333333"
+      },
+      {
+        "item": "moredyes:saplingjungle_738c99"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c6ca5"
+      },
+      {
+        "item": "moredyes:saplingjungle_6673a5"
+      },
+      {
+        "item": "moredyes:saplingjungle_807366"
+      },
+      {
+        "item": "moredyes:saplingjungle_808c66"
+      },
+      {
+        "item": "moredyes:saplingjungle_996666"
+      },
+      {
+        "item": "moredyes:saplingjungle_595959"
+      },
+      {
+        "item": "moredyes:saplingjungle_655fa5"
+      },
+      {
+        "item": "moredyes:saplingjungle_4066a5"
+      },
+      {
+        "item": "moredyes:saplingjungle_596666"
+      },
+      {
+        "item": "moredyes:saplingjungle_597f66"
+      },
+      {
+        "item": "moredyes:saplingjungle_725966"
+      },
+      {
+        "item": "moredyes:saplingjungle_334c59"
+      },
+      {
+        "item": "moredyes:saplingjungle_5945b2"
+      },
+      {
+        "item": "moredyes:saplingjungle_734573"
+      },
+      {
+        "item": "moredyes:saplingjungle_735f73"
+      },
+      {
+        "item": "moredyes:saplingjungle_8c3973"
+      },
+      {
+        "item": "moredyes:saplingjungle_4c2c66"
+      },
+      {
+        "item": "moredyes:saplingjungle_4c4c73"
+      },
+      {
+        "item": "moredyes:saplingjungle_4c6573"
+      },
+      {
+        "item": "moredyes:saplingjungle_664073"
+      },
+      {
+        "item": "moredyes:saplingjungle_263366"
+      },
+      {
+        "item": "moredyes:saplingjungle_403326"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f4033"
+      },
+      {
+        "item": "moredyes:saplingjungle_666533"
+      },
+      {
+        "item": "moredyes:saplingjungle_7f5933"
+      },
+      {
+        "item": "moredyes:saplingjungle_404c26"
+      },
+      {
+        "item": "moredyes:saplingjungle_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:jungle_sapling"
+  }
+}

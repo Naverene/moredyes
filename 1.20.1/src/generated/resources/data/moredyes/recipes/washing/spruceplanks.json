@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:spruceplanks_ecbf99"
+      },
+      {
+        "item": "moredyes:spruceplanks_d9a6ec"
+      },
+      {
+        "item": "moredyes:spruceplanks_b3ccec"
+      },
+      {
+        "item": "moredyes:spruceplanks_f2f299"
+      },
+      {
+        "item": "moredyes:spruceplanks_bfe68c"
+      },
+      {
+        "item": "moredyes:spruceplanks_f9bfd2"
+      },
+      {
+        "item": "moredyes:spruceplanks_cccccc"
+      },
+      {
+        "item": "moredyes:spruceplanks_a6bfcc"
+      },
+      {
+        "item": "moredyes:spruceplanks_bf9fd9"
+      },
+      {
+        "item": "moredyes:spruceplanks_99a6d9"
+      },
+      {
+        "item": "moredyes:spruceplanks_b3a699"
+      },
+      {
+        "item": "moredyes:spruceplanks_b3bf99"
+      },
+      {
+        "item": "moredyes:spruceplanks_cc9999"
+      },
+      {
+        "item": "moredyes:spruceplanks_c56685"
+      },
+      {
+        "item": "moredyes:spruceplanks_9f8c85"
+      },
+      {
+        "item": "moredyes:spruceplanks_deb233"
+      },
+      {
+        "item": "moredyes:spruceplanks_aca526"
+      },
+      {
+        "item": "moredyes:spruceplanks_e57f6c"
+      },
+      {
+        "item": "moredyes:spruceplanks_92663f"
+      },
+      {
+        "item": "moredyes:spruceplanks_b98c66"
+      },
+      {
+        "item": "moredyes:spruceplanks_927f66"
+      },
+      {
+        "item": "moredyes:spruceplanks_ac5f72"
+      },
+      {
+        "item": "moredyes:spruceplanks_866672"
+      },
+      {
+        "item": "moredyes:spruceplanks_9f6633"
+      },
+      {
+        "item": "moredyes:spruceplanks_9f7f33"
+      },
+      {
+        "item": "moredyes:spruceplanks_b95933"
+      },
+      {
+        "item": "moredyes:spruceplanks_794c26"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c72d8"
+      },
+      {
+        "item": "moredyes:spruceplanks_cb9886"
+      },
+      {
+        "item": "moredyes:spruceplanks_998c79"
+      },
+      {
+        "item": "moredyes:spruceplanks_d265bf"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f4c92"
+      },
+      {
+        "item": "moredyes:spruceplanks_a672b9"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f65b9"
+      },
+      {
+        "item": "moredyes:spruceplanks_9946c5"
+      },
+      {
+        "item": "moredyes:spruceplanks_734cc5"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c4c86"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c6586"
+      },
+      {
+        "item": "moredyes:spruceplanks_a64086"
+      },
+      {
+        "item": "moredyes:spruceplanks_663379"
+      },
+      {
+        "item": "moredyes:spruceplanks_a5bf86"
+      },
+      {
+        "item": "moredyes:spruceplanks_72b279"
+      },
+      {
+        "item": "moredyes:spruceplanks_ac8cbf"
+      },
+      {
+        "item": "moredyes:spruceplanks_597392"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f99b9"
+      },
+      {
+        "item": "moredyes:spruceplanks_598cb9"
+      },
+      {
+        "item": "moredyes:spruceplanks_726cc5"
+      },
+      {
+        "item": "moredyes:spruceplanks_4d73c5"
+      },
+      {
+        "item": "moredyes:spruceplanks_667386"
+      },
+      {
+        "item": "moredyes:spruceplanks_668c86"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f6686"
+      },
+      {
+        "item": "moredyes:spruceplanks_405979"
+      },
+      {
+        "item": "moredyes:spruceplanks_b2d926"
+      },
+      {
+        "item": "moredyes:spruceplanks_ebb26c"
+      },
+      {
+        "item": "moredyes:spruceplanks_99993f"
+      },
+      {
+        "item": "moredyes:spruceplanks_bfbf66"
+      },
+      {
+        "item": "moredyes:spruceplanks_99b266"
+      },
+      {
+        "item": "moredyes:spruceplanks_b29272"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c9972"
+      },
+      {
+        "item": "moredyes:spruceplanks_a69933"
+      },
+      {
+        "item": "moredyes:spruceplanks_a6b233"
+      },
+      {
+        "item": "moredyes:spruceplanks_bf8c33"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f7f26"
+      },
+      {
+        "item": "moredyes:spruceplanks_b8a65f"
+      },
+      {
+        "item": "moredyes:spruceplanks_668c32"
+      },
+      {
+        "item": "moredyes:spruceplanks_8cb359"
+      },
+      {
+        "item": "moredyes:spruceplanks_66a659"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f5665"
+      },
+      {
+        "item": "moredyes:spruceplanks_598c65"
+      },
+      {
+        "item": "moredyes:spruceplanks_738c26"
+      },
+      {
+        "item": "moredyes:spruceplanks_73a626"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c8026"
+      },
+      {
+        "item": "moredyes:spruceplanks_4c7319"
+      },
+      {
+        "item": "moredyes:spruceplanks_864c5f"
+      },
+      {
+        "item": "moredyes:spruceplanks_c6596c"
+      },
+      {
+        "item": "moredyes:spruceplanks_ac7f6c"
+      },
+      {
+        "item": "moredyes:spruceplanks_ac666c"
+      },
+      {
+        "item": "moredyes:spruceplanks_9366ab"
+      },
+      {
+        "item": "moredyes:spruceplanks_b95fab"
+      },
+      {
+        "item": "moredyes:spruceplanks_9f7f9f"
+      },
+      {
+        "item": "moredyes:spruceplanks_c68c9f"
+      },
+      {
+        "item": "moredyes:spruceplanks_9f6679"
+      },
+      {
+        "item": "moredyes:spruceplanks_727272"
+      },
+      {
+        "item": "moredyes:spruceplanks_4c6572"
+      },
+      {
+        "item": "moredyes:spruceplanks_65467f"
+      },
+      {
+        "item": "moredyes:spruceplanks_404c7f"
+      },
+      {
+        "item": "moredyes:spruceplanks_594c40"
+      },
+      {
+        "item": "moredyes:spruceplanks_596540"
+      },
+      {
+        "item": "moredyes:spruceplanks_724040"
+      },
+      {
+        "item": "moredyes:spruceplanks_333333"
+      },
+      {
+        "item": "moredyes:spruceplanks_738c99"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c6ca5"
+      },
+      {
+        "item": "moredyes:spruceplanks_6673a5"
+      },
+      {
+        "item": "moredyes:spruceplanks_807366"
+      },
+      {
+        "item": "moredyes:spruceplanks_808c66"
+      },
+      {
+        "item": "moredyes:spruceplanks_996666"
+      },
+      {
+        "item": "moredyes:spruceplanks_595959"
+      },
+      {
+        "item": "moredyes:spruceplanks_655fa5"
+      },
+      {
+        "item": "moredyes:spruceplanks_4066a5"
+      },
+      {
+        "item": "moredyes:spruceplanks_596666"
+      },
+      {
+        "item": "moredyes:spruceplanks_597f66"
+      },
+      {
+        "item": "moredyes:spruceplanks_725966"
+      },
+      {
+        "item": "moredyes:spruceplanks_334c59"
+      },
+      {
+        "item": "moredyes:spruceplanks_5945b2"
+      },
+      {
+        "item": "moredyes:spruceplanks_734573"
+      },
+      {
+        "item": "moredyes:spruceplanks_735f73"
+      },
+      {
+        "item": "moredyes:spruceplanks_8c3973"
+      },
+      {
+        "item": "moredyes:spruceplanks_4c2c66"
+      },
+      {
+        "item": "moredyes:spruceplanks_4c4c73"
+      },
+      {
+        "item": "moredyes:spruceplanks_4c6573"
+      },
+      {
+        "item": "moredyes:spruceplanks_664073"
+      },
+      {
+        "item": "moredyes:spruceplanks_263366"
+      },
+      {
+        "item": "moredyes:spruceplanks_403326"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f4033"
+      },
+      {
+        "item": "moredyes:spruceplanks_666533"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f5933"
+      },
+      {
+        "item": "moredyes:spruceplanks_404c26"
+      },
+      {
+        "item": "moredyes:spruceplanks_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spruce_planks"
+  }
+}

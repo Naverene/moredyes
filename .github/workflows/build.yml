@@ -55,7 +55,9 @@ jobs:
         BASE_SHA: ${{ github.event.pull_request.base.sha }}
       run: |
         if [[ "$GITHUB_EVENT_NAME" == pull_request ]]; then
-          changed=$(git diff --name-only "$BASE_SHA"...HEAD)
+          # Only the top folder of each changed file matters, and a PR can change 100,000+ files,
+          # which is too long to pass to jq as an argument.
+          changed=$(git diff --no-renames --name-only "$BASE_SHA"...HEAD | cut -d/ -f1 | sort -u | sed 's#$#/#')
           if grep -q '^\.github/' <<< "$changed"; then
             versions=$(jq -c . <<< "$VERSIONS")
           else

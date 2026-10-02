@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:saplingbirch_ecbf99"
+      },
+      {
+        "item": "moredyes:saplingbirch_d9a6ec"
+      },
+      {
+        "item": "moredyes:saplingbirch_b3ccec"
+      },
+      {
+        "item": "moredyes:saplingbirch_f2f299"
+      },
+      {
+        "item": "moredyes:saplingbirch_bfe68c"
+      },
+      {
+        "item": "moredyes:saplingbirch_f9bfd2"
+      },
+      {
+        "item": "moredyes:saplingbirch_cccccc"
+      },
+      {
+        "item": "moredyes:saplingbirch_a6bfcc"
+      },
+      {
+        "item": "moredyes:saplingbirch_bf9fd9"
+      },
+      {
+        "item": "moredyes:saplingbirch_99a6d9"
+      },
+      {
+        "item": "moredyes:saplingbirch_b3a699"
+      },
+      {
+        "item": "moredyes:saplingbirch_b3bf99"
+      },
+      {
+        "item": "moredyes:saplingbirch_cc9999"
+      },
+      {
+        "item": "moredyes:saplingbirch_c56685"
+      },
+      {
+        "item": "moredyes:saplingbirch_9f8c85"
+      },
+      {
+        "item": "moredyes:saplingbirch_deb233"
+      },
+      {
+        "item": "moredyes:saplingbirch_aca526"
+      },
+      {
+        "item": "moredyes:saplingbirch_e57f6c"
+      },
+      {
+        "item": "moredyes:saplingbirch_92663f"
+      },
+      {
+        "item": "moredyes:saplingbirch_b98c66"
+      },
+      {
+        "item": "moredyes:saplingbirch_927f66"
+      },
+      {
+        "item": "moredyes:saplingbirch_ac5f72"
+      },
+      {
+        "item": "moredyes:saplingbirch_866672"
+      },
+      {
+        "item": "moredyes:saplingbirch_9f6633"
+      },
+      {
+        "item": "moredyes:saplingbirch_9f7f33"
+      },
+      {
+        "item": "moredyes:saplingbirch_b95933"
+      },
+      {
+        "item": "moredyes:saplingbirch_794c26"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c72d8"
+      },
+      {
+        "item": "moredyes:saplingbirch_cb9886"
+      },
+      {
+        "item": "moredyes:saplingbirch_998c79"
+      },
+      {
+        "item": "moredyes:saplingbirch_d265bf"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f4c92"
+      },
+      {
+        "item": "moredyes:saplingbirch_a672b9"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f65b9"
+      },
+      {
+        "item": "moredyes:saplingbirch_9946c5"
+      },
+      {
+        "item": "moredyes:saplingbirch_734cc5"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c4c86"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c6586"
+      },
+      {
+        "item": "moredyes:saplingbirch_a64086"
+      },
+      {
+        "item": "moredyes:saplingbirch_663379"
+      },
+      {
+        "item": "moredyes:saplingbirch_a5bf86"
+      },
+      {
+        "item": "moredyes:saplingbirch_72b279"
+      },
+      {
+        "item": "moredyes:saplingbirch_ac8cbf"
+      },
+      {
+        "item": "moredyes:saplingbirch_597392"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f99b9"
+      },
+      {
+        "item": "moredyes:saplingbirch_598cb9"
+      },
+      {
+        "item": "moredyes:saplingbirch_726cc5"
+      },
+      {
+        "item": "moredyes:saplingbirch_4d73c5"
+      },
+      {
+        "item": "moredyes:saplingbirch_667386"
+      },
+      {
+        "item": "moredyes:saplingbirch_668c86"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f6686"
+      },
+      {
+        "item": "moredyes:saplingbirch_405979"
+      },
+      {
+        "item": "moredyes:saplingbirch_b2d926"
+      },
+      {
+        "item": "moredyes:saplingbirch_ebb26c"
+      },
+      {
+        "item": "moredyes:saplingbirch_99993f"
+      },
+      {
+        "item": "moredyes:saplingbirch_bfbf66"
+      },
+      {
+        "item": "moredyes:saplingbirch_99b266"
+      },
+      {
+        "item": "moredyes:saplingbirch_b29272"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c9972"
+      },
+      {
+        "item": "moredyes:saplingbirch_a69933"
+      },
+      {
+        "item": "moredyes:saplingbirch_a6b233"
+      },
+      {
+        "item": "moredyes:saplingbirch_bf8c33"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f7f26"
+      },
+      {
+        "item": "moredyes:saplingbirch_b8a65f"
+      },
+      {
+        "item": "moredyes:saplingbirch_668c32"
+      },
+      {
+        "item": "moredyes:saplingbirch_8cb359"
+      },
+      {
+        "item": "moredyes:saplingbirch_66a659"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f5665"
+      },
+      {
+        "item": "moredyes:saplingbirch_598c65"
+      },
+      {
+        "item": "moredyes:saplingbirch_738c26"
+      },
+      {
+        "item": "moredyes:saplingbirch_73a626"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c8026"
+      },
+      {
+        "item": "moredyes:saplingbirch_4c7319"
+      },
+      {
+        "item": "moredyes:saplingbirch_864c5f"
+      },
+      {
+        "item": "moredyes:saplingbirch_c6596c"
+      },
+      {
+        "item": "moredyes:saplingbirch_ac7f6c"
+      },
+      {
+        "item": "moredyes:saplingbirch_ac666c"
+      },
+      {
+        "item": "moredyes:saplingbirch_9366ab"
+      },
+      {
+        "item": "moredyes:saplingbirch_b95fab"
+      },
+      {
+        "item": "moredyes:saplingbirch_9f7f9f"
+      },
+      {
+        "item": "moredyes:saplingbirch_c68c9f"
+      },
+      {
+        "item": "moredyes:saplingbirch_9f6679"
+      },
+      {
+        "item": "moredyes:saplingbirch_727272"
+      },
+      {
+        "item": "moredyes:saplingbirch_4c6572"
+      },
+      {
+        "item": "moredyes:saplingbirch_65467f"
+      },
+      {
+        "item": "moredyes:saplingbirch_404c7f"
+      },
+      {
+        "item": "moredyes:saplingbirch_594c40"
+      },
+      {
+        "item": "moredyes:saplingbirch_596540"
+      },
+      {
+        "item": "moredyes:saplingbirch_724040"
+      },
+      {
+        "item": "moredyes:saplingbirch_333333"
+      },
+      {
+        "item": "moredyes:saplingbirch_738c99"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c6ca5"
+      },
+      {
+        "item": "moredyes:saplingbirch_6673a5"
+      },
+      {
+        "item": "moredyes:saplingbirch_807366"
+      },
+      {
+        "item": "moredyes:saplingbirch_808c66"
+      },
+      {
+        "item": "moredyes:saplingbirch_996666"
+      },
+      {
+        "item": "moredyes:saplingbirch_595959"
+      },
+      {
+        "item": "moredyes:saplingbirch_655fa5"
+      },
+      {
+        "item": "moredyes:saplingbirch_4066a5"
+      },
+      {
+        "item": "moredyes:saplingbirch_596666"
+      },
+      {
+        "item": "moredyes:saplingbirch_597f66"
+      },
+      {
+        "item": "moredyes:saplingbirch_725966"
+      },
+      {
+        "item": "moredyes:saplingbirch_334c59"
+      },
+      {
+        "item": "moredyes:saplingbirch_5945b2"
+      },
+      {
+        "item": "moredyes:saplingbirch_734573"
+      },
+      {
+        "item": "moredyes:saplingbirch_735f73"
+      },
+      {
+        "item": "moredyes:saplingbirch_8c3973"
+      },
+      {
+        "item": "moredyes:saplingbirch_4c2c66"
+      },
+      {
+        "item": "moredyes:saplingbirch_4c4c73"
+      },
+      {
+        "item": "moredyes:saplingbirch_4c6573"
+      },
+      {
+        "item": "moredyes:saplingbirch_664073"
+      },
+      {
+        "item": "moredyes:saplingbirch_263366"
+      },
+      {
+        "item": "moredyes:saplingbirch_403326"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f4033"
+      },
+      {
+        "item": "moredyes:saplingbirch_666533"
+      },
+      {
+        "item": "moredyes:saplingbirch_7f5933"
+      },
+      {
+        "item": "moredyes:saplingbirch_404c26"
+      },
+      {
+        "item": "moredyes:saplingbirch_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:birch_sapling"
+  }
+}

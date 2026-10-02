@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:granite_ecbf99"
+      },
+      {
+        "item": "moredyes:granite_d9a6ec"
+      },
+      {
+        "item": "moredyes:granite_b3ccec"
+      },
+      {
+        "item": "moredyes:granite_f2f299"
+      },
+      {
+        "item": "moredyes:granite_bfe68c"
+      },
+      {
+        "item": "moredyes:granite_f9bfd2"
+      },
+      {
+        "item": "moredyes:granite_cccccc"
+      },
+      {
+        "item": "moredyes:granite_a6bfcc"
+      },
+      {
+        "item": "moredyes:granite_bf9fd9"
+      },
+      {
+        "item": "moredyes:granite_99a6d9"
+      },
+      {
+        "item": "moredyes:granite_b3a699"
+      },
+      {
+        "item": "moredyes:granite_b3bf99"
+      },
+      {
+        "item": "moredyes:granite_cc9999"
+      },
+      {
+        "item": "moredyes:granite_c56685"
+      },
+      {
+        "item": "moredyes:granite_9f8c85"
+      },
+      {
+        "item": "moredyes:granite_deb233"
+      },
+      {
+        "item": "moredyes:granite_aca526"
+      },
+      {
+        "item": "moredyes:granite_e57f6c"
+      },
+      {
+        "item": "moredyes:granite_92663f"
+      },
+      {
+        "item": "moredyes:granite_b98c66"
+      },
+      {
+        "item": "moredyes:granite_927f66"
+      },
+      {
+        "item": "moredyes:granite_ac5f72"
+      },
+      {
+        "item": "moredyes:granite_866672"
+      },
+      {
+        "item": "moredyes:granite_9f6633"
+      },
+      {
+        "item": "moredyes:granite_9f7f33"
+      },
+      {
+        "item": "moredyes:granite_b95933"
+      },
+      {
+        "item": "moredyes:granite_794c26"
+      },
+      {
+        "item": "moredyes:granite_8c72d8"
+      },
+      {
+        "item": "moredyes:granite_cb9886"
+      },
+      {
+        "item": "moredyes:granite_998c79"
+      },
+      {
+        "item": "moredyes:granite_d265bf"
+      },
+      {
+        "item": "moredyes:granite_7f4c92"
+      },
+      {
+        "item": "moredyes:granite_a672b9"
+      },
+      {
+        "item": "moredyes:granite_7f65b9"
+      },
+      {
+        "item": "moredyes:granite_9946c5"
+      },
+      {
+        "item": "moredyes:granite_734cc5"
+      },
+      {
+        "item": "moredyes:granite_8c4c86"
+      },
+      {
+        "item": "moredyes:granite_8c6586"
+      },
+      {
+        "item": "moredyes:granite_a64086"
+      },
+      {
+        "item": "moredyes:granite_663379"
+      },
+      {
+        "item": "moredyes:granite_a5bf86"
+      },
+      {
+        "item": "moredyes:granite_72b279"
+      },
+      {
+        "item": "moredyes:granite_ac8cbf"
+      },
+      {
+        "item": "moredyes:granite_597392"
+      },
+      {
+        "item": "moredyes:granite_7f99b9"
+      },
+      {
+        "item": "moredyes:granite_598cb9"
+      },
+      {
+        "item": "moredyes:granite_726cc5"
+      },
+      {
+        "item": "moredyes:granite_4d73c5"
+      },
+      {
+        "item": "moredyes:granite_667386"
+      },
+      {
+        "item": "moredyes:granite_668c86"
+      },
+      {
+        "item": "moredyes:granite_7f6686"
+      },
+      {
+        "item": "moredyes:granite_405979"
+      },
+      {
+        "item": "moredyes:granite_b2d926"
+      },
+      {
+        "item": "moredyes:granite_ebb26c"
+      },
+      {
+        "item": "moredyes:granite_99993f"
+      },
+      {
+        "item": "moredyes:granite_bfbf66"
+      },
+      {
+        "item": "moredyes:granite_99b266"
+      },
+      {
+        "item": "moredyes:granite_b29272"
+      },
+      {
+        "item": "moredyes:granite_8c9972"
+      },
+      {
+        "item": "moredyes:granite_a69933"
+      },
+      {
+        "item": "moredyes:granite_a6b233"
+      },
+      {
+        "item": "moredyes:granite_bf8c33"
+      },
+      {
+        "item": "moredyes:granite_7f7f26"
+      },
+      {
+        "item": "moredyes:granite_b8a65f"
+      },
+      {
+        "item": "moredyes:granite_668c32"
+      },
+      {
+        "item": "moredyes:granite_8cb359"
+      },
+      {
+        "item": "moredyes:granite_66a659"
+      },
+      {
+        "item": "moredyes:granite_7f5665"
+      },
+      {
+        "item": "moredyes:granite_598c65"
+      },
+      {
+        "item": "moredyes:granite_738c26"
+      },
+      {
+        "item": "moredyes:granite_73a626"
+      },
+      {
+        "item": "moredyes:granite_8c8026"
+      },
+      {
+        "item": "moredyes:granite_4c7319"
+      },
+      {
+        "item": "moredyes:granite_864c5f"
+      },
+      {
+        "item": "moredyes:granite_c6596c"
+      },
+      {
+        "item": "moredyes:granite_ac7f6c"
+      },
+      {
+        "item": "moredyes:granite_ac666c"
+      },
+      {
+        "item": "moredyes:granite_9366ab"
+      },
+      {
+        "item": "moredyes:granite_b95fab"
+      },
+      {
+        "item": "moredyes:granite_9f7f9f"
+      },
+      {
+        "item": "moredyes:granite_c68c9f"
+      },
+      {
+        "item": "moredyes:granite_9f6679"
+      },
+      {
+        "item": "moredyes:granite_727272"
+      },
+      {
+        "item": "moredyes:granite_4c6572"
+      },
+      {
+        "item": "moredyes:granite_65467f"
+      },
+      {
+        "item": "moredyes:granite_404c7f"
+      },
+      {
+        "item": "moredyes:granite_594c40"
+      },
+      {
+        "item": "moredyes:granite_596540"
+      },
+      {
+        "item": "moredyes:granite_724040"
+      },
+      {
+        "item": "moredyes:granite_333333"
+      },
+      {
+        "item": "moredyes:granite_738c99"
+      },
+      {
+        "item": "moredyes:granite_8c6ca5"
+      },
+      {
+        "item": "moredyes:granite_6673a5"
+      },
+      {
+        "item": "moredyes:granite_807366"
+      },
+      {
+        "item": "moredyes:granite_808c66"
+      },
+      {
+        "item": "moredyes:granite_996666"
+      },
+      {
+        "item": "moredyes:granite_595959"
+      },
+      {
+        "item": "moredyes:granite_655fa5"
+      },
+      {
+        "item": "moredyes:granite_4066a5"
+      },
+      {
+        "item": "moredyes:granite_596666"
+      },
+      {
+        "item": "moredyes:granite_597f66"
+      },
+      {
+        "item": "moredyes:granite_725966"
+      },
+      {
+        "item": "moredyes:granite_334c59"
+      },
+      {
+        "item": "moredyes:granite_5945b2"
+      },
+      {
+        "item": "moredyes:granite_734573"
+      },
+      {
+        "item": "moredyes:granite_735f73"
+      },
+      {
+        "item": "moredyes:granite_8c3973"
+      },
+      {
+        "item": "moredyes:granite_4c2c66"
+      },
+      {
+        "item": "moredyes:granite_4c4c73"
+      },
+      {
+        "item": "moredyes:granite_4c6573"
+      },
+      {
+        "item": "moredyes:granite_664073"
+      },
+      {
+        "item": "moredyes:granite_263366"
+      },
+      {
+        "item": "moredyes:granite_403326"
+      },
+      {
+        "item": "moredyes:granite_7f4033"
+      },
+      {
+        "item": "moredyes:granite_666533"
+      },
+      {
+        "item": "moredyes:granite_7f5933"
+      },
+      {
+        "item": "moredyes:granite_404c26"
+      },
+      {
+        "item": "moredyes:granite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:granite"
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:darkoakleaves_ecbf99"
+      },
+      {
+        "item": "moredyes:darkoakleaves_d9a6ec"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b3ccec"
+      },
+      {
+        "item": "moredyes:darkoakleaves_f2f299"
+      },
+      {
+        "item": "moredyes:darkoakleaves_bfe68c"
+      },
+      {
+        "item": "moredyes:darkoakleaves_f9bfd2"
+      },
+      {
+        "item": "moredyes:darkoakleaves_cccccc"
+      },
+      {
+        "item": "moredyes:darkoakleaves_a6bfcc"
+      },
+      {
+        "item": "moredyes:darkoakleaves_bf9fd9"
+      },
+      {
+        "item": "moredyes:darkoakleaves_99a6d9"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b3a699"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b3bf99"
+      },
+      {
+        "item": "moredyes:darkoakleaves_cc9999"
+      },
+      {
+        "item": "moredyes:darkoakleaves_c56685"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9f8c85"
+      },
+      {
+        "item": "moredyes:darkoakleaves_deb233"
+      },
+      {
+        "item": "moredyes:darkoakleaves_aca526"
+      },
+      {
+        "item": "moredyes:darkoakleaves_e57f6c"
+      },
+      {
+        "item": "moredyes:darkoakleaves_92663f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b98c66"
+      },
+      {
+        "item": "moredyes:darkoakleaves_927f66"
+      },
+      {
+        "item": "moredyes:darkoakleaves_ac5f72"
+      },
+      {
+        "item": "moredyes:darkoakleaves_866672"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9f6633"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9f7f33"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b95933"
+      },
+      {
+        "item": "moredyes:darkoakleaves_794c26"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c72d8"
+      },
+      {
+        "item": "moredyes:darkoakleaves_cb9886"
+      },
+      {
+        "item": "moredyes:darkoakleaves_998c79"
+      },
+      {
+        "item": "moredyes:darkoakleaves_d265bf"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f4c92"
+      },
+      {
+        "item": "moredyes:darkoakleaves_a672b9"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f65b9"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9946c5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_734cc5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c4c86"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c6586"
+      },
+      {
+        "item": "moredyes:darkoakleaves_a64086"
+      },
+      {
+        "item": "moredyes:darkoakleaves_663379"
+      },
+      {
+        "item": "moredyes:darkoakleaves_a5bf86"
+      },
+      {
+        "item": "moredyes:darkoakleaves_72b279"
+      },
+      {
+        "item": "moredyes:darkoakleaves_ac8cbf"
+      },
+      {
+        "item": "moredyes:darkoakleaves_597392"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f99b9"
+      },
+      {
+        "item": "moredyes:darkoakleaves_598cb9"
+      },
+      {
+        "item": "moredyes:darkoakleaves_726cc5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4d73c5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_667386"
+      },
+      {
+        "item": "moredyes:darkoakleaves_668c86"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f6686"
+      },
+      {
+        "item": "moredyes:darkoakleaves_405979"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b2d926"
+      },
+      {
+        "item": "moredyes:darkoakleaves_ebb26c"
+      },
+      {
+        "item": "moredyes:darkoakleaves_99993f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_bfbf66"
+      },
+      {
+        "item": "moredyes:darkoakleaves_99b266"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b29272"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c9972"
+      },
+      {
+        "item": "moredyes:darkoakleaves_a69933"
+      },
+      {
+        "item": "moredyes:darkoakleaves_a6b233"
+      },
+      {
+        "item": "moredyes:darkoakleaves_bf8c33"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f7f26"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b8a65f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_668c32"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8cb359"
+      },
+      {
+        "item": "moredyes:darkoakleaves_66a659"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f5665"
+      },
+      {
+        "item": "moredyes:darkoakleaves_598c65"
+      },
+      {
+        "item": "moredyes:darkoakleaves_738c26"
+      },
+      {
+        "item": "moredyes:darkoakleaves_73a626"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c8026"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4c7319"
+      },
+      {
+        "item": "moredyes:darkoakleaves_864c5f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_c6596c"
+      },
+      {
+        "item": "moredyes:darkoakleaves_ac7f6c"
+      },
+      {
+        "item": "moredyes:darkoakleaves_ac666c"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9366ab"
+      },
+      {
+        "item": "moredyes:darkoakleaves_b95fab"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9f7f9f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_c68c9f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_9f6679"
+      },
+      {
+        "item": "moredyes:darkoakleaves_727272"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4c6572"
+      },
+      {
+        "item": "moredyes:darkoakleaves_65467f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_404c7f"
+      },
+      {
+        "item": "moredyes:darkoakleaves_594c40"
+      },
+      {
+        "item": "moredyes:darkoakleaves_596540"
+      },
+      {
+        "item": "moredyes:darkoakleaves_724040"
+      },
+      {
+        "item": "moredyes:darkoakleaves_333333"
+      },
+      {
+        "item": "moredyes:darkoakleaves_738c99"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c6ca5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_6673a5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_807366"
+      },
+      {
+        "item": "moredyes:darkoakleaves_808c66"
+      },
+      {
+        "item": "moredyes:darkoakleaves_996666"
+      },
+      {
+        "item": "moredyes:darkoakleaves_595959"
+      },
+      {
+        "item": "moredyes:darkoakleaves_655fa5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4066a5"
+      },
+      {
+        "item": "moredyes:darkoakleaves_596666"
+      },
+      {
+        "item": "moredyes:darkoakleaves_597f66"
+      },
+      {
+        "item": "moredyes:darkoakleaves_725966"
+      },
+      {
+        "item": "moredyes:darkoakleaves_334c59"
+      },
+      {
+        "item": "moredyes:darkoakleaves_5945b2"
+      },
+      {
+        "item": "moredyes:darkoakleaves_734573"
+      },
+      {
+        "item": "moredyes:darkoakleaves_735f73"
+      },
+      {
+        "item": "moredyes:darkoakleaves_8c3973"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4c2c66"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4c4c73"
+      },
+      {
+        "item": "moredyes:darkoakleaves_4c6573"
+      },
+      {
+        "item": "moredyes:darkoakleaves_664073"
+      },
+      {
+        "item": "moredyes:darkoakleaves_263366"
+      },
+      {
+        "item": "moredyes:darkoakleaves_403326"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f4033"
+      },
+      {
+        "item": "moredyes:darkoakleaves_666533"
+      },
+      {
+        "item": "moredyes:darkoakleaves_7f5933"
+      },
+      {
+        "item": "moredyes:darkoakleaves_404c26"
+      },
+      {
+        "item": "moredyes:darkoakleaves_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dark_oak_leaves"
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:concretepowder_ecbf99"
+      },
+      {
+        "item": "moredyes:concretepowder_d9a6ec"
+      },
+      {
+        "item": "moredyes:concretepowder_b3ccec"
+      },
+      {
+        "item": "moredyes:concretepowder_f2f299"
+      },
+      {
+        "item": "moredyes:concretepowder_bfe68c"
+      },
+      {
+        "item": "moredyes:concretepowder_f9bfd2"
+      },
+      {
+        "item": "moredyes:concretepowder_cccccc"
+      },
+      {
+        "item": "moredyes:concretepowder_a6bfcc"
+      },
+      {
+        "item": "moredyes:concretepowder_bf9fd9"
+      },
+      {
+        "item": "moredyes:concretepowder_99a6d9"
+      },
+      {
+        "item": "moredyes:concretepowder_b3a699"
+      },
+      {
+        "item": "moredyes:concretepowder_b3bf99"
+      },
+      {
+        "item": "moredyes:concretepowder_cc9999"
+      },
+      {
+        "item": "moredyes:concretepowder_c56685"
+      },
+      {
+        "item": "moredyes:concretepowder_9f8c85"
+      },
+      {
+        "item": "moredyes:concretepowder_deb233"
+      },
+      {
+        "item": "moredyes:concretepowder_aca526"
+      },
+      {
+        "item": "moredyes:concretepowder_e57f6c"
+      },
+      {
+        "item": "moredyes:concretepowder_92663f"
+      },
+      {
+        "item": "moredyes:concretepowder_b98c66"
+      },
+      {
+        "item": "moredyes:concretepowder_927f66"
+      },
+      {
+        "item": "moredyes:concretepowder_ac5f72"
+      },
+      {
+        "item": "moredyes:concretepowder_866672"
+      },
+      {
+        "item": "moredyes:concretepowder_9f6633"
+      },
+      {
+        "item": "moredyes:concretepowder_9f7f33"
+      },
+      {
+        "item": "moredyes:concretepowder_b95933"
+      },
+      {
+        "item": "moredyes:concretepowder_794c26"
+      },
+      {
+        "item": "moredyes:concretepowder_8c72d8"
+      },
+      {
+        "item": "moredyes:concretepowder_cb9886"
+      },
+      {
+        "item": "moredyes:concretepowder_998c79"
+      },
+      {
+        "item": "moredyes:concretepowder_d265bf"
+      },
+      {
+        "item": "moredyes:concretepowder_7f4c92"
+      },
+      {
+        "item": "moredyes:concretepowder_a672b9"
+      },
+      {
+        "item": "moredyes:concretepowder_7f65b9"
+      },
+      {
+        "item": "moredyes:concretepowder_9946c5"
+      },
+      {
+        "item": "moredyes:concretepowder_734cc5"
+      },
+      {
+        "item": "moredyes:concretepowder_8c4c86"
+      },
+      {
+        "item": "moredyes:concretepowder_8c6586"
+      },
+      {
+        "item": "moredyes:concretepowder_a64086"
+      },
+      {
+        "item": "moredyes:concretepowder_663379"
+      },
+      {
+        "item": "moredyes:concretepowder_a5bf86"
+      },
+      {
+        "item": "moredyes:concretepowder_72b279"
+      },
+      {
+        "item": "moredyes:concretepowder_ac8cbf"
+      },
+      {
+        "item": "moredyes:concretepowder_597392"
+      },
+      {
+        "item": "moredyes:concretepowder_7f99b9"
+      },
+      {
+        "item": "moredyes:concretepowder_598cb9"
+      },
+      {
+        "item": "moredyes:concretepowder_726cc5"
+      },
+      {
+        "item": "moredyes:concretepowder_4d73c5"
+      },
+      {
+        "item": "moredyes:concretepowder_667386"
+      },
+      {
+        "item": "moredyes:concretepowder_668c86"
+      },
+      {
+        "item": "moredyes:concretepowder_7f6686"
+      },
+      {
+        "item": "moredyes:concretepowder_405979"
+      },
+      {
+        "item": "moredyes:concretepowder_b2d926"
+      },
+      {
+        "item": "moredyes:concretepowder_ebb26c"
+      },
+      {
+        "item": "moredyes:concretepowder_99993f"
+      },
+      {
+        "item": "moredyes:concretepowder_bfbf66"
+      },
+      {
+        "item": "moredyes:concretepowder_99b266"
+      },
+      {
+        "item": "moredyes:concretepowder_b29272"
+      },
+      {
+        "item": "moredyes:concretepowder_8c9972"
+      },
+      {
+        "item": "moredyes:concretepowder_a69933"
+      },
+      {
+        "item": "moredyes:concretepowder_a6b233"
+      },
+      {
+        "item": "moredyes:concretepowder_bf8c33"
+      },
+      {
+        "item": "moredyes:concretepowder_7f7f26"
+      },
+      {
+        "item": "moredyes:concretepowder_b8a65f"
+      },
+      {
+        "item": "moredyes:concretepowder_668c32"
+      },
+      {
+        "item": "moredyes:concretepowder_8cb359"
+      },
+      {
+        "item": "moredyes:concretepowder_66a659"
+      },
+      {
+        "item": "moredyes:concretepowder_7f5665"
+      },
+      {
+        "item": "moredyes:concretepowder_598c65"
+      },
+      {
+        "item": "moredyes:concretepowder_738c26"
+      },
+      {
+        "item": "moredyes:concretepowder_73a626"
+      },
+      {
+        "item": "moredyes:concretepowder_8c8026"
+      },
+      {
+        "item": "moredyes:concretepowder_4c7319"
+      },
+      {
+        "item": "moredyes:concretepowder_864c5f"
+      },
+      {
+        "item": "moredyes:concretepowder_c6596c"
+      },
+      {
+        "item": "moredyes:concretepowder_ac7f6c"
+      },
+      {
+        "item": "moredyes:concretepowder_ac666c"
+      },
+      {
+        "item": "moredyes:concretepowder_9366ab"
+      },
+      {
+        "item": "moredyes:concretepowder_b95fab"
+      },
+      {
+        "item": "moredyes:concretepowder_9f7f9f"
+      },
+      {
+        "item": "moredyes:concretepowder_c68c9f"
+      },
+      {
+        "item": "moredyes:concretepowder_9f6679"
+      },
+      {
+        "item": "moredyes:concretepowder_727272"
+      },
+      {
+        "item": "moredyes:concretepowder_4c6572"
+      },
+      {
+        "item": "moredyes:concretepowder_65467f"
+      },
+      {
+        "item": "moredyes:concretepowder_404c7f"
+      },
+      {
+        "item": "moredyes:concretepowder_594c40"
+      },
+      {
+        "item": "moredyes:concretepowder_596540"
+      },
+      {
+        "item": "moredyes:concretepowder_724040"
+      },
+      {
+        "item": "moredyes:concretepowder_333333"
+      },
+      {
+        "item": "moredyes:concretepowder_738c99"
+      },
+      {
+        "item": "moredyes:concretepowder_8c6ca5"
+      },
+      {
+        "item": "moredyes:concretepowder_6673a5"
+      },
+      {
+        "item": "moredyes:concretepowder_807366"
+      },
+      {
+        "item": "moredyes:concretepowder_808c66"
+      },
+      {
+        "item": "moredyes:concretepowder_996666"
+      },
+      {
+        "item": "moredyes:concretepowder_595959"
+      },
+      {
+        "item": "moredyes:concretepowder_655fa5"
+      },
+      {
+        "item": "moredyes:concretepowder_4066a5"
+      },
+      {
+        "item": "moredyes:concretepowder_596666"
+      },
+      {
+        "item": "moredyes:concretepowder_597f66"
+      },
+      {
+        "item": "moredyes:concretepowder_725966"
+      },
+      {
+        "item": "moredyes:concretepowder_334c59"
+      },
+      {
+        "item": "moredyes:concretepowder_5945b2"
+      },
+      {
+        "item": "moredyes:concretepowder_734573"
+      },
+      {
+        "item": "moredyes:concretepowder_735f73"
+      },
+      {
+        "item": "moredyes:concretepowder_8c3973"
+      },
+      {
+        "item": "moredyes:concretepowder_4c2c66"
+      },
+      {
+        "item": "moredyes:concretepowder_4c4c73"
+      },
+      {
+        "item": "moredyes:concretepowder_4c6573"
+      },
+      {
+        "item": "moredyes:concretepowder_664073"
+      },
+      {
+        "item": "moredyes:concretepowder_263366"
+      },
+      {
+        "item": "moredyes:concretepowder_403326"
+      },
+      {
+        "item": "moredyes:concretepowder_7f4033"
+      },
+      {
+        "item": "moredyes:concretepowder_666533"
+      },
+      {
+        "item": "moredyes:concretepowder_7f5933"
+      },
+      {
+        "item": "moredyes:concretepowder_404c26"
+      },
+      {
+        "item": "moredyes:concretepowder_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_concrete_powder"
+  }
+}

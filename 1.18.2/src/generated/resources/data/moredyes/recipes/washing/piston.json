@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:piston_ecbf99"
+      },
+      {
+        "item": "moredyes:piston_d9a6ec"
+      },
+      {
+        "item": "moredyes:piston_b3ccec"
+      },
+      {
+        "item": "moredyes:piston_f2f299"
+      },
+      {
+        "item": "moredyes:piston_bfe68c"
+      },
+      {
+        "item": "moredyes:piston_f9bfd2"
+      },
+      {
+        "item": "moredyes:piston_cccccc"
+      },
+      {
+        "item": "moredyes:piston_a6bfcc"
+      },
+      {
+        "item": "moredyes:piston_bf9fd9"
+      },
+      {
+        "item": "moredyes:piston_99a6d9"
+      },
+      {
+        "item": "moredyes:piston_b3a699"
+      },
+      {
+        "item": "moredyes:piston_b3bf99"
+      },
+      {
+        "item": "moredyes:piston_cc9999"
+      },
+      {
+        "item": "moredyes:piston_c56685"
+      },
+      {
+        "item": "moredyes:piston_9f8c85"
+      },
+      {
+        "item": "moredyes:piston_deb233"
+      },
+      {
+        "item": "moredyes:piston_aca526"
+      },
+      {
+        "item": "moredyes:piston_e57f6c"
+      },
+      {
+        "item": "moredyes:piston_92663f"
+      },
+      {
+        "item": "moredyes:piston_b98c66"
+      },
+      {
+        "item": "moredyes:piston_927f66"
+      },
+      {
+        "item": "moredyes:piston_ac5f72"
+      },
+      {
+        "item": "moredyes:piston_866672"
+      },
+      {
+        "item": "moredyes:piston_9f6633"
+      },
+      {
+        "item": "moredyes:piston_9f7f33"
+      },
+      {
+        "item": "moredyes:piston_b95933"
+      },
+      {
+        "item": "moredyes:piston_794c26"
+      },
+      {
+        "item": "moredyes:piston_8c72d8"
+      },
+      {
+        "item": "moredyes:piston_cb9886"
+      },
+      {
+        "item": "moredyes:piston_998c79"
+      },
+      {
+        "item": "moredyes:piston_d265bf"
+      },
+      {
+        "item": "moredyes:piston_7f4c92"
+      },
+      {
+        "item": "moredyes:piston_a672b9"
+      },
+      {
+        "item": "moredyes:piston_7f65b9"
+      },
+      {
+        "item": "moredyes:piston_9946c5"
+      },
+      {
+        "item": "moredyes:piston_734cc5"
+      },
+      {
+        "item": "moredyes:piston_8c4c86"
+      },
+      {
+        "item": "moredyes:piston_8c6586"
+      },
+      {
+        "item": "moredyes:piston_a64086"
+      },
+      {
+        "item": "moredyes:piston_663379"
+      },
+      {
+        "item": "moredyes:piston_a5bf86"
+      },
+      {
+        "item": "moredyes:piston_72b279"
+      },
+      {
+        "item": "moredyes:piston_ac8cbf"
+      },
+      {
+        "item": "moredyes:piston_597392"
+      },
+      {
+        "item": "moredyes:piston_7f99b9"
+      },
+      {
+        "item": "moredyes:piston_598cb9"
+      },
+      {
+        "item": "moredyes:piston_726cc5"
+      },
+      {
+        "item": "moredyes:piston_4d73c5"
+      },
+      {
+        "item": "moredyes:piston_667386"
+      },
+      {
+        "item": "moredyes:piston_668c86"
+      },
+      {
+        "item": "moredyes:piston_7f6686"
+      },
+      {
+        "item": "moredyes:piston_405979"
+      },
+      {
+        "item": "moredyes:piston_b2d926"
+      },
+      {
+        "item": "moredyes:piston_ebb26c"
+      },
+      {
+        "item": "moredyes:piston_99993f"
+      },
+      {
+        "item": "moredyes:piston_bfbf66"
+      },
+      {
+        "item": "moredyes:piston_99b266"
+      },
+      {
+        "item": "moredyes:piston_b29272"
+      },
+      {
+        "item": "moredyes:piston_8c9972"
+      },
+      {
+        "item": "moredyes:piston_a69933"
+      },
+      {
+        "item": "moredyes:piston_a6b233"
+      },
+      {
+        "item": "moredyes:piston_bf8c33"
+      },
+      {
+        "item": "moredyes:piston_7f7f26"
+      },
+      {
+        "item": "moredyes:piston_b8a65f"
+      },
+      {
+        "item": "moredyes:piston_668c32"
+      },
+      {
+        "item": "moredyes:piston_8cb359"
+      },
+      {
+        "item": "moredyes:piston_66a659"
+      },
+      {
+        "item": "moredyes:piston_7f5665"
+      },
+      {
+        "item": "moredyes:piston_598c65"
+      },
+      {
+        "item": "moredyes:piston_738c26"
+      },
+      {
+        "item": "moredyes:piston_73a626"
+      },
+      {
+        "item": "moredyes:piston_8c8026"
+      },
+      {
+        "item": "moredyes:piston_4c7319"
+      },
+      {
+        "item": "moredyes:piston_864c5f"
+      },
+      {
+        "item": "moredyes:piston_c6596c"
+      },
+      {
+        "item": "moredyes:piston_ac7f6c"
+      },
+      {
+        "item": "moredyes:piston_ac666c"
+      },
+      {
+        "item": "moredyes:piston_9366ab"
+      },
+      {
+        "item": "moredyes:piston_b95fab"
+      },
+      {
+        "item": "moredyes:piston_9f7f9f"
+      },
+      {
+        "item": "moredyes:piston_c68c9f"
+      },
+      {
+        "item": "moredyes:piston_9f6679"
+      },
+      {
+        "item": "moredyes:piston_727272"
+      },
+      {
+        "item": "moredyes:piston_4c6572"
+      },
+      {
+        "item": "moredyes:piston_65467f"
+      },
+      {
+        "item": "moredyes:piston_404c7f"
+      },
+      {
+        "item": "moredyes:piston_594c40"
+      },
+      {
+        "item": "moredyes:piston_596540"
+      },
+      {
+        "item": "moredyes:piston_724040"
+      },
+      {
+        "item": "moredyes:piston_333333"
+      },
+      {
+        "item": "moredyes:piston_738c99"
+      },
+      {
+        "item": "moredyes:piston_8c6ca5"
+      },
+      {
+        "item": "moredyes:piston_6673a5"
+      },
+      {
+        "item": "moredyes:piston_807366"
+      },
+      {
+        "item": "moredyes:piston_808c66"
+      },
+      {
+        "item": "moredyes:piston_996666"
+      },
+      {
+        "item": "moredyes:piston_595959"
+      },
+      {
+        "item": "moredyes:piston_655fa5"
+      },
+      {
+        "item": "moredyes:piston_4066a5"
+      },
+      {
+        "item": "moredyes:piston_596666"
+      },
+      {
+        "item": "moredyes:piston_597f66"
+      },
+      {
+        "item": "moredyes:piston_725966"
+      },
+      {
+        "item": "moredyes:piston_334c59"
+      },
+      {
+        "item": "moredyes:piston_5945b2"
+      },
+      {
+        "item": "moredyes:piston_734573"
+      },
+      {
+        "item": "moredyes:piston_735f73"
+      },
+      {
+        "item": "moredyes:piston_8c3973"
+      },
+      {
+        "item": "moredyes:piston_4c2c66"
+      },
+      {
+        "item": "moredyes:piston_4c4c73"
+      },
+      {
+        "item": "moredyes:piston_4c6573"
+      },
+      {
+        "item": "moredyes:piston_664073"
+      },
+      {
+        "item": "moredyes:piston_263366"
+      },
+      {
+        "item": "moredyes:piston_403326"
+      },
+      {
+        "item": "moredyes:piston_7f4033"
+      },
+      {
+        "item": "moredyes:piston_666533"
+      },
+      {
+        "item": "moredyes:piston_7f5933"
+      },
+      {
+        "item": "moredyes:piston_404c26"
+      },
+      {
+        "item": "moredyes:piston_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:piston"
+  }
+}

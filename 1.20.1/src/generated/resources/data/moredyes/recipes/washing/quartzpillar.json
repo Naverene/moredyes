@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:quartzpillar_ecbf99"
+      },
+      {
+        "item": "moredyes:quartzpillar_d9a6ec"
+      },
+      {
+        "item": "moredyes:quartzpillar_b3ccec"
+      },
+      {
+        "item": "moredyes:quartzpillar_f2f299"
+      },
+      {
+        "item": "moredyes:quartzpillar_bfe68c"
+      },
+      {
+        "item": "moredyes:quartzpillar_f9bfd2"
+      },
+      {
+        "item": "moredyes:quartzpillar_cccccc"
+      },
+      {
+        "item": "moredyes:quartzpillar_a6bfcc"
+      },
+      {
+        "item": "moredyes:quartzpillar_bf9fd9"
+      },
+      {
+        "item": "moredyes:quartzpillar_99a6d9"
+      },
+      {
+        "item": "moredyes:quartzpillar_b3a699"
+      },
+      {
+        "item": "moredyes:quartzpillar_b3bf99"
+      },
+      {
+        "item": "moredyes:quartzpillar_cc9999"
+      },
+      {
+        "item": "moredyes:quartzpillar_c56685"
+      },
+      {
+        "item": "moredyes:quartzpillar_9f8c85"
+      },
+      {
+        "item": "moredyes:quartzpillar_deb233"
+      },
+      {
+        "item": "moredyes:quartzpillar_aca526"
+      },
+      {
+        "item": "moredyes:quartzpillar_e57f6c"
+      },
+      {
+        "item": "moredyes:quartzpillar_92663f"
+      },
+      {
+        "item": "moredyes:quartzpillar_b98c66"
+      },
+      {
+        "item": "moredyes:quartzpillar_927f66"
+      },
+      {
+        "item": "moredyes:quartzpillar_ac5f72"
+      },
+      {
+        "item": "moredyes:quartzpillar_866672"
+      },
+      {
+        "item": "moredyes:quartzpillar_9f6633"
+      },
+      {
+        "item": "moredyes:quartzpillar_9f7f33"
+      },
+      {
+        "item": "moredyes:quartzpillar_b95933"
+      },
+      {
+        "item": "moredyes:quartzpillar_794c26"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c72d8"
+      },
+      {
+        "item": "moredyes:quartzpillar_cb9886"
+      },
+      {
+        "item": "moredyes:quartzpillar_998c79"
+      },
+      {
+        "item": "moredyes:quartzpillar_d265bf"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f4c92"
+      },
+      {
+        "item": "moredyes:quartzpillar_a672b9"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f65b9"
+      },
+      {
+        "item": "moredyes:quartzpillar_9946c5"
+      },
+      {
+        "item": "moredyes:quartzpillar_734cc5"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c4c86"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c6586"
+      },
+      {
+        "item": "moredyes:quartzpillar_a64086"
+      },
+      {
+        "item": "moredyes:quartzpillar_663379"
+      },
+      {
+        "item": "moredyes:quartzpillar_a5bf86"
+      },
+      {
+        "item": "moredyes:quartzpillar_72b279"
+      },
+      {
+        "item": "moredyes:quartzpillar_ac8cbf"
+      },
+      {
+        "item": "moredyes:quartzpillar_597392"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f99b9"
+      },
+      {
+        "item": "moredyes:quartzpillar_598cb9"
+      },
+      {
+        "item": "moredyes:quartzpillar_726cc5"
+      },
+      {
+        "item": "moredyes:quartzpillar_4d73c5"
+      },
+      {
+        "item": "moredyes:quartzpillar_667386"
+      },
+      {
+        "item": "moredyes:quartzpillar_668c86"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f6686"
+      },
+      {
+        "item": "moredyes:quartzpillar_405979"
+      },
+      {
+        "item": "moredyes:quartzpillar_b2d926"
+      },
+      {
+        "item": "moredyes:quartzpillar_ebb26c"
+      },
+      {
+        "item": "moredyes:quartzpillar_99993f"
+      },
+      {
+        "item": "moredyes:quartzpillar_bfbf66"
+      },
+      {
+        "item": "moredyes:quartzpillar_99b266"
+      },
+      {
+        "item": "moredyes:quartzpillar_b29272"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c9972"
+      },
+      {
+        "item": "moredyes:quartzpillar_a69933"
+      },
+      {
+        "item": "moredyes:quartzpillar_a6b233"
+      },
+      {
+        "item": "moredyes:quartzpillar_bf8c33"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f7f26"
+      },
+      {
+        "item": "moredyes:quartzpillar_b8a65f"
+      },
+      {
+        "item": "moredyes:quartzpillar_668c32"
+      },
+      {
+        "item": "moredyes:quartzpillar_8cb359"
+      },
+      {
+        "item": "moredyes:quartzpillar_66a659"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f5665"
+      },
+      {
+        "item": "moredyes:quartzpillar_598c65"
+      },
+      {
+        "item": "moredyes:quartzpillar_738c26"
+      },
+      {
+        "item": "moredyes:quartzpillar_73a626"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c8026"
+      },
+      {
+        "item": "moredyes:quartzpillar_4c7319"
+      },
+      {
+        "item": "moredyes:quartzpillar_864c5f"
+      },
+      {
+        "item": "moredyes:quartzpillar_c6596c"
+      },
+      {
+        "item": "moredyes:quartzpillar_ac7f6c"
+      },
+      {
+        "item": "moredyes:quartzpillar_ac666c"
+      },
+      {
+        "item": "moredyes:quartzpillar_9366ab"
+      },
+      {
+        "item": "moredyes:quartzpillar_b95fab"
+      },
+      {
+        "item": "moredyes:quartzpillar_9f7f9f"
+      },
+      {
+        "item": "moredyes:quartzpillar_c68c9f"
+      },
+      {
+        "item": "moredyes:quartzpillar_9f6679"
+      },
+      {
+        "item": "moredyes:quartzpillar_727272"
+      },
+      {
+        "item": "moredyes:quartzpillar_4c6572"
+      },
+      {
+        "item": "moredyes:quartzpillar_65467f"
+      },
+      {
+        "item": "moredyes:quartzpillar_404c7f"
+      },
+      {
+        "item": "moredyes:quartzpillar_594c40"
+      },
+      {
+        "item": "moredyes:quartzpillar_596540"
+      },
+      {
+        "item": "moredyes:quartzpillar_724040"
+      },
+      {
+        "item": "moredyes:quartzpillar_333333"
+      },
+      {
+        "item": "moredyes:quartzpillar_738c99"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c6ca5"
+      },
+      {
+        "item": "moredyes:quartzpillar_6673a5"
+      },
+      {
+        "item": "moredyes:quartzpillar_807366"
+      },
+      {
+        "item": "moredyes:quartzpillar_808c66"
+      },
+      {
+        "item": "moredyes:quartzpillar_996666"
+      },
+      {
+        "item": "moredyes:quartzpillar_595959"
+      },
+      {
+        "item": "moredyes:quartzpillar_655fa5"
+      },
+      {
+        "item": "moredyes:quartzpillar_4066a5"
+      },
+      {
+        "item": "moredyes:quartzpillar_596666"
+      },
+      {
+        "item": "moredyes:quartzpillar_597f66"
+      },
+      {
+        "item": "moredyes:quartzpillar_725966"
+      },
+      {
+        "item": "moredyes:quartzpillar_334c59"
+      },
+      {
+        "item": "moredyes:quartzpillar_5945b2"
+      },
+      {
+        "item": "moredyes:quartzpillar_734573"
+      },
+      {
+        "item": "moredyes:quartzpillar_735f73"
+      },
+      {
+        "item": "moredyes:quartzpillar_8c3973"
+      },
+      {
+        "item": "moredyes:quartzpillar_4c2c66"
+      },
+      {
+        "item": "moredyes:quartzpillar_4c4c73"
+      },
+      {
+        "item": "moredyes:quartzpillar_4c6573"
+      },
+      {
+        "item": "moredyes:quartzpillar_664073"
+      },
+      {
+        "item": "moredyes:quartzpillar_263366"
+      },
+      {
+        "item": "moredyes:quartzpillar_403326"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f4033"
+      },
+      {
+        "item": "moredyes:quartzpillar_666533"
+      },
+      {
+        "item": "moredyes:quartzpillar_7f5933"
+      },
+      {
+        "item": "moredyes:quartzpillar_404c26"
+      },
+      {
+        "item": "moredyes:quartzpillar_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:quartz_pillar"
+  }
+}

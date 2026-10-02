@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:dandelion_ecbf99"
+      },
+      {
+        "item": "moredyes:dandelion_d9a6ec"
+      },
+      {
+        "item": "moredyes:dandelion_b3ccec"
+      },
+      {
+        "item": "moredyes:dandelion_f2f299"
+      },
+      {
+        "item": "moredyes:dandelion_bfe68c"
+      },
+      {
+        "item": "moredyes:dandelion_f9bfd2"
+      },
+      {
+        "item": "moredyes:dandelion_cccccc"
+      },
+      {
+        "item": "moredyes:dandelion_a6bfcc"
+      },
+      {
+        "item": "moredyes:dandelion_bf9fd9"
+      },
+      {
+        "item": "moredyes:dandelion_99a6d9"
+      },
+      {
+        "item": "moredyes:dandelion_b3a699"
+      },
+      {
+        "item": "moredyes:dandelion_b3bf99"
+      },
+      {
+        "item": "moredyes:dandelion_cc9999"
+      },
+      {
+        "item": "moredyes:dandelion_c56685"
+      },
+      {
+        "item": "moredyes:dandelion_9f8c85"
+      },
+      {
+        "item": "moredyes:dandelion_deb233"
+      },
+      {
+        "item": "moredyes:dandelion_aca526"
+      },
+      {
+        "item": "moredyes:dandelion_e57f6c"
+      },
+      {
+        "item": "moredyes:dandelion_92663f"
+      },
+      {
+        "item": "moredyes:dandelion_b98c66"
+      },
+      {
+        "item": "moredyes:dandelion_927f66"
+      },
+      {
+        "item": "moredyes:dandelion_ac5f72"
+      },
+      {
+        "item": "moredyes:dandelion_866672"
+      },
+      {
+        "item": "moredyes:dandelion_9f6633"
+      },
+      {
+        "item": "moredyes:dandelion_9f7f33"
+      },
+      {
+        "item": "moredyes:dandelion_b95933"
+      },
+      {
+        "item": "moredyes:dandelion_794c26"
+      },
+      {
+        "item": "moredyes:dandelion_8c72d8"
+      },
+      {
+        "item": "moredyes:dandelion_cb9886"
+      },
+      {
+        "item": "moredyes:dandelion_998c79"
+      },
+      {
+        "item": "moredyes:dandelion_d265bf"
+      },
+      {
+        "item": "moredyes:dandelion_7f4c92"
+      },
+      {
+        "item": "moredyes:dandelion_a672b9"
+      },
+      {
+        "item": "moredyes:dandelion_7f65b9"
+      },
+      {
+        "item": "moredyes:dandelion_9946c5"
+      },
+      {
+        "item": "moredyes:dandelion_734cc5"
+      },
+      {
+        "item": "moredyes:dandelion_8c4c86"
+      },
+      {
+        "item": "moredyes:dandelion_8c6586"
+      },
+      {
+        "item": "moredyes:dandelion_a64086"
+      },
+      {
+        "item": "moredyes:dandelion_663379"
+      },
+      {
+        "item": "moredyes:dandelion_a5bf86"
+      },
+      {
+        "item": "moredyes:dandelion_72b279"
+      },
+      {
+        "item": "moredyes:dandelion_ac8cbf"
+      },
+      {
+        "item": "moredyes:dandelion_597392"
+      },
+      {
+        "item": "moredyes:dandelion_7f99b9"
+      },
+      {
+        "item": "moredyes:dandelion_598cb9"
+      },
+      {
+        "item": "moredyes:dandelion_726cc5"
+      },
+      {
+        "item": "moredyes:dandelion_4d73c5"
+      },
+      {
+        "item": "moredyes:dandelion_667386"
+      },
+      {
+        "item": "moredyes:dandelion_668c86"
+      },
+      {
+        "item": "moredyes:dandelion_7f6686"
+      },
+      {
+        "item": "moredyes:dandelion_405979"
+      },
+      {
+        "item": "moredyes:dandelion_b2d926"
+      },
+      {
+        "item": "moredyes:dandelion_ebb26c"
+      },
+      {
+        "item": "moredyes:dandelion_99993f"
+      },
+      {
+        "item": "moredyes:dandelion_bfbf66"
+      },
+      {
+        "item": "moredyes:dandelion_99b266"
+      },
+      {
+        "item": "moredyes:dandelion_b29272"
+      },
+      {
+        "item": "moredyes:dandelion_8c9972"
+      },
+      {
+        "item": "moredyes:dandelion_a69933"
+      },
+      {
+        "item": "moredyes:dandelion_a6b233"
+      },
+      {
+        "item": "moredyes:dandelion_bf8c33"
+      },
+      {
+        "item": "moredyes:dandelion_7f7f26"
+      },
+      {
+        "item": "moredyes:dandelion_b8a65f"
+      },
+      {
+        "item": "moredyes:dandelion_668c32"
+      },
+      {
+        "item": "moredyes:dandelion_8cb359"
+      },
+      {
+        "item": "moredyes:dandelion_66a659"
+      },
+      {
+        "item": "moredyes:dandelion_7f5665"
+      },
+      {
+        "item": "moredyes:dandelion_598c65"
+      },
+      {
+        "item": "moredyes:dandelion_738c26"
+      },
+      {
+        "item": "moredyes:dandelion_73a626"
+      },
+      {
+        "item": "moredyes:dandelion_8c8026"
+      },
+      {
+        "item": "moredyes:dandelion_4c7319"
+      },
+      {
+        "item": "moredyes:dandelion_864c5f"
+      },
+      {
+        "item": "moredyes:dandelion_c6596c"
+      },
+      {
+        "item": "moredyes:dandelion_ac7f6c"
+      },
+      {
+        "item": "moredyes:dandelion_ac666c"
+      },
+      {
+        "item": "moredyes:dandelion_9366ab"
+      },
+      {
+        "item": "moredyes:dandelion_b95fab"
+      },
+      {
+        "item": "moredyes:dandelion_9f7f9f"
+      },
+      {
+        "item": "moredyes:dandelion_c68c9f"
+      },
+      {
+        "item": "moredyes:dandelion_9f6679"
+      },
+      {
+        "item": "moredyes:dandelion_727272"
+      },
+      {
+        "item": "moredyes:dandelion_4c6572"
+      },
+      {
+        "item": "moredyes:dandelion_65467f"
+      },
+      {
+        "item": "moredyes:dandelion_404c7f"
+      },
+      {
+        "item": "moredyes:dandelion_594c40"
+      },
+      {
+        "item": "moredyes:dandelion_596540"
+      },
+      {
+        "item": "moredyes:dandelion_724040"
+      },
+      {
+        "item": "moredyes:dandelion_333333"
+      },
+      {
+        "item": "moredyes:dandelion_738c99"
+      },
+      {
+        "item": "moredyes:dandelion_8c6ca5"
+      },
+      {
+        "item": "moredyes:dandelion_6673a5"
+      },
+      {
+        "item": "moredyes:dandelion_807366"
+      },
+      {
+        "item": "moredyes:dandelion_808c66"
+      },
+      {
+        "item": "moredyes:dandelion_996666"
+      },
+      {
+        "item": "moredyes:dandelion_595959"
+      },
+      {
+        "item": "moredyes:dandelion_655fa5"
+      },
+      {
+        "item": "moredyes:dandelion_4066a5"
+      },
+      {
+        "item": "moredyes:dandelion_596666"
+      },
+      {
+        "item": "moredyes:dandelion_597f66"
+      },
+      {
+        "item": "moredyes:dandelion_725966"
+      },
+      {
+        "item": "moredyes:dandelion_334c59"
+      },
+      {
+        "item": "moredyes:dandelion_5945b2"
+      },
+      {
+        "item": "moredyes:dandelion_734573"
+      },
+      {
+        "item": "moredyes:dandelion_735f73"
+      },
+      {
+        "item": "moredyes:dandelion_8c3973"
+      },
+      {
+        "item": "moredyes:dandelion_4c2c66"
+      },
+      {
+        "item": "moredyes:dandelion_4c4c73"
+      },
+      {
+        "item": "moredyes:dandelion_4c6573"
+      },
+      {
+        "item": "moredyes:dandelion_664073"
+      },
+      {
+        "item": "moredyes:dandelion_263366"
+      },
+      {
+        "item": "moredyes:dandelion_403326"
+      },
+      {
+        "item": "moredyes:dandelion_7f4033"
+      },
+      {
+        "item": "moredyes:dandelion_666533"
+      },
+      {
+        "item": "moredyes:dandelion_7f5933"
+      },
+      {
+        "item": "moredyes:dandelion_404c26"
+      },
+      {
+        "item": "moredyes:dandelion_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dandelion"
+  }
+}

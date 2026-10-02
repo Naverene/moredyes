@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:andesite_ecbf99"
+      },
+      {
+        "item": "moredyes:andesite_d9a6ec"
+      },
+      {
+        "item": "moredyes:andesite_b3ccec"
+      },
+      {
+        "item": "moredyes:andesite_f2f299"
+      },
+      {
+        "item": "moredyes:andesite_bfe68c"
+      },
+      {
+        "item": "moredyes:andesite_f9bfd2"
+      },
+      {
+        "item": "moredyes:andesite_cccccc"
+      },
+      {
+        "item": "moredyes:andesite_a6bfcc"
+      },
+      {
+        "item": "moredyes:andesite_bf9fd9"
+      },
+      {
+        "item": "moredyes:andesite_99a6d9"
+      },
+      {
+        "item": "moredyes:andesite_b3a699"
+      },
+      {
+        "item": "moredyes:andesite_b3bf99"
+      },
+      {
+        "item": "moredyes:andesite_cc9999"
+      },
+      {
+        "item": "moredyes:andesite_c56685"
+      },
+      {
+        "item": "moredyes:andesite_9f8c85"
+      },
+      {
+        "item": "moredyes:andesite_deb233"
+      },
+      {
+        "item": "moredyes:andesite_aca526"
+      },
+      {
+        "item": "moredyes:andesite_e57f6c"
+      },
+      {
+        "item": "moredyes:andesite_92663f"
+      },
+      {
+        "item": "moredyes:andesite_b98c66"
+      },
+      {
+        "item": "moredyes:andesite_927f66"
+      },
+      {
+        "item": "moredyes:andesite_ac5f72"
+      },
+      {
+        "item": "moredyes:andesite_866672"
+      },
+      {
+        "item": "moredyes:andesite_9f6633"
+      },
+      {
+        "item": "moredyes:andesite_9f7f33"
+      },
+      {
+        "item": "moredyes:andesite_b95933"
+      },
+      {
+        "item": "moredyes:andesite_794c26"
+      },
+      {
+        "item": "moredyes:andesite_8c72d8"
+      },
+      {
+        "item": "moredyes:andesite_cb9886"
+      },
+      {
+        "item": "moredyes:andesite_998c79"
+      },
+      {
+        "item": "moredyes:andesite_d265bf"
+      },
+      {
+        "item": "moredyes:andesite_7f4c92"
+      },
+      {
+        "item": "moredyes:andesite_a672b9"
+      },
+      {
+        "item": "moredyes:andesite_7f65b9"
+      },
+      {
+        "item": "moredyes:andesite_9946c5"
+      },
+      {
+        "item": "moredyes:andesite_734cc5"
+      },
+      {
+        "item": "moredyes:andesite_8c4c86"
+      },
+      {
+        "item": "moredyes:andesite_8c6586"
+      },
+      {
+        "item": "moredyes:andesite_a64086"
+      },
+      {
+        "item": "moredyes:andesite_663379"
+      },
+      {
+        "item": "moredyes:andesite_a5bf86"
+      },
+      {
+        "item": "moredyes:andesite_72b279"
+      },
+      {
+        "item": "moredyes:andesite_ac8cbf"
+      },
+      {
+        "item": "moredyes:andesite_597392"
+      },
+      {
+        "item": "moredyes:andesite_7f99b9"
+      },
+      {
+        "item": "moredyes:andesite_598cb9"
+      },
+      {
+        "item": "moredyes:andesite_726cc5"
+      },
+      {
+        "item": "moredyes:andesite_4d73c5"
+      },
+      {
+        "item": "moredyes:andesite_667386"
+      },
+      {
+        "item": "moredyes:andesite_668c86"
+      },
+      {
+        "item": "moredyes:andesite_7f6686"
+      },
+      {
+        "item": "moredyes:andesite_405979"
+      },
+      {
+        "item": "moredyes:andesite_b2d926"
+      },
+      {
+        "item": "moredyes:andesite_ebb26c"
+      },
+      {
+        "item": "moredyes:andesite_99993f"
+      },
+      {
+        "item": "moredyes:andesite_bfbf66"
+      },
+      {
+        "item": "moredyes:andesite_99b266"
+      },
+      {
+        "item": "moredyes:andesite_b29272"
+      },
+      {
+        "item": "moredyes:andesite_8c9972"
+      },
+      {
+        "item": "moredyes:andesite_a69933"
+      },
+      {
+        "item": "moredyes:andesite_a6b233"
+      },
+      {
+        "item": "moredyes:andesite_bf8c33"
+      },
+      {
+        "item": "moredyes:andesite_7f7f26"
+      },
+      {
+        "item": "moredyes:andesite_b8a65f"
+      },
+      {
+        "item": "moredyes:andesite_668c32"
+      },
+      {
+        "item": "moredyes:andesite_8cb359"
+      },
+      {
+        "item": "moredyes:andesite_66a659"
+      },
+      {
+        "item": "moredyes:andesite_7f5665"
+      },
+      {
+        "item": "moredyes:andesite_598c65"
+      },
+      {
+        "item": "moredyes:andesite_738c26"
+      },
+      {
+        "item": "moredyes:andesite_73a626"
+      },
+      {
+        "item": "moredyes:andesite_8c8026"
+      },
+      {
+        "item": "moredyes:andesite_4c7319"
+      },
+      {
+        "item": "moredyes:andesite_864c5f"
+      },
+      {
+        "item": "moredyes:andesite_c6596c"
+      },
+      {
+        "item": "moredyes:andesite_ac7f6c"
+      },
+      {
+        "item": "moredyes:andesite_ac666c"
+      },
+      {
+        "item": "moredyes:andesite_9366ab"
+      },
+      {
+        "item": "moredyes:andesite_b95fab"
+      },
+      {
+        "item": "moredyes:andesite_9f7f9f"
+      },
+      {
+        "item": "moredyes:andesite_c68c9f"
+      },
+      {
+        "item": "moredyes:andesite_9f6679"
+      },
+      {
+        "item": "moredyes:andesite_727272"
+      },
+      {
+        "item": "moredyes:andesite_4c6572"
+      },
+      {
+        "item": "moredyes:andesite_65467f"
+      },
+      {
+        "item": "moredyes:andesite_404c7f"
+      },
+      {
+        "item": "moredyes:andesite_594c40"
+      },
+      {
+        "item": "moredyes:andesite_596540"
+      },
+      {
+        "item": "moredyes:andesite_724040"
+      },
+      {
+        "item": "moredyes:andesite_333333"
+      },
+      {
+        "item": "moredyes:andesite_738c99"
+      },
+      {
+        "item": "moredyes:andesite_8c6ca5"
+      },
+      {
+        "item": "moredyes:andesite_6673a5"
+      },
+      {
+        "item": "moredyes:andesite_807366"
+      },
+      {
+        "item": "moredyes:andesite_808c66"
+      },
+      {
+        "item": "moredyes:andesite_996666"
+      },
+      {
+        "item": "moredyes:andesite_595959"
+      },
+      {
+        "item": "moredyes:andesite_655fa5"
+      },
+      {
+        "item": "moredyes:andesite_4066a5"
+      },
+      {
+        "item": "moredyes:andesite_596666"
+      },
+      {
+        "item": "moredyes:andesite_597f66"
+      },
+      {
+        "item": "moredyes:andesite_725966"
+      },
+      {
+        "item": "moredyes:andesite_334c59"
+      },
+      {
+        "item": "moredyes:andesite_5945b2"
+      },
+      {
+        "item": "moredyes:andesite_734573"
+      },
+      {
+        "item": "moredyes:andesite_735f73"
+      },
+      {
+        "item": "moredyes:andesite_8c3973"
+      },
+      {
+        "item": "moredyes:andesite_4c2c66"
+      },
+      {
+        "item": "moredyes:andesite_4c4c73"
+      },
+      {
+        "item": "moredyes:andesite_4c6573"
+      },
+      {
+        "item": "moredyes:andesite_664073"
+      },
+      {
+        "item": "moredyes:andesite_263366"
+      },
+      {
+        "item": "moredyes:andesite_403326"
+      },
+      {
+        "item": "moredyes:andesite_7f4033"
+      },
+      {
+        "item": "moredyes:andesite_666533"
+      },
+      {
+        "item": "moredyes:andesite_7f5933"
+      },
+      {
+        "item": "moredyes:andesite_404c26"
+      },
+      {
+        "item": "moredyes:andesite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:andesite"
+  }
+}

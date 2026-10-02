@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:oaklog_ecbf99"
+      },
+      {
+        "item": "moredyes:oaklog_d9a6ec"
+      },
+      {
+        "item": "moredyes:oaklog_b3ccec"
+      },
+      {
+        "item": "moredyes:oaklog_f2f299"
+      },
+      {
+        "item": "moredyes:oaklog_bfe68c"
+      },
+      {
+        "item": "moredyes:oaklog_f9bfd2"
+      },
+      {
+        "item": "moredyes:oaklog_cccccc"
+      },
+      {
+        "item": "moredyes:oaklog_a6bfcc"
+      },
+      {
+        "item": "moredyes:oaklog_bf9fd9"
+      },
+      {
+        "item": "moredyes:oaklog_99a6d9"
+      },
+      {
+        "item": "moredyes:oaklog_b3a699"
+      },
+      {
+        "item": "moredyes:oaklog_b3bf99"
+      },
+      {
+        "item": "moredyes:oaklog_cc9999"
+      },
+      {
+        "item": "moredyes:oaklog_c56685"
+      },
+      {
+        "item": "moredyes:oaklog_9f8c85"
+      },
+      {
+        "item": "moredyes:oaklog_deb233"
+      },
+      {
+        "item": "moredyes:oaklog_aca526"
+      },
+      {
+        "item": "moredyes:oaklog_e57f6c"
+      },
+      {
+        "item": "moredyes:oaklog_92663f"
+      },
+      {
+        "item": "moredyes:oaklog_b98c66"
+      },
+      {
+        "item": "moredyes:oaklog_927f66"
+      },
+      {
+        "item": "moredyes:oaklog_ac5f72"
+      },
+      {
+        "item": "moredyes:oaklog_866672"
+      },
+      {
+        "item": "moredyes:oaklog_9f6633"
+      },
+      {
+        "item": "moredyes:oaklog_9f7f33"
+      },
+      {
+        "item": "moredyes:oaklog_b95933"
+      },
+      {
+        "item": "moredyes:oaklog_794c26"
+      },
+      {
+        "item": "moredyes:oaklog_8c72d8"
+      },
+      {
+        "item": "moredyes:oaklog_cb9886"
+      },
+      {
+        "item": "moredyes:oaklog_998c79"
+      },
+      {
+        "item": "moredyes:oaklog_d265bf"
+      },
+      {
+        "item": "moredyes:oaklog_7f4c92"
+      },
+      {
+        "item": "moredyes:oaklog_a672b9"
+      },
+      {
+        "item": "moredyes:oaklog_7f65b9"
+      },
+      {
+        "item": "moredyes:oaklog_9946c5"
+      },
+      {
+        "item": "moredyes:oaklog_734cc5"
+      },
+      {
+        "item": "moredyes:oaklog_8c4c86"
+      },
+      {
+        "item": "moredyes:oaklog_8c6586"
+      },
+      {
+        "item": "moredyes:oaklog_a64086"
+      },
+      {
+        "item": "moredyes:oaklog_663379"
+      },
+      {
+        "item": "moredyes:oaklog_a5bf86"
+      },
+      {
+        "item": "moredyes:oaklog_72b279"
+      },
+      {
+        "item": "moredyes:oaklog_ac8cbf"
+      },
+      {
+        "item": "moredyes:oaklog_597392"
+      },
+      {
+        "item": "moredyes:oaklog_7f99b9"
+      },
+      {
+        "item": "moredyes:oaklog_598cb9"
+      },
+      {
+        "item": "moredyes:oaklog_726cc5"
+      },
+      {
+        "item": "moredyes:oaklog_4d73c5"
+      },
+      {
+        "item": "moredyes:oaklog_667386"
+      },
+      {
+        "item": "moredyes:oaklog_668c86"
+      },
+      {
+        "item": "moredyes:oaklog_7f6686"
+      },
+      {
+        "item": "moredyes:oaklog_405979"
+      },
+      {
+        "item": "moredyes:oaklog_b2d926"
+      },
+      {
+        "item": "moredyes:oaklog_ebb26c"
+      },
+      {
+        "item": "moredyes:oaklog_99993f"
+      },
+      {
+        "item": "moredyes:oaklog_bfbf66"
+      },
+      {
+        "item": "moredyes:oaklog_99b266"
+      },
+      {
+        "item": "moredyes:oaklog_b29272"
+      },
+      {
+        "item": "moredyes:oaklog_8c9972"
+      },
+      {
+        "item": "moredyes:oaklog_a69933"
+      },
+      {
+        "item": "moredyes:oaklog_a6b233"
+      },
+      {
+        "item": "moredyes:oaklog_bf8c33"
+      },
+      {
+        "item": "moredyes:oaklog_7f7f26"
+      },
+      {
+        "item": "moredyes:oaklog_b8a65f"
+      },
+      {
+        "item": "moredyes:oaklog_668c32"
+      },
+      {
+        "item": "moredyes:oaklog_8cb359"
+      },
+      {
+        "item": "moredyes:oaklog_66a659"
+      },
+      {
+        "item": "moredyes:oaklog_7f5665"
+      },
+      {
+        "item": "moredyes:oaklog_598c65"
+      },
+      {
+        "item": "moredyes:oaklog_738c26"
+      },
+      {
+        "item": "moredyes:oaklog_73a626"
+      },
+      {
+        "item": "moredyes:oaklog_8c8026"
+      },
+      {
+        "item": "moredyes:oaklog_4c7319"
+      },
+      {
+        "item": "moredyes:oaklog_864c5f"
+      },
+      {
+        "item": "moredyes:oaklog_c6596c"
+      },
+      {
+        "item": "moredyes:oaklog_ac7f6c"
+      },
+      {
+        "item": "moredyes:oaklog_ac666c"
+      },
+      {
+        "item": "moredyes:oaklog_9366ab"
+      },
+      {
+        "item": "moredyes:oaklog_b95fab"
+      },
+      {
+        "item": "moredyes:oaklog_9f7f9f"
+      },
+      {
+        "item": "moredyes:oaklog_c68c9f"
+      },
+      {
+        "item": "moredyes:oaklog_9f6679"
+      },
+      {
+        "item": "moredyes:oaklog_727272"
+      },
+      {
+        "item": "moredyes:oaklog_4c6572"
+      },
+      {
+        "item": "moredyes:oaklog_65467f"
+      },
+      {
+        "item": "moredyes:oaklog_404c7f"
+      },
+      {
+        "item": "moredyes:oaklog_594c40"
+      },
+      {
+        "item": "moredyes:oaklog_596540"
+      },
+      {
+        "item": "moredyes:oaklog_724040"
+      },
+      {
+        "item": "moredyes:oaklog_333333"
+      },
+      {
+        "item": "moredyes:oaklog_738c99"
+      },
+      {
+        "item": "moredyes:oaklog_8c6ca5"
+      },
+      {
+        "item": "moredyes:oaklog_6673a5"
+      },
+      {
+        "item": "moredyes:oaklog_807366"
+      },
+      {
+        "item": "moredyes:oaklog_808c66"
+      },
+      {
+        "item": "moredyes:oaklog_996666"
+      },
+      {
+        "item": "moredyes:oaklog_595959"
+      },
+      {
+        "item": "moredyes:oaklog_655fa5"
+      },
+      {
+        "item": "moredyes:oaklog_4066a5"
+      },
+      {
+        "item": "moredyes:oaklog_596666"
+      },
+      {
+        "item": "moredyes:oaklog_597f66"
+      },
+      {
+        "item": "moredyes:oaklog_725966"
+      },
+      {
+        "item": "moredyes:oaklog_334c59"
+      },
+      {
+        "item": "moredyes:oaklog_5945b2"
+      },
+      {
+        "item": "moredyes:oaklog_734573"
+      },
+      {
+        "item": "moredyes:oaklog_735f73"
+      },
+      {
+        "item": "moredyes:oaklog_8c3973"
+      },
+      {
+        "item": "moredyes:oaklog_4c2c66"
+      },
+      {
+        "item": "moredyes:oaklog_4c4c73"
+      },
+      {
+        "item": "moredyes:oaklog_4c6573"
+      },
+      {
+        "item": "moredyes:oaklog_664073"
+      },
+      {
+        "item": "moredyes:oaklog_263366"
+      },
+      {
+        "item": "moredyes:oaklog_403326"
+      },
+      {
+        "item": "moredyes:oaklog_7f4033"
+      },
+      {
+        "item": "moredyes:oaklog_666533"
+      },
+      {
+        "item": "moredyes:oaklog_7f5933"
+      },
+      {
+        "item": "moredyes:oaklog_404c26"
+      },
+      {
+        "item": "moredyes:oaklog_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_log"
+  }
+}

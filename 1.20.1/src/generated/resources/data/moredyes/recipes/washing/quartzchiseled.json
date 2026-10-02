@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:quartzchiseled_ecbf99"
+      },
+      {
+        "item": "moredyes:quartzchiseled_d9a6ec"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b3ccec"
+      },
+      {
+        "item": "moredyes:quartzchiseled_f2f299"
+      },
+      {
+        "item": "moredyes:quartzchiseled_bfe68c"
+      },
+      {
+        "item": "moredyes:quartzchiseled_f9bfd2"
+      },
+      {
+        "item": "moredyes:quartzchiseled_cccccc"
+      },
+      {
+        "item": "moredyes:quartzchiseled_a6bfcc"
+      },
+      {
+        "item": "moredyes:quartzchiseled_bf9fd9"
+      },
+      {
+        "item": "moredyes:quartzchiseled_99a6d9"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b3a699"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b3bf99"
+      },
+      {
+        "item": "moredyes:quartzchiseled_cc9999"
+      },
+      {
+        "item": "moredyes:quartzchiseled_c56685"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9f8c85"
+      },
+      {
+        "item": "moredyes:quartzchiseled_deb233"
+      },
+      {
+        "item": "moredyes:quartzchiseled_aca526"
+      },
+      {
+        "item": "moredyes:quartzchiseled_e57f6c"
+      },
+      {
+        "item": "moredyes:quartzchiseled_92663f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b98c66"
+      },
+      {
+        "item": "moredyes:quartzchiseled_927f66"
+      },
+      {
+        "item": "moredyes:quartzchiseled_ac5f72"
+      },
+      {
+        "item": "moredyes:quartzchiseled_866672"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9f6633"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9f7f33"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b95933"
+      },
+      {
+        "item": "moredyes:quartzchiseled_794c26"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c72d8"
+      },
+      {
+        "item": "moredyes:quartzchiseled_cb9886"
+      },
+      {
+        "item": "moredyes:quartzchiseled_998c79"
+      },
+      {
+        "item": "moredyes:quartzchiseled_d265bf"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f4c92"
+      },
+      {
+        "item": "moredyes:quartzchiseled_a672b9"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f65b9"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9946c5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_734cc5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c4c86"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c6586"
+      },
+      {
+        "item": "moredyes:quartzchiseled_a64086"
+      },
+      {
+        "item": "moredyes:quartzchiseled_663379"
+      },
+      {
+        "item": "moredyes:quartzchiseled_a5bf86"
+      },
+      {
+        "item": "moredyes:quartzchiseled_72b279"
+      },
+      {
+        "item": "moredyes:quartzchiseled_ac8cbf"
+      },
+      {
+        "item": "moredyes:quartzchiseled_597392"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f99b9"
+      },
+      {
+        "item": "moredyes:quartzchiseled_598cb9"
+      },
+      {
+        "item": "moredyes:quartzchiseled_726cc5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4d73c5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_667386"
+      },
+      {
+        "item": "moredyes:quartzchiseled_668c86"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f6686"
+      },
+      {
+        "item": "moredyes:quartzchiseled_405979"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b2d926"
+      },
+      {
+        "item": "moredyes:quartzchiseled_ebb26c"
+      },
+      {
+        "item": "moredyes:quartzchiseled_99993f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_bfbf66"
+      },
+      {
+        "item": "moredyes:quartzchiseled_99b266"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b29272"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c9972"
+      },
+      {
+        "item": "moredyes:quartzchiseled_a69933"
+      },
+      {
+        "item": "moredyes:quartzchiseled_a6b233"
+      },
+      {
+        "item": "moredyes:quartzchiseled_bf8c33"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f7f26"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b8a65f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_668c32"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8cb359"
+      },
+      {
+        "item": "moredyes:quartzchiseled_66a659"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f5665"
+      },
+      {
+        "item": "moredyes:quartzchiseled_598c65"
+      },
+      {
+        "item": "moredyes:quartzchiseled_738c26"
+      },
+      {
+        "item": "moredyes:quartzchiseled_73a626"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c8026"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4c7319"
+      },
+      {
+        "item": "moredyes:quartzchiseled_864c5f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_c6596c"
+      },
+      {
+        "item": "moredyes:quartzchiseled_ac7f6c"
+      },
+      {
+        "item": "moredyes:quartzchiseled_ac666c"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9366ab"
+      },
+      {
+        "item": "moredyes:quartzchiseled_b95fab"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9f7f9f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_c68c9f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_9f6679"
+      },
+      {
+        "item": "moredyes:quartzchiseled_727272"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4c6572"
+      },
+      {
+        "item": "moredyes:quartzchiseled_65467f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_404c7f"
+      },
+      {
+        "item": "moredyes:quartzchiseled_594c40"
+      },
+      {
+        "item": "moredyes:quartzchiseled_596540"
+      },
+      {
+        "item": "moredyes:quartzchiseled_724040"
+      },
+      {
+        "item": "moredyes:quartzchiseled_333333"
+      },
+      {
+        "item": "moredyes:quartzchiseled_738c99"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c6ca5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_6673a5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_807366"
+      },
+      {
+        "item": "moredyes:quartzchiseled_808c66"
+      },
+      {
+        "item": "moredyes:quartzchiseled_996666"
+      },
+      {
+        "item": "moredyes:quartzchiseled_595959"
+      },
+      {
+        "item": "moredyes:quartzchiseled_655fa5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4066a5"
+      },
+      {
+        "item": "moredyes:quartzchiseled_596666"
+      },
+      {
+        "item": "moredyes:quartzchiseled_597f66"
+      },
+      {
+        "item": "moredyes:quartzchiseled_725966"
+      },
+      {
+        "item": "moredyes:quartzchiseled_334c59"
+      },
+      {
+        "item": "moredyes:quartzchiseled_5945b2"
+      },
+      {
+        "item": "moredyes:quartzchiseled_734573"
+      },
+      {
+        "item": "moredyes:quartzchiseled_735f73"
+      },
+      {
+        "item": "moredyes:quartzchiseled_8c3973"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4c2c66"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4c4c73"
+      },
+      {
+        "item": "moredyes:quartzchiseled_4c6573"
+      },
+      {
+        "item": "moredyes:quartzchiseled_664073"
+      },
+      {
+        "item": "moredyes:quartzchiseled_263366"
+      },
+      {
+        "item": "moredyes:quartzchiseled_403326"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f4033"
+      },
+      {
+        "item": "moredyes:quartzchiseled_666533"
+      },
+      {
+        "item": "moredyes:quartzchiseled_7f5933"
+      },
+      {
+        "item": "moredyes:quartzchiseled_404c26"
+      },
+      {
+        "item": "moredyes:quartzchiseled_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chiseled_quartz_block"
+  }
+}

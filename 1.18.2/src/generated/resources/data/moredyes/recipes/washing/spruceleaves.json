@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:spruceleaves_ecbf99"
+      },
+      {
+        "item": "moredyes:spruceleaves_d9a6ec"
+      },
+      {
+        "item": "moredyes:spruceleaves_b3ccec"
+      },
+      {
+        "item": "moredyes:spruceleaves_f2f299"
+      },
+      {
+        "item": "moredyes:spruceleaves_bfe68c"
+      },
+      {
+        "item": "moredyes:spruceleaves_f9bfd2"
+      },
+      {
+        "item": "moredyes:spruceleaves_cccccc"
+      },
+      {
+        "item": "moredyes:spruceleaves_a6bfcc"
+      },
+      {
+        "item": "moredyes:spruceleaves_bf9fd9"
+      },
+      {
+        "item": "moredyes:spruceleaves_99a6d9"
+      },
+      {
+        "item": "moredyes:spruceleaves_b3a699"
+      },
+      {
+        "item": "moredyes:spruceleaves_b3bf99"
+      },
+      {
+        "item": "moredyes:spruceleaves_cc9999"
+      },
+      {
+        "item": "moredyes:spruceleaves_c56685"
+      },
+      {
+        "item": "moredyes:spruceleaves_9f8c85"
+      },
+      {
+        "item": "moredyes:spruceleaves_deb233"
+      },
+      {
+        "item": "moredyes:spruceleaves_aca526"
+      },
+      {
+        "item": "moredyes:spruceleaves_e57f6c"
+      },
+      {
+        "item": "moredyes:spruceleaves_92663f"
+      },
+      {
+        "item": "moredyes:spruceleaves_b98c66"
+      },
+      {
+        "item": "moredyes:spruceleaves_927f66"
+      },
+      {
+        "item": "moredyes:spruceleaves_ac5f72"
+      },
+      {
+        "item": "moredyes:spruceleaves_866672"
+      },
+      {
+        "item": "moredyes:spruceleaves_9f6633"
+      },
+      {
+        "item": "moredyes:spruceleaves_9f7f33"
+      },
+      {
+        "item": "moredyes:spruceleaves_b95933"
+      },
+      {
+        "item": "moredyes:spruceleaves_794c26"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c72d8"
+      },
+      {
+        "item": "moredyes:spruceleaves_cb9886"
+      },
+      {
+        "item": "moredyes:spruceleaves_998c79"
+      },
+      {
+        "item": "moredyes:spruceleaves_d265bf"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f4c92"
+      },
+      {
+        "item": "moredyes:spruceleaves_a672b9"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f65b9"
+      },
+      {
+        "item": "moredyes:spruceleaves_9946c5"
+      },
+      {
+        "item": "moredyes:spruceleaves_734cc5"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c4c86"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c6586"
+      },
+      {
+        "item": "moredyes:spruceleaves_a64086"
+      },
+      {
+        "item": "moredyes:spruceleaves_663379"
+      },
+      {
+        "item": "moredyes:spruceleaves_a5bf86"
+      },
+      {
+        "item": "moredyes:spruceleaves_72b279"
+      },
+      {
+        "item": "moredyes:spruceleaves_ac8cbf"
+      },
+      {
+        "item": "moredyes:spruceleaves_597392"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f99b9"
+      },
+      {
+        "item": "moredyes:spruceleaves_598cb9"
+      },
+      {
+        "item": "moredyes:spruceleaves_726cc5"
+      },
+      {
+        "item": "moredyes:spruceleaves_4d73c5"
+      },
+      {
+        "item": "moredyes:spruceleaves_667386"
+      },
+      {
+        "item": "moredyes:spruceleaves_668c86"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f6686"
+      },
+      {
+        "item": "moredyes:spruceleaves_405979"
+      },
+      {
+        "item": "moredyes:spruceleaves_b2d926"
+      },
+      {
+        "item": "moredyes:spruceleaves_ebb26c"
+      },
+      {
+        "item": "moredyes:spruceleaves_99993f"
+      },
+      {
+        "item": "moredyes:spruceleaves_bfbf66"
+      },
+      {
+        "item": "moredyes:spruceleaves_99b266"
+      },
+      {
+        "item": "moredyes:spruceleaves_b29272"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c9972"
+      },
+      {
+        "item": "moredyes:spruceleaves_a69933"
+      },
+      {
+        "item": "moredyes:spruceleaves_a6b233"
+      },
+      {
+        "item": "moredyes:spruceleaves_bf8c33"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f7f26"
+      },
+      {
+        "item": "moredyes:spruceleaves_b8a65f"
+      },
+      {
+        "item": "moredyes:spruceleaves_668c32"
+      },
+      {
+        "item": "moredyes:spruceleaves_8cb359"
+      },
+      {
+        "item": "moredyes:spruceleaves_66a659"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f5665"
+      },
+      {
+        "item": "moredyes:spruceleaves_598c65"
+      },
+      {
+        "item": "moredyes:spruceleaves_738c26"
+      },
+      {
+        "item": "moredyes:spruceleaves_73a626"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c8026"
+      },
+      {
+        "item": "moredyes:spruceleaves_4c7319"
+      },
+      {
+        "item": "moredyes:spruceleaves_864c5f"
+      },
+      {
+        "item": "moredyes:spruceleaves_c6596c"
+      },
+      {
+        "item": "moredyes:spruceleaves_ac7f6c"
+      },
+      {
+        "item": "moredyes:spruceleaves_ac666c"
+      },
+      {
+        "item": "moredyes:spruceleaves_9366ab"
+      },
+      {
+        "item": "moredyes:spruceleaves_b95fab"
+      },
+      {
+        "item": "moredyes:spruceleaves_9f7f9f"
+      },
+      {
+        "item": "moredyes:spruceleaves_c68c9f"
+      },
+      {
+        "item": "moredyes:spruceleaves_9f6679"
+      },
+      {
+        "item": "moredyes:spruceleaves_727272"
+      },
+      {
+        "item": "moredyes:spruceleaves_4c6572"
+      },
+      {
+        "item": "moredyes:spruceleaves_65467f"
+      },
+      {
+        "item": "moredyes:spruceleaves_404c7f"
+      },
+      {
+        "item": "moredyes:spruceleaves_594c40"
+      },
+      {
+        "item": "moredyes:spruceleaves_596540"
+      },
+      {
+        "item": "moredyes:spruceleaves_724040"
+      },
+      {
+        "item": "moredyes:spruceleaves_333333"
+      },
+      {
+        "item": "moredyes:spruceleaves_738c99"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c6ca5"
+      },
+      {
+        "item": "moredyes:spruceleaves_6673a5"
+      },
+      {
+        "item": "moredyes:spruceleaves_807366"
+      },
+      {
+        "item": "moredyes:spruceleaves_808c66"
+      },
+      {
+        "item": "moredyes:spruceleaves_996666"
+      },
+      {
+        "item": "moredyes:spruceleaves_595959"
+      },
+      {
+        "item": "moredyes:spruceleaves_655fa5"
+      },
+      {
+        "item": "moredyes:spruceleaves_4066a5"
+      },
+      {
+        "item": "moredyes:spruceleaves_596666"
+      },
+      {
+        "item": "moredyes:spruceleaves_597f66"
+      },
+      {
+        "item": "moredyes:spruceleaves_725966"
+      },
+      {
+        "item": "moredyes:spruceleaves_334c59"
+      },
+      {
+        "item": "moredyes:spruceleaves_5945b2"
+      },
+      {
+        "item": "moredyes:spruceleaves_734573"
+      },
+      {
+        "item": "moredyes:spruceleaves_735f73"
+      },
+      {
+        "item": "moredyes:spruceleaves_8c3973"
+      },
+      {
+        "item": "moredyes:spruceleaves_4c2c66"
+      },
+      {
+        "item": "moredyes:spruceleaves_4c4c73"
+      },
+      {
+        "item": "moredyes:spruceleaves_4c6573"
+      },
+      {
+        "item": "moredyes:spruceleaves_664073"
+      },
+      {
+        "item": "moredyes:spruceleaves_263366"
+      },
+      {
+        "item": "moredyes:spruceleaves_403326"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f4033"
+      },
+      {
+        "item": "moredyes:spruceleaves_666533"
+      },
+      {
+        "item": "moredyes:spruceleaves_7f5933"
+      },
+      {
+        "item": "moredyes:spruceleaves_404c26"
+      },
+      {
+        "item": "moredyes:spruceleaves_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spruce_leaves"
+  }
+}

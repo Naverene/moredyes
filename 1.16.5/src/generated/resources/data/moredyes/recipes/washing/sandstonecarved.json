@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:sandstonecarved_ecbf99"
+      },
+      {
+        "item": "moredyes:sandstonecarved_d9a6ec"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b3ccec"
+      },
+      {
+        "item": "moredyes:sandstonecarved_f2f299"
+      },
+      {
+        "item": "moredyes:sandstonecarved_bfe68c"
+      },
+      {
+        "item": "moredyes:sandstonecarved_f9bfd2"
+      },
+      {
+        "item": "moredyes:sandstonecarved_cccccc"
+      },
+      {
+        "item": "moredyes:sandstonecarved_a6bfcc"
+      },
+      {
+        "item": "moredyes:sandstonecarved_bf9fd9"
+      },
+      {
+        "item": "moredyes:sandstonecarved_99a6d9"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b3a699"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b3bf99"
+      },
+      {
+        "item": "moredyes:sandstonecarved_cc9999"
+      },
+      {
+        "item": "moredyes:sandstonecarved_c56685"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9f8c85"
+      },
+      {
+        "item": "moredyes:sandstonecarved_deb233"
+      },
+      {
+        "item": "moredyes:sandstonecarved_aca526"
+      },
+      {
+        "item": "moredyes:sandstonecarved_e57f6c"
+      },
+      {
+        "item": "moredyes:sandstonecarved_92663f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b98c66"
+      },
+      {
+        "item": "moredyes:sandstonecarved_927f66"
+      },
+      {
+        "item": "moredyes:sandstonecarved_ac5f72"
+      },
+      {
+        "item": "moredyes:sandstonecarved_866672"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9f6633"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9f7f33"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b95933"
+      },
+      {
+        "item": "moredyes:sandstonecarved_794c26"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c72d8"
+      },
+      {
+        "item": "moredyes:sandstonecarved_cb9886"
+      },
+      {
+        "item": "moredyes:sandstonecarved_998c79"
+      },
+      {
+        "item": "moredyes:sandstonecarved_d265bf"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f4c92"
+      },
+      {
+        "item": "moredyes:sandstonecarved_a672b9"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f65b9"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9946c5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_734cc5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c4c86"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c6586"
+      },
+      {
+        "item": "moredyes:sandstonecarved_a64086"
+      },
+      {
+        "item": "moredyes:sandstonecarved_663379"
+      },
+      {
+        "item": "moredyes:sandstonecarved_a5bf86"
+      },
+      {
+        "item": "moredyes:sandstonecarved_72b279"
+      },
+      {
+        "item": "moredyes:sandstonecarved_ac8cbf"
+      },
+      {
+        "item": "moredyes:sandstonecarved_597392"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f99b9"
+      },
+      {
+        "item": "moredyes:sandstonecarved_598cb9"
+      },
+      {
+        "item": "moredyes:sandstonecarved_726cc5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4d73c5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_667386"
+      },
+      {
+        "item": "moredyes:sandstonecarved_668c86"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f6686"
+      },
+      {
+        "item": "moredyes:sandstonecarved_405979"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b2d926"
+      },
+      {
+        "item": "moredyes:sandstonecarved_ebb26c"
+      },
+      {
+        "item": "moredyes:sandstonecarved_99993f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_bfbf66"
+      },
+      {
+        "item": "moredyes:sandstonecarved_99b266"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b29272"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c9972"
+      },
+      {
+        "item": "moredyes:sandstonecarved_a69933"
+      },
+      {
+        "item": "moredyes:sandstonecarved_a6b233"
+      },
+      {
+        "item": "moredyes:sandstonecarved_bf8c33"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f7f26"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b8a65f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_668c32"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8cb359"
+      },
+      {
+        "item": "moredyes:sandstonecarved_66a659"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f5665"
+      },
+      {
+        "item": "moredyes:sandstonecarved_598c65"
+      },
+      {
+        "item": "moredyes:sandstonecarved_738c26"
+      },
+      {
+        "item": "moredyes:sandstonecarved_73a626"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c8026"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4c7319"
+      },
+      {
+        "item": "moredyes:sandstonecarved_864c5f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_c6596c"
+      },
+      {
+        "item": "moredyes:sandstonecarved_ac7f6c"
+      },
+      {
+        "item": "moredyes:sandstonecarved_ac666c"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9366ab"
+      },
+      {
+        "item": "moredyes:sandstonecarved_b95fab"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9f7f9f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_c68c9f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_9f6679"
+      },
+      {
+        "item": "moredyes:sandstonecarved_727272"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4c6572"
+      },
+      {
+        "item": "moredyes:sandstonecarved_65467f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_404c7f"
+      },
+      {
+        "item": "moredyes:sandstonecarved_594c40"
+      },
+      {
+        "item": "moredyes:sandstonecarved_596540"
+      },
+      {
+        "item": "moredyes:sandstonecarved_724040"
+      },
+      {
+        "item": "moredyes:sandstonecarved_333333"
+      },
+      {
+        "item": "moredyes:sandstonecarved_738c99"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c6ca5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_6673a5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_807366"
+      },
+      {
+        "item": "moredyes:sandstonecarved_808c66"
+      },
+      {
+        "item": "moredyes:sandstonecarved_996666"
+      },
+      {
+        "item": "moredyes:sandstonecarved_595959"
+      },
+      {
+        "item": "moredyes:sandstonecarved_655fa5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4066a5"
+      },
+      {
+        "item": "moredyes:sandstonecarved_596666"
+      },
+      {
+        "item": "moredyes:sandstonecarved_597f66"
+      },
+      {
+        "item": "moredyes:sandstonecarved_725966"
+      },
+      {
+        "item": "moredyes:sandstonecarved_334c59"
+      },
+      {
+        "item": "moredyes:sandstonecarved_5945b2"
+      },
+      {
+        "item": "moredyes:sandstonecarved_734573"
+      },
+      {
+        "item": "moredyes:sandstonecarved_735f73"
+      },
+      {
+        "item": "moredyes:sandstonecarved_8c3973"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4c2c66"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4c4c73"
+      },
+      {
+        "item": "moredyes:sandstonecarved_4c6573"
+      },
+      {
+        "item": "moredyes:sandstonecarved_664073"
+      },
+      {
+        "item": "moredyes:sandstonecarved_263366"
+      },
+      {
+        "item": "moredyes:sandstonecarved_403326"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f4033"
+      },
+      {
+        "item": "moredyes:sandstonecarved_666533"
+      },
+      {
+        "item": "moredyes:sandstonecarved_7f5933"
+      },
+      {
+        "item": "moredyes:sandstonecarved_404c26"
+      },
+      {
+        "item": "moredyes:sandstonecarved_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chiseled_sandstone"
+  }
+}

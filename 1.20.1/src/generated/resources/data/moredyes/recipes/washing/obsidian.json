@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:obsidian_ecbf99"
+      },
+      {
+        "item": "moredyes:obsidian_d9a6ec"
+      },
+      {
+        "item": "moredyes:obsidian_b3ccec"
+      },
+      {
+        "item": "moredyes:obsidian_f2f299"
+      },
+      {
+        "item": "moredyes:obsidian_bfe68c"
+      },
+      {
+        "item": "moredyes:obsidian_f9bfd2"
+      },
+      {
+        "item": "moredyes:obsidian_cccccc"
+      },
+      {
+        "item": "moredyes:obsidian_a6bfcc"
+      },
+      {
+        "item": "moredyes:obsidian_bf9fd9"
+      },
+      {
+        "item": "moredyes:obsidian_99a6d9"
+      },
+      {
+        "item": "moredyes:obsidian_b3a699"
+      },
+      {
+        "item": "moredyes:obsidian_b3bf99"
+      },
+      {
+        "item": "moredyes:obsidian_cc9999"
+      },
+      {
+        "item": "moredyes:obsidian_c56685"
+      },
+      {
+        "item": "moredyes:obsidian_9f8c85"
+      },
+      {
+        "item": "moredyes:obsidian_deb233"
+      },
+      {
+        "item": "moredyes:obsidian_aca526"
+      },
+      {
+        "item": "moredyes:obsidian_e57f6c"
+      },
+      {
+        "item": "moredyes:obsidian_92663f"
+      },
+      {
+        "item": "moredyes:obsidian_b98c66"
+      },
+      {
+        "item": "moredyes:obsidian_927f66"
+      },
+      {
+        "item": "moredyes:obsidian_ac5f72"
+      },
+      {
+        "item": "moredyes:obsidian_866672"
+      },
+      {
+        "item": "moredyes:obsidian_9f6633"
+      },
+      {
+        "item": "moredyes:obsidian_9f7f33"
+      },
+      {
+        "item": "moredyes:obsidian_b95933"
+      },
+      {
+        "item": "moredyes:obsidian_794c26"
+      },
+      {
+        "item": "moredyes:obsidian_8c72d8"
+      },
+      {
+        "item": "moredyes:obsidian_cb9886"
+      },
+      {
+        "item": "moredyes:obsidian_998c79"
+      },
+      {
+        "item": "moredyes:obsidian_d265bf"
+      },
+      {
+        "item": "moredyes:obsidian_7f4c92"
+      },
+      {
+        "item": "moredyes:obsidian_a672b9"
+      },
+      {
+        "item": "moredyes:obsidian_7f65b9"
+      },
+      {
+        "item": "moredyes:obsidian_9946c5"
+      },
+      {
+        "item": "moredyes:obsidian_734cc5"
+      },
+      {
+        "item": "moredyes:obsidian_8c4c86"
+      },
+      {
+        "item": "moredyes:obsidian_8c6586"
+      },
+      {
+        "item": "moredyes:obsidian_a64086"
+      },
+      {
+        "item": "moredyes:obsidian_663379"
+      },
+      {
+        "item": "moredyes:obsidian_a5bf86"
+      },
+      {
+        "item": "moredyes:obsidian_72b279"
+      },
+      {
+        "item": "moredyes:obsidian_ac8cbf"
+      },
+      {
+        "item": "moredyes:obsidian_597392"
+      },
+      {
+        "item": "moredyes:obsidian_7f99b9"
+      },
+      {
+        "item": "moredyes:obsidian_598cb9"
+      },
+      {
+        "item": "moredyes:obsidian_726cc5"
+      },
+      {
+        "item": "moredyes:obsidian_4d73c5"
+      },
+      {
+        "item": "moredyes:obsidian_667386"
+      },
+      {
+        "item": "moredyes:obsidian_668c86"
+      },
+      {
+        "item": "moredyes:obsidian_7f6686"
+      },
+      {
+        "item": "moredyes:obsidian_405979"
+      },
+      {
+        "item": "moredyes:obsidian_b2d926"
+      },
+      {
+        "item": "moredyes:obsidian_ebb26c"
+      },
+      {
+        "item": "moredyes:obsidian_99993f"
+      },
+      {
+        "item": "moredyes:obsidian_bfbf66"
+      },
+      {
+        "item": "moredyes:obsidian_99b266"
+      },
+      {
+        "item": "moredyes:obsidian_b29272"
+      },
+      {
+        "item": "moredyes:obsidian_8c9972"
+      },
+      {
+        "item": "moredyes:obsidian_a69933"
+      },
+      {
+        "item": "moredyes:obsidian_a6b233"
+      },
+      {
+        "item": "moredyes:obsidian_bf8c33"
+      },
+      {
+        "item": "moredyes:obsidian_7f7f26"
+      },
+      {
+        "item": "moredyes:obsidian_b8a65f"
+      },
+      {
+        "item": "moredyes:obsidian_668c32"
+      },
+      {
+        "item": "moredyes:obsidian_8cb359"
+      },
+      {
+        "item": "moredyes:obsidian_66a659"
+      },
+      {
+        "item": "moredyes:obsidian_7f5665"
+      },
+      {
+        "item": "moredyes:obsidian_598c65"
+      },
+      {
+        "item": "moredyes:obsidian_738c26"
+      },
+      {
+        "item": "moredyes:obsidian_73a626"
+      },
+      {
+        "item": "moredyes:obsidian_8c8026"
+      },
+      {
+        "item": "moredyes:obsidian_4c7319"
+      },
+      {
+        "item": "moredyes:obsidian_864c5f"
+      },
+      {
+        "item": "moredyes:obsidian_c6596c"
+      },
+      {
+        "item": "moredyes:obsidian_ac7f6c"
+      },
+      {
+        "item": "moredyes:obsidian_ac666c"
+      },
+      {
+        "item": "moredyes:obsidian_9366ab"
+      },
+      {
+        "item": "moredyes:obsidian_b95fab"
+      },
+      {
+        "item": "moredyes:obsidian_9f7f9f"
+      },
+      {
+        "item": "moredyes:obsidian_c68c9f"
+      },
+      {
+        "item": "moredyes:obsidian_9f6679"
+      },
+      {
+        "item": "moredyes:obsidian_727272"
+      },
+      {
+        "item": "moredyes:obsidian_4c6572"
+      },
+      {
+        "item": "moredyes:obsidian_65467f"
+      },
+      {
+        "item": "moredyes:obsidian_404c7f"
+      },
+      {
+        "item": "moredyes:obsidian_594c40"
+      },
+      {
+        "item": "moredyes:obsidian_596540"
+      },
+      {
+        "item": "moredyes:obsidian_724040"
+      },
+      {
+        "item": "moredyes:obsidian_333333"
+      },
+      {
+        "item": "moredyes:obsidian_738c99"
+      },
+      {
+        "item": "moredyes:obsidian_8c6ca5"
+      },
+      {
+        "item": "moredyes:obsidian_6673a5"
+      },
+      {
+        "item": "moredyes:obsidian_807366"
+      },
+      {
+        "item": "moredyes:obsidian_808c66"
+      },
+      {
+        "item": "moredyes:obsidian_996666"
+      },
+      {
+        "item": "moredyes:obsidian_595959"
+      },
+      {
+        "item": "moredyes:obsidian_655fa5"
+      },
+      {
+        "item": "moredyes:obsidian_4066a5"
+      },
+      {
+        "item": "moredyes:obsidian_596666"
+      },
+      {
+        "item": "moredyes:obsidian_597f66"
+      },
+      {
+        "item": "moredyes:obsidian_725966"
+      },
+      {
+        "item": "moredyes:obsidian_334c59"
+      },
+      {
+        "item": "moredyes:obsidian_5945b2"
+      },
+      {
+        "item": "moredyes:obsidian_734573"
+      },
+      {
+        "item": "moredyes:obsidian_735f73"
+      },
+      {
+        "item": "moredyes:obsidian_8c3973"
+      },
+      {
+        "item": "moredyes:obsidian_4c2c66"
+      },
+      {
+        "item": "moredyes:obsidian_4c4c73"
+      },
+      {
+        "item": "moredyes:obsidian_4c6573"
+      },
+      {
+        "item": "moredyes:obsidian_664073"
+      },
+      {
+        "item": "moredyes:obsidian_263366"
+      },
+      {
+        "item": "moredyes:obsidian_403326"
+      },
+      {
+        "item": "moredyes:obsidian_7f4033"
+      },
+      {
+        "item": "moredyes:obsidian_666533"
+      },
+      {
+        "item": "moredyes:obsidian_7f5933"
+      },
+      {
+        "item": "moredyes:obsidian_404c26"
+      },
+      {
+        "item": "moredyes:obsidian_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:obsidian"
+  }
+}

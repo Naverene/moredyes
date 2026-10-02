@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:plank_ecbf99"
+      },
+      {
+        "item": "moredyes:plank_d9a6ec"
+      },
+      {
+        "item": "moredyes:plank_b3ccec"
+      },
+      {
+        "item": "moredyes:plank_f2f299"
+      },
+      {
+        "item": "moredyes:plank_bfe68c"
+      },
+      {
+        "item": "moredyes:plank_f9bfd2"
+      },
+      {
+        "item": "moredyes:plank_cccccc"
+      },
+      {
+        "item": "moredyes:plank_a6bfcc"
+      },
+      {
+        "item": "moredyes:plank_bf9fd9"
+      },
+      {
+        "item": "moredyes:plank_99a6d9"
+      },
+      {
+        "item": "moredyes:plank_b3a699"
+      },
+      {
+        "item": "moredyes:plank_b3bf99"
+      },
+      {
+        "item": "moredyes:plank_cc9999"
+      },
+      {
+        "item": "moredyes:plank_c56685"
+      },
+      {
+        "item": "moredyes:plank_9f8c85"
+      },
+      {
+        "item": "moredyes:plank_deb233"
+      },
+      {
+        "item": "moredyes:plank_aca526"
+      },
+      {
+        "item": "moredyes:plank_e57f6c"
+      },
+      {
+        "item": "moredyes:plank_92663f"
+      },
+      {
+        "item": "moredyes:plank_b98c66"
+      },
+      {
+        "item": "moredyes:plank_927f66"
+      },
+      {
+        "item": "moredyes:plank_ac5f72"
+      },
+      {
+        "item": "moredyes:plank_866672"
+      },
+      {
+        "item": "moredyes:plank_9f6633"
+      },
+      {
+        "item": "moredyes:plank_9f7f33"
+      },
+      {
+        "item": "moredyes:plank_b95933"
+      },
+      {
+        "item": "moredyes:plank_794c26"
+      },
+      {
+        "item": "moredyes:plank_8c72d8"
+      },
+      {
+        "item": "moredyes:plank_cb9886"
+      },
+      {
+        "item": "moredyes:plank_998c79"
+      },
+      {
+        "item": "moredyes:plank_d265bf"
+      },
+      {
+        "item": "moredyes:plank_7f4c92"
+      },
+      {
+        "item": "moredyes:plank_a672b9"
+      },
+      {
+        "item": "moredyes:plank_7f65b9"
+      },
+      {
+        "item": "moredyes:plank_9946c5"
+      },
+      {
+        "item": "moredyes:plank_734cc5"
+      },
+      {
+        "item": "moredyes:plank_8c4c86"
+      },
+      {
+        "item": "moredyes:plank_8c6586"
+      },
+      {
+        "item": "moredyes:plank_a64086"
+      },
+      {
+        "item": "moredyes:plank_663379"
+      },
+      {
+        "item": "moredyes:plank_a5bf86"
+      },
+      {
+        "item": "moredyes:plank_72b279"
+      },
+      {
+        "item": "moredyes:plank_ac8cbf"
+      },
+      {
+        "item": "moredyes:plank_597392"
+      },
+      {
+        "item": "moredyes:plank_7f99b9"
+      },
+      {
+        "item": "moredyes:plank_598cb9"
+      },
+      {
+        "item": "moredyes:plank_726cc5"
+      },
+      {
+        "item": "moredyes:plank_4d73c5"
+      },
+      {
+        "item": "moredyes:plank_667386"
+      },
+      {
+        "item": "moredyes:plank_668c86"
+      },
+      {
+        "item": "moredyes:plank_7f6686"
+      },
+      {
+        "item": "moredyes:plank_405979"
+      },
+      {
+        "item": "moredyes:plank_b2d926"
+      },
+      {
+        "item": "moredyes:plank_ebb26c"
+      },
+      {
+        "item": "moredyes:plank_99993f"
+      },
+      {
+        "item": "moredyes:plank_bfbf66"
+      },
+      {
+        "item": "moredyes:plank_99b266"
+      },
+      {
+        "item": "moredyes:plank_b29272"
+      },
+      {
+        "item": "moredyes:plank_8c9972"
+      },
+      {
+        "item": "moredyes:plank_a69933"
+      },
+      {
+        "item": "moredyes:plank_a6b233"
+      },
+      {
+        "item": "moredyes:plank_bf8c33"
+      },
+      {
+        "item": "moredyes:plank_7f7f26"
+      },
+      {
+        "item": "moredyes:plank_b8a65f"
+      },
+      {
+        "item": "moredyes:plank_668c32"
+      },
+      {
+        "item": "moredyes:plank_8cb359"
+      },
+      {
+        "item": "moredyes:plank_66a659"
+      },
+      {
+        "item": "moredyes:plank_7f5665"
+      },
+      {
+        "item": "moredyes:plank_598c65"
+      },
+      {
+        "item": "moredyes:plank_738c26"
+      },
+      {
+        "item": "moredyes:plank_73a626"
+      },
+      {
+        "item": "moredyes:plank_8c8026"
+      },
+      {
+        "item": "moredyes:plank_4c7319"
+      },
+      {
+        "item": "moredyes:plank_864c5f"
+      },
+      {
+        "item": "moredyes:plank_c6596c"
+      },
+      {
+        "item": "moredyes:plank_ac7f6c"
+      },
+      {
+        "item": "moredyes:plank_ac666c"
+      },
+      {
+        "item": "moredyes:plank_9366ab"
+      },
+      {
+        "item": "moredyes:plank_b95fab"
+      },
+      {
+        "item": "moredyes:plank_9f7f9f"
+      },
+      {
+        "item": "moredyes:plank_c68c9f"
+      },
+      {
+        "item": "moredyes:plank_9f6679"
+      },
+      {
+        "item": "moredyes:plank_727272"
+      },
+      {
+        "item": "moredyes:plank_4c6572"
+      },
+      {
+        "item": "moredyes:plank_65467f"
+      },
+      {
+        "item": "moredyes:plank_404c7f"
+      },
+      {
+        "item": "moredyes:plank_594c40"
+      },
+      {
+        "item": "moredyes:plank_596540"
+      },
+      {
+        "item": "moredyes:plank_724040"
+      },
+      {
+        "item": "moredyes:plank_333333"
+      },
+      {
+        "item": "moredyes:plank_738c99"
+      },
+      {
+        "item": "moredyes:plank_8c6ca5"
+      },
+      {
+        "item": "moredyes:plank_6673a5"
+      },
+      {
+        "item": "moredyes:plank_807366"
+      },
+      {
+        "item": "moredyes:plank_808c66"
+      },
+      {
+        "item": "moredyes:plank_996666"
+      },
+      {
+        "item": "moredyes:plank_595959"
+      },
+      {
+        "item": "moredyes:plank_655fa5"
+      },
+      {
+        "item": "moredyes:plank_4066a5"
+      },
+      {
+        "item": "moredyes:plank_596666"
+      },
+      {
+        "item": "moredyes:plank_597f66"
+      },
+      {
+        "item": "moredyes:plank_725966"
+      },
+      {
+        "item": "moredyes:plank_334c59"
+      },
+      {
+        "item": "moredyes:plank_5945b2"
+      },
+      {
+        "item": "moredyes:plank_734573"
+      },
+      {
+        "item": "moredyes:plank_735f73"
+      },
+      {
+        "item": "moredyes:plank_8c3973"
+      },
+      {
+        "item": "moredyes:plank_4c2c66"
+      },
+      {
+        "item": "moredyes:plank_4c4c73"
+      },
+      {
+        "item": "moredyes:plank_4c6573"
+      },
+      {
+        "item": "moredyes:plank_664073"
+      },
+      {
+        "item": "moredyes:plank_263366"
+      },
+      {
+        "item": "moredyes:plank_403326"
+      },
+      {
+        "item": "moredyes:plank_7f4033"
+      },
+      {
+        "item": "moredyes:plank_666533"
+      },
+      {
+        "item": "moredyes:plank_7f5933"
+      },
+      {
+        "item": "moredyes:plank_404c26"
+      },
+      {
+        "item": "moredyes:plank_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_planks"
+  }
+}

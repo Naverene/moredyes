@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:allium_ecbf99"
+      },
+      {
+        "item": "moredyes:allium_d9a6ec"
+      },
+      {
+        "item": "moredyes:allium_b3ccec"
+      },
+      {
+        "item": "moredyes:allium_f2f299"
+      },
+      {
+        "item": "moredyes:allium_bfe68c"
+      },
+      {
+        "item": "moredyes:allium_f9bfd2"
+      },
+      {
+        "item": "moredyes:allium_cccccc"
+      },
+      {
+        "item": "moredyes:allium_a6bfcc"
+      },
+      {
+        "item": "moredyes:allium_bf9fd9"
+      },
+      {
+        "item": "moredyes:allium_99a6d9"
+      },
+      {
+        "item": "moredyes:allium_b3a699"
+      },
+      {
+        "item": "moredyes:allium_b3bf99"
+      },
+      {
+        "item": "moredyes:allium_cc9999"
+      },
+      {
+        "item": "moredyes:allium_c56685"
+      },
+      {
+        "item": "moredyes:allium_9f8c85"
+      },
+      {
+        "item": "moredyes:allium_deb233"
+      },
+      {
+        "item": "moredyes:allium_aca526"
+      },
+      {
+        "item": "moredyes:allium_e57f6c"
+      },
+      {
+        "item": "moredyes:allium_92663f"
+      },
+      {
+        "item": "moredyes:allium_b98c66"
+      },
+      {
+        "item": "moredyes:allium_927f66"
+      },
+      {
+        "item": "moredyes:allium_ac5f72"
+      },
+      {
+        "item": "moredyes:allium_866672"
+      },
+      {
+        "item": "moredyes:allium_9f6633"
+      },
+      {
+        "item": "moredyes:allium_9f7f33"
+      },
+      {
+        "item": "moredyes:allium_b95933"
+      },
+      {
+        "item": "moredyes:allium_794c26"
+      },
+      {
+        "item": "moredyes:allium_8c72d8"
+      },
+      {
+        "item": "moredyes:allium_cb9886"
+      },
+      {
+        "item": "moredyes:allium_998c79"
+      },
+      {
+        "item": "moredyes:allium_d265bf"
+      },
+      {
+        "item": "moredyes:allium_7f4c92"
+      },
+      {
+        "item": "moredyes:allium_a672b9"
+      },
+      {
+        "item": "moredyes:allium_7f65b9"
+      },
+      {
+        "item": "moredyes:allium_9946c5"
+      },
+      {
+        "item": "moredyes:allium_734cc5"
+      },
+      {
+        "item": "moredyes:allium_8c4c86"
+      },
+      {
+        "item": "moredyes:allium_8c6586"
+      },
+      {
+        "item": "moredyes:allium_a64086"
+      },
+      {
+        "item": "moredyes:allium_663379"
+      },
+      {
+        "item": "moredyes:allium_a5bf86"
+      },
+      {
+        "item": "moredyes:allium_72b279"
+      },
+      {
+        "item": "moredyes:allium_ac8cbf"
+      },
+      {
+        "item": "moredyes:allium_597392"
+      },
+      {
+        "item": "moredyes:allium_7f99b9"
+      },
+      {
+        "item": "moredyes:allium_598cb9"
+      },
+      {
+        "item": "moredyes:allium_726cc5"
+      },
+      {
+        "item": "moredyes:allium_4d73c5"
+      },
+      {
+        "item": "moredyes:allium_667386"
+      },
+      {
+        "item": "moredyes:allium_668c86"
+      },
+      {
+        "item": "moredyes:allium_7f6686"
+      },
+      {
+        "item": "moredyes:allium_405979"
+      },
+      {
+        "item": "moredyes:allium_b2d926"
+      },
+      {
+        "item": "moredyes:allium_ebb26c"
+      },
+      {
+        "item": "moredyes:allium_99993f"
+      },
+      {
+        "item": "moredyes:allium_bfbf66"
+      },
+      {
+        "item": "moredyes:allium_99b266"
+      },
+      {
+        "item": "moredyes:allium_b29272"
+      },
+      {
+        "item": "moredyes:allium_8c9972"
+      },
+      {
+        "item": "moredyes:allium_a69933"
+      },
+      {
+        "item": "moredyes:allium_a6b233"
+      },
+      {
+        "item": "moredyes:allium_bf8c33"
+      },
+      {
+        "item": "moredyes:allium_7f7f26"
+      },
+      {
+        "item": "moredyes:allium_b8a65f"
+      },
+      {
+        "item": "moredyes:allium_668c32"
+      },
+      {
+        "item": "moredyes:allium_8cb359"
+      },
+      {
+        "item": "moredyes:allium_66a659"
+      },
+      {
+        "item": "moredyes:allium_7f5665"
+      },
+      {
+        "item": "moredyes:allium_598c65"
+      },
+      {
+        "item": "moredyes:allium_738c26"
+      },
+      {
+        "item": "moredyes:allium_73a626"
+      },
+      {
+        "item": "moredyes:allium_8c8026"
+      },
+      {
+        "item": "moredyes:allium_4c7319"
+      },
+      {
+        "item": "moredyes:allium_864c5f"
+      },
+      {
+        "item": "moredyes:allium_c6596c"
+      },
+      {
+        "item": "moredyes:allium_ac7f6c"
+      },
+      {
+        "item": "moredyes:allium_ac666c"
+      },
+      {
+        "item": "moredyes:allium_9366ab"
+      },
+      {
+        "item": "moredyes:allium_b95fab"
+      },
+      {
+        "item": "moredyes:allium_9f7f9f"
+      },
+      {
+        "item": "moredyes:allium_c68c9f"
+      },
+      {
+        "item": "moredyes:allium_9f6679"
+      },
+      {
+        "item": "moredyes:allium_727272"
+      },
+      {
+        "item": "moredyes:allium_4c6572"
+      },
+      {
+        "item": "moredyes:allium_65467f"
+      },
+      {
+        "item": "moredyes:allium_404c7f"
+      },
+      {
+        "item": "moredyes:allium_594c40"
+      },
+      {
+        "item": "moredyes:allium_596540"
+      },
+      {
+        "item": "moredyes:allium_724040"
+      },
+      {
+        "item": "moredyes:allium_333333"
+      },
+      {
+        "item": "moredyes:allium_738c99"
+      },
+      {
+        "item": "moredyes:allium_8c6ca5"
+      },
+      {
+        "item": "moredyes:allium_6673a5"
+      },
+      {
+        "item": "moredyes:allium_807366"
+      },
+      {
+        "item": "moredyes:allium_808c66"
+      },
+      {
+        "item": "moredyes:allium_996666"
+      },
+      {
+        "item": "moredyes:allium_595959"
+      },
+      {
+        "item": "moredyes:allium_655fa5"
+      },
+      {
+        "item": "moredyes:allium_4066a5"
+      },
+      {
+        "item": "moredyes:allium_596666"
+      },
+      {
+        "item": "moredyes:allium_597f66"
+      },
+      {
+        "item": "moredyes:allium_725966"
+      },
+      {
+        "item": "moredyes:allium_334c59"
+      },
+      {
+        "item": "moredyes:allium_5945b2"
+      },
+      {
+        "item": "moredyes:allium_734573"
+      },
+      {
+        "item": "moredyes:allium_735f73"
+      },
+      {
+        "item": "moredyes:allium_8c3973"
+      },
+      {
+        "item": "moredyes:allium_4c2c66"
+      },
+      {
+        "item": "moredyes:allium_4c4c73"
+      },
+      {
+        "item": "moredyes:allium_4c6573"
+      },
+      {
+        "item": "moredyes:allium_664073"
+      },
+      {
+        "item": "moredyes:allium_263366"
+      },
+      {
+        "item": "moredyes:allium_403326"
+      },
+      {
+        "item": "moredyes:allium_7f4033"
+      },
+      {
+        "item": "moredyes:allium_666533"
+      },
+      {
+        "item": "moredyes:allium_7f5933"
+      },
+      {
+        "item": "moredyes:allium_404c26"
+      },
+      {
+        "item": "moredyes:allium_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:allium"
+  }
+}

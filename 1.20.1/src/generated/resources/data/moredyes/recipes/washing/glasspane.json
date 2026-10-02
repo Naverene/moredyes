@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:glasspane_ecbf99"
+      },
+      {
+        "item": "moredyes:glasspane_d9a6ec"
+      },
+      {
+        "item": "moredyes:glasspane_b3ccec"
+      },
+      {
+        "item": "moredyes:glasspane_f2f299"
+      },
+      {
+        "item": "moredyes:glasspane_bfe68c"
+      },
+      {
+        "item": "moredyes:glasspane_f9bfd2"
+      },
+      {
+        "item": "moredyes:glasspane_cccccc"
+      },
+      {
+        "item": "moredyes:glasspane_a6bfcc"
+      },
+      {
+        "item": "moredyes:glasspane_bf9fd9"
+      },
+      {
+        "item": "moredyes:glasspane_99a6d9"
+      },
+      {
+        "item": "moredyes:glasspane_b3a699"
+      },
+      {
+        "item": "moredyes:glasspane_b3bf99"
+      },
+      {
+        "item": "moredyes:glasspane_cc9999"
+      },
+      {
+        "item": "moredyes:glasspane_c56685"
+      },
+      {
+        "item": "moredyes:glasspane_9f8c85"
+      },
+      {
+        "item": "moredyes:glasspane_deb233"
+      },
+      {
+        "item": "moredyes:glasspane_aca526"
+      },
+      {
+        "item": "moredyes:glasspane_e57f6c"
+      },
+      {
+        "item": "moredyes:glasspane_92663f"
+      },
+      {
+        "item": "moredyes:glasspane_b98c66"
+      },
+      {
+        "item": "moredyes:glasspane_927f66"
+      },
+      {
+        "item": "moredyes:glasspane_ac5f72"
+      },
+      {
+        "item": "moredyes:glasspane_866672"
+      },
+      {
+        "item": "moredyes:glasspane_9f6633"
+      },
+      {
+        "item": "moredyes:glasspane_9f7f33"
+      },
+      {
+        "item": "moredyes:glasspane_b95933"
+      },
+      {
+        "item": "moredyes:glasspane_794c26"
+      },
+      {
+        "item": "moredyes:glasspane_8c72d8"
+      },
+      {
+        "item": "moredyes:glasspane_cb9886"
+      },
+      {
+        "item": "moredyes:glasspane_998c79"
+      },
+      {
+        "item": "moredyes:glasspane_d265bf"
+      },
+      {
+        "item": "moredyes:glasspane_7f4c92"
+      },
+      {
+        "item": "moredyes:glasspane_a672b9"
+      },
+      {
+        "item": "moredyes:glasspane_7f65b9"
+      },
+      {
+        "item": "moredyes:glasspane_9946c5"
+      },
+      {
+        "item": "moredyes:glasspane_734cc5"
+      },
+      {
+        "item": "moredyes:glasspane_8c4c86"
+      },
+      {
+        "item": "moredyes:glasspane_8c6586"
+      },
+      {
+        "item": "moredyes:glasspane_a64086"
+      },
+      {
+        "item": "moredyes:glasspane_663379"
+      },
+      {
+        "item": "moredyes:glasspane_a5bf86"
+      },
+      {
+        "item": "moredyes:glasspane_72b279"
+      },
+      {
+        "item": "moredyes:glasspane_ac8cbf"
+      },
+      {
+        "item": "moredyes:glasspane_597392"
+      },
+      {
+        "item": "moredyes:glasspane_7f99b9"
+      },
+      {
+        "item": "moredyes:glasspane_598cb9"
+      },
+      {
+        "item": "moredyes:glasspane_726cc5"
+      },
+      {
+        "item": "moredyes:glasspane_4d73c5"
+      },
+      {
+        "item": "moredyes:glasspane_667386"
+      },
+      {
+        "item": "moredyes:glasspane_668c86"
+      },
+      {
+        "item": "moredyes:glasspane_7f6686"
+      },
+      {
+        "item": "moredyes:glasspane_405979"
+      },
+      {
+        "item": "moredyes:glasspane_b2d926"
+      },
+      {
+        "item": "moredyes:glasspane_ebb26c"
+      },
+      {
+        "item": "moredyes:glasspane_99993f"
+      },
+      {
+        "item": "moredyes:glasspane_bfbf66"
+      },
+      {
+        "item": "moredyes:glasspane_99b266"
+      },
+      {
+        "item": "moredyes:glasspane_b29272"
+      },
+      {
+        "item": "moredyes:glasspane_8c9972"
+      },
+      {
+        "item": "moredyes:glasspane_a69933"
+      },
+      {
+        "item": "moredyes:glasspane_a6b233"
+      },
+      {
+        "item": "moredyes:glasspane_bf8c33"
+      },
+      {
+        "item": "moredyes:glasspane_7f7f26"
+      },
+      {
+        "item": "moredyes:glasspane_b8a65f"
+      },
+      {
+        "item": "moredyes:glasspane_668c32"
+      },
+      {
+        "item": "moredyes:glasspane_8cb359"
+      },
+      {
+        "item": "moredyes:glasspane_66a659"
+      },
+      {
+        "item": "moredyes:glasspane_7f5665"
+      },
+      {
+        "item": "moredyes:glasspane_598c65"
+      },
+      {
+        "item": "moredyes:glasspane_738c26"
+      },
+      {
+        "item": "moredyes:glasspane_73a626"
+      },
+      {
+        "item": "moredyes:glasspane_8c8026"
+      },
+      {
+        "item": "moredyes:glasspane_4c7319"
+      },
+      {
+        "item": "moredyes:glasspane_864c5f"
+      },
+      {
+        "item": "moredyes:glasspane_c6596c"
+      },
+      {
+        "item": "moredyes:glasspane_ac7f6c"
+      },
+      {
+        "item": "moredyes:glasspane_ac666c"
+      },
+      {
+        "item": "moredyes:glasspane_9366ab"
+      },
+      {
+        "item": "moredyes:glasspane_b95fab"
+      },
+      {
+        "item": "moredyes:glasspane_9f7f9f"
+      },
+      {
+        "item": "moredyes:glasspane_c68c9f"
+      },
+      {
+        "item": "moredyes:glasspane_9f6679"
+      },
+      {
+        "item": "moredyes:glasspane_727272"
+      },
+      {
+        "item": "moredyes:glasspane_4c6572"
+      },
+      {
+        "item": "moredyes:glasspane_65467f"
+      },
+      {
+        "item": "moredyes:glasspane_404c7f"
+      },
+      {
+        "item": "moredyes:glasspane_594c40"
+      },
+      {
+        "item": "moredyes:glasspane_596540"
+      },
+      {
+        "item": "moredyes:glasspane_724040"
+      },
+      {
+        "item": "moredyes:glasspane_333333"
+      },
+      {
+        "item": "moredyes:glasspane_738c99"
+      },
+      {
+        "item": "moredyes:glasspane_8c6ca5"
+      },
+      {
+        "item": "moredyes:glasspane_6673a5"
+      },
+      {
+        "item": "moredyes:glasspane_807366"
+      },
+      {
+        "item": "moredyes:glasspane_808c66"
+      },
+      {
+        "item": "moredyes:glasspane_996666"
+      },
+      {
+        "item": "moredyes:glasspane_595959"
+      },
+      {
+        "item": "moredyes:glasspane_655fa5"
+      },
+      {
+        "item": "moredyes:glasspane_4066a5"
+      },
+      {
+        "item": "moredyes:glasspane_596666"
+      },
+      {
+        "item": "moredyes:glasspane_597f66"
+      },
+      {
+        "item": "moredyes:glasspane_725966"
+      },
+      {
+        "item": "moredyes:glasspane_334c59"
+      },
+      {
+        "item": "moredyes:glasspane_5945b2"
+      },
+      {
+        "item": "moredyes:glasspane_734573"
+      },
+      {
+        "item": "moredyes:glasspane_735f73"
+      },
+      {
+        "item": "moredyes:glasspane_8c3973"
+      },
+      {
+        "item": "moredyes:glasspane_4c2c66"
+      },
+      {
+        "item": "moredyes:glasspane_4c4c73"
+      },
+      {
+        "item": "moredyes:glasspane_4c6573"
+      },
+      {
+        "item": "moredyes:glasspane_664073"
+      },
+      {
+        "item": "moredyes:glasspane_263366"
+      },
+      {
+        "item": "moredyes:glasspane_403326"
+      },
+      {
+        "item": "moredyes:glasspane_7f4033"
+      },
+      {
+        "item": "moredyes:glasspane_666533"
+      },
+      {
+        "item": "moredyes:glasspane_7f5933"
+      },
+      {
+        "item": "moredyes:glasspane_404c26"
+      },
+      {
+        "item": "moredyes:glasspane_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glass_pane"
+  }
+}

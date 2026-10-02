@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:sand_ecbf99"
+      },
+      {
+        "item": "moredyes:sand_d9a6ec"
+      },
+      {
+        "item": "moredyes:sand_b3ccec"
+      },
+      {
+        "item": "moredyes:sand_f2f299"
+      },
+      {
+        "item": "moredyes:sand_bfe68c"
+      },
+      {
+        "item": "moredyes:sand_f9bfd2"
+      },
+      {
+        "item": "moredyes:sand_cccccc"
+      },
+      {
+        "item": "moredyes:sand_a6bfcc"
+      },
+      {
+        "item": "moredyes:sand_bf9fd9"
+      },
+      {
+        "item": "moredyes:sand_99a6d9"
+      },
+      {
+        "item": "moredyes:sand_b3a699"
+      },
+      {
+        "item": "moredyes:sand_b3bf99"
+      },
+      {
+        "item": "moredyes:sand_cc9999"
+      },
+      {
+        "item": "moredyes:sand_c56685"
+      },
+      {
+        "item": "moredyes:sand_9f8c85"
+      },
+      {
+        "item": "moredyes:sand_deb233"
+      },
+      {
+        "item": "moredyes:sand_aca526"
+      },
+      {
+        "item": "moredyes:sand_e57f6c"
+      },
+      {
+        "item": "moredyes:sand_92663f"
+      },
+      {
+        "item": "moredyes:sand_b98c66"
+      },
+      {
+        "item": "moredyes:sand_927f66"
+      },
+      {
+        "item": "moredyes:sand_ac5f72"
+      },
+      {
+        "item": "moredyes:sand_866672"
+      },
+      {
+        "item": "moredyes:sand_9f6633"
+      },
+      {
+        "item": "moredyes:sand_9f7f33"
+      },
+      {
+        "item": "moredyes:sand_b95933"
+      },
+      {
+        "item": "moredyes:sand_794c26"
+      },
+      {
+        "item": "moredyes:sand_8c72d8"
+      },
+      {
+        "item": "moredyes:sand_cb9886"
+      },
+      {
+        "item": "moredyes:sand_998c79"
+      },
+      {
+        "item": "moredyes:sand_d265bf"
+      },
+      {
+        "item": "moredyes:sand_7f4c92"
+      },
+      {
+        "item": "moredyes:sand_a672b9"
+      },
+      {
+        "item": "moredyes:sand_7f65b9"
+      },
+      {
+        "item": "moredyes:sand_9946c5"
+      },
+      {
+        "item": "moredyes:sand_734cc5"
+      },
+      {
+        "item": "moredyes:sand_8c4c86"
+      },
+      {
+        "item": "moredyes:sand_8c6586"
+      },
+      {
+        "item": "moredyes:sand_a64086"
+      },
+      {
+        "item": "moredyes:sand_663379"
+      },
+      {
+        "item": "moredyes:sand_a5bf86"
+      },
+      {
+        "item": "moredyes:sand_72b279"
+      },
+      {
+        "item": "moredyes:sand_ac8cbf"
+      },
+      {
+        "item": "moredyes:sand_597392"
+      },
+      {
+        "item": "moredyes:sand_7f99b9"
+      },
+      {
+        "item": "moredyes:sand_598cb9"
+      },
+      {
+        "item": "moredyes:sand_726cc5"
+      },
+      {
+        "item": "moredyes:sand_4d73c5"
+      },
+      {
+        "item": "moredyes:sand_667386"
+      },
+      {
+        "item": "moredyes:sand_668c86"
+      },
+      {
+        "item": "moredyes:sand_7f6686"
+      },
+      {
+        "item": "moredyes:sand_405979"
+      },
+      {
+        "item": "moredyes:sand_b2d926"
+      },
+      {
+        "item": "moredyes:sand_ebb26c"
+      },
+      {
+        "item": "moredyes:sand_99993f"
+      },
+      {
+        "item": "moredyes:sand_bfbf66"
+      },
+      {
+        "item": "moredyes:sand_99b266"
+      },
+      {
+        "item": "moredyes:sand_b29272"
+      },
+      {
+        "item": "moredyes:sand_8c9972"
+      },
+      {
+        "item": "moredyes:sand_a69933"
+      },
+      {
+        "item": "moredyes:sand_a6b233"
+      },
+      {
+        "item": "moredyes:sand_bf8c33"
+      },
+      {
+        "item": "moredyes:sand_7f7f26"
+      },
+      {
+        "item": "moredyes:sand_b8a65f"
+      },
+      {
+        "item": "moredyes:sand_668c32"
+      },
+      {
+        "item": "moredyes:sand_8cb359"
+      },
+      {
+        "item": "moredyes:sand_66a659"
+      },
+      {
+        "item": "moredyes:sand_7f5665"
+      },
+      {
+        "item": "moredyes:sand_598c65"
+      },
+      {
+        "item": "moredyes:sand_738c26"
+      },
+      {
+        "item": "moredyes:sand_73a626"
+      },
+      {
+        "item": "moredyes:sand_8c8026"
+      },
+      {
+        "item": "moredyes:sand_4c7319"
+      },
+      {
+        "item": "moredyes:sand_864c5f"
+      },
+      {
+        "item": "moredyes:sand_c6596c"
+      },
+      {
+        "item": "moredyes:sand_ac7f6c"
+      },
+      {
+        "item": "moredyes:sand_ac666c"
+      },
+      {
+        "item": "moredyes:sand_9366ab"
+      },
+      {
+        "item": "moredyes:sand_b95fab"
+      },
+      {
+        "item": "moredyes:sand_9f7f9f"
+      },
+      {
+        "item": "moredyes:sand_c68c9f"
+      },
+      {
+        "item": "moredyes:sand_9f6679"
+      },
+      {
+        "item": "moredyes:sand_727272"
+      },
+      {
+        "item": "moredyes:sand_4c6572"
+      },
+      {
+        "item": "moredyes:sand_65467f"
+      },
+      {
+        "item": "moredyes:sand_404c7f"
+      },
+      {
+        "item": "moredyes:sand_594c40"
+      },
+      {
+        "item": "moredyes:sand_596540"
+      },
+      {
+        "item": "moredyes:sand_724040"
+      },
+      {
+        "item": "moredyes:sand_333333"
+      },
+      {
+        "item": "moredyes:sand_738c99"
+      },
+      {
+        "item": "moredyes:sand_8c6ca5"
+      },
+      {
+        "item": "moredyes:sand_6673a5"
+      },
+      {
+        "item": "moredyes:sand_807366"
+      },
+      {
+        "item": "moredyes:sand_808c66"
+      },
+      {
+        "item": "moredyes:sand_996666"
+      },
+      {
+        "item": "moredyes:sand_595959"
+      },
+      {
+        "item": "moredyes:sand_655fa5"
+      },
+      {
+        "item": "moredyes:sand_4066a5"
+      },
+      {
+        "item": "moredyes:sand_596666"
+      },
+      {
+        "item": "moredyes:sand_597f66"
+      },
+      {
+        "item": "moredyes:sand_725966"
+      },
+      {
+        "item": "moredyes:sand_334c59"
+      },
+      {
+        "item": "moredyes:sand_5945b2"
+      },
+      {
+        "item": "moredyes:sand_734573"
+      },
+      {
+        "item": "moredyes:sand_735f73"
+      },
+      {
+        "item": "moredyes:sand_8c3973"
+      },
+      {
+        "item": "moredyes:sand_4c2c66"
+      },
+      {
+        "item": "moredyes:sand_4c4c73"
+      },
+      {
+        "item": "moredyes:sand_4c6573"
+      },
+      {
+        "item": "moredyes:sand_664073"
+      },
+      {
+        "item": "moredyes:sand_263366"
+      },
+      {
+        "item": "moredyes:sand_403326"
+      },
+      {
+        "item": "moredyes:sand_7f4033"
+      },
+      {
+        "item": "moredyes:sand_666533"
+      },
+      {
+        "item": "moredyes:sand_7f5933"
+      },
+      {
+        "item": "moredyes:sand_404c26"
+      },
+      {
+        "item": "moredyes:sand_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sand"
+  }
+}

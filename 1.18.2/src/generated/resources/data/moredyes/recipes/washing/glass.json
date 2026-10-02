@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:glass_ecbf99"
+      },
+      {
+        "item": "moredyes:glass_d9a6ec"
+      },
+      {
+        "item": "moredyes:glass_b3ccec"
+      },
+      {
+        "item": "moredyes:glass_f2f299"
+      },
+      {
+        "item": "moredyes:glass_bfe68c"
+      },
+      {
+        "item": "moredyes:glass_f9bfd2"
+      },
+      {
+        "item": "moredyes:glass_cccccc"
+      },
+      {
+        "item": "moredyes:glass_a6bfcc"
+      },
+      {
+        "item": "moredyes:glass_bf9fd9"
+      },
+      {
+        "item": "moredyes:glass_99a6d9"
+      },
+      {
+        "item": "moredyes:glass_b3a699"
+      },
+      {
+        "item": "moredyes:glass_b3bf99"
+      },
+      {
+        "item": "moredyes:glass_cc9999"
+      },
+      {
+        "item": "moredyes:glass_c56685"
+      },
+      {
+        "item": "moredyes:glass_9f8c85"
+      },
+      {
+        "item": "moredyes:glass_deb233"
+      },
+      {
+        "item": "moredyes:glass_aca526"
+      },
+      {
+        "item": "moredyes:glass_e57f6c"
+      },
+      {
+        "item": "moredyes:glass_92663f"
+      },
+      {
+        "item": "moredyes:glass_b98c66"
+      },
+      {
+        "item": "moredyes:glass_927f66"
+      },
+      {
+        "item": "moredyes:glass_ac5f72"
+      },
+      {
+        "item": "moredyes:glass_866672"
+      },
+      {
+        "item": "moredyes:glass_9f6633"
+      },
+      {
+        "item": "moredyes:glass_9f7f33"
+      },
+      {
+        "item": "moredyes:glass_b95933"
+      },
+      {
+        "item": "moredyes:glass_794c26"
+      },
+      {
+        "item": "moredyes:glass_8c72d8"
+      },
+      {
+        "item": "moredyes:glass_cb9886"
+      },
+      {
+        "item": "moredyes:glass_998c79"
+      },
+      {
+        "item": "moredyes:glass_d265bf"
+      },
+      {
+        "item": "moredyes:glass_7f4c92"
+      },
+      {
+        "item": "moredyes:glass_a672b9"
+      },
+      {
+        "item": "moredyes:glass_7f65b9"
+      },
+      {
+        "item": "moredyes:glass_9946c5"
+      },
+      {
+        "item": "moredyes:glass_734cc5"
+      },
+      {
+        "item": "moredyes:glass_8c4c86"
+      },
+      {
+        "item": "moredyes:glass_8c6586"
+      },
+      {
+        "item": "moredyes:glass_a64086"
+      },
+      {
+        "item": "moredyes:glass_663379"
+      },
+      {
+        "item": "moredyes:glass_a5bf86"
+      },
+      {
+        "item": "moredyes:glass_72b279"
+      },
+      {
+        "item": "moredyes:glass_ac8cbf"
+      },
+      {
+        "item": "moredyes:glass_597392"
+      },
+      {
+        "item": "moredyes:glass_7f99b9"
+      },
+      {
+        "item": "moredyes:glass_598cb9"
+      },
+      {
+        "item": "moredyes:glass_726cc5"
+      },
+      {
+        "item": "moredyes:glass_4d73c5"
+      },
+      {
+        "item": "moredyes:glass_667386"
+      },
+      {
+        "item": "moredyes:glass_668c86"
+      },
+      {
+        "item": "moredyes:glass_7f6686"
+      },
+      {
+        "item": "moredyes:glass_405979"
+      },
+      {
+        "item": "moredyes:glass_b2d926"
+      },
+      {
+        "item": "moredyes:glass_ebb26c"
+      },
+      {
+        "item": "moredyes:glass_99993f"
+      },
+      {
+        "item": "moredyes:glass_bfbf66"
+      },
+      {
+        "item": "moredyes:glass_99b266"
+      },
+      {
+        "item": "moredyes:glass_b29272"
+      },
+      {
+        "item": "moredyes:glass_8c9972"
+      },
+      {
+        "item": "moredyes:glass_a69933"
+      },
+      {
+        "item": "moredyes:glass_a6b233"
+      },
+      {
+        "item": "moredyes:glass_bf8c33"
+      },
+      {
+        "item": "moredyes:glass_7f7f26"
+      },
+      {
+        "item": "moredyes:glass_b8a65f"
+      },
+      {
+        "item": "moredyes:glass_668c32"
+      },
+      {
+        "item": "moredyes:glass_8cb359"
+      },
+      {
+        "item": "moredyes:glass_66a659"
+      },
+      {
+        "item": "moredyes:glass_7f5665"
+      },
+      {
+        "item": "moredyes:glass_598c65"
+      },
+      {
+        "item": "moredyes:glass_738c26"
+      },
+      {
+        "item": "moredyes:glass_73a626"
+      },
+      {
+        "item": "moredyes:glass_8c8026"
+      },
+      {
+        "item": "moredyes:glass_4c7319"
+      },
+      {
+        "item": "moredyes:glass_864c5f"
+      },
+      {
+        "item": "moredyes:glass_c6596c"
+      },
+      {
+        "item": "moredyes:glass_ac7f6c"
+      },
+      {
+        "item": "moredyes:glass_ac666c"
+      },
+      {
+        "item": "moredyes:glass_9366ab"
+      },
+      {
+        "item": "moredyes:glass_b95fab"
+      },
+      {
+        "item": "moredyes:glass_9f7f9f"
+      },
+      {
+        "item": "moredyes:glass_c68c9f"
+      },
+      {
+        "item": "moredyes:glass_9f6679"
+      },
+      {
+        "item": "moredyes:glass_727272"
+      },
+      {
+        "item": "moredyes:glass_4c6572"
+      },
+      {
+        "item": "moredyes:glass_65467f"
+      },
+      {
+        "item": "moredyes:glass_404c7f"
+      },
+      {
+        "item": "moredyes:glass_594c40"
+      },
+      {
+        "item": "moredyes:glass_596540"
+      },
+      {
+        "item": "moredyes:glass_724040"
+      },
+      {
+        "item": "moredyes:glass_333333"
+      },
+      {
+        "item": "moredyes:glass_738c99"
+      },
+      {
+        "item": "moredyes:glass_8c6ca5"
+      },
+      {
+        "item": "moredyes:glass_6673a5"
+      },
+      {
+        "item": "moredyes:glass_807366"
+      },
+      {
+        "item": "moredyes:glass_808c66"
+      },
+      {
+        "item": "moredyes:glass_996666"
+      },
+      {
+        "item": "moredyes:glass_595959"
+      },
+      {
+        "item": "moredyes:glass_655fa5"
+      },
+      {
+        "item": "moredyes:glass_4066a5"
+      },
+      {
+        "item": "moredyes:glass_596666"
+      },
+      {
+        "item": "moredyes:glass_597f66"
+      },
+      {
+        "item": "moredyes:glass_725966"
+      },
+      {
+        "item": "moredyes:glass_334c59"
+      },
+      {
+        "item": "moredyes:glass_5945b2"
+      },
+      {
+        "item": "moredyes:glass_734573"
+      },
+      {
+        "item": "moredyes:glass_735f73"
+      },
+      {
+        "item": "moredyes:glass_8c3973"
+      },
+      {
+        "item": "moredyes:glass_4c2c66"
+      },
+      {
+        "item": "moredyes:glass_4c4c73"
+      },
+      {
+        "item": "moredyes:glass_4c6573"
+      },
+      {
+        "item": "moredyes:glass_664073"
+      },
+      {
+        "item": "moredyes:glass_263366"
+      },
+      {
+        "item": "moredyes:glass_403326"
+      },
+      {
+        "item": "moredyes:glass_7f4033"
+      },
+      {
+        "item": "moredyes:glass_666533"
+      },
+      {
+        "item": "moredyes:glass_7f5933"
+      },
+      {
+        "item": "moredyes:glass_404c26"
+      },
+      {
+        "item": "moredyes:glass_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glass"
+  }
+}
