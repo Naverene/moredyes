@@ -1,0 +1,115 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'fabric-loom' version '1.11.8'
+    id 'maven-publish'
+}
+
+// The jar is named moredyes-<mod version>-<Minecraft version>-fabric.jar.
+version = "${mod_version}-${minecraft_version}-fabric"
+group = mod_group_id
+
+base {
+    archivesName = 'moredyes'
+}
+
+// Mojang ships Java 17 to end users in 1.20.1, so the mod targets Java 17. Gradle itself may run on a newer JDK.
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+}
+
+repositories {
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    // Mojang's names, the same ones the Forge 1.20.1 build uses, so the code reads the same in both.
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+}
+
+loom {
+    runs {
+        configureEach {
+            runDir = 'run'
+        }
+    }
+}
+
+// The models, textures, language file, recipes, loot tables, tags and worldgen are shared with the Forge
+// 1.20.1 build (../1.20.1), whose data generators write them. Only the Forge-specific parts are left out or
+// converted here, so new blocks only need adding (and runData run) on the Forge side.
+def forgeDir = file('../1.20.1')
+def forgeGenerated = new File(forgeDir, 'src/generated/resources')
+// Wall recipes are Forge conditional recipes (skipped when wall_blocks is off). Every one of them is a wall.
+def wallRecipes = ['data/moredyes/recipes/*wall_*.json', 'data/moredyes/recipes/stonecutting/*wall_*.json']
+def fabricRecipesDir = layout.buildDirectory.dir('generated/fabricRecipes')
+
+// Rewrites each Forge conditional recipe as the plain recipe with Fabric's load condition, which
+// MoreDyes registers as moredyes:walls_enabled.
+tasks.register('convertWallRecipes') {
+    inputs.files(fileTree(forgeGenerated) { include wallRecipes })
+    outputs.dir(fabricRecipesDir)
+    doLast {
+        def out = fabricRecipesDir.get().asFile
+        project.delete(out)
+        def slurper = new JsonSlurper()
+        fileTree(forgeGenerated) { include wallRecipes }.visit { FileVisitDetails details ->
+            if (details.directory) {
+                return
+            }
+            def json = slurper.parse(details.file)
+            if (json.type != 'forge:conditional' || json.recipes.size() != 1) {
+                throw new GradleException("Unexpected wall recipe ${details.relativePath}")
+            }
+            def entry = json.recipes[0]
+            def recipe = [:]
+            recipe['fabric:load_conditions'] = entry.conditions.collect { [condition: it.type] }
+            recipe.putAll(entry.recipe)
+            def target = new File(out, details.relativePath.pathString)
+            target.parentFile.mkdirs()
+            target.text = JsonOutput.prettyPrint(JsonOutput.toJson(recipe))
+        }
+    }
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    dependsOn 'convertWallRecipes'
+    var replaceProperties = [
+            minecraft_version: minecraft_version, loader_version: loader_version,
+            mod_id: mod_id, mod_name: mod_name, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+    filesMatching('fabric.mod.json') {
+        expand replaceProperties
+    }
+
+    from(new File(forgeDir, 'src/main/resources')) {
+        exclude 'META-INF/mods.toml'
+    }
+    from(forgeGenerated) {
+        exclude '.cache'
+        // Fabric adds the dye trees and tulips to biomes in code (world/ModWorldGen).
+        exclude 'data/moredyes/forge/**'
+        exclude wallRecipes
+    }
+    from(fabricRecipesDir)
+}
+
+tasks.named('jar', Jar).configure {
+    // The mod has well over 65,535 files, more than a plain zip can hold.
+    zip64 = true
+}
+
+tasks.named('remapJar').configure {
+    zip64 = true
+}
