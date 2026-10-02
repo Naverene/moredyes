@@ -768,10 +768,12 @@ def worldgen(jars, w, colors):
         placement.append(step)
     w.write('data/%s/worldgen/placed_feature/tulips.json' % MOD, {'feature': MOD + ':tulips', 'placement': placement})
 
-    for name in ('dye_trees', 'tulips'):
-        w.write('data/%s/neoforge/biome_modifier/%s.json' % (MOD, name), {
-            'type': 'neoforge:add_features', 'biomes': WORLDGEN_BIOMES, 'features': '%s:%s' % (MOD, name),
-            'step': 'vegetal_decoration'})
+    # One biome modifier for both, not one each: NeoForge loads biome modifiers on several threads at once, and two
+    # modifiers that both wrap the same biome tags in an "or" can register listeners on a tag at the same time, which
+    # sometimes crashes registry loading (HolderSet$Named.addInvalidationListener, ArrayIndexOutOfBoundsException).
+    w.write('data/%s/neoforge/biome_modifier/dye_trees_and_tulips.json' % MOD, {
+        'type': 'neoforge:add_features', 'biomes': WORLDGEN_BIOMES,
+        'features': ['%s:dye_trees' % MOD, '%s:tulips' % MOD], 'step': 'vegetal_decoration'})
 
 
 if __name__ == '__main__':
