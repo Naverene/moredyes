@@ -151,7 +151,7 @@ for w in WOODS:
 
 PISTON_OVERLAYS = ['piston_side', 'piston_inner', 'piston_bottom']
 # The darkest greys of a piston's cobblestone (the cracks and edges) stay grey: they are drawn over the dye too.
-PISTON_DARK = 0x48
+PISTON_DARK = 0x60
 
 
 def is_piston_cobblestone(name, x, y):

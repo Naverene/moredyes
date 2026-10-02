@@ -56,7 +56,7 @@ public final class TintSources {
     public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> isGreen(argb) ? 0 : argb;
 
     /** The darkest greys of a piston's cobblestone (the cracks and edges), which stay grey on a dyed piston. */
-    private static final int PISTON_DARK = 0x48;
+    private static final int PISTON_DARK = 0x60;
 
     /**
      * Unchanged where the pixel is not cobblestone or is one of its darkest greys, transparent elsewhere: the wood,
