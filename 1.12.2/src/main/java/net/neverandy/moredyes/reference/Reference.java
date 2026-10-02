@@ -15,7 +15,7 @@ public class Reference
 	public static final String SERVER_PROXY="net.neverandy.moredyes.proxy.ServerProxy";
 
 	public static final BlockInfo BLOCK_INFO_WOOL=new BlockInfo("wool",Material.CLOTH,0.8f,SoundType.CLOTH);
-	public static final BlockInfo BLOCK_INFO_ROCK_WOOL=new BlockInfo("rockwool",Material.ROCK,2.0f,SoundType.CLOTH).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_ROCK_WOOL=new BlockInfo("rockwool",Material.ROCK,0.8f,SoundType.CLOTH).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_STONE=new BlockInfo("stone",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_COBBLE=new BlockInfo("cobble",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_STONE_BRICK=new BlockInfo("stonebrick",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);

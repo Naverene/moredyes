@@ -11,6 +11,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,6 +22,8 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.neverandy.moredyes.block.IColoredBlock;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.GregTechCompat;
+import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
@@ -66,6 +69,18 @@ public class CraftManager
 		guard("crafting_table",workbenches);
 		guard("bookshelf",bookshelves);
 		registry=null;
+		if(ConfigHandler.gregtechRecipes&&Loader.isModLoaded(GregTechCompat.GREGTECH))
+		{
+			try
+			{
+				GregTechCompat.registerRecipes();
+			}
+			catch(LinkageError e)
+			{
+				// Another GregTech than the one this was written against.
+				LogHelper.warn("This version of GregTech is not supported, so no machine recipes were added for the dyed blocks: "+e);
+			}
+		}
 	}
 
 	private static void registerDyeMixes()

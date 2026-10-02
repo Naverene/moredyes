@@ -57,11 +57,77 @@ minecraft {
     }
 }
 
+repositories {
+    maven {
+        name = 'CoFH'
+        url = 'https://maven.covers1624.net'
+    }
+    maven {
+        name = 'GregTech CEu'
+        url = 'https://maven.gtceu.com'
+        // Its Gradle metadata describes RetroFuturaGradle variants this build cannot choose between.
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+        }
+    }
+}
+
+// Mods the optional integrations are tried with, in the dev game only. Nothing here is fetched or changes the
+// build unless it is asked for, for example: ./gradlew runClient -PwithThermal -PwithGregTech
+def testMods = []
+if (project.hasProperty('withThermal')) {
+    testMods += ['cofh:RedstoneFlux:1.12-2.1.0.7:universal', 'cofh:CoFHCore:1.12.2-4.6.3.27:universal',
+                 'cofh:CoFHWorld:1.12.2-1.3.1.7:universal', 'cofh:ThermalFoundation:1.12.2-2.6.3.27:universal']
+}
+if (project.hasProperty('withGregTech')) {
+    testMods += ['codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal', 'gregtech:gregtech:2.8.10-beta']
+}
+
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+
+    // Only compiled against, for compat/GregTechCompat; the mod does not need GregTech to run.
+    compileOnly fg.deobf(project.dependencies.create('gregtech:gregtech:2.8.10-beta') { transitive = false })
+
+    testMods.each { runtimeOnly fg.deobf(project.dependencies.create(it) { transitive = false }) }
+}
+
+// Two things the real game does for these mods that the dev game does not. Run
+// "./gradlew prepareTestMods -PwithThermal -PwithGregTech" once; every later run with the same -P options uses
+// what it wrote under build/testMods.
+// - Access transformers: mods that change Minecraft's access rules have them copied out of their jars.
+// - Mappings: CodeChickenLib reads the MCP name tables from where ForgeGradle 2 used to put them.
+def testModDir = file("$buildDir/testMods")
+task prepareTestMods {
+    doLast {
+        def jars = configurations.detachedConfiguration(
+                testMods.collect { project.dependencies.create(it) { transitive = false } } as Dependency[]).resolve()
+        def atDir = new File(testModDir, 'at')
+        atDir.mkdirs()
+        jars.each { jar ->
+            zipTree(jar).matching { include 'META-INF/*_at.cfg' }.each { at ->
+                new File(atDir, "${jar.name}-${at.name}").text = at.text
+            }
+        }
+        def mcp = configurations.detachedConfiguration(
+                project.dependencies.create('de.oceanlabs.mcp:mcp_snapshot:20171003-1.12@zip')).singleFile
+        copy {
+            from zipTree(mcp)
+            into new File(testModDir, 'mcp')
+        }
+    }
+}
+if (!testMods.isEmpty() && testModDir.isDirectory()) {
+    new File(testModDir, 'at').listFiles().each { minecraft.accessTransformer(it) }
+    minecraft.runs.all {
+        property 'net.minecraftforge.gradle.GradleStart.csvDir', new File(testModDir, 'mcp').absolutePath
+        property 'net.minecraftforge.gradle.GradleStart.srg.notch-srg', file("$buildDir/createSrgToMcp/output.srg").absolutePath
+    }
 }
 
 // Fills in the version fields of mcmod.info.
