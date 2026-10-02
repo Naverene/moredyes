@@ -149,7 +149,9 @@ for w in WOODS:
     SOURCES[w + '_sapling_trunk'] = ('block/%s_sapling' % w, KEEP_IF_NOT_GREEN)
 
 
-PISTON_OVERLAYS = ['piston_side', 'piston_inner']
+PISTON_OVERLAYS = ['piston_side', 'piston_inner', 'piston_bottom']
+# The darkest greys of a piston's cobblestone (the cracks and edges) stay grey: they are drawn over the dye too.
+PISTON_DARK = 0x48
 
 
 def is_piston_cobblestone(name, x, y):
@@ -195,14 +197,15 @@ def main():
         image.save(os.path.join(OUT, name + '.png'))
     print('wrote %d textures to %s' % (len(SOURCES), os.path.relpath(OUT, ROOT)))
 
-    # Only the cobblestone on a dyed piston takes the dye. Its wood and iron are drawn over the tinted texture in their
-    # own colors, from these overlays; the face and the head use the vanilla textures as they are.
+    # Only the cobblestone on a dyed piston takes the dye. Its wood, iron and darkest greys are drawn over the tinted
+    # texture in their own colors, from these overlays; the face and the head use the vanilla textures as they are.
     for name in PISTON_OVERLAYS:
         image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/block/%s.png' % name))).convert('RGBA')
         pixels = image.load()
         for y in range(image.height):
             for x in range(image.width):
-                if is_piston_cobblestone(name, x * 16 // image.width, y * 16 // image.height):
+                dark = grey(pixels[x, y])[0] < PISTON_DARK
+                if not dark and is_piston_cobblestone(name, x * 16 // image.width, y * 16 // image.height):
                     pixels[x, y] = (0, 0, 0, 0)
         image.save(os.path.join(OUT, name + '_overlay.png'))
 
