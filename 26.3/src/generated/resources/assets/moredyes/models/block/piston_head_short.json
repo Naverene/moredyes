@@ -2,8 +2,9 @@
   "parent": "minecraft:block/piston_head_short",
   "textures": {
     "t0": "moredyes:block/piston_side",
-    "t1": "moredyes:block/piston_top",
-    "particle": "moredyes:block/piston_top"
+    "t1": "moredyes:block/piston_side_overlay",
+    "t2": "minecraft:block/piston_top",
+    "particle": "minecraft:block/piston_top"
   },
   "elements": [
     {
@@ -48,9 +49,8 @@
             16,
             16
           ],
-          "texture": "#t1",
-          "cullface": "north",
-          "tintindex": 0
+          "texture": "#t2",
+          "cullface": "north"
         },
         "south": {
           "uv": [
@@ -59,8 +59,7 @@
             16,
             16
           ],
-          "texture": "#t1",
-          "tintindex": 0
+          "texture": "#t2"
         },
         "west": {
           "uv": [
@@ -85,6 +84,63 @@
           "rotation": 90,
           "cullface": "east",
           "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        4
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1",
+          "cullface": "down",
+          "rotation": 180
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1",
+          "cullface": "up"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1",
+          "rotation": 270,
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1",
+          "rotation": 90,
+          "cullface": "east"
         }
       }
     },
@@ -141,6 +197,58 @@
           ],
           "texture": "#t0",
           "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        6,
+        4
+      ],
+      "to": [
+        10,
+        10,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1",
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1",
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            16,
+            4,
+            4,
+            0
+          ],
+          "texture": "#t1"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            16,
+            4
+          ],
+          "texture": "#t1"
         }
       }
     }

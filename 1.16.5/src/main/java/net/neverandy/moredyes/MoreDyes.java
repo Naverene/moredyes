@@ -154,9 +154,9 @@ public class MoreDyes
                 RenderTypeLookup.setRenderLayer(MDBlock.darkOakLeafArray[i], RenderType.getCutoutMipped());
                 RenderTypeLookup.setRenderLayer(MDBlock.jungleLeafArray[i], RenderType.getCutoutMipped());
                 RenderTypeLookup.setRenderLayer(MDBlock.spruceLafArray[i], RenderType.getCutoutMipped());
-                // The slime on a sticky piston is a separate, untinted layer with see-through gaps.
+                // The wood and iron on a dyed piston are an untinted layer drawn over the tinted cobblestone, with see-through gaps.
                 RenderTypeLookup.setRenderLayer(MDBlock.stickyPistonArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.pistonHeadArray[i], RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(MDBlock.pistonArray[i], RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(MDBlock.iceArray[i], RenderType.getTranslucent());
                 for (Block[] flowers : MDBlock.smallFlowerArrays)
                 {

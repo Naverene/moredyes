@@ -25,11 +25,13 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
+import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.ColorIndex;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 /**
  * Dyed piston or sticky piston in every color. The metadata holds the direction and whether it is extended, so the
@@ -40,18 +42,21 @@ import info.kg6jay.moredyes.utility.ColorIndex;
  * moves in a TileEntityMDPiston so the color survives extending and retracting.
  * <p>
  * Other pistons cannot push it: blocks with a tile entity cannot be moved in 1.7.10.
+ * <p>
+ * Only its cobblestone takes the dye. It is drawn in two layers: layer 0 is the tinted cobblestone, layer 1 the
+ * untinted wooden face and the wood and iron drawn over the sides and the inside.
  */
-public class MDBlockDyedPiston extends BlockPistonBase {
+public class MDBlockDyedPiston extends BlockPistonBase implements ILayeredBlock {
+
+    private static final int FACE = 0, INNER = 1, BOTTOM = 2, SIDE = 3;
 
     private final boolean sticky;
-    private final String textureKey;
     @SideOnly(Side.CLIENT)
-    private IIcon sideIcon, topIcon, innerIcon, bottomIcon;
+    private IIcon sideIcon, faceIcon, innerIcon, bottomIcon, sideOverlayIcon, innerOverlayIcon, blankIcon;
 
     public MDBlockDyedPiston(boolean sticky, String name) {
         super(sticky);
         this.sticky = sticky;
-        this.textureKey = sticky ? "piston/topSticky" : "piston/top";
         this.setBlockName(Reference.MOD_ID + "." + name);
         this.setCreativeTab(MoreDyes.tabShapes);
     }
@@ -317,6 +322,38 @@ public class MDBlockDyedPiston extends BlockPistonBase {
     }
 
     @Override
+    public int getRenderType() {
+        return RenderIds.layeredPiston;
+    }
+
+    @Override
+    public int getLayerCount() {
+        return 2;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getLayerIcon(int side, int meta, int layer) {
+        int face = this.faceOf(side, meta);
+        if (layer == 0) {
+            return face == FACE ? null
+                : face == INNER ? this.innerIcon : face == BOTTOM ? this.bottomIcon : this.sideIcon;
+        }
+        return face == FACE ? this.faceIcon
+            : face == INNER ? this.innerOverlayIcon : face == BOTTOM ? null : this.sideOverlayIcon;
+    }
+
+    @Override
+    public int getLayerColor(int meta, int layer) {
+        return layer == 0 ? ColorIndex.rgb(meta) : ColorUtil.WHITE;
+    }
+
+    @Override
+    public boolean isPlant() {
+        return false;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public int getRenderColor(int meta) {
         return ColorIndex.rgb(meta);
@@ -325,25 +362,58 @@ public class MDBlockDyedPiston extends BlockPistonBase {
     @Override
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-        return ColorIndex.rgb(colorAt(world, x, y, z));
+        return RenderLayer.current == 1 ? ColorUtil.WHITE : ColorIndex.rgb(colorAt(world, x, y, z));
+    }
+
+    /** Skips the sides that are not part of the layer being drawn. */
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
+        if (RenderLayer.current >= 0) {
+            int meta = world.getBlockMetadata(
+                x - Facing.offsetsXForSide[side],
+                y - Facing.offsetsYForSide[side],
+                z - Facing.offsetsZForSide[side]);
+            if (this.getLayerIcon(side, meta, RenderLayer.current) == null) {
+                return false;
+            }
+        }
+        return super.shouldSideBeRendered(world, x, y, z, side);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
         this.sideIcon = TintedTextures.register(register, "piston/side");
-        this.topIcon = TintedTextures.register(register, this.textureKey);
+        this.faceIcon = register.registerIcon(this.sticky ? "piston_top_sticky" : "piston_top_normal");
         this.innerIcon = TintedTextures.register(register, "piston/inner");
         this.bottomIcon = TintedTextures.register(register, "piston/bottom");
+        this.sideOverlayIcon = TintedTextures.register(register, "piston/sideOverlay");
+        this.innerOverlayIcon = TintedTextures.register(register, "piston/innerOverlay");
+        this.blankIcon = TintedTextures.register(register, "piston/blank");
     }
 
-    /** Same faces as vanilla: the top shows the inside of the piston while it is extended. */
+    /**
+     * The icon for the layer being drawn. A side that is not on that layer is blank, for the moving piston renderer,
+     * which draws every side. Outside the layered renderer (particles, other mods) it is the tinted cobblestone, or
+     * the face.
+     */
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
+        if (RenderLayer.current >= 0) {
+            IIcon icon = this.getLayerIcon(side, meta, RenderLayer.current);
+            return icon != null ? icon : this.blankIcon;
+        }
+        IIcon icon = this.getLayerIcon(side, meta, 0);
+        return icon != null ? icon : this.faceIcon;
+    }
+
+    /** Same faces as vanilla: the front shows the inside of the piston while it is extended. */
+    private int faceOf(int side, int meta) {
         int facing = getPistonOrientation(meta);
         if (facing > 5) {
-            return this.topIcon;
+            return FACE;
         }
         if (side == facing) {
             boolean shortened = isExtended(meta) || this.minX > 0.0D
@@ -352,8 +422,8 @@ public class MDBlockDyedPiston extends BlockPistonBase {
                 || this.maxX < 1.0D
                 || this.maxY < 1.0D
                 || this.maxZ < 1.0D;
-            return shortened ? this.innerIcon : this.topIcon;
+            return shortened ? INNER : FACE;
         }
-        return side == Facing.oppositeSide[facing] ? this.bottomIcon : this.sideIcon;
+        return side == Facing.oppositeSide[facing] ? BOTTOM : SIDE;
     }
 }

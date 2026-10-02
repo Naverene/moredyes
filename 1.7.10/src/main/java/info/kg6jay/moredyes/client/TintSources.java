@@ -23,6 +23,11 @@ public final class TintSources {
     public interface PixelTransform {
 
         int apply(int argb);
+
+        /** The same with the pixel's position in a texture this many pixels wide, for transforms that need it. */
+        default int apply(int argb, int x, int y, int size) {
+            return this.apply(argb);
+        }
     }
 
     public static final class Source {
@@ -49,6 +54,28 @@ public final class TintSources {
     public static final PixelTransform KEEP_IF_GREEN = argb -> isGreen(argb) ? argb : 0;
     /** Unchanged where the pixel is not green, transparent elsewhere (the trunk of a sapling). */
     public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> isGreen(argb) ? 0 : argb;
+
+    /**
+     * Unchanged where the pixel is not cobblestone, transparent elsewhere: the wood and iron of a piston texture, drawn
+     * untinted over the dyed piston. The side has a wooden strip along the top; the inside has the iron ring and hole
+     * the arm comes out of.
+     */
+    public static PixelTransform keepIfNotPistonCobblestone(boolean inside) {
+        return new PixelTransform() {
+
+            @Override
+            public int apply(int argb) {
+                return argb;
+            }
+
+            @Override
+            public int apply(int argb, int x, int y, int size) {
+                int px = x * 16 / size, py = y * 16 / size;
+                boolean trim = inside ? px >= 5 && px <= 10 && py >= 5 && py <= 10 : py < 4;
+                return trim ? argb : 0;
+            }
+        };
+    }
 
     /**
      * Grey and this many times brighter, for textures that are dark because of their color rather than their material
@@ -135,11 +162,14 @@ public final class TintSources {
         base("cryingObsidian");
         base("ironTrapdoor");
         base("chain");
+        // Only the cobblestone of a dyed piston takes the dye: its wood and iron are drawn over it from the overlays,
+        // and its face is the vanilla texture (see MDBlockDyedPiston).
         block("piston/side", "piston_side");
-        block("piston/top", "piston_top_normal");
-        block("piston/topSticky", "piston_top_sticky");
         block("piston/inner", "piston_inner");
         block("piston/bottom", "piston_bottom");
+        add("piston/sideOverlay", vanillaBlock("piston_side"), keepIfNotPistonCobblestone(false), false);
+        add("piston/innerOverlay", vanillaBlock("piston_inner"), keepIfNotPistonCobblestone(true), false);
+        add("piston/blank", vanillaBlock("piston_bottom"), argb -> 0, false);
         add("cornflower/petals", modTexture("blocks/base/cornflower"), GREY_IF_NOT_GREEN, false);
         add("cornflower/stem", modTexture("blocks/base/cornflower"), KEEP_IF_GREEN, false);
 

@@ -13,17 +13,23 @@ import info.kg6jay.moredyes.block.ILayeredBlock;
 import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
 
 /**
- * Draws an ILayeredBlock once per layer with the vanilla cube or crossed-squares renderer. The block reads
+ * Draws an ILayeredBlock once per layer with the vanilla cube, crossed-squares or piston renderer. The block reads
  * RenderLayer.current to return that layer's icons and tint.
  */
 public class LayeredBlockRenderer implements ISimpleBlockRenderingHandler {
 
-    private final int renderId;
-    private final boolean plant;
+    public enum Shape {
+        CUBE,
+        PLANT,
+        PISTON
+    }
 
-    public LayeredBlockRenderer(int renderId, boolean plant) {
+    private final int renderId;
+    private final Shape shape;
+
+    public LayeredBlockRenderer(int renderId, Shape shape) {
         this.renderId = renderId;
-        this.plant = plant;
+        this.shape = shape;
     }
 
     @Override
@@ -37,10 +43,12 @@ public class LayeredBlockRenderer implements ISimpleBlockRenderingHandler {
         try {
             for (int layer = 0; layer < layered.getLayerCount(); ++layer) {
                 RenderLayer.current = layer;
-                if (this.plant) {
+                if (this.shape == Shape.PLANT) {
                     if (layered.getLayerIcon(0, meta, layer) != null) {
                         drawn |= renderer.renderCrossedSquares(block, x, y, z);
                     }
+                } else if (this.shape == Shape.PISTON) {
+                    drawn |= renderer.renderPistonBase(block, x, y, z, false);
                 } else {
                     drawn |= renderer.renderStandardBlock(block, x, y, z);
                 }
@@ -58,6 +66,8 @@ public class LayeredBlockRenderer implements ISimpleBlockRenderingHandler {
             return;
         }
         Tessellator tessellator = Tessellator.instance;
+        // Like vanilla, a piston item is drawn facing up; the item's metadata is its color.
+        int iconMeta = this.shape == Shape.PISTON ? 1 : meta;
         block.setBlockBoundsForItemRender();
         renderer.setRenderBoundsFromBlock(block);
         GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
@@ -66,7 +76,7 @@ public class LayeredBlockRenderer implements ISimpleBlockRenderingHandler {
             int color = layered.getLayerColor(meta, layer);
             GL11.glColor4f((color >> 16 & 255) / 255.0F, (color >> 8 & 255) / 255.0F, (color & 255) / 255.0F, 1.0F);
             for (int side = 0; side < 6; ++side) {
-                IIcon icon = layered.getLayerIcon(side, meta, layer);
+                IIcon icon = layered.getLayerIcon(side, iconMeta, layer);
                 if (icon == null) {
                     continue;
                 }
@@ -106,7 +116,7 @@ public class LayeredBlockRenderer implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean shouldRender3DInInventory(int modelId) {
-        return !this.plant;
+        return this.shape != Shape.PLANT;
     }
 
     @Override

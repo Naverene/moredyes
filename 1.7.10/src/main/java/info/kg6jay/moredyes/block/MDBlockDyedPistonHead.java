@@ -14,13 +14,12 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.reference.Reference;
-import info.kg6jay.moredyes.utility.ColorIndex;
 
 /**
  * The head of an extended dyed piston (see MDBlockDyedPiston), one block for both kinds and every color. Like vanilla's
- * it has no item; it takes the color of the piston behind it, and its metadata holds the direction, plus 8 when the
+ * it has no item and looks the same as vanilla's; it drops the color of the piston behind it, and its metadata holds
+ * the direction, plus 8 when the
  * piston is sticky.
  * <p>
  * Vanilla's head only stays attached to the vanilla pistons, so the methods that look at the piston behind it are
@@ -102,19 +101,14 @@ public class MDBlockDyedPistonHead extends BlockPistonExtension {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-        return ColorIndex.rgb(MDBlockDyedPiston.colorAt(world, x, y, z));
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        this.sideIcon = TintedTextures.register(register, "piston/side");
-        this.topIcon = TintedTextures.register(register, "piston/top");
-        this.topStickyIcon = TintedTextures.register(register, "piston/topSticky");
+        // The head is all wood and iron, so it is not dyed: it uses the vanilla textures.
+        this.sideIcon = register.registerIcon("piston_side");
+        this.topIcon = register.registerIcon("piston_top_normal");
+        this.topStickyIcon = register.registerIcon("piston_top_sticky");
     }
 
-    /** Same faces as vanilla. The rod is drawn by vanilla with the vanilla piston texture, so it stays wood. */
+    /** Same faces as vanilla. */
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {

@@ -9,7 +9,7 @@ materials like stone still show their dye clearly.
 
 Some vanilla textures are split into two layers: a grey part that takes the dye
 color, and a part that keeps its own color and is drawn over it untinted (a
-tulip's stem, a sapling's trunk, the slime on a sticky piston).
+tulip's stem, a sapling's trunk, the wood and iron on a piston).
 
 TEXTURES below is also read by generate_resources.py, which uses it to point
 the models at these textures.
@@ -35,8 +35,8 @@ BRIGHTNESS = 200
 # Materials that are meant to stay dark whatever their dye.
 STAY_DARK = {'block/obsidian', 'block/coal_block'}
 
-GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, SLIME = (
-    'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'slime')
+GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_IF_NOT_COBBLESTONE = (
+    'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'keep_if_not_cobblestone')
 
 # Vanilla texture -> the layers it becomes, as (texture in this mod, how it is made, whether it takes the dye color).
 # The first layer replaces the vanilla texture in the models; a second layer is drawn over it, untinted.
@@ -76,11 +76,13 @@ TEXTURES = {
     'block/crafting_table_side': [('block/crafting_table_side', GREY, True)],
     'block/crafting_table_front': [('block/crafting_table_front', GREY, True)],
     'block/bookshelf': [('block/bookshelf', GREY, True)],
-    'block/piston_top': [('block/piston_top', GREY, True)],
-    'block/piston_side': [('block/piston_side', GREY, True)],
+    # Only the cobblestone on a piston takes the dye: its wood and iron are drawn over it in their own colors, and the
+    # face (piston_top and piston_top_sticky) is not listed, so it stays vanilla.
+    'block/piston_side': [('block/piston_side', GREY, True),
+                          ('block/piston_side_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/piston_bottom': [('block/piston_bottom', GREY, True)],
-    'block/piston_inner': [('block/piston_inner', GREY, True)],
-    'block/piston_top_sticky': [('block/piston_top_sticky', SLIME, True), ('block/piston_slime', SLIME, False)],
+    'block/piston_inner': [('block/piston_inner', GREY, True),
+                           ('block/piston_inner_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/white_tulip': [('block/tulip', GREY_IF_NOT_GREEN, True), ('block/tulip_stem', KEEP_IF_GREEN, False)],
     'item/white_dye': [('item/dye', GREY, True)],
 }
@@ -110,6 +112,17 @@ def is_green(p):
         return False
     h, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
     return s > 0.15 and 65 <= h * 360 <= 170
+
+
+def is_piston_cobblestone(source, x, y):
+    """Whether pixel (x, y) of a 16x16 vanilla piston texture is cobblestone. The side has a wooden strip along the
+    top; the inside has the iron ring and hole the arm comes out of."""
+    if source == 'block/piston_side':
+        return y >= 4
+    if source == 'block/piston_inner':
+        ring = 5 <= x <= 10 and 5 <= y <= 10 and not (x in (5, 10) and y in (5, 10))
+        return not ring
+    return True
 
 
 def stats_of(pixels):
@@ -159,31 +172,26 @@ def main():
     count = 0
     for source, layers in sorted(TEXTURES.items()):
         image = vanilla(source)
-        if layers[0][1] == SLIME:
-            # The sticky piston face is the plain piston face with slime on it: the slime is every pixel that
-            # differs. The rim is brightened by the same amount as the plain face, so the two match.
-            plain = vanilla('block/piston_top')
-            pairs = list(zip(plain.get_flattened_data(), image.get_flattened_data()))
-            rim = [grey(s) if s == p else (0, 0, 0, 0) for p, s in pairs]
-            layer_pixels = [brighten(rim, stats_of([grey(p) for p in plain.get_flattened_data()])),
-                            [(0, 0, 0, 0) if s == p else s for p, s in pairs]]
-        else:
-            layer_pixels = []
-            for name, how, tinted in layers:
-                pixels = list(image.get_flattened_data())
-                if how == GREY:
-                    pixels = [grey(p) for p in pixels]
-                elif how == GREY_IF_GREEN:
-                    pixels = [grey(p) if is_green(p) else (0, 0, 0, 0) for p in pixels]
-                elif how == GREY_IF_NOT_GREEN:
-                    pixels = [(0, 0, 0, 0) if is_green(p) else grey(p) for p in pixels]
-                elif how == KEEP_IF_GREEN:
-                    pixels = [p if is_green(p) else (0, 0, 0, 0) for p in pixels]
-                elif how == KEEP_IF_NOT_GREEN:
-                    pixels = [(0, 0, 0, 0) if is_green(p) else p for p in pixels]
-                if tinted and source not in STAY_DARK:
-                    pixels = brighten(pixels)
-                layer_pixels.append(pixels)
+        layer_pixels = []
+        for name, how, tinted in layers:
+            pixels = list(image.get_flattened_data())
+            if how == GREY:
+                pixels = [grey(p) for p in pixels]
+            elif how == GREY_IF_GREEN:
+                pixels = [grey(p) if is_green(p) else (0, 0, 0, 0) for p in pixels]
+            elif how == GREY_IF_NOT_GREEN:
+                pixels = [(0, 0, 0, 0) if is_green(p) else grey(p) for p in pixels]
+            elif how == KEEP_IF_GREEN:
+                pixels = [p if is_green(p) else (0, 0, 0, 0) for p in pixels]
+            elif how == KEEP_IF_NOT_GREEN:
+                pixels = [(0, 0, 0, 0) if is_green(p) else p for p in pixels]
+            elif how == KEEP_IF_NOT_COBBLESTONE:
+                w, h = image.size
+                pixels = [(0, 0, 0, 0) if is_piston_cobblestone(source, i % w * 16 // w, i // w * 16 // h) else p
+                          for i, p in enumerate(pixels)]
+            if tinted and source not in STAY_DARK:
+                pixels = brighten(pixels)
+            layer_pixels.append(pixels)
         for (name, _, _), pixels in zip(layers, layer_pixels):
             out = Image.new('RGBA', image.size)
             out.putdata(pixels)

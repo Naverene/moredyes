@@ -15,6 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.MDBlockDyedPiston;
 import info.kg6jay.moredyes.block.MDBlockDyedPistonHead;
@@ -70,7 +71,14 @@ public class TileEntityMDPistonRenderer extends TileEntitySpecialRenderer {
             // The head sliding back in, then the piston itself, which does not move
             this.renderBlocks.renderPistonExtensionAllFaces(MDBlock.pistonHead, px, py, pz, progress < 0.5F);
             tessellator.setTranslation(x - px, y - py, z - pz);
-            this.renderBlocks.renderPistonBaseAllFaces(block, px, py, pz);
+            try {
+                for (int layer = 0; layer < ((MDBlockDyedPiston) block).getLayerCount(); ++layer) {
+                    RenderLayer.current = layer;
+                    this.renderBlocks.renderPistonBaseAllFaces(block, px, py, pz);
+                }
+            } finally {
+                RenderLayer.current = -1;
+            }
         } else {
             this.renderBlocks.renderBlockAllFaces(block, px, py, pz);
         }
