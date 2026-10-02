@@ -28,7 +28,9 @@ jobs:
       versions: ${{ steps.plan.outputs.versions }}
     env:
       # One entry per version folder. `java` builds it; `cf_java` is the Java version players run it on,
-      # as listed on CurseForge. The folder name is the Minecraft version.
+      # as listed on CurseForge. The folder name is the Minecraft version unless `mc` says otherwise.
+      # `checkout` lists every folder the build reads, one per line, when that is more than its own: the
+      # Fabric build takes its data files from the Forge folder, so a change there rebuilds it too.
       VERSIONS: |
         [
           { "dir": "1.7.10", "java": "21", "cf_java": "8",  "loader": "forge" },
@@ -36,6 +38,7 @@ jobs:
           { "dir": "1.16.5", "java": "8",  "cf_java": "8",  "loader": "forge" },
           { "dir": "1.18.2", "java": "17", "cf_java": "17", "loader": "forge" },
           { "dir": "1.20.1", "java": "17", "cf_java": "17", "loader": "forge" },
+          { "dir": "1.20.1-fabric", "mc": "1.20.1", "checkout": "1.20.1-fabric\n1.20.1", "java": "21", "cf_java": "17", "loader": "fabric" },
           { "dir": "26.3",   "java": "25", "cf_java": "25", "loader": "neoforge" }
         ]
     steps:
@@ -57,7 +60,8 @@ jobs:
             versions=$(jq -c . <<< "$VERSIONS")
           else
             versions=$(jq -c --arg changed "$changed" \
-              '[.[] | . as $v | select($changed | split("\n") | any(startswith($v.dir + "/")))]' <<< "$VERSIONS")
+              '[.[] | . as $v | (($v.checkout // $v.dir) | split("\n")) as $dirs
+                | select($changed | split("\n") | any(. as $f | $dirs | any(. as $d | $f | startswith($d + "/"))))]' <<< "$VERSIONS")
           fi
         else
           versions=$(jq -c . <<< "$VERSIONS")
@@ -84,9 +88,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        # Only this version's folder is checked out. The 1.7.10 build also gets the commit history, so it
-        # can name dev builds after the latest tag with git describe.
-        sparse-checkout: ${{ matrix.dir }}
+        # Only this version's folder (and any it reads) is checked out. The 1.7.10 build also gets the
+        # commit history, so it can name dev builds after the latest tag with git describe.
+        sparse-checkout: ${{ matrix.checkout || matrix.dir }}
         fetch-depth: ${{ matrix.dir == '1.7.10' && '0' || '1' }}
 
     - name: Set up JDK ${{ matrix.java }}
@@ -232,12 +236,12 @@ jobs:
         curseforge-id: 252137
         curseforge-token: ${{ env.CURSEFORGE_TOKEN }}
         files: dist/*.jar
-        name: More Dyes ${{ github.ref_name }} for Minecraft ${{ matrix.dir }}
+        name: More Dyes ${{ github.ref_name }} for Minecraft ${{ matrix.mc || matrix.dir }} (${{ matrix.loader }})
         version: ${{ github.ref_name }}-${{ matrix.dir }}
         version-type: release
         changelog: See https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}
         loaders: ${{ matrix.loader }}
-        game-versions: ${{ matrix.dir }}
+        game-versions: ${{ matrix.mc || matrix.dir }}
         java: ${{ matrix.cf_java }}
 
     - name: Note the skipped CurseForge upload

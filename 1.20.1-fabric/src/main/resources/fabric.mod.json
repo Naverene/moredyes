@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": ["${mod_authors}"],
+  "contact": {
+    "sources": "https://github.com/Naverene/moredyes"
+  },
+  "license": "All Rights Reserved",
+  "icon": "assets/moredyes/textures/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["net.neverandy.moredyes.MoreDyes"],
+    "client": ["net.neverandy.moredyes.client.ClientSetup"]
+  },
+  "mixins": ["moredyes.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
