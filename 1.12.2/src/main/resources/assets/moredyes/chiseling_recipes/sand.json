@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:sand"
+    },
+    {
+      "block": "moredyes:sand_white"
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:sand_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:sand_orange"
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:sand_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:sand_magenta"
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:sand_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:sand_light_blue"
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:sand_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:sand_yellow"
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:sand_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:sand_lime"
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:sand_pink"
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:sand_gray"
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:sand_light_gray"
+    },
+    {
+      "block": "moredyes:sand_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:sand_cyan"
+    },
+    {
+      "block": "moredyes:sand_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:sand_purple"
+    },
+    {
+      "block": "moredyes:sand_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:sand_blue"
+    },
+    {
+      "block": "moredyes:sand_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:sand_brown"
+    },
+    {
+      "block": "moredyes:sand_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:sand_green"
+    },
+    {
+      "block": "moredyes:sand_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:sand_red"
+    }
+  ]
+}

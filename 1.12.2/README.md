@@ -15,6 +15,8 @@ Dyed blocks behave like the vanilla blocks they are made from: dyed stone drops 
 
 If Thermal Foundation is installed, rockwool can be dyed too.
 
+If Chisel or Rechiseled is installed, every dyed shade can be chiseled to and from its vanilla block (stone, wool, planks, chests and the rest). Where the chisel mod already has a group for the vanilla block, the shades join it. Neither mod is needed.
+
 The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.
 
 ## Building
@@ -28,6 +30,8 @@ The jar is written to `build/libs`.
 To run the game from the project, import it into your IDE first (or run `./gradlew eclipse` once). That makes ForgeGradle decompile Minecraft, which `runClient` and `runServer` need on 1.12.2; without it they crash while Forge loads.
 
 Every color of a block shares one grey texture, which the game tints with the dye color. The textures, models and blockstate files are written by `tools/make_assets.py`; run it again after changing it.
+
+The Rechiseled chiseling groups (`assets/moredyes/chiseling_recipes`) are written by `tools/make_chisel_recipes.py`; the Chisel groups are sent as IMC messages from `compat/ChiselCompat.java`. Keep the two in step.
 
 ## Builds and releases
 

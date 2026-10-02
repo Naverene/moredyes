@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:hardened_clay"
+    },
+    {
+      "block": "moredyes:hardened_clay_white"
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:hardened_clay_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:hardened_clay_orange"
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:hardened_clay_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta"
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:hardened_clay_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue"
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:hardened_clay_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow"
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:hardened_clay_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:hardened_clay_lime"
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:hardened_clay_pink"
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:hardened_clay_gray"
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray"
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:hardened_clay_cyan"
+    },
+    {
+      "block": "moredyes:hardened_clay_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:hardened_clay_purple"
+    },
+    {
+      "block": "moredyes:hardened_clay_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:hardened_clay_blue"
+    },
+    {
+      "block": "moredyes:hardened_clay_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:hardened_clay_brown"
+    },
+    {
+      "block": "moredyes:hardened_clay_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:hardened_clay_green"
+    },
+    {
+      "block": "moredyes:hardened_clay_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:hardened_clay_red"
+    }
+  ]
+}

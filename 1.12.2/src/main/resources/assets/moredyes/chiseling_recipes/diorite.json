@@ -1,0 +1,467 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:stone",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_white"
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:diorite_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:diorite_orange"
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:diorite_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:diorite_magenta"
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:diorite_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:diorite_light_blue"
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:diorite_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:diorite_yellow"
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:diorite_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:diorite_lime"
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:diorite_pink"
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:diorite_gray"
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:diorite_light_gray"
+    },
+    {
+      "block": "moredyes:diorite_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:diorite_cyan"
+    },
+    {
+      "block": "moredyes:diorite_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:diorite_purple"
+    },
+    {
+      "block": "moredyes:diorite_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:diorite_blue"
+    },
+    {
+      "block": "moredyes:diorite_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:diorite_brown"
+    },
+    {
+      "block": "moredyes:diorite_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:diorite_green"
+    },
+    {
+      "block": "moredyes:diorite_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:diorite_red"
+    }
+  ]
+}

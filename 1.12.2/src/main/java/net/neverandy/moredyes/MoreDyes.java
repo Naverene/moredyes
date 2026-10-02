@@ -3,6 +3,7 @@ package net.neverandy.moredyes;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.ChiselCompat;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
@@ -66,6 +68,11 @@ public class MoreDyes
 		((Tab)tabBlocks).setTabIcon(new ItemStack(MDBlock.wool[0]));
 		((Tab)tabPlants).setTabIcon(new ItemStack(MDBlock.tulip[0]));
 		((Tab)tabTrees).setTabIcon(new ItemStack(MDBlock.sapling[0]));
+		// Chisel reads its IMC messages after init, so they are sent here.
+		if(Loader.isModLoaded(ChiselCompat.CHISEL))
+		{
+			ChiselCompat.sendIMC();
+		}
 		LogHelper.info("Initialization Complete");
 	}
 	@Mod.EventHandler

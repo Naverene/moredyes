@@ -1,0 +1,363 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:chest"
+    },
+    {
+      "block": "moredyes:chest_ecbf99"
+    },
+    {
+      "block": "moredyes:chest_d9a6ec"
+    },
+    {
+      "block": "moredyes:chest_b3ccec"
+    },
+    {
+      "block": "moredyes:chest_f2f299"
+    },
+    {
+      "block": "moredyes:chest_bfe68c"
+    },
+    {
+      "block": "moredyes:chest_f9bfd2"
+    },
+    {
+      "block": "moredyes:chest_cccccc"
+    },
+    {
+      "block": "moredyes:chest_a6bfcc"
+    },
+    {
+      "block": "moredyes:chest_bf9fd9"
+    },
+    {
+      "block": "moredyes:chest_99a6d9"
+    },
+    {
+      "block": "moredyes:chest_b3a699"
+    },
+    {
+      "block": "moredyes:chest_b3bf99"
+    },
+    {
+      "block": "moredyes:chest_cc9999"
+    },
+    {
+      "block": "moredyes:chest_c56685"
+    },
+    {
+      "block": "moredyes:chest_9f8c85"
+    },
+    {
+      "block": "moredyes:chest_deb233"
+    },
+    {
+      "block": "moredyes:chest_aca526"
+    },
+    {
+      "block": "moredyes:chest_e57f6c"
+    },
+    {
+      "block": "moredyes:chest_92663f"
+    },
+    {
+      "block": "moredyes:chest_b98c66"
+    },
+    {
+      "block": "moredyes:chest_927f66"
+    },
+    {
+      "block": "moredyes:chest_ac5f72"
+    },
+    {
+      "block": "moredyes:chest_866672"
+    },
+    {
+      "block": "moredyes:chest_9f6633"
+    },
+    {
+      "block": "moredyes:chest_9f7f33"
+    },
+    {
+      "block": "moredyes:chest_b95933"
+    },
+    {
+      "block": "moredyes:chest_794c26"
+    },
+    {
+      "block": "moredyes:chest_8c72d8"
+    },
+    {
+      "block": "moredyes:chest_cb9886"
+    },
+    {
+      "block": "moredyes:chest_998c79"
+    },
+    {
+      "block": "moredyes:chest_d265bf"
+    },
+    {
+      "block": "moredyes:chest_7f4c92"
+    },
+    {
+      "block": "moredyes:chest_a672b9"
+    },
+    {
+      "block": "moredyes:chest_7f65b9"
+    },
+    {
+      "block": "moredyes:chest_9946c5"
+    },
+    {
+      "block": "moredyes:chest_734cc5"
+    },
+    {
+      "block": "moredyes:chest_8c4c86"
+    },
+    {
+      "block": "moredyes:chest_8c6586"
+    },
+    {
+      "block": "moredyes:chest_a64086"
+    },
+    {
+      "block": "moredyes:chest_663379"
+    },
+    {
+      "block": "moredyes:chest_a5bf86"
+    },
+    {
+      "block": "moredyes:chest_72b279"
+    },
+    {
+      "block": "moredyes:chest_ac8cbf"
+    },
+    {
+      "block": "moredyes:chest_597392"
+    },
+    {
+      "block": "moredyes:chest_7f99b9"
+    },
+    {
+      "block": "moredyes:chest_598cb9"
+    },
+    {
+      "block": "moredyes:chest_726cc5"
+    },
+    {
+      "block": "moredyes:chest_4d73c5"
+    },
+    {
+      "block": "moredyes:chest_667386"
+    },
+    {
+      "block": "moredyes:chest_668c86"
+    },
+    {
+      "block": "moredyes:chest_7f6686"
+    },
+    {
+      "block": "moredyes:chest_405979"
+    },
+    {
+      "block": "moredyes:chest_b2d926"
+    },
+    {
+      "block": "moredyes:chest_ebb26c"
+    },
+    {
+      "block": "moredyes:chest_99993f"
+    },
+    {
+      "block": "moredyes:chest_bfbf66"
+    },
+    {
+      "block": "moredyes:chest_99b266"
+    },
+    {
+      "block": "moredyes:chest_b29272"
+    },
+    {
+      "block": "moredyes:chest_8c9972"
+    },
+    {
+      "block": "moredyes:chest_a69933"
+    },
+    {
+      "block": "moredyes:chest_a6b233"
+    },
+    {
+      "block": "moredyes:chest_bf8c33"
+    },
+    {
+      "block": "moredyes:chest_7f7f26"
+    },
+    {
+      "block": "moredyes:chest_b8a65f"
+    },
+    {
+      "block": "moredyes:chest_668c32"
+    },
+    {
+      "block": "moredyes:chest_8cb359"
+    },
+    {
+      "block": "moredyes:chest_66a659"
+    },
+    {
+      "block": "moredyes:chest_7f5665"
+    },
+    {
+      "block": "moredyes:chest_598c65"
+    },
+    {
+      "block": "moredyes:chest_738c26"
+    },
+    {
+      "block": "moredyes:chest_73a626"
+    },
+    {
+      "block": "moredyes:chest_8c8026"
+    },
+    {
+      "block": "moredyes:chest_4c7319"
+    },
+    {
+      "block": "moredyes:chest_864c5f"
+    },
+    {
+      "block": "moredyes:chest_c6596c"
+    },
+    {
+      "block": "moredyes:chest_ac7f6c"
+    },
+    {
+      "block": "moredyes:chest_ac666c"
+    },
+    {
+      "block": "moredyes:chest_9366ab"
+    },
+    {
+      "block": "moredyes:chest_b95fab"
+    },
+    {
+      "block": "moredyes:chest_9f7f9f"
+    },
+    {
+      "block": "moredyes:chest_c68c9f"
+    },
+    {
+      "block": "moredyes:chest_9f6679"
+    },
+    {
+      "block": "moredyes:chest_727272"
+    },
+    {
+      "block": "moredyes:chest_4c6572"
+    },
+    {
+      "block": "moredyes:chest_65467f"
+    },
+    {
+      "block": "moredyes:chest_404c7f"
+    },
+    {
+      "block": "moredyes:chest_594c40"
+    },
+    {
+      "block": "moredyes:chest_596540"
+    },
+    {
+      "block": "moredyes:chest_724040"
+    },
+    {
+      "block": "moredyes:chest_333333"
+    },
+    {
+      "block": "moredyes:chest_738c99"
+    },
+    {
+      "block": "moredyes:chest_8c6ca5"
+    },
+    {
+      "block": "moredyes:chest_6673a5"
+    },
+    {
+      "block": "moredyes:chest_807366"
+    },
+    {
+      "block": "moredyes:chest_808c66"
+    },
+    {
+      "block": "moredyes:chest_996666"
+    },
+    {
+      "block": "moredyes:chest_595959"
+    },
+    {
+      "block": "moredyes:chest_655fa5"
+    },
+    {
+      "block": "moredyes:chest_4066a5"
+    },
+    {
+      "block": "moredyes:chest_596666"
+    },
+    {
+      "block": "moredyes:chest_597f66"
+    },
+    {
+      "block": "moredyes:chest_725966"
+    },
+    {
+      "block": "moredyes:chest_334c59"
+    },
+    {
+      "block": "moredyes:chest_5945b2"
+    },
+    {
+      "block": "moredyes:chest_734573"
+    },
+    {
+      "block": "moredyes:chest_735f73"
+    },
+    {
+      "block": "moredyes:chest_8c3973"
+    },
+    {
+      "block": "moredyes:chest_4c2c66"
+    },
+    {
+      "block": "moredyes:chest_4c4c73"
+    },
+    {
+      "block": "moredyes:chest_4c6573"
+    },
+    {
+      "block": "moredyes:chest_664073"
+    },
+    {
+      "block": "moredyes:chest_263366"
+    },
+    {
+      "block": "moredyes:chest_403326"
+    },
+    {
+      "block": "moredyes:chest_7f4033"
+    },
+    {
+      "block": "moredyes:chest_666533"
+    },
+    {
+      "block": "moredyes:chest_7f5933"
+    },
+    {
+      "block": "moredyes:chest_404c26"
+    },
+    {
+      "block": "moredyes:chest_592626"
+    }
+  ]
+}

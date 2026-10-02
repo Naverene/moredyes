@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:brick_block"
+    },
+    {
+      "block": "moredyes:brick_white"
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:brick_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:brick_orange"
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:brick_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:brick_magenta"
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:brick_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:brick_light_blue"
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:brick_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:brick_yellow"
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:brick_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:brick_lime"
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:brick_pink"
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:brick_gray"
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:brick_light_gray"
+    },
+    {
+      "block": "moredyes:brick_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:brick_cyan"
+    },
+    {
+      "block": "moredyes:brick_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:brick_purple"
+    },
+    {
+      "block": "moredyes:brick_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:brick_blue"
+    },
+    {
+      "block": "moredyes:brick_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:brick_brown"
+    },
+    {
+      "block": "moredyes:brick_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:brick_green"
+    },
+    {
+      "block": "moredyes:brick_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:brick_red"
+    }
+  ]
+}

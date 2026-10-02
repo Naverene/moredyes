@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:redstone_block"
+    },
+    {
+      "block": "moredyes:redstone_white"
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:redstone_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:redstone_orange"
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:redstone_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:redstone_magenta"
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:redstone_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:redstone_light_blue"
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:redstone_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:redstone_yellow"
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:redstone_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:redstone_lime"
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:redstone_pink"
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:redstone_gray"
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:redstone_light_gray"
+    },
+    {
+      "block": "moredyes:redstone_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:redstone_cyan"
+    },
+    {
+      "block": "moredyes:redstone_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:redstone_purple"
+    },
+    {
+      "block": "moredyes:redstone_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:redstone_blue"
+    },
+    {
+      "block": "moredyes:redstone_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:redstone_brown"
+    },
+    {
+      "block": "moredyes:redstone_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:redstone_green"
+    },
+    {
+      "block": "moredyes:redstone_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:redstone_red"
+    }
+  ]
+}

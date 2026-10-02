@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:lapis_block"
+    },
+    {
+      "block": "moredyes:lapis_white"
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:lapis_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:lapis_orange"
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:lapis_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:lapis_magenta"
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:lapis_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:lapis_light_blue"
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:lapis_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:lapis_yellow"
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:lapis_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:lapis_lime"
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:lapis_pink"
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:lapis_gray"
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:lapis_light_gray"
+    },
+    {
+      "block": "moredyes:lapis_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:lapis_cyan"
+    },
+    {
+      "block": "moredyes:lapis_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:lapis_purple"
+    },
+    {
+      "block": "moredyes:lapis_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:lapis_blue"
+    },
+    {
+      "block": "moredyes:lapis_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:lapis_brown"
+    },
+    {
+      "block": "moredyes:lapis_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:lapis_green"
+    },
+    {
+      "block": "moredyes:lapis_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:lapis_red"
+    }
+  ]
+}
