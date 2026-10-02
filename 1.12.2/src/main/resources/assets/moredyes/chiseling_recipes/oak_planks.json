@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:planks"
+    },
+    {
+      "block": "moredyes:plank_white"
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:plank_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:plank_orange"
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:plank_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:plank_magenta"
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:plank_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:plank_light_blue"
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:plank_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:plank_yellow"
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:plank_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:plank_lime"
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:plank_pink"
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:plank_gray"
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:plank_light_gray"
+    },
+    {
+      "block": "moredyes:plank_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:plank_cyan"
+    },
+    {
+      "block": "moredyes:plank_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:plank_purple"
+    },
+    {
+      "block": "moredyes:plank_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:plank_blue"
+    },
+    {
+      "block": "moredyes:plank_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:plank_brown"
+    },
+    {
+      "block": "moredyes:plank_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:plank_green"
+    },
+    {
+      "block": "moredyes:plank_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:plank_red"
+    }
+  ]
+}

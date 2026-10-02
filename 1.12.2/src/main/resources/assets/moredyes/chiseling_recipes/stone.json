@@ -1,0 +1,1848 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:stone"
+    },
+    {
+      "block": "minecraft:stonebrick"
+    },
+    {
+      "block": "minecraft:stonebrick",
+      "block_meta": 2
+    },
+    {
+      "block": "minecraft:stonebrick",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_white"
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stone_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stone_orange"
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stone_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:stone_magenta"
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stone_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stone_light_blue"
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stone_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stone_yellow"
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stone_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stone_lime"
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stone_pink"
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stone_gray"
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stone_light_gray"
+    },
+    {
+      "block": "moredyes:stone_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stone_cyan"
+    },
+    {
+      "block": "moredyes:stone_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stone_purple"
+    },
+    {
+      "block": "moredyes:stone_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stone_blue"
+    },
+    {
+      "block": "moredyes:stone_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stone_brown"
+    },
+    {
+      "block": "moredyes:stone_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stone_green"
+    },
+    {
+      "block": "moredyes:stone_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stone_red"
+    },
+    {
+      "block": "moredyes:stonebrick_white"
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_orange"
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:stonebrick_magenta"
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue"
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_yellow"
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_lime"
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_pink"
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_gray"
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray"
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cyan"
+    },
+    {
+      "block": "moredyes:stonebrick_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_purple"
+    },
+    {
+      "block": "moredyes:stonebrick_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_blue"
+    },
+    {
+      "block": "moredyes:stonebrick_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_brown"
+    },
+    {
+      "block": "moredyes:stonebrick_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_green"
+    },
+    {
+      "block": "moredyes:stonebrick_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_red"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_cyan"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_purple"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_blue"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_brown"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_green"
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_cracked_red"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_carved_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_carved_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_carved_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_carved_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:stonebrick_carved_cyan"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:stonebrick_carved_purple"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:stonebrick_carved_blue"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:stonebrick_carved_brown"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:stonebrick_carved_green"
+    },
+    {
+      "block": "moredyes:stonebrick_carved_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:stonebrick_carved_red"
+    }
+  ]
+}

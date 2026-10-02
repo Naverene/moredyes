@@ -522,8 +522,74 @@ def main():
     tags(jars, w, kinds, colors)
     recipes(jars, w, kinds, colors)
     worldgen(jars, w, colors)
+    chiseling(w, kinds, colors)
     w.write('data/%s/loot_modifiers/dyed_sheep_wool.json' % MOD, {'type': MOD + ':dyed_sheep_wool'})
     print('wrote %d files to %s' % (w.count, os.path.relpath(OUT, ROOT)))
+
+
+# Rechiseled groups that already hold the vanilla block: the dyed kinds are appended to them.
+RECHISELED_GROUPS = {
+    'stone': ['stone', 'stone_bricks', 'cracked_stone_bricks', 'chiseled_stone_bricks'],
+    'cobblestone': ['cobblestone'],
+    'obsidian': ['obsidian'],
+    'quartz_block': ['quartz_block'],
+    'coal_block': ['coal_block'],
+    'glowstone': ['glowstone'],
+    'lapis_block': ['lapis_block'],
+    'redstone_block': ['redstone_block'],
+    'sandstone': ['sandstone', 'chiseled_sandstone', 'cut_sandstone'],
+    'andesite': ['andesite'],
+    'diorite': ['diorite'],
+    'oak_planks': ['oak_planks'],
+    'birch_planks': ['birch_planks'],
+    'spruce_planks': ['spruce_planks'],
+    'jungle_planks': ['jungle_planks'],
+    'acacia_planks': ['acacia_planks'],
+    'dark_oak_planks': ['dark_oak_planks'],
+}
+# Groups of our own: the vanilla block, then the dyed kinds.
+OWN_GROUPS = {
+    'wool': ('white_wool', ['wool']),
+    'soul_sand': ('soul_sand', ['soul_sand']),
+    'terracotta': ('terracotta', ['terracotta']),
+    'clay': ('clay', ['clay']),
+    'bricks': ('bricks', ['bricks']),
+    'sand': ('sand', ['sand']),
+    'glass': ('glass', ['glass', 'foggy_glass']),
+    'glass_pane': ('glass_pane', ['glass_pane', 'foggy_glass_pane']),
+    'concrete': ('white_concrete', ['concrete']),
+    'concrete_powder': ('white_concrete_powder', ['concrete_powder']),
+    'chest': ('chest', ['chest']),
+    'bookshelf': ('bookshelf', ['bookshelf']),
+    'crafting_table': ('crafting_table', ['crafting_table']),
+    'piston': ('piston', ['piston']),
+    'sticky_piston': ('sticky_piston', ['sticky_piston']),
+}
+
+
+def chiseling(w, kinds, colors):
+    """Makes the dyed blocks chiselable with Rechiseled, like the 1.7.10 Chisel support: every dyed shade joins the
+    group of its vanilla block, so a chisel turns the vanilla block into any shade and back. Where Rechiseled already
+    has a group for the vanilla block, the shades are appended to it (a file with the same id and "overwrite": false);
+    otherwise a moredyes group is made that also holds the vanilla block. These are plain data files, so nothing
+    happens when Rechiseled isn't installed. A vanilla block must not be in two groups.
+    """
+    kind_ids = {k for k, _, _ in kinds}
+
+    def dyed(group_kinds):
+        for kind in group_kinds:
+            if kind not in kind_ids:
+                sys.exit('Chiseling group lists unknown kind ' + kind)
+        return ['%s:%s_%s' % (MOD, kind, color) for kind in group_kinds for color in colors]
+
+    def group(ns, name, entries):
+        w.write('data/%s/chiseling_recipes/%s.json' % (ns, name),
+                {'type': 'rechiseled:chiseling', 'overwrite': False, 'entries': entries})
+
+    for name, group_kinds in RECHISELED_GROUPS.items():
+        group('rechiseled', name, dyed(group_kinds))
+    for name, (vanilla, group_kinds) in OWN_GROUPS.items():
+        group(MOD, name, ['minecraft:' + vanilla] + dyed(group_kinds))
 
 
 def tags(jars, w, kinds, colors):

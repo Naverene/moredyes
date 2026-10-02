@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:wool"
+    },
+    {
+      "block": "moredyes:wool_white"
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:wool_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:wool_orange"
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:wool_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:wool_magenta"
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:wool_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:wool_light_blue"
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:wool_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:wool_yellow"
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:wool_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:wool_lime"
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:wool_pink"
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:wool_gray"
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:wool_light_gray"
+    },
+    {
+      "block": "moredyes:wool_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:wool_cyan"
+    },
+    {
+      "block": "moredyes:wool_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:wool_purple"
+    },
+    {
+      "block": "moredyes:wool_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:wool_blue"
+    },
+    {
+      "block": "moredyes:wool_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:wool_brown"
+    },
+    {
+      "block": "moredyes:wool_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:wool_green"
+    },
+    {
+      "block": "moredyes:wool_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:wool_red"
+    }
+  ]
+}

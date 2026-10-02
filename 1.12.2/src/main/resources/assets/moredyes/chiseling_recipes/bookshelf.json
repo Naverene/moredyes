@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:bookshelf"
+    },
+    {
+      "block": "moredyes:bookshelf_white"
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:bookshelf_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:bookshelf_orange"
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:bookshelf_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:bookshelf_magenta"
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:bookshelf_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue"
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:bookshelf_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:bookshelf_yellow"
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:bookshelf_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:bookshelf_lime"
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:bookshelf_pink"
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:bookshelf_gray"
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray"
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:bookshelf_cyan"
+    },
+    {
+      "block": "moredyes:bookshelf_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:bookshelf_purple"
+    },
+    {
+      "block": "moredyes:bookshelf_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:bookshelf_blue"
+    },
+    {
+      "block": "moredyes:bookshelf_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:bookshelf_brown"
+    },
+    {
+      "block": "moredyes:bookshelf_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:bookshelf_green"
+    },
+    {
+      "block": "moredyes:bookshelf_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:bookshelf_red"
+    }
+  ]
+}

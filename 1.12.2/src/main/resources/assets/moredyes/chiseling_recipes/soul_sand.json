@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:soul_sand"
+    },
+    {
+      "block": "moredyes:soulsand_white"
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:soulsand_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:soulsand_orange"
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:soulsand_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:soulsand_magenta"
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:soulsand_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:soulsand_light_blue"
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:soulsand_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:soulsand_yellow"
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:soulsand_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:soulsand_lime"
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:soulsand_pink"
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:soulsand_gray"
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:soulsand_light_gray"
+    },
+    {
+      "block": "moredyes:soulsand_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:soulsand_cyan"
+    },
+    {
+      "block": "moredyes:soulsand_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:soulsand_purple"
+    },
+    {
+      "block": "moredyes:soulsand_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:soulsand_blue"
+    },
+    {
+      "block": "moredyes:soulsand_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:soulsand_brown"
+    },
+    {
+      "block": "moredyes:soulsand_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:soulsand_green"
+    },
+    {
+      "block": "moredyes:soulsand_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:soulsand_red"
+    }
+  ]
+}

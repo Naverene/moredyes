@@ -1,0 +1,466 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:glass"
+    },
+    {
+      "block": "moredyes:glass_white"
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:glass_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:glass_orange"
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:glass_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:glass_magenta"
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:glass_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:glass_light_blue"
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:glass_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:glass_yellow"
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:glass_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:glass_lime"
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:glass_pink"
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:glass_gray"
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:glass_light_gray"
+    },
+    {
+      "block": "moredyes:glass_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:glass_cyan"
+    },
+    {
+      "block": "moredyes:glass_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:glass_purple"
+    },
+    {
+      "block": "moredyes:glass_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:glass_blue"
+    },
+    {
+      "block": "moredyes:glass_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:glass_brown"
+    },
+    {
+      "block": "moredyes:glass_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:glass_green"
+    },
+    {
+      "block": "moredyes:glass_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:glass_red"
+    }
+  ]
+}
