@@ -13,7 +13,9 @@ More Dyes adds 118 dyes to Minecraft, each a mix of two of the 16 vanilla dyes, 
 
 Dyed blocks behave like the vanilla blocks they are made from: dyed stone drops dyed cobblestone, dyed cobblestone smelts into dyed stone, dyed sand falls and smelts into dyed glass, dyed bookshelves power an enchanting table, and so on. They are also in the ore dictionary under the same names as the vanilla blocks, so recipes from other mods accept them.
 
-If Thermal Foundation is installed, rockwool can be dyed too.
+If Thermal Foundation is installed, rockwool can be dyed too: eight rockwool of any color around a dye. Washing it gives back light gray rockwool, the color it is made in.
+
+If GregTech CEu is installed, a mixer dyes eight vanilla blocks with one dye (30 EU/t, 8 seconds), and a chemical bath bleaches a dyed block back to its vanilla block with 50 L of chlorine, the way GregTech bleaches wool. The `gregtechRecipes` config option turns these off.
 
 If Chisel or Rechiseled is installed, every dyed shade can be chiseled to and from its vanilla block (stone, wool, planks, chests and the rest). Where the chisel mod already has a group for the vanilla block, the shades join it. Neither mod is needed.
 
@@ -30,6 +32,8 @@ The jar is written to `build/libs`.
 To run the game from the project, import it into your IDE first (or run `./gradlew eclipse` once). That makes ForgeGradle decompile Minecraft, which `runClient` and `runServer` need on 1.12.2; without it they crash while Forge loads.
 
 Every color of a block shares one grey texture, which the game tints with the dye color. The textures, models and blockstate files are written by `tools/make_assets.py`; run it again after changing it.
+
+None of the mods above is needed to build or run the mod. To try the integrations in the dev game, run `./gradlew prepareTestMods -PwithThermal -PwithGregTech` once, then add the same `-P` options to `runClient` or `runServer`. That fetches Thermal Foundation or GregTech CEu (and the libraries they need) for the dev game only.
 
 The Rechiseled chiseling groups (`assets/moredyes/chiseling_recipes`) are written by `tools/make_chisel_recipes.py`; the Chisel groups are sent as IMC messages from `compat/ChiselCompat.java`. Keep the two in step.
 

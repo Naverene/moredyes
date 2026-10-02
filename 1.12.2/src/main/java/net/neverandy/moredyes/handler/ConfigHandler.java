@@ -15,6 +15,7 @@ public class ConfigHandler
 	public static boolean worldGenFlower=true;
 	public static boolean preventMobSpawning=true;
 	public static float sheepSpawnChance=0.05f;
+	public static boolean gregtechRecipes=true;
 
 	public static void loadConfig(File configFile)
 	{
@@ -38,6 +39,7 @@ public class ConfigHandler
 		worldGenFlower=config.getBoolean("worldGenFlower",Configuration.CATEGORY_GENERAL,true,"Set to false to disable flower generation");
 		preventMobSpawning=config.getBoolean("preventMobSpawning",Configuration.CATEGORY_GENERAL,true,"If true, mobs cannot spawn on any block from this mod. If false, the blocks follow the vanilla rules.");
 		sheepSpawnChance=config.getFloat("sheepSpawnChance",Configuration.CATEGORY_GENERAL,0.05f,0.0f,1.0f,"The chance that a sheep gets a random More Dyes color when it first appears in the world. 0 turns it off.");
+		gregtechRecipes=config.getBoolean("gregtechRecipes",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the GregTech mixer and chemical bath recipes. Only matters when GregTech is installed, and takes effect after a restart.");
 		if(config.hasChanged())
 		{
 			config.save();

@@ -260,12 +260,14 @@ public class MDBlock
 		ore(sapling,"treeSapling");
 		if(rockwool!=null)
 		{
+			// Thermal Foundation registers its own rockwool under the same name.
+			ore(rockwool,"blockRockwool");
+			// Washed rockwool comes out light gray, the color Thermal Foundation's rockwool is made in.
 			Block thermal=ForgeRegistries.BLOCKS.getValue(new ResourceLocation("thermalfoundation","rockwool"));
 			if(thermal!=null&&thermal!=Blocks.AIR)
 			{
-				OreDictionary.registerOre("blockRockwool",new ItemStack(thermal,1,OreDictionary.WILDCARD_VALUE));
+				washed(rockwool,new ItemStack(thermal,1,7));
 			}
-			ore(rockwool,"blockRockwool");
 		}
 	}
 	private static void ore(Block[] blocks,String... names)
