@@ -22,6 +22,8 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
 * Dyed blocks behave like their vanilla block: dyed obsidian makes nether portals and holds end crystals, dyed redstone
   blocks power repeaters and comparators, dyed bookshelves power enchanting tables, and dyed soul sand makes bubble
   columns.
+* With [Rechiseled](https://modrinth.com/mod/rechiseled) installed, a chisel turns a vanilla block into any of its
+  dyed shades and back. Rechiseled is optional: More Dyes only ships data files for it.
 
 ## Building
 
