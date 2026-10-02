@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "moredyes:block/bookshelf_333333"
+      "model": "moredyes:block/bookshelf"
     }
   }
 }

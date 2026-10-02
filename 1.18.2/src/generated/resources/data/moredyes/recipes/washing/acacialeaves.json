@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:acacialeaves_ecbf99"
+      },
+      {
+        "item": "moredyes:acacialeaves_d9a6ec"
+      },
+      {
+        "item": "moredyes:acacialeaves_b3ccec"
+      },
+      {
+        "item": "moredyes:acacialeaves_f2f299"
+      },
+      {
+        "item": "moredyes:acacialeaves_bfe68c"
+      },
+      {
+        "item": "moredyes:acacialeaves_f9bfd2"
+      },
+      {
+        "item": "moredyes:acacialeaves_cccccc"
+      },
+      {
+        "item": "moredyes:acacialeaves_a6bfcc"
+      },
+      {
+        "item": "moredyes:acacialeaves_bf9fd9"
+      },
+      {
+        "item": "moredyes:acacialeaves_99a6d9"
+      },
+      {
+        "item": "moredyes:acacialeaves_b3a699"
+      },
+      {
+        "item": "moredyes:acacialeaves_b3bf99"
+      },
+      {
+        "item": "moredyes:acacialeaves_cc9999"
+      },
+      {
+        "item": "moredyes:acacialeaves_c56685"
+      },
+      {
+        "item": "moredyes:acacialeaves_9f8c85"
+      },
+      {
+        "item": "moredyes:acacialeaves_deb233"
+      },
+      {
+        "item": "moredyes:acacialeaves_aca526"
+      },
+      {
+        "item": "moredyes:acacialeaves_e57f6c"
+      },
+      {
+        "item": "moredyes:acacialeaves_92663f"
+      },
+      {
+        "item": "moredyes:acacialeaves_b98c66"
+      },
+      {
+        "item": "moredyes:acacialeaves_927f66"
+      },
+      {
+        "item": "moredyes:acacialeaves_ac5f72"
+      },
+      {
+        "item": "moredyes:acacialeaves_866672"
+      },
+      {
+        "item": "moredyes:acacialeaves_9f6633"
+      },
+      {
+        "item": "moredyes:acacialeaves_9f7f33"
+      },
+      {
+        "item": "moredyes:acacialeaves_b95933"
+      },
+      {
+        "item": "moredyes:acacialeaves_794c26"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c72d8"
+      },
+      {
+        "item": "moredyes:acacialeaves_cb9886"
+      },
+      {
+        "item": "moredyes:acacialeaves_998c79"
+      },
+      {
+        "item": "moredyes:acacialeaves_d265bf"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f4c92"
+      },
+      {
+        "item": "moredyes:acacialeaves_a672b9"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f65b9"
+      },
+      {
+        "item": "moredyes:acacialeaves_9946c5"
+      },
+      {
+        "item": "moredyes:acacialeaves_734cc5"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c4c86"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c6586"
+      },
+      {
+        "item": "moredyes:acacialeaves_a64086"
+      },
+      {
+        "item": "moredyes:acacialeaves_663379"
+      },
+      {
+        "item": "moredyes:acacialeaves_a5bf86"
+      },
+      {
+        "item": "moredyes:acacialeaves_72b279"
+      },
+      {
+        "item": "moredyes:acacialeaves_ac8cbf"
+      },
+      {
+        "item": "moredyes:acacialeaves_597392"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f99b9"
+      },
+      {
+        "item": "moredyes:acacialeaves_598cb9"
+      },
+      {
+        "item": "moredyes:acacialeaves_726cc5"
+      },
+      {
+        "item": "moredyes:acacialeaves_4d73c5"
+      },
+      {
+        "item": "moredyes:acacialeaves_667386"
+      },
+      {
+        "item": "moredyes:acacialeaves_668c86"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f6686"
+      },
+      {
+        "item": "moredyes:acacialeaves_405979"
+      },
+      {
+        "item": "moredyes:acacialeaves_b2d926"
+      },
+      {
+        "item": "moredyes:acacialeaves_ebb26c"
+      },
+      {
+        "item": "moredyes:acacialeaves_99993f"
+      },
+      {
+        "item": "moredyes:acacialeaves_bfbf66"
+      },
+      {
+        "item": "moredyes:acacialeaves_99b266"
+      },
+      {
+        "item": "moredyes:acacialeaves_b29272"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c9972"
+      },
+      {
+        "item": "moredyes:acacialeaves_a69933"
+      },
+      {
+        "item": "moredyes:acacialeaves_a6b233"
+      },
+      {
+        "item": "moredyes:acacialeaves_bf8c33"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f7f26"
+      },
+      {
+        "item": "moredyes:acacialeaves_b8a65f"
+      },
+      {
+        "item": "moredyes:acacialeaves_668c32"
+      },
+      {
+        "item": "moredyes:acacialeaves_8cb359"
+      },
+      {
+        "item": "moredyes:acacialeaves_66a659"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f5665"
+      },
+      {
+        "item": "moredyes:acacialeaves_598c65"
+      },
+      {
+        "item": "moredyes:acacialeaves_738c26"
+      },
+      {
+        "item": "moredyes:acacialeaves_73a626"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c8026"
+      },
+      {
+        "item": "moredyes:acacialeaves_4c7319"
+      },
+      {
+        "item": "moredyes:acacialeaves_864c5f"
+      },
+      {
+        "item": "moredyes:acacialeaves_c6596c"
+      },
+      {
+        "item": "moredyes:acacialeaves_ac7f6c"
+      },
+      {
+        "item": "moredyes:acacialeaves_ac666c"
+      },
+      {
+        "item": "moredyes:acacialeaves_9366ab"
+      },
+      {
+        "item": "moredyes:acacialeaves_b95fab"
+      },
+      {
+        "item": "moredyes:acacialeaves_9f7f9f"
+      },
+      {
+        "item": "moredyes:acacialeaves_c68c9f"
+      },
+      {
+        "item": "moredyes:acacialeaves_9f6679"
+      },
+      {
+        "item": "moredyes:acacialeaves_727272"
+      },
+      {
+        "item": "moredyes:acacialeaves_4c6572"
+      },
+      {
+        "item": "moredyes:acacialeaves_65467f"
+      },
+      {
+        "item": "moredyes:acacialeaves_404c7f"
+      },
+      {
+        "item": "moredyes:acacialeaves_594c40"
+      },
+      {
+        "item": "moredyes:acacialeaves_596540"
+      },
+      {
+        "item": "moredyes:acacialeaves_724040"
+      },
+      {
+        "item": "moredyes:acacialeaves_333333"
+      },
+      {
+        "item": "moredyes:acacialeaves_738c99"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c6ca5"
+      },
+      {
+        "item": "moredyes:acacialeaves_6673a5"
+      },
+      {
+        "item": "moredyes:acacialeaves_807366"
+      },
+      {
+        "item": "moredyes:acacialeaves_808c66"
+      },
+      {
+        "item": "moredyes:acacialeaves_996666"
+      },
+      {
+        "item": "moredyes:acacialeaves_595959"
+      },
+      {
+        "item": "moredyes:acacialeaves_655fa5"
+      },
+      {
+        "item": "moredyes:acacialeaves_4066a5"
+      },
+      {
+        "item": "moredyes:acacialeaves_596666"
+      },
+      {
+        "item": "moredyes:acacialeaves_597f66"
+      },
+      {
+        "item": "moredyes:acacialeaves_725966"
+      },
+      {
+        "item": "moredyes:acacialeaves_334c59"
+      },
+      {
+        "item": "moredyes:acacialeaves_5945b2"
+      },
+      {
+        "item": "moredyes:acacialeaves_734573"
+      },
+      {
+        "item": "moredyes:acacialeaves_735f73"
+      },
+      {
+        "item": "moredyes:acacialeaves_8c3973"
+      },
+      {
+        "item": "moredyes:acacialeaves_4c2c66"
+      },
+      {
+        "item": "moredyes:acacialeaves_4c4c73"
+      },
+      {
+        "item": "moredyes:acacialeaves_4c6573"
+      },
+      {
+        "item": "moredyes:acacialeaves_664073"
+      },
+      {
+        "item": "moredyes:acacialeaves_263366"
+      },
+      {
+        "item": "moredyes:acacialeaves_403326"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f4033"
+      },
+      {
+        "item": "moredyes:acacialeaves_666533"
+      },
+      {
+        "item": "moredyes:acacialeaves_7f5933"
+      },
+      {
+        "item": "moredyes:acacialeaves_404c26"
+      },
+      {
+        "item": "moredyes:acacialeaves_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:acacia_leaves"
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:saplingspruce_ecbf99"
+      },
+      {
+        "item": "moredyes:saplingspruce_d9a6ec"
+      },
+      {
+        "item": "moredyes:saplingspruce_b3ccec"
+      },
+      {
+        "item": "moredyes:saplingspruce_f2f299"
+      },
+      {
+        "item": "moredyes:saplingspruce_bfe68c"
+      },
+      {
+        "item": "moredyes:saplingspruce_f9bfd2"
+      },
+      {
+        "item": "moredyes:saplingspruce_cccccc"
+      },
+      {
+        "item": "moredyes:saplingspruce_a6bfcc"
+      },
+      {
+        "item": "moredyes:saplingspruce_bf9fd9"
+      },
+      {
+        "item": "moredyes:saplingspruce_99a6d9"
+      },
+      {
+        "item": "moredyes:saplingspruce_b3a699"
+      },
+      {
+        "item": "moredyes:saplingspruce_b3bf99"
+      },
+      {
+        "item": "moredyes:saplingspruce_cc9999"
+      },
+      {
+        "item": "moredyes:saplingspruce_c56685"
+      },
+      {
+        "item": "moredyes:saplingspruce_9f8c85"
+      },
+      {
+        "item": "moredyes:saplingspruce_deb233"
+      },
+      {
+        "item": "moredyes:saplingspruce_aca526"
+      },
+      {
+        "item": "moredyes:saplingspruce_e57f6c"
+      },
+      {
+        "item": "moredyes:saplingspruce_92663f"
+      },
+      {
+        "item": "moredyes:saplingspruce_b98c66"
+      },
+      {
+        "item": "moredyes:saplingspruce_927f66"
+      },
+      {
+        "item": "moredyes:saplingspruce_ac5f72"
+      },
+      {
+        "item": "moredyes:saplingspruce_866672"
+      },
+      {
+        "item": "moredyes:saplingspruce_9f6633"
+      },
+      {
+        "item": "moredyes:saplingspruce_9f7f33"
+      },
+      {
+        "item": "moredyes:saplingspruce_b95933"
+      },
+      {
+        "item": "moredyes:saplingspruce_794c26"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c72d8"
+      },
+      {
+        "item": "moredyes:saplingspruce_cb9886"
+      },
+      {
+        "item": "moredyes:saplingspruce_998c79"
+      },
+      {
+        "item": "moredyes:saplingspruce_d265bf"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f4c92"
+      },
+      {
+        "item": "moredyes:saplingspruce_a672b9"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f65b9"
+      },
+      {
+        "item": "moredyes:saplingspruce_9946c5"
+      },
+      {
+        "item": "moredyes:saplingspruce_734cc5"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c4c86"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c6586"
+      },
+      {
+        "item": "moredyes:saplingspruce_a64086"
+      },
+      {
+        "item": "moredyes:saplingspruce_663379"
+      },
+      {
+        "item": "moredyes:saplingspruce_a5bf86"
+      },
+      {
+        "item": "moredyes:saplingspruce_72b279"
+      },
+      {
+        "item": "moredyes:saplingspruce_ac8cbf"
+      },
+      {
+        "item": "moredyes:saplingspruce_597392"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f99b9"
+      },
+      {
+        "item": "moredyes:saplingspruce_598cb9"
+      },
+      {
+        "item": "moredyes:saplingspruce_726cc5"
+      },
+      {
+        "item": "moredyes:saplingspruce_4d73c5"
+      },
+      {
+        "item": "moredyes:saplingspruce_667386"
+      },
+      {
+        "item": "moredyes:saplingspruce_668c86"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f6686"
+      },
+      {
+        "item": "moredyes:saplingspruce_405979"
+      },
+      {
+        "item": "moredyes:saplingspruce_b2d926"
+      },
+      {
+        "item": "moredyes:saplingspruce_ebb26c"
+      },
+      {
+        "item": "moredyes:saplingspruce_99993f"
+      },
+      {
+        "item": "moredyes:saplingspruce_bfbf66"
+      },
+      {
+        "item": "moredyes:saplingspruce_99b266"
+      },
+      {
+        "item": "moredyes:saplingspruce_b29272"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c9972"
+      },
+      {
+        "item": "moredyes:saplingspruce_a69933"
+      },
+      {
+        "item": "moredyes:saplingspruce_a6b233"
+      },
+      {
+        "item": "moredyes:saplingspruce_bf8c33"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f7f26"
+      },
+      {
+        "item": "moredyes:saplingspruce_b8a65f"
+      },
+      {
+        "item": "moredyes:saplingspruce_668c32"
+      },
+      {
+        "item": "moredyes:saplingspruce_8cb359"
+      },
+      {
+        "item": "moredyes:saplingspruce_66a659"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f5665"
+      },
+      {
+        "item": "moredyes:saplingspruce_598c65"
+      },
+      {
+        "item": "moredyes:saplingspruce_738c26"
+      },
+      {
+        "item": "moredyes:saplingspruce_73a626"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c8026"
+      },
+      {
+        "item": "moredyes:saplingspruce_4c7319"
+      },
+      {
+        "item": "moredyes:saplingspruce_864c5f"
+      },
+      {
+        "item": "moredyes:saplingspruce_c6596c"
+      },
+      {
+        "item": "moredyes:saplingspruce_ac7f6c"
+      },
+      {
+        "item": "moredyes:saplingspruce_ac666c"
+      },
+      {
+        "item": "moredyes:saplingspruce_9366ab"
+      },
+      {
+        "item": "moredyes:saplingspruce_b95fab"
+      },
+      {
+        "item": "moredyes:saplingspruce_9f7f9f"
+      },
+      {
+        "item": "moredyes:saplingspruce_c68c9f"
+      },
+      {
+        "item": "moredyes:saplingspruce_9f6679"
+      },
+      {
+        "item": "moredyes:saplingspruce_727272"
+      },
+      {
+        "item": "moredyes:saplingspruce_4c6572"
+      },
+      {
+        "item": "moredyes:saplingspruce_65467f"
+      },
+      {
+        "item": "moredyes:saplingspruce_404c7f"
+      },
+      {
+        "item": "moredyes:saplingspruce_594c40"
+      },
+      {
+        "item": "moredyes:saplingspruce_596540"
+      },
+      {
+        "item": "moredyes:saplingspruce_724040"
+      },
+      {
+        "item": "moredyes:saplingspruce_333333"
+      },
+      {
+        "item": "moredyes:saplingspruce_738c99"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c6ca5"
+      },
+      {
+        "item": "moredyes:saplingspruce_6673a5"
+      },
+      {
+        "item": "moredyes:saplingspruce_807366"
+      },
+      {
+        "item": "moredyes:saplingspruce_808c66"
+      },
+      {
+        "item": "moredyes:saplingspruce_996666"
+      },
+      {
+        "item": "moredyes:saplingspruce_595959"
+      },
+      {
+        "item": "moredyes:saplingspruce_655fa5"
+      },
+      {
+        "item": "moredyes:saplingspruce_4066a5"
+      },
+      {
+        "item": "moredyes:saplingspruce_596666"
+      },
+      {
+        "item": "moredyes:saplingspruce_597f66"
+      },
+      {
+        "item": "moredyes:saplingspruce_725966"
+      },
+      {
+        "item": "moredyes:saplingspruce_334c59"
+      },
+      {
+        "item": "moredyes:saplingspruce_5945b2"
+      },
+      {
+        "item": "moredyes:saplingspruce_734573"
+      },
+      {
+        "item": "moredyes:saplingspruce_735f73"
+      },
+      {
+        "item": "moredyes:saplingspruce_8c3973"
+      },
+      {
+        "item": "moredyes:saplingspruce_4c2c66"
+      },
+      {
+        "item": "moredyes:saplingspruce_4c4c73"
+      },
+      {
+        "item": "moredyes:saplingspruce_4c6573"
+      },
+      {
+        "item": "moredyes:saplingspruce_664073"
+      },
+      {
+        "item": "moredyes:saplingspruce_263366"
+      },
+      {
+        "item": "moredyes:saplingspruce_403326"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f4033"
+      },
+      {
+        "item": "moredyes:saplingspruce_666533"
+      },
+      {
+        "item": "moredyes:saplingspruce_7f5933"
+      },
+      {
+        "item": "moredyes:saplingspruce_404c26"
+      },
+      {
+        "item": "moredyes:saplingspruce_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spruce_sapling"
+  }
+}

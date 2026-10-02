@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:darkoakplanks_ecbf99"
+      },
+      {
+        "item": "moredyes:darkoakplanks_d9a6ec"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b3ccec"
+      },
+      {
+        "item": "moredyes:darkoakplanks_f2f299"
+      },
+      {
+        "item": "moredyes:darkoakplanks_bfe68c"
+      },
+      {
+        "item": "moredyes:darkoakplanks_f9bfd2"
+      },
+      {
+        "item": "moredyes:darkoakplanks_cccccc"
+      },
+      {
+        "item": "moredyes:darkoakplanks_a6bfcc"
+      },
+      {
+        "item": "moredyes:darkoakplanks_bf9fd9"
+      },
+      {
+        "item": "moredyes:darkoakplanks_99a6d9"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b3a699"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b3bf99"
+      },
+      {
+        "item": "moredyes:darkoakplanks_cc9999"
+      },
+      {
+        "item": "moredyes:darkoakplanks_c56685"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9f8c85"
+      },
+      {
+        "item": "moredyes:darkoakplanks_deb233"
+      },
+      {
+        "item": "moredyes:darkoakplanks_aca526"
+      },
+      {
+        "item": "moredyes:darkoakplanks_e57f6c"
+      },
+      {
+        "item": "moredyes:darkoakplanks_92663f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b98c66"
+      },
+      {
+        "item": "moredyes:darkoakplanks_927f66"
+      },
+      {
+        "item": "moredyes:darkoakplanks_ac5f72"
+      },
+      {
+        "item": "moredyes:darkoakplanks_866672"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9f6633"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9f7f33"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b95933"
+      },
+      {
+        "item": "moredyes:darkoakplanks_794c26"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c72d8"
+      },
+      {
+        "item": "moredyes:darkoakplanks_cb9886"
+      },
+      {
+        "item": "moredyes:darkoakplanks_998c79"
+      },
+      {
+        "item": "moredyes:darkoakplanks_d265bf"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f4c92"
+      },
+      {
+        "item": "moredyes:darkoakplanks_a672b9"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f65b9"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9946c5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_734cc5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c4c86"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c6586"
+      },
+      {
+        "item": "moredyes:darkoakplanks_a64086"
+      },
+      {
+        "item": "moredyes:darkoakplanks_663379"
+      },
+      {
+        "item": "moredyes:darkoakplanks_a5bf86"
+      },
+      {
+        "item": "moredyes:darkoakplanks_72b279"
+      },
+      {
+        "item": "moredyes:darkoakplanks_ac8cbf"
+      },
+      {
+        "item": "moredyes:darkoakplanks_597392"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f99b9"
+      },
+      {
+        "item": "moredyes:darkoakplanks_598cb9"
+      },
+      {
+        "item": "moredyes:darkoakplanks_726cc5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4d73c5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_667386"
+      },
+      {
+        "item": "moredyes:darkoakplanks_668c86"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f6686"
+      },
+      {
+        "item": "moredyes:darkoakplanks_405979"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b2d926"
+      },
+      {
+        "item": "moredyes:darkoakplanks_ebb26c"
+      },
+      {
+        "item": "moredyes:darkoakplanks_99993f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_bfbf66"
+      },
+      {
+        "item": "moredyes:darkoakplanks_99b266"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b29272"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c9972"
+      },
+      {
+        "item": "moredyes:darkoakplanks_a69933"
+      },
+      {
+        "item": "moredyes:darkoakplanks_a6b233"
+      },
+      {
+        "item": "moredyes:darkoakplanks_bf8c33"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f7f26"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b8a65f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_668c32"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8cb359"
+      },
+      {
+        "item": "moredyes:darkoakplanks_66a659"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f5665"
+      },
+      {
+        "item": "moredyes:darkoakplanks_598c65"
+      },
+      {
+        "item": "moredyes:darkoakplanks_738c26"
+      },
+      {
+        "item": "moredyes:darkoakplanks_73a626"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c8026"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4c7319"
+      },
+      {
+        "item": "moredyes:darkoakplanks_864c5f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_c6596c"
+      },
+      {
+        "item": "moredyes:darkoakplanks_ac7f6c"
+      },
+      {
+        "item": "moredyes:darkoakplanks_ac666c"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9366ab"
+      },
+      {
+        "item": "moredyes:darkoakplanks_b95fab"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9f7f9f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_c68c9f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_9f6679"
+      },
+      {
+        "item": "moredyes:darkoakplanks_727272"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4c6572"
+      },
+      {
+        "item": "moredyes:darkoakplanks_65467f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_404c7f"
+      },
+      {
+        "item": "moredyes:darkoakplanks_594c40"
+      },
+      {
+        "item": "moredyes:darkoakplanks_596540"
+      },
+      {
+        "item": "moredyes:darkoakplanks_724040"
+      },
+      {
+        "item": "moredyes:darkoakplanks_333333"
+      },
+      {
+        "item": "moredyes:darkoakplanks_738c99"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c6ca5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_6673a5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_807366"
+      },
+      {
+        "item": "moredyes:darkoakplanks_808c66"
+      },
+      {
+        "item": "moredyes:darkoakplanks_996666"
+      },
+      {
+        "item": "moredyes:darkoakplanks_595959"
+      },
+      {
+        "item": "moredyes:darkoakplanks_655fa5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4066a5"
+      },
+      {
+        "item": "moredyes:darkoakplanks_596666"
+      },
+      {
+        "item": "moredyes:darkoakplanks_597f66"
+      },
+      {
+        "item": "moredyes:darkoakplanks_725966"
+      },
+      {
+        "item": "moredyes:darkoakplanks_334c59"
+      },
+      {
+        "item": "moredyes:darkoakplanks_5945b2"
+      },
+      {
+        "item": "moredyes:darkoakplanks_734573"
+      },
+      {
+        "item": "moredyes:darkoakplanks_735f73"
+      },
+      {
+        "item": "moredyes:darkoakplanks_8c3973"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4c2c66"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4c4c73"
+      },
+      {
+        "item": "moredyes:darkoakplanks_4c6573"
+      },
+      {
+        "item": "moredyes:darkoakplanks_664073"
+      },
+      {
+        "item": "moredyes:darkoakplanks_263366"
+      },
+      {
+        "item": "moredyes:darkoakplanks_403326"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f4033"
+      },
+      {
+        "item": "moredyes:darkoakplanks_666533"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f5933"
+      },
+      {
+        "item": "moredyes:darkoakplanks_404c26"
+      },
+      {
+        "item": "moredyes:darkoakplanks_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dark_oak_planks"
+  }
+}

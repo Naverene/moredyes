@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:jungleplanks_ecbf99"
+      },
+      {
+        "item": "moredyes:jungleplanks_d9a6ec"
+      },
+      {
+        "item": "moredyes:jungleplanks_b3ccec"
+      },
+      {
+        "item": "moredyes:jungleplanks_f2f299"
+      },
+      {
+        "item": "moredyes:jungleplanks_bfe68c"
+      },
+      {
+        "item": "moredyes:jungleplanks_f9bfd2"
+      },
+      {
+        "item": "moredyes:jungleplanks_cccccc"
+      },
+      {
+        "item": "moredyes:jungleplanks_a6bfcc"
+      },
+      {
+        "item": "moredyes:jungleplanks_bf9fd9"
+      },
+      {
+        "item": "moredyes:jungleplanks_99a6d9"
+      },
+      {
+        "item": "moredyes:jungleplanks_b3a699"
+      },
+      {
+        "item": "moredyes:jungleplanks_b3bf99"
+      },
+      {
+        "item": "moredyes:jungleplanks_cc9999"
+      },
+      {
+        "item": "moredyes:jungleplanks_c56685"
+      },
+      {
+        "item": "moredyes:jungleplanks_9f8c85"
+      },
+      {
+        "item": "moredyes:jungleplanks_deb233"
+      },
+      {
+        "item": "moredyes:jungleplanks_aca526"
+      },
+      {
+        "item": "moredyes:jungleplanks_e57f6c"
+      },
+      {
+        "item": "moredyes:jungleplanks_92663f"
+      },
+      {
+        "item": "moredyes:jungleplanks_b98c66"
+      },
+      {
+        "item": "moredyes:jungleplanks_927f66"
+      },
+      {
+        "item": "moredyes:jungleplanks_ac5f72"
+      },
+      {
+        "item": "moredyes:jungleplanks_866672"
+      },
+      {
+        "item": "moredyes:jungleplanks_9f6633"
+      },
+      {
+        "item": "moredyes:jungleplanks_9f7f33"
+      },
+      {
+        "item": "moredyes:jungleplanks_b95933"
+      },
+      {
+        "item": "moredyes:jungleplanks_794c26"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c72d8"
+      },
+      {
+        "item": "moredyes:jungleplanks_cb9886"
+      },
+      {
+        "item": "moredyes:jungleplanks_998c79"
+      },
+      {
+        "item": "moredyes:jungleplanks_d265bf"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f4c92"
+      },
+      {
+        "item": "moredyes:jungleplanks_a672b9"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f65b9"
+      },
+      {
+        "item": "moredyes:jungleplanks_9946c5"
+      },
+      {
+        "item": "moredyes:jungleplanks_734cc5"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c4c86"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c6586"
+      },
+      {
+        "item": "moredyes:jungleplanks_a64086"
+      },
+      {
+        "item": "moredyes:jungleplanks_663379"
+      },
+      {
+        "item": "moredyes:jungleplanks_a5bf86"
+      },
+      {
+        "item": "moredyes:jungleplanks_72b279"
+      },
+      {
+        "item": "moredyes:jungleplanks_ac8cbf"
+      },
+      {
+        "item": "moredyes:jungleplanks_597392"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f99b9"
+      },
+      {
+        "item": "moredyes:jungleplanks_598cb9"
+      },
+      {
+        "item": "moredyes:jungleplanks_726cc5"
+      },
+      {
+        "item": "moredyes:jungleplanks_4d73c5"
+      },
+      {
+        "item": "moredyes:jungleplanks_667386"
+      },
+      {
+        "item": "moredyes:jungleplanks_668c86"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f6686"
+      },
+      {
+        "item": "moredyes:jungleplanks_405979"
+      },
+      {
+        "item": "moredyes:jungleplanks_b2d926"
+      },
+      {
+        "item": "moredyes:jungleplanks_ebb26c"
+      },
+      {
+        "item": "moredyes:jungleplanks_99993f"
+      },
+      {
+        "item": "moredyes:jungleplanks_bfbf66"
+      },
+      {
+        "item": "moredyes:jungleplanks_99b266"
+      },
+      {
+        "item": "moredyes:jungleplanks_b29272"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c9972"
+      },
+      {
+        "item": "moredyes:jungleplanks_a69933"
+      },
+      {
+        "item": "moredyes:jungleplanks_a6b233"
+      },
+      {
+        "item": "moredyes:jungleplanks_bf8c33"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f7f26"
+      },
+      {
+        "item": "moredyes:jungleplanks_b8a65f"
+      },
+      {
+        "item": "moredyes:jungleplanks_668c32"
+      },
+      {
+        "item": "moredyes:jungleplanks_8cb359"
+      },
+      {
+        "item": "moredyes:jungleplanks_66a659"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f5665"
+      },
+      {
+        "item": "moredyes:jungleplanks_598c65"
+      },
+      {
+        "item": "moredyes:jungleplanks_738c26"
+      },
+      {
+        "item": "moredyes:jungleplanks_73a626"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c8026"
+      },
+      {
+        "item": "moredyes:jungleplanks_4c7319"
+      },
+      {
+        "item": "moredyes:jungleplanks_864c5f"
+      },
+      {
+        "item": "moredyes:jungleplanks_c6596c"
+      },
+      {
+        "item": "moredyes:jungleplanks_ac7f6c"
+      },
+      {
+        "item": "moredyes:jungleplanks_ac666c"
+      },
+      {
+        "item": "moredyes:jungleplanks_9366ab"
+      },
+      {
+        "item": "moredyes:jungleplanks_b95fab"
+      },
+      {
+        "item": "moredyes:jungleplanks_9f7f9f"
+      },
+      {
+        "item": "moredyes:jungleplanks_c68c9f"
+      },
+      {
+        "item": "moredyes:jungleplanks_9f6679"
+      },
+      {
+        "item": "moredyes:jungleplanks_727272"
+      },
+      {
+        "item": "moredyes:jungleplanks_4c6572"
+      },
+      {
+        "item": "moredyes:jungleplanks_65467f"
+      },
+      {
+        "item": "moredyes:jungleplanks_404c7f"
+      },
+      {
+        "item": "moredyes:jungleplanks_594c40"
+      },
+      {
+        "item": "moredyes:jungleplanks_596540"
+      },
+      {
+        "item": "moredyes:jungleplanks_724040"
+      },
+      {
+        "item": "moredyes:jungleplanks_333333"
+      },
+      {
+        "item": "moredyes:jungleplanks_738c99"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c6ca5"
+      },
+      {
+        "item": "moredyes:jungleplanks_6673a5"
+      },
+      {
+        "item": "moredyes:jungleplanks_807366"
+      },
+      {
+        "item": "moredyes:jungleplanks_808c66"
+      },
+      {
+        "item": "moredyes:jungleplanks_996666"
+      },
+      {
+        "item": "moredyes:jungleplanks_595959"
+      },
+      {
+        "item": "moredyes:jungleplanks_655fa5"
+      },
+      {
+        "item": "moredyes:jungleplanks_4066a5"
+      },
+      {
+        "item": "moredyes:jungleplanks_596666"
+      },
+      {
+        "item": "moredyes:jungleplanks_597f66"
+      },
+      {
+        "item": "moredyes:jungleplanks_725966"
+      },
+      {
+        "item": "moredyes:jungleplanks_334c59"
+      },
+      {
+        "item": "moredyes:jungleplanks_5945b2"
+      },
+      {
+        "item": "moredyes:jungleplanks_734573"
+      },
+      {
+        "item": "moredyes:jungleplanks_735f73"
+      },
+      {
+        "item": "moredyes:jungleplanks_8c3973"
+      },
+      {
+        "item": "moredyes:jungleplanks_4c2c66"
+      },
+      {
+        "item": "moredyes:jungleplanks_4c4c73"
+      },
+      {
+        "item": "moredyes:jungleplanks_4c6573"
+      },
+      {
+        "item": "moredyes:jungleplanks_664073"
+      },
+      {
+        "item": "moredyes:jungleplanks_263366"
+      },
+      {
+        "item": "moredyes:jungleplanks_403326"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f4033"
+      },
+      {
+        "item": "moredyes:jungleplanks_666533"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f5933"
+      },
+      {
+        "item": "moredyes:jungleplanks_404c26"
+      },
+      {
+        "item": "moredyes:jungleplanks_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:jungle_planks"
+  }
+}

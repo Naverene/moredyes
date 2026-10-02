@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:saplingdarkoak_ecbf99"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_d9a6ec"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b3ccec"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_f2f299"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_bfe68c"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_f9bfd2"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_cccccc"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_a6bfcc"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_bf9fd9"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_99a6d9"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b3a699"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b3bf99"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_cc9999"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_c56685"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9f8c85"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_deb233"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_aca526"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_e57f6c"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_92663f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b98c66"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_927f66"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_ac5f72"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_866672"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9f6633"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9f7f33"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b95933"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_794c26"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c72d8"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_cb9886"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_998c79"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_d265bf"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f4c92"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_a672b9"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f65b9"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9946c5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_734cc5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c4c86"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c6586"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_a64086"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_663379"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_a5bf86"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_72b279"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_ac8cbf"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_597392"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f99b9"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_598cb9"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_726cc5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4d73c5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_667386"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_668c86"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f6686"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_405979"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b2d926"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_ebb26c"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_99993f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_bfbf66"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_99b266"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b29272"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c9972"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_a69933"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_a6b233"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_bf8c33"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f7f26"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b8a65f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_668c32"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8cb359"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_66a659"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f5665"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_598c65"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_738c26"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_73a626"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c8026"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4c7319"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_864c5f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_c6596c"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_ac7f6c"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_ac666c"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9366ab"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_b95fab"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9f7f9f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_c68c9f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_9f6679"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_727272"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4c6572"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_65467f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_404c7f"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_594c40"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_596540"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_724040"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_333333"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_738c99"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c6ca5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_6673a5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_807366"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_808c66"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_996666"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_595959"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_655fa5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4066a5"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_596666"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_597f66"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_725966"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_334c59"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_5945b2"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_734573"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_735f73"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_8c3973"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4c2c66"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4c4c73"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_4c6573"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_664073"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_263366"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_403326"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f4033"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_666533"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_7f5933"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_404c26"
+      },
+      {
+        "item": "moredyes:saplingdarkoak_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dark_oak_sapling"
+  }
+}

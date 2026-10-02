@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:stone_ecbf99"
+      },
+      {
+        "item": "moredyes:stone_d9a6ec"
+      },
+      {
+        "item": "moredyes:stone_b3ccec"
+      },
+      {
+        "item": "moredyes:stone_f2f299"
+      },
+      {
+        "item": "moredyes:stone_bfe68c"
+      },
+      {
+        "item": "moredyes:stone_f9bfd2"
+      },
+      {
+        "item": "moredyes:stone_cccccc"
+      },
+      {
+        "item": "moredyes:stone_a6bfcc"
+      },
+      {
+        "item": "moredyes:stone_bf9fd9"
+      },
+      {
+        "item": "moredyes:stone_99a6d9"
+      },
+      {
+        "item": "moredyes:stone_b3a699"
+      },
+      {
+        "item": "moredyes:stone_b3bf99"
+      },
+      {
+        "item": "moredyes:stone_cc9999"
+      },
+      {
+        "item": "moredyes:stone_c56685"
+      },
+      {
+        "item": "moredyes:stone_9f8c85"
+      },
+      {
+        "item": "moredyes:stone_deb233"
+      },
+      {
+        "item": "moredyes:stone_aca526"
+      },
+      {
+        "item": "moredyes:stone_e57f6c"
+      },
+      {
+        "item": "moredyes:stone_92663f"
+      },
+      {
+        "item": "moredyes:stone_b98c66"
+      },
+      {
+        "item": "moredyes:stone_927f66"
+      },
+      {
+        "item": "moredyes:stone_ac5f72"
+      },
+      {
+        "item": "moredyes:stone_866672"
+      },
+      {
+        "item": "moredyes:stone_9f6633"
+      },
+      {
+        "item": "moredyes:stone_9f7f33"
+      },
+      {
+        "item": "moredyes:stone_b95933"
+      },
+      {
+        "item": "moredyes:stone_794c26"
+      },
+      {
+        "item": "moredyes:stone_8c72d8"
+      },
+      {
+        "item": "moredyes:stone_cb9886"
+      },
+      {
+        "item": "moredyes:stone_998c79"
+      },
+      {
+        "item": "moredyes:stone_d265bf"
+      },
+      {
+        "item": "moredyes:stone_7f4c92"
+      },
+      {
+        "item": "moredyes:stone_a672b9"
+      },
+      {
+        "item": "moredyes:stone_7f65b9"
+      },
+      {
+        "item": "moredyes:stone_9946c5"
+      },
+      {
+        "item": "moredyes:stone_734cc5"
+      },
+      {
+        "item": "moredyes:stone_8c4c86"
+      },
+      {
+        "item": "moredyes:stone_8c6586"
+      },
+      {
+        "item": "moredyes:stone_a64086"
+      },
+      {
+        "item": "moredyes:stone_663379"
+      },
+      {
+        "item": "moredyes:stone_a5bf86"
+      },
+      {
+        "item": "moredyes:stone_72b279"
+      },
+      {
+        "item": "moredyes:stone_ac8cbf"
+      },
+      {
+        "item": "moredyes:stone_597392"
+      },
+      {
+        "item": "moredyes:stone_7f99b9"
+      },
+      {
+        "item": "moredyes:stone_598cb9"
+      },
+      {
+        "item": "moredyes:stone_726cc5"
+      },
+      {
+        "item": "moredyes:stone_4d73c5"
+      },
+      {
+        "item": "moredyes:stone_667386"
+      },
+      {
+        "item": "moredyes:stone_668c86"
+      },
+      {
+        "item": "moredyes:stone_7f6686"
+      },
+      {
+        "item": "moredyes:stone_405979"
+      },
+      {
+        "item": "moredyes:stone_b2d926"
+      },
+      {
+        "item": "moredyes:stone_ebb26c"
+      },
+      {
+        "item": "moredyes:stone_99993f"
+      },
+      {
+        "item": "moredyes:stone_bfbf66"
+      },
+      {
+        "item": "moredyes:stone_99b266"
+      },
+      {
+        "item": "moredyes:stone_b29272"
+      },
+      {
+        "item": "moredyes:stone_8c9972"
+      },
+      {
+        "item": "moredyes:stone_a69933"
+      },
+      {
+        "item": "moredyes:stone_a6b233"
+      },
+      {
+        "item": "moredyes:stone_bf8c33"
+      },
+      {
+        "item": "moredyes:stone_7f7f26"
+      },
+      {
+        "item": "moredyes:stone_b8a65f"
+      },
+      {
+        "item": "moredyes:stone_668c32"
+      },
+      {
+        "item": "moredyes:stone_8cb359"
+      },
+      {
+        "item": "moredyes:stone_66a659"
+      },
+      {
+        "item": "moredyes:stone_7f5665"
+      },
+      {
+        "item": "moredyes:stone_598c65"
+      },
+      {
+        "item": "moredyes:stone_738c26"
+      },
+      {
+        "item": "moredyes:stone_73a626"
+      },
+      {
+        "item": "moredyes:stone_8c8026"
+      },
+      {
+        "item": "moredyes:stone_4c7319"
+      },
+      {
+        "item": "moredyes:stone_864c5f"
+      },
+      {
+        "item": "moredyes:stone_c6596c"
+      },
+      {
+        "item": "moredyes:stone_ac7f6c"
+      },
+      {
+        "item": "moredyes:stone_ac666c"
+      },
+      {
+        "item": "moredyes:stone_9366ab"
+      },
+      {
+        "item": "moredyes:stone_b95fab"
+      },
+      {
+        "item": "moredyes:stone_9f7f9f"
+      },
+      {
+        "item": "moredyes:stone_c68c9f"
+      },
+      {
+        "item": "moredyes:stone_9f6679"
+      },
+      {
+        "item": "moredyes:stone_727272"
+      },
+      {
+        "item": "moredyes:stone_4c6572"
+      },
+      {
+        "item": "moredyes:stone_65467f"
+      },
+      {
+        "item": "moredyes:stone_404c7f"
+      },
+      {
+        "item": "moredyes:stone_594c40"
+      },
+      {
+        "item": "moredyes:stone_596540"
+      },
+      {
+        "item": "moredyes:stone_724040"
+      },
+      {
+        "item": "moredyes:stone_333333"
+      },
+      {
+        "item": "moredyes:stone_738c99"
+      },
+      {
+        "item": "moredyes:stone_8c6ca5"
+      },
+      {
+        "item": "moredyes:stone_6673a5"
+      },
+      {
+        "item": "moredyes:stone_807366"
+      },
+      {
+        "item": "moredyes:stone_808c66"
+      },
+      {
+        "item": "moredyes:stone_996666"
+      },
+      {
+        "item": "moredyes:stone_595959"
+      },
+      {
+        "item": "moredyes:stone_655fa5"
+      },
+      {
+        "item": "moredyes:stone_4066a5"
+      },
+      {
+        "item": "moredyes:stone_596666"
+      },
+      {
+        "item": "moredyes:stone_597f66"
+      },
+      {
+        "item": "moredyes:stone_725966"
+      },
+      {
+        "item": "moredyes:stone_334c59"
+      },
+      {
+        "item": "moredyes:stone_5945b2"
+      },
+      {
+        "item": "moredyes:stone_734573"
+      },
+      {
+        "item": "moredyes:stone_735f73"
+      },
+      {
+        "item": "moredyes:stone_8c3973"
+      },
+      {
+        "item": "moredyes:stone_4c2c66"
+      },
+      {
+        "item": "moredyes:stone_4c4c73"
+      },
+      {
+        "item": "moredyes:stone_4c6573"
+      },
+      {
+        "item": "moredyes:stone_664073"
+      },
+      {
+        "item": "moredyes:stone_263366"
+      },
+      {
+        "item": "moredyes:stone_403326"
+      },
+      {
+        "item": "moredyes:stone_7f4033"
+      },
+      {
+        "item": "moredyes:stone_666533"
+      },
+      {
+        "item": "moredyes:stone_7f5933"
+      },
+      {
+        "item": "moredyes:stone_404c26"
+      },
+      {
+        "item": "moredyes:stone_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stone"
+  }
+}

@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_post"
+        "model": "moredyes:block/glassfoggypane_post"
       }
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_side"
+        "model": "moredyes:block/glassfoggypane_side"
       },
       "when": {
         "north": "true"
@@ -15,7 +15,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_noside"
+        "model": "moredyes:block/glassfoggypane_noside"
       },
       "when": {
         "north": "false"
@@ -23,7 +23,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_side_alt"
+        "model": "moredyes:block/glassfoggypane_side_alt"
       },
       "when": {
         "south": "true"
@@ -31,7 +31,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_noside_alt",
+        "model": "moredyes:block/glassfoggypane_noside_alt",
         "y": 90
       },
       "when": {
@@ -40,7 +40,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_side_alt",
+        "model": "moredyes:block/glassfoggypane_side_alt",
         "y": 90
       },
       "when": {
@@ -49,7 +49,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_noside",
+        "model": "moredyes:block/glassfoggypane_noside",
         "y": 270
       },
       "when": {
@@ -58,7 +58,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_side",
+        "model": "moredyes:block/glassfoggypane_side",
         "y": 90
       },
       "when": {
@@ -67,7 +67,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/glassfoggypane_404c7f_noside_alt"
+        "model": "moredyes:block/glassfoggypane_noside_alt"
       },
       "when": {
         "east": "false"

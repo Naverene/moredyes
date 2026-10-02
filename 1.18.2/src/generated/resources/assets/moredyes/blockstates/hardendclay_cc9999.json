@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "moredyes:block/hardendclay_cc9999"
+      "model": "moredyes:block/hardendclay"
     }
   }
 }

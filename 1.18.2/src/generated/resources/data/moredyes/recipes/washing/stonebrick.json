@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:stonebrick_ecbf99"
+      },
+      {
+        "item": "moredyes:stonebrick_d9a6ec"
+      },
+      {
+        "item": "moredyes:stonebrick_b3ccec"
+      },
+      {
+        "item": "moredyes:stonebrick_f2f299"
+      },
+      {
+        "item": "moredyes:stonebrick_bfe68c"
+      },
+      {
+        "item": "moredyes:stonebrick_f9bfd2"
+      },
+      {
+        "item": "moredyes:stonebrick_cccccc"
+      },
+      {
+        "item": "moredyes:stonebrick_a6bfcc"
+      },
+      {
+        "item": "moredyes:stonebrick_bf9fd9"
+      },
+      {
+        "item": "moredyes:stonebrick_99a6d9"
+      },
+      {
+        "item": "moredyes:stonebrick_b3a699"
+      },
+      {
+        "item": "moredyes:stonebrick_b3bf99"
+      },
+      {
+        "item": "moredyes:stonebrick_cc9999"
+      },
+      {
+        "item": "moredyes:stonebrick_c56685"
+      },
+      {
+        "item": "moredyes:stonebrick_9f8c85"
+      },
+      {
+        "item": "moredyes:stonebrick_deb233"
+      },
+      {
+        "item": "moredyes:stonebrick_aca526"
+      },
+      {
+        "item": "moredyes:stonebrick_e57f6c"
+      },
+      {
+        "item": "moredyes:stonebrick_92663f"
+      },
+      {
+        "item": "moredyes:stonebrick_b98c66"
+      },
+      {
+        "item": "moredyes:stonebrick_927f66"
+      },
+      {
+        "item": "moredyes:stonebrick_ac5f72"
+      },
+      {
+        "item": "moredyes:stonebrick_866672"
+      },
+      {
+        "item": "moredyes:stonebrick_9f6633"
+      },
+      {
+        "item": "moredyes:stonebrick_9f7f33"
+      },
+      {
+        "item": "moredyes:stonebrick_b95933"
+      },
+      {
+        "item": "moredyes:stonebrick_794c26"
+      },
+      {
+        "item": "moredyes:stonebrick_8c72d8"
+      },
+      {
+        "item": "moredyes:stonebrick_cb9886"
+      },
+      {
+        "item": "moredyes:stonebrick_998c79"
+      },
+      {
+        "item": "moredyes:stonebrick_d265bf"
+      },
+      {
+        "item": "moredyes:stonebrick_7f4c92"
+      },
+      {
+        "item": "moredyes:stonebrick_a672b9"
+      },
+      {
+        "item": "moredyes:stonebrick_7f65b9"
+      },
+      {
+        "item": "moredyes:stonebrick_9946c5"
+      },
+      {
+        "item": "moredyes:stonebrick_734cc5"
+      },
+      {
+        "item": "moredyes:stonebrick_8c4c86"
+      },
+      {
+        "item": "moredyes:stonebrick_8c6586"
+      },
+      {
+        "item": "moredyes:stonebrick_a64086"
+      },
+      {
+        "item": "moredyes:stonebrick_663379"
+      },
+      {
+        "item": "moredyes:stonebrick_a5bf86"
+      },
+      {
+        "item": "moredyes:stonebrick_72b279"
+      },
+      {
+        "item": "moredyes:stonebrick_ac8cbf"
+      },
+      {
+        "item": "moredyes:stonebrick_597392"
+      },
+      {
+        "item": "moredyes:stonebrick_7f99b9"
+      },
+      {
+        "item": "moredyes:stonebrick_598cb9"
+      },
+      {
+        "item": "moredyes:stonebrick_726cc5"
+      },
+      {
+        "item": "moredyes:stonebrick_4d73c5"
+      },
+      {
+        "item": "moredyes:stonebrick_667386"
+      },
+      {
+        "item": "moredyes:stonebrick_668c86"
+      },
+      {
+        "item": "moredyes:stonebrick_7f6686"
+      },
+      {
+        "item": "moredyes:stonebrick_405979"
+      },
+      {
+        "item": "moredyes:stonebrick_b2d926"
+      },
+      {
+        "item": "moredyes:stonebrick_ebb26c"
+      },
+      {
+        "item": "moredyes:stonebrick_99993f"
+      },
+      {
+        "item": "moredyes:stonebrick_bfbf66"
+      },
+      {
+        "item": "moredyes:stonebrick_99b266"
+      },
+      {
+        "item": "moredyes:stonebrick_b29272"
+      },
+      {
+        "item": "moredyes:stonebrick_8c9972"
+      },
+      {
+        "item": "moredyes:stonebrick_a69933"
+      },
+      {
+        "item": "moredyes:stonebrick_a6b233"
+      },
+      {
+        "item": "moredyes:stonebrick_bf8c33"
+      },
+      {
+        "item": "moredyes:stonebrick_7f7f26"
+      },
+      {
+        "item": "moredyes:stonebrick_b8a65f"
+      },
+      {
+        "item": "moredyes:stonebrick_668c32"
+      },
+      {
+        "item": "moredyes:stonebrick_8cb359"
+      },
+      {
+        "item": "moredyes:stonebrick_66a659"
+      },
+      {
+        "item": "moredyes:stonebrick_7f5665"
+      },
+      {
+        "item": "moredyes:stonebrick_598c65"
+      },
+      {
+        "item": "moredyes:stonebrick_738c26"
+      },
+      {
+        "item": "moredyes:stonebrick_73a626"
+      },
+      {
+        "item": "moredyes:stonebrick_8c8026"
+      },
+      {
+        "item": "moredyes:stonebrick_4c7319"
+      },
+      {
+        "item": "moredyes:stonebrick_864c5f"
+      },
+      {
+        "item": "moredyes:stonebrick_c6596c"
+      },
+      {
+        "item": "moredyes:stonebrick_ac7f6c"
+      },
+      {
+        "item": "moredyes:stonebrick_ac666c"
+      },
+      {
+        "item": "moredyes:stonebrick_9366ab"
+      },
+      {
+        "item": "moredyes:stonebrick_b95fab"
+      },
+      {
+        "item": "moredyes:stonebrick_9f7f9f"
+      },
+      {
+        "item": "moredyes:stonebrick_c68c9f"
+      },
+      {
+        "item": "moredyes:stonebrick_9f6679"
+      },
+      {
+        "item": "moredyes:stonebrick_727272"
+      },
+      {
+        "item": "moredyes:stonebrick_4c6572"
+      },
+      {
+        "item": "moredyes:stonebrick_65467f"
+      },
+      {
+        "item": "moredyes:stonebrick_404c7f"
+      },
+      {
+        "item": "moredyes:stonebrick_594c40"
+      },
+      {
+        "item": "moredyes:stonebrick_596540"
+      },
+      {
+        "item": "moredyes:stonebrick_724040"
+      },
+      {
+        "item": "moredyes:stonebrick_333333"
+      },
+      {
+        "item": "moredyes:stonebrick_738c99"
+      },
+      {
+        "item": "moredyes:stonebrick_8c6ca5"
+      },
+      {
+        "item": "moredyes:stonebrick_6673a5"
+      },
+      {
+        "item": "moredyes:stonebrick_807366"
+      },
+      {
+        "item": "moredyes:stonebrick_808c66"
+      },
+      {
+        "item": "moredyes:stonebrick_996666"
+      },
+      {
+        "item": "moredyes:stonebrick_595959"
+      },
+      {
+        "item": "moredyes:stonebrick_655fa5"
+      },
+      {
+        "item": "moredyes:stonebrick_4066a5"
+      },
+      {
+        "item": "moredyes:stonebrick_596666"
+      },
+      {
+        "item": "moredyes:stonebrick_597f66"
+      },
+      {
+        "item": "moredyes:stonebrick_725966"
+      },
+      {
+        "item": "moredyes:stonebrick_334c59"
+      },
+      {
+        "item": "moredyes:stonebrick_5945b2"
+      },
+      {
+        "item": "moredyes:stonebrick_734573"
+      },
+      {
+        "item": "moredyes:stonebrick_735f73"
+      },
+      {
+        "item": "moredyes:stonebrick_8c3973"
+      },
+      {
+        "item": "moredyes:stonebrick_4c2c66"
+      },
+      {
+        "item": "moredyes:stonebrick_4c4c73"
+      },
+      {
+        "item": "moredyes:stonebrick_4c6573"
+      },
+      {
+        "item": "moredyes:stonebrick_664073"
+      },
+      {
+        "item": "moredyes:stonebrick_263366"
+      },
+      {
+        "item": "moredyes:stonebrick_403326"
+      },
+      {
+        "item": "moredyes:stonebrick_7f4033"
+      },
+      {
+        "item": "moredyes:stonebrick_666533"
+      },
+      {
+        "item": "moredyes:stonebrick_7f5933"
+      },
+      {
+        "item": "moredyes:stonebrick_404c26"
+      },
+      {
+        "item": "moredyes:stonebrick_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stone_bricks"
+  }
+}

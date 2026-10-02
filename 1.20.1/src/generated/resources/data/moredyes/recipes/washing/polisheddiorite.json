@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:polisheddiorite_ecbf99"
+      },
+      {
+        "item": "moredyes:polisheddiorite_d9a6ec"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b3ccec"
+      },
+      {
+        "item": "moredyes:polisheddiorite_f2f299"
+      },
+      {
+        "item": "moredyes:polisheddiorite_bfe68c"
+      },
+      {
+        "item": "moredyes:polisheddiorite_f9bfd2"
+      },
+      {
+        "item": "moredyes:polisheddiorite_cccccc"
+      },
+      {
+        "item": "moredyes:polisheddiorite_a6bfcc"
+      },
+      {
+        "item": "moredyes:polisheddiorite_bf9fd9"
+      },
+      {
+        "item": "moredyes:polisheddiorite_99a6d9"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b3a699"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b3bf99"
+      },
+      {
+        "item": "moredyes:polisheddiorite_cc9999"
+      },
+      {
+        "item": "moredyes:polisheddiorite_c56685"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9f8c85"
+      },
+      {
+        "item": "moredyes:polisheddiorite_deb233"
+      },
+      {
+        "item": "moredyes:polisheddiorite_aca526"
+      },
+      {
+        "item": "moredyes:polisheddiorite_e57f6c"
+      },
+      {
+        "item": "moredyes:polisheddiorite_92663f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b98c66"
+      },
+      {
+        "item": "moredyes:polisheddiorite_927f66"
+      },
+      {
+        "item": "moredyes:polisheddiorite_ac5f72"
+      },
+      {
+        "item": "moredyes:polisheddiorite_866672"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9f6633"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9f7f33"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b95933"
+      },
+      {
+        "item": "moredyes:polisheddiorite_794c26"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c72d8"
+      },
+      {
+        "item": "moredyes:polisheddiorite_cb9886"
+      },
+      {
+        "item": "moredyes:polisheddiorite_998c79"
+      },
+      {
+        "item": "moredyes:polisheddiorite_d265bf"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f4c92"
+      },
+      {
+        "item": "moredyes:polisheddiorite_a672b9"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f65b9"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9946c5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_734cc5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c4c86"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c6586"
+      },
+      {
+        "item": "moredyes:polisheddiorite_a64086"
+      },
+      {
+        "item": "moredyes:polisheddiorite_663379"
+      },
+      {
+        "item": "moredyes:polisheddiorite_a5bf86"
+      },
+      {
+        "item": "moredyes:polisheddiorite_72b279"
+      },
+      {
+        "item": "moredyes:polisheddiorite_ac8cbf"
+      },
+      {
+        "item": "moredyes:polisheddiorite_597392"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f99b9"
+      },
+      {
+        "item": "moredyes:polisheddiorite_598cb9"
+      },
+      {
+        "item": "moredyes:polisheddiorite_726cc5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4d73c5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_667386"
+      },
+      {
+        "item": "moredyes:polisheddiorite_668c86"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f6686"
+      },
+      {
+        "item": "moredyes:polisheddiorite_405979"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b2d926"
+      },
+      {
+        "item": "moredyes:polisheddiorite_ebb26c"
+      },
+      {
+        "item": "moredyes:polisheddiorite_99993f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_bfbf66"
+      },
+      {
+        "item": "moredyes:polisheddiorite_99b266"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b29272"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c9972"
+      },
+      {
+        "item": "moredyes:polisheddiorite_a69933"
+      },
+      {
+        "item": "moredyes:polisheddiorite_a6b233"
+      },
+      {
+        "item": "moredyes:polisheddiorite_bf8c33"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f7f26"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b8a65f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_668c32"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8cb359"
+      },
+      {
+        "item": "moredyes:polisheddiorite_66a659"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f5665"
+      },
+      {
+        "item": "moredyes:polisheddiorite_598c65"
+      },
+      {
+        "item": "moredyes:polisheddiorite_738c26"
+      },
+      {
+        "item": "moredyes:polisheddiorite_73a626"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c8026"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4c7319"
+      },
+      {
+        "item": "moredyes:polisheddiorite_864c5f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_c6596c"
+      },
+      {
+        "item": "moredyes:polisheddiorite_ac7f6c"
+      },
+      {
+        "item": "moredyes:polisheddiorite_ac666c"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9366ab"
+      },
+      {
+        "item": "moredyes:polisheddiorite_b95fab"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9f7f9f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_c68c9f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_9f6679"
+      },
+      {
+        "item": "moredyes:polisheddiorite_727272"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4c6572"
+      },
+      {
+        "item": "moredyes:polisheddiorite_65467f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_404c7f"
+      },
+      {
+        "item": "moredyes:polisheddiorite_594c40"
+      },
+      {
+        "item": "moredyes:polisheddiorite_596540"
+      },
+      {
+        "item": "moredyes:polisheddiorite_724040"
+      },
+      {
+        "item": "moredyes:polisheddiorite_333333"
+      },
+      {
+        "item": "moredyes:polisheddiorite_738c99"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c6ca5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_6673a5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_807366"
+      },
+      {
+        "item": "moredyes:polisheddiorite_808c66"
+      },
+      {
+        "item": "moredyes:polisheddiorite_996666"
+      },
+      {
+        "item": "moredyes:polisheddiorite_595959"
+      },
+      {
+        "item": "moredyes:polisheddiorite_655fa5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4066a5"
+      },
+      {
+        "item": "moredyes:polisheddiorite_596666"
+      },
+      {
+        "item": "moredyes:polisheddiorite_597f66"
+      },
+      {
+        "item": "moredyes:polisheddiorite_725966"
+      },
+      {
+        "item": "moredyes:polisheddiorite_334c59"
+      },
+      {
+        "item": "moredyes:polisheddiorite_5945b2"
+      },
+      {
+        "item": "moredyes:polisheddiorite_734573"
+      },
+      {
+        "item": "moredyes:polisheddiorite_735f73"
+      },
+      {
+        "item": "moredyes:polisheddiorite_8c3973"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4c2c66"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4c4c73"
+      },
+      {
+        "item": "moredyes:polisheddiorite_4c6573"
+      },
+      {
+        "item": "moredyes:polisheddiorite_664073"
+      },
+      {
+        "item": "moredyes:polisheddiorite_263366"
+      },
+      {
+        "item": "moredyes:polisheddiorite_403326"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f4033"
+      },
+      {
+        "item": "moredyes:polisheddiorite_666533"
+      },
+      {
+        "item": "moredyes:polisheddiorite_7f5933"
+      },
+      {
+        "item": "moredyes:polisheddiorite_404c26"
+      },
+      {
+        "item": "moredyes:polisheddiorite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:polished_diorite"
+  }
+}

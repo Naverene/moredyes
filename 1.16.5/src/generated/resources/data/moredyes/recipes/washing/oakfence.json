@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:oakfence_ecbf99"
+      },
+      {
+        "item": "moredyes:oakfence_d9a6ec"
+      },
+      {
+        "item": "moredyes:oakfence_b3ccec"
+      },
+      {
+        "item": "moredyes:oakfence_f2f299"
+      },
+      {
+        "item": "moredyes:oakfence_bfe68c"
+      },
+      {
+        "item": "moredyes:oakfence_f9bfd2"
+      },
+      {
+        "item": "moredyes:oakfence_cccccc"
+      },
+      {
+        "item": "moredyes:oakfence_a6bfcc"
+      },
+      {
+        "item": "moredyes:oakfence_bf9fd9"
+      },
+      {
+        "item": "moredyes:oakfence_99a6d9"
+      },
+      {
+        "item": "moredyes:oakfence_b3a699"
+      },
+      {
+        "item": "moredyes:oakfence_b3bf99"
+      },
+      {
+        "item": "moredyes:oakfence_cc9999"
+      },
+      {
+        "item": "moredyes:oakfence_c56685"
+      },
+      {
+        "item": "moredyes:oakfence_9f8c85"
+      },
+      {
+        "item": "moredyes:oakfence_deb233"
+      },
+      {
+        "item": "moredyes:oakfence_aca526"
+      },
+      {
+        "item": "moredyes:oakfence_e57f6c"
+      },
+      {
+        "item": "moredyes:oakfence_92663f"
+      },
+      {
+        "item": "moredyes:oakfence_b98c66"
+      },
+      {
+        "item": "moredyes:oakfence_927f66"
+      },
+      {
+        "item": "moredyes:oakfence_ac5f72"
+      },
+      {
+        "item": "moredyes:oakfence_866672"
+      },
+      {
+        "item": "moredyes:oakfence_9f6633"
+      },
+      {
+        "item": "moredyes:oakfence_9f7f33"
+      },
+      {
+        "item": "moredyes:oakfence_b95933"
+      },
+      {
+        "item": "moredyes:oakfence_794c26"
+      },
+      {
+        "item": "moredyes:oakfence_8c72d8"
+      },
+      {
+        "item": "moredyes:oakfence_cb9886"
+      },
+      {
+        "item": "moredyes:oakfence_998c79"
+      },
+      {
+        "item": "moredyes:oakfence_d265bf"
+      },
+      {
+        "item": "moredyes:oakfence_7f4c92"
+      },
+      {
+        "item": "moredyes:oakfence_a672b9"
+      },
+      {
+        "item": "moredyes:oakfence_7f65b9"
+      },
+      {
+        "item": "moredyes:oakfence_9946c5"
+      },
+      {
+        "item": "moredyes:oakfence_734cc5"
+      },
+      {
+        "item": "moredyes:oakfence_8c4c86"
+      },
+      {
+        "item": "moredyes:oakfence_8c6586"
+      },
+      {
+        "item": "moredyes:oakfence_a64086"
+      },
+      {
+        "item": "moredyes:oakfence_663379"
+      },
+      {
+        "item": "moredyes:oakfence_a5bf86"
+      },
+      {
+        "item": "moredyes:oakfence_72b279"
+      },
+      {
+        "item": "moredyes:oakfence_ac8cbf"
+      },
+      {
+        "item": "moredyes:oakfence_597392"
+      },
+      {
+        "item": "moredyes:oakfence_7f99b9"
+      },
+      {
+        "item": "moredyes:oakfence_598cb9"
+      },
+      {
+        "item": "moredyes:oakfence_726cc5"
+      },
+      {
+        "item": "moredyes:oakfence_4d73c5"
+      },
+      {
+        "item": "moredyes:oakfence_667386"
+      },
+      {
+        "item": "moredyes:oakfence_668c86"
+      },
+      {
+        "item": "moredyes:oakfence_7f6686"
+      },
+      {
+        "item": "moredyes:oakfence_405979"
+      },
+      {
+        "item": "moredyes:oakfence_b2d926"
+      },
+      {
+        "item": "moredyes:oakfence_ebb26c"
+      },
+      {
+        "item": "moredyes:oakfence_99993f"
+      },
+      {
+        "item": "moredyes:oakfence_bfbf66"
+      },
+      {
+        "item": "moredyes:oakfence_99b266"
+      },
+      {
+        "item": "moredyes:oakfence_b29272"
+      },
+      {
+        "item": "moredyes:oakfence_8c9972"
+      },
+      {
+        "item": "moredyes:oakfence_a69933"
+      },
+      {
+        "item": "moredyes:oakfence_a6b233"
+      },
+      {
+        "item": "moredyes:oakfence_bf8c33"
+      },
+      {
+        "item": "moredyes:oakfence_7f7f26"
+      },
+      {
+        "item": "moredyes:oakfence_b8a65f"
+      },
+      {
+        "item": "moredyes:oakfence_668c32"
+      },
+      {
+        "item": "moredyes:oakfence_8cb359"
+      },
+      {
+        "item": "moredyes:oakfence_66a659"
+      },
+      {
+        "item": "moredyes:oakfence_7f5665"
+      },
+      {
+        "item": "moredyes:oakfence_598c65"
+      },
+      {
+        "item": "moredyes:oakfence_738c26"
+      },
+      {
+        "item": "moredyes:oakfence_73a626"
+      },
+      {
+        "item": "moredyes:oakfence_8c8026"
+      },
+      {
+        "item": "moredyes:oakfence_4c7319"
+      },
+      {
+        "item": "moredyes:oakfence_864c5f"
+      },
+      {
+        "item": "moredyes:oakfence_c6596c"
+      },
+      {
+        "item": "moredyes:oakfence_ac7f6c"
+      },
+      {
+        "item": "moredyes:oakfence_ac666c"
+      },
+      {
+        "item": "moredyes:oakfence_9366ab"
+      },
+      {
+        "item": "moredyes:oakfence_b95fab"
+      },
+      {
+        "item": "moredyes:oakfence_9f7f9f"
+      },
+      {
+        "item": "moredyes:oakfence_c68c9f"
+      },
+      {
+        "item": "moredyes:oakfence_9f6679"
+      },
+      {
+        "item": "moredyes:oakfence_727272"
+      },
+      {
+        "item": "moredyes:oakfence_4c6572"
+      },
+      {
+        "item": "moredyes:oakfence_65467f"
+      },
+      {
+        "item": "moredyes:oakfence_404c7f"
+      },
+      {
+        "item": "moredyes:oakfence_594c40"
+      },
+      {
+        "item": "moredyes:oakfence_596540"
+      },
+      {
+        "item": "moredyes:oakfence_724040"
+      },
+      {
+        "item": "moredyes:oakfence_333333"
+      },
+      {
+        "item": "moredyes:oakfence_738c99"
+      },
+      {
+        "item": "moredyes:oakfence_8c6ca5"
+      },
+      {
+        "item": "moredyes:oakfence_6673a5"
+      },
+      {
+        "item": "moredyes:oakfence_807366"
+      },
+      {
+        "item": "moredyes:oakfence_808c66"
+      },
+      {
+        "item": "moredyes:oakfence_996666"
+      },
+      {
+        "item": "moredyes:oakfence_595959"
+      },
+      {
+        "item": "moredyes:oakfence_655fa5"
+      },
+      {
+        "item": "moredyes:oakfence_4066a5"
+      },
+      {
+        "item": "moredyes:oakfence_596666"
+      },
+      {
+        "item": "moredyes:oakfence_597f66"
+      },
+      {
+        "item": "moredyes:oakfence_725966"
+      },
+      {
+        "item": "moredyes:oakfence_334c59"
+      },
+      {
+        "item": "moredyes:oakfence_5945b2"
+      },
+      {
+        "item": "moredyes:oakfence_734573"
+      },
+      {
+        "item": "moredyes:oakfence_735f73"
+      },
+      {
+        "item": "moredyes:oakfence_8c3973"
+      },
+      {
+        "item": "moredyes:oakfence_4c2c66"
+      },
+      {
+        "item": "moredyes:oakfence_4c4c73"
+      },
+      {
+        "item": "moredyes:oakfence_4c6573"
+      },
+      {
+        "item": "moredyes:oakfence_664073"
+      },
+      {
+        "item": "moredyes:oakfence_263366"
+      },
+      {
+        "item": "moredyes:oakfence_403326"
+      },
+      {
+        "item": "moredyes:oakfence_7f4033"
+      },
+      {
+        "item": "moredyes:oakfence_666533"
+      },
+      {
+        "item": "moredyes:oakfence_7f5933"
+      },
+      {
+        "item": "moredyes:oakfence_404c26"
+      },
+      {
+        "item": "moredyes:oakfence_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_fence"
+  }
+}

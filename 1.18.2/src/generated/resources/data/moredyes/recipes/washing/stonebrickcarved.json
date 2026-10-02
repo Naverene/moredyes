@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:stonebrickcarved_ecbf99"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_d9a6ec"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b3ccec"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_f2f299"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_bfe68c"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_f9bfd2"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_cccccc"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_a6bfcc"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_bf9fd9"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_99a6d9"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b3a699"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b3bf99"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_cc9999"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_c56685"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9f8c85"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_deb233"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_aca526"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_e57f6c"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_92663f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b98c66"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_927f66"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_ac5f72"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_866672"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9f6633"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9f7f33"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b95933"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_794c26"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c72d8"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_cb9886"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_998c79"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_d265bf"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f4c92"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_a672b9"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f65b9"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9946c5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_734cc5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c4c86"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c6586"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_a64086"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_663379"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_a5bf86"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_72b279"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_ac8cbf"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_597392"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f99b9"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_598cb9"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_726cc5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4d73c5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_667386"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_668c86"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f6686"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_405979"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b2d926"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_ebb26c"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_99993f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_bfbf66"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_99b266"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b29272"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c9972"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_a69933"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_a6b233"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_bf8c33"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f7f26"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b8a65f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_668c32"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8cb359"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_66a659"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f5665"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_598c65"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_738c26"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_73a626"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c8026"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4c7319"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_864c5f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_c6596c"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_ac7f6c"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_ac666c"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9366ab"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_b95fab"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9f7f9f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_c68c9f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_9f6679"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_727272"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4c6572"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_65467f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_404c7f"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_594c40"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_596540"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_724040"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_333333"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_738c99"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c6ca5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_6673a5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_807366"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_808c66"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_996666"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_595959"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_655fa5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4066a5"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_596666"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_597f66"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_725966"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_334c59"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_5945b2"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_734573"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_735f73"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_8c3973"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4c2c66"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4c4c73"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_4c6573"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_664073"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_263366"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_403326"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f4033"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_666533"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_7f5933"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_404c26"
+      },
+      {
+        "item": "moredyes:stonebrickcarved_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chiseled_stone_bricks"
+  }
+}

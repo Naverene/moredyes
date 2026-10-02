@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:redstone_ecbf99"
+      },
+      {
+        "item": "moredyes:redstone_d9a6ec"
+      },
+      {
+        "item": "moredyes:redstone_b3ccec"
+      },
+      {
+        "item": "moredyes:redstone_f2f299"
+      },
+      {
+        "item": "moredyes:redstone_bfe68c"
+      },
+      {
+        "item": "moredyes:redstone_f9bfd2"
+      },
+      {
+        "item": "moredyes:redstone_cccccc"
+      },
+      {
+        "item": "moredyes:redstone_a6bfcc"
+      },
+      {
+        "item": "moredyes:redstone_bf9fd9"
+      },
+      {
+        "item": "moredyes:redstone_99a6d9"
+      },
+      {
+        "item": "moredyes:redstone_b3a699"
+      },
+      {
+        "item": "moredyes:redstone_b3bf99"
+      },
+      {
+        "item": "moredyes:redstone_cc9999"
+      },
+      {
+        "item": "moredyes:redstone_c56685"
+      },
+      {
+        "item": "moredyes:redstone_9f8c85"
+      },
+      {
+        "item": "moredyes:redstone_deb233"
+      },
+      {
+        "item": "moredyes:redstone_aca526"
+      },
+      {
+        "item": "moredyes:redstone_e57f6c"
+      },
+      {
+        "item": "moredyes:redstone_92663f"
+      },
+      {
+        "item": "moredyes:redstone_b98c66"
+      },
+      {
+        "item": "moredyes:redstone_927f66"
+      },
+      {
+        "item": "moredyes:redstone_ac5f72"
+      },
+      {
+        "item": "moredyes:redstone_866672"
+      },
+      {
+        "item": "moredyes:redstone_9f6633"
+      },
+      {
+        "item": "moredyes:redstone_9f7f33"
+      },
+      {
+        "item": "moredyes:redstone_b95933"
+      },
+      {
+        "item": "moredyes:redstone_794c26"
+      },
+      {
+        "item": "moredyes:redstone_8c72d8"
+      },
+      {
+        "item": "moredyes:redstone_cb9886"
+      },
+      {
+        "item": "moredyes:redstone_998c79"
+      },
+      {
+        "item": "moredyes:redstone_d265bf"
+      },
+      {
+        "item": "moredyes:redstone_7f4c92"
+      },
+      {
+        "item": "moredyes:redstone_a672b9"
+      },
+      {
+        "item": "moredyes:redstone_7f65b9"
+      },
+      {
+        "item": "moredyes:redstone_9946c5"
+      },
+      {
+        "item": "moredyes:redstone_734cc5"
+      },
+      {
+        "item": "moredyes:redstone_8c4c86"
+      },
+      {
+        "item": "moredyes:redstone_8c6586"
+      },
+      {
+        "item": "moredyes:redstone_a64086"
+      },
+      {
+        "item": "moredyes:redstone_663379"
+      },
+      {
+        "item": "moredyes:redstone_a5bf86"
+      },
+      {
+        "item": "moredyes:redstone_72b279"
+      },
+      {
+        "item": "moredyes:redstone_ac8cbf"
+      },
+      {
+        "item": "moredyes:redstone_597392"
+      },
+      {
+        "item": "moredyes:redstone_7f99b9"
+      },
+      {
+        "item": "moredyes:redstone_598cb9"
+      },
+      {
+        "item": "moredyes:redstone_726cc5"
+      },
+      {
+        "item": "moredyes:redstone_4d73c5"
+      },
+      {
+        "item": "moredyes:redstone_667386"
+      },
+      {
+        "item": "moredyes:redstone_668c86"
+      },
+      {
+        "item": "moredyes:redstone_7f6686"
+      },
+      {
+        "item": "moredyes:redstone_405979"
+      },
+      {
+        "item": "moredyes:redstone_b2d926"
+      },
+      {
+        "item": "moredyes:redstone_ebb26c"
+      },
+      {
+        "item": "moredyes:redstone_99993f"
+      },
+      {
+        "item": "moredyes:redstone_bfbf66"
+      },
+      {
+        "item": "moredyes:redstone_99b266"
+      },
+      {
+        "item": "moredyes:redstone_b29272"
+      },
+      {
+        "item": "moredyes:redstone_8c9972"
+      },
+      {
+        "item": "moredyes:redstone_a69933"
+      },
+      {
+        "item": "moredyes:redstone_a6b233"
+      },
+      {
+        "item": "moredyes:redstone_bf8c33"
+      },
+      {
+        "item": "moredyes:redstone_7f7f26"
+      },
+      {
+        "item": "moredyes:redstone_b8a65f"
+      },
+      {
+        "item": "moredyes:redstone_668c32"
+      },
+      {
+        "item": "moredyes:redstone_8cb359"
+      },
+      {
+        "item": "moredyes:redstone_66a659"
+      },
+      {
+        "item": "moredyes:redstone_7f5665"
+      },
+      {
+        "item": "moredyes:redstone_598c65"
+      },
+      {
+        "item": "moredyes:redstone_738c26"
+      },
+      {
+        "item": "moredyes:redstone_73a626"
+      },
+      {
+        "item": "moredyes:redstone_8c8026"
+      },
+      {
+        "item": "moredyes:redstone_4c7319"
+      },
+      {
+        "item": "moredyes:redstone_864c5f"
+      },
+      {
+        "item": "moredyes:redstone_c6596c"
+      },
+      {
+        "item": "moredyes:redstone_ac7f6c"
+      },
+      {
+        "item": "moredyes:redstone_ac666c"
+      },
+      {
+        "item": "moredyes:redstone_9366ab"
+      },
+      {
+        "item": "moredyes:redstone_b95fab"
+      },
+      {
+        "item": "moredyes:redstone_9f7f9f"
+      },
+      {
+        "item": "moredyes:redstone_c68c9f"
+      },
+      {
+        "item": "moredyes:redstone_9f6679"
+      },
+      {
+        "item": "moredyes:redstone_727272"
+      },
+      {
+        "item": "moredyes:redstone_4c6572"
+      },
+      {
+        "item": "moredyes:redstone_65467f"
+      },
+      {
+        "item": "moredyes:redstone_404c7f"
+      },
+      {
+        "item": "moredyes:redstone_594c40"
+      },
+      {
+        "item": "moredyes:redstone_596540"
+      },
+      {
+        "item": "moredyes:redstone_724040"
+      },
+      {
+        "item": "moredyes:redstone_333333"
+      },
+      {
+        "item": "moredyes:redstone_738c99"
+      },
+      {
+        "item": "moredyes:redstone_8c6ca5"
+      },
+      {
+        "item": "moredyes:redstone_6673a5"
+      },
+      {
+        "item": "moredyes:redstone_807366"
+      },
+      {
+        "item": "moredyes:redstone_808c66"
+      },
+      {
+        "item": "moredyes:redstone_996666"
+      },
+      {
+        "item": "moredyes:redstone_595959"
+      },
+      {
+        "item": "moredyes:redstone_655fa5"
+      },
+      {
+        "item": "moredyes:redstone_4066a5"
+      },
+      {
+        "item": "moredyes:redstone_596666"
+      },
+      {
+        "item": "moredyes:redstone_597f66"
+      },
+      {
+        "item": "moredyes:redstone_725966"
+      },
+      {
+        "item": "moredyes:redstone_334c59"
+      },
+      {
+        "item": "moredyes:redstone_5945b2"
+      },
+      {
+        "item": "moredyes:redstone_734573"
+      },
+      {
+        "item": "moredyes:redstone_735f73"
+      },
+      {
+        "item": "moredyes:redstone_8c3973"
+      },
+      {
+        "item": "moredyes:redstone_4c2c66"
+      },
+      {
+        "item": "moredyes:redstone_4c4c73"
+      },
+      {
+        "item": "moredyes:redstone_4c6573"
+      },
+      {
+        "item": "moredyes:redstone_664073"
+      },
+      {
+        "item": "moredyes:redstone_263366"
+      },
+      {
+        "item": "moredyes:redstone_403326"
+      },
+      {
+        "item": "moredyes:redstone_7f4033"
+      },
+      {
+        "item": "moredyes:redstone_666533"
+      },
+      {
+        "item": "moredyes:redstone_7f5933"
+      },
+      {
+        "item": "moredyes:redstone_404c26"
+      },
+      {
+        "item": "moredyes:redstone_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone_block"
+  }
+}

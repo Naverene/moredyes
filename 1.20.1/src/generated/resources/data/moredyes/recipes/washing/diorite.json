@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:diorite_ecbf99"
+      },
+      {
+        "item": "moredyes:diorite_d9a6ec"
+      },
+      {
+        "item": "moredyes:diorite_b3ccec"
+      },
+      {
+        "item": "moredyes:diorite_f2f299"
+      },
+      {
+        "item": "moredyes:diorite_bfe68c"
+      },
+      {
+        "item": "moredyes:diorite_f9bfd2"
+      },
+      {
+        "item": "moredyes:diorite_cccccc"
+      },
+      {
+        "item": "moredyes:diorite_a6bfcc"
+      },
+      {
+        "item": "moredyes:diorite_bf9fd9"
+      },
+      {
+        "item": "moredyes:diorite_99a6d9"
+      },
+      {
+        "item": "moredyes:diorite_b3a699"
+      },
+      {
+        "item": "moredyes:diorite_b3bf99"
+      },
+      {
+        "item": "moredyes:diorite_cc9999"
+      },
+      {
+        "item": "moredyes:diorite_c56685"
+      },
+      {
+        "item": "moredyes:diorite_9f8c85"
+      },
+      {
+        "item": "moredyes:diorite_deb233"
+      },
+      {
+        "item": "moredyes:diorite_aca526"
+      },
+      {
+        "item": "moredyes:diorite_e57f6c"
+      },
+      {
+        "item": "moredyes:diorite_92663f"
+      },
+      {
+        "item": "moredyes:diorite_b98c66"
+      },
+      {
+        "item": "moredyes:diorite_927f66"
+      },
+      {
+        "item": "moredyes:diorite_ac5f72"
+      },
+      {
+        "item": "moredyes:diorite_866672"
+      },
+      {
+        "item": "moredyes:diorite_9f6633"
+      },
+      {
+        "item": "moredyes:diorite_9f7f33"
+      },
+      {
+        "item": "moredyes:diorite_b95933"
+      },
+      {
+        "item": "moredyes:diorite_794c26"
+      },
+      {
+        "item": "moredyes:diorite_8c72d8"
+      },
+      {
+        "item": "moredyes:diorite_cb9886"
+      },
+      {
+        "item": "moredyes:diorite_998c79"
+      },
+      {
+        "item": "moredyes:diorite_d265bf"
+      },
+      {
+        "item": "moredyes:diorite_7f4c92"
+      },
+      {
+        "item": "moredyes:diorite_a672b9"
+      },
+      {
+        "item": "moredyes:diorite_7f65b9"
+      },
+      {
+        "item": "moredyes:diorite_9946c5"
+      },
+      {
+        "item": "moredyes:diorite_734cc5"
+      },
+      {
+        "item": "moredyes:diorite_8c4c86"
+      },
+      {
+        "item": "moredyes:diorite_8c6586"
+      },
+      {
+        "item": "moredyes:diorite_a64086"
+      },
+      {
+        "item": "moredyes:diorite_663379"
+      },
+      {
+        "item": "moredyes:diorite_a5bf86"
+      },
+      {
+        "item": "moredyes:diorite_72b279"
+      },
+      {
+        "item": "moredyes:diorite_ac8cbf"
+      },
+      {
+        "item": "moredyes:diorite_597392"
+      },
+      {
+        "item": "moredyes:diorite_7f99b9"
+      },
+      {
+        "item": "moredyes:diorite_598cb9"
+      },
+      {
+        "item": "moredyes:diorite_726cc5"
+      },
+      {
+        "item": "moredyes:diorite_4d73c5"
+      },
+      {
+        "item": "moredyes:diorite_667386"
+      },
+      {
+        "item": "moredyes:diorite_668c86"
+      },
+      {
+        "item": "moredyes:diorite_7f6686"
+      },
+      {
+        "item": "moredyes:diorite_405979"
+      },
+      {
+        "item": "moredyes:diorite_b2d926"
+      },
+      {
+        "item": "moredyes:diorite_ebb26c"
+      },
+      {
+        "item": "moredyes:diorite_99993f"
+      },
+      {
+        "item": "moredyes:diorite_bfbf66"
+      },
+      {
+        "item": "moredyes:diorite_99b266"
+      },
+      {
+        "item": "moredyes:diorite_b29272"
+      },
+      {
+        "item": "moredyes:diorite_8c9972"
+      },
+      {
+        "item": "moredyes:diorite_a69933"
+      },
+      {
+        "item": "moredyes:diorite_a6b233"
+      },
+      {
+        "item": "moredyes:diorite_bf8c33"
+      },
+      {
+        "item": "moredyes:diorite_7f7f26"
+      },
+      {
+        "item": "moredyes:diorite_b8a65f"
+      },
+      {
+        "item": "moredyes:diorite_668c32"
+      },
+      {
+        "item": "moredyes:diorite_8cb359"
+      },
+      {
+        "item": "moredyes:diorite_66a659"
+      },
+      {
+        "item": "moredyes:diorite_7f5665"
+      },
+      {
+        "item": "moredyes:diorite_598c65"
+      },
+      {
+        "item": "moredyes:diorite_738c26"
+      },
+      {
+        "item": "moredyes:diorite_73a626"
+      },
+      {
+        "item": "moredyes:diorite_8c8026"
+      },
+      {
+        "item": "moredyes:diorite_4c7319"
+      },
+      {
+        "item": "moredyes:diorite_864c5f"
+      },
+      {
+        "item": "moredyes:diorite_c6596c"
+      },
+      {
+        "item": "moredyes:diorite_ac7f6c"
+      },
+      {
+        "item": "moredyes:diorite_ac666c"
+      },
+      {
+        "item": "moredyes:diorite_9366ab"
+      },
+      {
+        "item": "moredyes:diorite_b95fab"
+      },
+      {
+        "item": "moredyes:diorite_9f7f9f"
+      },
+      {
+        "item": "moredyes:diorite_c68c9f"
+      },
+      {
+        "item": "moredyes:diorite_9f6679"
+      },
+      {
+        "item": "moredyes:diorite_727272"
+      },
+      {
+        "item": "moredyes:diorite_4c6572"
+      },
+      {
+        "item": "moredyes:diorite_65467f"
+      },
+      {
+        "item": "moredyes:diorite_404c7f"
+      },
+      {
+        "item": "moredyes:diorite_594c40"
+      },
+      {
+        "item": "moredyes:diorite_596540"
+      },
+      {
+        "item": "moredyes:diorite_724040"
+      },
+      {
+        "item": "moredyes:diorite_333333"
+      },
+      {
+        "item": "moredyes:diorite_738c99"
+      },
+      {
+        "item": "moredyes:diorite_8c6ca5"
+      },
+      {
+        "item": "moredyes:diorite_6673a5"
+      },
+      {
+        "item": "moredyes:diorite_807366"
+      },
+      {
+        "item": "moredyes:diorite_808c66"
+      },
+      {
+        "item": "moredyes:diorite_996666"
+      },
+      {
+        "item": "moredyes:diorite_595959"
+      },
+      {
+        "item": "moredyes:diorite_655fa5"
+      },
+      {
+        "item": "moredyes:diorite_4066a5"
+      },
+      {
+        "item": "moredyes:diorite_596666"
+      },
+      {
+        "item": "moredyes:diorite_597f66"
+      },
+      {
+        "item": "moredyes:diorite_725966"
+      },
+      {
+        "item": "moredyes:diorite_334c59"
+      },
+      {
+        "item": "moredyes:diorite_5945b2"
+      },
+      {
+        "item": "moredyes:diorite_734573"
+      },
+      {
+        "item": "moredyes:diorite_735f73"
+      },
+      {
+        "item": "moredyes:diorite_8c3973"
+      },
+      {
+        "item": "moredyes:diorite_4c2c66"
+      },
+      {
+        "item": "moredyes:diorite_4c4c73"
+      },
+      {
+        "item": "moredyes:diorite_4c6573"
+      },
+      {
+        "item": "moredyes:diorite_664073"
+      },
+      {
+        "item": "moredyes:diorite_263366"
+      },
+      {
+        "item": "moredyes:diorite_403326"
+      },
+      {
+        "item": "moredyes:diorite_7f4033"
+      },
+      {
+        "item": "moredyes:diorite_666533"
+      },
+      {
+        "item": "moredyes:diorite_7f5933"
+      },
+      {
+        "item": "moredyes:diorite_404c26"
+      },
+      {
+        "item": "moredyes:diorite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:diorite"
+  }
+}

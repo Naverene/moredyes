@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:oxeyedaisy_ecbf99"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_d9a6ec"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b3ccec"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_f2f299"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_bfe68c"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_f9bfd2"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_cccccc"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_a6bfcc"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_bf9fd9"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_99a6d9"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b3a699"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b3bf99"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_cc9999"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_c56685"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9f8c85"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_deb233"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_aca526"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_e57f6c"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_92663f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b98c66"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_927f66"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_ac5f72"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_866672"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9f6633"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9f7f33"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b95933"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_794c26"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c72d8"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_cb9886"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_998c79"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_d265bf"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f4c92"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_a672b9"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f65b9"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9946c5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_734cc5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c4c86"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c6586"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_a64086"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_663379"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_a5bf86"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_72b279"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_ac8cbf"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_597392"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f99b9"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_598cb9"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_726cc5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4d73c5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_667386"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_668c86"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f6686"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_405979"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b2d926"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_ebb26c"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_99993f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_bfbf66"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_99b266"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b29272"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c9972"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_a69933"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_a6b233"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_bf8c33"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f7f26"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b8a65f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_668c32"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8cb359"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_66a659"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f5665"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_598c65"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_738c26"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_73a626"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c8026"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4c7319"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_864c5f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_c6596c"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_ac7f6c"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_ac666c"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9366ab"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_b95fab"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9f7f9f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_c68c9f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_9f6679"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_727272"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4c6572"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_65467f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_404c7f"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_594c40"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_596540"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_724040"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_333333"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_738c99"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c6ca5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_6673a5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_807366"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_808c66"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_996666"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_595959"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_655fa5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4066a5"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_596666"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_597f66"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_725966"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_334c59"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_5945b2"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_734573"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_735f73"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_8c3973"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4c2c66"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4c4c73"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_4c6573"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_664073"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_263366"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_403326"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f4033"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_666533"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_7f5933"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_404c26"
+      },
+      {
+        "item": "moredyes:oxeyedaisy_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oxeye_daisy"
+  }
+}

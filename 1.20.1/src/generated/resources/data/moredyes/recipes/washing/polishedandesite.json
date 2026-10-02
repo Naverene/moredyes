@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:polishedandesite_ecbf99"
+      },
+      {
+        "item": "moredyes:polishedandesite_d9a6ec"
+      },
+      {
+        "item": "moredyes:polishedandesite_b3ccec"
+      },
+      {
+        "item": "moredyes:polishedandesite_f2f299"
+      },
+      {
+        "item": "moredyes:polishedandesite_bfe68c"
+      },
+      {
+        "item": "moredyes:polishedandesite_f9bfd2"
+      },
+      {
+        "item": "moredyes:polishedandesite_cccccc"
+      },
+      {
+        "item": "moredyes:polishedandesite_a6bfcc"
+      },
+      {
+        "item": "moredyes:polishedandesite_bf9fd9"
+      },
+      {
+        "item": "moredyes:polishedandesite_99a6d9"
+      },
+      {
+        "item": "moredyes:polishedandesite_b3a699"
+      },
+      {
+        "item": "moredyes:polishedandesite_b3bf99"
+      },
+      {
+        "item": "moredyes:polishedandesite_cc9999"
+      },
+      {
+        "item": "moredyes:polishedandesite_c56685"
+      },
+      {
+        "item": "moredyes:polishedandesite_9f8c85"
+      },
+      {
+        "item": "moredyes:polishedandesite_deb233"
+      },
+      {
+        "item": "moredyes:polishedandesite_aca526"
+      },
+      {
+        "item": "moredyes:polishedandesite_e57f6c"
+      },
+      {
+        "item": "moredyes:polishedandesite_92663f"
+      },
+      {
+        "item": "moredyes:polishedandesite_b98c66"
+      },
+      {
+        "item": "moredyes:polishedandesite_927f66"
+      },
+      {
+        "item": "moredyes:polishedandesite_ac5f72"
+      },
+      {
+        "item": "moredyes:polishedandesite_866672"
+      },
+      {
+        "item": "moredyes:polishedandesite_9f6633"
+      },
+      {
+        "item": "moredyes:polishedandesite_9f7f33"
+      },
+      {
+        "item": "moredyes:polishedandesite_b95933"
+      },
+      {
+        "item": "moredyes:polishedandesite_794c26"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c72d8"
+      },
+      {
+        "item": "moredyes:polishedandesite_cb9886"
+      },
+      {
+        "item": "moredyes:polishedandesite_998c79"
+      },
+      {
+        "item": "moredyes:polishedandesite_d265bf"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f4c92"
+      },
+      {
+        "item": "moredyes:polishedandesite_a672b9"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f65b9"
+      },
+      {
+        "item": "moredyes:polishedandesite_9946c5"
+      },
+      {
+        "item": "moredyes:polishedandesite_734cc5"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c4c86"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c6586"
+      },
+      {
+        "item": "moredyes:polishedandesite_a64086"
+      },
+      {
+        "item": "moredyes:polishedandesite_663379"
+      },
+      {
+        "item": "moredyes:polishedandesite_a5bf86"
+      },
+      {
+        "item": "moredyes:polishedandesite_72b279"
+      },
+      {
+        "item": "moredyes:polishedandesite_ac8cbf"
+      },
+      {
+        "item": "moredyes:polishedandesite_597392"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f99b9"
+      },
+      {
+        "item": "moredyes:polishedandesite_598cb9"
+      },
+      {
+        "item": "moredyes:polishedandesite_726cc5"
+      },
+      {
+        "item": "moredyes:polishedandesite_4d73c5"
+      },
+      {
+        "item": "moredyes:polishedandesite_667386"
+      },
+      {
+        "item": "moredyes:polishedandesite_668c86"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f6686"
+      },
+      {
+        "item": "moredyes:polishedandesite_405979"
+      },
+      {
+        "item": "moredyes:polishedandesite_b2d926"
+      },
+      {
+        "item": "moredyes:polishedandesite_ebb26c"
+      },
+      {
+        "item": "moredyes:polishedandesite_99993f"
+      },
+      {
+        "item": "moredyes:polishedandesite_bfbf66"
+      },
+      {
+        "item": "moredyes:polishedandesite_99b266"
+      },
+      {
+        "item": "moredyes:polishedandesite_b29272"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c9972"
+      },
+      {
+        "item": "moredyes:polishedandesite_a69933"
+      },
+      {
+        "item": "moredyes:polishedandesite_a6b233"
+      },
+      {
+        "item": "moredyes:polishedandesite_bf8c33"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f7f26"
+      },
+      {
+        "item": "moredyes:polishedandesite_b8a65f"
+      },
+      {
+        "item": "moredyes:polishedandesite_668c32"
+      },
+      {
+        "item": "moredyes:polishedandesite_8cb359"
+      },
+      {
+        "item": "moredyes:polishedandesite_66a659"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f5665"
+      },
+      {
+        "item": "moredyes:polishedandesite_598c65"
+      },
+      {
+        "item": "moredyes:polishedandesite_738c26"
+      },
+      {
+        "item": "moredyes:polishedandesite_73a626"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c8026"
+      },
+      {
+        "item": "moredyes:polishedandesite_4c7319"
+      },
+      {
+        "item": "moredyes:polishedandesite_864c5f"
+      },
+      {
+        "item": "moredyes:polishedandesite_c6596c"
+      },
+      {
+        "item": "moredyes:polishedandesite_ac7f6c"
+      },
+      {
+        "item": "moredyes:polishedandesite_ac666c"
+      },
+      {
+        "item": "moredyes:polishedandesite_9366ab"
+      },
+      {
+        "item": "moredyes:polishedandesite_b95fab"
+      },
+      {
+        "item": "moredyes:polishedandesite_9f7f9f"
+      },
+      {
+        "item": "moredyes:polishedandesite_c68c9f"
+      },
+      {
+        "item": "moredyes:polishedandesite_9f6679"
+      },
+      {
+        "item": "moredyes:polishedandesite_727272"
+      },
+      {
+        "item": "moredyes:polishedandesite_4c6572"
+      },
+      {
+        "item": "moredyes:polishedandesite_65467f"
+      },
+      {
+        "item": "moredyes:polishedandesite_404c7f"
+      },
+      {
+        "item": "moredyes:polishedandesite_594c40"
+      },
+      {
+        "item": "moredyes:polishedandesite_596540"
+      },
+      {
+        "item": "moredyes:polishedandesite_724040"
+      },
+      {
+        "item": "moredyes:polishedandesite_333333"
+      },
+      {
+        "item": "moredyes:polishedandesite_738c99"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c6ca5"
+      },
+      {
+        "item": "moredyes:polishedandesite_6673a5"
+      },
+      {
+        "item": "moredyes:polishedandesite_807366"
+      },
+      {
+        "item": "moredyes:polishedandesite_808c66"
+      },
+      {
+        "item": "moredyes:polishedandesite_996666"
+      },
+      {
+        "item": "moredyes:polishedandesite_595959"
+      },
+      {
+        "item": "moredyes:polishedandesite_655fa5"
+      },
+      {
+        "item": "moredyes:polishedandesite_4066a5"
+      },
+      {
+        "item": "moredyes:polishedandesite_596666"
+      },
+      {
+        "item": "moredyes:polishedandesite_597f66"
+      },
+      {
+        "item": "moredyes:polishedandesite_725966"
+      },
+      {
+        "item": "moredyes:polishedandesite_334c59"
+      },
+      {
+        "item": "moredyes:polishedandesite_5945b2"
+      },
+      {
+        "item": "moredyes:polishedandesite_734573"
+      },
+      {
+        "item": "moredyes:polishedandesite_735f73"
+      },
+      {
+        "item": "moredyes:polishedandesite_8c3973"
+      },
+      {
+        "item": "moredyes:polishedandesite_4c2c66"
+      },
+      {
+        "item": "moredyes:polishedandesite_4c4c73"
+      },
+      {
+        "item": "moredyes:polishedandesite_4c6573"
+      },
+      {
+        "item": "moredyes:polishedandesite_664073"
+      },
+      {
+        "item": "moredyes:polishedandesite_263366"
+      },
+      {
+        "item": "moredyes:polishedandesite_403326"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f4033"
+      },
+      {
+        "item": "moredyes:polishedandesite_666533"
+      },
+      {
+        "item": "moredyes:polishedandesite_7f5933"
+      },
+      {
+        "item": "moredyes:polishedandesite_404c26"
+      },
+      {
+        "item": "moredyes:polishedandesite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:polished_andesite"
+  }
+}

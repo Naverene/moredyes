@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:saplingacacia_ecbf99"
+      },
+      {
+        "item": "moredyes:saplingacacia_d9a6ec"
+      },
+      {
+        "item": "moredyes:saplingacacia_b3ccec"
+      },
+      {
+        "item": "moredyes:saplingacacia_f2f299"
+      },
+      {
+        "item": "moredyes:saplingacacia_bfe68c"
+      },
+      {
+        "item": "moredyes:saplingacacia_f9bfd2"
+      },
+      {
+        "item": "moredyes:saplingacacia_cccccc"
+      },
+      {
+        "item": "moredyes:saplingacacia_a6bfcc"
+      },
+      {
+        "item": "moredyes:saplingacacia_bf9fd9"
+      },
+      {
+        "item": "moredyes:saplingacacia_99a6d9"
+      },
+      {
+        "item": "moredyes:saplingacacia_b3a699"
+      },
+      {
+        "item": "moredyes:saplingacacia_b3bf99"
+      },
+      {
+        "item": "moredyes:saplingacacia_cc9999"
+      },
+      {
+        "item": "moredyes:saplingacacia_c56685"
+      },
+      {
+        "item": "moredyes:saplingacacia_9f8c85"
+      },
+      {
+        "item": "moredyes:saplingacacia_deb233"
+      },
+      {
+        "item": "moredyes:saplingacacia_aca526"
+      },
+      {
+        "item": "moredyes:saplingacacia_e57f6c"
+      },
+      {
+        "item": "moredyes:saplingacacia_92663f"
+      },
+      {
+        "item": "moredyes:saplingacacia_b98c66"
+      },
+      {
+        "item": "moredyes:saplingacacia_927f66"
+      },
+      {
+        "item": "moredyes:saplingacacia_ac5f72"
+      },
+      {
+        "item": "moredyes:saplingacacia_866672"
+      },
+      {
+        "item": "moredyes:saplingacacia_9f6633"
+      },
+      {
+        "item": "moredyes:saplingacacia_9f7f33"
+      },
+      {
+        "item": "moredyes:saplingacacia_b95933"
+      },
+      {
+        "item": "moredyes:saplingacacia_794c26"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c72d8"
+      },
+      {
+        "item": "moredyes:saplingacacia_cb9886"
+      },
+      {
+        "item": "moredyes:saplingacacia_998c79"
+      },
+      {
+        "item": "moredyes:saplingacacia_d265bf"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f4c92"
+      },
+      {
+        "item": "moredyes:saplingacacia_a672b9"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f65b9"
+      },
+      {
+        "item": "moredyes:saplingacacia_9946c5"
+      },
+      {
+        "item": "moredyes:saplingacacia_734cc5"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c4c86"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c6586"
+      },
+      {
+        "item": "moredyes:saplingacacia_a64086"
+      },
+      {
+        "item": "moredyes:saplingacacia_663379"
+      },
+      {
+        "item": "moredyes:saplingacacia_a5bf86"
+      },
+      {
+        "item": "moredyes:saplingacacia_72b279"
+      },
+      {
+        "item": "moredyes:saplingacacia_ac8cbf"
+      },
+      {
+        "item": "moredyes:saplingacacia_597392"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f99b9"
+      },
+      {
+        "item": "moredyes:saplingacacia_598cb9"
+      },
+      {
+        "item": "moredyes:saplingacacia_726cc5"
+      },
+      {
+        "item": "moredyes:saplingacacia_4d73c5"
+      },
+      {
+        "item": "moredyes:saplingacacia_667386"
+      },
+      {
+        "item": "moredyes:saplingacacia_668c86"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f6686"
+      },
+      {
+        "item": "moredyes:saplingacacia_405979"
+      },
+      {
+        "item": "moredyes:saplingacacia_b2d926"
+      },
+      {
+        "item": "moredyes:saplingacacia_ebb26c"
+      },
+      {
+        "item": "moredyes:saplingacacia_99993f"
+      },
+      {
+        "item": "moredyes:saplingacacia_bfbf66"
+      },
+      {
+        "item": "moredyes:saplingacacia_99b266"
+      },
+      {
+        "item": "moredyes:saplingacacia_b29272"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c9972"
+      },
+      {
+        "item": "moredyes:saplingacacia_a69933"
+      },
+      {
+        "item": "moredyes:saplingacacia_a6b233"
+      },
+      {
+        "item": "moredyes:saplingacacia_bf8c33"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f7f26"
+      },
+      {
+        "item": "moredyes:saplingacacia_b8a65f"
+      },
+      {
+        "item": "moredyes:saplingacacia_668c32"
+      },
+      {
+        "item": "moredyes:saplingacacia_8cb359"
+      },
+      {
+        "item": "moredyes:saplingacacia_66a659"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f5665"
+      },
+      {
+        "item": "moredyes:saplingacacia_598c65"
+      },
+      {
+        "item": "moredyes:saplingacacia_738c26"
+      },
+      {
+        "item": "moredyes:saplingacacia_73a626"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c8026"
+      },
+      {
+        "item": "moredyes:saplingacacia_4c7319"
+      },
+      {
+        "item": "moredyes:saplingacacia_864c5f"
+      },
+      {
+        "item": "moredyes:saplingacacia_c6596c"
+      },
+      {
+        "item": "moredyes:saplingacacia_ac7f6c"
+      },
+      {
+        "item": "moredyes:saplingacacia_ac666c"
+      },
+      {
+        "item": "moredyes:saplingacacia_9366ab"
+      },
+      {
+        "item": "moredyes:saplingacacia_b95fab"
+      },
+      {
+        "item": "moredyes:saplingacacia_9f7f9f"
+      },
+      {
+        "item": "moredyes:saplingacacia_c68c9f"
+      },
+      {
+        "item": "moredyes:saplingacacia_9f6679"
+      },
+      {
+        "item": "moredyes:saplingacacia_727272"
+      },
+      {
+        "item": "moredyes:saplingacacia_4c6572"
+      },
+      {
+        "item": "moredyes:saplingacacia_65467f"
+      },
+      {
+        "item": "moredyes:saplingacacia_404c7f"
+      },
+      {
+        "item": "moredyes:saplingacacia_594c40"
+      },
+      {
+        "item": "moredyes:saplingacacia_596540"
+      },
+      {
+        "item": "moredyes:saplingacacia_724040"
+      },
+      {
+        "item": "moredyes:saplingacacia_333333"
+      },
+      {
+        "item": "moredyes:saplingacacia_738c99"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c6ca5"
+      },
+      {
+        "item": "moredyes:saplingacacia_6673a5"
+      },
+      {
+        "item": "moredyes:saplingacacia_807366"
+      },
+      {
+        "item": "moredyes:saplingacacia_808c66"
+      },
+      {
+        "item": "moredyes:saplingacacia_996666"
+      },
+      {
+        "item": "moredyes:saplingacacia_595959"
+      },
+      {
+        "item": "moredyes:saplingacacia_655fa5"
+      },
+      {
+        "item": "moredyes:saplingacacia_4066a5"
+      },
+      {
+        "item": "moredyes:saplingacacia_596666"
+      },
+      {
+        "item": "moredyes:saplingacacia_597f66"
+      },
+      {
+        "item": "moredyes:saplingacacia_725966"
+      },
+      {
+        "item": "moredyes:saplingacacia_334c59"
+      },
+      {
+        "item": "moredyes:saplingacacia_5945b2"
+      },
+      {
+        "item": "moredyes:saplingacacia_734573"
+      },
+      {
+        "item": "moredyes:saplingacacia_735f73"
+      },
+      {
+        "item": "moredyes:saplingacacia_8c3973"
+      },
+      {
+        "item": "moredyes:saplingacacia_4c2c66"
+      },
+      {
+        "item": "moredyes:saplingacacia_4c4c73"
+      },
+      {
+        "item": "moredyes:saplingacacia_4c6573"
+      },
+      {
+        "item": "moredyes:saplingacacia_664073"
+      },
+      {
+        "item": "moredyes:saplingacacia_263366"
+      },
+      {
+        "item": "moredyes:saplingacacia_403326"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f4033"
+      },
+      {
+        "item": "moredyes:saplingacacia_666533"
+      },
+      {
+        "item": "moredyes:saplingacacia_7f5933"
+      },
+      {
+        "item": "moredyes:saplingacacia_404c26"
+      },
+      {
+        "item": "moredyes:saplingacacia_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:acacia_sapling"
+  }
+}

@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "moredyes:block/junglefence_f9bfd2_post"
+        "model": "moredyes:block/junglefence_post"
       }
     },
     {
       "apply": {
-        "model": "moredyes:block/junglefence_f9bfd2_side",
+        "model": "moredyes:block/junglefence_side",
         "uvlock": true
       },
       "when": {
@@ -16,7 +16,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/junglefence_f9bfd2_side",
+        "model": "moredyes:block/junglefence_side",
         "uvlock": true,
         "y": 180
       },
@@ -26,7 +26,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/junglefence_f9bfd2_side",
+        "model": "moredyes:block/junglefence_side",
         "uvlock": true,
         "y": 270
       },
@@ -36,7 +36,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/junglefence_f9bfd2_side",
+        "model": "moredyes:block/junglefence_side",
         "uvlock": true,
         "y": 90
       },

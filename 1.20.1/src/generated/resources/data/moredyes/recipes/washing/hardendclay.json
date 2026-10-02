@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:hardendclay_ecbf99"
+      },
+      {
+        "item": "moredyes:hardendclay_d9a6ec"
+      },
+      {
+        "item": "moredyes:hardendclay_b3ccec"
+      },
+      {
+        "item": "moredyes:hardendclay_f2f299"
+      },
+      {
+        "item": "moredyes:hardendclay_bfe68c"
+      },
+      {
+        "item": "moredyes:hardendclay_f9bfd2"
+      },
+      {
+        "item": "moredyes:hardendclay_cccccc"
+      },
+      {
+        "item": "moredyes:hardendclay_a6bfcc"
+      },
+      {
+        "item": "moredyes:hardendclay_bf9fd9"
+      },
+      {
+        "item": "moredyes:hardendclay_99a6d9"
+      },
+      {
+        "item": "moredyes:hardendclay_b3a699"
+      },
+      {
+        "item": "moredyes:hardendclay_b3bf99"
+      },
+      {
+        "item": "moredyes:hardendclay_cc9999"
+      },
+      {
+        "item": "moredyes:hardendclay_c56685"
+      },
+      {
+        "item": "moredyes:hardendclay_9f8c85"
+      },
+      {
+        "item": "moredyes:hardendclay_deb233"
+      },
+      {
+        "item": "moredyes:hardendclay_aca526"
+      },
+      {
+        "item": "moredyes:hardendclay_e57f6c"
+      },
+      {
+        "item": "moredyes:hardendclay_92663f"
+      },
+      {
+        "item": "moredyes:hardendclay_b98c66"
+      },
+      {
+        "item": "moredyes:hardendclay_927f66"
+      },
+      {
+        "item": "moredyes:hardendclay_ac5f72"
+      },
+      {
+        "item": "moredyes:hardendclay_866672"
+      },
+      {
+        "item": "moredyes:hardendclay_9f6633"
+      },
+      {
+        "item": "moredyes:hardendclay_9f7f33"
+      },
+      {
+        "item": "moredyes:hardendclay_b95933"
+      },
+      {
+        "item": "moredyes:hardendclay_794c26"
+      },
+      {
+        "item": "moredyes:hardendclay_8c72d8"
+      },
+      {
+        "item": "moredyes:hardendclay_cb9886"
+      },
+      {
+        "item": "moredyes:hardendclay_998c79"
+      },
+      {
+        "item": "moredyes:hardendclay_d265bf"
+      },
+      {
+        "item": "moredyes:hardendclay_7f4c92"
+      },
+      {
+        "item": "moredyes:hardendclay_a672b9"
+      },
+      {
+        "item": "moredyes:hardendclay_7f65b9"
+      },
+      {
+        "item": "moredyes:hardendclay_9946c5"
+      },
+      {
+        "item": "moredyes:hardendclay_734cc5"
+      },
+      {
+        "item": "moredyes:hardendclay_8c4c86"
+      },
+      {
+        "item": "moredyes:hardendclay_8c6586"
+      },
+      {
+        "item": "moredyes:hardendclay_a64086"
+      },
+      {
+        "item": "moredyes:hardendclay_663379"
+      },
+      {
+        "item": "moredyes:hardendclay_a5bf86"
+      },
+      {
+        "item": "moredyes:hardendclay_72b279"
+      },
+      {
+        "item": "moredyes:hardendclay_ac8cbf"
+      },
+      {
+        "item": "moredyes:hardendclay_597392"
+      },
+      {
+        "item": "moredyes:hardendclay_7f99b9"
+      },
+      {
+        "item": "moredyes:hardendclay_598cb9"
+      },
+      {
+        "item": "moredyes:hardendclay_726cc5"
+      },
+      {
+        "item": "moredyes:hardendclay_4d73c5"
+      },
+      {
+        "item": "moredyes:hardendclay_667386"
+      },
+      {
+        "item": "moredyes:hardendclay_668c86"
+      },
+      {
+        "item": "moredyes:hardendclay_7f6686"
+      },
+      {
+        "item": "moredyes:hardendclay_405979"
+      },
+      {
+        "item": "moredyes:hardendclay_b2d926"
+      },
+      {
+        "item": "moredyes:hardendclay_ebb26c"
+      },
+      {
+        "item": "moredyes:hardendclay_99993f"
+      },
+      {
+        "item": "moredyes:hardendclay_bfbf66"
+      },
+      {
+        "item": "moredyes:hardendclay_99b266"
+      },
+      {
+        "item": "moredyes:hardendclay_b29272"
+      },
+      {
+        "item": "moredyes:hardendclay_8c9972"
+      },
+      {
+        "item": "moredyes:hardendclay_a69933"
+      },
+      {
+        "item": "moredyes:hardendclay_a6b233"
+      },
+      {
+        "item": "moredyes:hardendclay_bf8c33"
+      },
+      {
+        "item": "moredyes:hardendclay_7f7f26"
+      },
+      {
+        "item": "moredyes:hardendclay_b8a65f"
+      },
+      {
+        "item": "moredyes:hardendclay_668c32"
+      },
+      {
+        "item": "moredyes:hardendclay_8cb359"
+      },
+      {
+        "item": "moredyes:hardendclay_66a659"
+      },
+      {
+        "item": "moredyes:hardendclay_7f5665"
+      },
+      {
+        "item": "moredyes:hardendclay_598c65"
+      },
+      {
+        "item": "moredyes:hardendclay_738c26"
+      },
+      {
+        "item": "moredyes:hardendclay_73a626"
+      },
+      {
+        "item": "moredyes:hardendclay_8c8026"
+      },
+      {
+        "item": "moredyes:hardendclay_4c7319"
+      },
+      {
+        "item": "moredyes:hardendclay_864c5f"
+      },
+      {
+        "item": "moredyes:hardendclay_c6596c"
+      },
+      {
+        "item": "moredyes:hardendclay_ac7f6c"
+      },
+      {
+        "item": "moredyes:hardendclay_ac666c"
+      },
+      {
+        "item": "moredyes:hardendclay_9366ab"
+      },
+      {
+        "item": "moredyes:hardendclay_b95fab"
+      },
+      {
+        "item": "moredyes:hardendclay_9f7f9f"
+      },
+      {
+        "item": "moredyes:hardendclay_c68c9f"
+      },
+      {
+        "item": "moredyes:hardendclay_9f6679"
+      },
+      {
+        "item": "moredyes:hardendclay_727272"
+      },
+      {
+        "item": "moredyes:hardendclay_4c6572"
+      },
+      {
+        "item": "moredyes:hardendclay_65467f"
+      },
+      {
+        "item": "moredyes:hardendclay_404c7f"
+      },
+      {
+        "item": "moredyes:hardendclay_594c40"
+      },
+      {
+        "item": "moredyes:hardendclay_596540"
+      },
+      {
+        "item": "moredyes:hardendclay_724040"
+      },
+      {
+        "item": "moredyes:hardendclay_333333"
+      },
+      {
+        "item": "moredyes:hardendclay_738c99"
+      },
+      {
+        "item": "moredyes:hardendclay_8c6ca5"
+      },
+      {
+        "item": "moredyes:hardendclay_6673a5"
+      },
+      {
+        "item": "moredyes:hardendclay_807366"
+      },
+      {
+        "item": "moredyes:hardendclay_808c66"
+      },
+      {
+        "item": "moredyes:hardendclay_996666"
+      },
+      {
+        "item": "moredyes:hardendclay_595959"
+      },
+      {
+        "item": "moredyes:hardendclay_655fa5"
+      },
+      {
+        "item": "moredyes:hardendclay_4066a5"
+      },
+      {
+        "item": "moredyes:hardendclay_596666"
+      },
+      {
+        "item": "moredyes:hardendclay_597f66"
+      },
+      {
+        "item": "moredyes:hardendclay_725966"
+      },
+      {
+        "item": "moredyes:hardendclay_334c59"
+      },
+      {
+        "item": "moredyes:hardendclay_5945b2"
+      },
+      {
+        "item": "moredyes:hardendclay_734573"
+      },
+      {
+        "item": "moredyes:hardendclay_735f73"
+      },
+      {
+        "item": "moredyes:hardendclay_8c3973"
+      },
+      {
+        "item": "moredyes:hardendclay_4c2c66"
+      },
+      {
+        "item": "moredyes:hardendclay_4c4c73"
+      },
+      {
+        "item": "moredyes:hardendclay_4c6573"
+      },
+      {
+        "item": "moredyes:hardendclay_664073"
+      },
+      {
+        "item": "moredyes:hardendclay_263366"
+      },
+      {
+        "item": "moredyes:hardendclay_403326"
+      },
+      {
+        "item": "moredyes:hardendclay_7f4033"
+      },
+      {
+        "item": "moredyes:hardendclay_666533"
+      },
+      {
+        "item": "moredyes:hardendclay_7f5933"
+      },
+      {
+        "item": "moredyes:hardendclay_404c26"
+      },
+      {
+        "item": "moredyes:hardendclay_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:terracotta"
+  }
+}

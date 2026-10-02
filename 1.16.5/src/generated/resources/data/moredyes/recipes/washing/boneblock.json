@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:boneblock_ecbf99"
+      },
+      {
+        "item": "moredyes:boneblock_d9a6ec"
+      },
+      {
+        "item": "moredyes:boneblock_b3ccec"
+      },
+      {
+        "item": "moredyes:boneblock_f2f299"
+      },
+      {
+        "item": "moredyes:boneblock_bfe68c"
+      },
+      {
+        "item": "moredyes:boneblock_f9bfd2"
+      },
+      {
+        "item": "moredyes:boneblock_cccccc"
+      },
+      {
+        "item": "moredyes:boneblock_a6bfcc"
+      },
+      {
+        "item": "moredyes:boneblock_bf9fd9"
+      },
+      {
+        "item": "moredyes:boneblock_99a6d9"
+      },
+      {
+        "item": "moredyes:boneblock_b3a699"
+      },
+      {
+        "item": "moredyes:boneblock_b3bf99"
+      },
+      {
+        "item": "moredyes:boneblock_cc9999"
+      },
+      {
+        "item": "moredyes:boneblock_c56685"
+      },
+      {
+        "item": "moredyes:boneblock_9f8c85"
+      },
+      {
+        "item": "moredyes:boneblock_deb233"
+      },
+      {
+        "item": "moredyes:boneblock_aca526"
+      },
+      {
+        "item": "moredyes:boneblock_e57f6c"
+      },
+      {
+        "item": "moredyes:boneblock_92663f"
+      },
+      {
+        "item": "moredyes:boneblock_b98c66"
+      },
+      {
+        "item": "moredyes:boneblock_927f66"
+      },
+      {
+        "item": "moredyes:boneblock_ac5f72"
+      },
+      {
+        "item": "moredyes:boneblock_866672"
+      },
+      {
+        "item": "moredyes:boneblock_9f6633"
+      },
+      {
+        "item": "moredyes:boneblock_9f7f33"
+      },
+      {
+        "item": "moredyes:boneblock_b95933"
+      },
+      {
+        "item": "moredyes:boneblock_794c26"
+      },
+      {
+        "item": "moredyes:boneblock_8c72d8"
+      },
+      {
+        "item": "moredyes:boneblock_cb9886"
+      },
+      {
+        "item": "moredyes:boneblock_998c79"
+      },
+      {
+        "item": "moredyes:boneblock_d265bf"
+      },
+      {
+        "item": "moredyes:boneblock_7f4c92"
+      },
+      {
+        "item": "moredyes:boneblock_a672b9"
+      },
+      {
+        "item": "moredyes:boneblock_7f65b9"
+      },
+      {
+        "item": "moredyes:boneblock_9946c5"
+      },
+      {
+        "item": "moredyes:boneblock_734cc5"
+      },
+      {
+        "item": "moredyes:boneblock_8c4c86"
+      },
+      {
+        "item": "moredyes:boneblock_8c6586"
+      },
+      {
+        "item": "moredyes:boneblock_a64086"
+      },
+      {
+        "item": "moredyes:boneblock_663379"
+      },
+      {
+        "item": "moredyes:boneblock_a5bf86"
+      },
+      {
+        "item": "moredyes:boneblock_72b279"
+      },
+      {
+        "item": "moredyes:boneblock_ac8cbf"
+      },
+      {
+        "item": "moredyes:boneblock_597392"
+      },
+      {
+        "item": "moredyes:boneblock_7f99b9"
+      },
+      {
+        "item": "moredyes:boneblock_598cb9"
+      },
+      {
+        "item": "moredyes:boneblock_726cc5"
+      },
+      {
+        "item": "moredyes:boneblock_4d73c5"
+      },
+      {
+        "item": "moredyes:boneblock_667386"
+      },
+      {
+        "item": "moredyes:boneblock_668c86"
+      },
+      {
+        "item": "moredyes:boneblock_7f6686"
+      },
+      {
+        "item": "moredyes:boneblock_405979"
+      },
+      {
+        "item": "moredyes:boneblock_b2d926"
+      },
+      {
+        "item": "moredyes:boneblock_ebb26c"
+      },
+      {
+        "item": "moredyes:boneblock_99993f"
+      },
+      {
+        "item": "moredyes:boneblock_bfbf66"
+      },
+      {
+        "item": "moredyes:boneblock_99b266"
+      },
+      {
+        "item": "moredyes:boneblock_b29272"
+      },
+      {
+        "item": "moredyes:boneblock_8c9972"
+      },
+      {
+        "item": "moredyes:boneblock_a69933"
+      },
+      {
+        "item": "moredyes:boneblock_a6b233"
+      },
+      {
+        "item": "moredyes:boneblock_bf8c33"
+      },
+      {
+        "item": "moredyes:boneblock_7f7f26"
+      },
+      {
+        "item": "moredyes:boneblock_b8a65f"
+      },
+      {
+        "item": "moredyes:boneblock_668c32"
+      },
+      {
+        "item": "moredyes:boneblock_8cb359"
+      },
+      {
+        "item": "moredyes:boneblock_66a659"
+      },
+      {
+        "item": "moredyes:boneblock_7f5665"
+      },
+      {
+        "item": "moredyes:boneblock_598c65"
+      },
+      {
+        "item": "moredyes:boneblock_738c26"
+      },
+      {
+        "item": "moredyes:boneblock_73a626"
+      },
+      {
+        "item": "moredyes:boneblock_8c8026"
+      },
+      {
+        "item": "moredyes:boneblock_4c7319"
+      },
+      {
+        "item": "moredyes:boneblock_864c5f"
+      },
+      {
+        "item": "moredyes:boneblock_c6596c"
+      },
+      {
+        "item": "moredyes:boneblock_ac7f6c"
+      },
+      {
+        "item": "moredyes:boneblock_ac666c"
+      },
+      {
+        "item": "moredyes:boneblock_9366ab"
+      },
+      {
+        "item": "moredyes:boneblock_b95fab"
+      },
+      {
+        "item": "moredyes:boneblock_9f7f9f"
+      },
+      {
+        "item": "moredyes:boneblock_c68c9f"
+      },
+      {
+        "item": "moredyes:boneblock_9f6679"
+      },
+      {
+        "item": "moredyes:boneblock_727272"
+      },
+      {
+        "item": "moredyes:boneblock_4c6572"
+      },
+      {
+        "item": "moredyes:boneblock_65467f"
+      },
+      {
+        "item": "moredyes:boneblock_404c7f"
+      },
+      {
+        "item": "moredyes:boneblock_594c40"
+      },
+      {
+        "item": "moredyes:boneblock_596540"
+      },
+      {
+        "item": "moredyes:boneblock_724040"
+      },
+      {
+        "item": "moredyes:boneblock_333333"
+      },
+      {
+        "item": "moredyes:boneblock_738c99"
+      },
+      {
+        "item": "moredyes:boneblock_8c6ca5"
+      },
+      {
+        "item": "moredyes:boneblock_6673a5"
+      },
+      {
+        "item": "moredyes:boneblock_807366"
+      },
+      {
+        "item": "moredyes:boneblock_808c66"
+      },
+      {
+        "item": "moredyes:boneblock_996666"
+      },
+      {
+        "item": "moredyes:boneblock_595959"
+      },
+      {
+        "item": "moredyes:boneblock_655fa5"
+      },
+      {
+        "item": "moredyes:boneblock_4066a5"
+      },
+      {
+        "item": "moredyes:boneblock_596666"
+      },
+      {
+        "item": "moredyes:boneblock_597f66"
+      },
+      {
+        "item": "moredyes:boneblock_725966"
+      },
+      {
+        "item": "moredyes:boneblock_334c59"
+      },
+      {
+        "item": "moredyes:boneblock_5945b2"
+      },
+      {
+        "item": "moredyes:boneblock_734573"
+      },
+      {
+        "item": "moredyes:boneblock_735f73"
+      },
+      {
+        "item": "moredyes:boneblock_8c3973"
+      },
+      {
+        "item": "moredyes:boneblock_4c2c66"
+      },
+      {
+        "item": "moredyes:boneblock_4c4c73"
+      },
+      {
+        "item": "moredyes:boneblock_4c6573"
+      },
+      {
+        "item": "moredyes:boneblock_664073"
+      },
+      {
+        "item": "moredyes:boneblock_263366"
+      },
+      {
+        "item": "moredyes:boneblock_403326"
+      },
+      {
+        "item": "moredyes:boneblock_7f4033"
+      },
+      {
+        "item": "moredyes:boneblock_666533"
+      },
+      {
+        "item": "moredyes:boneblock_7f5933"
+      },
+      {
+        "item": "moredyes:boneblock_404c26"
+      },
+      {
+        "item": "moredyes:boneblock_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bone_block"
+  }
+}

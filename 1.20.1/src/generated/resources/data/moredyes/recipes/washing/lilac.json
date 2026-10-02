@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:lilac_ecbf99"
+      },
+      {
+        "item": "moredyes:lilac_d9a6ec"
+      },
+      {
+        "item": "moredyes:lilac_b3ccec"
+      },
+      {
+        "item": "moredyes:lilac_f2f299"
+      },
+      {
+        "item": "moredyes:lilac_bfe68c"
+      },
+      {
+        "item": "moredyes:lilac_f9bfd2"
+      },
+      {
+        "item": "moredyes:lilac_cccccc"
+      },
+      {
+        "item": "moredyes:lilac_a6bfcc"
+      },
+      {
+        "item": "moredyes:lilac_bf9fd9"
+      },
+      {
+        "item": "moredyes:lilac_99a6d9"
+      },
+      {
+        "item": "moredyes:lilac_b3a699"
+      },
+      {
+        "item": "moredyes:lilac_b3bf99"
+      },
+      {
+        "item": "moredyes:lilac_cc9999"
+      },
+      {
+        "item": "moredyes:lilac_c56685"
+      },
+      {
+        "item": "moredyes:lilac_9f8c85"
+      },
+      {
+        "item": "moredyes:lilac_deb233"
+      },
+      {
+        "item": "moredyes:lilac_aca526"
+      },
+      {
+        "item": "moredyes:lilac_e57f6c"
+      },
+      {
+        "item": "moredyes:lilac_92663f"
+      },
+      {
+        "item": "moredyes:lilac_b98c66"
+      },
+      {
+        "item": "moredyes:lilac_927f66"
+      },
+      {
+        "item": "moredyes:lilac_ac5f72"
+      },
+      {
+        "item": "moredyes:lilac_866672"
+      },
+      {
+        "item": "moredyes:lilac_9f6633"
+      },
+      {
+        "item": "moredyes:lilac_9f7f33"
+      },
+      {
+        "item": "moredyes:lilac_b95933"
+      },
+      {
+        "item": "moredyes:lilac_794c26"
+      },
+      {
+        "item": "moredyes:lilac_8c72d8"
+      },
+      {
+        "item": "moredyes:lilac_cb9886"
+      },
+      {
+        "item": "moredyes:lilac_998c79"
+      },
+      {
+        "item": "moredyes:lilac_d265bf"
+      },
+      {
+        "item": "moredyes:lilac_7f4c92"
+      },
+      {
+        "item": "moredyes:lilac_a672b9"
+      },
+      {
+        "item": "moredyes:lilac_7f65b9"
+      },
+      {
+        "item": "moredyes:lilac_9946c5"
+      },
+      {
+        "item": "moredyes:lilac_734cc5"
+      },
+      {
+        "item": "moredyes:lilac_8c4c86"
+      },
+      {
+        "item": "moredyes:lilac_8c6586"
+      },
+      {
+        "item": "moredyes:lilac_a64086"
+      },
+      {
+        "item": "moredyes:lilac_663379"
+      },
+      {
+        "item": "moredyes:lilac_a5bf86"
+      },
+      {
+        "item": "moredyes:lilac_72b279"
+      },
+      {
+        "item": "moredyes:lilac_ac8cbf"
+      },
+      {
+        "item": "moredyes:lilac_597392"
+      },
+      {
+        "item": "moredyes:lilac_7f99b9"
+      },
+      {
+        "item": "moredyes:lilac_598cb9"
+      },
+      {
+        "item": "moredyes:lilac_726cc5"
+      },
+      {
+        "item": "moredyes:lilac_4d73c5"
+      },
+      {
+        "item": "moredyes:lilac_667386"
+      },
+      {
+        "item": "moredyes:lilac_668c86"
+      },
+      {
+        "item": "moredyes:lilac_7f6686"
+      },
+      {
+        "item": "moredyes:lilac_405979"
+      },
+      {
+        "item": "moredyes:lilac_b2d926"
+      },
+      {
+        "item": "moredyes:lilac_ebb26c"
+      },
+      {
+        "item": "moredyes:lilac_99993f"
+      },
+      {
+        "item": "moredyes:lilac_bfbf66"
+      },
+      {
+        "item": "moredyes:lilac_99b266"
+      },
+      {
+        "item": "moredyes:lilac_b29272"
+      },
+      {
+        "item": "moredyes:lilac_8c9972"
+      },
+      {
+        "item": "moredyes:lilac_a69933"
+      },
+      {
+        "item": "moredyes:lilac_a6b233"
+      },
+      {
+        "item": "moredyes:lilac_bf8c33"
+      },
+      {
+        "item": "moredyes:lilac_7f7f26"
+      },
+      {
+        "item": "moredyes:lilac_b8a65f"
+      },
+      {
+        "item": "moredyes:lilac_668c32"
+      },
+      {
+        "item": "moredyes:lilac_8cb359"
+      },
+      {
+        "item": "moredyes:lilac_66a659"
+      },
+      {
+        "item": "moredyes:lilac_7f5665"
+      },
+      {
+        "item": "moredyes:lilac_598c65"
+      },
+      {
+        "item": "moredyes:lilac_738c26"
+      },
+      {
+        "item": "moredyes:lilac_73a626"
+      },
+      {
+        "item": "moredyes:lilac_8c8026"
+      },
+      {
+        "item": "moredyes:lilac_4c7319"
+      },
+      {
+        "item": "moredyes:lilac_864c5f"
+      },
+      {
+        "item": "moredyes:lilac_c6596c"
+      },
+      {
+        "item": "moredyes:lilac_ac7f6c"
+      },
+      {
+        "item": "moredyes:lilac_ac666c"
+      },
+      {
+        "item": "moredyes:lilac_9366ab"
+      },
+      {
+        "item": "moredyes:lilac_b95fab"
+      },
+      {
+        "item": "moredyes:lilac_9f7f9f"
+      },
+      {
+        "item": "moredyes:lilac_c68c9f"
+      },
+      {
+        "item": "moredyes:lilac_9f6679"
+      },
+      {
+        "item": "moredyes:lilac_727272"
+      },
+      {
+        "item": "moredyes:lilac_4c6572"
+      },
+      {
+        "item": "moredyes:lilac_65467f"
+      },
+      {
+        "item": "moredyes:lilac_404c7f"
+      },
+      {
+        "item": "moredyes:lilac_594c40"
+      },
+      {
+        "item": "moredyes:lilac_596540"
+      },
+      {
+        "item": "moredyes:lilac_724040"
+      },
+      {
+        "item": "moredyes:lilac_333333"
+      },
+      {
+        "item": "moredyes:lilac_738c99"
+      },
+      {
+        "item": "moredyes:lilac_8c6ca5"
+      },
+      {
+        "item": "moredyes:lilac_6673a5"
+      },
+      {
+        "item": "moredyes:lilac_807366"
+      },
+      {
+        "item": "moredyes:lilac_808c66"
+      },
+      {
+        "item": "moredyes:lilac_996666"
+      },
+      {
+        "item": "moredyes:lilac_595959"
+      },
+      {
+        "item": "moredyes:lilac_655fa5"
+      },
+      {
+        "item": "moredyes:lilac_4066a5"
+      },
+      {
+        "item": "moredyes:lilac_596666"
+      },
+      {
+        "item": "moredyes:lilac_597f66"
+      },
+      {
+        "item": "moredyes:lilac_725966"
+      },
+      {
+        "item": "moredyes:lilac_334c59"
+      },
+      {
+        "item": "moredyes:lilac_5945b2"
+      },
+      {
+        "item": "moredyes:lilac_734573"
+      },
+      {
+        "item": "moredyes:lilac_735f73"
+      },
+      {
+        "item": "moredyes:lilac_8c3973"
+      },
+      {
+        "item": "moredyes:lilac_4c2c66"
+      },
+      {
+        "item": "moredyes:lilac_4c4c73"
+      },
+      {
+        "item": "moredyes:lilac_4c6573"
+      },
+      {
+        "item": "moredyes:lilac_664073"
+      },
+      {
+        "item": "moredyes:lilac_263366"
+      },
+      {
+        "item": "moredyes:lilac_403326"
+      },
+      {
+        "item": "moredyes:lilac_7f4033"
+      },
+      {
+        "item": "moredyes:lilac_666533"
+      },
+      {
+        "item": "moredyes:lilac_7f5933"
+      },
+      {
+        "item": "moredyes:lilac_404c26"
+      },
+      {
+        "item": "moredyes:lilac_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lilac"
+  }
+}

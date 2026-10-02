@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "moredyes:block/acaciafence_5945b2_post"
+        "model": "moredyes:block/acaciafence_post"
       }
     },
     {
       "apply": {
-        "model": "moredyes:block/acaciafence_5945b2_side",
+        "model": "moredyes:block/acaciafence_side",
         "uvlock": true
       },
       "when": {
@@ -16,7 +16,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/acaciafence_5945b2_side",
+        "model": "moredyes:block/acaciafence_side",
         "uvlock": true,
         "y": 180
       },
@@ -26,7 +26,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/acaciafence_5945b2_side",
+        "model": "moredyes:block/acaciafence_side",
         "uvlock": true,
         "y": 270
       },
@@ -36,7 +36,7 @@
     },
     {
       "apply": {
-        "model": "moredyes:block/acaciafence_5945b2_side",
+        "model": "moredyes:block/acaciafence_side",
         "uvlock": true,
         "y": 90
       },

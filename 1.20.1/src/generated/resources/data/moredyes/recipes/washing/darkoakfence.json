@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:darkoakfence_ecbf99"
+      },
+      {
+        "item": "moredyes:darkoakfence_d9a6ec"
+      },
+      {
+        "item": "moredyes:darkoakfence_b3ccec"
+      },
+      {
+        "item": "moredyes:darkoakfence_f2f299"
+      },
+      {
+        "item": "moredyes:darkoakfence_bfe68c"
+      },
+      {
+        "item": "moredyes:darkoakfence_f9bfd2"
+      },
+      {
+        "item": "moredyes:darkoakfence_cccccc"
+      },
+      {
+        "item": "moredyes:darkoakfence_a6bfcc"
+      },
+      {
+        "item": "moredyes:darkoakfence_bf9fd9"
+      },
+      {
+        "item": "moredyes:darkoakfence_99a6d9"
+      },
+      {
+        "item": "moredyes:darkoakfence_b3a699"
+      },
+      {
+        "item": "moredyes:darkoakfence_b3bf99"
+      },
+      {
+        "item": "moredyes:darkoakfence_cc9999"
+      },
+      {
+        "item": "moredyes:darkoakfence_c56685"
+      },
+      {
+        "item": "moredyes:darkoakfence_9f8c85"
+      },
+      {
+        "item": "moredyes:darkoakfence_deb233"
+      },
+      {
+        "item": "moredyes:darkoakfence_aca526"
+      },
+      {
+        "item": "moredyes:darkoakfence_e57f6c"
+      },
+      {
+        "item": "moredyes:darkoakfence_92663f"
+      },
+      {
+        "item": "moredyes:darkoakfence_b98c66"
+      },
+      {
+        "item": "moredyes:darkoakfence_927f66"
+      },
+      {
+        "item": "moredyes:darkoakfence_ac5f72"
+      },
+      {
+        "item": "moredyes:darkoakfence_866672"
+      },
+      {
+        "item": "moredyes:darkoakfence_9f6633"
+      },
+      {
+        "item": "moredyes:darkoakfence_9f7f33"
+      },
+      {
+        "item": "moredyes:darkoakfence_b95933"
+      },
+      {
+        "item": "moredyes:darkoakfence_794c26"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c72d8"
+      },
+      {
+        "item": "moredyes:darkoakfence_cb9886"
+      },
+      {
+        "item": "moredyes:darkoakfence_998c79"
+      },
+      {
+        "item": "moredyes:darkoakfence_d265bf"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f4c92"
+      },
+      {
+        "item": "moredyes:darkoakfence_a672b9"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f65b9"
+      },
+      {
+        "item": "moredyes:darkoakfence_9946c5"
+      },
+      {
+        "item": "moredyes:darkoakfence_734cc5"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c4c86"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c6586"
+      },
+      {
+        "item": "moredyes:darkoakfence_a64086"
+      },
+      {
+        "item": "moredyes:darkoakfence_663379"
+      },
+      {
+        "item": "moredyes:darkoakfence_a5bf86"
+      },
+      {
+        "item": "moredyes:darkoakfence_72b279"
+      },
+      {
+        "item": "moredyes:darkoakfence_ac8cbf"
+      },
+      {
+        "item": "moredyes:darkoakfence_597392"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f99b9"
+      },
+      {
+        "item": "moredyes:darkoakfence_598cb9"
+      },
+      {
+        "item": "moredyes:darkoakfence_726cc5"
+      },
+      {
+        "item": "moredyes:darkoakfence_4d73c5"
+      },
+      {
+        "item": "moredyes:darkoakfence_667386"
+      },
+      {
+        "item": "moredyes:darkoakfence_668c86"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f6686"
+      },
+      {
+        "item": "moredyes:darkoakfence_405979"
+      },
+      {
+        "item": "moredyes:darkoakfence_b2d926"
+      },
+      {
+        "item": "moredyes:darkoakfence_ebb26c"
+      },
+      {
+        "item": "moredyes:darkoakfence_99993f"
+      },
+      {
+        "item": "moredyes:darkoakfence_bfbf66"
+      },
+      {
+        "item": "moredyes:darkoakfence_99b266"
+      },
+      {
+        "item": "moredyes:darkoakfence_b29272"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c9972"
+      },
+      {
+        "item": "moredyes:darkoakfence_a69933"
+      },
+      {
+        "item": "moredyes:darkoakfence_a6b233"
+      },
+      {
+        "item": "moredyes:darkoakfence_bf8c33"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f7f26"
+      },
+      {
+        "item": "moredyes:darkoakfence_b8a65f"
+      },
+      {
+        "item": "moredyes:darkoakfence_668c32"
+      },
+      {
+        "item": "moredyes:darkoakfence_8cb359"
+      },
+      {
+        "item": "moredyes:darkoakfence_66a659"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f5665"
+      },
+      {
+        "item": "moredyes:darkoakfence_598c65"
+      },
+      {
+        "item": "moredyes:darkoakfence_738c26"
+      },
+      {
+        "item": "moredyes:darkoakfence_73a626"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c8026"
+      },
+      {
+        "item": "moredyes:darkoakfence_4c7319"
+      },
+      {
+        "item": "moredyes:darkoakfence_864c5f"
+      },
+      {
+        "item": "moredyes:darkoakfence_c6596c"
+      },
+      {
+        "item": "moredyes:darkoakfence_ac7f6c"
+      },
+      {
+        "item": "moredyes:darkoakfence_ac666c"
+      },
+      {
+        "item": "moredyes:darkoakfence_9366ab"
+      },
+      {
+        "item": "moredyes:darkoakfence_b95fab"
+      },
+      {
+        "item": "moredyes:darkoakfence_9f7f9f"
+      },
+      {
+        "item": "moredyes:darkoakfence_c68c9f"
+      },
+      {
+        "item": "moredyes:darkoakfence_9f6679"
+      },
+      {
+        "item": "moredyes:darkoakfence_727272"
+      },
+      {
+        "item": "moredyes:darkoakfence_4c6572"
+      },
+      {
+        "item": "moredyes:darkoakfence_65467f"
+      },
+      {
+        "item": "moredyes:darkoakfence_404c7f"
+      },
+      {
+        "item": "moredyes:darkoakfence_594c40"
+      },
+      {
+        "item": "moredyes:darkoakfence_596540"
+      },
+      {
+        "item": "moredyes:darkoakfence_724040"
+      },
+      {
+        "item": "moredyes:darkoakfence_333333"
+      },
+      {
+        "item": "moredyes:darkoakfence_738c99"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c6ca5"
+      },
+      {
+        "item": "moredyes:darkoakfence_6673a5"
+      },
+      {
+        "item": "moredyes:darkoakfence_807366"
+      },
+      {
+        "item": "moredyes:darkoakfence_808c66"
+      },
+      {
+        "item": "moredyes:darkoakfence_996666"
+      },
+      {
+        "item": "moredyes:darkoakfence_595959"
+      },
+      {
+        "item": "moredyes:darkoakfence_655fa5"
+      },
+      {
+        "item": "moredyes:darkoakfence_4066a5"
+      },
+      {
+        "item": "moredyes:darkoakfence_596666"
+      },
+      {
+        "item": "moredyes:darkoakfence_597f66"
+      },
+      {
+        "item": "moredyes:darkoakfence_725966"
+      },
+      {
+        "item": "moredyes:darkoakfence_334c59"
+      },
+      {
+        "item": "moredyes:darkoakfence_5945b2"
+      },
+      {
+        "item": "moredyes:darkoakfence_734573"
+      },
+      {
+        "item": "moredyes:darkoakfence_735f73"
+      },
+      {
+        "item": "moredyes:darkoakfence_8c3973"
+      },
+      {
+        "item": "moredyes:darkoakfence_4c2c66"
+      },
+      {
+        "item": "moredyes:darkoakfence_4c4c73"
+      },
+      {
+        "item": "moredyes:darkoakfence_4c6573"
+      },
+      {
+        "item": "moredyes:darkoakfence_664073"
+      },
+      {
+        "item": "moredyes:darkoakfence_263366"
+      },
+      {
+        "item": "moredyes:darkoakfence_403326"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f4033"
+      },
+      {
+        "item": "moredyes:darkoakfence_666533"
+      },
+      {
+        "item": "moredyes:darkoakfence_7f5933"
+      },
+      {
+        "item": "moredyes:darkoakfence_404c26"
+      },
+      {
+        "item": "moredyes:darkoakfence_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dark_oak_fence"
+  }
+}

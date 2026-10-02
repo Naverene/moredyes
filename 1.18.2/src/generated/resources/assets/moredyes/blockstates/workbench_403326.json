@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "moredyes:block/workbench_403326"
+      "model": "moredyes:block/workbench"
     }
   }
 }

@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:peony_ecbf99"
+      },
+      {
+        "item": "moredyes:peony_d9a6ec"
+      },
+      {
+        "item": "moredyes:peony_b3ccec"
+      },
+      {
+        "item": "moredyes:peony_f2f299"
+      },
+      {
+        "item": "moredyes:peony_bfe68c"
+      },
+      {
+        "item": "moredyes:peony_f9bfd2"
+      },
+      {
+        "item": "moredyes:peony_cccccc"
+      },
+      {
+        "item": "moredyes:peony_a6bfcc"
+      },
+      {
+        "item": "moredyes:peony_bf9fd9"
+      },
+      {
+        "item": "moredyes:peony_99a6d9"
+      },
+      {
+        "item": "moredyes:peony_b3a699"
+      },
+      {
+        "item": "moredyes:peony_b3bf99"
+      },
+      {
+        "item": "moredyes:peony_cc9999"
+      },
+      {
+        "item": "moredyes:peony_c56685"
+      },
+      {
+        "item": "moredyes:peony_9f8c85"
+      },
+      {
+        "item": "moredyes:peony_deb233"
+      },
+      {
+        "item": "moredyes:peony_aca526"
+      },
+      {
+        "item": "moredyes:peony_e57f6c"
+      },
+      {
+        "item": "moredyes:peony_92663f"
+      },
+      {
+        "item": "moredyes:peony_b98c66"
+      },
+      {
+        "item": "moredyes:peony_927f66"
+      },
+      {
+        "item": "moredyes:peony_ac5f72"
+      },
+      {
+        "item": "moredyes:peony_866672"
+      },
+      {
+        "item": "moredyes:peony_9f6633"
+      },
+      {
+        "item": "moredyes:peony_9f7f33"
+      },
+      {
+        "item": "moredyes:peony_b95933"
+      },
+      {
+        "item": "moredyes:peony_794c26"
+      },
+      {
+        "item": "moredyes:peony_8c72d8"
+      },
+      {
+        "item": "moredyes:peony_cb9886"
+      },
+      {
+        "item": "moredyes:peony_998c79"
+      },
+      {
+        "item": "moredyes:peony_d265bf"
+      },
+      {
+        "item": "moredyes:peony_7f4c92"
+      },
+      {
+        "item": "moredyes:peony_a672b9"
+      },
+      {
+        "item": "moredyes:peony_7f65b9"
+      },
+      {
+        "item": "moredyes:peony_9946c5"
+      },
+      {
+        "item": "moredyes:peony_734cc5"
+      },
+      {
+        "item": "moredyes:peony_8c4c86"
+      },
+      {
+        "item": "moredyes:peony_8c6586"
+      },
+      {
+        "item": "moredyes:peony_a64086"
+      },
+      {
+        "item": "moredyes:peony_663379"
+      },
+      {
+        "item": "moredyes:peony_a5bf86"
+      },
+      {
+        "item": "moredyes:peony_72b279"
+      },
+      {
+        "item": "moredyes:peony_ac8cbf"
+      },
+      {
+        "item": "moredyes:peony_597392"
+      },
+      {
+        "item": "moredyes:peony_7f99b9"
+      },
+      {
+        "item": "moredyes:peony_598cb9"
+      },
+      {
+        "item": "moredyes:peony_726cc5"
+      },
+      {
+        "item": "moredyes:peony_4d73c5"
+      },
+      {
+        "item": "moredyes:peony_667386"
+      },
+      {
+        "item": "moredyes:peony_668c86"
+      },
+      {
+        "item": "moredyes:peony_7f6686"
+      },
+      {
+        "item": "moredyes:peony_405979"
+      },
+      {
+        "item": "moredyes:peony_b2d926"
+      },
+      {
+        "item": "moredyes:peony_ebb26c"
+      },
+      {
+        "item": "moredyes:peony_99993f"
+      },
+      {
+        "item": "moredyes:peony_bfbf66"
+      },
+      {
+        "item": "moredyes:peony_99b266"
+      },
+      {
+        "item": "moredyes:peony_b29272"
+      },
+      {
+        "item": "moredyes:peony_8c9972"
+      },
+      {
+        "item": "moredyes:peony_a69933"
+      },
+      {
+        "item": "moredyes:peony_a6b233"
+      },
+      {
+        "item": "moredyes:peony_bf8c33"
+      },
+      {
+        "item": "moredyes:peony_7f7f26"
+      },
+      {
+        "item": "moredyes:peony_b8a65f"
+      },
+      {
+        "item": "moredyes:peony_668c32"
+      },
+      {
+        "item": "moredyes:peony_8cb359"
+      },
+      {
+        "item": "moredyes:peony_66a659"
+      },
+      {
+        "item": "moredyes:peony_7f5665"
+      },
+      {
+        "item": "moredyes:peony_598c65"
+      },
+      {
+        "item": "moredyes:peony_738c26"
+      },
+      {
+        "item": "moredyes:peony_73a626"
+      },
+      {
+        "item": "moredyes:peony_8c8026"
+      },
+      {
+        "item": "moredyes:peony_4c7319"
+      },
+      {
+        "item": "moredyes:peony_864c5f"
+      },
+      {
+        "item": "moredyes:peony_c6596c"
+      },
+      {
+        "item": "moredyes:peony_ac7f6c"
+      },
+      {
+        "item": "moredyes:peony_ac666c"
+      },
+      {
+        "item": "moredyes:peony_9366ab"
+      },
+      {
+        "item": "moredyes:peony_b95fab"
+      },
+      {
+        "item": "moredyes:peony_9f7f9f"
+      },
+      {
+        "item": "moredyes:peony_c68c9f"
+      },
+      {
+        "item": "moredyes:peony_9f6679"
+      },
+      {
+        "item": "moredyes:peony_727272"
+      },
+      {
+        "item": "moredyes:peony_4c6572"
+      },
+      {
+        "item": "moredyes:peony_65467f"
+      },
+      {
+        "item": "moredyes:peony_404c7f"
+      },
+      {
+        "item": "moredyes:peony_594c40"
+      },
+      {
+        "item": "moredyes:peony_596540"
+      },
+      {
+        "item": "moredyes:peony_724040"
+      },
+      {
+        "item": "moredyes:peony_333333"
+      },
+      {
+        "item": "moredyes:peony_738c99"
+      },
+      {
+        "item": "moredyes:peony_8c6ca5"
+      },
+      {
+        "item": "moredyes:peony_6673a5"
+      },
+      {
+        "item": "moredyes:peony_807366"
+      },
+      {
+        "item": "moredyes:peony_808c66"
+      },
+      {
+        "item": "moredyes:peony_996666"
+      },
+      {
+        "item": "moredyes:peony_595959"
+      },
+      {
+        "item": "moredyes:peony_655fa5"
+      },
+      {
+        "item": "moredyes:peony_4066a5"
+      },
+      {
+        "item": "moredyes:peony_596666"
+      },
+      {
+        "item": "moredyes:peony_597f66"
+      },
+      {
+        "item": "moredyes:peony_725966"
+      },
+      {
+        "item": "moredyes:peony_334c59"
+      },
+      {
+        "item": "moredyes:peony_5945b2"
+      },
+      {
+        "item": "moredyes:peony_734573"
+      },
+      {
+        "item": "moredyes:peony_735f73"
+      },
+      {
+        "item": "moredyes:peony_8c3973"
+      },
+      {
+        "item": "moredyes:peony_4c2c66"
+      },
+      {
+        "item": "moredyes:peony_4c4c73"
+      },
+      {
+        "item": "moredyes:peony_4c6573"
+      },
+      {
+        "item": "moredyes:peony_664073"
+      },
+      {
+        "item": "moredyes:peony_263366"
+      },
+      {
+        "item": "moredyes:peony_403326"
+      },
+      {
+        "item": "moredyes:peony_7f4033"
+      },
+      {
+        "item": "moredyes:peony_666533"
+      },
+      {
+        "item": "moredyes:peony_7f5933"
+      },
+      {
+        "item": "moredyes:peony_404c26"
+      },
+      {
+        "item": "moredyes:peony_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:peony"
+  }
+}

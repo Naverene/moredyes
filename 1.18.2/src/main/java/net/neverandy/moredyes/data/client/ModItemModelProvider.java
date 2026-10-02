@@ -49,7 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider
 
             if (block instanceof BlockFence)
             {
-                getBuilder(name).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + name + "_inventory")));
+                getBuilder(name).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + type + "_inventory")));
             }
             else if (block instanceof BlockSapling)
             {
@@ -85,7 +85,7 @@ public class ModItemModelProvider extends ItemModelProvider
             }
             else
             {
-                getBuilder(name).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + name)));
+                getBuilder(name).parent(new ModelFile.UncheckedModelFile(modLoc("block/" + type)));
             }
         }
 

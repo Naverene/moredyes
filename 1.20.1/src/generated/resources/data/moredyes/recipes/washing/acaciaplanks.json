@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:acaciaplanks_ecbf99"
+      },
+      {
+        "item": "moredyes:acaciaplanks_d9a6ec"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b3ccec"
+      },
+      {
+        "item": "moredyes:acaciaplanks_f2f299"
+      },
+      {
+        "item": "moredyes:acaciaplanks_bfe68c"
+      },
+      {
+        "item": "moredyes:acaciaplanks_f9bfd2"
+      },
+      {
+        "item": "moredyes:acaciaplanks_cccccc"
+      },
+      {
+        "item": "moredyes:acaciaplanks_a6bfcc"
+      },
+      {
+        "item": "moredyes:acaciaplanks_bf9fd9"
+      },
+      {
+        "item": "moredyes:acaciaplanks_99a6d9"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b3a699"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b3bf99"
+      },
+      {
+        "item": "moredyes:acaciaplanks_cc9999"
+      },
+      {
+        "item": "moredyes:acaciaplanks_c56685"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9f8c85"
+      },
+      {
+        "item": "moredyes:acaciaplanks_deb233"
+      },
+      {
+        "item": "moredyes:acaciaplanks_aca526"
+      },
+      {
+        "item": "moredyes:acaciaplanks_e57f6c"
+      },
+      {
+        "item": "moredyes:acaciaplanks_92663f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b98c66"
+      },
+      {
+        "item": "moredyes:acaciaplanks_927f66"
+      },
+      {
+        "item": "moredyes:acaciaplanks_ac5f72"
+      },
+      {
+        "item": "moredyes:acaciaplanks_866672"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9f6633"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9f7f33"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b95933"
+      },
+      {
+        "item": "moredyes:acaciaplanks_794c26"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c72d8"
+      },
+      {
+        "item": "moredyes:acaciaplanks_cb9886"
+      },
+      {
+        "item": "moredyes:acaciaplanks_998c79"
+      },
+      {
+        "item": "moredyes:acaciaplanks_d265bf"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f4c92"
+      },
+      {
+        "item": "moredyes:acaciaplanks_a672b9"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f65b9"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9946c5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_734cc5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c4c86"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c6586"
+      },
+      {
+        "item": "moredyes:acaciaplanks_a64086"
+      },
+      {
+        "item": "moredyes:acaciaplanks_663379"
+      },
+      {
+        "item": "moredyes:acaciaplanks_a5bf86"
+      },
+      {
+        "item": "moredyes:acaciaplanks_72b279"
+      },
+      {
+        "item": "moredyes:acaciaplanks_ac8cbf"
+      },
+      {
+        "item": "moredyes:acaciaplanks_597392"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f99b9"
+      },
+      {
+        "item": "moredyes:acaciaplanks_598cb9"
+      },
+      {
+        "item": "moredyes:acaciaplanks_726cc5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4d73c5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_667386"
+      },
+      {
+        "item": "moredyes:acaciaplanks_668c86"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f6686"
+      },
+      {
+        "item": "moredyes:acaciaplanks_405979"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b2d926"
+      },
+      {
+        "item": "moredyes:acaciaplanks_ebb26c"
+      },
+      {
+        "item": "moredyes:acaciaplanks_99993f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_bfbf66"
+      },
+      {
+        "item": "moredyes:acaciaplanks_99b266"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b29272"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c9972"
+      },
+      {
+        "item": "moredyes:acaciaplanks_a69933"
+      },
+      {
+        "item": "moredyes:acaciaplanks_a6b233"
+      },
+      {
+        "item": "moredyes:acaciaplanks_bf8c33"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f7f26"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b8a65f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_668c32"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8cb359"
+      },
+      {
+        "item": "moredyes:acaciaplanks_66a659"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f5665"
+      },
+      {
+        "item": "moredyes:acaciaplanks_598c65"
+      },
+      {
+        "item": "moredyes:acaciaplanks_738c26"
+      },
+      {
+        "item": "moredyes:acaciaplanks_73a626"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c8026"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4c7319"
+      },
+      {
+        "item": "moredyes:acaciaplanks_864c5f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_c6596c"
+      },
+      {
+        "item": "moredyes:acaciaplanks_ac7f6c"
+      },
+      {
+        "item": "moredyes:acaciaplanks_ac666c"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9366ab"
+      },
+      {
+        "item": "moredyes:acaciaplanks_b95fab"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9f7f9f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_c68c9f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_9f6679"
+      },
+      {
+        "item": "moredyes:acaciaplanks_727272"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4c6572"
+      },
+      {
+        "item": "moredyes:acaciaplanks_65467f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_404c7f"
+      },
+      {
+        "item": "moredyes:acaciaplanks_594c40"
+      },
+      {
+        "item": "moredyes:acaciaplanks_596540"
+      },
+      {
+        "item": "moredyes:acaciaplanks_724040"
+      },
+      {
+        "item": "moredyes:acaciaplanks_333333"
+      },
+      {
+        "item": "moredyes:acaciaplanks_738c99"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c6ca5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_6673a5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_807366"
+      },
+      {
+        "item": "moredyes:acaciaplanks_808c66"
+      },
+      {
+        "item": "moredyes:acaciaplanks_996666"
+      },
+      {
+        "item": "moredyes:acaciaplanks_595959"
+      },
+      {
+        "item": "moredyes:acaciaplanks_655fa5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4066a5"
+      },
+      {
+        "item": "moredyes:acaciaplanks_596666"
+      },
+      {
+        "item": "moredyes:acaciaplanks_597f66"
+      },
+      {
+        "item": "moredyes:acaciaplanks_725966"
+      },
+      {
+        "item": "moredyes:acaciaplanks_334c59"
+      },
+      {
+        "item": "moredyes:acaciaplanks_5945b2"
+      },
+      {
+        "item": "moredyes:acaciaplanks_734573"
+      },
+      {
+        "item": "moredyes:acaciaplanks_735f73"
+      },
+      {
+        "item": "moredyes:acaciaplanks_8c3973"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4c2c66"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4c4c73"
+      },
+      {
+        "item": "moredyes:acaciaplanks_4c6573"
+      },
+      {
+        "item": "moredyes:acaciaplanks_664073"
+      },
+      {
+        "item": "moredyes:acaciaplanks_263366"
+      },
+      {
+        "item": "moredyes:acaciaplanks_403326"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f4033"
+      },
+      {
+        "item": "moredyes:acaciaplanks_666533"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f5933"
+      },
+      {
+        "item": "moredyes:acaciaplanks_404c26"
+      },
+      {
+        "item": "moredyes:acaciaplanks_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:acacia_planks"
+  }
+}

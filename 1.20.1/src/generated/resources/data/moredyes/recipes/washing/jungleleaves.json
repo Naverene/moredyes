@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:jungleleaves_ecbf99"
+      },
+      {
+        "item": "moredyes:jungleleaves_d9a6ec"
+      },
+      {
+        "item": "moredyes:jungleleaves_b3ccec"
+      },
+      {
+        "item": "moredyes:jungleleaves_f2f299"
+      },
+      {
+        "item": "moredyes:jungleleaves_bfe68c"
+      },
+      {
+        "item": "moredyes:jungleleaves_f9bfd2"
+      },
+      {
+        "item": "moredyes:jungleleaves_cccccc"
+      },
+      {
+        "item": "moredyes:jungleleaves_a6bfcc"
+      },
+      {
+        "item": "moredyes:jungleleaves_bf9fd9"
+      },
+      {
+        "item": "moredyes:jungleleaves_99a6d9"
+      },
+      {
+        "item": "moredyes:jungleleaves_b3a699"
+      },
+      {
+        "item": "moredyes:jungleleaves_b3bf99"
+      },
+      {
+        "item": "moredyes:jungleleaves_cc9999"
+      },
+      {
+        "item": "moredyes:jungleleaves_c56685"
+      },
+      {
+        "item": "moredyes:jungleleaves_9f8c85"
+      },
+      {
+        "item": "moredyes:jungleleaves_deb233"
+      },
+      {
+        "item": "moredyes:jungleleaves_aca526"
+      },
+      {
+        "item": "moredyes:jungleleaves_e57f6c"
+      },
+      {
+        "item": "moredyes:jungleleaves_92663f"
+      },
+      {
+        "item": "moredyes:jungleleaves_b98c66"
+      },
+      {
+        "item": "moredyes:jungleleaves_927f66"
+      },
+      {
+        "item": "moredyes:jungleleaves_ac5f72"
+      },
+      {
+        "item": "moredyes:jungleleaves_866672"
+      },
+      {
+        "item": "moredyes:jungleleaves_9f6633"
+      },
+      {
+        "item": "moredyes:jungleleaves_9f7f33"
+      },
+      {
+        "item": "moredyes:jungleleaves_b95933"
+      },
+      {
+        "item": "moredyes:jungleleaves_794c26"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c72d8"
+      },
+      {
+        "item": "moredyes:jungleleaves_cb9886"
+      },
+      {
+        "item": "moredyes:jungleleaves_998c79"
+      },
+      {
+        "item": "moredyes:jungleleaves_d265bf"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f4c92"
+      },
+      {
+        "item": "moredyes:jungleleaves_a672b9"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f65b9"
+      },
+      {
+        "item": "moredyes:jungleleaves_9946c5"
+      },
+      {
+        "item": "moredyes:jungleleaves_734cc5"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c4c86"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c6586"
+      },
+      {
+        "item": "moredyes:jungleleaves_a64086"
+      },
+      {
+        "item": "moredyes:jungleleaves_663379"
+      },
+      {
+        "item": "moredyes:jungleleaves_a5bf86"
+      },
+      {
+        "item": "moredyes:jungleleaves_72b279"
+      },
+      {
+        "item": "moredyes:jungleleaves_ac8cbf"
+      },
+      {
+        "item": "moredyes:jungleleaves_597392"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f99b9"
+      },
+      {
+        "item": "moredyes:jungleleaves_598cb9"
+      },
+      {
+        "item": "moredyes:jungleleaves_726cc5"
+      },
+      {
+        "item": "moredyes:jungleleaves_4d73c5"
+      },
+      {
+        "item": "moredyes:jungleleaves_667386"
+      },
+      {
+        "item": "moredyes:jungleleaves_668c86"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f6686"
+      },
+      {
+        "item": "moredyes:jungleleaves_405979"
+      },
+      {
+        "item": "moredyes:jungleleaves_b2d926"
+      },
+      {
+        "item": "moredyes:jungleleaves_ebb26c"
+      },
+      {
+        "item": "moredyes:jungleleaves_99993f"
+      },
+      {
+        "item": "moredyes:jungleleaves_bfbf66"
+      },
+      {
+        "item": "moredyes:jungleleaves_99b266"
+      },
+      {
+        "item": "moredyes:jungleleaves_b29272"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c9972"
+      },
+      {
+        "item": "moredyes:jungleleaves_a69933"
+      },
+      {
+        "item": "moredyes:jungleleaves_a6b233"
+      },
+      {
+        "item": "moredyes:jungleleaves_bf8c33"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f7f26"
+      },
+      {
+        "item": "moredyes:jungleleaves_b8a65f"
+      },
+      {
+        "item": "moredyes:jungleleaves_668c32"
+      },
+      {
+        "item": "moredyes:jungleleaves_8cb359"
+      },
+      {
+        "item": "moredyes:jungleleaves_66a659"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f5665"
+      },
+      {
+        "item": "moredyes:jungleleaves_598c65"
+      },
+      {
+        "item": "moredyes:jungleleaves_738c26"
+      },
+      {
+        "item": "moredyes:jungleleaves_73a626"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c8026"
+      },
+      {
+        "item": "moredyes:jungleleaves_4c7319"
+      },
+      {
+        "item": "moredyes:jungleleaves_864c5f"
+      },
+      {
+        "item": "moredyes:jungleleaves_c6596c"
+      },
+      {
+        "item": "moredyes:jungleleaves_ac7f6c"
+      },
+      {
+        "item": "moredyes:jungleleaves_ac666c"
+      },
+      {
+        "item": "moredyes:jungleleaves_9366ab"
+      },
+      {
+        "item": "moredyes:jungleleaves_b95fab"
+      },
+      {
+        "item": "moredyes:jungleleaves_9f7f9f"
+      },
+      {
+        "item": "moredyes:jungleleaves_c68c9f"
+      },
+      {
+        "item": "moredyes:jungleleaves_9f6679"
+      },
+      {
+        "item": "moredyes:jungleleaves_727272"
+      },
+      {
+        "item": "moredyes:jungleleaves_4c6572"
+      },
+      {
+        "item": "moredyes:jungleleaves_65467f"
+      },
+      {
+        "item": "moredyes:jungleleaves_404c7f"
+      },
+      {
+        "item": "moredyes:jungleleaves_594c40"
+      },
+      {
+        "item": "moredyes:jungleleaves_596540"
+      },
+      {
+        "item": "moredyes:jungleleaves_724040"
+      },
+      {
+        "item": "moredyes:jungleleaves_333333"
+      },
+      {
+        "item": "moredyes:jungleleaves_738c99"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c6ca5"
+      },
+      {
+        "item": "moredyes:jungleleaves_6673a5"
+      },
+      {
+        "item": "moredyes:jungleleaves_807366"
+      },
+      {
+        "item": "moredyes:jungleleaves_808c66"
+      },
+      {
+        "item": "moredyes:jungleleaves_996666"
+      },
+      {
+        "item": "moredyes:jungleleaves_595959"
+      },
+      {
+        "item": "moredyes:jungleleaves_655fa5"
+      },
+      {
+        "item": "moredyes:jungleleaves_4066a5"
+      },
+      {
+        "item": "moredyes:jungleleaves_596666"
+      },
+      {
+        "item": "moredyes:jungleleaves_597f66"
+      },
+      {
+        "item": "moredyes:jungleleaves_725966"
+      },
+      {
+        "item": "moredyes:jungleleaves_334c59"
+      },
+      {
+        "item": "moredyes:jungleleaves_5945b2"
+      },
+      {
+        "item": "moredyes:jungleleaves_734573"
+      },
+      {
+        "item": "moredyes:jungleleaves_735f73"
+      },
+      {
+        "item": "moredyes:jungleleaves_8c3973"
+      },
+      {
+        "item": "moredyes:jungleleaves_4c2c66"
+      },
+      {
+        "item": "moredyes:jungleleaves_4c4c73"
+      },
+      {
+        "item": "moredyes:jungleleaves_4c6573"
+      },
+      {
+        "item": "moredyes:jungleleaves_664073"
+      },
+      {
+        "item": "moredyes:jungleleaves_263366"
+      },
+      {
+        "item": "moredyes:jungleleaves_403326"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f4033"
+      },
+      {
+        "item": "moredyes:jungleleaves_666533"
+      },
+      {
+        "item": "moredyes:jungleleaves_7f5933"
+      },
+      {
+        "item": "moredyes:jungleleaves_404c26"
+      },
+      {
+        "item": "moredyes:jungleleaves_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:jungle_leaves"
+  }
+}

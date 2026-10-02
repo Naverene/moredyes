@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:mossystonebrick_ecbf99"
+      },
+      {
+        "item": "moredyes:mossystonebrick_d9a6ec"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b3ccec"
+      },
+      {
+        "item": "moredyes:mossystonebrick_f2f299"
+      },
+      {
+        "item": "moredyes:mossystonebrick_bfe68c"
+      },
+      {
+        "item": "moredyes:mossystonebrick_f9bfd2"
+      },
+      {
+        "item": "moredyes:mossystonebrick_cccccc"
+      },
+      {
+        "item": "moredyes:mossystonebrick_a6bfcc"
+      },
+      {
+        "item": "moredyes:mossystonebrick_bf9fd9"
+      },
+      {
+        "item": "moredyes:mossystonebrick_99a6d9"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b3a699"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b3bf99"
+      },
+      {
+        "item": "moredyes:mossystonebrick_cc9999"
+      },
+      {
+        "item": "moredyes:mossystonebrick_c56685"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9f8c85"
+      },
+      {
+        "item": "moredyes:mossystonebrick_deb233"
+      },
+      {
+        "item": "moredyes:mossystonebrick_aca526"
+      },
+      {
+        "item": "moredyes:mossystonebrick_e57f6c"
+      },
+      {
+        "item": "moredyes:mossystonebrick_92663f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b98c66"
+      },
+      {
+        "item": "moredyes:mossystonebrick_927f66"
+      },
+      {
+        "item": "moredyes:mossystonebrick_ac5f72"
+      },
+      {
+        "item": "moredyes:mossystonebrick_866672"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9f6633"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9f7f33"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b95933"
+      },
+      {
+        "item": "moredyes:mossystonebrick_794c26"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c72d8"
+      },
+      {
+        "item": "moredyes:mossystonebrick_cb9886"
+      },
+      {
+        "item": "moredyes:mossystonebrick_998c79"
+      },
+      {
+        "item": "moredyes:mossystonebrick_d265bf"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f4c92"
+      },
+      {
+        "item": "moredyes:mossystonebrick_a672b9"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f65b9"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9946c5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_734cc5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c4c86"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c6586"
+      },
+      {
+        "item": "moredyes:mossystonebrick_a64086"
+      },
+      {
+        "item": "moredyes:mossystonebrick_663379"
+      },
+      {
+        "item": "moredyes:mossystonebrick_a5bf86"
+      },
+      {
+        "item": "moredyes:mossystonebrick_72b279"
+      },
+      {
+        "item": "moredyes:mossystonebrick_ac8cbf"
+      },
+      {
+        "item": "moredyes:mossystonebrick_597392"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f99b9"
+      },
+      {
+        "item": "moredyes:mossystonebrick_598cb9"
+      },
+      {
+        "item": "moredyes:mossystonebrick_726cc5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4d73c5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_667386"
+      },
+      {
+        "item": "moredyes:mossystonebrick_668c86"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f6686"
+      },
+      {
+        "item": "moredyes:mossystonebrick_405979"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b2d926"
+      },
+      {
+        "item": "moredyes:mossystonebrick_ebb26c"
+      },
+      {
+        "item": "moredyes:mossystonebrick_99993f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_bfbf66"
+      },
+      {
+        "item": "moredyes:mossystonebrick_99b266"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b29272"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c9972"
+      },
+      {
+        "item": "moredyes:mossystonebrick_a69933"
+      },
+      {
+        "item": "moredyes:mossystonebrick_a6b233"
+      },
+      {
+        "item": "moredyes:mossystonebrick_bf8c33"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f7f26"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b8a65f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_668c32"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8cb359"
+      },
+      {
+        "item": "moredyes:mossystonebrick_66a659"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f5665"
+      },
+      {
+        "item": "moredyes:mossystonebrick_598c65"
+      },
+      {
+        "item": "moredyes:mossystonebrick_738c26"
+      },
+      {
+        "item": "moredyes:mossystonebrick_73a626"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c8026"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4c7319"
+      },
+      {
+        "item": "moredyes:mossystonebrick_864c5f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_c6596c"
+      },
+      {
+        "item": "moredyes:mossystonebrick_ac7f6c"
+      },
+      {
+        "item": "moredyes:mossystonebrick_ac666c"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9366ab"
+      },
+      {
+        "item": "moredyes:mossystonebrick_b95fab"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9f7f9f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_c68c9f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_9f6679"
+      },
+      {
+        "item": "moredyes:mossystonebrick_727272"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4c6572"
+      },
+      {
+        "item": "moredyes:mossystonebrick_65467f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_404c7f"
+      },
+      {
+        "item": "moredyes:mossystonebrick_594c40"
+      },
+      {
+        "item": "moredyes:mossystonebrick_596540"
+      },
+      {
+        "item": "moredyes:mossystonebrick_724040"
+      },
+      {
+        "item": "moredyes:mossystonebrick_333333"
+      },
+      {
+        "item": "moredyes:mossystonebrick_738c99"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c6ca5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_6673a5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_807366"
+      },
+      {
+        "item": "moredyes:mossystonebrick_808c66"
+      },
+      {
+        "item": "moredyes:mossystonebrick_996666"
+      },
+      {
+        "item": "moredyes:mossystonebrick_595959"
+      },
+      {
+        "item": "moredyes:mossystonebrick_655fa5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4066a5"
+      },
+      {
+        "item": "moredyes:mossystonebrick_596666"
+      },
+      {
+        "item": "moredyes:mossystonebrick_597f66"
+      },
+      {
+        "item": "moredyes:mossystonebrick_725966"
+      },
+      {
+        "item": "moredyes:mossystonebrick_334c59"
+      },
+      {
+        "item": "moredyes:mossystonebrick_5945b2"
+      },
+      {
+        "item": "moredyes:mossystonebrick_734573"
+      },
+      {
+        "item": "moredyes:mossystonebrick_735f73"
+      },
+      {
+        "item": "moredyes:mossystonebrick_8c3973"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4c2c66"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4c4c73"
+      },
+      {
+        "item": "moredyes:mossystonebrick_4c6573"
+      },
+      {
+        "item": "moredyes:mossystonebrick_664073"
+      },
+      {
+        "item": "moredyes:mossystonebrick_263366"
+      },
+      {
+        "item": "moredyes:mossystonebrick_403326"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f4033"
+      },
+      {
+        "item": "moredyes:mossystonebrick_666533"
+      },
+      {
+        "item": "moredyes:mossystonebrick_7f5933"
+      },
+      {
+        "item": "moredyes:mossystonebrick_404c26"
+      },
+      {
+        "item": "moredyes:mossystonebrick_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mossy_stone_bricks"
+  }
+}

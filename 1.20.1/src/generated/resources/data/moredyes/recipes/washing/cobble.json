@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:cobble_ecbf99"
+      },
+      {
+        "item": "moredyes:cobble_d9a6ec"
+      },
+      {
+        "item": "moredyes:cobble_b3ccec"
+      },
+      {
+        "item": "moredyes:cobble_f2f299"
+      },
+      {
+        "item": "moredyes:cobble_bfe68c"
+      },
+      {
+        "item": "moredyes:cobble_f9bfd2"
+      },
+      {
+        "item": "moredyes:cobble_cccccc"
+      },
+      {
+        "item": "moredyes:cobble_a6bfcc"
+      },
+      {
+        "item": "moredyes:cobble_bf9fd9"
+      },
+      {
+        "item": "moredyes:cobble_99a6d9"
+      },
+      {
+        "item": "moredyes:cobble_b3a699"
+      },
+      {
+        "item": "moredyes:cobble_b3bf99"
+      },
+      {
+        "item": "moredyes:cobble_cc9999"
+      },
+      {
+        "item": "moredyes:cobble_c56685"
+      },
+      {
+        "item": "moredyes:cobble_9f8c85"
+      },
+      {
+        "item": "moredyes:cobble_deb233"
+      },
+      {
+        "item": "moredyes:cobble_aca526"
+      },
+      {
+        "item": "moredyes:cobble_e57f6c"
+      },
+      {
+        "item": "moredyes:cobble_92663f"
+      },
+      {
+        "item": "moredyes:cobble_b98c66"
+      },
+      {
+        "item": "moredyes:cobble_927f66"
+      },
+      {
+        "item": "moredyes:cobble_ac5f72"
+      },
+      {
+        "item": "moredyes:cobble_866672"
+      },
+      {
+        "item": "moredyes:cobble_9f6633"
+      },
+      {
+        "item": "moredyes:cobble_9f7f33"
+      },
+      {
+        "item": "moredyes:cobble_b95933"
+      },
+      {
+        "item": "moredyes:cobble_794c26"
+      },
+      {
+        "item": "moredyes:cobble_8c72d8"
+      },
+      {
+        "item": "moredyes:cobble_cb9886"
+      },
+      {
+        "item": "moredyes:cobble_998c79"
+      },
+      {
+        "item": "moredyes:cobble_d265bf"
+      },
+      {
+        "item": "moredyes:cobble_7f4c92"
+      },
+      {
+        "item": "moredyes:cobble_a672b9"
+      },
+      {
+        "item": "moredyes:cobble_7f65b9"
+      },
+      {
+        "item": "moredyes:cobble_9946c5"
+      },
+      {
+        "item": "moredyes:cobble_734cc5"
+      },
+      {
+        "item": "moredyes:cobble_8c4c86"
+      },
+      {
+        "item": "moredyes:cobble_8c6586"
+      },
+      {
+        "item": "moredyes:cobble_a64086"
+      },
+      {
+        "item": "moredyes:cobble_663379"
+      },
+      {
+        "item": "moredyes:cobble_a5bf86"
+      },
+      {
+        "item": "moredyes:cobble_72b279"
+      },
+      {
+        "item": "moredyes:cobble_ac8cbf"
+      },
+      {
+        "item": "moredyes:cobble_597392"
+      },
+      {
+        "item": "moredyes:cobble_7f99b9"
+      },
+      {
+        "item": "moredyes:cobble_598cb9"
+      },
+      {
+        "item": "moredyes:cobble_726cc5"
+      },
+      {
+        "item": "moredyes:cobble_4d73c5"
+      },
+      {
+        "item": "moredyes:cobble_667386"
+      },
+      {
+        "item": "moredyes:cobble_668c86"
+      },
+      {
+        "item": "moredyes:cobble_7f6686"
+      },
+      {
+        "item": "moredyes:cobble_405979"
+      },
+      {
+        "item": "moredyes:cobble_b2d926"
+      },
+      {
+        "item": "moredyes:cobble_ebb26c"
+      },
+      {
+        "item": "moredyes:cobble_99993f"
+      },
+      {
+        "item": "moredyes:cobble_bfbf66"
+      },
+      {
+        "item": "moredyes:cobble_99b266"
+      },
+      {
+        "item": "moredyes:cobble_b29272"
+      },
+      {
+        "item": "moredyes:cobble_8c9972"
+      },
+      {
+        "item": "moredyes:cobble_a69933"
+      },
+      {
+        "item": "moredyes:cobble_a6b233"
+      },
+      {
+        "item": "moredyes:cobble_bf8c33"
+      },
+      {
+        "item": "moredyes:cobble_7f7f26"
+      },
+      {
+        "item": "moredyes:cobble_b8a65f"
+      },
+      {
+        "item": "moredyes:cobble_668c32"
+      },
+      {
+        "item": "moredyes:cobble_8cb359"
+      },
+      {
+        "item": "moredyes:cobble_66a659"
+      },
+      {
+        "item": "moredyes:cobble_7f5665"
+      },
+      {
+        "item": "moredyes:cobble_598c65"
+      },
+      {
+        "item": "moredyes:cobble_738c26"
+      },
+      {
+        "item": "moredyes:cobble_73a626"
+      },
+      {
+        "item": "moredyes:cobble_8c8026"
+      },
+      {
+        "item": "moredyes:cobble_4c7319"
+      },
+      {
+        "item": "moredyes:cobble_864c5f"
+      },
+      {
+        "item": "moredyes:cobble_c6596c"
+      },
+      {
+        "item": "moredyes:cobble_ac7f6c"
+      },
+      {
+        "item": "moredyes:cobble_ac666c"
+      },
+      {
+        "item": "moredyes:cobble_9366ab"
+      },
+      {
+        "item": "moredyes:cobble_b95fab"
+      },
+      {
+        "item": "moredyes:cobble_9f7f9f"
+      },
+      {
+        "item": "moredyes:cobble_c68c9f"
+      },
+      {
+        "item": "moredyes:cobble_9f6679"
+      },
+      {
+        "item": "moredyes:cobble_727272"
+      },
+      {
+        "item": "moredyes:cobble_4c6572"
+      },
+      {
+        "item": "moredyes:cobble_65467f"
+      },
+      {
+        "item": "moredyes:cobble_404c7f"
+      },
+      {
+        "item": "moredyes:cobble_594c40"
+      },
+      {
+        "item": "moredyes:cobble_596540"
+      },
+      {
+        "item": "moredyes:cobble_724040"
+      },
+      {
+        "item": "moredyes:cobble_333333"
+      },
+      {
+        "item": "moredyes:cobble_738c99"
+      },
+      {
+        "item": "moredyes:cobble_8c6ca5"
+      },
+      {
+        "item": "moredyes:cobble_6673a5"
+      },
+      {
+        "item": "moredyes:cobble_807366"
+      },
+      {
+        "item": "moredyes:cobble_808c66"
+      },
+      {
+        "item": "moredyes:cobble_996666"
+      },
+      {
+        "item": "moredyes:cobble_595959"
+      },
+      {
+        "item": "moredyes:cobble_655fa5"
+      },
+      {
+        "item": "moredyes:cobble_4066a5"
+      },
+      {
+        "item": "moredyes:cobble_596666"
+      },
+      {
+        "item": "moredyes:cobble_597f66"
+      },
+      {
+        "item": "moredyes:cobble_725966"
+      },
+      {
+        "item": "moredyes:cobble_334c59"
+      },
+      {
+        "item": "moredyes:cobble_5945b2"
+      },
+      {
+        "item": "moredyes:cobble_734573"
+      },
+      {
+        "item": "moredyes:cobble_735f73"
+      },
+      {
+        "item": "moredyes:cobble_8c3973"
+      },
+      {
+        "item": "moredyes:cobble_4c2c66"
+      },
+      {
+        "item": "moredyes:cobble_4c4c73"
+      },
+      {
+        "item": "moredyes:cobble_4c6573"
+      },
+      {
+        "item": "moredyes:cobble_664073"
+      },
+      {
+        "item": "moredyes:cobble_263366"
+      },
+      {
+        "item": "moredyes:cobble_403326"
+      },
+      {
+        "item": "moredyes:cobble_7f4033"
+      },
+      {
+        "item": "moredyes:cobble_666533"
+      },
+      {
+        "item": "moredyes:cobble_7f5933"
+      },
+      {
+        "item": "moredyes:cobble_404c26"
+      },
+      {
+        "item": "moredyes:cobble_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cobblestone"
+  }
+}

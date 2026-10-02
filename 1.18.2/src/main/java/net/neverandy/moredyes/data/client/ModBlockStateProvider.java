@@ -184,7 +184,7 @@ public class ModBlockStateProvider extends BlockStateProvider
     private void pillar(RotatedPillarBlock block, String side, String end)
     {
         ModelFile vertical = tinted(block, "cube_column").texture("side", tex(side)).texture("end", tex(end));
-        ModelFile horizontal = models().withExistingParent(name(block) + "_horizontal", modLoc("block/tinted/cube_column_horizontal"))
+        ModelFile horizontal = models().withExistingParent(type(block) + "_horizontal", modLoc("block/tinted/cube_column_horizontal"))
                 .texture("side", tex(side)).texture("end", tex(end));
         axisBlock(block, vertical, horizontal);
     }
@@ -192,7 +192,7 @@ public class ModBlockStateProvider extends BlockStateProvider
     /** Like the vanilla tall flowers: each half is a cross of tinted petals over a stem in its own color. */
     private void tallFlower(TallFlowerBlock flower, String type)
     {
-        String name = name(flower);
+        String name = type(flower);
         ModelFile bottom = models().withExistingParent(name + "_bottom", modLoc("block/tinted/cross_layered"))
                 .texture("cross", tex(type + "_bottom_petals")).texture("overlay", tex(type + "_bottom_stem"));
         ModelFile top = models().withExistingParent(name + "_top", modLoc("block/tinted/cross_layered"))
@@ -214,7 +214,7 @@ public class ModBlockStateProvider extends BlockStateProvider
                 .texture("cross", tex(wood + "_sapling_leaves"))
                 .texture("overlay", tex(wood + "_sapling_trunk")));
 
-        String fence = name(fences[i]);
+        String fence = type(fences[i]);
         ModelFile post = models().withExistingParent(fence + "_post", modLoc("block/tinted/fence_post")).texture("texture", plankTexture);
         ModelFile side = models().withExistingParent(fence + "_side", modLoc("block/tinted/fence_side")).texture("texture", plankTexture);
         fourWayBlock((FenceBlock) fences[i], post, side);
@@ -249,7 +249,7 @@ public class ModBlockStateProvider extends BlockStateProvider
 
     private void pane(IronBarsBlock pane, String texture)
     {
-        String name = name(pane);
+        String name = type(pane);
         ModelFile[] parts = new ModelFile[5];
         String[] suffixes = {"post", "side", "side_alt", "noside", "noside_alt"};
         for (int p = 0; p < parts.length; p++)
@@ -276,7 +276,7 @@ public class ModBlockStateProvider extends BlockStateProvider
 
     private BlockModelBuilder tinted(Block block, String parent)
     {
-        return models().withExistingParent(name(block), modLoc("block/tinted/" + parent));
+        return models().withExistingParent(type(block), modLoc("block/tinted/" + parent));
     }
 
     private ResourceLocation tex(String name)
@@ -284,8 +284,13 @@ public class ModBlockStateProvider extends BlockStateProvider
         return modLoc("block/tinted/" + name);
     }
 
-    private static String name(Block block)
+    /**
+     * The registry name without its color ("wool_334c59" -> "wool"). Every color of a type draws the same grey model
+     * and only the tint differs, so the models are shared and named after the type.
+     */
+    private static String type(Block block)
     {
-        return block.getRegistryName().getPath();
+        String name = block.getRegistryName().getPath();
+        return name.substring(0, name.lastIndexOf('_'));
     }
 }
