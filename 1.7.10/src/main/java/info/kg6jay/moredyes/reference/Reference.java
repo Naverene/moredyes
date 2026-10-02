@@ -4,13 +4,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import info.kg6jay.moredyes.MoreDyes;
+import info.kg6jay.moredyes.Tags;
 import info.kg6jay.moredyes.utility.BlockInfo;
 
 public class Reference {
 
     public static final String MOD_ID = "moredyes";
     public static final String MOD_NAME = "More Dyes";
-    public static final String MOD_VERSION = "@VERSION@";
+    public static final String MOD_VERSION = Tags.VERSION;
 
     public static final String CLIENT_PROXY = "info.kg6jay.moredyes.proxy.ClientProxy";
     public static final String SERVER_PROXY = "info.kg6jay.moredyes.proxy.ServerProxy";
