@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        # The build takes its version number from the git tags.
+        # The version number comes from the git tags.
         fetch-depth: 0
 
     - name: Set up JDK 21
@@ -34,6 +34,17 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
+    # The mod version is the version tag being built, or for other builds the last version tag plus
+    # the commits since. Set here because the rolling dev-build tag would otherwise be picked up.
+    - name: Work out the mod version
+      run: |
+        if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+          version="${GITHUB_REF_NAME#v}"
+        else
+          version=$(git describe --tags --match 'v*' 2>/dev/null | sed 's/^v//')
+        fi
+        echo "VERSION=${version:-dev}" >> "$GITHUB_ENV"
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
