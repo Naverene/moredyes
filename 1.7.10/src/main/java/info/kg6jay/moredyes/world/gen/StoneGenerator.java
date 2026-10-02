@@ -36,7 +36,8 @@ public class StoneGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
         IChunkProvider chunkProvider) {
-        if (!this.enabled.getAsBoolean() || world.provider.dimensionId != 0) {
+        if (!this.enabled.getAsBoolean() || world.provider.dimensionId != 0
+            || !FlatWorlds.allowsDecoration(chunkGenerator)) {
             return;
         }
         if (this.vein == null) {

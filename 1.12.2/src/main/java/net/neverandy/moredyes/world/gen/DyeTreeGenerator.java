@@ -18,7 +18,7 @@ public class DyeTreeGenerator implements IWorldGenerator
 	public void generate(Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider)
 	{
 		int dimension=world.provider.getDimension();
-		if(!ConfigHandler.worldGenTree||dimension==-1||dimension==1)
+		if(!ConfigHandler.worldGenTree||!FlatWorlds.allowsDecoration(chunkGenerator)||dimension==-1||dimension==1)
 		{
 			return;
 		}

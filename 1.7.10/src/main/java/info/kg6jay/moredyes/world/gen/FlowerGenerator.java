@@ -16,6 +16,9 @@ public class FlowerGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
         IChunkProvider chunkProvider) {
+        if (!FlatWorlds.allowsDecoration(chunkGenerator)) {
+            return;
+        }
         switch (world.provider.dimensionId) {
             case -1:
                 break;
