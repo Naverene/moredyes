@@ -21,7 +21,7 @@ public class FlowerGenerator implements IWorldGenerator
 	public void generate(Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider)
 	{
 		int dimension=world.provider.getDimension();
-		if(!ConfigHandler.worldGenFlower||dimension==-1||dimension==1||!world.provider.hasSkyLight())
+		if(!ConfigHandler.worldGenFlower||!FlatWorlds.allowsDecoration(chunkGenerator)||dimension==-1||dimension==1||!world.provider.hasSkyLight())
 		{
 			return;
 		}
