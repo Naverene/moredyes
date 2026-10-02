@@ -33,8 +33,8 @@ public final class ClientSetup implements ClientModInitializer
                 layer(RenderType.cutout(), MDBlock.glassArray[i], MDBlock.tulipArray[i],
                         MDBlock.oakSaplingArray[i], MDBlock.birchSaplingArray[i], MDBlock.acaciaSaplingArray[i],
                         MDBlock.darkOakSaplingArray[i], MDBlock.jungleSaplingArray[i], MDBlock.spruceSaplingArray[i],
-                        // The slime on a sticky piston is a separate, untinted layer with see-through gaps.
-                        MDBlock.stickyPistonArray[i], MDBlock.pistonHeadArray[i]);
+                        // The wood and iron on a dyed piston are an untinted layer drawn over the tinted cobblestone, with see-through gaps.
+                        MDBlock.pistonArray[i], MDBlock.stickyPistonArray[i]);
                 layer(RenderType.cutoutMipped(), MDBlock.glassPaneArray[i],
                         MDBlock.oakLeafArray[i], MDBlock.birchLeafArray[i], MDBlock.acaciaLeafArray[i],
                         MDBlock.darkOakLeafArray[i], MDBlock.jungleLeafArray[i], MDBlock.spruceLeafArray[i]);

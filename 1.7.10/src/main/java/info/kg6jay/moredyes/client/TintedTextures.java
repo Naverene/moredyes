@@ -103,7 +103,7 @@ public final class TintedTextures implements IResourcePack {
         BufferedImage result = new BufferedImage(size, height, BufferedImage.TYPE_INT_ARGB);
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < size; ++x) {
-                result.setRGB(x, y, source.transform.apply(image.getRGB(x, y)));
+                result.setRGB(x, y, source.transform.apply(image.getRGB(x, y), x, y, size));
             }
         }
 

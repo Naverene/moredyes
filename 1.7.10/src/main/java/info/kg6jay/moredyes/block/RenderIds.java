@@ -6,6 +6,7 @@ public final class RenderIds {
     public static int chest = 22;
     public static int layeredCube = 0;
     public static int layeredPlant = 1;
+    public static int layeredPiston = 16;
 
     private RenderIds() {}
 }

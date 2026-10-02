@@ -33,9 +33,14 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDPiston.class, new TileEntityMDPistonRenderer());
 
         RenderIds.layeredCube = RenderingRegistry.getNextAvailableRenderId();
-        RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredCube, false));
+        RenderingRegistry
+            .registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredCube, LayeredBlockRenderer.Shape.CUBE));
         RenderIds.layeredPlant = RenderingRegistry.getNextAvailableRenderId();
-        RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredPlant, true));
+        RenderingRegistry
+            .registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredPlant, LayeredBlockRenderer.Shape.PLANT));
+        RenderIds.layeredPiston = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry
+            .registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredPiston, LayeredBlockRenderer.Shape.PISTON));
 
         // Draws sheep dyed with More Dyes in their shade; sheep without one look the same as in vanilla.
         RenderingRegistry.registerEntityRenderingHandler(EntitySheep.class, new RenderColoredSheep());

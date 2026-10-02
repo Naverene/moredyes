@@ -3,7 +3,8 @@
     "particle": "#side",
     "bottom": "moredyes:block/tinted/piston_bottom",
     "side": "moredyes:block/tinted/piston_side",
-    "platform": "moredyes:block/tinted/piston_top"
+    "side_overlay": "moredyes:block/tinted/piston_side_overlay",
+    "platform": "minecraft:block/piston_top"
   },
   "elements": [
     {
@@ -49,8 +50,7 @@
             16
           ],
           "texture": "#platform",
-          "cullface": "north",
-          "tintindex": 0
+          "cullface": "north"
         },
         "south": {
           "uv": [
@@ -86,6 +86,63 @@
           "rotation": 90,
           "cullface": "east",
           "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side_overlay",
+          "rotation": 180,
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side_overlay",
+          "cullface": "up"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side_overlay",
+          "rotation": 270,
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side_overlay",
+          "rotation": 90,
+          "cullface": "east"
         }
       }
     }

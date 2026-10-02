@@ -63,10 +63,6 @@ def brighten(pixels, stats=None):
     return out
 
 
-def stats_of(pixels):
-    lums = [p[0] for p in pixels if p[3] > 0]
-    return sum(lums) / len(lums), max(lums)
-
 
 GREY = grey
 GREY_IF_GREEN = lambda p: grey(p) if is_green(p) else (0, 0, 0, 0)
@@ -112,7 +108,6 @@ SOURCES = {
     'dye': ('item/white_dye', GREY),
     'glass_pane_top': ('block/glass_pane_top', GREY),
     'bookshelf': ('block/bookshelf', GREY),
-    'piston_top': ('block/piston_top', GREY),
     'piston_side': ('block/piston_side', GREY),
     'piston_bottom': ('block/piston_bottom', GREY),
     'piston_inner': ('block/piston_inner', GREY),
@@ -154,6 +149,20 @@ for w in WOODS:
     SOURCES[w + '_sapling_trunk'] = ('block/%s_sapling' % w, KEEP_IF_NOT_GREEN)
 
 
+PISTON_OVERLAYS = ['piston_side', 'piston_inner']
+
+
+def is_piston_cobblestone(name, x, y):
+    """Whether pixel (x, y) of a 16x16 vanilla piston texture is cobblestone. The side has a wooden strip along the
+    top; the inside has the iron ring and hole the arm comes out of."""
+    if name == 'piston_side':
+        return y >= 4
+    if name == 'piston_inner':
+        ring = 5 <= x <= 10 and 5 <= y <= 10 and not (x in (5, 10) and y in (5, 10))
+        return not ring
+    return True
+
+
 # Chest textures go on the chest atlas (textures/entity/chest), not the block atlas. The latch keeps its natural
 # color: its pixels sit in the top-left corner of the texture, (width, height) given here.
 CHEST_OUT = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures/entity/chest')
@@ -186,19 +195,16 @@ def main():
         image.save(os.path.join(OUT, name + '.png'))
     print('wrote %d textures to %s' % (len(SOURCES), os.path.relpath(OUT, ROOT)))
 
-    # The sticky piston face is drawn twice: the tinted wooden rim, then the slime in its own green. The slime is
-    # every pixel that differs from the plain piston face.
-    plain = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/block/piston_top.png'))).convert('RGBA')
-    sticky = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/block/piston_top_sticky.png'))).convert('RGBA')
-    pairs = list(zip(plain.getdata(), sticky.getdata()))
-    rim = Image.new('RGBA', sticky.size)
-    # Brightened by the same amount as the plain face, so the rim matches it.
-    plain_stats = stats_of([grey(p) for p in plain.getdata()])
-    rim.putdata(brighten([grey(s) if s == p else (0, 0, 0, 0) for p, s in pairs], plain_stats))
-    rim.save(os.path.join(OUT, 'piston_top_sticky.png'))
-    slime = Image.new('RGBA', sticky.size)
-    slime.putdata([(0, 0, 0, 0) if s == p else s for p, s in pairs])
-    slime.save(os.path.join(OUT, 'piston_slime.png'))
+    # Only the cobblestone on a dyed piston takes the dye. Its wood and iron are drawn over the tinted texture in their
+    # own colors, from these overlays; the face and the head use the vanilla textures as they are.
+    for name in PISTON_OVERLAYS:
+        image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/block/%s.png' % name))).convert('RGBA')
+        pixels = image.load()
+        for y in range(image.height):
+            for x in range(image.width):
+                if is_piston_cobblestone(name, x * 16 // image.width, y * 16 // image.height):
+                    pixels[x, y] = (0, 0, 0, 0)
+        image.save(os.path.join(OUT, name + '_overlay.png'))
 
     os.makedirs(CHEST_OUT, exist_ok=True)
     for name, (latch_w, latch_h) in sorted(CHESTS.items()):
