@@ -28,3 +28,7 @@ Each Minecraft folder is its own Gradle project with its own wrapper. Open the f
 ## History
 
 Each folder used to be its own repository. Their full histories were brought in here, so `git log -- 1.16.5` shows the 1.16.5 version's history. The old repositories are Naverene/MoreDyes_1_7_10, moredyes_1122, moredyes_1165, moredyes_1182, moredyes_1201 and moredyes_263. The 26.1.2 version was made here from the 26.3 one.
+
+## License
+
+More Dyes is released under the MIT License; see [LICENSE](LICENSE).
