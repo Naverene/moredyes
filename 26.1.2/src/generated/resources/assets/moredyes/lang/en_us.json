@@ -8616,5 +8616,15 @@
   "itemGroup.moredyes.dyes": "More Dyes Dyes",
   "itemGroup.moredyes.blocks": "More Dyes Blocks",
   "itemGroup.moredyes.trees": "More Dyes Trees",
-  "itemGroup.moredyes.plants": "More Dyes Plants"
+  "itemGroup.moredyes.plants": "More Dyes Plants",
+  "block.moredyes.full_drawers_1": "Dyed Drawers 1x1",
+  "block.moredyes.full_drawers_2": "Dyed Drawers 1x2",
+  "block.moredyes.full_drawers_4": "Dyed Drawers 2x2",
+  "block.moredyes.half_drawers_1": "Dyed Half Drawers 1x1",
+  "block.moredyes.half_drawers_2": "Dyed Half Drawers 1x2",
+  "block.moredyes.half_drawers_4": "Dyed Half Drawers 2x2",
+  "block.moredyes.iron_chest": "Dyed Iron Chest",
+  "block.moredyes.gold_chest": "Dyed Gold Chest",
+  "block.moredyes.diamond_chest": "Dyed Diamond Chest",
+  "block.moredyes.copper_chest": "Dyed Copper Chest"
 }

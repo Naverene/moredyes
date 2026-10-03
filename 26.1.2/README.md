@@ -24,6 +24,16 @@ This is the NeoForge port for Minecraft 26.1.2, made from the 26.3 version.
   columns.
 * With [Rechiseled](https://modrinth.com/mod/rechiseled) installed, a chisel turns a vanilla block into any of its
   dyed shades and back. Rechiseled is optional: More Dyes only ships data files for it.
+* With [Storage Drawers](https://modrinth.com/mod/storagedrawers) installed, its drawers come in every color in all six
+  sizes: craft any wooden drawer of a size (or a dyed one) with a dye; a filled drawer keeps its contents. They work
+  with hoppers, keys, upgrades, labels and drawer controllers like Storage Drawers' own. Their textures are made from
+  Storage Drawers' oak drawers (MIT licensed, by Texelsaur). Storage Drawers is optional.
+* With [Iron Chests](https://www.curseforge.com/minecraft/mc-mods/iron-chests) installed, its iron, gold, diamond and
+  copper chests come in every color: craft one (or a dyed one) with a dye; it keeps its name. The wood takes the color
+  and the metal keeps its own. Iron Chests' upgrades keep the color, and also turn a dyed wooden chest into a dyed iron
+  or copper chest (crystal and obsidian chests have no wood, so those upgrades give Iron Chests' own chest). More Dyes
+  doesn't ship any Iron Chests art: the game splits Iron Chests' textures into wood and metal when it loads them.
+  Iron Chests is optional.
 
 ## Building
 
@@ -40,6 +50,10 @@ then:
 python3 tools/textures.py            # the grey textures, made from the vanilla ones (needs Pillow)
 python3 tools/generate_resources.py  # everything in src/generated/resources
 ```
+
+`python3 tools/storage_drawers.py` makes the dyed drawers' textures and models from the Storage Drawers jar that
+`./gradlew build` downloads. To run the game with Storage Drawers and Iron Chests while developing, pass
+`-Pcompat_mods=true` (for example `./gradlew runClient -Pcompat_mods=true`).
 
 ## Releases
 

@@ -6,9 +6,11 @@ import org.jspecify.annotations.Nullable;
 
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Block;
 
 import net.neverandy.moredyes.color.MixColor;
@@ -45,6 +47,32 @@ public final class Tints {
 
         @Override
         public MapCodec<DyeColor> type() {
+            return MAP_CODEC;
+        }
+    }
+
+    /**
+     * The item tint {@code moredyes:state_color}: the color whose position in {@link MixColors#ALL} is the
+     * {@code color} property in the item's {@code minecraft:block_state} component. For blocks that keep their color
+     * in a block state property, such as the dyed Storage Drawers (compat/storagedrawers).
+     */
+    public record StateColor() implements ItemTintSource {
+
+        public static final MapCodec<StateColor> MAP_CODEC = MapCodec.unit(new StateColor());
+
+        @Override
+        public int calculate(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity owner) {
+            BlockItemStateProperties state = stack.get(DataComponents.BLOCK_STATE);
+            String color = state != null ? state.properties().get("color") : null;
+            try {
+                return argb(MixColors.ALL.get(color != null ? Integer.parseInt(color) : 0));
+            } catch (NumberFormatException | IndexOutOfBoundsException e) {
+                return -1;
+            }
+        }
+
+        @Override
+        public MapCodec<StateColor> type() {
             return MAP_CODEC;
         }
     }

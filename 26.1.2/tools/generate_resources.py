@@ -11,6 +11,9 @@ read from the Minecraft and NeoForge jars:
   * tags: every vanilla and NeoForge tag that lists the vanilla block (mineable/pickaxe, wool, leaves, planks...).
   * recipes: the recipes of the 1.7.10 mod (see the recipes() function).
   * trees: the vanilla tree of each wood, grown from dyed logs and leaves.
+  * the dyed Storage Drawers (compat/storagedrawers): see storage_drawers(). Their textures and models come from
+    tools/storage_drawers.py.
+  * the dyed Iron Chests (compat/ironchest): see iron_chests().
 
 The kinds and colors are read from block/Kind.java and color/ColorGroup.java. Run after `./gradlew build` has
 downloaded Minecraft, and after tools/textures.py:
@@ -180,6 +183,16 @@ POTTABLE = ['tulip'] + ['%s_sapling' % w for w in WOODS]
 # ---------------------------------------------------------------------------------------------------------------------
 # Input
 # ---------------------------------------------------------------------------------------------------------------------
+
+def read_drawer_sizes():
+    source = open(os.path.join(JAVA, 'compat/storagedrawers/StorageDrawersCompat.java')).read()
+    return re.findall(r'"(\w+)"', re.search(r'SIZES\s*=.*?;', source, re.S).group(0))
+
+
+def read_iron_chest_tiers():
+    source = open(os.path.join(JAVA, 'compat/ironchest/IronChestCompat.java')).read()
+    return re.findall(r'^\s+[A-Z]+\("(\w+)"', source, re.M)
+
 
 def read_kinds():
     """(id, vanilla id, tab) of each Kind, in order."""
@@ -518,6 +531,8 @@ def main():
 
     for tab, title in [('dyes', 'Dyes'), ('blocks', 'Blocks'), ('trees', 'Trees'), ('plants', 'Plants')]:
         names['itemGroup.%s.%s' % (MOD, tab)] = 'More Dyes ' + title
+    storage_drawers(w, colors, names)
+    iron_chests(w, colors, names)
     w.write('assets/%s/lang/en_us.json' % MOD, names)
 
     tags(jars, w, kinds, colors)
@@ -621,9 +636,87 @@ def tags(jars, w, kinds, colors):
     add('item', 'minecraft:logs_that_burn', logs)
     add('block', 'minecraft:flower_pots', ['%s:potted_%s_%s' % (MOD, k, c) for k in POTTABLE for c in colors])
     add('item', 'c:dyes', ['%s:dye_%s' % (MOD, c) for c in colors])
+    # The dyed Storage Drawers only exist when Storage Drawers is installed, so they are optional entries. Storage
+    # Drawers' own item tags let its keys, upgrades and recipes treat them like its drawers.
+    sizes = read_drawer_sizes()
+    add('block', 'minecraft:mineable/axe', [optional(size) for size in sizes])
+    for tag, depths in (('drawers', ('full', 'half')), ('full_drawers', ('full',)), ('half_drawers', ('half',))):
+        add('item', 'storagedrawers:' + tag, [optional(size) for size in sizes if size.split('_')[0] in depths])
+    # Likewise the dyed Iron Chests.
+    add('block', 'minecraft:mineable/pickaxe', [optional(tier + '_chest') for tier in read_iron_chest_tiers()])
     for (registry, tag), values in sorted(out.items()):
         ns, path = tag.split(':', 1)
         w.write('data/%s/tags/%s/%s.json' % (ns, registry, path), {'values': values})
+
+
+def optional(path):
+    return {'id': '%s:%s' % (MOD, path), 'required': False}
+
+
+# Storage Drawers' woods: any of its wooden drawers can be dyed.
+DRAWER_WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry', 'pale_oak', 'bamboo',
+                'crimson', 'warped']
+
+
+def storage_drawers(w, colors, names):
+    """The dyed Storage Drawers (compat/storagedrawers): one block per drawer size, whose color is its "color" block
+    state property (the color's position in ColorGroup.java). Blockstates and item models point at the models from
+    tools/storage_drawers.py, and the item is tinted by the color in its block_state component. A Storage Drawers
+    wooden drawer (or a dyed one) of a size and a dye make a dyed drawer of that size and color; the recipes only load
+    when Storage Drawers is installed. They are transmute recipes, like vanilla's shulker box dyeing: the result keeps
+    every component of the drawer it is made from (its stored items and upgrades, its name), only taking the new color."""
+    grids = {'1': '1x1', '2': '1x2', '4': '2x2'}
+    for size in read_drawer_sizes():
+        depth, count = size.split('_drawers_')
+        model = '%s:block/drawers/%s' % (MOD, size)
+        w.write('assets/%s/blockstates/%s.json' % (MOD, size), {'variants': {
+            'facing=%s' % facing: dict({'model': model}, **({'y': y} if y else {}))
+            for facing, y in (('north', 0), ('east', 90), ('south', 180), ('west', 270))}})
+        w.write('assets/%s/items/%s.json' % (MOD, size), {'model': {
+            'type': 'minecraft:model', 'model': model, 'tints': [{'type': MOD + ':state_color'}]}})
+        # The item's name comes from Storage Drawers ("C56685 Drawers 1x1", see DyedDrawersItem); this one is the
+        # block's, for anything that names a block without its color.
+        names['block.%s.%s' % (MOD, size)] = 'Dyed %sDrawers %s' % ('Half ' if depth == 'half' else '', grids[count])
+        for index, color in enumerate(colors):
+            w.write('data/%s/recipe/dyeing/%s_%s.json' % (MOD, size, color), {
+                'neoforge:conditions': [{'type': 'neoforge:mod_loaded', 'modid': 'storagedrawers'}],
+                'type': 'minecraft:crafting_transmute', 'category': 'building', 'group': '%s:%s' % (MOD, size),
+                'input': ['storagedrawers:%s_%s' % (wood, size) for wood in DRAWER_WOODS] + ['%s:%s' % (MOD, size)],
+                'material': '%s:dye_%s' % (MOD, color),
+                'result': {'id': '%s:%s' % (MOD, size),
+                           'components': {'minecraft:block_state': {'color': str(index)}}}})
+
+
+def iron_chests(w, colors, names):
+    """The dyed Iron Chests (compat/ironchest): one block per tier, whose color is its "color" block state property
+    (the color's position in ColorGroup.java). Their block models are Iron Chests' own (which only name the particle
+    texture: the chest is drawn by DyedIronChestRenderer), the item is drawn by DyedIronChestSpecialRenderer, and the
+    loot table copies the color into the dropped item. An Iron Chests chest (or a dyed one) of a tier and a dye make a
+    dyed chest of that tier and color, keeping its name; the recipes only load when Iron Chests is installed."""
+    for tier in read_iron_chest_tiers():
+        name = tier + '_chest'
+        w.write('assets/%s/blockstates/%s.json' % (MOD, name), {'variants': {'': {'model': 'ironchest:block/' + name}}})
+        w.write('assets/%s/items/%s.json' % (MOD, name), {'model': {
+            'type': 'minecraft:special', 'base': 'ironchest:item/' + name,
+            'model': {'type': MOD + ':dyed_iron_chest', 'tier': tier}}})
+        names['block.%s.%s' % (MOD, name)] = 'Dyed %s Chest' % tier.capitalize()
+        # Like the recipes, the loot table only loads with Iron Chests, as it names the dyed chest.
+        w.write('data/%s/loot_table/blocks/%s.json' % (MOD, name), {
+            'neoforge:conditions': [{'type': 'neoforge:mod_loaded', 'modid': 'ironchest'}],
+            'type': 'minecraft:block', 'random_sequence': '%s:blocks/%s' % (MOD, name),
+            'pools': [{'rolls': 1.0, 'bonus_rolls': 0.0, 'conditions': [{'condition': 'minecraft:survives_explosion'}],
+                       'entries': [{'type': 'minecraft:item', 'name': '%s:%s' % (MOD, name), 'functions': [
+                           {'function': 'minecraft:copy_components', 'source': 'block_entity',
+                            'include': ['minecraft:custom_name']},
+                           {'function': 'minecraft:copy_state', 'block': '%s:%s' % (MOD, name),
+                            'properties': ['color']}]}]}]})
+        for index, color in enumerate(colors):
+            w.write('data/%s/recipe/dyeing/%s_%s.json' % (MOD, name, color), {
+                'neoforge:conditions': [{'type': 'neoforge:mod_loaded', 'modid': 'ironchest'}],
+                'type': 'minecraft:crafting_transmute', 'category': 'building', 'group': '%s:%s' % (MOD, name),
+                'input': ['ironchest:' + name, '%s:%s' % (MOD, name)], 'material': '%s:dye_%s' % (MOD, color),
+                'result': {'id': '%s:%s' % (MOD, name),
+                           'components': {'minecraft:block_state': {'color': str(index)}}}})
 
 
 def recipes(jars, w, kinds, colors):
