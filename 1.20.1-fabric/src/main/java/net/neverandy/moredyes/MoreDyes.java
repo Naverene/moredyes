@@ -10,6 +10,7 @@ import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDTabs;
+import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 import net.neverandy.moredyes.world.ModWorldGen;
@@ -32,6 +33,7 @@ public class MoreDyes implements ModInitializer
         MDTabs.register();
         ModTileEntities.register();
         ModWorldGen.register();
+        ModRecipes.register();
         DyedSheep.register();
         CauldronWashing.register();
 
