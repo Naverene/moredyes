@@ -7,6 +7,7 @@ import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.reference.Reference;
 
 public class ModLangProvider extends LanguageProvider
 {
@@ -28,6 +29,18 @@ public class ModLangProvider extends LanguageProvider
         add("itemGroup.dyes", "MoreDyes Dyes");
         add("itemGroup.blocks", "MoreDyes Blocks");
         add("itemGroup.shapes", "MoreDyes Slabs, Stairs and Walls");
+
+        // Dyed Iron Chests (compat/ironchest). The color's hex code fills in the %s.
+        for (String tier : Reference.IRON_CHEST_TIERS)
+        {
+            add("block.moredyes.dyed_" + tier + "_chest", "%s " + Character.toUpperCase(tier.charAt(0)) + tier.substring(1) + " Chest");
+        }
+        // Dyed Storage Drawers (compat/storagedrawers), named like Storage Drawers names its own.
+        for (String size : Reference.DRAWER_SIZES)
+        {
+            String grid = size.endsWith("1") ? "1x1" : size.endsWith("2") ? "1x2" : "2x2";
+            add("block.moredyes.dyed_" + size, "%s " + (size.startsWith("half") ? "Half Drawers " : "Drawers ") + grid);
+        }
 
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {

@@ -61,10 +61,29 @@ sourceSets.main.resources {
 }
 
 repositories {
+    maven {
+        name = 'progwml6 (Iron Chests)'
+        url = 'https://dvs1.progwml6.com/files/maven/'
+        content { includeGroup 'com.progwml6.ironchest' }
+    }
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Optional mods that More Dyes adds dyed versions of. The compat classes only load when the mod is installed, so
+    // they are compile-time only. Run the game with them by passing -Pcompat_mods=true.
+    compileOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
+    compileOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
+    if (project.findProperty('compat_mods') == 'true') {
+        runtimeOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
+        runtimeOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
+    }
 }
 
 tasks.named('processResources', ProcessResources).configure {

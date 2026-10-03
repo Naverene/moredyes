@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "moredyes:dyed_full_drawers_1",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_full_drawers_2",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_full_drawers_4",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_1",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_2",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_4",
+      "required": false
+    }
+  ]
+}

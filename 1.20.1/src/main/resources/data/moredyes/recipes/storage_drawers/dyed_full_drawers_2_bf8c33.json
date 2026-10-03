@@ -1,0 +1,62 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "storagedrawers"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "moredyes:dyed_full_drawers_2",
+  "ingredients": [
+    [
+      {
+        "item": "storagedrawers:oak_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:spruce_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:birch_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:jungle_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:acacia_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:dark_oak_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:mangrove_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:cherry_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:bamboo_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:crimson_full_drawers_2"
+      },
+      {
+        "item": "storagedrawers:warped_full_drawers_2"
+      },
+      {
+        "item": "moredyes:dyed_full_drawers_2"
+      }
+    ],
+    {
+      "item": "moredyes:bf8c33_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_full_drawers_2",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "61"
+      }
+    }
+  }
+}

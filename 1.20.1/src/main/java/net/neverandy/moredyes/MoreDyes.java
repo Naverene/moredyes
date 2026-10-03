@@ -2,12 +2,15 @@ package net.neverandy.moredyes;
 
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDTabs;
@@ -39,6 +42,16 @@ public class MoreDyes
         MDTabs.register(modBus);
         ModTileEntities.register(modBus);
         ModWorldGen.register(modBus);
+
+        // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
+        if (ModList.get().isLoaded("ironchest"))
+        {
+            IronChestCompat.register(modBus);
+        }
+        if (ModList.get().isLoaded("storagedrawers"))
+        {
+            StorageDrawersCompat.register(modBus);
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event)
