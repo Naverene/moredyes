@@ -4012,6 +4012,30 @@
     "moredyes:darkoakslab_404c26",
     "moredyes:darkoakstairs_404c26",
     "moredyes:darkoakslab_592626",
-    "moredyes:darkoakstairs_592626"
+    "moredyes:darkoakstairs_592626",
+    {
+      "id": "moredyes:dyed_full_drawers_1",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_full_drawers_2",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_full_drawers_4",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_1",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_2",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_4",
+      "required": false
+    }
   ]
 }

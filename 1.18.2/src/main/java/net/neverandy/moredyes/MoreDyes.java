@@ -15,6 +15,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
+import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -30,6 +33,7 @@ import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.world.ModWorldGen;
 import net.neverandy.moredyes.reference.Reference;
@@ -104,7 +108,18 @@ public class MoreDyes
         MDItem.initialize();
         ModWorldGen.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModTileEntities.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRecipes.register(FMLJavaModLoadingContext.get().getModEventBus());
         MinecraftForge.EVENT_BUS.addListener(ModWorldGen::onBiomeLoading);
+
+        // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
+        if (ModList.get().isLoaded("ironchest"))
+        {
+            IronChestCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
+        }
+        if (ModList.get().isLoaded("storagedrawers"))
+        {
+            StorageDrawersCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event)

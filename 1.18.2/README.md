@@ -8,6 +8,12 @@ If Thermal Expansion is detected, rockwool will be available in the mod colors.
 
 If Chisel is detected, all colors of all blocks will be chiselable.
 
+If Iron Chests is installed, its iron, gold, diamond and copper chests come in every color: craft one with a dye (a dyed one can be dyed again). The wood takes the color and the metal keeps its own. Iron Chests' upgrades keep the color, and also turn a dyed wooden chest into a dyed iron or copper chest.
+
+If Storage Drawers is installed, its drawers come in every color in all six sizes: craft any wooden drawer of a size (or a dyed one) with a dye; it keeps its contents, name and upgrades. They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers (MIT licensed, by Texelsaur).
+
+To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`). tools/make_compat_resources.py writes their models, recipes and textures.
+
 With Roughly Enough Items (REI) installed, its item list shows each kind of item as one collapsible entry holding all of its colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry. JEI has no such groups and lists every color on its own. REI is optional; to try it in the dev game, run `./gradlew runClient -Precipe_viewer=true`.
 
 Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color. tools/make_dye_tags.py writes these tags.
