@@ -16165,6 +16165,22 @@
     "moredyes:polishedgranitestairs_666533",
     "moredyes:polishedgranitestairs_7f5933",
     "moredyes:polishedgranitestairs_404c26",
-    "moredyes:polishedgranitestairs_592626"
+    "moredyes:polishedgranitestairs_592626",
+    {
+      "id": "moredyes:dyed_iron_chest",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_gold_chest",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_diamond_chest",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_copper_chest",
+      "required": false
+    }
   ]
 }

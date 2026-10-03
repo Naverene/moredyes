@@ -2,6 +2,7 @@ package net.neverandy.moredyes.data.server;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -63,6 +64,17 @@ public class ModBlockTagsProvider extends BlockTagsProvider
 
         addTool(MDBlock.MINEABLE);
         addTool(MDBlock.NEEDS_TOOL);
+
+        // Dyed Iron Chests (compat/ironchest) only exist when Iron Chests is installed, so they are optional entries.
+        for (String tier : Reference.IRON_CHEST_TIERS)
+        {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(new ResourceLocation(Reference.MOD_ID, "dyed_" + tier + "_chest"));
+        }
+        // Likewise dyed Storage Drawers (compat/storagedrawers).
+        for (String size : Reference.DRAWER_SIZES)
+        {
+            tag(BlockTags.MINEABLE_WITH_AXE).addOptional(new ResourceLocation(Reference.MOD_ID, "dyed_" + size));
+        }
     }
 
     /**

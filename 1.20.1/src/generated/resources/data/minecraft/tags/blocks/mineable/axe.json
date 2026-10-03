@@ -3893,6 +3893,30 @@
     "moredyes:birchstairs_666533",
     "moredyes:birchstairs_7f5933",
     "moredyes:birchstairs_404c26",
-    "moredyes:birchstairs_592626"
+    "moredyes:birchstairs_592626",
+    {
+      "id": "moredyes:dyed_full_drawers_1",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_full_drawers_2",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_full_drawers_4",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_1",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_2",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_half_drawers_4",
+      "required": false
+    }
   ]
 }
