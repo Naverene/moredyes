@@ -15,6 +15,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.compat.ae2.AE2Compat;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.DyedSheep;
@@ -45,6 +46,9 @@ public class MoreDyes {
         }
         if (ModList.get().isLoaded(IronChestCompat.MOD_ID)) {
             IronChestCompat.register(modBus);
+        }
+        if (ModList.get().isLoaded(AE2Compat.MOD_ID)) {
+            AE2Compat.register(modBus);
         }
     }
 

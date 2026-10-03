@@ -2,7 +2,11 @@
 """
 Writes data/forge/tags/items/dyes/<color>.json, which put every More Dyes dye in the Forge tag of the vanilla dye
 color it looks closest to (CIEDE2000 distance). Mods that read a dye's color from those tags then accept ours,
-for example Ender Storage, whose frequency buttons only know the 16 vanilla colors.
+for example Ender Storage, whose frequency buttons only know the 16 vanilla colors, and Applied Energistics 2, whose
+cables, paint balls and Color Applicator only know them too.
+
+It also writes the same lists as Fabric's data/c/tags/items/<color>_dyes.json, which the Fabric build
+(../1.20.1-fabric) reads from this folder; Fabric's Applied Energistics 2 reads dyes from those.
 
 Run from anywhere: python3 tools/make_dye_tags.py
 """
@@ -15,6 +19,7 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COLORS = os.path.join(ROOT, 'src/main/java/net/neverandy/moredyes/reference/ColorStrings.java')
 OUT = os.path.join(ROOT, 'src/main/resources/data/forge/tags/items/dyes')
+FABRIC_OUT = os.path.join(ROOT, 'src/main/resources/data/c/tags/items')
 
 # Vanilla DyeColor texture colors.
 VANILLA = {
@@ -81,10 +86,12 @@ def main():
         nearest = min(vanilla, key=lambda name: ciede2000(lab(int(color, 16)), vanilla[name]))
         tags[nearest].append('moredyes:%s_dye' % color)
     os.makedirs(OUT, exist_ok=True)
+    os.makedirs(FABRIC_OUT, exist_ok=True)
     for name, values in sorted(tags.items()):
-        with open(os.path.join(OUT, name + '.json'), 'w') as f:
-            json.dump({'replace': False, 'values': values}, f, indent=2)
-            f.write('\n')
+        for path in (os.path.join(OUT, name + '.json'), os.path.join(FABRIC_OUT, name + '_dyes.json')):
+            with open(path, 'w') as f:
+                json.dump({'replace': False, 'values': values}, f, indent=2)
+                f.write('\n')
     print('%d dyes in %d tags' % (len(colors), len(tags)))
 
 

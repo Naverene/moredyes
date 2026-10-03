@@ -31,6 +31,12 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
   sizes: craft any wooden drawer of a size (or a dyed one) with a dye; a filled drawer keeps its contents. They work
   with hoppers, keys, upgrades, labels and drawer controllers like Storage Drawers' own. Their textures are made from
   Storage Drawers' oak drawers (MIT licensed, by Texelsaur). Storage Drawers is optional.
+* With [Applied Energistics 2](https://modrinth.com/mod/ae2) installed, every dye counts as the vanilla color it looks
+  closest to: eight fluix cables (any kind) or matter balls around it make eight cables or paint balls of that color,
+  and the Color Applicator takes it. The dyes are in the tags `moredyes:dyes/<vanilla color>` rather than NeoForge's
+  `c:dyes/<color>`, which vanilla's recipes use, so there are recipes like AE2's own for them (tools/nearest_dye.py and
+  `applied_energistics()` in tools/generate_resources.py), and `compat/ae2/AE2Compat` adds the tags to the Color
+  Applicator. AE2 is optional, and has no 26.3 release yet.
 
 ## Building
 

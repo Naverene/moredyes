@@ -140,6 +140,12 @@ dependencies {
         localRuntime "com.progwml6.ironchest:ironchest:${iron_chests_version}"
     }
 
+    // Applied Energistics 2 (compat/ae2). More Dyes doesn't compile against it; -PwithAE2 puts it in the dev game.
+    if (project.hasProperty('withAE2')) {
+        localRuntime "maven.modrinth:ae2:${ae2_version}"
+        localRuntime "maven.modrinth:guideme:${guideme_version}"
+    }
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

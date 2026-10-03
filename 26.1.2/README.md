@@ -34,6 +34,12 @@ This is the NeoForge port for Minecraft 26.1.2, made from the 26.3 version.
   or copper chest (crystal and obsidian chests have no wood, so those upgrades give Iron Chests' own chest). More Dyes
   doesn't ship any Iron Chests art: the game splits Iron Chests' textures into wood and metal when it loads them.
   Iron Chests is optional.
+* With [Applied Energistics 2](https://modrinth.com/mod/ae2) installed, every dye counts as the vanilla color it looks
+  closest to: eight fluix cables (any kind) or matter balls around it make eight cables or paint balls of that color,
+  and the Color Applicator takes it. The dyes are in the tags `moredyes:dyes/<vanilla color>` rather than NeoForge's
+  `c:dyes/<color>`, which vanilla's recipes use, so there are recipes like AE2's own for them (tools/nearest_dye.py and
+  `applied_energistics()` in tools/generate_resources.py), and `compat/ae2/AE2Compat` adds the tags to the Color
+  Applicator. AE2 is optional.
 
 ## Building
 

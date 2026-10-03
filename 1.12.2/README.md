@@ -23,6 +23,8 @@ If Iron Chests is installed, its iron, gold, diamond, copper, silver, crystal an
 
 If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye. They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers (MIT licensed, by jaquadro and Texelsaur).
 
+If Applied Energistics 2 is installed, every dye counts as the vanilla color it looks closest to: eight fluix cables (any kind) or matter balls around it make eight cables or paint balls of that color, and the Color Applicator takes it. The dyes are in the ore dictionary as moredyes plus that color (moredyesLightBlue, for example) rather than AE2's dyeLightBlue, which the mod's own dye mixes use. To try it in the dev game, pass `-PwithAE2` to Gradle.
+
 With Had Enough Items (HEI, CleanroomMC's fork of JEI, 4.30 or newer) installed, its item list shows each kind of block (and each tier of dyed Iron Chests and size of dyed drawers) as one collapsible entry holding all of its colors, such as "Dyed Wool", and the dyes as one "Mixed Dyes" entry. The original JEI has no such groups and lists every color on its own.
 
 The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.

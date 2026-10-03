@@ -12,7 +12,7 @@ If Storage Drawers is installed, its drawers come in every color in all six size
 
 To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`). tools/make_compat_resources.py writes their models, recipes and textures.
 
-Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color. tools/make_dye_tags.py writes these tags.
+Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color, and with Applied Energistics 2 it colors cables and paint balls (eight fluix cables or matter balls around the dye) and loads into the Color Applicator as that color. tools/make_dye_tags.py writes these tags. It also writes the same lists as Fabric's `c:<color>_dyes` tags for the Fabric build.
 
 I'm open to suggestions for naming the colors. Right now they are all labeled with their hex code.
 

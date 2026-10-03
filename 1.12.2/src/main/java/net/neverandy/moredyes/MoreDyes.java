@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ChiselCompat;
+import net.neverandy.moredyes.compat.ae2.AE2Compat;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
@@ -89,6 +90,10 @@ public class MoreDyes
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		if(Loader.isModLoaded(AE2Compat.MOD_ID))
+		{
+			AE2Compat.postInit();
+		}
 		LogHelper.info("Post Initialization Complete");
 	}
 }

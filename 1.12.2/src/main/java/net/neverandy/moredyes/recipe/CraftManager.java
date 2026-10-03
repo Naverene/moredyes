@@ -23,6 +23,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.neverandy.moredyes.block.IColoredBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.GregTechCompat;
+import net.neverandy.moredyes.compat.ae2.AE2Compat;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.ColorStrings;
@@ -87,6 +88,10 @@ public class CraftManager
 		guard("crafting_table",workbenches);
 		guard("bookshelf",bookshelves);
 		registry=null;
+		if(Loader.isModLoaded(AE2Compat.MOD_ID))
+		{
+			AE2Compat.registerRecipes(event.getRegistry());
+		}
 		if(ConfigHandler.gregtechRecipes&&Loader.isModLoaded(GregTechCompat.GREGTECH))
 		{
 			try

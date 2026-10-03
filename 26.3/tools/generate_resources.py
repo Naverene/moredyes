@@ -28,6 +28,7 @@ import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from textures import TEXTURES, FOGGY_GLASS, WOODS, client_jar  # noqa: E402
+from nearest_dye import nearest_vanilla  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'src/generated/resources')
@@ -558,6 +559,7 @@ def main():
     recipes(jars, w, kinds, colors)
     worldgen(jars, w, colors)
     chiseling(w, kinds, colors)
+    applied_energistics(w, colors)
     w.write('data/%s/loot_modifiers/dyed_sheep_wool.json' % MOD, {'type': MOD + ':dyed_sheep_wool'})
     print('wrote %d files to %s' % (w.count, os.path.relpath(OUT, ROOT)))
 
@@ -663,6 +665,33 @@ def tags(jars, w, kinds, colors):
     for (registry, tag), values in sorted(out.items()):
         ns, path = tag.split(':', 1)
         w.write('data/%s/tags/%s/%s.json' % (ns, registry, path), {'values': values})
+
+
+# Applied Energistics 2's colored items: each is made from eight of its uncolored (fluix) item around a dye.
+AE2_COLORED = [('fluix_%s' % cable, '%s_' + cable) for cable in
+               ('glass_cable', 'covered_cable', 'smart_cable', 'covered_dense_cable', 'smart_dense_cable')]
+AE2_COLORED.append(('matter_ball', '%s_paint_ball'))
+
+
+def applied_energistics(w, colors):
+    """Lets the dyes color Applied Energistics 2's cables and paint balls, which only come in the 16 vanilla colors:
+    each dye counts as the vanilla color it looks closest to (tools/nearest_dye.py). The dyes are in tags of their own,
+    moredyes:dyes/<vanilla color>, rather than NeoForge's c:dyes/<vanilla color>, because NeoForge's vanilla recipes
+    take those tags too and would then take our dyes (eight white wool and a More Dyes dye would make vanilla wool).
+    So there is a recipe per AE2 recipe that takes a dye, with our tag in place of the c:dyes one; they only load when
+    AE2 is installed. compat/ae2/AE2Compat adds the tags to AE2's Color Applicator."""
+    by_vanilla = {}
+    for color in colors:
+        by_vanilla.setdefault(nearest_vanilla(color), []).append('%s:dye_%s' % (MOD, color))
+    for vanilla, dyes in sorted(by_vanilla.items()):
+        w.write('data/%s/tags/item/dyes/%s.json' % (MOD, vanilla), {'values': dyes})
+        for uncolored, colored in AE2_COLORED:
+            w.write('data/%s/recipe/ae2/%s.json' % (MOD, colored % vanilla), {
+                'neoforge:conditions': [{'type': 'neoforge:mod_loaded', 'modid': 'ae2'}],
+                'type': 'minecraft:crafting_shaped', 'category': 'misc',
+                'key': {'a': 'ae2:' + uncolored, 'b': '#%s:dyes/%s' % (MOD, vanilla)},
+                'pattern': ['aaa', 'aba', 'aaa'],
+                'result': {'count': 8, 'id': 'ae2:' + colored % vanilla}})
 
 
 def optional(path):

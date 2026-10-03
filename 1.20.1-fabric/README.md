@@ -40,6 +40,13 @@ dyed Iron Chests are Forge-only.
 
 To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` to Gradle.
 
+## Applied Energistics 2
+
+Every dye also counts as the vanilla dye color it looks closest to (Fabric's `c:<color>_dyes` tags, written into the
+Forge folder by its `tools/make_dye_tags.py`), so with [Applied Energistics 2](https://modrinth.com/mod/ae2) any More
+Dyes dye colors cables and paint balls (eight fluix cables or matter balls around the dye) and loads into the Color
+Applicator as that color. AE2 is optional.
+
 ## Building
 
 Builds on Java 21 (the mod itself runs on Java 17).

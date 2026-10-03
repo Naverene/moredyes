@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.MDBlock;
+import info.kg6jay.moredyes.compat.ae2.AE2Compat;
 import info.kg6jay.moredyes.compat.chisel.ChiselCompat;
 import info.kg6jay.moredyes.compat.gregtech.GTCompat;
 import info.kg6jay.moredyes.compat.ironchest.IronChestCompat;
@@ -117,6 +118,9 @@ public class MoreDyes {
         }
         if (Loader.isModLoaded("gregtech")) {
             GTCompat.registerRecipes();
+        }
+        if (Loader.isModLoaded(AE2Compat.MOD_ID)) {
+            AE2Compat.postInit();
         }
         ((Tab) tabDyes).setTabIconItem(MDItem.dye[0]);
         ((Tab) tabBlocks).setTabIconItem(Item.getItemFromBlock(MDBlock.wool[0]));

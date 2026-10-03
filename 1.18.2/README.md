@@ -16,7 +16,7 @@ To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gr
 
 With Roughly Enough Items (REI) installed, its item list shows each kind of item as one collapsible entry holding all of its colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry. JEI has no such groups and lists every color on its own. REI is optional; to try it in the dev game, run `./gradlew runClient -Precipe_viewer=true`.
 
-Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color. tools/make_dye_tags.py writes these tags.
+Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color, and with Applied Energistics 2 it colors cables and paint balls (eight fluix cables or matter balls around the dye) and loads into the Color Applicator as that color. tools/make_dye_tags.py writes these tags.
 
 I'm open to suggestions for naming the colors. Right now they are all labeled with their hex code.
 

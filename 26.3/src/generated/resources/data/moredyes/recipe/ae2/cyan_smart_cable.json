@@ -1,0 +1,1 @@
+{"neoforge:conditions":[{"type":"neoforge:mod_loaded","modid":"ae2"}],"type":"minecraft:crafting_shaped","category":"misc","key":{"a":"ae2:fluix_smart_cable","b":"#moredyes:dyes/cyan"},"pattern":["aaa","aba","aaa"],"result":{"count":8,"id":"ae2:cyan_smart_cable"}}

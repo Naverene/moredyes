@@ -109,6 +109,10 @@ if (project.hasProperty('withHEI')) {
 if (project.hasProperty('withGregTech')) {
     testMods += ['codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal', 'gregtech:gregtech:2.8.10-beta']
 }
+// Applied Energistics 2 (compat/ae2): More Dyes doesn't compile against it, so it is only fetched for the dev game.
+if (project.hasProperty('withAE2')) {
+    testMods += ["curse.maven:applied-energistics-2-223794:${ae2_file}"]
+}
 if (project.findProperty('compat_mods') == 'true') {
     testMods += compatMods
 }

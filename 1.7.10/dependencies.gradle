@@ -51,4 +51,10 @@ dependencies {
         runtimeOnlyNonPublishable(rfg.deobf("curse.maven:iron-chests-228756:${ironChestsFile}"))
         runtimeOnlyNonPublishable(rfg.deobf("curse.maven:storage-drawers-223852:${storageDrawersFile}"))
     }
+
+    // Applied Energistics 2 rv3-beta-6 (compat/ae2). More Dyes doesn't compile against it; -PwithAE2 puts it in the
+    // dev game.
+    if (project.hasProperty("withAE2")) {
+        runtimeOnlyNonPublishable(rfg.deobf("curse.maven:applied-energistics-2-223794:${ae2File}"))
+    }
 }

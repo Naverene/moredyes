@@ -15,6 +15,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.compat.ae2.AE2Compat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
@@ -41,6 +42,9 @@ public class MoreDyes {
         // Optional compat. Its classes refer to the other mod's classes, so they are only touched when it's installed.
         if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID)) {
             StorageDrawersCompat.register(modBus);
+        }
+        if (ModList.get().isLoaded(AE2Compat.MOD_ID)) {
+            AE2Compat.register(modBus);
         }
     }
 
