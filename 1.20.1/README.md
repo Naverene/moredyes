@@ -8,7 +8,7 @@ If Rechiseled is installed, the dyed blocks can be chiseled into each other and 
 
 If Iron Chests is installed, its iron, gold, diamond and copper chests come in every color: craft one with a dye (a dyed one can be dyed again). The wood takes the color and the metal keeps its own. Iron Chests' upgrades keep the color, and also turn a dyed wooden chest into a dyed iron or copper chest.
 
-If Storage Drawers is installed, its drawers come in every color in all six sizes: craft any wooden drawer of a size with a dye. They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers (MIT licensed, by Texelsaur).
+If Storage Drawers is installed, its drawers come in every color in all six sizes: craft any wooden drawer of a size (or a dyed one) with a dye; it keeps its contents, name and upgrades. They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers (MIT licensed, by Texelsaur).
 
 To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`). tools/make_compat_resources.py writes their models, recipes and textures.
 

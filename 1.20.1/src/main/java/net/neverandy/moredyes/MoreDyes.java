@@ -14,6 +14,7 @@ import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDTabs;
+import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
@@ -42,6 +43,7 @@ public class MoreDyes
         MDTabs.register(modBus);
         ModTileEntities.register(modBus);
         ModWorldGen.register(modBus);
+        ModRecipes.register(modBus);
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
         if (ModList.get().isLoaded("ironchest"))
