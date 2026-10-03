@@ -86,10 +86,13 @@ def read_drawer_sizes():
 
 
 def storage_drawers_jar():
-    jars = glob.glob(os.path.expanduser('~/.gradle/caches/modules-2/files-2.1/curse.maven/storage-drawers-223852/*/*/*.jar'))
+    # The Gradle cache is shared with the other Minecraft versions, so the jar is picked by the file id this one uses.
+    properties = open(os.path.join(ROOT, 'gradle.properties')).read()
+    file_id = re.search(r'^storage_drawers_file=(\d+)', properties, re.M).group(1)
+    jars = glob.glob(os.path.expanduser('~/.gradle/caches/modules-2/files-2.1/curse.maven/storage-drawers-223852/%s/*/*.jar' % file_id))
     if not jars:
         sys.exit('Storage Drawers jar not found; run ./gradlew build first.')
-    return zipfile.ZipFile(sorted(jars)[-1])
+    return zipfile.ZipFile(jars[0])
 
 
 def drawer_textures():
