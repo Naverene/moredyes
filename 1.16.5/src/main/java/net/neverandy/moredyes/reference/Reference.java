@@ -309,6 +309,15 @@ public class Reference
             "diorite_wall", "scaffolding", "loom", "barrel", "smoker", "blast_furnace", "cartography_table", "fletching_table", "grindstone", "lectern", "composter", "target", "netherite_block", "crying_obsidian",
             "chiseled_nether_bricks", "cracked_nether_bricks", "chest"};
 
+    /**
+     * The Iron Chests tiers that have dyed versions (compat/ironchest), for code that must not load Iron Chests' classes,
+     * such as data generation. They are the tiers whose chests have wood to dye.
+     */
+    public static final String[] IRON_CHEST_TIERS = {"iron", "gold", "diamond", "copper", "silver"};
+
+    /** The Storage Drawers sizes that have dyed versions (compat/storagedrawers), named as Storage Drawers names them. */
+    public static final String[] DRAWER_SIZES = {"full_drawers_1", "full_drawers_2", "full_drawers_4", "half_drawers_1", "half_drawers_2", "half_drawers_4"};
+
 
 
 

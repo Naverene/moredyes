@@ -133,6 +133,11 @@ buildscript {
         maven { // Curios
             url 'https://maven.theillusivec4.top/'
         }
+        maven {
+            name = 'CurseMaven'
+            url = 'https://cursemaven.com'
+            content { includeGroup 'curse.maven' }
+        }
     }
 
 
@@ -145,6 +150,16 @@ buildscript {
         minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
         //runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.3")
         //compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.3:api")
+
+        // Optional mods that More Dyes adds dyed versions of (Iron Chests from the JEI maven above, Storage Drawers from
+        // CurseMaven). The compat classes only load when the mod is installed, so they are compile-time only. Run the
+        // game with them by passing -Pcompat_mods=true.
+        compileOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
+        compileOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
+        if (project.findProperty('compat_mods') == 'true') {
+            runtimeOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
+            runtimeOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
+        }
 
 
         // You may put jars on which you depend on in ./libs or you may define them like so..
