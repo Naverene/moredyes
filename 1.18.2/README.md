@@ -14,6 +14,8 @@ If Storage Drawers is installed, its drawers come in every color in all six size
 
 To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`). tools/make_compat_resources.py writes their models, recipes and textures.
 
+With Roughly Enough Items (REI) installed, its item list shows each kind of item as one collapsible entry holding all of its colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry. JEI has no such groups and lists every color on its own. REI is optional; to try it in the dev game, run `./gradlew runClient -Precipe_viewer=true`.
+
 Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color. tools/make_dye_tags.py writes these tags.
 
 I'm open to suggestions for naming the colors. Right now they are all labeled with their hex code.

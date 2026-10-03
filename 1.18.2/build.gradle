@@ -30,6 +30,11 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            if (project.findProperty('recipe_viewer') == 'true') {
+                // REI's libraries name their mixin targets in SRG; the dev game uses Mojang's names.
+                property 'mixin.env.remapRefMap', 'true'
+                property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            }
             mods {
                 moredyes {
                     source sourceSets.main
@@ -80,6 +85,15 @@ repositories {
         url = 'https://cursemaven.com'
         content { includeGroup 'curse.maven' }
     }
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me'
+    }
+    maven {
+        // Architectury, which REI needs in the dev game (-Precipe_viewer=true)
+        name = 'architectury'
+        url = 'https://maven.architectury.dev'
+    }
 }
 
 dependencies {
@@ -92,6 +106,17 @@ dependencies {
     if (project.findProperty('compat_mods') == 'true') {
         runtimeOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
         runtimeOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
+    }
+
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        // Each mod jar is remapped on its own, so REI's libraries are listed rather than pulled in.
+        ["me.shedaniel:RoughlyEnoughItems-forge:${rei_version}", "me.shedaniel.cloth:cloth-config-forge:6.2.57",
+         "dev.architectury:architectury-forge:4.5.75"].each {
+            runtimeOnly fg.deobf(it) { transitive = false }
+        }
     }
 }
 
