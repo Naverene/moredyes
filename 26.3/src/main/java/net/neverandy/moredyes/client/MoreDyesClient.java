@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.client.color.block.BlockTintSources;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
@@ -22,6 +23,8 @@ import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEve
 
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.color.MixColor;
+import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.registry.ModBlockEntities;
 import net.neverandy.moredyes.registry.ModBlocks;
@@ -39,6 +42,10 @@ public class MoreDyesClient {
         modBus.addListener(MoreDyesClient::specialRenderers);
         modBus.addListener(MoreDyesClient::renderers);
         modBus.addListener(MoreDyesClient::renderStateModifiers);
+        // Optional compat, only touched when the other mod is installed.
+        if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID)) {
+            StorageDrawersClient.register(modBus);
+        }
     }
 
     private static void blockTints(RegisterColorHandlersEvent.BlockTintSources event) {
@@ -53,6 +60,7 @@ public class MoreDyesClient {
 
     private static void itemTints(RegisterColorHandlersEvent.ItemTintSources event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_color"), Tints.DyeColor.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
     }
 
     private static void specialRenderers(RegisterSpecialModelRendererEvent event) {

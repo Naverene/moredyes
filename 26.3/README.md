@@ -24,6 +24,10 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
   columns.
 * With [Rechiseled](https://modrinth.com/mod/rechiseled) installed, a chisel turns a vanilla block into any of its
   dyed shades and back. Rechiseled is optional: More Dyes only ships data files for it.
+* With [Storage Drawers](https://modrinth.com/mod/storagedrawers) installed, its drawers come in every color in all six
+  sizes: craft any wooden drawer of a size (or a dyed one) with a dye; a filled drawer keeps its contents. They work
+  with hoppers, keys, upgrades, labels and drawer controllers like Storage Drawers' own. Their textures are made from
+  Storage Drawers' oak drawers (MIT licensed, by Texelsaur). Storage Drawers is optional.
 
 ## Building
 
@@ -40,6 +44,10 @@ then:
 python3 tools/textures.py            # the grey textures, made from the vanilla ones (needs Pillow)
 python3 tools/generate_resources.py  # everything in src/generated/resources
 ```
+
+`python3 tools/storage_drawers.py` makes the dyed drawers' textures and models from the Storage Drawers jar that
+`./gradlew build` downloads. To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` (for
+example `./gradlew runClient -Pcompat_mods=true`).
 
 ## Releases
 
