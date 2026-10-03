@@ -38,7 +38,8 @@ import java.util.function.Consumer;
 /**
  * Every MoreDyes recipe, following 1.7.10:
  * <ul>
- * <li>dyes are mixed from two vanilla dyes (or four for one color), and a tulip makes one dye of its color;</li>
+ * <li>dyes are mixed from two vanilla dyes, and a tulip makes one dye of its color. A pair that already makes a
+ *     vanilla dye (white and blue make light blue) takes two of each instead, so the vanilla recipe keeps working;</li>
  * <li>eight vanilla blocks around a dye make eight dyed blocks ("dyeing/");</li>
  * <li>a dyed block with a water bucket gives the vanilla block back ("washing/");</li>
  * <li>dyed blocks turn into each other the way their vanilla blocks do (logs to planks, cobble to stone...).</li>
@@ -57,9 +58,9 @@ public class ModRecipeProvider extends RecipeProvider
         {"cccccc", "2", "white", "light_gray"},
         {"a6bfcc", "2", "white", "cyan"},
         {"bf9fd9", "2", "white", "purple"},
-        {"99a6d9", "2", "white", "blue"},
+        {"99a6d9", "4", "white", "white", "blue", "blue"},
         {"b3a699", "2", "white", "brown"},
-        {"b3bf99", "2", "white", "green"},
+        {"b3bf99", "4", "white", "white", "green", "green"},
         {"cc9999", "4", "white", "white", "red", "red"},
         {"c56685", "2", "orange", "magenta"},
         {"9f8c85", "2", "orange", "light_blue"},
@@ -109,7 +110,7 @@ public class ModRecipeProvider extends RecipeProvider
         {"8c9972", "2", "yellow", "blue"},
         {"a69933", "2", "yellow", "brown"},
         {"a6b233", "2", "yellow", "green"},
-        {"bf8c33", "2", "yellow", "red"},
+        {"bf8c33", "4", "yellow", "yellow", "red", "red"},
         {"7f7f26", "2", "yellow", "black"},
         {"b8a65f", "2", "lime", "pink"},
         {"668c32", "2", "lime", "gray"},
@@ -124,7 +125,7 @@ public class ModRecipeProvider extends RecipeProvider
         {"864c5f", "2", "pink", "gray"},
         {"c6596c", "2", "pink", "light_gray"},
         {"ac7f6c", "2", "pink", "cyan"},
-        {"ac666c", "2", "pink", "purple"},
+        {"ac666c", "4", "pink", "pink", "purple", "purple"},
         {"9366ab", "2", "pink", "blue"},
         {"b95fab", "2", "pink", "brown"},
         {"9f7f9f", "2", "pink", "green"},
@@ -157,8 +158,8 @@ public class ModRecipeProvider extends RecipeProvider
         {"8c3973", "2", "purple", "red"},
         {"4c2c66", "2", "purple", "black"},
         {"4c4c73", "2", "blue", "brown"},
-        {"4c6573", "2", "blue", "green"},
-        {"664073", "2", "blue", "red"},
+        {"4c6573", "4", "blue", "blue", "green", "green"},
+        {"664073", "4", "blue", "blue", "red", "red"},
         {"263366", "2", "blue", "black"},
         {"403326", "2", "brown", "green"},
         {"7f4033", "2", "brown", "red"},

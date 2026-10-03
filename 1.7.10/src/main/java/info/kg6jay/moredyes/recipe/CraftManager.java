@@ -36,6 +36,8 @@ public class CraftManager {
         ItemStack dyeGreen = new ItemStack(Items.dye, 1, 2);
         ItemStack dyeRed = new ItemStack(Items.dye, 1, 1);
         ItemStack dyeBlack = new ItemStack(Items.dye, 1, 0);
+        // A pair that already makes a vanilla dye (bone meal and lapis make light blue) takes two of each, so the
+        // vanilla recipe keeps working.
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 0), dyeWhite, dyeOrange);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 1), dyeWhite, dyeMagenta);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 2), dyeWhite, dyeLightBlue);
@@ -45,9 +47,9 @@ public class CraftManager {
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 6), dyeWhite, dyeLightGray);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 7), dyeWhite, dyeCyan);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 8), dyeWhite, dyePurple);
-        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 9), dyeWhite, dyeLapis);
+        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 4, 9), dyeWhite, dyeWhite, dyeLapis, dyeLapis);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 10), dyeWhite, dyeBrown);
-        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 2, 11), dyeWhite, dyeGreen);
+        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 4, 11), dyeWhite, dyeWhite, dyeGreen, dyeGreen);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[0], 4, 12), dyeWhite, dyeWhite, dyeRed, dyeRed);
 
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[1], 2, 0), dyeOrange, dyeMagenta);
@@ -101,7 +103,7 @@ public class CraftManager {
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4], 2, 6), dyeYellow, dyeLapis);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4], 2, 7), dyeYellow, dyeBrown);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4], 2, 8), dyeYellow, dyeGreen);
-        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4], 2, 9), dyeYellow, dyeRed);
+        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4], 4, 9), dyeYellow, dyeYellow, dyeRed, dyeRed);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[4], 2, 10), dyeYellow, dyeBlack);
 
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[5], 2, 0), dyeLime, dyePink);
@@ -118,7 +120,7 @@ public class CraftManager {
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 0), dyePink, dyeGray);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 1), dyePink, dyeLightGray);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 2), dyePink, dyeCyan);
-        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 3), dyePink, dyePurple);
+        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 4, 3), dyePink, dyePink, dyePurple, dyePurple);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 4), dyePink, dyeLapis);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 5), dyePink, dyeBrown);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[6], 2, 6), dyePink, dyeGreen);
@@ -156,8 +158,8 @@ public class CraftManager {
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[10], 2, 4), dyePurple, dyeBlack);
 
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[11], 2, 0), dyeLapis, dyeBrown);
-        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[11], 2, 1), dyeLapis, dyeGreen);
-        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[11], 2, 2), dyeLapis, dyeRed);
+        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[11], 4, 1), dyeLapis, dyeLapis, dyeGreen, dyeGreen);
+        GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[11], 4, 2), dyeLapis, dyeLapis, dyeRed, dyeRed);
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[11], 2, 3), dyeLapis, dyeBlack);
 
         GameRegistry.addShapelessRecipe(new ItemStack(MDItem.dye[12], 2, 0), dyeBrown, dyeGreen);

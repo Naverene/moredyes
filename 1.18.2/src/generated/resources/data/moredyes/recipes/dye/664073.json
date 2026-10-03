@@ -5,11 +5,17 @@
       "item": "minecraft:blue_dye"
     },
     {
+      "item": "minecraft:blue_dye"
+    },
+    {
+      "item": "minecraft:red_dye"
+    },
+    {
       "item": "minecraft:red_dye"
     }
   ],
   "result": {
     "item": "moredyes:664073_dye",
-    "count": 2
+    "count": 4
   }
 }
