@@ -16,6 +16,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.compat.chisel.ChiselCompat;
 import info.kg6jay.moredyes.compat.gregtech.GTCompat;
+import info.kg6jay.moredyes.compat.ironchest.IronChestCompat;
+import info.kg6jay.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import info.kg6jay.moredyes.compat.thermalexpansion.TECompat;
 import info.kg6jay.moredyes.handler.CauldronWashHandler;
 import info.kg6jay.moredyes.handler.ConfigHandler;
@@ -34,7 +36,7 @@ import info.kg6jay.moredyes.utility.LogHelper;
     modid = Reference.MOD_ID,
     name = Reference.MOD_NAME,
     version = Reference.MOD_VERSION,
-    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech")
+    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech;after:IronChest;after:StorageDrawers")
 public class MoreDyes {
 
     @Mod.Instance(Reference.MOD_ID)
@@ -66,6 +68,15 @@ public class MoreDyes {
         MDBlock.registerTileEntities();
         MDBlock.registerOreDictionary();
 
+        // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it is
+        // installed.
+        if (Loader.isModLoaded(Reference.IRON_CHESTS)) {
+            IronChestCompat.preInit();
+        }
+        if (Loader.isModLoaded(Reference.STORAGE_DRAWERS)) {
+            StorageDrawersCompat.preInit();
+        }
+
         // Register GUI handler
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         PacketHandler.initialize();
@@ -88,6 +99,12 @@ public class MoreDyes {
         GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();
+        if (Loader.isModLoaded(Reference.IRON_CHESTS)) {
+            IronChestCompat.init();
+        }
+        if (Loader.isModLoaded(Reference.STORAGE_DRAWERS)) {
+            StorageDrawersCompat.init();
+        }
         LogHelper.info("Initialization Complete");
     }
 

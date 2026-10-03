@@ -1,5 +1,6 @@
 package info.kg6jay.moredyes.client;
 
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,14 @@ public final class TintSources {
         /** The same with the pixel's position in a texture this many pixels wide, for transforms that need it. */
         default int apply(int argb, int x, int y, int size) {
             return this.apply(argb);
+        }
+
+        /**
+         * The transform to use for this source image, for transforms that need to look at the whole image first.
+         * Returns itself by default.
+         */
+        default PixelTransform forImage(BufferedImage image) {
+            return this;
         }
     }
 
@@ -90,6 +99,114 @@ public final class TintSources {
             int lum = Math.min(255, Math.round((grey(argb) & 255) * factor));
             return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
         };
+    }
+
+    /**
+     * The Iron Chests tiers that have dyed versions (compat/ironchest), named as their model textures are. Plain names,
+     * so nothing here loads Iron Chests' classes.
+     */
+    public static final String[] IRON_CHEST_TIERS = { "iron", "gold", "diamond", "copper", "silver" };
+
+    /** The parts of Storage Drawers' oak drawer textures that the dyed drawers (compat/storagedrawers) use. */
+    public static final String[] DRAWER_PARTS = { "front_1", "front_2", "front_4", "side", "side_h", "side_v", "trim" };
+
+    /** How bright the grey panels of a dyed Iron Chests chest are at least on average, so the dye still shows. */
+    private static final int PANEL_BRIGHTNESS = 200;
+
+    /**
+     * Splits an Iron Chests chest texture (the Minecraft 1.7.10 ones). These chests are metal all over, with no wood:
+     * each face is a flat panel inside a one pixel frame of a single darker color, with the latch in the top left
+     * corner. With panels true this keeps the panels as grey (lifted to PANEL_BRIGHTNESS on average) and makes the rest
+     * transparent; with panels false it keeps the frame and latch in their own colors and makes the panels
+     * transparent. The frame color is read from each texture (the most common color along the edges of the faces), so
+     * resource packs that keep the layout work too.
+     */
+    public static PixelTransform metalChest(boolean panels) {
+        return new PixelTransform() {
+
+            @Override
+            public int apply(int argb) {
+                return argb;
+            }
+
+            @Override
+            public PixelTransform forImage(BufferedImage image) {
+                int width = image.getWidth(), height = image.getHeight();
+                int latchWidth = width * 6 / 64, latchHeight = height * 5 / 64;
+                Map<Integer, Integer> edgeColors = new HashMap<>();
+                for (int y = 0; y < height; y++) {
+                    for (int x = 0; x < width; x++) {
+                        int argb = image.getRGB(x, y);
+                        if ((argb >>> 24) != 0 && !(x < latchWidth && y < latchHeight)
+                            && (isClear(image, x - 1, y) || isClear(image, x + 1, y)
+                                || isClear(image, x, y - 1)
+                                || isClear(image, x, y + 1))) {
+                            edgeColors.merge(argb, 1, Integer::sum);
+                        }
+                    }
+                }
+                int frame = edgeColors.entrySet()
+                    .stream()
+                    .max(Map.Entry.comparingByValue())
+                    .map(Map.Entry::getKey)
+                    .orElse(0);
+
+                boolean[] panel = new boolean[width * height];
+                double sum = 0;
+                int count = 0, top = 0;
+                for (int y = 0; y < height; y++) {
+                    for (int x = 0; x < width; x++) {
+                        int argb = image.getRGB(x, y);
+                        if ((argb >>> 24) != 0 && !(x < latchWidth && y < latchHeight) && !nearColor(argb, frame)) {
+                            panel[y * width + x] = true;
+                            int lum = grey(argb) & 255;
+                            sum += lum;
+                            count++;
+                            top = Math.max(top, lum);
+                        }
+                    }
+                }
+                double mean = count == 0 ? PANEL_BRIGHTNESS : sum / count;
+                // Lifts the grey so its average is PANEL_BRIGHTNESS, compressing highlights rather than clipping them.
+                double squeeze = Math.min(1.0, (250 - PANEL_BRIGHTNESS) / Math.max(1.0, top - mean));
+
+                return new PixelTransform() {
+
+                    @Override
+                    public int apply(int argb) {
+                        return argb;
+                    }
+
+                    @Override
+                    public int apply(int argb, int x, int y, int size) {
+                        boolean isPanel = x < width && y < height && panel[y * width + x];
+                        if (!panels) {
+                            return isPanel ? 0 : argb;
+                        }
+                        if (!isPanel) {
+                            return 0;
+                        }
+                        int lum = grey(argb) & 255;
+                        if (mean < PANEL_BRIGHTNESS) {
+                            double d = lum - mean;
+                            lum = (int) Math
+                                .max(0, Math.min(255, Math.round(PANEL_BRIGHTNESS + (d > 0 ? d * squeeze : d))));
+                        }
+                        return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
+                    }
+                };
+            }
+        };
+    }
+
+    private static boolean isClear(BufferedImage image, int x, int y) {
+        return x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight() || (image.getRGB(x, y) >>> 24) == 0;
+    }
+
+    /** True if two colors differ by at most a few steps per channel, so a slightly noisy frame still counts. */
+    private static boolean nearColor(int a, int b) {
+        return Math.abs((a >> 16 & 255) - (b >> 16 & 255)) <= 4 && Math.abs((a >> 8 & 255) - (b >> 8 & 255)) <= 4
+            && Math.abs((a & 255) - (b & 255)) <= 4;
     }
 
     private static final Map<String, Source> SOURCES = new HashMap<>();
@@ -187,6 +304,19 @@ public final class TintSources {
 
         add("chest/normal", new ResourceLocation("minecraft", "textures/entity/chest/normal.png"), GREY, true);
         add("chest/double", new ResourceLocation("minecraft", "textures/entity/chest/normal_double.png"), GREY, true);
+
+        // Optional compat: these are only requested when Iron Chests or Storage Drawers is installed.
+        for (String tier : IRON_CHEST_TIERS) {
+            ResourceLocation model = new ResourceLocation("ironchest", "textures/model/" + tier + "chest.png");
+            add("ironchest/" + tier + "_panels", model, metalChest(true), true);
+            add("ironchest/" + tier + "_trim", model, metalChest(false), true);
+        }
+        for (String part : DRAWER_PARTS) {
+            ResourceLocation oak = new ResourceLocation(
+                "storagedrawers",
+                "textures/blocks/drawers_oak_" + part + ".png");
+            add("drawers/" + part, oak, GREY, false);
+        }
     }
 
     private TintSources() {}

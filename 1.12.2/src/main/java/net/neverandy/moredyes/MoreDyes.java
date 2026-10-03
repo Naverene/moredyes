@@ -13,6 +13,8 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ChiselCompat;
+import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
@@ -26,7 +28,7 @@ import net.neverandy.moredyes.utility.LogHelper;
 import net.neverandy.moredyes.world.gen.DyeTreeGenerator;
 import net.neverandy.moredyes.world.gen.FlowerGenerator;
 
-@Mod(modid=Reference.MOD_ID,name=Reference.MOD_NAME,version=Reference.MOD_VERSION,dependencies="after:thermalfoundation")
+@Mod(modid=Reference.MOD_ID,name=Reference.MOD_NAME,version=Reference.MOD_VERSION,dependencies="after:thermalfoundation;after:ironchest;after:storagedrawers")
 public class MoreDyes
 {
 	@Mod.Instance(Reference.MOD_ID)
@@ -49,6 +51,15 @@ public class MoreDyes
 		// The blocks and items are made here, and registered when Forge fires its registry events.
 		MDItem.initialize();
 		MDBlock.initialize();
+		// Optional compat. Those classes refer to the other mod's classes, so they are only touched when it is installed.
+		if(Loader.isModLoaded(IronChestCompat.MOD_ID))
+		{
+			IronChestCompat.preInit();
+		}
+		if(Loader.isModLoaded(StorageDrawersCompat.MOD_ID))
+		{
+			StorageDrawersCompat.preInit();
+		}
 		NetworkRegistry.INSTANCE.registerGuiHandler(this,new GuiHandler());
 		ModNetwork.register();
 		GameRegistry.registerWorldGenerator(new FlowerGenerator(),1);

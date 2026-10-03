@@ -13,7 +13,8 @@
   "environment": "*",
   "entrypoints": {
     "main": ["net.neverandy.moredyes.MoreDyes"],
-    "client": ["net.neverandy.moredyes.client.ClientSetup"]
+    "client": ["net.neverandy.moredyes.client.ClientSetup"],
+    "rei_client": ["net.neverandy.moredyes.compat.rei.MoreDyesREIPlugin"]
   },
   "mixins": ["moredyes.mixins.json", "moredyes.compat.mixins.json"],
   "depends": {

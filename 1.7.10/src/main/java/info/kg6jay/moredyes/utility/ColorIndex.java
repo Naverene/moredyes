@@ -1,6 +1,11 @@
 package info.kg6jay.moredyes.utility;
 
+import java.util.Locale;
+
+import net.minecraft.item.ItemStack;
+
 import info.kg6jay.moredyes.block.MDBlock;
+import info.kg6jay.moredyes.item.MDItem;
 
 /**
  * Numbers every dye shade of every color set from 0 upward: the white set's shades first, then orange's, and so on.
@@ -53,6 +58,16 @@ public final class ColorIndex {
     /** The RGB color of the shade with this number. */
     public static int rgb(int index) {
         return ColorUtil.shade(MDBlock.colorStrings[set(index)], shade(index));
+    }
+
+    /** The hex code of the shade with this number, as the names of the dyed blocks show it ("ECBF99"). */
+    public static String hex(int index) {
+        return MDBlock.colorStrings[set(index)][shade(index)].toUpperCase(Locale.ROOT);
+    }
+
+    /** The More Dyes dye of the shade with this number. */
+    public static ItemStack dye(int index) {
+        return new ItemStack(MDItem.dye[set(index)], 1, shade(index));
     }
 
     private static int clamp(int index) {

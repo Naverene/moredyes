@@ -40,4 +40,15 @@ dependencies {
     api(project.files("lib/CoFHCore-[1.7.10]3.1.4-329-dev.jar"))
     api(project.files("lib/ThermalExpansion-[1.7.10]4.1.5-248-API.zip"))
     //api(project.files("gtnh-web-map-0.3.28-dev.jar"))
+
+    // Optional mods that More Dyes adds dyed versions of (compat/ironchest, compat/storagedrawers): cpw's Iron Chests
+    // 6.0.62.742 and Storage Drawers 1.10.9, the last 1.7.10 releases (CurseForge file ids in gradle.properties). The
+    // compat classes only load when the mod is installed, so they are compile-time only. Run the game with them by
+    // passing -Pcompat_mods=true.
+    compileOnly(rfg.deobf("curse.maven:iron-chests-228756:${ironChestsFile}"))
+    compileOnly(rfg.deobf("curse.maven:storage-drawers-223852:${storageDrawersFile}"))
+    if (project.findProperty("compat_mods") == "true") {
+        runtimeOnlyNonPublishable(rfg.deobf("curse.maven:iron-chests-228756:${ironChestsFile}"))
+        runtimeOnlyNonPublishable(rfg.deobf("curse.maven:storage-drawers-223852:${storageDrawersFile}"))
+    }
 }

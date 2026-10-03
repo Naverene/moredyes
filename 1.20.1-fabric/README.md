@@ -5,6 +5,11 @@ new dyes, dyed blocks, slabs, stairs and walls, dyed chests, pistons, bookshelve
 flowers, dyed sheep, washing blocks in a cauldron, and dye trees and tulips in the world. It needs
 [Fabric API](https://modrinth.com/mod/fabric-api).
 
+With Roughly Enough Items (REI) installed, its item list shows each kind of item as one collapsible entry holding all
+of its colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry. JEI and EMI have no such groups and
+list every color on its own. REI is optional; to try it in the dev game, run
+`./gradlew runClient -Precipe_viewer=true`.
+
 ## How it relates to the Forge version
 
 The Java code started as a copy of `../1.20.1` and keeps its class names and Mojang names. The Forge registries,

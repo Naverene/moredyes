@@ -31,6 +31,10 @@ repositories {
         url = 'https://api.modrinth.com/maven'
         content { includeGroup 'maven.modrinth' }
     }
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me'
+    }
 }
 
 dependencies {
@@ -45,6 +49,13 @@ dependencies {
     modCompileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
     if (project.findProperty('compat_mods') == 'true') {
         modRuntimeOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    }
+
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     }
 }
 

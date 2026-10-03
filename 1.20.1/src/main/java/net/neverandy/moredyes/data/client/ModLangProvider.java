@@ -1,13 +1,19 @@
 package net.neverandy.moredyes.data.client;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.ItemGroups;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ModLangProvider extends LanguageProvider
 {
@@ -15,6 +21,9 @@ public class ModLangProvider extends LanguageProvider
     private static final String[] FLOWER_NAMES = {"Allium", "Azure Bluet", "Cornflower", "Dandelion", "Lily of the Valley",
             "Orchid", "Oxeye Daisy", "Poppy"};
     private static final String[] TALL_FLOWER_NAMES = {"Lilac", "Peony", "Rose Bush"};
+
+    /** Every name added, to name the recipe viewer groups after their items. */
+    private final Map<String, String> names = new HashMap<>();
 
     public ModLangProvider(PackOutput output, String modid, String locale)
     {
@@ -123,6 +132,20 @@ public class ModLangProvider extends LanguageProvider
             wood(c + "Acacia", MDBlock.acaciaLogArray[i], MDBlock.acaciaPlankArray[i], MDBlock.acaciaLeafArray[i], MDBlock.acaciaSaplingArray[i], MDBlock.acaciaFenceArray[i]);
             wood(c + "Dark Oak", MDBlock.darkOakLogArray[i], MDBlock.darkOakPlankArray[i], MDBlock.darkOakLeafArray[i], MDBlock.darkOakSaplingArray[i], MDBlock.darkOakFenceArray[i]);
         }
+
+        // The groups recipe viewers collapse each kind's colors into, named after the kind's first item.
+        for (Map.Entry<String, List<Item>> group : ItemGroups.byKind().entrySet())
+        {
+            String itemName = names.get(group.getValue().get(0).getDescriptionId());
+            add(ItemGroups.TRANSLATION_PREFIX + group.getKey(), ItemGroups.englishName(group.getKey(), itemName));
+        }
+    }
+
+    @Override
+    public void add(String key, String value)
+    {
+        super.add(key, value);
+        names.put(key, value);
     }
 
     private void wood(String prefix, Block log, Block planks, Block leaves, Block sapling, Block fence)
