@@ -8,7 +8,8 @@ don't exist while it runs:
   only load when Iron Chests is installed.
 - Dyed Storage Drawers (compat/storagedrawers): grey drawer textures made from Storage Drawers' oak drawers (MIT
   licensed, (c) Texelsaur), models that mark every face for tinting, blockstates, item models, the drawer item tags,
-  and a recipe per size and color: any Storage Drawers wooden drawer (or a dyed one) of that size and a dye. Making the
+  and a recipe per size and color: any Storage Drawers wooden drawer (or a dyed one) of that size and a dye. The drawer
+  keeps what it holds, its name and its upgrades (item/crafting/KeepNbtShapelessRecipe). Making the
   textures needs Pillow and the Storage Drawers jar, which ./gradlew build downloads.
 
 Their names and mineable tags come from data generation (ModLangProvider, ModBlockTagsProvider) as usual.
@@ -142,7 +143,8 @@ def storage_drawers(colors):
         for index, color in enumerate(colors):
             write(os.path.join(recipes, '%s_%s.json' % (name, color)), {
                 'conditions': [{'type': 'forge:mod_loaded', 'modid': 'storagedrawers'}],
-                'type': 'minecraft:crafting_shapeless',
+                # A shapeless recipe whose result keeps the drawer's NBT (its contents, name and upgrades).
+                'type': 'moredyes:crafting_shapeless_keep_nbt',
                 'group': 'moredyes:' + name,
                 'ingredients': [
                     [{'item': 'storagedrawers:%s_%s' % (wood, size)} for wood in DRAWER_WOODS] + [{'item': 'moredyes:' + name}],

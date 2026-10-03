@@ -5,7 +5,7 @@
       "modid": "storagedrawers"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
+  "type": "moredyes:crafting_shapeless_keep_nbt",
   "group": "moredyes:dyed_full_drawers_2",
   "ingredients": [
     [

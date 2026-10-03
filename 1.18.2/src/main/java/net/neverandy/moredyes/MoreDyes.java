@@ -33,6 +33,7 @@ import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.world.ModWorldGen;
 import net.neverandy.moredyes.reference.Reference;
@@ -107,6 +108,7 @@ public class MoreDyes
         MDItem.initialize();
         ModWorldGen.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModTileEntities.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModRecipes.register(FMLJavaModLoadingContext.get().getModEventBus());
         MinecraftForge.EVENT_BUS.addListener(ModWorldGen::onBiomeLoading);
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
