@@ -16166,6 +16166,22 @@
     "moredyes:concreteslab_404c26",
     "moredyes:concretestairs_404c26",
     "moredyes:concreteslab_592626",
-    "moredyes:concretestairs_592626"
+    "moredyes:concretestairs_592626",
+    {
+      "id": "moredyes:dyed_iron_chest",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_gold_chest",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_diamond_chest",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_copper_chest",
+      "required": false
+    }
   ]
 }

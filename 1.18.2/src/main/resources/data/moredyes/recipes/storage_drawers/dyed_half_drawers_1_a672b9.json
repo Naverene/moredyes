@@ -1,0 +1,52 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "storagedrawers"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "moredyes:dyed_half_drawers_1",
+  "ingredients": [
+    [
+      {
+        "item": "storagedrawers:oak_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:spruce_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:birch_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:jungle_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:acacia_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:dark_oak_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:crimson_half_drawers_1"
+      },
+      {
+        "item": "storagedrawers:warped_half_drawers_1"
+      },
+      {
+        "item": "moredyes:dyed_half_drawers_1"
+      }
+    ],
+    {
+      "item": "moredyes:a672b9_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_half_drawers_1",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "32"
+      }
+    }
+  }
+}
