@@ -28,7 +28,10 @@ sourceSets.main.resources {
 }
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me'
+    }
 }
 
 base {
@@ -112,6 +115,13 @@ configurations {
 }
 
 dependencies {
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    compileOnly("me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        localRuntime "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
+    }
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

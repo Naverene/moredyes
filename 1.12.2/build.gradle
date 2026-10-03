@@ -72,6 +72,16 @@ repositories {
             ignoreGradleMetadataRedirection()
         }
     }
+    maven {
+        name = 'CleanroomMC'
+        url = 'https://maven.cleanroommc.com'
+        // Had Enough Items' Gradle metadata describes RetroFuturaGradle variants; the dev jar is picked by its classifier.
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+        }
+    }
 }
 
 // Mods the optional integrations are tried with, in the dev game only. Nothing here is fetched or changes the
@@ -80,6 +90,10 @@ def testMods = []
 if (project.hasProperty('withThermal')) {
     testMods += ['cofh:RedstoneFlux:1.12-2.1.0.7:universal', 'cofh:CoFHCore:1.12.2-4.6.3.27:universal',
                  'cofh:CoFHWorld:1.12.2-1.3.1.7:universal', 'cofh:ThermalFoundation:1.12.2-2.6.3.27:universal']
+}
+// Had Enough Items, the JEI fork that shows compat/hei's collapsed groups: -Precipe_viewer=true
+if (project.findProperty('recipe_viewer') == 'true') {
+    testMods += ["mezz:jei:${hei_version}"]
 }
 if (project.hasProperty('withGregTech')) {
     testMods += ['codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal', 'gregtech:gregtech:2.8.10-beta']
@@ -93,6 +107,8 @@ dependencies {
 
     // Only compiled against, for compat/GregTechCompat; the mod does not need GregTech to run.
     compileOnly fg.deobf(project.dependencies.create('gregtech:gregtech:2.8.10-beta') { transitive = false })
+    // Only compiled against, for compat/hei (collapsed item groups in Had Enough Items); not needed to run.
+    compileOnly("mezz:jei:${hei_version}:dev") { transitive = false }
 
     testMods.each { runtimeOnly fg.deobf(project.dependencies.create(it) { transitive = false }) }
 }
