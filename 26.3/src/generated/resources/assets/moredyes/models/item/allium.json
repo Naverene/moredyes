@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moredyes:block/allium",
+    "layer1": "moredyes:block/allium_stem"
+  }
+}

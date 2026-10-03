@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"entries":[{"type":"minecraft:item","modifier":[{"type":"minecraft:set_count","condition":{"type":"minecraft:match_block","blocks":"moredyes:brick_slab_c68c9f","state":{"type":"double"}},"count":2},{"type":"minecraft:explosion_decay"}],"name":"moredyes:brick_slab_c68c9f"}],"rolls":1}],"random_sequence":"moredyes:blocks/brick_slab_c68c9f"}

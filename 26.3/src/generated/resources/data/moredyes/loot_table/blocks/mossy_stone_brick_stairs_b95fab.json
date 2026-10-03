@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"condition":{"type":"minecraft:survives_explosion"},"entries":[{"type":"minecraft:item","name":"moredyes:mossy_stone_brick_stairs_b95fab"}],"rolls":1}],"random_sequence":"moredyes:blocks/mossy_stone_brick_stairs_b95fab"}

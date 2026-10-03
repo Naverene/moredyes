@@ -52,18 +52,22 @@ public final class ModItems {
     /** The item components of the vanilla item a kind copies that matter here: burning in a furnace and composting. */
     private static Item.Properties properties(Kind kind, Item.Properties p) {
         return switch (kind) {
-            case CRAFTING_TABLE, BOOKSHELF, OAK_LOG, OAK_PLANKS, OAK_FENCE, BIRCH_LOG, BIRCH_PLANKS, BIRCH_FENCE,
+            case CRAFTING_TABLE, BOOKSHELF, OAK_STAIRS, BIRCH_STAIRS, SPRUCE_STAIRS, JUNGLE_STAIRS, ACACIA_STAIRS,
+                DARK_OAK_STAIRS, OAK_LOG, OAK_PLANKS, OAK_FENCE, BIRCH_LOG, BIRCH_PLANKS, BIRCH_FENCE,
                 SPRUCE_LOG, SPRUCE_PLANKS, SPRUCE_FENCE, JUNGLE_LOG, JUNGLE_PLANKS, JUNGLE_FENCE, ACACIA_LOG,
                 ACACIA_PLANKS, ACACIA_FENCE, DARK_OAK_LOG, DARK_OAK_PLANKS, DARK_OAK_FENCE ->
                 p.cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS);
             case CHEST -> p.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
                 .cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS);
+            case OAK_SLAB, BIRCH_SLAB, SPRUCE_SLAB, JUNGLE_SLAB, ACACIA_SLAB, DARK_OAK_SLAB, CRAFTING_TABLE_SLAB ->
+                p.cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_SLABS);
             case COAL_BLOCK -> p.cookingFuel(ContextIntProviders.COOKING_TIME_COAL_BLOCK);
             case OAK_SAPLING, BIRCH_SAPLING, SPRUCE_SAPLING, JUNGLE_SAPLING, ACACIA_SAPLING, DARK_OAK_SAPLING ->
                 p.compostable(ContextIntProviders.COMPOSTABLE_LOW).cookingFuel(ContextIntProviders.COOKING_TIME_DRY_PLANTS);
             case OAK_LEAVES, BIRCH_LEAVES, SPRUCE_LEAVES, JUNGLE_LEAVES, ACACIA_LEAVES, DARK_OAK_LEAVES ->
                 p.compostable(ContextIntProviders.COMPOSTABLE_LOW);
-            case TULIP -> p.compostable(ContextIntProviders.COMPOSTABLE_MEDIUM);
+            case TULIP, ALLIUM, AZURE_BLUET, BLUE_ORCHID, CORNFLOWER, DANDELION, LILY_OF_THE_VALLEY, OXEYE_DAISY, POPPY,
+                LILAC, PEONY, ROSE_BUSH -> p.compostable(ContextIntProviders.COMPOSTABLE_MEDIUM);
             default -> p;
         };
     }
