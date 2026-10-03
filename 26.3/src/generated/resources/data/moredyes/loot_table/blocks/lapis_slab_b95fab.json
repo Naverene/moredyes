@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"entries":[{"type":"minecraft:item","modifier":[{"type":"minecraft:set_count","condition":{"type":"minecraft:match_block","blocks":"moredyes:lapis_slab_b95fab","state":{"type":"double"}},"count":2},{"type":"minecraft:explosion_decay"}],"name":"moredyes:lapis_slab_b95fab"}],"rolls":1}],"random_sequence":"moredyes:blocks/lapis_slab_b95fab"}

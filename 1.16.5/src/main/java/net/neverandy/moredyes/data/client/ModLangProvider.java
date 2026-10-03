@@ -109,7 +109,10 @@ public class ModLangProvider extends LanguageProvider
             for (DyedShapes shapes : DyedShapes.ALL)
             {
                 add(shapes.slabs[i], c + shapes.displayName + " Slab");
-                add(shapes.stairs[i], c + shapes.displayName + " Stairs");
+                if (shapes.stairs.length > 0)
+                {
+                    add(shapes.stairs[i], c + shapes.displayName + " Stairs");
+                }
                 if (shapes.walls.length > 0)
                 {
                     add(shapes.walls[i], c + shapes.displayName + " Wall");

@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -31,13 +32,16 @@ public class DyedCraftingTableBlock extends CraftingTableBlock {
             CONTAINER_TITLE);
     }
 
-    /** The vanilla crafting menu with the vanilla menu type, so the client opens the ordinary crafting screen. */
-    private static class Menu extends CraftingMenu {
+    /**
+     * The vanilla crafting menu with the vanilla menu type, so the client opens the ordinary crafting screen. It stays
+     * open while the player is near {@code block}. Also used by {@link DyedCraftingSlabBlock}.
+     */
+    static class Menu extends CraftingMenu {
 
         private final ContainerLevelAccess access;
-        private final DyedCraftingTableBlock block;
+        private final Block block;
 
-        Menu(int containerId, Inventory inventory, ContainerLevelAccess access, DyedCraftingTableBlock block) {
+        Menu(int containerId, Inventory inventory, ContainerLevelAccess access, Block block) {
             super(containerId, inventory, access);
             this.access = access;
             this.block = block;

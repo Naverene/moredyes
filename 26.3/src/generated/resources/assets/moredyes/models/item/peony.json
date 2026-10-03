@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moredyes:block/peony_top",
+    "layer1": "moredyes:block/peony_top_stem"
+  }
+}

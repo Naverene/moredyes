@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 import static net.neverandy.moredyes.block.MDBlock.*;
 
@@ -53,11 +54,15 @@ public final class DyedShapes
     public final String vanilla;
 
     public final SlabBlock[] slabs = new SlabBlock[COLORS];
-    public final StairBlock[] stairs = new StairBlock[COLORS];
+    /** Empty for a type that only has slabs. */
+    public final StairBlock[] stairs;
     /** Empty for types without walls, and when walls are turned off in the config. */
     public final WallBlock[] walls;
 
-    private DyedShapes(String type, String displayName, Block[] full, String side, String top, String bottom, Layer layer, String vanilla)
+    private final Function<BlockBehaviour.Properties, SlabBlock> slabFactory;
+
+    private DyedShapes(String type, String displayName, Block[] full, String side, String top, String bottom, Layer layer, String vanilla,
+            boolean withStairs, Function<BlockBehaviour.Properties, SlabBlock> slabFactory)
     {
         this.type = type;
         this.displayName = displayName;
@@ -67,6 +72,8 @@ public final class DyedShapes
         this.bottom = bottom;
         this.layer = layer;
         this.vanilla = vanilla;
+        this.slabFactory = slabFactory;
+        this.stairs = new StairBlock[withStairs ? COLORS : 0];
         this.walls = new WallBlock[ConfigHandler.wallBlocks() && WALL_TYPES.contains(type) ? COLORS : 0];
     }
 
@@ -78,7 +85,16 @@ public final class DyedShapes
 
     public static DyedShapes of(String type, String displayName, Block[] full, String side, String top, String bottom, Layer layer, String vanilla)
     {
-        DyedShapes shapes = new DyedShapes(type, displayName, full, side, top, bottom, layer, vanilla);
+        DyedShapes shapes = new DyedShapes(type, displayName, full, side, top, bottom, layer, vanilla, true, SlabBlock::new);
+        ALL.add(shapes);
+        return shapes;
+    }
+
+    /** A type that only has slabs, made by {@code slab}, such as the crafting table slab. */
+    public static DyedShapes slabsOnly(String type, String displayName, Block[] full, String side, String top, String bottom, String vanilla,
+            Function<BlockBehaviour.Properties, SlabBlock> slab)
+    {
+        DyedShapes shapes = new DyedShapes(type, displayName, full, side, top, bottom, Layer.SOLID, vanilla, false, slab);
         ALL.add(shapes);
         return shapes;
     }
@@ -108,10 +124,13 @@ public final class DyedShapes
         {
             final int color = i;
             String hex = ColorStrings.ALL[i];
-            MDBlock.register(type + "slab_" + hex, slabs, i, () -> new SlabBlock(MDBlock.copy(full[color])),
+            MDBlock.register(type + "slab_" + hex, slabs, i, () -> slabFactory.apply(MDBlock.copy(full[color])),
                     MDTabs.SHAPES, BlockItem::new);
-            MDBlock.register(type + "stairs_" + hex, stairs, i, () -> new StairBlock(() -> full[color].defaultBlockState(),
-                    MDBlock.copy(full[color])), MDTabs.SHAPES, BlockItem::new);
+            if (stairs.length > 0)
+            {
+                MDBlock.register(type + "stairs_" + hex, stairs, i, () -> new StairBlock(() -> full[color].defaultBlockState(),
+                        MDBlock.copy(full[color])), MDTabs.SHAPES, BlockItem::new);
+            }
             if (walls.length > 0)
             {
                 // Not solid, so the game skips caching six face-occlusion shapes for each of a wall's 324 states.
@@ -175,6 +194,8 @@ public final class DyedShapes
         of("jungle", "Jungle", junglePlankArray, "jungle_planks", "jungle_planks");
         of("acacia", "Acacia", acaciaPlankArray, "acacia_planks", "acacia_planks");
         of("darkoak", "Dark Oak", darkOakPlankArray, "dark_oak_planks", "dark_oak_planks");
+        slabsOnly("workbench", "Crafting Table", workbenchArray, "workbench_side", "workbench_top", "oak_planks", "crafting_table",
+                WorkbenchSlabBlock::new);
         for (DyedShapes shapes : ALL)
         {
             shapes.register();

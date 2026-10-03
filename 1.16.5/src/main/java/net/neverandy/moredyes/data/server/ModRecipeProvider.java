@@ -351,16 +351,22 @@ public class ModRecipeProvider extends RecipeProvider
     {
         Block full = shapes.full[i];
         Block slab = shapes.slabs[i];
-        Block stairs = shapes.stairs[i];
         ShapedRecipeBuilder.shapedRecipe(slab, 6).key('#', full).patternLine("###")
                 .addCriterion("has_block", hasItem(full)).build(out, id(name(slab)));
-        ShapedRecipeBuilder.shapedRecipe(stairs, 4).key('#', full).patternLine("#  ").patternLine("## ").patternLine("###")
-                .addCriterion("has_block", hasItem(full)).build(out, id(name(stairs)));
         boolean stone = full.getDefaultState().getMaterial() == Material.ROCK;
         if (stone)
         {
             stonecutting(full, slab, 2);
-            stonecutting(full, stairs, 1);
+        }
+        if (shapes.stairs.length > 0)
+        {
+            Block stairs = shapes.stairs[i];
+            ShapedRecipeBuilder.shapedRecipe(stairs, 4).key('#', full).patternLine("#  ").patternLine("## ").patternLine("###")
+                    .addCriterion("has_block", hasItem(full)).build(out, id(name(stairs)));
+            if (stone)
+            {
+                stonecutting(full, stairs, 1);
+            }
         }
         if (shapes.walls.length > 0)
         {

@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"condition":{"type":"minecraft:survives_explosion"},"entries":[{"type":"minecraft:item","condition":{"type":"minecraft:match_block","blocks":"moredyes:lilac_b98c66","state":{"half":"lower"}},"name":"moredyes:lilac_b98c66"}],"rolls":1}],"random_sequence":"moredyes:blocks/lilac_b98c66"}

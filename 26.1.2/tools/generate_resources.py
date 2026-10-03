@@ -11,6 +11,8 @@ read from the Minecraft and NeoForge jars:
   * tags: every vanilla and NeoForge tag that lists the vanilla block (mineable/pickaxe, wool, leaves, planks...).
   * recipes: the recipes of the 1.7.10 mod (see the recipes() function).
   * trees: the vanilla tree of each wood, grown from dyed logs and leaves.
+  * slabs, stairs and walls: see shapes(). Most have no vanilla version (there is no vanilla glass slab), so their
+    models are made from vanilla's stone ones with the textures of the block they are made from.
   * the dyed Storage Drawers (compat/storagedrawers): see storage_drawers(). Their textures and models come from
     tools/storage_drawers.py.
   * the dyed Iron Chests (compat/ironchest): see iron_chests().
@@ -177,7 +179,18 @@ WORLDGEN_BIOMES = {
 # The vanilla tree each wood grows. Dark oak grows from one sapling, like 1.7.10, so it has the oak shape.
 TREES = {'oak': 'oak', 'birch': 'birch', 'spruce': 'spruce', 'jungle': 'jungle_tree_no_vine', 'acacia': 'acacia',
          'dark_oak': 'oak'}
-POTTABLE = ['tulip'] + ['%s_sapling' % w for w in WOODS]
+POTTABLE = ['tulip', 'allium', 'azure_bluet', 'orchid', 'cornflower', 'dandelion', 'lily_of_the_valley', 'oxeye_daisy',
+            'poppy'] + ['%s_sapling' % w for w in WOODS]
+# Flowers that make a dye of their color: one, or two from a tall flower, like vanilla.
+FLOWER_DYES = {'tulip': 1, 'allium': 1, 'azure_bluet': 1, 'orchid': 1, 'cornflower': 1, 'dandelion': 1,
+               'lily_of_the_valley': 1, 'oxeye_daisy': 1, 'poppy': 1, 'lilac': 2, 'peony': 2, 'rose_bush': 2}
+# The vanilla slab, stairs and wall whose blockstates, models, drops and tags the dyed ones copy, with the textures
+# swapped. Wooden ones copy oak's, so they get the wooden_slabs and wooden_stairs tags.
+SHAPE_TEMPLATES = {'SLAB': 'stone_slab', 'STAIRS': 'stone_stairs', 'WALL': 'cobblestone_wall'}
+WOODEN_SHAPE_TEMPLATES = {'SLAB': 'oak_slab', 'STAIRS': 'oak_stairs'}
+SHAPE_NAMES = {'SLAB': 'Slab', 'STAIRS': 'Stairs', 'WALL': 'Wall'}
+# Where the made-up vanilla models of the slabs, stairs and walls are kept while they are converted.
+SHAPE_MODELS = 'minecraft:block/moredyes_shape/'
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -203,6 +216,14 @@ def read_kinds():
     return kinds
 
 
+def read_shapes():
+    """(id, shape, base kind id) of each slab, stairs and wall Kind, in order."""
+    source = open(os.path.join(JAVA, 'block/Kind.java')).read()
+    ids = dict(re.findall(r'^\s+([A-Z_]+)\("([a-z_]+)", "[a-z_]+", Tab\.', source, re.M))
+    found = re.findall(r'^\s+[A-Z_]+\(Shape\.([A-Z]+), "([a-z_]+)", ([A-Z_]+)[,)]', source, re.M)
+    return [(kind, shape, ids[base]) for shape, kind, base in found]
+
+
 def read_colors():
     source = open(os.path.join(JAVA, 'color/ColorGroup.java')).read()
     body = source[source.index('enum ColorGroup {'):]
@@ -219,8 +240,11 @@ class Jars:
         if not neo:
             sys.exit('The NeoForge jar was not found; run ./gradlew build first.')
         self.neo = zipfile.ZipFile(sorted(neo)[-1])
+        self.virtual = {}  # path -> json: models made up here, read as if they were vanilla's
 
     def json(self, path, default=None):
+        if path in self.virtual:
+            return self.virtual[path]
         for jar in (self.client, self.neo):
             try:
                 return json.loads(jar.read(path))
@@ -296,7 +320,7 @@ class Models:
     def layers(texture, kind):
         """The dyed layers that replace a vanilla texture: [(texture, tinted)], or None to keep it."""
         texture = short(texture)
-        if kind in ('foggy_glass', 'foggy_glass_pane') and texture == 'block/glass':
+        if kind.startswith('foggy_glass') and texture == 'block/glass':
             return [(MOD + ':' + FOGGY_GLASS, True)]
         if texture in TEXTURES:
             return [(MOD + ':' + name, tinted) for name, _, tinted in TEXTURES[texture]]
@@ -304,6 +328,8 @@ class Models:
 
     def name(self, model_id, kind, vanilla):
         """Our name for a vanilla model: the vanilla block's name in it becomes the kind's, or the kind is put in front."""
+        if model_id.startswith(SHAPE_MODELS):
+            return '%s:block/%s' % (MOD, model_id[len(SHAPE_MODELS):])
         folder, name = short(model_id).split('/', 1)
         if vanilla in name:
             name = name.replace(vanilla, kind, 1)
@@ -407,7 +433,9 @@ class Models:
             particle = swap(particle, new[0][0] if new else full(sprite(particle)))
         if not changed:
             return model_id, None
-        data = {'parent': model_id, 'textures': dict(slots)}
+        # A made-up model (see shapes()) is not in the game, so ours names its parent instead.
+        parent = chain[1][0] if model_id.startswith(SHAPE_MODELS) else model_id
+        data = {'parent': parent, 'textures': dict(slots)}
         if particle:
             data['textures']['particle'] = particle
         if elements is not None:
@@ -475,6 +503,8 @@ def main():
         base_name = lang['block.minecraft.' + vanilla].replace('White ', '')
         if kind.startswith('foggy_'):
             base_name = 'Foggy ' + base_name
+        if kind == 'orchid':
+            base_name = 'Orchid'
         item = None
         if tab != 'NONE':
             item = jars.json('assets/minecraft/items/%s.json' % vanilla)['model']
@@ -507,6 +537,8 @@ def main():
                 table['random_sequence'] = '%s:blocks/%s' % (MOD, name)
                 w.write('data/%s/loot_table/blocks/%s.json' % (MOD, name), table)
 
+    shapes(jars, w, models, kinds, colors, lang, names)
+
     # Flower pots holding the dyed plants
     for kind in POTTABLE:
         vanilla = 'potted_' + vanilla_of[kind]
@@ -529,7 +561,8 @@ def main():
             'type': 'minecraft:model', 'model': dye_model, 'tints': [DYE_COLOR for _ in dye_tints]}})
         names['item.%s.dye_%s' % (MOD, color)] = '%s Dye' % color.upper()
 
-    for tab, title in [('dyes', 'Dyes'), ('blocks', 'Blocks'), ('trees', 'Trees'), ('plants', 'Plants')]:
+    for tab, title in [('dyes', 'Dyes'), ('blocks', 'Blocks'), ('trees', 'Trees'), ('plants', 'Plants'),
+                       ('shapes', 'Slabs and Stairs')]:
         names['itemGroup.%s.%s' % (MOD, tab)] = 'More Dyes ' + title
     storage_drawers(w, colors, names)
     iron_chests(w, colors, names)
@@ -542,6 +575,93 @@ def main():
     data_maps(w, kinds, colors)
     w.write('data/%s/loot_modifiers/dyed_sheep_wool.json' % MOD, {'type': MOD + ':dyed_sheep_wool'})
     print('wrote %d files to %s' % (w.count, os.path.relpath(OUT, ROOT)))
+
+
+def shape_template(shape, base):
+    if base.endswith('_planks') or base == 'crafting_table':
+        return WOODEN_SHAPE_TEMPLATES.get(shape, SHAPE_TEMPLATES[shape])
+    return SHAPE_TEMPLATES[shape]
+
+
+def shape_name(lang, kind, shape, base_name):
+    """The vanilla name if vanilla has this slab, stairs or wall, else the base block's: "Glass Slab"."""
+    if 'block.minecraft.' + kind in lang:
+        return lang['block.minecraft.' + kind]
+    name = base_name
+    if name.startswith('Block of '):
+        name = name[len('Block of '):]
+    if name.endswith(' Block'):
+        name = name[:-len(' Block')]
+    if name.endswith('Bricks'):
+        name = name[:-1]
+    return '%s %s' % (name, SHAPE_NAMES[shape])
+
+
+def shapes(jars, w, models, kinds, colors, lang, names):
+    """The dyed slabs, stairs and walls. Each copies a vanilla stone one (or oak, for wooden ones): its blockstate,
+    item and drops, and its models with the textures of the base block's model: its top, bottom and side. A double
+    slab is the base block itself."""
+    vanilla_of = {k: v for k, v, _ in kinds}
+    for kind, shape, base in read_shapes():
+        template = shape_template(shape, base)
+        convert = lambda m, kind=kind: models.convert(m, kind, kind)
+        base_convert = lambda m, base=base: models.convert(m, base, vanilla_of[base])
+
+        base_state = jars.json('assets/minecraft/blockstates/%s.json' % vanilla_of[base])
+        variant = next(iter(base_state['variants'].values()))
+        base_model = (variant[0] if isinstance(variant, list) else variant)['model']
+        textures = {}
+        for _, data in reversed(models.chain(base_model)):
+            textures.update(data.get('textures', {}))
+
+        def texture(*keys):
+            for key in keys:
+                value = textures.get(key)
+                while isinstance(value, str) and value.startswith('#'):
+                    value = textures.get(value[1:])
+                if value is not None:
+                    return value
+            sys.exit('No texture %s in the model of %s' % ('/'.join(keys), base))
+
+        roles = {'top': texture('top', 'end', 'all', 'up'), 'bottom': texture('bottom', 'end', 'all', 'down'),
+                 'side': texture('side', 'all', 'east')}
+        roles['wall'] = roles['particle'] = roles['side']
+
+        def model(model_id):
+            """A model of the template block made up with the base block's textures, or the base block's own model
+            for the template's full block (the double slab)."""
+            name = short(model_id).split('/', 1)[1]
+            if not name.startswith(template):
+                return base_convert(base_model)[0]
+            data = jars.json('assets/minecraft/models/%s.json' % short(model_id))
+            data = dict(data, textures={key: roles[key] for key in data['textures']})
+            virtual = SHAPE_MODELS + kind + name[len(template):]
+            jars.virtual['assets/minecraft/models/%s.json' % short(virtual)] = data
+            return convert(virtual)[0]
+
+        def remap(node):
+            if isinstance(node, list):
+                return [remap(n) for n in node]
+            if isinstance(node, dict):
+                return {k: (model(v) if k == 'model' and isinstance(v, str) else remap(v)) for k, v in node.items()}
+            return node
+
+        state = remap(jars.json('assets/minecraft/blockstates/%s.json' % template))
+        item = {'type': 'minecraft:model', 'model': model(jars.json('assets/minecraft/items/%s.json' % template)
+                                                            ['model']['model']), 'tints': [DYE_COLOR]}
+        loot = jars.json('data/minecraft/loot_table/blocks/%s.json' % template)
+        base_name = lang['block.minecraft.' + vanilla_of[base]].replace('White ', '')
+        if base.startswith('foggy_'):
+            base_name = 'Foggy ' + base_name
+        name = shape_name(lang, kind, shape, base_name)
+        for color in colors:
+            block = '%s_%s' % (kind, color)
+            w.write('assets/%s/blockstates/%s.json' % (MOD, block), state)
+            w.write('assets/%s/items/%s.json' % (MOD, block), {'model': item})
+            names['block.%s.%s' % (MOD, block)] = '%s %s' % (color.upper(), name)
+            table = remap_ids(loot, {'minecraft:' + template: '%s:%s' % (MOD, block)})
+            table['random_sequence'] = '%s:blocks/%s' % (MOD, block)
+            w.write('data/%s/loot_table/blocks/%s.json' % (MOD, block), table)
 
 
 # Rechiseled groups that already hold the vanilla block: the dyed kinds are appended to them.
@@ -619,6 +739,13 @@ def tags(jars, w, kinds, colors):
     by_vanilla = {}
     for kind, vanilla, tab in kinds:
         by_vanilla.setdefault('minecraft:' + vanilla, []).append((kind, tab))
+    # A slab, stairs or wall gets the tags of the vanilla one it copies (slabs, wooden_stairs, walls...), except those
+    # for the tool that mines it, which come from its base block, so a wool slab is not mined with a pickaxe.
+    vanilla_of = {k: v for k, v, _ in kinds}
+    shape_by_template, shape_by_base = {}, {}
+    for kind, shape, base in read_shapes():
+        shape_by_template.setdefault('minecraft:' + shape_template(shape, base), []).append(kind)
+        shape_by_base.setdefault('minecraft:' + vanilla_of[base], []).append(kind)
     for registry in ('block', 'item'):
         for jar, path in jars.names(''):
             m = re.match(r'data/([a-z_]+)/tags/%s/(.+)\.json$' % registry, path)
@@ -630,6 +757,11 @@ def tags(jars, w, kinds, colors):
                 for kind, tab in by_vanilla.get(entry, []):
                     if registry == 'item' and tab == 'NONE':
                         continue
+                    add(registry, tag, ['%s:%s_%s' % (MOD, kind, c) for c in colors])
+                tool = re.match(r'minecraft:(mineable/|needs_)', tag)
+                for kind in shape_by_template.get(entry, []) if not tool else []:
+                    add(registry, tag, ['%s:%s_%s' % (MOD, kind, c) for c in colors])
+                for kind in shape_by_base.get(entry, []) if tool and registry == 'block' else []:
                     add(registry, tag, ['%s:%s_%s' % (MOD, kind, c) for c in colors])
     logs = ['%s:%s_log_%s' % (MOD, wood, c) for wood in WOODS for c in colors]
     add('block', 'minecraft:logs_that_burn', logs)
@@ -721,7 +853,7 @@ def iron_chests(w, colors, names):
 
 def recipes(jars, w, kinds, colors):
     """The recipes of 1.7.10 More Dyes:
-      * dyes are mixed from two vanilla dyes (or four for one color), and a tulip makes one dye of its color;
+      * dyes are mixed from two vanilla dyes (or four for one color), and a dyed flower makes dye of its color;
       * eight vanilla blocks around a dye make eight dyed blocks ("dyeing/"), and a few blocks are dyed one at a time;
       * a dyed block with a water bucket gives the vanilla block back ("washing/"), as does a water cauldron;
       * dyed blocks turn into each other the way their vanilla blocks do (cobblestone to stone, logs to planks...).
@@ -729,6 +861,8 @@ def recipes(jars, w, kinds, colors):
     kind_ids = {k for k, _, _ in kinds}
     vanilla_of = {k: v for k, v, _ in kinds}
     priorities = {}
+    shapes_list = read_shapes()
+    pickaxe = set(jars.json('data/minecraft/tags/block/mineable/pickaxe.json')['values'])
 
     def item(i, count=1):
         return {'count': count, 'id': i} if count > 1 else {'id': i}
@@ -787,7 +921,8 @@ def recipes(jars, w, kinds, colors):
             wash(kind)
         wash('foggy_glass')
         wash('foggy_glass_pane')
-        shapeless('dye/%s_from_tulip' % c, dye, 1, [b('tulip')], 'misc')
+        for flower, count in FLOWER_DYES.items():
+            shapeless('dye/%s_from_%s' % (c, flower), dye, count, [b(flower)], 'misc')
 
         smelt('%s_from_smelting' % b('stone').split(':')[1], b('cobblestone'), b('stone'), 0.1)
         smelt('%s_from_smelting' % b('cracked_stone_bricks').split(':')[1], b('stone_bricks'),
@@ -817,6 +952,22 @@ def recipes(jars, w, kinds, colors):
                {'P': planks, 'C': b('cobblestone'), 'I': 'minecraft:iron_ingot', 'R': 'minecraft:redstone'}, True)
         shaped('sticky_piston_%s' % c, b('sticky_piston'), 1, ['S', 'P'],
                {'S': 'minecraft:slime_ball', 'P': b('piston')}, True)
+
+        # Slabs, stairs and walls, crafted from the dyed block like vanilla's, and cut from it on a stonecutter if it
+        # is mined with a pickaxe. Those that vanilla also has wash back to the vanilla one.
+        for kind, shape, base in shapes_list:
+            if shape == 'SLAB':
+                shaped(kind + '_' + c, b(kind), 6, ['###'], {'#': b(base)}, True)
+            elif shape == 'STAIRS':
+                shaped(kind + '_' + c, b(kind), 4, ['#  ', '## ', '###'], {'#': b(base)}, True)
+            else:
+                shaped(kind + '_' + c, b(kind), 6, ['###', '###'], {'#': b(base)}, True)
+            if 'minecraft:' + vanilla_of[base] in pickaxe:
+                w.write('data/%s/recipe/stonecutting/%s_%s.json' % (MOD, kind, c), {
+                    'type': 'minecraft:stonecutting', 'ingredient': b(base),
+                    'result': {'count': 2 if shape == 'SLAB' else 1, 'id': b(kind)}})
+            if jars.has('data/minecraft/loot_table/blocks/%s.json' % kind):
+                wash(kind, kind)
 
     w.write('data/neoforge/recipe_priorities.json', {'entries': priorities})
 
@@ -891,7 +1042,7 @@ def data_maps(w, kinds, colors):
             burn = None
         if kind.endswith('_sapling') or kind.endswith('_leaves'):
             chance = 0.3
-        elif kind == 'tulip':
+        elif kind in FLOWER_DYES:
             chance = 0.65
         else:
             chance = None
@@ -901,6 +1052,11 @@ def data_maps(w, kinds, colors):
                 fuels[item] = {'burn_time': burn}
             if chance:
                 compost[item] = {'chance': chance}
+    # Wooden slabs and stairs burn like vanilla's, as does the crafting table slab.
+    for kind, shape, base in read_shapes():
+        if base.endswith('_planks') or base == 'crafting_table':
+            for c in colors:
+                fuels['%s:%s_%s' % (MOD, kind, c)] = {'burn_time': 150 if shape == 'SLAB' else 300}
     w.write('data/neoforge/data_maps/item/furnace_fuels.json', {'values': fuels})
     w.write('data/neoforge/data_maps/item/compostables.json', {'values': compost})
 

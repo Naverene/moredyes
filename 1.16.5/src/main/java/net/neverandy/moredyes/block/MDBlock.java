@@ -376,6 +376,8 @@ public class MDBlock
         DyedShapes.of("jungle", "Jungle", junglePlankArray, "jungle_planks", "jungle_planks");
         DyedShapes.of("acacia", "Acacia", acaciaPlankArray, "acacia_planks", "acacia_planks");
         DyedShapes.of("darkoak", "Dark Oak", darkOakPlankArray, "dark_oak_planks", "dark_oak_planks");
+        DyedShapes.slabsOnly("workbench", "Crafting Table", workbenchArray, "workbench_side", "workbench_top", "oak_planks",
+                "crafting_table", WorkbenchSlabBlock::new);
         for (DyedShapes shapes : DyedShapes.ALL)
         {
             shapes.register();

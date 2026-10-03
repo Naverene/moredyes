@@ -15,7 +15,7 @@ import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
 
-/** The four creative tabs from the original mod: Dyes, Blocks, Trees and Plants. */
+/** The creative tabs: Dyes, Blocks, Trees and Plants from the original mod, and Slabs and Stairs. */
 public final class ModCreativeTabs {
 
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister
@@ -32,6 +32,7 @@ public final class ModCreativeTabs {
         register("blocks", Kind.Tab.BLOCKS, () -> ModItems.get(Kind.BRICKS, ICON_COLOR).get());
         register("trees", Kind.Tab.TREES, () -> ModItems.get(Kind.OAK_SAPLING, ICON_COLOR).get());
         register("plants", Kind.Tab.PLANTS, () -> ModItems.get(Kind.TULIP, ICON_COLOR).get());
+        register("shapes", Kind.Tab.SHAPES, () -> ModItems.get(Kind.STONE_BRICK_STAIRS, ICON_COLOR).get());
     }
 
     private ModCreativeTabs() {}

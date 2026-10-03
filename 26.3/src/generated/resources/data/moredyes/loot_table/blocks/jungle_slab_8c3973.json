@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"entries":[{"type":"minecraft:item","modifier":[{"type":"minecraft:set_count","condition":{"type":"minecraft:match_block","blocks":"moredyes:jungle_slab_8c3973","state":{"type":"double"}},"count":2},{"type":"minecraft:explosion_decay"}],"name":"moredyes:jungle_slab_8c3973"}],"rolls":1}],"random_sequence":"moredyes:blocks/jungle_slab_8c3973"}

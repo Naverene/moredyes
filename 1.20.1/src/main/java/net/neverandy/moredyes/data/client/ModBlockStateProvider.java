@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.piston.PistonBaseBlock;
@@ -149,13 +150,19 @@ public class ModBlockStateProvider extends BlockStateProvider
         ModelFile slab = shape(base + "_slab", "slab", shapes);
         ModelFile slabTop = shape(base + "_slab_top", "slab_top", shapes);
         ModelFile full = shape(base + "_double", "cube_bottom_top", shapes);
-        ModelFile stairs = shape(base + "_stairs", "stairs", shapes);
-        ModelFile inner = shape(base + "_stairs_inner", "inner_stairs", shapes);
-        ModelFile outer = shape(base + "_stairs_outer", "outer_stairs", shapes);
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             slabBlock(shapes.slabs[i], slab, slabTop, full);
-            stairsBlock(shapes.stairs[i], stairs, inner, outer);
+        }
+        if (shapes.stairs.length > 0)
+        {
+            ModelFile stairs = shape(base + "_stairs", "stairs", shapes);
+            ModelFile inner = shape(base + "_stairs_inner", "inner_stairs", shapes);
+            ModelFile outer = shape(base + "_stairs_outer", "outer_stairs", shapes);
+            for (StairBlock block : shapes.stairs)
+            {
+                stairsBlock(block, stairs, inner, outer);
+            }
         }
         if (shapes.walls.length == 0)
         {

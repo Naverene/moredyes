@@ -1,18 +1,22 @@
 # More Dyes for Minecraft 26.3
 
 This mod adds 118 new dyes to Minecraft, one for every mix of two vanilla dye colors. Each color also comes with
-blocks dyed in it: wool, stone and stone bricks (in all varieties), cobblestone, andesite, diorite, bricks, clay,
-terracotta, concrete and concrete powder, sand and sandstone, soul sand, obsidian, glowstone, blocks of coal, lapis,
-redstone and quartz, clear and foggy glass and panes, bookshelves, crafting tables, chests, pistons and sticky
-pistons, and logs, planks, leaves, saplings and fences in all six woods. The colors are named by their hex code.
+blocks dyed in it: wool, stone and stone bricks (in all varieties), cobblestone and mossy cobblestone, andesite,
+diorite and granite (plain and polished), end stone, bricks, clay, terracotta, concrete and concrete powder, sand,
+gravel and sandstone, soul sand, obsidian, glowstone, bone blocks, ice, packed ice and snow, blocks of coal, lapis,
+redstone and quartz (and quartz bricks, pillars, chiseled and smooth quartz), clear and foggy glass and panes,
+bookshelves, crafting tables, chests, pistons and sticky pistons, logs, planks, leaves, saplings and fences in all six
+woods, and twelve flowers. Most of the blocks also come as slabs and stairs, and those vanilla has walls for as walls.
+A crafting table slab works like a crafting table. The colors are named by their hex code.
 
 This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
 
 ## Playing
 
 * Dyes are crafted from two vanilla dyes. Six colors take two of each, because the plain pair already makes a vanilla
-  dye. A dyed tulip also makes one dye of its color.
+  dye. A dyed flower also makes dye of its color: one, or two from a tall flower.
 * Eight vanilla blocks around a dye make eight dyed blocks. A sapling, a crafting table or a chest takes one dye.
+* Dyed slabs, stairs and walls are crafted from the dyed block like vanilla's, or cut from it on a stonecutter.
 * A dyed block crafted with a water bucket, or used on a water cauldron, turns back into the vanilla block.
 * Dyed blocks turn into each other like the vanilla ones: cobblestone smelts to stone, logs make planks, dyed planks
   make crafting tables, chests, bookshelves and pistons of their color, and so on.

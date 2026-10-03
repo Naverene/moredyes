@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"condition":{"type":"minecraft:survives_explosion"},"entries":[{"type":"minecraft:item","condition":{"type":"minecraft:match_block","blocks":"moredyes:rose_bush_655fa5","state":{"half":"lower"}},"name":"moredyes:rose_bush_655fa5"}],"rolls":1}],"random_sequence":"moredyes:blocks/rose_bush_655fa5"}

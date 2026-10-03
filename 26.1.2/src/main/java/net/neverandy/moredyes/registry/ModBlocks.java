@@ -7,6 +7,7 @@ import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -28,8 +29,9 @@ public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MoreDyes.MOD_ID);
 
     /** The kinds that can be put in a flower pot. */
-    public static final List<Kind> POTTABLE = List.of(Kind.TULIP, Kind.OAK_SAPLING, Kind.BIRCH_SAPLING,
-        Kind.SPRUCE_SAPLING, Kind.JUNGLE_SAPLING, Kind.ACACIA_SAPLING, Kind.DARK_OAK_SAPLING);
+    public static final List<Kind> POTTABLE = List.of(Kind.TULIP, Kind.ALLIUM, Kind.AZURE_BLUET, Kind.BLUE_ORCHID,
+        Kind.CORNFLOWER, Kind.DANDELION, Kind.LILY_OF_THE_VALLEY, Kind.OXEYE_DAISY, Kind.POPPY, Kind.OAK_SAPLING,
+        Kind.BIRCH_SAPLING, Kind.SPRUCE_SAPLING, Kind.JUNGLE_SAPLING, Kind.ACACIA_SAPLING, Kind.DARK_OAK_SAPLING);
 
     private static final Map<Kind, Map<MixColor, DeferredBlock<Block>>> BY_KIND = new EnumMap<>(Kind.class);
     private static final List<DeferredBlock<FlowerPotBlock>> POTTED = new ArrayList<>();
@@ -39,8 +41,11 @@ public final class ModBlocks {
         for (Kind kind : Kind.values()) {
             Map<MixColor, DeferredBlock<Block>> byColor = new LinkedHashMap<>();
             for (MixColor color : MixColors.ALL) {
-                byColor.put(color, BLOCKS.registerBlock(color.id(kind.id()), p -> kind.create(color, p),
-                    () -> BlockBehaviour.Properties.ofFullCopy(kind.vanilla())));
+                // A slab, stairs or wall copies the dyed block it is made from, which is registered before it.
+                Supplier<BlockBehaviour.Properties> properties = kind.base() != null
+                    ? () -> BlockBehaviour.Properties.ofFullCopy(get(kind.base(), color).get())
+                    : () -> BlockBehaviour.Properties.ofFullCopy(kind.vanilla());
+                byColor.put(color, BLOCKS.registerBlock(color.id(kind.id()), p -> kind.create(color, p), properties));
             }
             BY_KIND.put(kind, Collections.unmodifiableMap(byColor));
         }
