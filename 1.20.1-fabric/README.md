@@ -19,12 +19,26 @@ events and config are replaced with Fabric API and a few mixins:
 - `mixin/EntityMixin` turns the vanilla wool a dyed sheep drops (sheared or killed) into its dyed wool.
 - `mixin/ServerEntityMixin` tells players a sheep's color once they can see it.
 - `mixin/PistonBaseBlockMixin` keeps extended dyed pistons from being pushed.
+- `mixin/compat/StorageDrawersMixin` registers the dyed drawers in time for Storage Drawers (see below).
 
 The models, textures, language file, recipes, loot tables, tags and worldgen features are not copied: the build reads
 them from `../1.20.1/src/main/resources` and `../1.20.1/src/generated/resources`, so this folder needs the Forge
 folder next to it. Forge-only files are left out, and the wall recipes (Forge conditional recipes) are rewritten with
 Fabric's load conditions while building. To add a block, add it on the Forge side, run its `runData`, and register it
 here too.
+
+## Storage Drawers
+
+If [Storage Drawers](https://modrinth.com/mod/storagedrawers) (its own Fabric version) is installed, its drawers come in
+every color in all six sizes, as on Forge: craft any wooden drawer of a size with a dye. The code is in
+`compat/storagedrawers`; the models, textures, tags and recipes are the Forge folder's (its
+`tools/make_compat_resources.py` gives the recipes both loaders' mod-loaded conditions). Storage Drawers makes its block
+entity types from its list of drawer blocks while it initializes, and Fabric runs the mods' initializers in no set
+order, so `mixin/compat/StorageDrawersMixin` registers the dyed drawers from Storage Drawers' initializer, just before it
+makes them. That mixin is only applied when Storage Drawers is installed. Iron Chests has no Fabric version, so the
+dyed Iron Chests are Forge-only.
+
+To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` to Gradle.
 
 ## Building
 

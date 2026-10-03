@@ -5,6 +5,14 @@
       "modid": "storagedrawers"
     }
   ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "storagedrawers"
+      ]
+    }
+  ],
   "type": "moredyes:crafting_shapeless_keep_nbt",
   "category": "misc",
   "group": "moredyes:dyed_half_drawers_4",

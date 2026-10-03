@@ -9,8 +9,9 @@ don't exist while it runs:
 - Dyed Storage Drawers (compat/storagedrawers): grey drawer textures made from Storage Drawers' oak drawers (MIT
   licensed, (c) Texelsaur), models that mark every face for tinting, blockstates, item models, the drawer item tags,
   and a recipe per size and color: any Storage Drawers wooden drawer (or a dyed one) of that size and a dye. The drawer
-  keeps what it holds, its name and its upgrades (item/crafting/KeepNbtShapelessRecipe). Making the
-  textures needs Pillow and the Storage Drawers jar, which ./gradlew build downloads.
+  keeps what it holds, its name and its upgrades (item/crafting/KeepNbtShapelessRecipe). The recipes carry both Forge's
+  and Fabric's mod-loaded conditions, because the Fabric build (../1.20.1-fabric) uses them too. Making the textures
+  needs Pillow and the Storage Drawers jar, which ./gradlew build downloads.
 
 Their names and mineable tags come from data generation (ModLangProvider, ModBlockTagsProvider) as usual.
 
@@ -140,7 +141,9 @@ def storage_drawers(colors):
             for facing, y in (('north', 0), ('east', 90), ('south', 180), ('west', 270))}})
         for index, color in enumerate(colors):
             write(os.path.join(recipes, '%s_%s.json' % (name, color)), {
+                # Forge and Fabric each read their own key and ignore the other's (the Fabric build shares these).
                 'conditions': [{'type': 'forge:mod_loaded', 'modid': 'storagedrawers'}],
+                'fabric:load_conditions': [{'condition': 'fabric:all_mods_loaded', 'values': ['storagedrawers']}],
                 # A shapeless recipe whose result keeps the drawer's NBT (its contents, name and upgrades).
                 'type': 'moredyes:crafting_shapeless_keep_nbt',
                 'category': 'misc',

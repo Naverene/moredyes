@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.neverandy.moredyes.mixin.compat",
+  "plugin": "net.neverandy.moredyes.mixin.compat.CompatMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "StorageDrawersMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

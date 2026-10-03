@@ -2,6 +2,7 @@ package net.neverandy.moredyes.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
 /** Client-only setup: which blocks are see-through, the colors, and the renderers for chests, pistons and sheep. */
@@ -23,6 +25,10 @@ public final class ClientSetup implements ClientModInitializer
         ColorHandlers.register();
         ClientPackets.register();
         renderers();
+        if (FabricLoader.getInstance().isModLoaded("storagedrawers"))
+        {
+            StorageDrawersClient.register();
+        }
     }
 
     private static void layers()
