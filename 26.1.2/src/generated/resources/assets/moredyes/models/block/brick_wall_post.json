@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "t0": "moredyes:block/bricks",
+    "particle": "moredyes:block/bricks"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        16,
+        12
+      ],
+      "faces": {
+        "down": {
+          "texture": "#t0",
+          "cullface": "down",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#t0",
+          "cullface": "up",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#t0",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#t0",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#t0",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#t0",
+          "tintindex": 0
+        }
+      },
+      "__comment": "Center post"
+    }
+  ]
+}

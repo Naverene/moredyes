@@ -202,6 +202,11 @@ publishing {
     }
 }
 
+tasks.named('jar', Jar).configure {
+    // With its slabs, stairs and walls the mod has well over 65,535 files, more than a plain zip can hold.
+    zip64 = true
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

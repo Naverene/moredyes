@@ -87,6 +87,15 @@ TEXTURES = {
     'block/white_tulip': [('block/tulip', GREY_IF_NOT_GREEN, True), ('block/tulip_stem', KEEP_IF_GREEN, False)],
     'item/white_dye': [('item/dye', GREY, True)],
 }
+for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
+              'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
+              'quartz_pillar', 'quartz_pillar_top', 'bone_block_side', 'bone_block_top', 'gravel', 'ice',
+              'packed_ice', 'snow']:
+    TEXTURES['block/' + _name] = [('block/' + _name, GREY, True)]
+# Flowers: the petals take the dye, the green stem and leaves are drawn over them in their own colors.
+for _name in ['allium', 'azure_bluet', 'blue_orchid', 'cornflower', 'dandelion', 'lily_of_the_valley', 'oxeye_daisy',
+              'poppy', 'lilac_top', 'lilac_bottom', 'peony_top', 'peony_bottom', 'rose_bush_top', 'rose_bush_bottom']:
+    TEXTURES['block/' + _name] = [('block/' + _name, GREY_IF_NOT_GREEN, True), ('block/%s_stem' % _name, KEEP_IF_GREEN, False)]
 for _wood in WOODS:
     TEXTURES['block/%s_planks' % _wood] = [('block/%s_planks' % _wood, GREY, True)]
     TEXTURES['block/%s_log_top' % _wood] = [('block/%s_log_top' % _wood, GREY, True)]

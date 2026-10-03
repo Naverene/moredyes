@@ -27,10 +27,10 @@ public final class CauldronWashing {
 
     public static void register(RegisterCauldronInteractionEvent.Interaction event) {
         for (Kind kind : Kind.values()) {
-            if (!kind.hasItem()) {
+            if (!kind.hasItem() || kind.washed().isEmpty()) {
                 continue;
             }
-            Item washed = kind.vanilla().asItem();
+            Item washed = kind.washed().get();
             for (MixColor color : MixColors.ALL) {
                 DeferredItem<?> dyed = ModItems.get(kind, color);
                 event.register(WATER, dyed.get(), (state, level, pos, player, hand, held) -> {
