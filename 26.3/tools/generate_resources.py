@@ -233,6 +233,27 @@ class Jars:
                     yield jar, name
 
 
+# Last words of names that read the same in the plural, such as "Glass" or "Concrete Powder".
+UNCOUNTABLE = {'Andesite', 'Clay', 'Cobblestone', 'Concrete', 'Diorite', 'Glass', 'Glowstone', 'Granite', 'Gravel',
+               'Ice', 'Obsidian', 'Powder', 'Sand', 'Sandstone', 'Stone', 'Terracotta', 'Wool'}
+
+
+def plural(name):
+    """"Oak Planks" -> "Oak Planks", "Chest" -> "Chests", "Block of Coal" -> "Blocks of Coal"."""
+    if ' of ' in name:
+        head, tail = name.split(' of ', 1)
+        return plural(head) + ' of ' + tail
+    if name.split(' ')[-1] in UNCOUNTABLE or name.endswith('s'):
+        return name
+    if name.endswith('shelf'):
+        return name[:-1] + 'ves'
+    if name.endswith(('sh', 'ch', 'x')):
+        return name + 'es'
+    if name.endswith('y') and name[-2] not in 'aeiou':
+        return name[:-1] + 'ies'
+    return name + 's'
+
+
 def full(identifier):
     return identifier if ':' in identifier else 'minecraft:' + identifier
 
@@ -462,6 +483,7 @@ def main():
         return ids
 
     names = {}
+    groups = {'dye': 'Mixed Dyes'}  # recipe viewer groups (compat/rei), by kind
     for kind, vanilla, tab in kinds:
         convert = lambda m, kind=kind, vanilla=vanilla: models.convert(m, kind, vanilla)
         state = remap_models(jars.json('assets/minecraft/blockstates/%s.json' % vanilla), convert)
@@ -470,6 +492,7 @@ def main():
             base_name = 'Foggy ' + base_name
         item = None
         if tab != 'NONE':
+            groups[kind] = 'Dyed ' + plural(base_name)
             item = jars.json('assets/minecraft/items/%s.json' % vanilla)['model']
             if kind == 'chest':
                 item = None  # one per color, below
@@ -525,6 +548,10 @@ def main():
     for tab, title in [('dyes', 'Dyes'), ('blocks', 'Blocks'), ('trees', 'Trees'), ('plants', 'Plants')]:
         names['itemGroup.%s.%s' % (MOD, tab)] = 'More Dyes ' + title
     storage_drawers(w, colors, names)
+    for size in read_drawer_sizes():
+        groups[size] = names['block.%s.%s' % (MOD, size)]  # "Dyed Drawers 1x1", already a plural
+    for kind, name in groups.items():
+        names['group.%s.%s' % (MOD, kind)] = name
     w.write('assets/%s/lang/en_us.json' % MOD, names)
 
     tags(jars, w, kinds, colors)

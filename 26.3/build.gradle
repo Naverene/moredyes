@@ -28,6 +28,10 @@ sourceSets.main.resources {
 }
 
 repositories {
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me'
+    }
     // Storage Drawers, for the optional dyed drawers (see compat/storagedrawers).
     exclusiveContent {
         forRepository {
@@ -121,6 +125,12 @@ configurations {
 }
 
 dependencies {
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    compileOnly("me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        localRuntime "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
+    }
     // Optional mods that More Dyes adds dyed versions of. The compat classes only load when the mod is installed, so
     // it is compile-time only. Run the game with it by passing -Pcompat_mods=true.
     compileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
