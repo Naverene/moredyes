@@ -6,8 +6,10 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -37,9 +39,9 @@ public class ModItemModelProvider extends ItemModelProvider
         for (RegistryObject<Block> entry : MDBlock.BLOCKS.getEntries())
         {
             Block block = entry.get();
-            if (block instanceof BlockPistonHead || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
+            if (block instanceof BlockPistonHead || block instanceof WallSignBlock || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
             {
-                // Piston heads have no item; slabs, stairs and walls are below.
+                // Piston heads and wall signs have no item; slabs, stairs and walls are below.
                 continue;
             }
             String name = entry.getId().getPath();
@@ -60,6 +62,10 @@ public class ModItemModelProvider extends ItemModelProvider
             {
                 // The vanilla chest item model draws the item with its item renderer (client/ChestItemRenderer).
                 withExistingParent(name, mcLoc("item/chest"));
+            }
+            else if (block instanceof StandingSignBlock)
+            {
+                withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/tinted/sign"));
             }
             else if (block instanceof IronBarsBlock)
             {

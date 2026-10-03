@@ -17,6 +17,11 @@ public final class ModTileEntities
     public static final RegistryObject<BlockEntityType<MDChestTileEntity>> CHEST = TILE_ENTITIES.register("chest",
             () -> BlockEntityType.Builder.of(MDChestTileEntity::new, MDBlock.chestArray).build(null));
 
+    /** One block entity type shared by every dyed sign, standing or on a wall. */
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<DyedSignBlockEntity>> SIGN = TILE_ENTITIES.register("sign",
+            () -> BlockEntityType.Builder.of(DyedSignBlockEntity::new, MDBlock.signs()).build(null));
+
     private ModTileEntities() {}
 
     public static void register(IEventBus modBus)

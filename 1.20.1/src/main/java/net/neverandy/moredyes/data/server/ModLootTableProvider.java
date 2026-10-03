@@ -13,6 +13,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neverandy.moredyes.block.BlockPistonHead;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.DyedWallBlock;
+import net.neverandy.moredyes.block.DyedWallSignBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.world.DyeTrees;
@@ -77,9 +78,10 @@ public class ModLootTableProvider
         @Override
         protected Iterable<Block> getKnownBlocks()
         {
-            // Piston heads drop nothing, like the vanilla head, and walls drop themselves in code (DyedWallBlock).
-            return MDBlock.all().stream()
-                    .filter(block -> !(block instanceof BlockPistonHead) && !(block instanceof DyedWallBlock)).collect(Collectors.toList());
+            // Piston heads drop nothing, like the vanilla head, walls drop themselves in code (DyedWallBlock), and wall
+            // signs use their sign's loot table.
+            return MDBlock.all().stream().filter(block -> !(block instanceof BlockPistonHead) && !(block instanceof DyedWallBlock)
+                    && !(block instanceof DyedWallSignBlock)).collect(Collectors.toList());
         }
     }
 }
