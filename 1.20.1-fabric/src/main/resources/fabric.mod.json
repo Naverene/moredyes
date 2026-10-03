@@ -4,7 +4,7 @@
   "version": "${mod_version}",
   "name": "${mod_name}",
   "description": "${mod_description}",
-  "authors": ["${mod_authors}"],
+  "authors": ["Naverene", "kg6jay"],
   "contact": {
     "sources": "https://github.com/Naverene/moredyes"
   },
