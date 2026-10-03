@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.function.Function;
 import java.util.Set;
 
 /**
@@ -52,11 +53,15 @@ public final class DyedShapes
     public final String vanilla;
 
     public final SlabBlock[] slabs = new SlabBlock[ColorStrings.ALL.length];
-    public final StairsBlock[] stairs = new StairsBlock[ColorStrings.ALL.length];
+    /** Empty for a type that only has slabs. */
+    public final StairsBlock[] stairs;
     /** Empty for types without walls, and when walls are turned off in the config. */
     public final WallBlock[] walls;
 
-    private DyedShapes(String type, String displayName, Block[] full, String side, String top, String bottom, Layer layer, String vanilla)
+    private final Function<AbstractBlock.Properties, SlabBlock> slabFactory;
+
+    private DyedShapes(String type, String displayName, Block[] full, String side, String top, String bottom, Layer layer, String vanilla,
+            boolean withStairs, Function<AbstractBlock.Properties, SlabBlock> slabFactory)
     {
         this.type = type;
         this.displayName = displayName;
@@ -66,6 +71,8 @@ public final class DyedShapes
         this.bottom = bottom;
         this.layer = layer;
         this.vanilla = vanilla;
+        this.slabFactory = slabFactory;
+        this.stairs = new StairsBlock[withStairs ? ColorStrings.ALL.length : 0];
         this.walls = new WallBlock[ConfigHandler.wallBlocks.get() && WALL_TYPES.contains(type) ? ColorStrings.ALL.length : 0];
     }
 
@@ -77,7 +84,16 @@ public final class DyedShapes
 
     public static DyedShapes of(String type, String displayName, Block[] full, String side, String top, String bottom, Layer layer, String vanilla)
     {
-        DyedShapes shapes = new DyedShapes(type, displayName, full, side, top, bottom, layer, vanilla);
+        DyedShapes shapes = new DyedShapes(type, displayName, full, side, top, bottom, layer, vanilla, true, SlabBlock::new);
+        ALL.add(shapes);
+        return shapes;
+    }
+
+    /** A type that only has slabs, made by {@code slab}, such as the crafting table slab. */
+    public static DyedShapes slabsOnly(String type, String displayName, Block[] full, String side, String top, String bottom, String vanilla,
+            Function<AbstractBlock.Properties, SlabBlock> slab)
+    {
+        DyedShapes shapes = new DyedShapes(type, displayName, full, side, top, bottom, Layer.SOLID, vanilla, false, slab);
         ALL.add(shapes);
         return shapes;
     }
@@ -90,8 +106,11 @@ public final class DyedShapes
             String color = ColorStrings.ALL[i];
             Block block = full[i];
             AbstractBlock.Properties properties = AbstractBlock.Properties.from(block);
-            slabs[i] = add(type + "slab_" + color, new SlabBlock(properties));
-            stairs[i] = add(type + "stairs_" + color, new StairsBlock(block::getDefaultState, properties));
+            slabs[i] = add(type + "slab_" + color, slabFactory.apply(properties));
+            if (stairs.length > 0)
+            {
+                stairs[i] = add(type + "stairs_" + color, new StairsBlock(block::getDefaultState, properties));
+            }
             if (walls.length > 0)
             {
                 // Not solid, so the game skips caching six face-occlusion shapes for each of a wall's 324 states.
