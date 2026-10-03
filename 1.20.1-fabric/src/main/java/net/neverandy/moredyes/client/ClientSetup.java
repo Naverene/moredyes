@@ -15,7 +15,7 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
-/** Client-only setup: which blocks are see-through, the colors, and the renderers for chests, pistons and sheep. */
+/** Client-only setup: which blocks are see-through, the colors, and the renderers for chests, signs, pistons and sheep. */
 public final class ClientSetup implements ClientModInitializer
 {
     @Override
@@ -77,6 +77,7 @@ public final class ClientSetup implements ClientModInitializer
     private static void renderers()
     {
         BlockEntityRenderers.register(ModTileEntities.CHEST, ChestRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.SIGN, DyedSignRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         BlockEntityRenderers.register(BlockEntityType.PISTON, DyedPistonRenderer::new);
         EntityRendererRegistry.register(EntityType.SHEEP, DyedSheepRenderer::new);
