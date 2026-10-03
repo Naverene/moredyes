@@ -1,0 +1,10 @@
+{
+  "parent": "moredyes:block/drawers/drawer_half",
+  "textures": {
+    "top": "moredyes:blocks/tinted/drawers_side_h",
+    "front": "moredyes:blocks/tinted/drawers_front_2",
+    "back": "moredyes:blocks/tinted/drawers_side",
+    "side": "moredyes:blocks/tinted/drawers_side_v",
+    "trim": "moredyes:blocks/tinted/drawers_trim"
+  }
+}
