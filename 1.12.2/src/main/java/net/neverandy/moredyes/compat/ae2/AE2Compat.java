@@ -11,8 +11,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.neverandy.moredyes.item.MDItem;
-import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.compat.NearestDye;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.LogHelper;
 
@@ -20,8 +19,7 @@ import net.neverandy.moredyes.utility.LogHelper;
  * Applied Energistics 2's cables, paint balls and Color Applicator only know the 16 vanilla colors, so each More Dyes
  * dye counts as the vanilla color it looks closest to ({@link NearestDye}). Written against AE2 rv6.
  * <ul>
- * <li>Every dye is in the ore dictionary as "moredyes" and its vanilla color, such as moredyesLightBlue. Not as
- * AE2's dyeLightBlue: our own dye mixes (CraftManager) take those, so two of our dyes would mix into a third.</li>
+ * <li>Every dye is in the ore dictionary under its vanilla color, such as moredyesLightBlue ({@link NearestDye}).</li>
  * <li>Recipes like AE2's own take those names: eight fluix cables (glass, covered, smart, dense covered or dense
  * smart) around a dye make eight cables of its color, and eight matter balls make eight paint balls.</li>
  * <li>The Color Applicator finds a dye's color through a private map from ore name to AE2 color; the names are added
@@ -34,10 +32,7 @@ public class AE2Compat
 {
 	public static final String MOD_ID="appliedenergistics2";
 
-	/** The vanilla colors in wool metadata order, which is also AE2's color order (its item damage values). */
-	private static final String[] COLORS={"White","Orange","Magenta","LightBlue","Yellow","Lime","Pink","Gray",
-			"LightGray","Cyan","Purple","Blue","Brown","Green","Red","Black"};
-	/** AE2's AEColor constants, in the same order. */
+	/** AE2's AEColor constants, in wool metadata order (also AE2's item damage order). */
 	private static final String[] AE_COLORS={"WHITE","ORANGE","MAGENTA","LIGHT_BLUE","YELLOW","LIME","PINK","GRAY",
 			"LIGHT_GRAY","CYAN","PURPLE","BLUE","BROWN","GREEN","RED","BLACK"};
 	/** AE2's part damage of the white cable of each kind; the next 15 are the other colors, then the fluix one. */
@@ -46,17 +41,9 @@ public class AE2Compat
 	private static final int FLUIX=16;
 	private static final int MATTER_BALL=6;
 
-	private static String oreName(int color)
-	{
-		return Reference.MOD_ID+COLORS[color];
-	}
-
 	public static void registerRecipes(IForgeRegistry<IRecipe> registry)
 	{
-		for(int i=0;i<ColorStrings.ALL.length;i++)
-		{
-			OreDictionary.registerOre(oreName(NearestDye.of(ColorStrings.ALL[i])),MDItem.dyeStack(i,1));
-		}
+		NearestDye.registerOreNames();
 		Item part=ForgeRegistries.ITEMS.getValue(new ResourceLocation(MOD_ID,"part"));
 		Item material=ForgeRegistries.ITEMS.getValue(new ResourceLocation(MOD_ID,"material"));
 		Item paintBall=ForgeRegistries.ITEMS.getValue(new ResourceLocation(MOD_ID,"paint_ball"));
@@ -65,7 +52,7 @@ public class AE2Compat
 			LogHelper.warn("Applied Energistics 2's items weren't found, so More Dyes dyes can't color its cables");
 			return;
 		}
-		for(int color=0;color<COLORS.length;color++)
+		for(int color=0;color<AE_COLORS.length;color++)
 		{
 			String name=AE_COLORS[color].toLowerCase();
 			for(int c=0;c<CABLES.length;c++)
@@ -81,7 +68,7 @@ public class AE2Compat
 	private static void ring(IForgeRegistry<IRecipe> registry,String name,ItemStack result,ItemStack around,int color)
 	{
 		ResourceLocation id=new ResourceLocation(Reference.MOD_ID,"ae2/"+name);
-		registry.register(new ShapedOreRecipe(id,result,"aaa","aba","aaa",'a',around,'b',oreName(color))
+		registry.register(new ShapedOreRecipe(id,result,"aaa","aba","aaa",'a',around,'b',NearestDye.oreName(color))
 				.setRegistryName(id));
 	}
 
@@ -95,9 +82,9 @@ public class AE2Compat
 			Field field=Class.forName("appeng.items.tools.powered.ToolColorApplicator").getDeclaredField("ORE_TO_COLOR");
 			field.setAccessible(true);
 			Map<Integer,Object> oreToColor=(Map<Integer,Object>)field.get(null);
-			for(int color=0;color<COLORS.length;color++)
+			for(int color=0;color<AE_COLORS.length;color++)
 			{
-				oreToColor.put(OreDictionary.getOreID(oreName(color)),Enum.valueOf(aeColor,AE_COLORS[color]));
+				oreToColor.put(OreDictionary.getOreID(NearestDye.oreName(color)),Enum.valueOf(aeColor,AE_COLORS[color]));
 			}
 			LogHelper.info("Applied Energistics 2's Color Applicator takes More Dyes dyes");
 		}

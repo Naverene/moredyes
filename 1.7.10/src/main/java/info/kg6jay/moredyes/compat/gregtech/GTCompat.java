@@ -3,6 +3,7 @@ package info.kg6jay.moredyes.compat.gregtech;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import net.minecraft.block.Block;
@@ -10,13 +11,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GTValues;
 import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.TierEU;
+import gregtech.api.objects.OreDictItemStack;
 import gregtech.api.recipe.RecipeMaps;
+import gregtech.api.util.GTModHandler;
+import gregtech.api.util.GTOreDictUnificator;
+import gregtech.api.util.GTRecipeConstants;
 import info.kg6jay.moredyes.block.IBlockColored;
 import info.kg6jay.moredyes.block.MDBlock;
+import info.kg6jay.moredyes.compat.NearestDye;
 import info.kg6jay.moredyes.item.MDItem;
 
 /**
@@ -27,6 +36,10 @@ import info.kg6jay.moredyes.item.MDItem;
  * dyes make four.</li>
  * <li>Chemical Bath: a dyed block and 50 L of chlorine bleach it back to the vanilla block, the same recipe GregTech
  * uses to bleach dyed wool.</li>
+ * <li>Chemical Reactor and Mixer: each dye makes GregTech's chemical dye and water-mixed dye of the vanilla color it
+ * looks closest to ({@link NearestDye}), the way a vanilla dye does. Spray cans are filled with chemical dye in a fluid
+ * canner, so our dyes make spray cans, which color GregTech's cables, pipes, hatches, buses and machines (and AE2's
+ * cables). The infinite spray can takes no dye.</li>
  * </ul>
  */
 public class GTCompat {
@@ -39,6 +52,7 @@ public class GTCompat {
 
     public static void registerRecipes() {
         registerDyeMixes();
+        registerDyeFluids();
         for (Map.Entry<Block, ItemStack> entry : MDBlock.WASHED.entrySet()) {
             Block dyed = entry.getKey();
             ItemStack vanilla = entry.getValue();
@@ -61,6 +75,37 @@ public class GTCompat {
                     .duration(BLEACH_DURATION)
                     .eut(BLEACH_EUT)
                     .addTo(RecipeMaps.chemicalBathRecipes);
+            }
+        }
+    }
+
+    /** GregTech's own chemical and water-mixed dye recipes (ChemicalRecipes, MixerRecipes), with our ore names. */
+    private static void registerDyeFluids() {
+        NearestDye.registerOreNames();
+        for (int color = 0; color < NearestDye.COLORS.length; color++) {
+            String fluid = ("dye" + NearestDye.COLORS[color]).toLowerCase(Locale.ENGLISH);
+            FluidStack chemical = FluidRegistry.getFluidStack("dye.chemical." + fluid, 288);
+            FluidStack waterMixed = FluidRegistry.getFluidStack("dye.watermixed." + fluid, 288);
+            if (chemical != null) {
+                GTValues.RA.stdBuilder()
+                    .itemInputs(
+                        new OreDictItemStack(NearestDye.oreName(color), 1),
+                        GTOreDictUnificator.get(OrePrefixes.dust, Materials.Salt, 2))
+                    .fluidInputs(Materials.SulfuricAcid.getFluid(432))
+                    .fluidOutputs(chemical)
+                    .duration(30 * 20)
+                    .eut(48)
+                    .addTo(GTRecipeConstants.UniversalChemical);
+            }
+            if (waterMixed != null) {
+                GTValues.RA.stdBuilder()
+                    .itemInputs(new OreDictItemStack(NearestDye.oreName(color), 1))
+                    .circuit(1)
+                    .fluidInputs(GTModHandler.getDistilledWater(288))
+                    .fluidOutputs(waterMixed)
+                    .duration(16)
+                    .eut(4)
+                    .addTo(RecipeMaps.mixerRecipes);
             }
         }
     }

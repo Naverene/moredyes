@@ -19,6 +19,8 @@ If Iron Chests is installed, its iron, gold, diamond, copper and silver chests c
 
 If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye (a taped drawer keeps its contents). They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers when the game loads, in the same way as the other tinted textures.
 
+If GregTech (GT New Horizons' GT5-Unofficial) is installed, the chemical reactor and mixer turn any of the mod's dyes into GregTech's chemical dye and water-mixed dye of the vanilla color it looks closest to, as they do with a vanilla dye. Chemical dye fills spray cans, so the mod's dyes can color GregTech's cables, pipes, hatches, buses and machines, and AE2 cables. The infinite spray can doesn't use dye, so it needs nothing from More Dyes.
+
 If Applied Energistics 2 is installed, every dye counts as the vanilla color it looks closest to: eight fluix cables (glass, covered, smart or dense) or matter balls around it make eight cables or paint balls of that color, and the Color Applicator takes it. The dyes are in the ore dictionary as moredyes plus that color (moredyesLightBlue, for example) rather than dyeLightBlue, which vanilla's recipes take in 1.7.10. To try it in the dev game, pass `-PwithAE2` to Gradle.
 
 The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).

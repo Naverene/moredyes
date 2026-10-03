@@ -5,6 +5,7 @@ import java.util.Map;
 
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.neverandy.moredyes.block.BlockDyedLeaves;
@@ -24,6 +25,9 @@ import net.neverandy.moredyes.utility.LogHelper;
  * dyes make four.</li>
  * <li>Chemical Bath: a dyed block and 50 L of chlorine bleach it back to the vanilla block, the same recipe GregTech
  * uses to bleach dyed wool.</li>
+ * <li>Chemical Reactor: each dye makes GregTech's chemical dye of the vanilla color it looks closest to
+ * ({@link NearestDye}), the way a vanilla dye does. Spray cans are filled with chemical dye in a canner, so our dyes
+ * make spray cans, which color GregTech's cables, pipes and machines (and AE2's cables).</li>
  * </ul>
  */
 public class GregTechCompat
@@ -79,7 +83,20 @@ public class GregTechCompat
 				recipes++;
 			}
 		}
-		LogHelper.info("Added "+recipes+" GregTech mixer and chemical bath recipes");
+		NearestDye.registerOreNames();
+		for(int color=0;color<Materials.CHEMICAL_DYES.length;color++)
+		{
+			// GregTech's own recipe for a vanilla dye (ReactorRecipes), with our ore name.
+			RecipeMaps.CHEMICAL_RECIPES.recipeBuilder()
+					.input(NearestDye.oreName(color),1)
+					.input(OrePrefix.dust,Materials.Salt,2)
+					.fluidInputs(Materials.SulfuricAcid.getFluid(250))
+					.fluidOutputs(Materials.CHEMICAL_DYES[color].getFluid(288))
+					.duration(600).EUt(24)
+					.buildAndRegister();
+			recipes++;
+		}
+		LogHelper.info("Added "+recipes+" GregTech mixer, chemical bath and chemical reactor recipes");
 	}
 	private static ItemStack copy(ItemStack stack,int size)
 	{

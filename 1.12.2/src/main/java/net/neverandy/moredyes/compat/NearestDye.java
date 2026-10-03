@@ -1,11 +1,44 @@
-package net.neverandy.moredyes.compat.ae2;
+package net.neverandy.moredyes.compat;
+
+import net.minecraftforge.oredict.OreDictionary;
+import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.reference.Reference;
 
 /**
  * The vanilla dye color a More Dyes color looks closest to, by CIEDE2000 distance in CIELAB, for mods that only know
  * the 16 vanilla colors. The newer versions put the same choice in tags (tools/make_dye_tags.py in 1.16.5 to 1.20.1).
+ * <p>
+ * Mods that know dyes by ore name find ours under "moredyes" and that color, such as moredyesLightBlue (see
+ * {@link #registerOreNames()}). Not under dyeLightBlue: our own dye mixes (CraftManager) take those, so two of our dyes
+ * would mix into a third.
  */
 public class NearestDye
 {
+	/** The vanilla colors in wool metadata order, as in the ore names dyeWhite ... dyeBlack. */
+	public static final String[] COLORS={"White","Orange","Magenta","LightBlue","Yellow","Lime","Pink","Gray",
+			"LightGray","Cyan","Purple","Blue","Brown","Green","Red","Black"};
+
+	private static boolean registered;
+
+	/** The ore name of the dyes nearest a vanilla color, by wool metadata: moredyesWhite ... moredyesBlack. */
+	public static String oreName(int color)
+	{
+		return Reference.MOD_ID+COLORS[color];
+	}
+	/** Puts every dye under the ore name of its nearest vanilla color. Only done once, for the compat that needs it. */
+	public static void registerOreNames()
+	{
+		if(registered)
+		{
+			return;
+		}
+		registered=true;
+		for(int i=0;i<ColorStrings.ALL.length;i++)
+		{
+			OreDictionary.registerOre(oreName(of(ColorStrings.ALL[i])),MDItem.dyeStack(i,1));
+		}
+	}
 	/** The vanilla dye colors, in wool metadata order (white first, black last). */
 	private static final int[] VANILLA={0xF9FFFE,0xF9801D,0xC74EBD,0x3AB3DA,0xFED83D,0x80C71F,0xF38BAA,0x474F52,
 			0x9D9D97,0x169C9C,0x8932B8,0x3C44AA,0x835432,0x5E7C16,0xB02E26,0x1D1D21};
