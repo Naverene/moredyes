@@ -15,6 +15,12 @@ Tulips in all the colors are available from the creative menu. Worldgen now exis
 
 Dyed crafting tables and chests are available in every color. Craft them from four (crafting table) or eight (chest) dyed planks of one color, or combine a vanilla crafting table or chest with a dye. Two chests of the same color placed side by side join into a double chest. Craft either with a bucket of water to get the vanilla block back.
 
+If Iron Chests is installed, its iron, gold, diamond, copper and silver chests come in every color: craft one with a dye (a dyed one can be dyed again). In 1.7.10 these chests are metal all over, so the dye colors the flat panel of each face and the frame and latch keep the metal's color. Crystal chests (glass), obsidian and dirt chests have no panels to dye and stay as they are. Iron Chests' upgrades keep the color, and also turn a dyed wooden chest into a dyed iron or copper chest; an upgrade to crystal or obsidian gives Iron Chests' plain chest.
+
+If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye (a taped drawer keeps its contents). They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers when the game loads, in the same way as the other tinted textures.
+
+The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).
+
 ## Blocks from newer Minecraft versions
 
 Many blocks from Minecraft 1.8 to 1.16 are available in every color: granite, andesite and their polished versions (and polished diorite), concrete and concrete powder, soul soil, basalt and polished basalt, smooth stone, smooth sandstone, smooth quartz, cut sandstone, end stone bricks, cracked and chiseled nether bricks, bone blocks, glazed terracotta, blocks of netherite, crying obsidian, chains and cornflowers. Mossy cobblestone, mossy stone bricks and nether bricks come in every color too, because their stairs and walls are made from them.
