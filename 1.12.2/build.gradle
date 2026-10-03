@@ -82,7 +82,18 @@ repositories {
             ignoreGradleMetadataRedirection()
         }
     }
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
 }
+
+// Mods More Dyes adds dyed versions of (compat/ironchest, compat/storagedrawers). Their classes are only touched when
+// they are installed, so they are compile-time only; -Pcompat_mods=true also puts them in the dev game.
+def compatMods = ["curse.maven:iron-chests-228756:${iron_chests_file}",
+                  "curse.maven:storage-drawers-223852:${storage_drawers_file}",
+                  "curse.maven:chameleon-230497:${chameleon_file}"]
 
 // Mods the optional integrations are tried with, in the dev game only. Nothing here is fetched or changes the
 // build unless it is asked for, for example: ./gradlew runClient -PwithThermal -PwithGregTech -PwithHEI
@@ -98,6 +109,9 @@ if (project.hasProperty('withHEI')) {
 if (project.hasProperty('withGregTech')) {
     testMods += ['codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal', 'gregtech:gregtech:2.8.10-beta']
 }
+if (project.findProperty('compat_mods') == 'true') {
+    testMods += compatMods
+}
 
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
@@ -109,6 +123,7 @@ dependencies {
     compileOnly fg.deobf(project.dependencies.create('gregtech:gregtech:2.8.10-beta') { transitive = false })
     // Only compiled against, for compat/hei (collapsed item groups in Had Enough Items); not needed to run.
     compileOnly("mezz:jei:${hei_version}:dev") { transitive = false }
+    compatMods.each { compileOnly fg.deobf(project.dependencies.create(it) { transitive = false }) }
 
     testMods.each { runtimeOnly fg.deobf(project.dependencies.create(it) { transitive = false }) }
 }

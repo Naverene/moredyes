@@ -64,13 +64,13 @@ GTNH's NotEnoughItems can fold many items into one collapsible entry, but mods c
 #     the 13 stairs      -> line 794  stair !chisel:           (registry names like moredyes:stoneStairs)
 #     the 3 slabs        -> line 795  slab !double !full       (moredyes:stoneSlab, dioriteSlab, cutSandstoneSlab)
 #     iron trapdoors     -> line 793  trapdoor                 (moredyes:ironTrapdoor)
+#     dyed drawers       -> lines 47-51 halfdrawers2 ... fulldrawers4 (these match anywhere in the name, ignoring
+#                           case, so moredyes:dyedFullDrawers1 joins Storage Drawers' own 1x1 drawers group)
 #   Every other kind matches no GTNH group (leaves are "...MixLeaf", walls are not "minecraft:..._wall", the
-#   dyes are not minecraft:dye, and wool, glass and chests are not the vanilla ids), so it gets its own group either way.
-# Not in this block: the dyed Storage Drawers of the 1.7.10 Iron Chests/Storage Drawers compat branch (not
-# released yet) are moredyes:dyedFullDrawers1/2/4 and dyedHalfDrawers2/4, which GTNH's lines 47-51
-# (halfdrawers2 ... fulldrawers4, matched anywhere in the name, ignoring case) already put in the Storage Drawers
-# groups wherever this block goes. Its dyed iron chests (moredyes:dyed<Tier>Chest) match no GTNH group;
-# line 528 only takes IronChest's own upgrades.
+#   dyes are not minecraft:dye, wool, glass and chests are not the vanilla ids, and the dyed Iron Chests are
+#   moredyes:dyed<Tier>Chest, which line 528 (IronChest's upgrades) does not take), so it gets its own group either way.
+# The dyed Iron Chests and Storage Drawers groups only fill when those mods are installed; without those mods the
+# lines match nothing and the groups never show.
 ; {"displayName":"Mixed Dyes"}
 r/^moredyes:item\.[a-z]+Dye$/
 ; {"displayName":"Dyed Wool"}
@@ -245,6 +245,26 @@ r/^moredyes:ironTrapdoor$/
 r/^moredyes:piston$/
 ; {"displayName":"Dyed Sticky Pistons"}
 r/^moredyes:stickyPiston$/
+; {"displayName":"Dyed Iron Chests"}
+r/^moredyes:dyedIronChest$/
+; {"displayName":"Dyed Gold Chests"}
+r/^moredyes:dyedGoldChest$/
+; {"displayName":"Dyed Diamond Chests"}
+r/^moredyes:dyedDiamondChest$/
+; {"displayName":"Dyed Copper Chests"}
+r/^moredyes:dyedCopperChest$/
+; {"displayName":"Dyed Silver Chests"}
+r/^moredyes:dyedSilverChest$/
+; {"displayName":"Dyed Drawers"}
+r/^moredyes:dyedFullDrawers1$/
+; {"displayName":"Dyed Drawers 1x2"}
+r/^moredyes:dyedFullDrawers2$/
+; {"displayName":"Dyed Drawers 2x2"}
+r/^moredyes:dyedFullDrawers4$/
+; {"displayName":"Dyed Half Drawers 1x2"}
+r/^moredyes:dyedHalfDrawers2$/
+; {"displayName":"Dyed Half Drawers 2x2"}
+r/^moredyes:dyedHalfDrawers4$/
 # ---- end of More Dyes ----
 ```
 

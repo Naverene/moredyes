@@ -41,6 +41,22 @@ tile.moredyes.leaf.name=Leaves
 tile.moredyes.sapling.name=Sapling
 tile.moredyes.tulip.name=Tulip
 
+# Only when Iron Chests is installed (compat/ironchest).
+tile.moredyes.dyed_iron_chest.name=Iron Chest
+tile.moredyes.dyed_gold_chest.name=Gold Chest
+tile.moredyes.dyed_diamond_chest.name=Diamond Chest
+tile.moredyes.dyed_copper_chest.name=Copper Chest
+tile.moredyes.dyed_silver_chest.name=Silver Chest
+tile.moredyes.dyed_crystal_chest.name=Crystal Chest
+tile.moredyes.dyed_obsidian_chest.name=Obsidian Chest
+
+# Only when Storage Drawers is installed (compat/storagedrawers).
+tile.moredyes.dyed_drawers.fulldrawers1.name=Drawer
+tile.moredyes.dyed_drawers.fulldrawers2.name=Drawers 1x2
+tile.moredyes.dyed_drawers.fulldrawers4.name=Drawers 2x2
+tile.moredyes.dyed_drawers.halfdrawers2.name=Half Drawers 1x2
+tile.moredyes.dyed_drawers.halfdrawers4.name=Half Drawers 2x2
+
 # Groups that Had Enough Items folds all the colors of each kind into (compat/hei).
 group.moredyes.dye=Mixed Dyes
 group.moredyes.wool=Dyed Wool
@@ -75,3 +91,15 @@ group.moredyes.log=Dyed Wood
 group.moredyes.leaf=Dyed Leaves
 group.moredyes.sapling=Dyed Saplings
 group.moredyes.tulip=Dyed Tulips
+group.moredyes.dyed_iron_chest=Dyed Iron Chests
+group.moredyes.dyed_gold_chest=Dyed Gold Chests
+group.moredyes.dyed_diamond_chest=Dyed Diamond Chests
+group.moredyes.dyed_copper_chest=Dyed Copper Chests
+group.moredyes.dyed_silver_chest=Dyed Silver Chests
+group.moredyes.dyed_crystal_chest=Dyed Crystal Chests
+group.moredyes.dyed_obsidian_chest=Dyed Obsidian Chests
+group.moredyes.dyed_drawers_fulldrawers1=Dyed Drawers
+group.moredyes.dyed_drawers_fulldrawers2=Dyed Drawers 1x2
+group.moredyes.dyed_drawers_fulldrawers4=Dyed Drawers 2x2
+group.moredyes.dyed_drawers_halfdrawers2=Dyed Half Drawers 1x2
+group.moredyes.dyed_drawers_halfdrawers4=Dyed Half Drawers 2x2
