@@ -51,6 +51,12 @@ def forgeDir = file('../1.20.1')
 def forgeGenerated = new File(forgeDir, 'src/generated/resources')
 // Wall recipes are Forge conditional recipes (skipped when wall_blocks is off). Every one of them is a wall.
 def wallRecipes = ['data/moredyes/recipes/*wall_*.json', 'data/moredyes/recipes/stonecutting/*wall_*.json']
+def compatResources = [
+        'data/moredyes/recipes/iron_chests/**', 'data/moredyes/recipes/storage_drawers/**', 'data/storagedrawers/**',
+        'assets/moredyes/blockstates/dyed_*', 'assets/moredyes/models/block/dyed_*',
+        'assets/moredyes/models/item/dyed_*', 'assets/moredyes/models/block/drawers/**',
+        'assets/moredyes/textures/block/tinted/drawers_*',
+]
 def fabricRecipesDir = layout.buildDirectory.dir('generated/fabricRecipes')
 
 // Rewrites each Forge conditional recipe as the plain recipe with Fabric's load condition, which
@@ -95,6 +101,9 @@ tasks.named('processResources', ProcessResources).configure {
 
     from(new File(forgeDir, 'src/main/resources')) {
         exclude 'META-INF/mods.toml'
+        // The Iron Chests and Storage Drawers blocks are Forge-only (the Fabric ports of those mods are different
+        // mods), so their recipes, tags, models and textures stay out.
+        exclude compatResources
     }
     from(forgeGenerated) {
         exclude '.cache'
