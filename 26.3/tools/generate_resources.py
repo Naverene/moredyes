@@ -652,7 +652,8 @@ def storage_drawers(w, colors, names):
     state property (the color's position in ColorGroup.java). Blockstates and item models point at the models from
     tools/storage_drawers.py, and the item is tinted by the color in its block_state component. A Storage Drawers
     wooden drawer (or a dyed one) of a size and a dye make a dyed drawer of that size and color; the recipes only load
-    when Storage Drawers is installed."""
+    when Storage Drawers is installed. They are transmute recipes, like vanilla's shulker box dyeing: the result keeps
+    every component of the drawer it is made from (its stored items and upgrades, its name), only taking the new color."""
     grids = {'1': '1x1', '2': '1x2', '4': '2x2'}
     for size in read_drawer_sizes():
         depth, count = size.split('_drawers_')
@@ -668,9 +669,9 @@ def storage_drawers(w, colors, names):
         for index, color in enumerate(colors):
             w.write('data/%s/recipe/dyeing/%s_%s.json' % (MOD, size, color), {
                 'neoforge:conditions': [{'type': 'neoforge:mod_loaded', 'modid': 'storagedrawers'}],
-                'type': 'minecraft:crafting_shapeless', 'category': 'building', 'group': '%s:%s' % (MOD, size),
-                'ingredients': [['storagedrawers:%s_%s' % (wood, size) for wood in DRAWER_WOODS]
-                                + ['%s:%s' % (MOD, size)], '%s:dye_%s' % (MOD, color)],
+                'type': 'minecraft:crafting_transmute', 'category': 'building', 'group': '%s:%s' % (MOD, size),
+                'input': ['storagedrawers:%s_%s' % (wood, size) for wood in DRAWER_WOODS] + ['%s:%s' % (MOD, size)],
+                'material': '%s:dye_%s' % (MOD, color),
                 'result': {'id': '%s:%s' % (MOD, size),
                            'components': {'minecraft:block_state': {'color': str(index)}}}})
 
