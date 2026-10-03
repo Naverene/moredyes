@@ -5,11 +5,17 @@
       "item": "minecraft:white_dye"
     },
     {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:green_dye"
+    },
+    {
       "item": "minecraft:green_dye"
     }
   ],
   "result": {
     "item": "moredyes:b3bf99_dye",
-    "count": 2
+    "count": 4
   }
 }

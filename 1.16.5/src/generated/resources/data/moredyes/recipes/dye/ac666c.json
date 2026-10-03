@@ -5,11 +5,17 @@
       "item": "minecraft:pink_dye"
     },
     {
+      "item": "minecraft:pink_dye"
+    },
+    {
+      "item": "minecraft:purple_dye"
+    },
+    {
       "item": "minecraft:purple_dye"
     }
   ],
   "result": {
     "item": "moredyes:ac666c_dye",
-    "count": 2
+    "count": 4
   }
 }
