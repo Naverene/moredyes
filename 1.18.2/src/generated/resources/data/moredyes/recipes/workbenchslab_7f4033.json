@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:workbench_7f4033"
+    }
+  },
+  "result": {
+    "item": "moredyes:workbenchslab_7f4033",
+    "count": 6
+  }
+}

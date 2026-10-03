@@ -95,7 +95,10 @@ public class ModItemModelProvider extends ItemModelProvider
             for (int i = 0; i < shapes.slabs.length; i++)
             {
                 withExistingParent(shapes.slabs[i].getRegistryName().getPath(), modLoc(base + "_slab"));
-                withExistingParent(shapes.stairs[i].getRegistryName().getPath(), modLoc(base + "_stairs"));
+                if (shapes.stairs.length > 0)
+                {
+                    withExistingParent(shapes.stairs[i].getRegistryName().getPath(), modLoc(base + "_stairs"));
+                }
             }
             for (WallBlock wall : shapes.walls)
             {
