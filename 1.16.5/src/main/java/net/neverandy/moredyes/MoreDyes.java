@@ -35,6 +35,7 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.world.ModWorldGen;
 import net.neverandy.moredyes.reference.Reference;
@@ -110,6 +111,7 @@ public class MoreDyes
         ModWorldGen.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModTileEntities.register(FMLJavaModLoadingContext.get().getModEventBus());
         MinecraftForge.EVENT_BUS.addListener(ModWorldGen::onBiomeLoading);
+        ModRecipes.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
         if (ModList.get().isLoaded("ironchest"))

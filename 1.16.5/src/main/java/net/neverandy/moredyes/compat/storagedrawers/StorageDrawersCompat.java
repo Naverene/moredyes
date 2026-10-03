@@ -77,13 +77,17 @@ public final class StorageDrawersCompat
 
     private static void setup(FMLCommonSetupEvent event)
     {
-        event.enqueueWork(StorageDrawersCompat::joinTileEntityTypes);
+        // enqueueWork swallows exceptions, so log them.
+        event.enqueueWork(StorageDrawersCompat::joinTileEntityTypes).exceptionally(t -> {
+            MoreDyes.LOGGER.error("Couldn't add dyed drawers to the Storage Drawers tile entity types", t);
+            return null;
+        });
     }
 
     /** Adds each drawer block to the Storage Drawers tile entity type for its drawer count. */
     private static void joinTileEntityTypes()
     {
-        Field validBlocks = ObfuscationReflectionHelper.findField(TileEntityType.class, "field_223046_I_");
+        Field validBlocks = ObfuscationReflectionHelper.findField(TileEntityType.class, "field_223046_I");
         for (int count : new int[]{1, 2, 4})
         {
             ResourceLocation id = new ResourceLocation(MOD_ID, "standard_drawers_" + count);
