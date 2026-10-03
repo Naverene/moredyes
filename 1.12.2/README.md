@@ -19,6 +19,8 @@ If GregTech CEu is installed, a mixer dyes a stack of 64 vanilla blocks with one
 
 If Chisel or Rechiseled is installed, every dyed shade can be chiseled to and from its vanilla block (stone, wool, planks, chests and the rest). Where the chisel mod already has a group for the vanilla block, the shades join it. Neither mod is needed.
 
+With Had Enough Items (HEI, CleanroomMC's fork of JEI, 4.30 or newer) installed, its item list shows each kind of block as one collapsible entry holding all of its colors, such as "Dyed Wool", and the dyes as one "Mixed Dyes" entry. The original JEI has no such groups and lists every color on its own.
+
 The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.
 
 ## Building
@@ -33,7 +35,7 @@ To run the game from the project, import it into your IDE first (or run `./gradl
 
 Every color of a block shares one grey texture, which the game tints with the dye color. The textures, models and blockstate files are written by `tools/make_assets.py`; run it again after changing it.
 
-None of the mods above is needed to build or run the mod. To try the integrations in the dev game, run `./gradlew prepareTestMods -PwithThermal -PwithGregTech` once, then add the same `-P` options to `runClient` or `runServer`. That fetches Thermal Foundation or GregTech CEu (and the libraries they need) for the dev game only.
+None of the mods above is needed to build or run the mod. To try the integrations in the dev game, run `./gradlew prepareTestMods -PwithThermal -PwithGregTech -PwithHEI` once, then add the same `-P` options to `runClient` or `runServer`. That fetches Thermal Foundation, GregTech CEu or Had Enough Items (and the libraries they need) for the dev game only.
 
 The Rechiseled chiseling groups (`assets/moredyes/chiseling_recipes`) are written by `tools/make_chisel_recipes.py`; the Chisel groups are sent as IMC messages from `compat/ChiselCompat.java`. Keep the two in step.
 

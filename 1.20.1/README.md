@@ -16,6 +16,8 @@ Tulips in all the colors are available from the creative menu. Worldgen now exis
 
 Sheep can be dyed any MoreDyes color, and a few spawn in the world already dyed.
 
+With Roughly Enough Items (REI) installed, its item list shows each kind of item as one collapsible entry holding all of its colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry. JEI and EMI have no such groups and list every color on its own. REI is optional; to try it in the dev game, run `./gradlew runClient -Precipe_viewer=true`.
+
 ## Building
 
 Needs Java 17.

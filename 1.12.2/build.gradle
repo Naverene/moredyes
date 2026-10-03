@@ -85,14 +85,14 @@ repositories {
 }
 
 // Mods the optional integrations are tried with, in the dev game only. Nothing here is fetched or changes the
-// build unless it is asked for, for example: ./gradlew runClient -PwithThermal -PwithGregTech
+// build unless it is asked for, for example: ./gradlew runClient -PwithThermal -PwithGregTech -PwithHEI
 def testMods = []
 if (project.hasProperty('withThermal')) {
     testMods += ['cofh:RedstoneFlux:1.12-2.1.0.7:universal', 'cofh:CoFHCore:1.12.2-4.6.3.27:universal',
                  'cofh:CoFHWorld:1.12.2-1.3.1.7:universal', 'cofh:ThermalFoundation:1.12.2-2.6.3.27:universal']
 }
-// Had Enough Items, the JEI fork that shows compat/hei's collapsed groups: -Precipe_viewer=true
-if (project.findProperty('recipe_viewer') == 'true') {
+// Had Enough Items, the JEI fork that shows compat/hei's collapsed groups.
+if (project.hasProperty('withHEI')) {
     testMods += ["mezz:jei:${hei_version}"]
 }
 if (project.hasProperty('withGregTech')) {

@@ -24,6 +24,9 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
   columns.
 * With [Rechiseled](https://modrinth.com/mod/rechiseled) installed, a chisel turns a vanilla block into any of its
   dyed shades and back. Rechiseled is optional: More Dyes only ships data files for it.
+* With [Roughly Enough Items](https://modrinth.com/mod/rei) installed, its item list shows each kind of block as one
+  collapsible entry holding all 118 colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry (JEI has
+  no such groups). To try it in the dev game, run `./gradlew runClient -Precipe_viewer=true`.
 
 ## Building
 
