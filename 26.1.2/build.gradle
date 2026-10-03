@@ -28,7 +28,26 @@ sourceSets.main.resources {
 }
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    // Storage Drawers, for the optional dyed drawers (see compat/storagedrawers).
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Modrinth'
+                url = 'https://api.modrinth.com/maven'
+            }
+        }
+        filter { includeGroup 'maven.modrinth' }
+    }
+    // Iron Chests, for the optional dyed iron chests (see compat/ironchest).
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'progwml6'
+                url = 'https://dvs1.progwml6.com/files/maven/'
+            }
+        }
+        filter { includeGroup 'com.progwml6.ironchest' }
+    }
 }
 
 base {
@@ -112,6 +131,15 @@ configurations {
 }
 
 dependencies {
+    // Optional mods that More Dyes adds dyed versions of. The compat classes only load when the mod is installed, so
+    // they are compile-time only. Run the game with them by passing -Pcompat_mods=true.
+    compileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    compileOnly "com.progwml6.ironchest:ironchest:${iron_chests_version}"
+    if (project.findProperty('compat_mods') == 'true') {
+        localRuntime "maven.modrinth:storagedrawers:${storage_drawers_version}"
+        localRuntime "com.progwml6.ironchest:ironchest:${iron_chests_version}"
+    }
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

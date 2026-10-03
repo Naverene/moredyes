@@ -1,0 +1,1 @@
+{"variants":{"facing=north":{"model":"moredyes:block/drawers/full_drawers_4"},"facing=east":{"model":"moredyes:block/drawers/full_drawers_4","y":90},"facing=south":{"model":"moredyes:block/drawers/full_drawers_4","y":180},"facing=west":{"model":"moredyes:block/drawers/full_drawers_4","y":270}}}

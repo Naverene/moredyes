@@ -11,6 +11,11 @@ description='''${mod_description}'''
 [[mixins]]
 config="${mod_id}.mixins.json"
 
+# The dyed Storage Drawers (compat/storagedrawers) join Storage Drawers' list of drawers. Only with Storage Drawers.
+[[mixins]]
+config="${mod_id}.storagedrawers.mixins.json"
+requiredMods=["storagedrawers"]
+
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
