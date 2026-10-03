@@ -6,6 +6,8 @@ Blocks can be cleaned and returned to their vanilla color by crafting them with 
 
 If Rechiseled is installed, the dyed blocks can be chiseled into each other and into their vanilla block.
 
+Every dye also counts as the vanilla dye color it looks closest to (the Forge `forge:dyes/<color>` tags), so mods that only know the 16 vanilla colors accept it. With Ender Storage, for example, any More Dyes dye sets a frequency button to its nearest vanilla color. tools/make_dye_tags.py writes these tags.
+
 I'm open to suggestions for naming the colors. Right now they are all labeled with their hex code.
 
 Dyed saplings can now be crafted from an oak sapling and the appropriate colored dye. Thats right, dye trees are now in.
