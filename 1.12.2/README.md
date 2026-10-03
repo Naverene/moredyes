@@ -19,6 +19,12 @@ If GregTech CEu is installed, a mixer dyes a stack of 64 vanilla blocks with one
 
 If Chisel or Rechiseled is installed, every dyed shade can be chiseled to and from its vanilla block (stone, wool, planks, chests and the rest). Where the chisel mod already has a group for the vanilla block, the shades join it. Neither mod is needed.
 
+If Iron Chests is installed, its iron, gold, diamond, copper, silver, crystal and obsidian chests come in every color: craft one with a dye (a dyed one can be dyed again). The panels of each side take the color and the edges, latch and inside keep the metal's; on the crystal chest, whose sides are clear glass, the edges take the color. Iron Chests' upgrades keep the color, and also turn a dyed wooden chest into a dyed iron or copper chest.
+
+If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye. They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers (MIT licensed, by jaquadro and Texelsaur).
+
+With Had Enough Items (HEI, CleanroomMC's fork of JEI, 4.30 or newer) installed, its item list shows each kind of block (and each tier of dyed Iron Chests and size of dyed drawers) as one collapsible entry holding all of its colors, such as "Dyed Wool", and the dyes as one "Mixed Dyes" entry. The original JEI has no such groups and lists every color on its own.
+
 The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.
 
 ## Building
@@ -33,7 +39,7 @@ To run the game from the project, import it into your IDE first (or run `./gradl
 
 Every color of a block shares one grey texture, which the game tints with the dye color. The textures, models and blockstate files are written by `tools/make_assets.py`; run it again after changing it.
 
-None of the mods above is needed to build or run the mod. To try the integrations in the dev game, run `./gradlew prepareTestMods -PwithThermal -PwithGregTech` once, then add the same `-P` options to `runClient` or `runServer`. That fetches Thermal Foundation or GregTech CEu (and the libraries they need) for the dev game only.
+None of the mods above is needed to build or run the mod. To try the integrations in the dev game, run `./gradlew prepareTestMods -PwithThermal -PwithGregTech -PwithHEI` once, then add the same `-P` options to `runClient` or `runServer`. That fetches Thermal Foundation, GregTech CEu or Had Enough Items (and the libraries they need) for the dev game only. Likewise `-Pcompat_mods=true` puts Iron Chests and Storage Drawers in the dev game (no `prepareTestMods` needed); `tools/make_compat_resources.py` writes their models, blockstates and drawer textures.
 
 The Rechiseled chiseling groups (`assets/moredyes/chiseling_recipes`) are written by `tools/make_chisel_recipes.py`; the Chisel groups are sent as IMC messages from `compat/ChiselCompat.java`. Keep the two in step.
 

@@ -26,6 +26,10 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 repositories {
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me'
+    }
 }
 
 dependencies {
@@ -34,6 +38,13 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    }
 }
 
 loom {

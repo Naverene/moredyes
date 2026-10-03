@@ -11,6 +11,8 @@ read from the Minecraft and NeoForge jars:
   * tags: every vanilla and NeoForge tag that lists the vanilla block (mineable/pickaxe, wool, leaves, planks...).
   * recipes: the recipes of the 1.7.10 mod (see the recipes() function).
   * trees: the vanilla tree of each wood, grown from dyed logs and leaves.
+  * the dyed Storage Drawers (compat/storagedrawers): see storage_drawers(). Their textures and models come from
+    tools/storage_drawers.py.
 
 The kinds and colors are read from block/Kind.java and color/ColorGroup.java. Run after `./gradlew build` has
 downloaded Minecraft, and after tools/textures.py:
@@ -181,6 +183,11 @@ POTTABLE = ['tulip'] + ['%s_sapling' % w for w in WOODS]
 # Input
 # ---------------------------------------------------------------------------------------------------------------------
 
+def read_drawer_sizes():
+    source = open(os.path.join(JAVA, 'compat/storagedrawers/StorageDrawersCompat.java')).read()
+    return re.findall(r'"(\w+)"', re.search(r'SIZES\s*=.*?;', source, re.S).group(0))
+
+
 def read_kinds():
     """(id, vanilla id, tab) of each Kind, in order."""
     source = open(os.path.join(JAVA, 'block/Kind.java')).read()
@@ -224,6 +231,27 @@ class Jars:
             for name in jar.namelist():
                 if name.startswith(prefix) and name.endswith('.json'):
                     yield jar, name
+
+
+# Last words of names that read the same in the plural, such as "Glass" or "Concrete Powder".
+UNCOUNTABLE = {'Andesite', 'Clay', 'Cobblestone', 'Concrete', 'Diorite', 'Glass', 'Glowstone', 'Granite', 'Gravel',
+               'Ice', 'Obsidian', 'Powder', 'Sand', 'Sandstone', 'Stone', 'Terracotta', 'Wool'}
+
+
+def plural(name):
+    """"Oak Planks" -> "Oak Planks", "Chest" -> "Chests", "Block of Coal" -> "Blocks of Coal"."""
+    if ' of ' in name:
+        head, tail = name.split(' of ', 1)
+        return plural(head) + ' of ' + tail
+    if name.split(' ')[-1] in UNCOUNTABLE or name.endswith('s'):
+        return name
+    if name.endswith('shelf'):
+        return name[:-1] + 'ves'
+    if name.endswith(('sh', 'ch', 'x')):
+        return name + 'es'
+    if name.endswith('y') and name[-2] not in 'aeiou':
+        return name[:-1] + 'ies'
+    return name + 's'
 
 
 def full(identifier):
@@ -455,6 +483,7 @@ def main():
         return ids
 
     names = {}
+    groups = {'dye': 'Mixed Dyes'}  # recipe viewer groups (compat/rei), by kind
     for kind, vanilla, tab in kinds:
         convert = lambda m, kind=kind, vanilla=vanilla: models.convert(m, kind, vanilla)
         state = remap_models(jars.json('assets/minecraft/blockstates/%s.json' % vanilla), convert)
@@ -463,6 +492,7 @@ def main():
             base_name = 'Foggy ' + base_name
         item = None
         if tab != 'NONE':
+            groups[kind] = 'Dyed ' + plural(base_name)
             item = jars.json('assets/minecraft/items/%s.json' % vanilla)['model']
             if kind == 'chest':
                 item = None  # one per color, below
@@ -517,6 +547,11 @@ def main():
 
     for tab, title in [('dyes', 'Dyes'), ('blocks', 'Blocks'), ('trees', 'Trees'), ('plants', 'Plants')]:
         names['itemGroup.%s.%s' % (MOD, tab)] = 'More Dyes ' + title
+    storage_drawers(w, colors, names)
+    for size in read_drawer_sizes():
+        groups[size] = names['block.%s.%s' % (MOD, size)]  # "Dyed Drawers 1x1", already a plural
+    for kind, name in groups.items():
+        names['group.%s.%s' % (MOD, kind)] = name
     w.write('assets/%s/lang/en_us.json' % MOD, names)
 
     tags(jars, w, kinds, colors)
@@ -619,9 +654,53 @@ def tags(jars, w, kinds, colors):
     add('item', 'minecraft:logs_that_burn', logs)
     add('block', 'minecraft:flower_pots', ['%s:potted_%s_%s' % (MOD, k, c) for k in POTTABLE for c in colors])
     add('item', 'c:dyes', ['%s:dye_%s' % (MOD, c) for c in colors])
+    # The dyed Storage Drawers only exist when Storage Drawers is installed, so they are optional entries. Storage
+    # Drawers' own item tags let its keys, upgrades and recipes treat them like its drawers.
+    sizes = read_drawer_sizes()
+    add('block', 'minecraft:mineable/axe', [optional(size) for size in sizes])
+    for tag, depths in (('drawers', ('full', 'half')), ('full_drawers', ('full',)), ('half_drawers', ('half',))):
+        add('item', 'storagedrawers:' + tag, [optional(size) for size in sizes if size.split('_')[0] in depths])
     for (registry, tag), values in sorted(out.items()):
         ns, path = tag.split(':', 1)
         w.write('data/%s/tags/%s/%s.json' % (ns, registry, path), {'values': values})
+
+
+def optional(path):
+    return {'id': '%s:%s' % (MOD, path), 'required': False}
+
+
+# Storage Drawers' woods: any of its wooden drawers can be dyed.
+DRAWER_WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry', 'pale_oak', 'bamboo',
+                'crimson', 'warped']
+
+
+def storage_drawers(w, colors, names):
+    """The dyed Storage Drawers (compat/storagedrawers): one block per drawer size, whose color is its "color" block
+    state property (the color's position in ColorGroup.java). Blockstates and item models point at the models from
+    tools/storage_drawers.py, and the item is tinted by the color in its block_state component. A Storage Drawers
+    wooden drawer (or a dyed one) of a size and a dye make a dyed drawer of that size and color; the recipes only load
+    when Storage Drawers is installed. They are transmute recipes, like vanilla's shulker box dyeing: the result keeps
+    every component of the drawer it is made from (its stored items and upgrades, its name), only taking the new color."""
+    grids = {'1': '1x1', '2': '1x2', '4': '2x2'}
+    for size in read_drawer_sizes():
+        depth, count = size.split('_drawers_')
+        model = '%s:block/drawers/%s' % (MOD, size)
+        w.write('assets/%s/blockstates/%s.json' % (MOD, size), {'variants': {
+            'facing=%s' % facing: dict({'model': model}, **({'y': y} if y else {}))
+            for facing, y in (('north', 0), ('east', 90), ('south', 180), ('west', 270))}})
+        w.write('assets/%s/items/%s.json' % (MOD, size), {'model': {
+            'type': 'minecraft:model', 'model': model, 'tints': [{'type': MOD + ':state_color'}]}})
+        # The item's name comes from Storage Drawers ("C56685 Drawers 1x1", see DyedDrawersItem); this one is the
+        # block's, for anything that names a block without its color.
+        names['block.%s.%s' % (MOD, size)] = 'Dyed %sDrawers %s' % ('Half ' if depth == 'half' else '', grids[count])
+        for index, color in enumerate(colors):
+            w.write('data/%s/recipe/dyeing/%s_%s.json' % (MOD, size, color), {
+                'neoforge:conditions': [{'type': 'neoforge:mod_loaded', 'modid': 'storagedrawers'}],
+                'type': 'minecraft:crafting_transmute', 'category': 'building', 'group': '%s:%s' % (MOD, size),
+                'input': ['storagedrawers:%s_%s' % (wood, size) for wood in DRAWER_WOODS] + ['%s:%s' % (MOD, size)],
+                'material': '%s:dye_%s' % (MOD, color),
+                'result': {'id': '%s:%s' % (MOD, size),
+                           'components': {'minecraft:block_state': {'color': str(index)}}}})
 
 
 def recipes(jars, w, kinds, colors):

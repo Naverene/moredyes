@@ -1,0 +1,31 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironchest"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "moredyes:dyed_silver_chest",
+  "ingredients": [
+    [
+      {
+        "item": "ironchest:silver_chest"
+      },
+      {
+        "item": "moredyes:dyed_silver_chest"
+      }
+    ],
+    {
+      "item": "moredyes:b3ccec_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_silver_chest",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "2"
+      }
+    }
+  }
+}
