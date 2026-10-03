@@ -3,11 +3,13 @@ package net.neverandy.moredyes.registry;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -28,6 +30,14 @@ public final class ModBlockEntities {
 
     public static void register(IEventBus modBus) {
         BLOCK_ENTITIES.register(modBus);
+        modBus.addListener(ModBlockEntities::addSigns);
+    }
+
+    /** Dyed signs keep their text in a vanilla sign block entity, drawn by DyedSignRenderer. */
+    private static void addSigns(BlockEntityTypeAddBlocksEvent event) {
+        Block[] signs = Stream.concat(ModBlocks.all(Kind.SIGN).stream(), ModBlocks.all(Kind.WALL_SIGN).stream())
+            .map(DeferredBlock::get).toArray(Block[]::new);
+        event.modify(BlockEntityType.SIGN, signs);
     }
 
     private static Set<Block> blocks(Kind kind) {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/oak_sign",
+  "textures": {
+    "particle": "moredyes:block/oak_planks"
+  }
+}

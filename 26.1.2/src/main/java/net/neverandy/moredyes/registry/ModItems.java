@@ -7,6 +7,7 @@ import java.util.Map;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -36,7 +37,14 @@ public final class ModItems {
             }
             Map<MixColor, DeferredItem<BlockItem>> byColor = new LinkedHashMap<>();
             for (MixColor color : MixColors.ALL) {
-                byColor.put(color, ITEMS.registerSimpleBlockItem(ModBlocks.get(kind, color), p -> properties(kind, p)));
+                if (kind == Kind.SIGN) {
+                    // Places the standing sign, or the wall sign when used on the side of a block.
+                    byColor.put(color, ITEMS.registerItem(color.id(kind.id()), p -> new SignItem(
+                        ModBlocks.get(Kind.SIGN, color).get(), ModBlocks.get(Kind.WALL_SIGN, color).get(),
+                        properties(kind, p.useBlockDescriptionPrefix()))));
+                } else {
+                    byColor.put(color, ITEMS.registerSimpleBlockItem(ModBlocks.get(kind, color), p -> properties(kind, p)));
+                }
             }
             BLOCK_ITEMS.put(kind, Collections.unmodifiableMap(byColor));
         }
@@ -55,6 +63,7 @@ public final class ModItems {
     private static Item.Properties properties(Kind kind, Item.Properties p) {
         return switch (kind) {
             case CHEST -> p.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
+            case SIGN -> p.stacksTo(16);
             default -> p;
         };
     }

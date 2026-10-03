@@ -163,7 +163,7 @@ DYE_MIXES = [
 ]
 
 # Kinds that are dyed by putting eight vanilla blocks around a dye. The others are made another way (see recipes()).
-NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'crafting_table', 'chest', 'piston_head', 'tulip'}
+NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip'}
 # Tags the dyed blocks are not added to even though their vanilla block is in them: tags that name the vanilla color,
 # and tags that would let a dyed block make a vanilla block in a recipe that has a dyed version.
 TAG_EXCLUDED = re.compile(r'white|colorless|uncolored|undyed|smelts_to_glass|(^|/)(oak|birch|spruce|jungle|acacia|dark_oak)_logs$')
@@ -505,6 +505,8 @@ def main():
             base_name = 'Foggy ' + base_name
         if kind == 'orchid':
             base_name = 'Orchid'
+        if kind in ('sign', 'wall_sign'):
+            base_name = 'Sign'  # made from the dyed planks of any wood
         item = None
         if tab != 'NONE':
             item = jars.json('assets/minecraft/items/%s.json' % vanilla)['model']
@@ -946,6 +948,7 @@ def recipes(jars, w, kinds, colors):
                    {'W': b('%s_planks' % wood), '#': 'minecraft:stick'}, True)
         shaped('crafting_table_%s' % c, b('crafting_table'), 1, ['PP', 'PP'], {'P': planks}, True)
         shaped('chest_%s' % c, b('chest'), 1, ['PPP', 'P P', 'PPP'], {'P': planks}, True)
+        shaped('sign_%s' % c, b('sign'), 3, ['PPP', 'PPP', ' S '], {'P': planks, 'S': 'minecraft:stick'}, True)
         shaped('bookshelf_%s' % c, b('bookshelf'), 1, ['PPP', 'BBB', 'PPP'], {'P': planks, 'B': 'minecraft:book'},
                True)
         shaped('piston_%s' % c, b('piston'), 1, ['PPP', 'CIC', 'CRC'],
@@ -1034,6 +1037,8 @@ def data_maps(w, kinds, colors):
             continue
         if kind in ('crafting_table', 'bookshelf', 'chest') or re.search(r'_(log|planks|fence)$', kind):
             burn = 300
+        elif kind == 'sign':
+            burn = 200
         elif kind == 'coal_block':
             burn = 16000
         elif kind.endswith('_sapling'):
