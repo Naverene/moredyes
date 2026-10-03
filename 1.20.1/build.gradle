@@ -27,6 +27,11 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            if (project.findProperty('recipe_viewer') == 'true') {
+                // REI's libraries name their mixin targets in SRG; the dev game uses Mojang's names.
+                property 'mixin.env.remapRefMap', 'true'
+                property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            }
 
             mods {
                 "${mod_id}" {
@@ -61,10 +66,30 @@ sourceSets.main.resources {
 }
 
 repositories {
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me'
+    }
+    maven {
+        // Architectury, which REI needs in the dev game (-Precipe_viewer=true)
+        name = 'architectury'
+        url = 'https://maven.architectury.dev'
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        // Each mod jar is remapped on its own, so REI's libraries are listed rather than pulled in.
+        ["me.shedaniel:RoughlyEnoughItems-forge:${rei_version}", "me.shedaniel.cloth:cloth-config-forge:11.0.99",
+         "dev.architectury:architectury-forge:9.0.7"].each {
+            runtimeOnly fg.deobf(it) { transitive = false }
+        }
+    }
 }
 
 tasks.named('processResources', ProcessResources).configure {

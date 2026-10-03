@@ -1,0 +1,1 @@
+{"neoforge:conditions":[{"type":"neoforge:mod_loaded","modid":"ironchest"}],"type":"minecraft:crafting_transmute","category":"building","group":"moredyes:iron_chest","input":["ironchest:iron_chest","moredyes:iron_chest"],"material":"moredyes:dye_668c32","result":{"id":"moredyes:iron_chest","components":{"minecraft:block_state":{"color":"64"}}}}

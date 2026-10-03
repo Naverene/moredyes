@@ -12,6 +12,7 @@ This repository holds every version of the mod, one folder per Minecraft version
 | [1.18.2](1.18.2) | 1.18.2 | Forge | 17 |
 | [1.20.1](1.20.1) | 1.20.1 | Forge | 17 |
 | [1.20.1-fabric](1.20.1-fabric) | 1.20.1 | Fabric (needs Fabric API) | 17 to play, 21 to build |
+| [26.1.2](26.1.2) | 26.1.2 | NeoForge | 25 |
 | [26.3](26.3) | 26.3 | NeoForge | 25 |
 
 Each Minecraft folder is its own Gradle project with its own wrapper. Open the folder for the version you want in your IDE (not the repository root), and run `./gradlew build` inside it. The jar lands in that folder's `build/libs` as `moredyes-<mod version>-<Minecraft version>.jar` (with `-fabric` on the end for Fabric). The Fabric build uses the models, textures, recipes and other data files from the Forge folder of the same Minecraft version, so it needs that folder next to it.
@@ -26,4 +27,4 @@ Each Minecraft folder is its own Gradle project with its own wrapper. Open the f
 
 ## History
 
-Each folder used to be its own repository. Their full histories were brought in here, so `git log -- 1.16.5` shows the 1.16.5 version's history. The old repositories are Naverene/MoreDyes_1_7_10, moredyes_1122, moredyes_1165, moredyes_1182, moredyes_1201 and moredyes_263.
+Each folder used to be its own repository. Their full histories were brought in here, so `git log -- 1.16.5` shows the 1.16.5 version's history. The old repositories are Naverene/MoreDyes_1_7_10, moredyes_1122, moredyes_1165, moredyes_1182, moredyes_1201 and moredyes_263. The 26.1.2 version was made here from the 26.3 one.

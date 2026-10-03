@@ -13,6 +13,10 @@ public class Reference {
     public static final String MOD_NAME = "More Dyes";
     public static final String MOD_VERSION = Tags.VERSION;
 
+    /** Mod ids of the optional mods that More Dyes adds dyed blocks for (see the compat packages). */
+    public static final String IRON_CHESTS = "IronChest";
+    public static final String STORAGE_DRAWERS = "StorageDrawers";
+
     public static final String CLIENT_PROXY = "info.kg6jay.moredyes.proxy.ClientProxy";
     public static final String SERVER_PROXY = "info.kg6jay.moredyes.proxy.ServerProxy";
 

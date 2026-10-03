@@ -1,0 +1,13 @@
+{
+  "parent": "moredyes:block/drawers/full_drawers",
+  "textures": {
+    "particle": "moredyes:block/drawers_front_4",
+    "down": "moredyes:block/drawers_side",
+    "up": "moredyes:block/drawers_side",
+    "north": "moredyes:block/drawers_front_4",
+    "east": "moredyes:block/drawers_side",
+    "south": "moredyes:block/drawers_side",
+    "west": "moredyes:block/drawers_side",
+    "trim": "moredyes:block/drawers_trim"
+  }
+}

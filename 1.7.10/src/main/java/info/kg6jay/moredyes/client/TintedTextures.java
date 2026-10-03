@@ -101,9 +101,10 @@ public final class TintedTextures implements IResourcePack {
         int size = image.getWidth();
         int height = Math.min(image.getHeight(), source.model ? image.getHeight() : size);
         BufferedImage result = new BufferedImage(size, height, BufferedImage.TYPE_INT_ARGB);
+        TintSources.PixelTransform transform = source.transform.forImage(image);
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < size; ++x) {
-                result.setRGB(x, y, source.transform.apply(image.getRGB(x, y), x, y, size));
+                result.setRGB(x, y, transform.apply(image.getRGB(x, y), x, y, size));
             }
         }
 

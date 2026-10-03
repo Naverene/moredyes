@@ -8,12 +8,14 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.registry.ModBlockEntities;
@@ -36,6 +38,10 @@ public class MoreDyes {
         modBus.addListener(CauldronWashing::register);
         modBus.addListener(MoreDyes::commonSetup);
         container.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
+        // Optional compat. Its classes refer to the other mod's classes, so they are only touched when it's installed.
+        if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID)) {
+            StorageDrawersCompat.register(modBus);
+        }
     }
 
     private static void commonSetup(FMLCommonSetupEvent event) {
