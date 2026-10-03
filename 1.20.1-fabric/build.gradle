@@ -26,6 +26,11 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 repositories {
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
 }
 
 dependencies {
@@ -34,6 +39,13 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    // Optional: Storage Drawers, which More Dyes adds dyed drawers to. The compat classes only load when it is
+    // installed, so it is compile-time only. Run the game with it by passing -Pcompat_mods=true.
+    modCompileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    if (project.findProperty('compat_mods') == 'true') {
+        modRuntimeOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    }
 }
 
 loom {
@@ -51,11 +63,11 @@ def forgeDir = file('../1.20.1')
 def forgeGenerated = new File(forgeDir, 'src/generated/resources')
 // Wall recipes are Forge conditional recipes (skipped when wall_blocks is off). Every one of them is a wall.
 def wallRecipes = ['data/moredyes/recipes/*wall_*.json', 'data/moredyes/recipes/stonecutting/*wall_*.json']
-def compatResources = [
-        'data/moredyes/recipes/iron_chests/**', 'data/moredyes/recipes/storage_drawers/**', 'data/storagedrawers/**',
-        'assets/moredyes/blockstates/dyed_*', 'assets/moredyes/models/block/dyed_*',
-        'assets/moredyes/models/item/dyed_*', 'assets/moredyes/models/block/drawers/**',
-        'assets/moredyes/textures/block/tinted/drawers_*',
+// Iron Chests has no Fabric version (the Fabric chest mods are different mods), so the dyed Iron Chests' recipes
+// and models stay out. The dyed Storage Drawers' resources are shared: their recipes carry Fabric's condition too.
+def ironChestResources = [
+        'data/moredyes/recipes/iron_chests/**',
+        'assets/moredyes/blockstates/dyed_*_chest.json', 'assets/moredyes/models/item/dyed_*_chest.json',
 ]
 def fabricRecipesDir = layout.buildDirectory.dir('generated/fabricRecipes')
 
@@ -101,9 +113,7 @@ tasks.named('processResources', ProcessResources).configure {
 
     from(new File(forgeDir, 'src/main/resources')) {
         exclude 'META-INF/mods.toml'
-        // The Iron Chests and Storage Drawers blocks are Forge-only (the Fabric ports of those mods are different
-        // mods), so their recipes, tags, models and textures stay out.
-        exclude compatResources
+        exclude ironChestResources
     }
     from(forgeGenerated) {
         exclude '.cache'

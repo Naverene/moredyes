@@ -5,6 +5,14 @@
       "modid": "storagedrawers"
     }
   ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "storagedrawers"
+      ]
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "group": "moredyes:dyed_full_drawers_1",
