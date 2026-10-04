@@ -265,6 +265,13 @@ public class ModRecipeProvider extends RecipeProvider
                     .unlockedBy("has_dye", has(MDItem.dye[i])).save(out, id("dyeing/" + name(chest)));
             washable(chest, "chest");
 
+            // Like vanilla: six planks and a stick make three signs.
+            Block sign = MDBlock.signArray[i];
+            ShapedRecipeBuilder.shaped(sign, 3).define('P', Ingredient.of(allPlanks)).define('S', Items.STICK)
+                    .pattern("PPP").pattern("PPP").pattern(" S ")
+                    .unlockedBy("has_planks", has(allPlanks[0])).save(out, id(name(sign)));
+            dyeable(i, sign, "oak_sign");
+
             Block shelf = MDBlock.bookshelfArray[i];
             ShapedRecipeBuilder.shaped(shelf).define('P', Ingredient.of(allPlanks)).define('B', Items.BOOK)
                     .pattern("PPP").pattern("BBB").pattern("PPP")

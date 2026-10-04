@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-03T22:10:31.693580724	Tags for minecraft:item mod id moredyes
+// 1.20.1	2026-10-03T23:19:56.391259254	Tags for minecraft:item mod id moredyes
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/items/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/items/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/items/glass_panes.json
@@ -6,6 +6,7 @@ cc6c18a7810ef5f3b7fc7c85ec6c77af4946fca8 data/minecraft/tags/items/leaves.json
 80e0efbc572d896b8958609c7751161bd1f7ed23 data/minecraft/tags/items/logs_that_burn.json
 12d52c39421d6790f33f190c5d80a00cc73798c1 data/minecraft/tags/items/planks.json
 5dd59e2280e40a5fd4440bb939aae36e8cb53ba3 data/minecraft/tags/items/saplings.json
+f6d87d2895a55f36d2574165d316064334f61392 data/minecraft/tags/items/signs.json
 cdfc128d52cc5dd2d70e858b9961050879d1e75b data/minecraft/tags/items/slabs.json
 08f0ecbf1d1630b3e59ddc2001135d56aca77858 data/minecraft/tags/items/small_flowers.json
 e0fb03843bba8b8bf36ac35641d2cf2700f20dbd data/minecraft/tags/items/stairs.json

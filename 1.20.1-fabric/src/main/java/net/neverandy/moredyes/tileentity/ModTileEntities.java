@@ -12,6 +12,8 @@ public final class ModTileEntities
 {
     /** One block entity type shared by every dyed chest. Registered after the chests. */
     public static BlockEntityType<MDChestTileEntity> CHEST;
+    /** One block entity type shared by every dyed sign, standing or on a wall. */
+    public static BlockEntityType<DyedSignBlockEntity> SIGN;
 
     private ModTileEntities() {}
 
@@ -19,5 +21,7 @@ public final class ModTileEntities
     {
         CHEST = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Reference.MOD_ID, "chest"),
                 FabricBlockEntityTypeBuilder.create(MDChestTileEntity::new, MDBlock.chestArray).build());
+        SIGN = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Reference.MOD_ID, "sign"),
+                FabricBlockEntityTypeBuilder.create(DyedSignBlockEntity::new, MDBlock.signs()).build());
     }
 }

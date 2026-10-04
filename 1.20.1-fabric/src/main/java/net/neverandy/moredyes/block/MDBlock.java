@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FallingBlock;
@@ -124,6 +125,8 @@ public class MDBlock
     public static IronBarsBlock[] glassFoggyPaneArray = new IronBarsBlock[COLORS];
     public static BlockBookshelf[] bookshelfArray = new BlockBookshelf[COLORS];
     public static BlockChest[] chestArray = new BlockChest[COLORS];
+    public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[COLORS];
+    public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[COLORS];
 
     // Full blocks from the sheet's second batch.
     public static Block[] graniteArray = new Block[COLORS];
@@ -218,6 +221,7 @@ public class MDBlock
         sapling("dark_oak", darkOakSaplingArray);
 
         registerPistons();
+        registerSigns();
         registerMoreBlocks();
         registerFlowers();
         DyedShapes.registerAll();
@@ -307,6 +311,36 @@ public class MDBlock
             register("stickypiston_" + hex, stickyPistonArray, i, () -> new BlockPiston(true, color), MDTabs.BLOCKS, BlockItem::new);
             register("pistonhead_" + hex, pistonHeadArray, i, () -> new BlockPistonHead(color), null, null);
         }
+    }
+
+    /**
+     * Oak signs in each color. The wall sign has no item; it is placed by the sign's item and drops it. The item is
+     * registered after both blocks, since it places either.
+     */
+    private static void registerSigns()
+    {
+        MINEABLE.put(signArray, AXE);
+        MINEABLE.put(wallSignArray, AXE);
+        for (int i = 0; i < COLORS; i++)
+        {
+            final int color = i;
+            String hex = ColorStrings.ALL[i];
+            DyedStandingSignBlock sign = register("sign_" + hex, signArray, i, () -> new DyedStandingSignBlock(copy(Blocks.OAK_SIGN)), null, null);
+            register("wallsign_" + hex, wallSignArray, i, () -> new DyedWallSignBlock(copy(Blocks.OAK_WALL_SIGN).dropsLike(sign)), null, null);
+            Item item = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(Reference.MOD_ID, "sign_" + hex),
+                    new SignItem(new Item.Properties().stacksTo(16), sign, wallSignArray[color]));
+            ITEMS.add(item);
+            MDTabs.BLOCKS.add(item);
+        }
+    }
+
+    /** Every dyed sign block, standing and on a wall. */
+    public static Block[] signs()
+    {
+        Block[] signs = new Block[COLORS * 2];
+        System.arraycopy(signArray, 0, signs, 0, COLORS);
+        System.arraycopy(wallSignArray, 0, signs, COLORS, COLORS);
+        return signs;
     }
 
     private static <B extends Block> void colors(String type, B[] array, Supplier<B> factory, MDTabs tab, TagKey<Block> tool)

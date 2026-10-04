@@ -54,6 +54,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider
         }
         getOrCreateBuilder(BlockTags.WOOL).add(MDBlock.woolArray);
         getOrCreateBuilder(Tags.Blocks.CHESTS_WOODEN).add(MDBlock.chestArray);
+        getOrCreateBuilder(BlockTags.STANDING_SIGNS).add(MDBlock.signArray);
+        getOrCreateBuilder(BlockTags.WALL_SIGNS).add(MDBlock.wallSignArray);
         getOrCreateBuilder(Tags.Blocks.GLASS_PANES).add(concat(MDBlock.glassPaneArray, MDBlock.glassFoggyPaneArray));
     }
 
