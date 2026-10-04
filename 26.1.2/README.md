@@ -19,7 +19,7 @@ This is the NeoForge port for Minecraft 26.1.2, made from the 26.3 version.
 * Dyed slabs, stairs and walls are crafted from the dyed block like vanilla's, or cut from it on a stonecutter.
 * A dyed block crafted with a water bucket, or used on a water cauldron, turns back into the vanilla block.
 * Dyed blocks turn into each other like the vanilla ones: cobblestone smelts to stone, logs make planks, dyed planks
-  make crafting tables, chests, bookshelves and pistons of their color, and so on.
+  make crafting tables, chests, signs, bookshelves and pistons of their color, and so on.
 * A dye used on a sheep dyes its wool, and some sheep spawn already dyed (the chance is `sheep_spawn_chance` in the
   server config, `serverconfig/moredyes-server.toml`). Lambs take a color from a parent.
 * Dye trees grow in the overworld about every four chunks, and patches of dyed tulips about every other chunk.
