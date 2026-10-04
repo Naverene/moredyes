@@ -3,6 +3,7 @@ package net.neverandy.moredyes;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraft.entity.EntityType;
+import net.neverandy.moredyes.api.MoreDyesAPI;
 import net.neverandy.moredyes.client.DyedPistonRenderer;
 import net.neverandy.moredyes.client.DyedSheepRenderer;
 import net.neverandy.moredyes.network.ModNetwork;
@@ -93,6 +94,8 @@ public class MoreDyes
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigHandler.CLIENT_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ConfigHandler.SERVER_CONFIG);
         CraftingHelper.register(WallsEnabledCondition.SERIALIZER);
+        // Optional tags must be made before the tags load, so the API's tag is made here rather than on first use.
+        MoreDyesAPI.DYES.getName();
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

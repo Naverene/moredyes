@@ -2,7 +2,11 @@
 """
 Writes data/forge/tags/items/dyes/<color>.json, which put every More Dyes dye in the Forge tag of the vanilla dye
 color it looks closest to (CIEDE2000 distance). Mods that read a dye's color from those tags then accept ours,
-for example Ender Storage, whose frequency buttons only know the 16 vanilla colors.
+for example Ender Storage, whose frequency buttons only know the 16 vanilla colors. api/NearestColor.java finds the
+same color in code.
+
+Also writes data/moredyes/tags/items/dyes.json, which holds every dye (MoreDyesAPI.DYES), and the Fabric
+conventional tags c:dyes and c:<color>_dyes into the Fabric build's resources.
 
 Run from anywhere: python3 tools/make_dye_tags.py
 """
@@ -14,7 +18,9 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COLORS = os.path.join(ROOT, 'src/main/java/net/neverandy/moredyes/reference/ColorStrings.java')
-OUT = os.path.join(ROOT, 'src/main/resources/data/forge/tags/items/dyes')
+RESOURCES = os.path.join(ROOT, 'src/main/resources')
+OUT = os.path.join(RESOURCES, 'data/forge/tags/items/dyes')
+FABRIC = os.path.join(os.path.dirname(ROOT), '1.20.1-fabric/src/main/resources/data/c/tags/items')
 
 # Vanilla DyeColor texture colors.
 VANILLA = {
@@ -72,6 +78,13 @@ def ciede2000(c1, c2):
     return math.sqrt((dl / sl) ** 2 + (dc / sc) ** 2 + (dhh / sh) ** 2 + rt * (dc / sc) * (dhh / sh))
 
 
+def write(path, values):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w') as f:
+        json.dump({'replace': False, 'values': values}, f, indent=2)
+        f.write('\n')
+
+
 def main():
     source = open(COLORS).read()
     colors = re.findall(r'"([0-9a-f]{6})"', re.search(r'\bALL\s*=.*?;', source, re.S).group(0))
@@ -80,11 +93,12 @@ def main():
     for color in sorted(colors):
         nearest = min(vanilla, key=lambda name: ciede2000(lab(int(color, 16)), vanilla[name]))
         tags[nearest].append('moredyes:%s_dye' % color)
-    os.makedirs(OUT, exist_ok=True)
     for name, values in sorted(tags.items()):
-        with open(os.path.join(OUT, name + '.json'), 'w') as f:
-            json.dump({'replace': False, 'values': values}, f, indent=2)
-            f.write('\n')
+        write(os.path.join(OUT, name + '.json'), values)
+        write(os.path.join(FABRIC, name + '_dyes.json'), values)
+    every = ['moredyes:%s_dye' % color for color in colors]
+    write(os.path.join(RESOURCES, 'data/moredyes/tags/items/dyes.json'), every)
+    write(os.path.join(FABRIC, 'dyes.json'), every)
     print('%d dyes in %d tags' % (len(colors), len(tags)))
 
 

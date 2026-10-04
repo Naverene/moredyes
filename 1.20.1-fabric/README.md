@@ -40,6 +40,10 @@ dyed Iron Chests are Forge-only.
 
 To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` to Gradle.
 
+## For other mods
+
+Other mods can use the colors through `net.neverandy.moredyes.api.MoreDyesAPI` (the exact color of any dye or dyed block, dyes by color, sheep colors, the nearest vanilla color) and the tags `moredyes:dyes` and `c:dyes`, which hold every dye. Each dye is also in the conventional tag of its nearest vanilla color, such as `c:red_dyes`; tools/make_dye_tags.py in the Forge folder writes these. See [API.md](../API.md).
+
 ## Building
 
 Builds on Java 21 (the mod itself runs on Java 17).

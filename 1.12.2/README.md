@@ -27,6 +27,10 @@ With Had Enough Items (HEI, CleanroomMC's fork of JEI, 4.30 or newer) installed,
 
 The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.
 
+## For other mods
+
+Other mods can use the colors through `net.neverandy.moredyes.api.MoreDyesAPI` (the exact color of any dye or dyed block, dyes by color, sheep colors, the nearest vanilla color) and the `moredyesDye` ore name, which holds every dye. See [API.md](../API.md).
+
 ## Building
 
 The mod builds with Java 8:

@@ -789,6 +789,7 @@ def tags(jars, w, kinds, colors):
     add('item', 'minecraft:logs_that_burn', logs)
     add('block', 'minecraft:flower_pots', ['%s:potted_%s_%s' % (MOD, k, c) for k in POTTABLE for c in colors])
     add('item', 'c:dyes', ['%s:dye_%s' % (MOD, c) for c in colors])
+    add('item', MOD + ':dyes', ['%s:dye_%s' % (MOD, c) for c in colors])  # MoreDyesAPI.DYES
     # The dyed Storage Drawers only exist when Storage Drawers is installed, so they are optional entries. Storage
     # Drawers' own item tags let its keys, upgrades and recipes treat them like its drawers.
     sizes = read_drawer_sizes()

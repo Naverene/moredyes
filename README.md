@@ -17,6 +17,10 @@ This repository holds every version of the mod, one folder per Minecraft version
 
 Each Minecraft folder is its own Gradle project with its own wrapper. Open the folder for the version you want in your IDE (not the repository root), and run `./gradlew build` inside it. The jar lands in that folder's `build/libs` as `moredyes-<mod version>-<Minecraft version>.jar` (with `-fabric` on the end for Fabric). The Fabric build uses the models, textures, recipes and other data files from the Forge folder of the same Minecraft version, so it needs that folder next to it.
 
+## For other mods
+
+Other mods can read and use More Dyes colors through tags and the `MoreDyesAPI` class in every version; see [API.md](API.md).
+
 ## Builds and releases
 
 [`.github/workflows/build.yml`](.github/workflows/build.yml) builds each version on its own Java and checks that it loads on a server.

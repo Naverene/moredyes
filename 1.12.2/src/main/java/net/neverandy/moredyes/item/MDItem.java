@@ -7,6 +7,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
+import net.neverandy.moredyes.api.MoreDyesAPI;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
@@ -41,6 +42,7 @@ public class MDItem
 		for(Item item:dye)
 		{
 			OreDictionary.registerOre("dye",new ItemStack(item,1,OreDictionary.WILDCARD_VALUE));
+			OreDictionary.registerOre(MoreDyesAPI.ORE_DYES,new ItemStack(item,1,OreDictionary.WILDCARD_VALUE));
 		}
 		MDBlock.registerOreDictionary();
 	}
