@@ -101,8 +101,8 @@ public final class MoreDyesAPI {
             return shade(dye.set, damage);
         }
         // Stairs, slabs, walls, trapdoors and pistons are one block for every color, numbered as in ColorIndex.
-        if (item instanceof MDItemBlockTileColored || Loader.isModLoaded(Reference.IRON_CHESTS)
-            && item instanceof DyedIronChestItem
+        if (item instanceof MDItemBlockTileColored
+            || Loader.isModLoaded(Reference.IRON_CHESTS) && item instanceof DyedIronChestItem
             || Loader.isModLoaded(Reference.STORAGE_DRAWERS) && item instanceof DyedDrawersItem) {
             return index(damage);
         }
