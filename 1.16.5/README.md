@@ -18,4 +18,8 @@ I'm open to suggestions for naming the colors. Right now they are all labeled wi
 
 Dyed saplings can now be crafted from an oak sapling and the appropriate colored dye. Thats right, dye trees are now in. 
 
-Tulips in all the colors are available from the creative menu. Worldgen now exists for both the dye trees and the tulips. 
+Tulips in all the colors are available from the creative menu. Worldgen now exists for both the dye trees and the tulips.
+
+## For other mods
+
+Other mods can use the colors through `net.neverandy.moredyes.api.MoreDyesAPI` (the exact color of any dye or dyed block, dyes by color, sheep colors, the nearest vanilla color) and the `moredyes:dyes` tag, which holds every dye. See [API.md](../API.md).

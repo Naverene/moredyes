@@ -36,6 +36,10 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
   with hoppers, keys, upgrades, labels and drawer controllers like Storage Drawers' own. Their textures are made from
   Storage Drawers' oak drawers (MIT licensed, by Texelsaur). Storage Drawers is optional.
 
+## For other mods
+
+Other mods can use the colors through `net.neverandy.moredyes.api.MoreDyesAPI` (the exact color of any dye or dyed block, dyes by color, sheep colors, the nearest vanilla color) and the `moredyes:dyes` tag, which holds every dye. See [API.md](../API.md).
+
 ## Building
 
 The mod needs Java 25. `./gradlew build` builds the jar into `build/libs`, `./gradlew runClient` and

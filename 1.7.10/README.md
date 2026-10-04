@@ -278,6 +278,10 @@ To give a new block a texture, add a line to `TintSources` and call `TintedTextu
 
 Stairs, slabs, walls, trapdoors and pistons need their metadata for their direction or shape, so they keep their color in a small tile entity instead. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
 
+## For other mods
+
+Other mods can use the colors through `info.kg6jay.moredyes.api.MoreDyesAPI` (the exact color of any dye or dyed block, dyes by color, sheep colors, the nearest vanilla color) and the `moredyesDye` ore name, which holds every dye. See [API.md](../API.md).
+
 ## Downloads and releases
 
 GitHub Actions builds the mod on every push, then starts a server with it and a fresh world; the build fails if the mod crashes or throws an error while loading. Pushing or merging to `main` updates the **Development build** pre-release on the Releases page with the newest jar. These builds are for testing.

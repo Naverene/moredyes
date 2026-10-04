@@ -39,6 +39,10 @@ This is the NeoForge port for Minecraft 26.1.2, made from the 26.3 version.
   doesn't ship any Iron Chests art: the game splits Iron Chests' textures into wood and metal when it loads them.
   Iron Chests is optional.
 
+## For other mods
+
+Other mods can use the colors through `net.neverandy.moredyes.api.MoreDyesAPI` (the exact color of any dye or dyed block, dyes by color, sheep colors, the nearest vanilla color) and the `moredyes:dyes` tag, which holds every dye. See [API.md](../API.md).
+
 ## Building
 
 The mod needs Java 25. `./gradlew build` builds the jar into `build/libs`, `./gradlew runClient` and

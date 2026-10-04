@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import info.kg6jay.moredyes.api.MoreDyesAPI;
 import info.kg6jay.moredyes.block.MDBlock;
 
 public class MDItem {
@@ -27,6 +28,7 @@ public class MDItem {
     public static void registerOreDict() {
         for (Item item : dye) {
             OreDictionary.registerOre("dye", new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+            OreDictionary.registerOre(MoreDyesAPI.ORE_DYES, new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
         }
     }
 }
