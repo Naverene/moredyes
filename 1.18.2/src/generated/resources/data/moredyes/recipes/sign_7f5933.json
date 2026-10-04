@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PPP",
+    " S "
+  ],
+  "key": {
+    "P": [
+      {
+        "item": "moredyes:plank_7f5933"
+      },
+      {
+        "item": "moredyes:birchplanks_7f5933"
+      },
+      {
+        "item": "moredyes:spruceplanks_7f5933"
+      },
+      {
+        "item": "moredyes:jungleplanks_7f5933"
+      },
+      {
+        "item": "moredyes:acaciaplanks_7f5933"
+      },
+      {
+        "item": "moredyes:darkoakplanks_7f5933"
+      }
+    ],
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "moredyes:sign_7f5933",
+    "count": 3
+  }
+}
