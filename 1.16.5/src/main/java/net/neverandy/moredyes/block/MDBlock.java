@@ -10,6 +10,7 @@ import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.SignItem;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
@@ -167,6 +168,8 @@ public class MDBlock
     public static BlockGlassPane[] glassFoggyPaneArray = new BlockGlassPane[totalColorCount];
     public static BlockBookshelf[] bookshelfArray = new BlockBookshelf[totalColorCount];
     public static BlockChest[] chestArray = new BlockChest[totalColorCount];
+    public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[totalColorCount];
+    public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[totalColorCount];
 
     // Full blocks from the sheet's second batch; each copies its vanilla block's properties.
     public static Block[] graniteArray = new Block[totalColorCount];
@@ -282,6 +285,7 @@ public class MDBlock
 
         //registerLadder();
         registerPistons();
+        registerSigns();
 
         registerMoreBlocks();
         registerFlowers();
@@ -418,6 +422,31 @@ public class MDBlock
     }
 
     /** A piston and a sticky piston for each color, sharing one head block that has both kinds like vanilla. */
+    /** Oak signs in each color. The wall sign has no item; it is placed by the sign's item and drops it. */
+    private static void registerSigns()
+    {
+        for (int i = 0; i < ColorStrings.ALL.length; i++)
+        {
+            String color = ColorStrings.ALL[i];
+            final DyedStandingSignBlock sign = new DyedStandingSignBlock(AbstractBlock.Properties.from(Blocks.OAK_SIGN));
+            final DyedWallSignBlock wallSign = new DyedWallSignBlock(AbstractBlock.Properties.from(Blocks.OAK_WALL_SIGN).lootFrom(() -> sign));
+            signArray[i] = sign;
+            wallSignArray[i] = wallSign;
+            BLOCKS.register("sign_" + color, () -> sign);
+            BLOCKS.register("wallsign_" + color, () -> wallSign);
+            ITEMS.register("sign_" + color, () -> new SignItem(new Item.Properties().maxStackSize(16).group(MoreDyes.tabBlocks), sign, wallSign));
+        }
+    }
+
+    /** Every dyed sign block, standing and on a wall. */
+    public static Block[] signs()
+    {
+        Block[] signs = new Block[signArray.length * 2];
+        System.arraycopy(signArray, 0, signs, 0, signArray.length);
+        System.arraycopy(wallSignArray, 0, signs, signArray.length, wallSignArray.length);
+        return signs;
+    }
+
     private static void registerPistons()
     {
         for (int i = 0; i < ColorStrings.ALL.length; i++)

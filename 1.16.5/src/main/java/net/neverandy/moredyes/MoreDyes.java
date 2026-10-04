@@ -7,6 +7,7 @@ import net.neverandy.moredyes.client.DyedPistonRenderer;
 import net.neverandy.moredyes.client.DyedSheepRenderer;
 import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.client.ChestRenderer;
+import net.neverandy.moredyes.client.DyedSignRenderer;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
@@ -133,6 +134,7 @@ public class MoreDyes
     private void doClientStuff(final FMLClientSetupEvent event)
     {
         ClientRegistry.bindTileEntityRenderer(ModTileEntities.CHEST.get(), ChestRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityType.SHEEP, DyedSheepRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         ClientRegistry.bindTileEntityRenderer(TileEntityType.PISTON, DyedPistonRenderer::new);

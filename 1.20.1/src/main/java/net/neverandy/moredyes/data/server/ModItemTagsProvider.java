@@ -39,6 +39,7 @@ public class ModItemTagsProvider extends ItemTagsProvider
         copy(BlockTags.WOODEN_STAIRS, ItemTags.WOODEN_STAIRS);
         copy(BlockTags.WALLS, ItemTags.WALLS);
         copy(Tags.Blocks.CHESTS_WOODEN, Tags.Items.CHESTS_WOODEN);
+        copy(BlockTags.STANDING_SIGNS, ItemTags.SIGNS);
         copy(Tags.Blocks.GLASS_PANES, Tags.Items.GLASS_PANES);
         copy(Tags.Blocks.GLASS, Tags.Items.GLASS);
     }

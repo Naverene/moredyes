@@ -86,6 +86,8 @@ TEXTURES = {
                            ('block/piston_inner_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/white_tulip': [('block/tulip', GREY_IF_NOT_GREEN, True), ('block/tulip_stem', KEEP_IF_GREEN, False)],
     'item/white_dye': [('item/dye', GREY, True)],
+    'block/oak_sign': [('block/sign', GREY, True)],
+    'item/oak_sign': [('item/sign', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',

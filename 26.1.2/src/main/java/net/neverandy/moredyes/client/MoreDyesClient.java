@@ -77,6 +77,8 @@ public class MoreDyesClient {
         event.registerBlockEntityRenderer(ModBlockEntities.CHEST.get(), DyedChestRenderer::new);
         // Replaces vanilla's renderer for moving pistons, so dyed pistons draw their own head while retracting.
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, context -> new DyedPistonRenderer());
+        // Replaces vanilla's sign renderer, which dyed signs share, so they are drawn in their color.
+        event.registerBlockEntityRenderer(BlockEntityType.SIGN, DyedSignRenderer::new);
     }
 
     private static void renderStateModifiers(RegisterRenderStateModifiersEvent event) {

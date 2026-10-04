@@ -106,6 +106,7 @@ SOURCES = {
     'tulip_petals': ('block/white_tulip', GREY_IF_NOT_GREEN),
     'tulip_stem': ('block/white_tulip', KEEP_IF_GREEN),
     'dye': ('item/white_dye', GREY),
+    'sign': ('item/oak_sign', GREY),
     'glass_pane_top': ('block/glass_pane_top', GREY),
     'bookshelf': ('block/bookshelf', GREY),
     'piston_side': ('block/piston_side', GREY),
@@ -169,6 +170,8 @@ def is_piston_cobblestone(name, x, y):
 # color: its pixels sit in the top-left corner of the texture, (width, height) given here.
 CHEST_OUT = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures/entity/chest')
 CHESTS = {'normal': (6, 5), 'normal_left': (4, 5), 'normal_right': (4, 5)}
+# Likewise the sign texture goes on the sign atlas (textures/entity/signs). The whole sign takes the dye, post included.
+SIGN_OUT = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures/entity/signs')
 
 
 def client_jar():
@@ -219,6 +222,12 @@ def main():
             pixels[x, y] = p
         image.save(os.path.join(CHEST_OUT, name + '.png'))
     print('wrote %d chest textures to %s' % (len(CHESTS), os.path.relpath(CHEST_OUT, ROOT)))
+
+    os.makedirs(SIGN_OUT, exist_ok=True)
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/signs/oak.png'))).convert('RGBA')
+    image.putdata(brighten([grey(p) for p in image.getdata()]))
+    image.save(os.path.join(SIGN_OUT, 'dyed.png'))
+    print('wrote the sign texture to %s' % os.path.relpath(SIGN_OUT, ROOT))
 
 
 if __name__ == '__main__':

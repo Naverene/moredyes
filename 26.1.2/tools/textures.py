@@ -86,6 +86,7 @@ TEXTURES = {
                            ('block/piston_inner_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/white_tulip': [('block/tulip', GREY_IF_NOT_GREEN, True), ('block/tulip_stem', KEEP_IF_GREEN, False)],
     'item/white_dye': [('item/dye', GREY, True)],
+    'item/oak_sign': [('item/sign', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
@@ -225,6 +226,12 @@ def main():
     foggy = first_frame(Image.open(os.path.join(BASE, 'foggy_glass.png')).convert('RGBA'))
     foggy.putdata(brighten([grey(p) for p in foggy.get_flattened_data()]))
     save(foggy, FOGGY_GLASS)
+    count += 1
+
+    # The sign is drawn from the sign atlas (textures/entity/signs), by client/DyedSignRenderer.
+    sign = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/signs/oak.png'))).convert('RGBA')
+    sign.putdata(brighten([grey(p) for p in sign.get_flattened_data()]))
+    save(sign, 'entity/signs/dyed')
     count += 1
 
     for name, (latch_w, latch_h) in sorted(CHESTS.items()):

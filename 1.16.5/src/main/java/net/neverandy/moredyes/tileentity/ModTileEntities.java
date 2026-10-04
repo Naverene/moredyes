@@ -16,6 +16,11 @@ public final class ModTileEntities
     public static final RegistryObject<TileEntityType<MDChestTileEntity>> CHEST = TILE_ENTITIES.register("chest",
             () -> TileEntityType.Builder.create(MDChestTileEntity::new, MDBlock.chestArray).build(null));
 
+    /** One tile entity type shared by every dyed sign, standing or on a wall. */
+    @SuppressWarnings("ConstantConditions")
+    public static final RegistryObject<TileEntityType<DyedSignTileEntity>> SIGN = TILE_ENTITIES.register("sign",
+            () -> TileEntityType.Builder.create(DyedSignTileEntity::new, MDBlock.signs()).build(null));
+
     private ModTileEntities() {}
 
     public static void register(IEventBus modBus)

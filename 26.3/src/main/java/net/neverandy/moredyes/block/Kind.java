@@ -25,12 +25,15 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoulSandBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.feature.Feature;
 
 import net.neverandy.moredyes.MoreDyes;
@@ -86,6 +89,13 @@ public enum Kind {
     STICKY_PISTON("sticky_piston", "sticky_piston", Tab.BLOCKS, (color, p) -> new DyedPistonBaseBlock(true, color, p)),
     /** The moving part of a dyed piston. It has no item, like the vanilla piston head. */
     PISTON_HEAD("piston_head", "piston_head", Tab.NONE, (color, p) -> new DyedPistonHeadBlock(color, p)),
+    SIGN("sign", "oak_sign", Tab.BLOCKS, (color, p) -> new StandingSignBlock(WoodType.OAK, p)),
+    /** A sign on a wall. It has no item of its own: the sign item places it, and it drops the sign, like vanilla's. */
+    WALL_SIGN("wall_sign", "oak_wall_sign", Tab.NONE, (color, p) -> {
+        Block sign = ModBlocks.get(Kind.SIGN, color).get();
+        return new WallSignBlock(WoodType.OAK, p.overrideLootTable(sign.getLootTable())
+            .overrideDescription(sign.getDescriptionId()));
+    }),
 
     OAK_LOG("oak_log", "oak_log", Tab.TREES, log()),
     OAK_PLANKS("oak_planks", "oak_planks", Tab.TREES, simple()),

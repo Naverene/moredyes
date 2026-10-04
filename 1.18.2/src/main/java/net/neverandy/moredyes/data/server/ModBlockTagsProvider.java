@@ -59,6 +59,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider
         }
         tag(BlockTags.WOOL).add(MDBlock.woolArray);
         tag(Tags.Blocks.CHESTS_WOODEN).add(MDBlock.chestArray);
+        tag(BlockTags.STANDING_SIGNS).add(MDBlock.signArray);
+        tag(BlockTags.WALL_SIGNS).add(MDBlock.wallSignArray);
         tag(Tags.Blocks.GLASS_PANES).add(concat(MDBlock.glassPaneArray, MDBlock.glassFoggyPaneArray));
         addToolTags();
     }
