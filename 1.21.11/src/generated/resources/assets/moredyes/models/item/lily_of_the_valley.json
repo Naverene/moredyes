@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moredyes:block/lily_of_the_valley",
+    "layer1": "moredyes:block/lily_of_the_valley_stem"
+  }
+}

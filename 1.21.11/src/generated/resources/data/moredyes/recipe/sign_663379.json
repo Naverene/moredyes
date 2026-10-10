@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"building","key":{"P":["moredyes:oak_planks_663379","moredyes:birch_planks_663379","moredyes:spruce_planks_663379","moredyes:jungle_planks_663379","moredyes:acacia_planks_663379","moredyes:dark_oak_planks_663379"],"S":"minecraft:stick"},"pattern":["PPP","PPP"," S "],"result":{"count":3,"id":"moredyes:sign_663379"}}
