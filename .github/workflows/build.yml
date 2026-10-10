@@ -116,25 +116,22 @@ jobs:
         add-job-summary: on-failure
 
     # A version tag such as v1.2.0 sets the mod version; other builds use the one in gradle.properties.
-    # The 1.7.10 build (GTNH buildscript) reads the VERSION variable instead, and names other builds
-    # after the latest tag.
+    # It is passed as ORG_GRADLE_PROJECT_mod_version, so every Gradle run in this job sees it, including
+    # the server check (the 1.4.7 build makes its jar again there, which would otherwise be named after
+    # gradle.properties). The 1.7.10 build (GTNH buildscript) reads the VERSION variable instead, and
+    # names other builds after the latest tag.
     - name: Work out the mod version
       run: |
         if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
           version="${GITHUB_REF_NAME#v}"
-          echo "MOD_VERSION=$version" >> "$GITHUB_ENV"
+          echo "ORG_GRADLE_PROJECT_mod_version=$version" >> "$GITHUB_ENV"
         else
           version=$(git describe --tags --match 'v*' 2>/dev/null | sed 's/^v//')
         fi
         echo "VERSION=${version:-dev}" >> "$GITHUB_ENV"
 
     - name: Build with Gradle Wrapper
-      run: |
-        if [[ -n "${MOD_VERSION:-}" ]]; then
-          ./gradlew build -Pmod_version="$MOD_VERSION"
-        else
-          ./gradlew build
-        fi
+      run: ./gradlew build
 
     # Starts a dedicated server with the mod and a fresh world, and fails on a crash, a mod loading
     # error, or a recipe, tag or loot table that does not load.

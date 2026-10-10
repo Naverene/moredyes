@@ -18,7 +18,9 @@ compileJava.options.release.set(6)
 compileJava.options.encoding = "UTF-8"
 
 group = "info.kg6jay"
-version = "${project.mod_version}-${project.mc_version}"
+// The jars are named moredyes-<mod version>-<Minecraft version>-forge.jar, so players can tell the loaders apart.
+// Voldeloom sets the release jar's archive version from project.version itself, so the suffix goes here.
+version = "${project.mod_version}-${project.mc_version}-forge"
 archivesBaseName = "moredyes"
 
 dependencies {
@@ -37,9 +39,4 @@ processResources {
 // Voldeloom asks for an Adoptium Java 8 to run the game. Any vendor's Java 8 works.
 tasks.matching { it.name == "runClient" || it.name == "runServer" }.configureEach {
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
-}
-
-// The jars are named moredyes-<mod version>-<Minecraft version>-forge.jar, so players can tell the loaders apart.
-tasks.withType(Jar).configureEach {
-    archiveVersion.set(project.provider { "${project.version}-forge" })
 }
