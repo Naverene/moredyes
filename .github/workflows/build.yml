@@ -33,6 +33,7 @@ jobs:
       # Fabric build takes its data files from the Forge folder, so a change there rebuilds it too.
       VERSIONS: |
         [
+          { "dir": "1.4.7",  "java": "17", "cf_java": "8",  "loader": "forge" },
           { "dir": "1.7.10", "java": "21", "cf_java": "8",  "loader": "forge" },
           { "dir": "1.12.2", "java": "8",  "cf_java": "8",  "loader": "forge" },
           { "dir": "1.16.5", "java": "8",  "cf_java": "8",  "loader": "forge" },

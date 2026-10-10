@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = "https://maven.fabricmc.net/" }
+        maven { url = "https://repo.sleeping.town/" }
+    }
+    dependencies {
+        classpath "agency.highlysuspect:voldeloom:2.4"
+    }
+}
+
+apply plugin: "agency.highlysuspect.voldeloom"
+
+// 1.4.7 Forge reads mod classes with an old ASM that only understands Java 6 class files. Java 11 is the
+// newest compiler that can still target Java 6. Voldeloom launches the game itself on Java 8.
+java.toolchain.languageVersion = JavaLanguageVersion.of(11)
+compileJava.options.release.set(6)
+compileJava.options.encoding = "UTF-8"
+
+group = "info.kg6jay"
+version = "${project.mod_version}-${project.mc_version}"
+archivesBaseName = "moredyes"
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.mc_version}"
+    forge "net.minecraftforge:forge:${project.forge_version}:universal@zip"
+    mappings "net.minecraftforge:forge:${project.forge_version}:src@zip"
+}
+
+processResources {
+    inputs.property "version", project.mod_version
+    filesMatching("mcmod.info") {
+        expand "version": project.mod_version, "mcversion": project.mc_version
+    }
+}
+
+// Voldeloom asks for an Adoptium Java 8 to run the game. Any vendor's Java 8 works.
+tasks.matching { it.name == "runClient" || it.name == "runServer" }.configureEach {
+    javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
+}
