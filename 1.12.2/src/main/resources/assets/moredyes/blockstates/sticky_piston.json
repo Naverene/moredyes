@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "extended=false,facing=down": {
+      "model": "moredyes:sticky_piston",
+      "x": 90
+    },
+    "extended=false,facing=up": {
+      "model": "moredyes:sticky_piston",
+      "x": 270
+    },
+    "extended=false,facing=north": {
+      "model": "moredyes:sticky_piston"
+    },
+    "extended=false,facing=south": {
+      "model": "moredyes:sticky_piston",
+      "y": 180
+    },
+    "extended=false,facing=west": {
+      "model": "moredyes:sticky_piston",
+      "y": 270
+    },
+    "extended=false,facing=east": {
+      "model": "moredyes:sticky_piston",
+      "y": 90
+    },
+    "extended=true,facing=down": {
+      "model": "moredyes:piston_extended",
+      "x": 90
+    },
+    "extended=true,facing=up": {
+      "model": "moredyes:piston_extended",
+      "x": 270
+    },
+    "extended=true,facing=north": {
+      "model": "moredyes:piston_extended"
+    },
+    "extended=true,facing=south": {
+      "model": "moredyes:piston_extended",
+      "y": 180
+    },
+    "extended=true,facing=west": {
+      "model": "moredyes:piston_extended",
+      "y": 270
+    },
+    "extended=true,facing=east": {
+      "model": "moredyes:piston_extended",
+      "y": 90
+    }
+  }
+}

@@ -13,6 +13,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.Loader;
 import net.neverandy.moredyes.block.IColoredBlock;
+import net.neverandy.moredyes.block.ITileColoredBlock;
+import net.neverandy.moredyes.block.TileColor;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.ironchest.ItemDyedIronChest;
 import net.neverandy.moredyes.compat.ironchest.TileEntityDyedIronChest;
@@ -97,6 +99,10 @@ public final class MoreDyesAPI
 		{
 			return color(((IColoredBlock)((ItemBlock)item).getBlock()).getColorIndex(meta));
 		}
+		if(item instanceof ItemBlock&&((ItemBlock)item).getBlock() instanceof ITileColoredBlock)
+		{
+			return color(meta);
+		}
 		if(Loader.isModLoaded(IronChestCompat.MOD_ID)&&item instanceof ItemDyedIronChest)
 		{
 			return color(IronChestCompat.clampColor(meta));
@@ -108,8 +114,9 @@ public final class MoreDyesAPI
 		return OptionalInt.empty();
 	}
 	/**
-	 * The More Dyes color of a placed block, or empty if it is not a dyed More Dyes block. Dyed iron chests and drawers
-	 * keep their color in their tile entity, so for them use {@link #getColor(IBlockAccess,BlockPos)}.
+	 * The More Dyes color of a placed block, or empty if it is not a dyed More Dyes block. Dyed stairs, slabs, walls,
+	 * iron trapdoors, pistons, iron chests and drawers keep their color in their tile entity, so for them use
+	 * {@link #getColor(IBlockAccess,BlockPos)}.
 	 */
 	public static OptionalInt getColor(IBlockState state)
 	{
@@ -126,6 +133,10 @@ public final class MoreDyesAPI
 			return color;
 		}
 		TileEntity tile=world.getTileEntity(pos);
+		if(state.getBlock() instanceof ITileColoredBlock)
+		{
+			return color(TileColor.get(world,pos));
+		}
 		if(Loader.isModLoaded(IronChestCompat.MOD_ID)&&tile instanceof TileEntityDyedIronChest)
 		{
 			return color(((TileEntityDyedIronChest)tile).getColor());

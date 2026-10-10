@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -21,6 +22,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.neverandy.moredyes.block.IColoredBlock;
+import net.neverandy.moredyes.block.ITileColoredBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.GregTechCompat;
 import net.neverandy.moredyes.handler.ConfigHandler;
@@ -206,9 +208,101 @@ public class CraftManager
 		smelting(new ItemStack(MDBlock.sand[g],1,s),new ItemStack(MDBlock.glass[g],1,s),0.1F);
 		smelting(new ItemStack(MDBlock.glass[g],1,s),new ItemStack(MDBlock.glassFoggy[g],1,s),0.1F);
 		smelting(new ItemStack(MDBlock.clay[g],1,s),new ItemStack(MDBlock.hardenedClay[g],1,s),0.1F);
+
+		registerNewerBlocks(index,g,s,dye);
 	}
-	/** Eight of the given blocks around a dye make eight dyed blocks of its shade. */
-	private static void dyeing(Block[] dyed,int group,int shade,String ore)
+	/**
+	 * The blocks from newer Minecraft versions, as in 1.7.10. Those with a vanilla 1.12 block are dyed like the other
+	 * blocks: eight around a dye. Where a block has a vanilla recipe made from blocks this mod dyes, the same recipe
+	 * works with dyed blocks of one shade (four dyed granite make four dyed polished granite). The rest have recipes of
+	 * their own, noted below.
+	 */
+	private static void registerNewerBlocks(int index,int g,int s,ItemStack dye)
+	{
+		String color=ColorStrings.ALL[index];
+		dyeing(MDBlock.granite,g,s,"stoneGranite");
+		dyeing(MDBlock.andesite,g,s,"stoneAndesite");
+		dyeing(MDBlock.polishedGranite,g,s,"stoneGranitePolished");
+		dyeing(MDBlock.polishedDiorite,g,s,"stoneDioritePolished");
+		dyeing(MDBlock.polishedAndesite,g,s,"stoneAndesitePolished");
+		dyeing(MDBlock.concrete,g,s,new ItemStack(Blocks.CONCRETE,1,OreDictionary.WILDCARD_VALUE));
+		dyeing(MDBlock.concretePowder,g,s,new ItemStack(Blocks.CONCRETE_POWDER,1,OreDictionary.WILDCARD_VALUE));
+		dyeing(MDBlock.mossyCobble,g,s,new ItemStack(Blocks.MOSSY_COBBLESTONE));
+		dyeing(MDBlock.mossyStonebrick,g,s,new ItemStack(Blocks.STONEBRICK,1,1));
+		dyeing(MDBlock.netherBrick,g,s,new ItemStack(Blocks.NETHER_BRICK));
+		dyeing(MDBlock.cutSandstone,g,s,new ItemStack(Blocks.SANDSTONE,1,2));
+		dyeing(MDBlock.endStoneBrick,g,s,new ItemStack(Blocks.END_BRICKS));
+		dyeing(MDBlock.boneBlock,g,s,new ItemStack(Blocks.BONE_BLOCK));
+
+		square("polished_granite/"+color,MDBlock.polishedGranite,MDBlock.granite,g,s);
+		square("polished_diorite/"+color,MDBlock.polishedDiorite,MDBlock.diorite,g,s);
+		square("polished_andesite/"+color,MDBlock.polishedAndesite,MDBlock.andesite,g,s);
+		square("polished_basalt/"+color,MDBlock.polishedBasalt,MDBlock.basalt,g,s);
+		square("cut_sandstone/"+color,MDBlock.cutSandstone,MDBlock.sandstone,g,s);
+
+		// Concrete powder: four sand, four gravel and a dye, like vanilla
+		shapeless("concrete_powder/"+color,"concrete_powder",new ItemStack(MDBlock.concretePowder[g],8,s),dye,
+				"sand","sand","sand","sand",Blocks.GRAVEL,Blocks.GRAVEL,Blocks.GRAVEL,Blocks.GRAVEL);
+		// Soul soil (not in 1.12): dyed soul sand and dirt
+		shapeless("soul_soil/"+color,"soul_soil",new ItemStack(MDBlock.soulSoil[g],2,s),new ItemStack(MDBlock.soulsand[g],1,s),
+				new ItemStack(Blocks.DIRT,1,0));
+		// Chiseled nether bricks (not in 1.12): two dyed nether bricks on top of each other
+		shaped("chiseled_nether_brick/"+color,"chiseled_nether_brick",new ItemStack(MDBlock.chiseledNetherBrick[g],1,s),"N","N",
+				'N',new ItemStack(MDBlock.netherBrick[g],1,s));
+		// A dyed bone block gives its bone meal back, like vanilla
+		shapeless("bone_meal/"+color,"bone_meal",new ItemStack(Items.DYE,9,15),new ItemStack(MDBlock.boneBlock[g],1,s));
+		// Crying obsidian (not in 1.12): eight dyed obsidian around a ghast tear
+		shaped("crying_obsidian/"+color,"crying_obsidian",new ItemStack(MDBlock.cryingObsidian[g],8,s),"OOO","OTO","OOO",
+				'O',new ItemStack(MDBlock.obsidian[g],1,s),'T',Items.GHAST_TEAR);
+		// Netherite (not in 1.12): obsidian, gold and a dye
+		shaped("netherite_block/"+color,"netherite_block",new ItemStack(MDBlock.netheriteBlock[g],4,s),"OGO","GDG","OGO",
+				'O',"obsidian",'G',"ingotGold",'D',dye);
+		// Chain (not in 1.12): two iron ingots and a dye
+		shaped("chain/"+color,"chain",new ItemStack(MDBlock.chain[g],4,s),"I","D","I",'I',"ingotIron",'D',dye);
+		shapeless("dye_from_cornflower/"+color,"dye_from_cornflower",dye.copy(),new ItemStack(MDBlock.cornflower[g],1,s));
+
+		// Iron trapdoor and pistons: the vanilla one and a dye, and a dyed piston with a slimeball on top
+		ItemStack piston=new ItemStack(MDBlock.piston,1,index);
+		ItemStack stickyPiston=new ItemStack(MDBlock.stickyPiston,1,index);
+		shapeless("dyeing/iron_trapdoor_"+color,"iron_trapdoor",new ItemStack(MDBlock.ironTrapdoor,1,index),Blocks.IRON_TRAPDOOR,dye);
+		shapeless("dyeing/piston_"+color,"piston",piston,Blocks.PISTON,dye);
+		shapeless("dyeing/sticky_piston_"+color,"sticky_piston",stickyPiston,Blocks.STICKY_PISTON,dye);
+		shaped("sticky_piston/"+color,"sticky_piston",stickyPiston.copy(),"S","P",'S',"slimeball",'P',piston);
+
+		smelting(new ItemStack(MDBlock.stone[g],1,s),new ItemStack(MDBlock.smoothStone[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.sandstone[g],1,s),new ItemStack(MDBlock.smoothSandstone[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.quartz[g],1,s),new ItemStack(MDBlock.smoothQuartz[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.netherBrick[g],1,s),new ItemStack(MDBlock.crackedNetherBrick[g],1,s),0.1F);
+		smelting(new ItemStack(MDBlock.hardenedClay[g],1,s),new ItemStack(MDBlock.glazedTerracotta[g],1,s),0.1F);
+		// Basalt forms from lava over soul soil in 1.16; here it is smelted from dyed soul soil, as in 1.7.10.
+		smelting(new ItemStack(MDBlock.soulSoil[g],1,s),new ItemStack(MDBlock.basalt[g],1,s),0.1F);
+
+		// Stairs, slabs and walls from dyed blocks of one shade, with the vanilla shapes and amounts
+		for(MDBlock.Shape shape:MDBlock.SHAPES)
+		{
+			ItemStack base=new ItemStack(shape.base[g],1,s);
+			String name=((ITileColoredBlock)shape.block).getTypeName();
+			switch(shape.kind)
+			{
+			case STAIRS:
+				shaped(name+"/"+color,name,new ItemStack(shape.block,4,index),"S  ","SS ","SSS",'S',base);
+				break;
+			case SLAB:
+				shaped(name+"/"+color,name,new ItemStack(shape.block,6,index),"SSS",'S',base);
+				break;
+			case WALL:
+				shaped(name+"/"+color,name,new ItemStack(shape.block,6,index),"SSS","SSS",'S',base);
+				break;
+			}
+		}
+	}
+	/** Four dyed blocks of one shade in a square make four of another dyed block, like vanilla polished stone. */
+	private static void square(String name,Block[] output,Block[] input,int group,int shade)
+	{
+		shaped(name,name.substring(0,name.indexOf('/')),new ItemStack(output[group],4,shade),"SS","SS",'S',new ItemStack(input[group],1,shade));
+	}
+	/** Eight of the given blocks (an ore name or a stack) around a dye make eight dyed blocks of its shade. */
+	private static void dyeing(Block[] dyed,int group,int shade,Object ore)
 	{
 		String type=((IColoredBlock)dyed[group]).getTypeName();
 		shaped("dyeing/"+type+"_"+ColorStrings.GROUPS[group][shade],type,new ItemStack(dyed[group],8,shade),

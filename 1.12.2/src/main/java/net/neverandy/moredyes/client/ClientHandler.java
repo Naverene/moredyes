@@ -31,9 +31,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.neverandy.moredyes.block.BlockColored;
 import net.neverandy.moredyes.block.IColoredBlock;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.block.TileColor;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDItemDye;
+import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.TileEntityDyedChest;
 import net.neverandy.moredyes.utility.LogHelper;
@@ -77,6 +79,26 @@ public class ClientHandler
 				ModelLoader.setCustomModelResourceLocation(item,meta,new ModelResourceLocation(model,"inventory"));
 			}
 		}
+		// Blocks that keep their color in a tile entity use the blockstate file named after them, and one item model
+		// for every color.
+		for(Block block:MDBlock.TILE_COLORED)
+		{
+			Item item=Item.getItemFromBlock(block);
+			ModelResourceLocation model=new ModelResourceLocation(block.getRegistryName(),"inventory");
+			for(int meta=0;meta<ColorStrings.ALL.length;meta++)
+			{
+				ModelLoader.setCustomModelResourceLocation(item,meta,model);
+			}
+		}
+		// The dyed piston head looks like the vanilla one.
+		ModelLoader.setCustomStateMapper(MDBlock.pistonHead,new StateMapperBase()
+		{
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+			{
+				return new ModelResourceLocation("minecraft:piston_head",this.getPropertyString(state.getProperties()));
+			}
+		});
 		for(Item dye:MDItem.dye)
 		{
 			for(int meta=0;meta<((MDItemDye)dye).getShadeCount();meta++)
@@ -104,6 +126,16 @@ public class ClientHandler
 		{
 			return tintIndex==TINTED?((MDItemDye)stack.getItem()).getColor(stack.getMetadata()):-1;
 		},MDItem.dye);
+		// The blocks that keep their color in a tile entity; a moving dyed piston carries it in its moving block.
+		Block[] tileColored=MDBlock.TILE_COLORED.toArray(new Block[0]);
+		mc.getBlockColors().registerBlockColorHandler((state,world,pos,tintIndex)->
+		{
+			return tintIndex==TINTED&&world!=null&&pos!=null?TileColor.rgb(TileColor.get(world,pos)):-1;
+		},tileColored);
+		mc.getItemColors().registerItemColorHandler((stack,tintIndex)->
+		{
+			return tintIndex==TINTED?TileColor.rgb(stack.getMetadata()):-1;
+		},tileColored);
 	}
 
 	/** Swaps the wool layer of the vanilla sheep renderer for one that knows the mod's colors. */

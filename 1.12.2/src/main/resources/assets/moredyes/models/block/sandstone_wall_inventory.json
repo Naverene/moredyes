@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted_wall_inventory",
+  "textures": {
+    "wall": "moredyes:blocks/tinted/sandstone_side"
+  }
+}

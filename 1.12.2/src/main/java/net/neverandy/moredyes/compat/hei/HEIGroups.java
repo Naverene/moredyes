@@ -41,6 +41,10 @@ final class HEIGroups
 		{
 			add(kinds,Item.getItemFromBlock(block));
 		}
+		for(Block block:MDBlock.TILE_COLORED)
+		{
+			add(kinds,Item.getItemFromBlock(block));
+		}
 		// The compat items exist only with their mod, and their classes are only touched then.
 		if(Loader.isModLoaded(IronChestCompat.MOD_ID))
 		{
