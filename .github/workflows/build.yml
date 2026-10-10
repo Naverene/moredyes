@@ -210,15 +210,15 @@ jobs:
             --generate-notes
         fi
 
-    # One message per jar (Discord webhooks take files up to 10 MB each). Version tags only.
-    - name: Post the jars to Discord
+    # Only the 1.7.10 jar goes to Discord. Version tags only.
+    - name: Post the 1.7.10 jar to Discord
       if: startsWith(github.ref, 'refs/tags/v')
       env:
         WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       run: |
         [[ -n "$WEBHOOK" ]] || { echo "::warning::DISCORD_WEBHOOK is not set, skipping."; exit 0; }
         url="https://github.com/${GH_REPO}/releases/tag/${GITHUB_REF_NAME}"
-        for jar in dist/*.jar; do
+        for jar in dist/*-1.7.10-*.jar; do
           msg="**More Dyes** ${GITHUB_REF_NAME}: $(basename "$jar")"
           if (( $(stat -c %s "$jar") > 9500000 )); then
             curl -fsS -F "payload_json=$(jq -nc --arg c "$msg (too big for Discord: $url)" '{content:$c}')" "$WEBHOOK"
