@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.neverandy.moredyes.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EndCrystalItemMixin",
+    "PistonBaseBlockMixin",
+    "PistonHeadBlockMixin",
+    "DiodeBlockMixin",
+    "RecipeManagerMixin"
+  ],
+  "client": [
+    "SheepFurLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
