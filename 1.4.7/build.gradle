@@ -38,3 +38,8 @@ processResources {
 tasks.matching { it.name == "runClient" || it.name == "runServer" }.configureEach {
     javaLauncher = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) }
 }
+
+// The jars are named moredyes-<mod version>-<Minecraft version>-forge.jar, so players can tell the loaders apart.
+tasks.withType(Jar).configureEach {
+    archiveVersion.set(project.provider { "${project.version}-forge" })
+}

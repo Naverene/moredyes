@@ -227,3 +227,8 @@ idea {
         downloadJavadoc = true
     }
 }
+
+// The jars are named moredyes-<mod version>-<Minecraft version>-neoforge.jar, so players can tell the loaders apart.
+tasks.withType(Jar).configureEach {
+    archiveVersion.set(project.provider { "${project.version}-neoforge" })
+}
