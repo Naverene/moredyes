@@ -14,6 +14,7 @@ This repository holds every version of the mod, one folder per Minecraft version
 | [1.20.1](1.20.1) | 1.20.1 | Forge | 17 |
 | [1.20.1-fabric](1.20.1-fabric) | 1.20.1 | Fabric (needs Fabric API) | 17 to play, 21 to build |
 | [1.21.1](1.21.1) | 1.21.1 | NeoForge | 21 |
+| [1.21.1-fabric](1.21.1-fabric) | 1.21.1 | Fabric (needs Fabric API) | 21 |
 | [1.21.11](1.21.11) | 1.21.11 | NeoForge | 21 |
 | [1.21.11-fabric](1.21.11-fabric) | 1.21.11 | Fabric (needs Fabric API) | 21 |
 | [26.1.2](26.1.2) | 26.1.2 | NeoForge | 25 |
