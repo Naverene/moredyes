@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:sprucefence_ecbf99"
+      },
+      {
+        "item": "moredyes:sprucefence_d9a6ec"
+      },
+      {
+        "item": "moredyes:sprucefence_b3ccec"
+      },
+      {
+        "item": "moredyes:sprucefence_f2f299"
+      },
+      {
+        "item": "moredyes:sprucefence_bfe68c"
+      },
+      {
+        "item": "moredyes:sprucefence_f9bfd2"
+      },
+      {
+        "item": "moredyes:sprucefence_cccccc"
+      },
+      {
+        "item": "moredyes:sprucefence_a6bfcc"
+      },
+      {
+        "item": "moredyes:sprucefence_bf9fd9"
+      },
+      {
+        "item": "moredyes:sprucefence_99a6d9"
+      },
+      {
+        "item": "moredyes:sprucefence_b3a699"
+      },
+      {
+        "item": "moredyes:sprucefence_b3bf99"
+      },
+      {
+        "item": "moredyes:sprucefence_cc9999"
+      },
+      {
+        "item": "moredyes:sprucefence_c56685"
+      },
+      {
+        "item": "moredyes:sprucefence_9f8c85"
+      },
+      {
+        "item": "moredyes:sprucefence_deb233"
+      },
+      {
+        "item": "moredyes:sprucefence_aca526"
+      },
+      {
+        "item": "moredyes:sprucefence_e57f6c"
+      },
+      {
+        "item": "moredyes:sprucefence_92663f"
+      },
+      {
+        "item": "moredyes:sprucefence_b98c66"
+      },
+      {
+        "item": "moredyes:sprucefence_927f66"
+      },
+      {
+        "item": "moredyes:sprucefence_ac5f72"
+      },
+      {
+        "item": "moredyes:sprucefence_866672"
+      },
+      {
+        "item": "moredyes:sprucefence_9f6633"
+      },
+      {
+        "item": "moredyes:sprucefence_9f7f33"
+      },
+      {
+        "item": "moredyes:sprucefence_b95933"
+      },
+      {
+        "item": "moredyes:sprucefence_794c26"
+      },
+      {
+        "item": "moredyes:sprucefence_8c72d8"
+      },
+      {
+        "item": "moredyes:sprucefence_cb9886"
+      },
+      {
+        "item": "moredyes:sprucefence_998c79"
+      },
+      {
+        "item": "moredyes:sprucefence_d265bf"
+      },
+      {
+        "item": "moredyes:sprucefence_7f4c92"
+      },
+      {
+        "item": "moredyes:sprucefence_a672b9"
+      },
+      {
+        "item": "moredyes:sprucefence_7f65b9"
+      },
+      {
+        "item": "moredyes:sprucefence_9946c5"
+      },
+      {
+        "item": "moredyes:sprucefence_734cc5"
+      },
+      {
+        "item": "moredyes:sprucefence_8c4c86"
+      },
+      {
+        "item": "moredyes:sprucefence_8c6586"
+      },
+      {
+        "item": "moredyes:sprucefence_a64086"
+      },
+      {
+        "item": "moredyes:sprucefence_663379"
+      },
+      {
+        "item": "moredyes:sprucefence_a5bf86"
+      },
+      {
+        "item": "moredyes:sprucefence_72b279"
+      },
+      {
+        "item": "moredyes:sprucefence_ac8cbf"
+      },
+      {
+        "item": "moredyes:sprucefence_597392"
+      },
+      {
+        "item": "moredyes:sprucefence_7f99b9"
+      },
+      {
+        "item": "moredyes:sprucefence_598cb9"
+      },
+      {
+        "item": "moredyes:sprucefence_726cc5"
+      },
+      {
+        "item": "moredyes:sprucefence_4d73c5"
+      },
+      {
+        "item": "moredyes:sprucefence_667386"
+      },
+      {
+        "item": "moredyes:sprucefence_668c86"
+      },
+      {
+        "item": "moredyes:sprucefence_7f6686"
+      },
+      {
+        "item": "moredyes:sprucefence_405979"
+      },
+      {
+        "item": "moredyes:sprucefence_b2d926"
+      },
+      {
+        "item": "moredyes:sprucefence_ebb26c"
+      },
+      {
+        "item": "moredyes:sprucefence_99993f"
+      },
+      {
+        "item": "moredyes:sprucefence_bfbf66"
+      },
+      {
+        "item": "moredyes:sprucefence_99b266"
+      },
+      {
+        "item": "moredyes:sprucefence_b29272"
+      },
+      {
+        "item": "moredyes:sprucefence_8c9972"
+      },
+      {
+        "item": "moredyes:sprucefence_a69933"
+      },
+      {
+        "item": "moredyes:sprucefence_a6b233"
+      },
+      {
+        "item": "moredyes:sprucefence_bf8c33"
+      },
+      {
+        "item": "moredyes:sprucefence_7f7f26"
+      },
+      {
+        "item": "moredyes:sprucefence_b8a65f"
+      },
+      {
+        "item": "moredyes:sprucefence_668c32"
+      },
+      {
+        "item": "moredyes:sprucefence_8cb359"
+      },
+      {
+        "item": "moredyes:sprucefence_66a659"
+      },
+      {
+        "item": "moredyes:sprucefence_7f5665"
+      },
+      {
+        "item": "moredyes:sprucefence_598c65"
+      },
+      {
+        "item": "moredyes:sprucefence_738c26"
+      },
+      {
+        "item": "moredyes:sprucefence_73a626"
+      },
+      {
+        "item": "moredyes:sprucefence_8c8026"
+      },
+      {
+        "item": "moredyes:sprucefence_4c7319"
+      },
+      {
+        "item": "moredyes:sprucefence_864c5f"
+      },
+      {
+        "item": "moredyes:sprucefence_c6596c"
+      },
+      {
+        "item": "moredyes:sprucefence_ac7f6c"
+      },
+      {
+        "item": "moredyes:sprucefence_ac666c"
+      },
+      {
+        "item": "moredyes:sprucefence_9366ab"
+      },
+      {
+        "item": "moredyes:sprucefence_b95fab"
+      },
+      {
+        "item": "moredyes:sprucefence_9f7f9f"
+      },
+      {
+        "item": "moredyes:sprucefence_c68c9f"
+      },
+      {
+        "item": "moredyes:sprucefence_9f6679"
+      },
+      {
+        "item": "moredyes:sprucefence_727272"
+      },
+      {
+        "item": "moredyes:sprucefence_4c6572"
+      },
+      {
+        "item": "moredyes:sprucefence_65467f"
+      },
+      {
+        "item": "moredyes:sprucefence_404c7f"
+      },
+      {
+        "item": "moredyes:sprucefence_594c40"
+      },
+      {
+        "item": "moredyes:sprucefence_596540"
+      },
+      {
+        "item": "moredyes:sprucefence_724040"
+      },
+      {
+        "item": "moredyes:sprucefence_333333"
+      },
+      {
+        "item": "moredyes:sprucefence_738c99"
+      },
+      {
+        "item": "moredyes:sprucefence_8c6ca5"
+      },
+      {
+        "item": "moredyes:sprucefence_6673a5"
+      },
+      {
+        "item": "moredyes:sprucefence_807366"
+      },
+      {
+        "item": "moredyes:sprucefence_808c66"
+      },
+      {
+        "item": "moredyes:sprucefence_996666"
+      },
+      {
+        "item": "moredyes:sprucefence_595959"
+      },
+      {
+        "item": "moredyes:sprucefence_655fa5"
+      },
+      {
+        "item": "moredyes:sprucefence_4066a5"
+      },
+      {
+        "item": "moredyes:sprucefence_596666"
+      },
+      {
+        "item": "moredyes:sprucefence_597f66"
+      },
+      {
+        "item": "moredyes:sprucefence_725966"
+      },
+      {
+        "item": "moredyes:sprucefence_334c59"
+      },
+      {
+        "item": "moredyes:sprucefence_5945b2"
+      },
+      {
+        "item": "moredyes:sprucefence_734573"
+      },
+      {
+        "item": "moredyes:sprucefence_735f73"
+      },
+      {
+        "item": "moredyes:sprucefence_8c3973"
+      },
+      {
+        "item": "moredyes:sprucefence_4c2c66"
+      },
+      {
+        "item": "moredyes:sprucefence_4c4c73"
+      },
+      {
+        "item": "moredyes:sprucefence_4c6573"
+      },
+      {
+        "item": "moredyes:sprucefence_664073"
+      },
+      {
+        "item": "moredyes:sprucefence_263366"
+      },
+      {
+        "item": "moredyes:sprucefence_403326"
+      },
+      {
+        "item": "moredyes:sprucefence_7f4033"
+      },
+      {
+        "item": "moredyes:sprucefence_666533"
+      },
+      {
+        "item": "moredyes:sprucefence_7f5933"
+      },
+      {
+        "item": "moredyes:sprucefence_404c26"
+      },
+      {
+        "item": "moredyes:sprucefence_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spruce_fence"
+  }
+}

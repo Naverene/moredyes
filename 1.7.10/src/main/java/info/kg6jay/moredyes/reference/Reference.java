@@ -10,6 +10,8 @@ import info.kg6jay.moredyes.utility.BlockInfo;
 public class Reference {
 
     public static final String MOD_ID = "moredyes";
+    /** The mod id of More Dyes 1.0.8 and older, still found in worlds made with them. */
+    public static final String OLD_MOD_ID = "MoreDyes";
     public static final String MOD_NAME = "More Dyes";
     public static final String MOD_VERSION = Tags.VERSION;
 

@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:birchleaves_ecbf99"
+      },
+      {
+        "item": "moredyes:birchleaves_d9a6ec"
+      },
+      {
+        "item": "moredyes:birchleaves_b3ccec"
+      },
+      {
+        "item": "moredyes:birchleaves_f2f299"
+      },
+      {
+        "item": "moredyes:birchleaves_bfe68c"
+      },
+      {
+        "item": "moredyes:birchleaves_f9bfd2"
+      },
+      {
+        "item": "moredyes:birchleaves_cccccc"
+      },
+      {
+        "item": "moredyes:birchleaves_a6bfcc"
+      },
+      {
+        "item": "moredyes:birchleaves_bf9fd9"
+      },
+      {
+        "item": "moredyes:birchleaves_99a6d9"
+      },
+      {
+        "item": "moredyes:birchleaves_b3a699"
+      },
+      {
+        "item": "moredyes:birchleaves_b3bf99"
+      },
+      {
+        "item": "moredyes:birchleaves_cc9999"
+      },
+      {
+        "item": "moredyes:birchleaves_c56685"
+      },
+      {
+        "item": "moredyes:birchleaves_9f8c85"
+      },
+      {
+        "item": "moredyes:birchleaves_deb233"
+      },
+      {
+        "item": "moredyes:birchleaves_aca526"
+      },
+      {
+        "item": "moredyes:birchleaves_e57f6c"
+      },
+      {
+        "item": "moredyes:birchleaves_92663f"
+      },
+      {
+        "item": "moredyes:birchleaves_b98c66"
+      },
+      {
+        "item": "moredyes:birchleaves_927f66"
+      },
+      {
+        "item": "moredyes:birchleaves_ac5f72"
+      },
+      {
+        "item": "moredyes:birchleaves_866672"
+      },
+      {
+        "item": "moredyes:birchleaves_9f6633"
+      },
+      {
+        "item": "moredyes:birchleaves_9f7f33"
+      },
+      {
+        "item": "moredyes:birchleaves_b95933"
+      },
+      {
+        "item": "moredyes:birchleaves_794c26"
+      },
+      {
+        "item": "moredyes:birchleaves_8c72d8"
+      },
+      {
+        "item": "moredyes:birchleaves_cb9886"
+      },
+      {
+        "item": "moredyes:birchleaves_998c79"
+      },
+      {
+        "item": "moredyes:birchleaves_d265bf"
+      },
+      {
+        "item": "moredyes:birchleaves_7f4c92"
+      },
+      {
+        "item": "moredyes:birchleaves_a672b9"
+      },
+      {
+        "item": "moredyes:birchleaves_7f65b9"
+      },
+      {
+        "item": "moredyes:birchleaves_9946c5"
+      },
+      {
+        "item": "moredyes:birchleaves_734cc5"
+      },
+      {
+        "item": "moredyes:birchleaves_8c4c86"
+      },
+      {
+        "item": "moredyes:birchleaves_8c6586"
+      },
+      {
+        "item": "moredyes:birchleaves_a64086"
+      },
+      {
+        "item": "moredyes:birchleaves_663379"
+      },
+      {
+        "item": "moredyes:birchleaves_a5bf86"
+      },
+      {
+        "item": "moredyes:birchleaves_72b279"
+      },
+      {
+        "item": "moredyes:birchleaves_ac8cbf"
+      },
+      {
+        "item": "moredyes:birchleaves_597392"
+      },
+      {
+        "item": "moredyes:birchleaves_7f99b9"
+      },
+      {
+        "item": "moredyes:birchleaves_598cb9"
+      },
+      {
+        "item": "moredyes:birchleaves_726cc5"
+      },
+      {
+        "item": "moredyes:birchleaves_4d73c5"
+      },
+      {
+        "item": "moredyes:birchleaves_667386"
+      },
+      {
+        "item": "moredyes:birchleaves_668c86"
+      },
+      {
+        "item": "moredyes:birchleaves_7f6686"
+      },
+      {
+        "item": "moredyes:birchleaves_405979"
+      },
+      {
+        "item": "moredyes:birchleaves_b2d926"
+      },
+      {
+        "item": "moredyes:birchleaves_ebb26c"
+      },
+      {
+        "item": "moredyes:birchleaves_99993f"
+      },
+      {
+        "item": "moredyes:birchleaves_bfbf66"
+      },
+      {
+        "item": "moredyes:birchleaves_99b266"
+      },
+      {
+        "item": "moredyes:birchleaves_b29272"
+      },
+      {
+        "item": "moredyes:birchleaves_8c9972"
+      },
+      {
+        "item": "moredyes:birchleaves_a69933"
+      },
+      {
+        "item": "moredyes:birchleaves_a6b233"
+      },
+      {
+        "item": "moredyes:birchleaves_bf8c33"
+      },
+      {
+        "item": "moredyes:birchleaves_7f7f26"
+      },
+      {
+        "item": "moredyes:birchleaves_b8a65f"
+      },
+      {
+        "item": "moredyes:birchleaves_668c32"
+      },
+      {
+        "item": "moredyes:birchleaves_8cb359"
+      },
+      {
+        "item": "moredyes:birchleaves_66a659"
+      },
+      {
+        "item": "moredyes:birchleaves_7f5665"
+      },
+      {
+        "item": "moredyes:birchleaves_598c65"
+      },
+      {
+        "item": "moredyes:birchleaves_738c26"
+      },
+      {
+        "item": "moredyes:birchleaves_73a626"
+      },
+      {
+        "item": "moredyes:birchleaves_8c8026"
+      },
+      {
+        "item": "moredyes:birchleaves_4c7319"
+      },
+      {
+        "item": "moredyes:birchleaves_864c5f"
+      },
+      {
+        "item": "moredyes:birchleaves_c6596c"
+      },
+      {
+        "item": "moredyes:birchleaves_ac7f6c"
+      },
+      {
+        "item": "moredyes:birchleaves_ac666c"
+      },
+      {
+        "item": "moredyes:birchleaves_9366ab"
+      },
+      {
+        "item": "moredyes:birchleaves_b95fab"
+      },
+      {
+        "item": "moredyes:birchleaves_9f7f9f"
+      },
+      {
+        "item": "moredyes:birchleaves_c68c9f"
+      },
+      {
+        "item": "moredyes:birchleaves_9f6679"
+      },
+      {
+        "item": "moredyes:birchleaves_727272"
+      },
+      {
+        "item": "moredyes:birchleaves_4c6572"
+      },
+      {
+        "item": "moredyes:birchleaves_65467f"
+      },
+      {
+        "item": "moredyes:birchleaves_404c7f"
+      },
+      {
+        "item": "moredyes:birchleaves_594c40"
+      },
+      {
+        "item": "moredyes:birchleaves_596540"
+      },
+      {
+        "item": "moredyes:birchleaves_724040"
+      },
+      {
+        "item": "moredyes:birchleaves_333333"
+      },
+      {
+        "item": "moredyes:birchleaves_738c99"
+      },
+      {
+        "item": "moredyes:birchleaves_8c6ca5"
+      },
+      {
+        "item": "moredyes:birchleaves_6673a5"
+      },
+      {
+        "item": "moredyes:birchleaves_807366"
+      },
+      {
+        "item": "moredyes:birchleaves_808c66"
+      },
+      {
+        "item": "moredyes:birchleaves_996666"
+      },
+      {
+        "item": "moredyes:birchleaves_595959"
+      },
+      {
+        "item": "moredyes:birchleaves_655fa5"
+      },
+      {
+        "item": "moredyes:birchleaves_4066a5"
+      },
+      {
+        "item": "moredyes:birchleaves_596666"
+      },
+      {
+        "item": "moredyes:birchleaves_597f66"
+      },
+      {
+        "item": "moredyes:birchleaves_725966"
+      },
+      {
+        "item": "moredyes:birchleaves_334c59"
+      },
+      {
+        "item": "moredyes:birchleaves_5945b2"
+      },
+      {
+        "item": "moredyes:birchleaves_734573"
+      },
+      {
+        "item": "moredyes:birchleaves_735f73"
+      },
+      {
+        "item": "moredyes:birchleaves_8c3973"
+      },
+      {
+        "item": "moredyes:birchleaves_4c2c66"
+      },
+      {
+        "item": "moredyes:birchleaves_4c4c73"
+      },
+      {
+        "item": "moredyes:birchleaves_4c6573"
+      },
+      {
+        "item": "moredyes:birchleaves_664073"
+      },
+      {
+        "item": "moredyes:birchleaves_263366"
+      },
+      {
+        "item": "moredyes:birchleaves_403326"
+      },
+      {
+        "item": "moredyes:birchleaves_7f4033"
+      },
+      {
+        "item": "moredyes:birchleaves_666533"
+      },
+      {
+        "item": "moredyes:birchleaves_7f5933"
+      },
+      {
+        "item": "moredyes:birchleaves_404c26"
+      },
+      {
+        "item": "moredyes:birchleaves_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:birch_leaves"
+  }
+}

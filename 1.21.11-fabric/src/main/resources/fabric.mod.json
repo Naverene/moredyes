@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": ["Naverene", "kg6jay"],
+  "contact": {
+    "sources": "https://github.com/Naverene/moredyes"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["net.neverandy.moredyes.MoreDyes"],
+    "client": ["net.neverandy.moredyes.client.MoreDyesClient"],
+    "rei_client": ["net.neverandy.moredyes.compat.rei.MoreDyesREIPlugin"]
+  },
+  "mixins": ["moredyes.mixins.json", "moredyes.storagedrawers.mixins.json"],
+  "accessWidener": "moredyes.accesswidener",
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

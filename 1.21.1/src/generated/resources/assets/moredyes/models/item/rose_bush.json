@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moredyes:block/rose_bush_top",
+    "layer1": "moredyes:block/rose_bush_top_stem"
+  }
+}

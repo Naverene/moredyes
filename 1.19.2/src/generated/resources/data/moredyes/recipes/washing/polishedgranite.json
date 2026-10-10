@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:polishedgranite_ecbf99"
+      },
+      {
+        "item": "moredyes:polishedgranite_d9a6ec"
+      },
+      {
+        "item": "moredyes:polishedgranite_b3ccec"
+      },
+      {
+        "item": "moredyes:polishedgranite_f2f299"
+      },
+      {
+        "item": "moredyes:polishedgranite_bfe68c"
+      },
+      {
+        "item": "moredyes:polishedgranite_f9bfd2"
+      },
+      {
+        "item": "moredyes:polishedgranite_cccccc"
+      },
+      {
+        "item": "moredyes:polishedgranite_a6bfcc"
+      },
+      {
+        "item": "moredyes:polishedgranite_bf9fd9"
+      },
+      {
+        "item": "moredyes:polishedgranite_99a6d9"
+      },
+      {
+        "item": "moredyes:polishedgranite_b3a699"
+      },
+      {
+        "item": "moredyes:polishedgranite_b3bf99"
+      },
+      {
+        "item": "moredyes:polishedgranite_cc9999"
+      },
+      {
+        "item": "moredyes:polishedgranite_c56685"
+      },
+      {
+        "item": "moredyes:polishedgranite_9f8c85"
+      },
+      {
+        "item": "moredyes:polishedgranite_deb233"
+      },
+      {
+        "item": "moredyes:polishedgranite_aca526"
+      },
+      {
+        "item": "moredyes:polishedgranite_e57f6c"
+      },
+      {
+        "item": "moredyes:polishedgranite_92663f"
+      },
+      {
+        "item": "moredyes:polishedgranite_b98c66"
+      },
+      {
+        "item": "moredyes:polishedgranite_927f66"
+      },
+      {
+        "item": "moredyes:polishedgranite_ac5f72"
+      },
+      {
+        "item": "moredyes:polishedgranite_866672"
+      },
+      {
+        "item": "moredyes:polishedgranite_9f6633"
+      },
+      {
+        "item": "moredyes:polishedgranite_9f7f33"
+      },
+      {
+        "item": "moredyes:polishedgranite_b95933"
+      },
+      {
+        "item": "moredyes:polishedgranite_794c26"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c72d8"
+      },
+      {
+        "item": "moredyes:polishedgranite_cb9886"
+      },
+      {
+        "item": "moredyes:polishedgranite_998c79"
+      },
+      {
+        "item": "moredyes:polishedgranite_d265bf"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f4c92"
+      },
+      {
+        "item": "moredyes:polishedgranite_a672b9"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f65b9"
+      },
+      {
+        "item": "moredyes:polishedgranite_9946c5"
+      },
+      {
+        "item": "moredyes:polishedgranite_734cc5"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c4c86"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c6586"
+      },
+      {
+        "item": "moredyes:polishedgranite_a64086"
+      },
+      {
+        "item": "moredyes:polishedgranite_663379"
+      },
+      {
+        "item": "moredyes:polishedgranite_a5bf86"
+      },
+      {
+        "item": "moredyes:polishedgranite_72b279"
+      },
+      {
+        "item": "moredyes:polishedgranite_ac8cbf"
+      },
+      {
+        "item": "moredyes:polishedgranite_597392"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f99b9"
+      },
+      {
+        "item": "moredyes:polishedgranite_598cb9"
+      },
+      {
+        "item": "moredyes:polishedgranite_726cc5"
+      },
+      {
+        "item": "moredyes:polishedgranite_4d73c5"
+      },
+      {
+        "item": "moredyes:polishedgranite_667386"
+      },
+      {
+        "item": "moredyes:polishedgranite_668c86"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f6686"
+      },
+      {
+        "item": "moredyes:polishedgranite_405979"
+      },
+      {
+        "item": "moredyes:polishedgranite_b2d926"
+      },
+      {
+        "item": "moredyes:polishedgranite_ebb26c"
+      },
+      {
+        "item": "moredyes:polishedgranite_99993f"
+      },
+      {
+        "item": "moredyes:polishedgranite_bfbf66"
+      },
+      {
+        "item": "moredyes:polishedgranite_99b266"
+      },
+      {
+        "item": "moredyes:polishedgranite_b29272"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c9972"
+      },
+      {
+        "item": "moredyes:polishedgranite_a69933"
+      },
+      {
+        "item": "moredyes:polishedgranite_a6b233"
+      },
+      {
+        "item": "moredyes:polishedgranite_bf8c33"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f7f26"
+      },
+      {
+        "item": "moredyes:polishedgranite_b8a65f"
+      },
+      {
+        "item": "moredyes:polishedgranite_668c32"
+      },
+      {
+        "item": "moredyes:polishedgranite_8cb359"
+      },
+      {
+        "item": "moredyes:polishedgranite_66a659"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f5665"
+      },
+      {
+        "item": "moredyes:polishedgranite_598c65"
+      },
+      {
+        "item": "moredyes:polishedgranite_738c26"
+      },
+      {
+        "item": "moredyes:polishedgranite_73a626"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c8026"
+      },
+      {
+        "item": "moredyes:polishedgranite_4c7319"
+      },
+      {
+        "item": "moredyes:polishedgranite_864c5f"
+      },
+      {
+        "item": "moredyes:polishedgranite_c6596c"
+      },
+      {
+        "item": "moredyes:polishedgranite_ac7f6c"
+      },
+      {
+        "item": "moredyes:polishedgranite_ac666c"
+      },
+      {
+        "item": "moredyes:polishedgranite_9366ab"
+      },
+      {
+        "item": "moredyes:polishedgranite_b95fab"
+      },
+      {
+        "item": "moredyes:polishedgranite_9f7f9f"
+      },
+      {
+        "item": "moredyes:polishedgranite_c68c9f"
+      },
+      {
+        "item": "moredyes:polishedgranite_9f6679"
+      },
+      {
+        "item": "moredyes:polishedgranite_727272"
+      },
+      {
+        "item": "moredyes:polishedgranite_4c6572"
+      },
+      {
+        "item": "moredyes:polishedgranite_65467f"
+      },
+      {
+        "item": "moredyes:polishedgranite_404c7f"
+      },
+      {
+        "item": "moredyes:polishedgranite_594c40"
+      },
+      {
+        "item": "moredyes:polishedgranite_596540"
+      },
+      {
+        "item": "moredyes:polishedgranite_724040"
+      },
+      {
+        "item": "moredyes:polishedgranite_333333"
+      },
+      {
+        "item": "moredyes:polishedgranite_738c99"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c6ca5"
+      },
+      {
+        "item": "moredyes:polishedgranite_6673a5"
+      },
+      {
+        "item": "moredyes:polishedgranite_807366"
+      },
+      {
+        "item": "moredyes:polishedgranite_808c66"
+      },
+      {
+        "item": "moredyes:polishedgranite_996666"
+      },
+      {
+        "item": "moredyes:polishedgranite_595959"
+      },
+      {
+        "item": "moredyes:polishedgranite_655fa5"
+      },
+      {
+        "item": "moredyes:polishedgranite_4066a5"
+      },
+      {
+        "item": "moredyes:polishedgranite_596666"
+      },
+      {
+        "item": "moredyes:polishedgranite_597f66"
+      },
+      {
+        "item": "moredyes:polishedgranite_725966"
+      },
+      {
+        "item": "moredyes:polishedgranite_334c59"
+      },
+      {
+        "item": "moredyes:polishedgranite_5945b2"
+      },
+      {
+        "item": "moredyes:polishedgranite_734573"
+      },
+      {
+        "item": "moredyes:polishedgranite_735f73"
+      },
+      {
+        "item": "moredyes:polishedgranite_8c3973"
+      },
+      {
+        "item": "moredyes:polishedgranite_4c2c66"
+      },
+      {
+        "item": "moredyes:polishedgranite_4c4c73"
+      },
+      {
+        "item": "moredyes:polishedgranite_4c6573"
+      },
+      {
+        "item": "moredyes:polishedgranite_664073"
+      },
+      {
+        "item": "moredyes:polishedgranite_263366"
+      },
+      {
+        "item": "moredyes:polishedgranite_403326"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f4033"
+      },
+      {
+        "item": "moredyes:polishedgranite_666533"
+      },
+      {
+        "item": "moredyes:polishedgranite_7f5933"
+      },
+      {
+        "item": "moredyes:polishedgranite_404c26"
+      },
+      {
+        "item": "moredyes:polishedgranite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:polished_granite"
+  }
+}

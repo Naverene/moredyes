@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moredyes:block/cornflower",
+    "layer1": "moredyes:block/cornflower_stem"
+  }
+}

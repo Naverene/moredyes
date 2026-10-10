@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:wool_ecbf99"
+      },
+      {
+        "item": "moredyes:wool_d9a6ec"
+      },
+      {
+        "item": "moredyes:wool_b3ccec"
+      },
+      {
+        "item": "moredyes:wool_f2f299"
+      },
+      {
+        "item": "moredyes:wool_bfe68c"
+      },
+      {
+        "item": "moredyes:wool_f9bfd2"
+      },
+      {
+        "item": "moredyes:wool_cccccc"
+      },
+      {
+        "item": "moredyes:wool_a6bfcc"
+      },
+      {
+        "item": "moredyes:wool_bf9fd9"
+      },
+      {
+        "item": "moredyes:wool_99a6d9"
+      },
+      {
+        "item": "moredyes:wool_b3a699"
+      },
+      {
+        "item": "moredyes:wool_b3bf99"
+      },
+      {
+        "item": "moredyes:wool_cc9999"
+      },
+      {
+        "item": "moredyes:wool_c56685"
+      },
+      {
+        "item": "moredyes:wool_9f8c85"
+      },
+      {
+        "item": "moredyes:wool_deb233"
+      },
+      {
+        "item": "moredyes:wool_aca526"
+      },
+      {
+        "item": "moredyes:wool_e57f6c"
+      },
+      {
+        "item": "moredyes:wool_92663f"
+      },
+      {
+        "item": "moredyes:wool_b98c66"
+      },
+      {
+        "item": "moredyes:wool_927f66"
+      },
+      {
+        "item": "moredyes:wool_ac5f72"
+      },
+      {
+        "item": "moredyes:wool_866672"
+      },
+      {
+        "item": "moredyes:wool_9f6633"
+      },
+      {
+        "item": "moredyes:wool_9f7f33"
+      },
+      {
+        "item": "moredyes:wool_b95933"
+      },
+      {
+        "item": "moredyes:wool_794c26"
+      },
+      {
+        "item": "moredyes:wool_8c72d8"
+      },
+      {
+        "item": "moredyes:wool_cb9886"
+      },
+      {
+        "item": "moredyes:wool_998c79"
+      },
+      {
+        "item": "moredyes:wool_d265bf"
+      },
+      {
+        "item": "moredyes:wool_7f4c92"
+      },
+      {
+        "item": "moredyes:wool_a672b9"
+      },
+      {
+        "item": "moredyes:wool_7f65b9"
+      },
+      {
+        "item": "moredyes:wool_9946c5"
+      },
+      {
+        "item": "moredyes:wool_734cc5"
+      },
+      {
+        "item": "moredyes:wool_8c4c86"
+      },
+      {
+        "item": "moredyes:wool_8c6586"
+      },
+      {
+        "item": "moredyes:wool_a64086"
+      },
+      {
+        "item": "moredyes:wool_663379"
+      },
+      {
+        "item": "moredyes:wool_a5bf86"
+      },
+      {
+        "item": "moredyes:wool_72b279"
+      },
+      {
+        "item": "moredyes:wool_ac8cbf"
+      },
+      {
+        "item": "moredyes:wool_597392"
+      },
+      {
+        "item": "moredyes:wool_7f99b9"
+      },
+      {
+        "item": "moredyes:wool_598cb9"
+      },
+      {
+        "item": "moredyes:wool_726cc5"
+      },
+      {
+        "item": "moredyes:wool_4d73c5"
+      },
+      {
+        "item": "moredyes:wool_667386"
+      },
+      {
+        "item": "moredyes:wool_668c86"
+      },
+      {
+        "item": "moredyes:wool_7f6686"
+      },
+      {
+        "item": "moredyes:wool_405979"
+      },
+      {
+        "item": "moredyes:wool_b2d926"
+      },
+      {
+        "item": "moredyes:wool_ebb26c"
+      },
+      {
+        "item": "moredyes:wool_99993f"
+      },
+      {
+        "item": "moredyes:wool_bfbf66"
+      },
+      {
+        "item": "moredyes:wool_99b266"
+      },
+      {
+        "item": "moredyes:wool_b29272"
+      },
+      {
+        "item": "moredyes:wool_8c9972"
+      },
+      {
+        "item": "moredyes:wool_a69933"
+      },
+      {
+        "item": "moredyes:wool_a6b233"
+      },
+      {
+        "item": "moredyes:wool_bf8c33"
+      },
+      {
+        "item": "moredyes:wool_7f7f26"
+      },
+      {
+        "item": "moredyes:wool_b8a65f"
+      },
+      {
+        "item": "moredyes:wool_668c32"
+      },
+      {
+        "item": "moredyes:wool_8cb359"
+      },
+      {
+        "item": "moredyes:wool_66a659"
+      },
+      {
+        "item": "moredyes:wool_7f5665"
+      },
+      {
+        "item": "moredyes:wool_598c65"
+      },
+      {
+        "item": "moredyes:wool_738c26"
+      },
+      {
+        "item": "moredyes:wool_73a626"
+      },
+      {
+        "item": "moredyes:wool_8c8026"
+      },
+      {
+        "item": "moredyes:wool_4c7319"
+      },
+      {
+        "item": "moredyes:wool_864c5f"
+      },
+      {
+        "item": "moredyes:wool_c6596c"
+      },
+      {
+        "item": "moredyes:wool_ac7f6c"
+      },
+      {
+        "item": "moredyes:wool_ac666c"
+      },
+      {
+        "item": "moredyes:wool_9366ab"
+      },
+      {
+        "item": "moredyes:wool_b95fab"
+      },
+      {
+        "item": "moredyes:wool_9f7f9f"
+      },
+      {
+        "item": "moredyes:wool_c68c9f"
+      },
+      {
+        "item": "moredyes:wool_9f6679"
+      },
+      {
+        "item": "moredyes:wool_727272"
+      },
+      {
+        "item": "moredyes:wool_4c6572"
+      },
+      {
+        "item": "moredyes:wool_65467f"
+      },
+      {
+        "item": "moredyes:wool_404c7f"
+      },
+      {
+        "item": "moredyes:wool_594c40"
+      },
+      {
+        "item": "moredyes:wool_596540"
+      },
+      {
+        "item": "moredyes:wool_724040"
+      },
+      {
+        "item": "moredyes:wool_333333"
+      },
+      {
+        "item": "moredyes:wool_738c99"
+      },
+      {
+        "item": "moredyes:wool_8c6ca5"
+      },
+      {
+        "item": "moredyes:wool_6673a5"
+      },
+      {
+        "item": "moredyes:wool_807366"
+      },
+      {
+        "item": "moredyes:wool_808c66"
+      },
+      {
+        "item": "moredyes:wool_996666"
+      },
+      {
+        "item": "moredyes:wool_595959"
+      },
+      {
+        "item": "moredyes:wool_655fa5"
+      },
+      {
+        "item": "moredyes:wool_4066a5"
+      },
+      {
+        "item": "moredyes:wool_596666"
+      },
+      {
+        "item": "moredyes:wool_597f66"
+      },
+      {
+        "item": "moredyes:wool_725966"
+      },
+      {
+        "item": "moredyes:wool_334c59"
+      },
+      {
+        "item": "moredyes:wool_5945b2"
+      },
+      {
+        "item": "moredyes:wool_734573"
+      },
+      {
+        "item": "moredyes:wool_735f73"
+      },
+      {
+        "item": "moredyes:wool_8c3973"
+      },
+      {
+        "item": "moredyes:wool_4c2c66"
+      },
+      {
+        "item": "moredyes:wool_4c4c73"
+      },
+      {
+        "item": "moredyes:wool_4c6573"
+      },
+      {
+        "item": "moredyes:wool_664073"
+      },
+      {
+        "item": "moredyes:wool_263366"
+      },
+      {
+        "item": "moredyes:wool_403326"
+      },
+      {
+        "item": "moredyes:wool_7f4033"
+      },
+      {
+        "item": "moredyes:wool_666533"
+      },
+      {
+        "item": "moredyes:wool_7f5933"
+      },
+      {
+        "item": "moredyes:wool_404c26"
+      },
+      {
+        "item": "moredyes:wool_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_wool"
+  }
+}

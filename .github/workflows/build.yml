@@ -33,12 +33,18 @@ jobs:
       # Fabric build takes its data files from the Forge folder, so a change there rebuilds it too.
       VERSIONS: |
         [
+          { "dir": "1.4.7",  "java": "17", "cf_java": "8",  "loader": "forge" },
           { "dir": "1.7.10", "java": "21", "cf_java": "8",  "loader": "forge" },
           { "dir": "1.12.2", "java": "8",  "cf_java": "8",  "loader": "forge" },
           { "dir": "1.16.5", "java": "8",  "cf_java": "8",  "loader": "forge" },
           { "dir": "1.18.2", "java": "17", "cf_java": "17", "loader": "forge" },
+          { "dir": "1.19.2", "java": "17", "cf_java": "17", "loader": "forge" },
           { "dir": "1.20.1", "java": "17", "cf_java": "17", "loader": "forge" },
           { "dir": "1.20.1-fabric", "mc": "1.20.1", "checkout": "1.20.1-fabric\n1.20.1", "java": "21", "cf_java": "17", "loader": "fabric" },
+          { "dir": "1.21.1", "java": "21", "cf_java": "21", "loader": "neoforge" },
+          { "dir": "1.21.1-fabric", "mc": "1.21.1", "checkout": "1.21.1-fabric\n1.21.1", "java": "21", "cf_java": "21", "loader": "fabric" },
+          { "dir": "1.21.11", "java": "21", "cf_java": "21", "loader": "neoforge" },
+          { "dir": "1.21.11-fabric", "mc": "1.21.11", "checkout": "1.21.11-fabric\n1.21.11", "java": "21", "cf_java": "21", "loader": "fabric" },
           { "dir": "26.1.2", "java": "25", "cf_java": "25", "loader": "neoforge" },
           { "dir": "26.3",   "java": "25", "cf_java": "25", "loader": "neoforge" }
         ]
@@ -110,25 +116,22 @@ jobs:
         add-job-summary: on-failure
 
     # A version tag such as v1.2.0 sets the mod version; other builds use the one in gradle.properties.
-    # The 1.7.10 build (GTNH buildscript) reads the VERSION variable instead, and names other builds
-    # after the latest tag.
+    # It is passed as ORG_GRADLE_PROJECT_mod_version, so every Gradle run in this job sees it, including
+    # the server check (the 1.4.7 build makes its jar again there, which would otherwise be named after
+    # gradle.properties). The 1.7.10 build (GTNH buildscript) reads the VERSION variable instead, and
+    # names other builds after the latest tag.
     - name: Work out the mod version
       run: |
         if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
           version="${GITHUB_REF_NAME#v}"
-          echo "MOD_VERSION=$version" >> "$GITHUB_ENV"
+          echo "ORG_GRADLE_PROJECT_mod_version=$version" >> "$GITHUB_ENV"
         else
           version=$(git describe --tags --match 'v*' 2>/dev/null | sed 's/^v//')
         fi
         echo "VERSION=${version:-dev}" >> "$GITHUB_ENV"
 
     - name: Build with Gradle Wrapper
-      run: |
-        if [[ -n "${MOD_VERSION:-}" ]]; then
-          ./gradlew build -Pmod_version="$MOD_VERSION"
-        else
-          ./gradlew build
-        fi
+      run: ./gradlew build
 
     # Starts a dedicated server with the mod and a fresh world, and fails on a crash, a mod loading
     # error, or a recipe, tag or loot table that does not load.
@@ -206,6 +209,23 @@ jobs:
             --title "More Dyes $GITHUB_REF_NAME" \
             --generate-notes
         fi
+
+    # Only the 1.7.10 jar goes to Discord. Version tags only.
+    - name: Post the 1.7.10 jar to Discord
+      if: startsWith(github.ref, 'refs/tags/v')
+      env:
+        WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        [[ -n "$WEBHOOK" ]] || { echo "::warning::DISCORD_WEBHOOK is not set, skipping."; exit 0; }
+        url="https://github.com/${GH_REPO}/releases/tag/${GITHUB_REF_NAME}"
+        for jar in dist/*-1.7.10-*.jar; do
+          msg="**More Dyes** ${GITHUB_REF_NAME}: $(basename "$jar")"
+          if (( $(stat -c %s "$jar") > 9500000 )); then
+            curl -fsS -F "payload_json=$(jq -nc --arg c "$msg (too big for Discord: $url)" '{content:$c}')" "$WEBHOOK"
+          else
+            curl -fsS -F "payload_json=$(jq -nc --arg c "$msg" '{content:$c}')" -F "files[0]=@${jar}" "$WEBHOOK"
+          fi
+        done
 
   curseforge:
     name: CurseForge ${{ matrix.dir }}

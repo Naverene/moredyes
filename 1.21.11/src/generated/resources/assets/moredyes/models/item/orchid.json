@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moredyes:block/blue_orchid",
+    "layer1": "moredyes:block/blue_orchid_stem"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.neverandy.moredyes.compat.storagedrawers.mixin",
+  "plugin": "net.neverandy.moredyes.compat.storagedrawers.mixin.CompatMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "StorageDrawersBlockEntitiesMixin",
+    "StorageDrawersModBlocksMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

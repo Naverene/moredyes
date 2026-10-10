@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:acaciafence_ecbf99"
+      },
+      {
+        "item": "moredyes:acaciafence_d9a6ec"
+      },
+      {
+        "item": "moredyes:acaciafence_b3ccec"
+      },
+      {
+        "item": "moredyes:acaciafence_f2f299"
+      },
+      {
+        "item": "moredyes:acaciafence_bfe68c"
+      },
+      {
+        "item": "moredyes:acaciafence_f9bfd2"
+      },
+      {
+        "item": "moredyes:acaciafence_cccccc"
+      },
+      {
+        "item": "moredyes:acaciafence_a6bfcc"
+      },
+      {
+        "item": "moredyes:acaciafence_bf9fd9"
+      },
+      {
+        "item": "moredyes:acaciafence_99a6d9"
+      },
+      {
+        "item": "moredyes:acaciafence_b3a699"
+      },
+      {
+        "item": "moredyes:acaciafence_b3bf99"
+      },
+      {
+        "item": "moredyes:acaciafence_cc9999"
+      },
+      {
+        "item": "moredyes:acaciafence_c56685"
+      },
+      {
+        "item": "moredyes:acaciafence_9f8c85"
+      },
+      {
+        "item": "moredyes:acaciafence_deb233"
+      },
+      {
+        "item": "moredyes:acaciafence_aca526"
+      },
+      {
+        "item": "moredyes:acaciafence_e57f6c"
+      },
+      {
+        "item": "moredyes:acaciafence_92663f"
+      },
+      {
+        "item": "moredyes:acaciafence_b98c66"
+      },
+      {
+        "item": "moredyes:acaciafence_927f66"
+      },
+      {
+        "item": "moredyes:acaciafence_ac5f72"
+      },
+      {
+        "item": "moredyes:acaciafence_866672"
+      },
+      {
+        "item": "moredyes:acaciafence_9f6633"
+      },
+      {
+        "item": "moredyes:acaciafence_9f7f33"
+      },
+      {
+        "item": "moredyes:acaciafence_b95933"
+      },
+      {
+        "item": "moredyes:acaciafence_794c26"
+      },
+      {
+        "item": "moredyes:acaciafence_8c72d8"
+      },
+      {
+        "item": "moredyes:acaciafence_cb9886"
+      },
+      {
+        "item": "moredyes:acaciafence_998c79"
+      },
+      {
+        "item": "moredyes:acaciafence_d265bf"
+      },
+      {
+        "item": "moredyes:acaciafence_7f4c92"
+      },
+      {
+        "item": "moredyes:acaciafence_a672b9"
+      },
+      {
+        "item": "moredyes:acaciafence_7f65b9"
+      },
+      {
+        "item": "moredyes:acaciafence_9946c5"
+      },
+      {
+        "item": "moredyes:acaciafence_734cc5"
+      },
+      {
+        "item": "moredyes:acaciafence_8c4c86"
+      },
+      {
+        "item": "moredyes:acaciafence_8c6586"
+      },
+      {
+        "item": "moredyes:acaciafence_a64086"
+      },
+      {
+        "item": "moredyes:acaciafence_663379"
+      },
+      {
+        "item": "moredyes:acaciafence_a5bf86"
+      },
+      {
+        "item": "moredyes:acaciafence_72b279"
+      },
+      {
+        "item": "moredyes:acaciafence_ac8cbf"
+      },
+      {
+        "item": "moredyes:acaciafence_597392"
+      },
+      {
+        "item": "moredyes:acaciafence_7f99b9"
+      },
+      {
+        "item": "moredyes:acaciafence_598cb9"
+      },
+      {
+        "item": "moredyes:acaciafence_726cc5"
+      },
+      {
+        "item": "moredyes:acaciafence_4d73c5"
+      },
+      {
+        "item": "moredyes:acaciafence_667386"
+      },
+      {
+        "item": "moredyes:acaciafence_668c86"
+      },
+      {
+        "item": "moredyes:acaciafence_7f6686"
+      },
+      {
+        "item": "moredyes:acaciafence_405979"
+      },
+      {
+        "item": "moredyes:acaciafence_b2d926"
+      },
+      {
+        "item": "moredyes:acaciafence_ebb26c"
+      },
+      {
+        "item": "moredyes:acaciafence_99993f"
+      },
+      {
+        "item": "moredyes:acaciafence_bfbf66"
+      },
+      {
+        "item": "moredyes:acaciafence_99b266"
+      },
+      {
+        "item": "moredyes:acaciafence_b29272"
+      },
+      {
+        "item": "moredyes:acaciafence_8c9972"
+      },
+      {
+        "item": "moredyes:acaciafence_a69933"
+      },
+      {
+        "item": "moredyes:acaciafence_a6b233"
+      },
+      {
+        "item": "moredyes:acaciafence_bf8c33"
+      },
+      {
+        "item": "moredyes:acaciafence_7f7f26"
+      },
+      {
+        "item": "moredyes:acaciafence_b8a65f"
+      },
+      {
+        "item": "moredyes:acaciafence_668c32"
+      },
+      {
+        "item": "moredyes:acaciafence_8cb359"
+      },
+      {
+        "item": "moredyes:acaciafence_66a659"
+      },
+      {
+        "item": "moredyes:acaciafence_7f5665"
+      },
+      {
+        "item": "moredyes:acaciafence_598c65"
+      },
+      {
+        "item": "moredyes:acaciafence_738c26"
+      },
+      {
+        "item": "moredyes:acaciafence_73a626"
+      },
+      {
+        "item": "moredyes:acaciafence_8c8026"
+      },
+      {
+        "item": "moredyes:acaciafence_4c7319"
+      },
+      {
+        "item": "moredyes:acaciafence_864c5f"
+      },
+      {
+        "item": "moredyes:acaciafence_c6596c"
+      },
+      {
+        "item": "moredyes:acaciafence_ac7f6c"
+      },
+      {
+        "item": "moredyes:acaciafence_ac666c"
+      },
+      {
+        "item": "moredyes:acaciafence_9366ab"
+      },
+      {
+        "item": "moredyes:acaciafence_b95fab"
+      },
+      {
+        "item": "moredyes:acaciafence_9f7f9f"
+      },
+      {
+        "item": "moredyes:acaciafence_c68c9f"
+      },
+      {
+        "item": "moredyes:acaciafence_9f6679"
+      },
+      {
+        "item": "moredyes:acaciafence_727272"
+      },
+      {
+        "item": "moredyes:acaciafence_4c6572"
+      },
+      {
+        "item": "moredyes:acaciafence_65467f"
+      },
+      {
+        "item": "moredyes:acaciafence_404c7f"
+      },
+      {
+        "item": "moredyes:acaciafence_594c40"
+      },
+      {
+        "item": "moredyes:acaciafence_596540"
+      },
+      {
+        "item": "moredyes:acaciafence_724040"
+      },
+      {
+        "item": "moredyes:acaciafence_333333"
+      },
+      {
+        "item": "moredyes:acaciafence_738c99"
+      },
+      {
+        "item": "moredyes:acaciafence_8c6ca5"
+      },
+      {
+        "item": "moredyes:acaciafence_6673a5"
+      },
+      {
+        "item": "moredyes:acaciafence_807366"
+      },
+      {
+        "item": "moredyes:acaciafence_808c66"
+      },
+      {
+        "item": "moredyes:acaciafence_996666"
+      },
+      {
+        "item": "moredyes:acaciafence_595959"
+      },
+      {
+        "item": "moredyes:acaciafence_655fa5"
+      },
+      {
+        "item": "moredyes:acaciafence_4066a5"
+      },
+      {
+        "item": "moredyes:acaciafence_596666"
+      },
+      {
+        "item": "moredyes:acaciafence_597f66"
+      },
+      {
+        "item": "moredyes:acaciafence_725966"
+      },
+      {
+        "item": "moredyes:acaciafence_334c59"
+      },
+      {
+        "item": "moredyes:acaciafence_5945b2"
+      },
+      {
+        "item": "moredyes:acaciafence_734573"
+      },
+      {
+        "item": "moredyes:acaciafence_735f73"
+      },
+      {
+        "item": "moredyes:acaciafence_8c3973"
+      },
+      {
+        "item": "moredyes:acaciafence_4c2c66"
+      },
+      {
+        "item": "moredyes:acaciafence_4c4c73"
+      },
+      {
+        "item": "moredyes:acaciafence_4c6573"
+      },
+      {
+        "item": "moredyes:acaciafence_664073"
+      },
+      {
+        "item": "moredyes:acaciafence_263366"
+      },
+      {
+        "item": "moredyes:acaciafence_403326"
+      },
+      {
+        "item": "moredyes:acaciafence_7f4033"
+      },
+      {
+        "item": "moredyes:acaciafence_666533"
+      },
+      {
+        "item": "moredyes:acaciafence_7f5933"
+      },
+      {
+        "item": "moredyes:acaciafence_404c26"
+      },
+      {
+        "item": "moredyes:acaciafence_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:acacia_fence"
+  }
+}
