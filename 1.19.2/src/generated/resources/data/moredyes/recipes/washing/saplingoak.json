@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:saplingoak_ecbf99"
+      },
+      {
+        "item": "moredyes:saplingoak_d9a6ec"
+      },
+      {
+        "item": "moredyes:saplingoak_b3ccec"
+      },
+      {
+        "item": "moredyes:saplingoak_f2f299"
+      },
+      {
+        "item": "moredyes:saplingoak_bfe68c"
+      },
+      {
+        "item": "moredyes:saplingoak_f9bfd2"
+      },
+      {
+        "item": "moredyes:saplingoak_cccccc"
+      },
+      {
+        "item": "moredyes:saplingoak_a6bfcc"
+      },
+      {
+        "item": "moredyes:saplingoak_bf9fd9"
+      },
+      {
+        "item": "moredyes:saplingoak_99a6d9"
+      },
+      {
+        "item": "moredyes:saplingoak_b3a699"
+      },
+      {
+        "item": "moredyes:saplingoak_b3bf99"
+      },
+      {
+        "item": "moredyes:saplingoak_cc9999"
+      },
+      {
+        "item": "moredyes:saplingoak_c56685"
+      },
+      {
+        "item": "moredyes:saplingoak_9f8c85"
+      },
+      {
+        "item": "moredyes:saplingoak_deb233"
+      },
+      {
+        "item": "moredyes:saplingoak_aca526"
+      },
+      {
+        "item": "moredyes:saplingoak_e57f6c"
+      },
+      {
+        "item": "moredyes:saplingoak_92663f"
+      },
+      {
+        "item": "moredyes:saplingoak_b98c66"
+      },
+      {
+        "item": "moredyes:saplingoak_927f66"
+      },
+      {
+        "item": "moredyes:saplingoak_ac5f72"
+      },
+      {
+        "item": "moredyes:saplingoak_866672"
+      },
+      {
+        "item": "moredyes:saplingoak_9f6633"
+      },
+      {
+        "item": "moredyes:saplingoak_9f7f33"
+      },
+      {
+        "item": "moredyes:saplingoak_b95933"
+      },
+      {
+        "item": "moredyes:saplingoak_794c26"
+      },
+      {
+        "item": "moredyes:saplingoak_8c72d8"
+      },
+      {
+        "item": "moredyes:saplingoak_cb9886"
+      },
+      {
+        "item": "moredyes:saplingoak_998c79"
+      },
+      {
+        "item": "moredyes:saplingoak_d265bf"
+      },
+      {
+        "item": "moredyes:saplingoak_7f4c92"
+      },
+      {
+        "item": "moredyes:saplingoak_a672b9"
+      },
+      {
+        "item": "moredyes:saplingoak_7f65b9"
+      },
+      {
+        "item": "moredyes:saplingoak_9946c5"
+      },
+      {
+        "item": "moredyes:saplingoak_734cc5"
+      },
+      {
+        "item": "moredyes:saplingoak_8c4c86"
+      },
+      {
+        "item": "moredyes:saplingoak_8c6586"
+      },
+      {
+        "item": "moredyes:saplingoak_a64086"
+      },
+      {
+        "item": "moredyes:saplingoak_663379"
+      },
+      {
+        "item": "moredyes:saplingoak_a5bf86"
+      },
+      {
+        "item": "moredyes:saplingoak_72b279"
+      },
+      {
+        "item": "moredyes:saplingoak_ac8cbf"
+      },
+      {
+        "item": "moredyes:saplingoak_597392"
+      },
+      {
+        "item": "moredyes:saplingoak_7f99b9"
+      },
+      {
+        "item": "moredyes:saplingoak_598cb9"
+      },
+      {
+        "item": "moredyes:saplingoak_726cc5"
+      },
+      {
+        "item": "moredyes:saplingoak_4d73c5"
+      },
+      {
+        "item": "moredyes:saplingoak_667386"
+      },
+      {
+        "item": "moredyes:saplingoak_668c86"
+      },
+      {
+        "item": "moredyes:saplingoak_7f6686"
+      },
+      {
+        "item": "moredyes:saplingoak_405979"
+      },
+      {
+        "item": "moredyes:saplingoak_b2d926"
+      },
+      {
+        "item": "moredyes:saplingoak_ebb26c"
+      },
+      {
+        "item": "moredyes:saplingoak_99993f"
+      },
+      {
+        "item": "moredyes:saplingoak_bfbf66"
+      },
+      {
+        "item": "moredyes:saplingoak_99b266"
+      },
+      {
+        "item": "moredyes:saplingoak_b29272"
+      },
+      {
+        "item": "moredyes:saplingoak_8c9972"
+      },
+      {
+        "item": "moredyes:saplingoak_a69933"
+      },
+      {
+        "item": "moredyes:saplingoak_a6b233"
+      },
+      {
+        "item": "moredyes:saplingoak_bf8c33"
+      },
+      {
+        "item": "moredyes:saplingoak_7f7f26"
+      },
+      {
+        "item": "moredyes:saplingoak_b8a65f"
+      },
+      {
+        "item": "moredyes:saplingoak_668c32"
+      },
+      {
+        "item": "moredyes:saplingoak_8cb359"
+      },
+      {
+        "item": "moredyes:saplingoak_66a659"
+      },
+      {
+        "item": "moredyes:saplingoak_7f5665"
+      },
+      {
+        "item": "moredyes:saplingoak_598c65"
+      },
+      {
+        "item": "moredyes:saplingoak_738c26"
+      },
+      {
+        "item": "moredyes:saplingoak_73a626"
+      },
+      {
+        "item": "moredyes:saplingoak_8c8026"
+      },
+      {
+        "item": "moredyes:saplingoak_4c7319"
+      },
+      {
+        "item": "moredyes:saplingoak_864c5f"
+      },
+      {
+        "item": "moredyes:saplingoak_c6596c"
+      },
+      {
+        "item": "moredyes:saplingoak_ac7f6c"
+      },
+      {
+        "item": "moredyes:saplingoak_ac666c"
+      },
+      {
+        "item": "moredyes:saplingoak_9366ab"
+      },
+      {
+        "item": "moredyes:saplingoak_b95fab"
+      },
+      {
+        "item": "moredyes:saplingoak_9f7f9f"
+      },
+      {
+        "item": "moredyes:saplingoak_c68c9f"
+      },
+      {
+        "item": "moredyes:saplingoak_9f6679"
+      },
+      {
+        "item": "moredyes:saplingoak_727272"
+      },
+      {
+        "item": "moredyes:saplingoak_4c6572"
+      },
+      {
+        "item": "moredyes:saplingoak_65467f"
+      },
+      {
+        "item": "moredyes:saplingoak_404c7f"
+      },
+      {
+        "item": "moredyes:saplingoak_594c40"
+      },
+      {
+        "item": "moredyes:saplingoak_596540"
+      },
+      {
+        "item": "moredyes:saplingoak_724040"
+      },
+      {
+        "item": "moredyes:saplingoak_333333"
+      },
+      {
+        "item": "moredyes:saplingoak_738c99"
+      },
+      {
+        "item": "moredyes:saplingoak_8c6ca5"
+      },
+      {
+        "item": "moredyes:saplingoak_6673a5"
+      },
+      {
+        "item": "moredyes:saplingoak_807366"
+      },
+      {
+        "item": "moredyes:saplingoak_808c66"
+      },
+      {
+        "item": "moredyes:saplingoak_996666"
+      },
+      {
+        "item": "moredyes:saplingoak_595959"
+      },
+      {
+        "item": "moredyes:saplingoak_655fa5"
+      },
+      {
+        "item": "moredyes:saplingoak_4066a5"
+      },
+      {
+        "item": "moredyes:saplingoak_596666"
+      },
+      {
+        "item": "moredyes:saplingoak_597f66"
+      },
+      {
+        "item": "moredyes:saplingoak_725966"
+      },
+      {
+        "item": "moredyes:saplingoak_334c59"
+      },
+      {
+        "item": "moredyes:saplingoak_5945b2"
+      },
+      {
+        "item": "moredyes:saplingoak_734573"
+      },
+      {
+        "item": "moredyes:saplingoak_735f73"
+      },
+      {
+        "item": "moredyes:saplingoak_8c3973"
+      },
+      {
+        "item": "moredyes:saplingoak_4c2c66"
+      },
+      {
+        "item": "moredyes:saplingoak_4c4c73"
+      },
+      {
+        "item": "moredyes:saplingoak_4c6573"
+      },
+      {
+        "item": "moredyes:saplingoak_664073"
+      },
+      {
+        "item": "moredyes:saplingoak_263366"
+      },
+      {
+        "item": "moredyes:saplingoak_403326"
+      },
+      {
+        "item": "moredyes:saplingoak_7f4033"
+      },
+      {
+        "item": "moredyes:saplingoak_666533"
+      },
+      {
+        "item": "moredyes:saplingoak_7f5933"
+      },
+      {
+        "item": "moredyes:saplingoak_404c26"
+      },
+      {
+        "item": "moredyes:saplingoak_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_sapling"
+  }
+}

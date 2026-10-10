@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:sign_ecbf99"
+      },
+      {
+        "item": "moredyes:sign_d9a6ec"
+      },
+      {
+        "item": "moredyes:sign_b3ccec"
+      },
+      {
+        "item": "moredyes:sign_f2f299"
+      },
+      {
+        "item": "moredyes:sign_bfe68c"
+      },
+      {
+        "item": "moredyes:sign_f9bfd2"
+      },
+      {
+        "item": "moredyes:sign_cccccc"
+      },
+      {
+        "item": "moredyes:sign_a6bfcc"
+      },
+      {
+        "item": "moredyes:sign_bf9fd9"
+      },
+      {
+        "item": "moredyes:sign_99a6d9"
+      },
+      {
+        "item": "moredyes:sign_b3a699"
+      },
+      {
+        "item": "moredyes:sign_b3bf99"
+      },
+      {
+        "item": "moredyes:sign_cc9999"
+      },
+      {
+        "item": "moredyes:sign_c56685"
+      },
+      {
+        "item": "moredyes:sign_9f8c85"
+      },
+      {
+        "item": "moredyes:sign_deb233"
+      },
+      {
+        "item": "moredyes:sign_aca526"
+      },
+      {
+        "item": "moredyes:sign_e57f6c"
+      },
+      {
+        "item": "moredyes:sign_92663f"
+      },
+      {
+        "item": "moredyes:sign_b98c66"
+      },
+      {
+        "item": "moredyes:sign_927f66"
+      },
+      {
+        "item": "moredyes:sign_ac5f72"
+      },
+      {
+        "item": "moredyes:sign_866672"
+      },
+      {
+        "item": "moredyes:sign_9f6633"
+      },
+      {
+        "item": "moredyes:sign_9f7f33"
+      },
+      {
+        "item": "moredyes:sign_b95933"
+      },
+      {
+        "item": "moredyes:sign_794c26"
+      },
+      {
+        "item": "moredyes:sign_8c72d8"
+      },
+      {
+        "item": "moredyes:sign_cb9886"
+      },
+      {
+        "item": "moredyes:sign_998c79"
+      },
+      {
+        "item": "moredyes:sign_d265bf"
+      },
+      {
+        "item": "moredyes:sign_7f4c92"
+      },
+      {
+        "item": "moredyes:sign_a672b9"
+      },
+      {
+        "item": "moredyes:sign_7f65b9"
+      },
+      {
+        "item": "moredyes:sign_9946c5"
+      },
+      {
+        "item": "moredyes:sign_734cc5"
+      },
+      {
+        "item": "moredyes:sign_8c4c86"
+      },
+      {
+        "item": "moredyes:sign_8c6586"
+      },
+      {
+        "item": "moredyes:sign_a64086"
+      },
+      {
+        "item": "moredyes:sign_663379"
+      },
+      {
+        "item": "moredyes:sign_a5bf86"
+      },
+      {
+        "item": "moredyes:sign_72b279"
+      },
+      {
+        "item": "moredyes:sign_ac8cbf"
+      },
+      {
+        "item": "moredyes:sign_597392"
+      },
+      {
+        "item": "moredyes:sign_7f99b9"
+      },
+      {
+        "item": "moredyes:sign_598cb9"
+      },
+      {
+        "item": "moredyes:sign_726cc5"
+      },
+      {
+        "item": "moredyes:sign_4d73c5"
+      },
+      {
+        "item": "moredyes:sign_667386"
+      },
+      {
+        "item": "moredyes:sign_668c86"
+      },
+      {
+        "item": "moredyes:sign_7f6686"
+      },
+      {
+        "item": "moredyes:sign_405979"
+      },
+      {
+        "item": "moredyes:sign_b2d926"
+      },
+      {
+        "item": "moredyes:sign_ebb26c"
+      },
+      {
+        "item": "moredyes:sign_99993f"
+      },
+      {
+        "item": "moredyes:sign_bfbf66"
+      },
+      {
+        "item": "moredyes:sign_99b266"
+      },
+      {
+        "item": "moredyes:sign_b29272"
+      },
+      {
+        "item": "moredyes:sign_8c9972"
+      },
+      {
+        "item": "moredyes:sign_a69933"
+      },
+      {
+        "item": "moredyes:sign_a6b233"
+      },
+      {
+        "item": "moredyes:sign_bf8c33"
+      },
+      {
+        "item": "moredyes:sign_7f7f26"
+      },
+      {
+        "item": "moredyes:sign_b8a65f"
+      },
+      {
+        "item": "moredyes:sign_668c32"
+      },
+      {
+        "item": "moredyes:sign_8cb359"
+      },
+      {
+        "item": "moredyes:sign_66a659"
+      },
+      {
+        "item": "moredyes:sign_7f5665"
+      },
+      {
+        "item": "moredyes:sign_598c65"
+      },
+      {
+        "item": "moredyes:sign_738c26"
+      },
+      {
+        "item": "moredyes:sign_73a626"
+      },
+      {
+        "item": "moredyes:sign_8c8026"
+      },
+      {
+        "item": "moredyes:sign_4c7319"
+      },
+      {
+        "item": "moredyes:sign_864c5f"
+      },
+      {
+        "item": "moredyes:sign_c6596c"
+      },
+      {
+        "item": "moredyes:sign_ac7f6c"
+      },
+      {
+        "item": "moredyes:sign_ac666c"
+      },
+      {
+        "item": "moredyes:sign_9366ab"
+      },
+      {
+        "item": "moredyes:sign_b95fab"
+      },
+      {
+        "item": "moredyes:sign_9f7f9f"
+      },
+      {
+        "item": "moredyes:sign_c68c9f"
+      },
+      {
+        "item": "moredyes:sign_9f6679"
+      },
+      {
+        "item": "moredyes:sign_727272"
+      },
+      {
+        "item": "moredyes:sign_4c6572"
+      },
+      {
+        "item": "moredyes:sign_65467f"
+      },
+      {
+        "item": "moredyes:sign_404c7f"
+      },
+      {
+        "item": "moredyes:sign_594c40"
+      },
+      {
+        "item": "moredyes:sign_596540"
+      },
+      {
+        "item": "moredyes:sign_724040"
+      },
+      {
+        "item": "moredyes:sign_333333"
+      },
+      {
+        "item": "moredyes:sign_738c99"
+      },
+      {
+        "item": "moredyes:sign_8c6ca5"
+      },
+      {
+        "item": "moredyes:sign_6673a5"
+      },
+      {
+        "item": "moredyes:sign_807366"
+      },
+      {
+        "item": "moredyes:sign_808c66"
+      },
+      {
+        "item": "moredyes:sign_996666"
+      },
+      {
+        "item": "moredyes:sign_595959"
+      },
+      {
+        "item": "moredyes:sign_655fa5"
+      },
+      {
+        "item": "moredyes:sign_4066a5"
+      },
+      {
+        "item": "moredyes:sign_596666"
+      },
+      {
+        "item": "moredyes:sign_597f66"
+      },
+      {
+        "item": "moredyes:sign_725966"
+      },
+      {
+        "item": "moredyes:sign_334c59"
+      },
+      {
+        "item": "moredyes:sign_5945b2"
+      },
+      {
+        "item": "moredyes:sign_734573"
+      },
+      {
+        "item": "moredyes:sign_735f73"
+      },
+      {
+        "item": "moredyes:sign_8c3973"
+      },
+      {
+        "item": "moredyes:sign_4c2c66"
+      },
+      {
+        "item": "moredyes:sign_4c4c73"
+      },
+      {
+        "item": "moredyes:sign_4c6573"
+      },
+      {
+        "item": "moredyes:sign_664073"
+      },
+      {
+        "item": "moredyes:sign_263366"
+      },
+      {
+        "item": "moredyes:sign_403326"
+      },
+      {
+        "item": "moredyes:sign_7f4033"
+      },
+      {
+        "item": "moredyes:sign_666533"
+      },
+      {
+        "item": "moredyes:sign_7f5933"
+      },
+      {
+        "item": "moredyes:sign_404c26"
+      },
+      {
+        "item": "moredyes:sign_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_sign"
+  }
+}

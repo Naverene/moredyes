@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:quartz_ecbf99"
+      },
+      {
+        "item": "moredyes:quartz_d9a6ec"
+      },
+      {
+        "item": "moredyes:quartz_b3ccec"
+      },
+      {
+        "item": "moredyes:quartz_f2f299"
+      },
+      {
+        "item": "moredyes:quartz_bfe68c"
+      },
+      {
+        "item": "moredyes:quartz_f9bfd2"
+      },
+      {
+        "item": "moredyes:quartz_cccccc"
+      },
+      {
+        "item": "moredyes:quartz_a6bfcc"
+      },
+      {
+        "item": "moredyes:quartz_bf9fd9"
+      },
+      {
+        "item": "moredyes:quartz_99a6d9"
+      },
+      {
+        "item": "moredyes:quartz_b3a699"
+      },
+      {
+        "item": "moredyes:quartz_b3bf99"
+      },
+      {
+        "item": "moredyes:quartz_cc9999"
+      },
+      {
+        "item": "moredyes:quartz_c56685"
+      },
+      {
+        "item": "moredyes:quartz_9f8c85"
+      },
+      {
+        "item": "moredyes:quartz_deb233"
+      },
+      {
+        "item": "moredyes:quartz_aca526"
+      },
+      {
+        "item": "moredyes:quartz_e57f6c"
+      },
+      {
+        "item": "moredyes:quartz_92663f"
+      },
+      {
+        "item": "moredyes:quartz_b98c66"
+      },
+      {
+        "item": "moredyes:quartz_927f66"
+      },
+      {
+        "item": "moredyes:quartz_ac5f72"
+      },
+      {
+        "item": "moredyes:quartz_866672"
+      },
+      {
+        "item": "moredyes:quartz_9f6633"
+      },
+      {
+        "item": "moredyes:quartz_9f7f33"
+      },
+      {
+        "item": "moredyes:quartz_b95933"
+      },
+      {
+        "item": "moredyes:quartz_794c26"
+      },
+      {
+        "item": "moredyes:quartz_8c72d8"
+      },
+      {
+        "item": "moredyes:quartz_cb9886"
+      },
+      {
+        "item": "moredyes:quartz_998c79"
+      },
+      {
+        "item": "moredyes:quartz_d265bf"
+      },
+      {
+        "item": "moredyes:quartz_7f4c92"
+      },
+      {
+        "item": "moredyes:quartz_a672b9"
+      },
+      {
+        "item": "moredyes:quartz_7f65b9"
+      },
+      {
+        "item": "moredyes:quartz_9946c5"
+      },
+      {
+        "item": "moredyes:quartz_734cc5"
+      },
+      {
+        "item": "moredyes:quartz_8c4c86"
+      },
+      {
+        "item": "moredyes:quartz_8c6586"
+      },
+      {
+        "item": "moredyes:quartz_a64086"
+      },
+      {
+        "item": "moredyes:quartz_663379"
+      },
+      {
+        "item": "moredyes:quartz_a5bf86"
+      },
+      {
+        "item": "moredyes:quartz_72b279"
+      },
+      {
+        "item": "moredyes:quartz_ac8cbf"
+      },
+      {
+        "item": "moredyes:quartz_597392"
+      },
+      {
+        "item": "moredyes:quartz_7f99b9"
+      },
+      {
+        "item": "moredyes:quartz_598cb9"
+      },
+      {
+        "item": "moredyes:quartz_726cc5"
+      },
+      {
+        "item": "moredyes:quartz_4d73c5"
+      },
+      {
+        "item": "moredyes:quartz_667386"
+      },
+      {
+        "item": "moredyes:quartz_668c86"
+      },
+      {
+        "item": "moredyes:quartz_7f6686"
+      },
+      {
+        "item": "moredyes:quartz_405979"
+      },
+      {
+        "item": "moredyes:quartz_b2d926"
+      },
+      {
+        "item": "moredyes:quartz_ebb26c"
+      },
+      {
+        "item": "moredyes:quartz_99993f"
+      },
+      {
+        "item": "moredyes:quartz_bfbf66"
+      },
+      {
+        "item": "moredyes:quartz_99b266"
+      },
+      {
+        "item": "moredyes:quartz_b29272"
+      },
+      {
+        "item": "moredyes:quartz_8c9972"
+      },
+      {
+        "item": "moredyes:quartz_a69933"
+      },
+      {
+        "item": "moredyes:quartz_a6b233"
+      },
+      {
+        "item": "moredyes:quartz_bf8c33"
+      },
+      {
+        "item": "moredyes:quartz_7f7f26"
+      },
+      {
+        "item": "moredyes:quartz_b8a65f"
+      },
+      {
+        "item": "moredyes:quartz_668c32"
+      },
+      {
+        "item": "moredyes:quartz_8cb359"
+      },
+      {
+        "item": "moredyes:quartz_66a659"
+      },
+      {
+        "item": "moredyes:quartz_7f5665"
+      },
+      {
+        "item": "moredyes:quartz_598c65"
+      },
+      {
+        "item": "moredyes:quartz_738c26"
+      },
+      {
+        "item": "moredyes:quartz_73a626"
+      },
+      {
+        "item": "moredyes:quartz_8c8026"
+      },
+      {
+        "item": "moredyes:quartz_4c7319"
+      },
+      {
+        "item": "moredyes:quartz_864c5f"
+      },
+      {
+        "item": "moredyes:quartz_c6596c"
+      },
+      {
+        "item": "moredyes:quartz_ac7f6c"
+      },
+      {
+        "item": "moredyes:quartz_ac666c"
+      },
+      {
+        "item": "moredyes:quartz_9366ab"
+      },
+      {
+        "item": "moredyes:quartz_b95fab"
+      },
+      {
+        "item": "moredyes:quartz_9f7f9f"
+      },
+      {
+        "item": "moredyes:quartz_c68c9f"
+      },
+      {
+        "item": "moredyes:quartz_9f6679"
+      },
+      {
+        "item": "moredyes:quartz_727272"
+      },
+      {
+        "item": "moredyes:quartz_4c6572"
+      },
+      {
+        "item": "moredyes:quartz_65467f"
+      },
+      {
+        "item": "moredyes:quartz_404c7f"
+      },
+      {
+        "item": "moredyes:quartz_594c40"
+      },
+      {
+        "item": "moredyes:quartz_596540"
+      },
+      {
+        "item": "moredyes:quartz_724040"
+      },
+      {
+        "item": "moredyes:quartz_333333"
+      },
+      {
+        "item": "moredyes:quartz_738c99"
+      },
+      {
+        "item": "moredyes:quartz_8c6ca5"
+      },
+      {
+        "item": "moredyes:quartz_6673a5"
+      },
+      {
+        "item": "moredyes:quartz_807366"
+      },
+      {
+        "item": "moredyes:quartz_808c66"
+      },
+      {
+        "item": "moredyes:quartz_996666"
+      },
+      {
+        "item": "moredyes:quartz_595959"
+      },
+      {
+        "item": "moredyes:quartz_655fa5"
+      },
+      {
+        "item": "moredyes:quartz_4066a5"
+      },
+      {
+        "item": "moredyes:quartz_596666"
+      },
+      {
+        "item": "moredyes:quartz_597f66"
+      },
+      {
+        "item": "moredyes:quartz_725966"
+      },
+      {
+        "item": "moredyes:quartz_334c59"
+      },
+      {
+        "item": "moredyes:quartz_5945b2"
+      },
+      {
+        "item": "moredyes:quartz_734573"
+      },
+      {
+        "item": "moredyes:quartz_735f73"
+      },
+      {
+        "item": "moredyes:quartz_8c3973"
+      },
+      {
+        "item": "moredyes:quartz_4c2c66"
+      },
+      {
+        "item": "moredyes:quartz_4c4c73"
+      },
+      {
+        "item": "moredyes:quartz_4c6573"
+      },
+      {
+        "item": "moredyes:quartz_664073"
+      },
+      {
+        "item": "moredyes:quartz_263366"
+      },
+      {
+        "item": "moredyes:quartz_403326"
+      },
+      {
+        "item": "moredyes:quartz_7f4033"
+      },
+      {
+        "item": "moredyes:quartz_666533"
+      },
+      {
+        "item": "moredyes:quartz_7f5933"
+      },
+      {
+        "item": "moredyes:quartz_404c26"
+      },
+      {
+        "item": "moredyes:quartz_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:quartz_block"
+  }
+}

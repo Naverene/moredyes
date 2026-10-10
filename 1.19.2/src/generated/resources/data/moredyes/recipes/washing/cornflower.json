@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:cornflower_ecbf99"
+      },
+      {
+        "item": "moredyes:cornflower_d9a6ec"
+      },
+      {
+        "item": "moredyes:cornflower_b3ccec"
+      },
+      {
+        "item": "moredyes:cornflower_f2f299"
+      },
+      {
+        "item": "moredyes:cornflower_bfe68c"
+      },
+      {
+        "item": "moredyes:cornflower_f9bfd2"
+      },
+      {
+        "item": "moredyes:cornflower_cccccc"
+      },
+      {
+        "item": "moredyes:cornflower_a6bfcc"
+      },
+      {
+        "item": "moredyes:cornflower_bf9fd9"
+      },
+      {
+        "item": "moredyes:cornflower_99a6d9"
+      },
+      {
+        "item": "moredyes:cornflower_b3a699"
+      },
+      {
+        "item": "moredyes:cornflower_b3bf99"
+      },
+      {
+        "item": "moredyes:cornflower_cc9999"
+      },
+      {
+        "item": "moredyes:cornflower_c56685"
+      },
+      {
+        "item": "moredyes:cornflower_9f8c85"
+      },
+      {
+        "item": "moredyes:cornflower_deb233"
+      },
+      {
+        "item": "moredyes:cornflower_aca526"
+      },
+      {
+        "item": "moredyes:cornflower_e57f6c"
+      },
+      {
+        "item": "moredyes:cornflower_92663f"
+      },
+      {
+        "item": "moredyes:cornflower_b98c66"
+      },
+      {
+        "item": "moredyes:cornflower_927f66"
+      },
+      {
+        "item": "moredyes:cornflower_ac5f72"
+      },
+      {
+        "item": "moredyes:cornflower_866672"
+      },
+      {
+        "item": "moredyes:cornflower_9f6633"
+      },
+      {
+        "item": "moredyes:cornflower_9f7f33"
+      },
+      {
+        "item": "moredyes:cornflower_b95933"
+      },
+      {
+        "item": "moredyes:cornflower_794c26"
+      },
+      {
+        "item": "moredyes:cornflower_8c72d8"
+      },
+      {
+        "item": "moredyes:cornflower_cb9886"
+      },
+      {
+        "item": "moredyes:cornflower_998c79"
+      },
+      {
+        "item": "moredyes:cornflower_d265bf"
+      },
+      {
+        "item": "moredyes:cornflower_7f4c92"
+      },
+      {
+        "item": "moredyes:cornflower_a672b9"
+      },
+      {
+        "item": "moredyes:cornflower_7f65b9"
+      },
+      {
+        "item": "moredyes:cornflower_9946c5"
+      },
+      {
+        "item": "moredyes:cornflower_734cc5"
+      },
+      {
+        "item": "moredyes:cornflower_8c4c86"
+      },
+      {
+        "item": "moredyes:cornflower_8c6586"
+      },
+      {
+        "item": "moredyes:cornflower_a64086"
+      },
+      {
+        "item": "moredyes:cornflower_663379"
+      },
+      {
+        "item": "moredyes:cornflower_a5bf86"
+      },
+      {
+        "item": "moredyes:cornflower_72b279"
+      },
+      {
+        "item": "moredyes:cornflower_ac8cbf"
+      },
+      {
+        "item": "moredyes:cornflower_597392"
+      },
+      {
+        "item": "moredyes:cornflower_7f99b9"
+      },
+      {
+        "item": "moredyes:cornflower_598cb9"
+      },
+      {
+        "item": "moredyes:cornflower_726cc5"
+      },
+      {
+        "item": "moredyes:cornflower_4d73c5"
+      },
+      {
+        "item": "moredyes:cornflower_667386"
+      },
+      {
+        "item": "moredyes:cornflower_668c86"
+      },
+      {
+        "item": "moredyes:cornflower_7f6686"
+      },
+      {
+        "item": "moredyes:cornflower_405979"
+      },
+      {
+        "item": "moredyes:cornflower_b2d926"
+      },
+      {
+        "item": "moredyes:cornflower_ebb26c"
+      },
+      {
+        "item": "moredyes:cornflower_99993f"
+      },
+      {
+        "item": "moredyes:cornflower_bfbf66"
+      },
+      {
+        "item": "moredyes:cornflower_99b266"
+      },
+      {
+        "item": "moredyes:cornflower_b29272"
+      },
+      {
+        "item": "moredyes:cornflower_8c9972"
+      },
+      {
+        "item": "moredyes:cornflower_a69933"
+      },
+      {
+        "item": "moredyes:cornflower_a6b233"
+      },
+      {
+        "item": "moredyes:cornflower_bf8c33"
+      },
+      {
+        "item": "moredyes:cornflower_7f7f26"
+      },
+      {
+        "item": "moredyes:cornflower_b8a65f"
+      },
+      {
+        "item": "moredyes:cornflower_668c32"
+      },
+      {
+        "item": "moredyes:cornflower_8cb359"
+      },
+      {
+        "item": "moredyes:cornflower_66a659"
+      },
+      {
+        "item": "moredyes:cornflower_7f5665"
+      },
+      {
+        "item": "moredyes:cornflower_598c65"
+      },
+      {
+        "item": "moredyes:cornflower_738c26"
+      },
+      {
+        "item": "moredyes:cornflower_73a626"
+      },
+      {
+        "item": "moredyes:cornflower_8c8026"
+      },
+      {
+        "item": "moredyes:cornflower_4c7319"
+      },
+      {
+        "item": "moredyes:cornflower_864c5f"
+      },
+      {
+        "item": "moredyes:cornflower_c6596c"
+      },
+      {
+        "item": "moredyes:cornflower_ac7f6c"
+      },
+      {
+        "item": "moredyes:cornflower_ac666c"
+      },
+      {
+        "item": "moredyes:cornflower_9366ab"
+      },
+      {
+        "item": "moredyes:cornflower_b95fab"
+      },
+      {
+        "item": "moredyes:cornflower_9f7f9f"
+      },
+      {
+        "item": "moredyes:cornflower_c68c9f"
+      },
+      {
+        "item": "moredyes:cornflower_9f6679"
+      },
+      {
+        "item": "moredyes:cornflower_727272"
+      },
+      {
+        "item": "moredyes:cornflower_4c6572"
+      },
+      {
+        "item": "moredyes:cornflower_65467f"
+      },
+      {
+        "item": "moredyes:cornflower_404c7f"
+      },
+      {
+        "item": "moredyes:cornflower_594c40"
+      },
+      {
+        "item": "moredyes:cornflower_596540"
+      },
+      {
+        "item": "moredyes:cornflower_724040"
+      },
+      {
+        "item": "moredyes:cornflower_333333"
+      },
+      {
+        "item": "moredyes:cornflower_738c99"
+      },
+      {
+        "item": "moredyes:cornflower_8c6ca5"
+      },
+      {
+        "item": "moredyes:cornflower_6673a5"
+      },
+      {
+        "item": "moredyes:cornflower_807366"
+      },
+      {
+        "item": "moredyes:cornflower_808c66"
+      },
+      {
+        "item": "moredyes:cornflower_996666"
+      },
+      {
+        "item": "moredyes:cornflower_595959"
+      },
+      {
+        "item": "moredyes:cornflower_655fa5"
+      },
+      {
+        "item": "moredyes:cornflower_4066a5"
+      },
+      {
+        "item": "moredyes:cornflower_596666"
+      },
+      {
+        "item": "moredyes:cornflower_597f66"
+      },
+      {
+        "item": "moredyes:cornflower_725966"
+      },
+      {
+        "item": "moredyes:cornflower_334c59"
+      },
+      {
+        "item": "moredyes:cornflower_5945b2"
+      },
+      {
+        "item": "moredyes:cornflower_734573"
+      },
+      {
+        "item": "moredyes:cornflower_735f73"
+      },
+      {
+        "item": "moredyes:cornflower_8c3973"
+      },
+      {
+        "item": "moredyes:cornflower_4c2c66"
+      },
+      {
+        "item": "moredyes:cornflower_4c4c73"
+      },
+      {
+        "item": "moredyes:cornflower_4c6573"
+      },
+      {
+        "item": "moredyes:cornflower_664073"
+      },
+      {
+        "item": "moredyes:cornflower_263366"
+      },
+      {
+        "item": "moredyes:cornflower_403326"
+      },
+      {
+        "item": "moredyes:cornflower_7f4033"
+      },
+      {
+        "item": "moredyes:cornflower_666533"
+      },
+      {
+        "item": "moredyes:cornflower_7f5933"
+      },
+      {
+        "item": "moredyes:cornflower_404c26"
+      },
+      {
+        "item": "moredyes:cornflower_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cornflower"
+  }
+}

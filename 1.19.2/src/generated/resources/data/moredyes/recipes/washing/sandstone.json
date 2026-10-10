@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:sandstone_ecbf99"
+      },
+      {
+        "item": "moredyes:sandstone_d9a6ec"
+      },
+      {
+        "item": "moredyes:sandstone_b3ccec"
+      },
+      {
+        "item": "moredyes:sandstone_f2f299"
+      },
+      {
+        "item": "moredyes:sandstone_bfe68c"
+      },
+      {
+        "item": "moredyes:sandstone_f9bfd2"
+      },
+      {
+        "item": "moredyes:sandstone_cccccc"
+      },
+      {
+        "item": "moredyes:sandstone_a6bfcc"
+      },
+      {
+        "item": "moredyes:sandstone_bf9fd9"
+      },
+      {
+        "item": "moredyes:sandstone_99a6d9"
+      },
+      {
+        "item": "moredyes:sandstone_b3a699"
+      },
+      {
+        "item": "moredyes:sandstone_b3bf99"
+      },
+      {
+        "item": "moredyes:sandstone_cc9999"
+      },
+      {
+        "item": "moredyes:sandstone_c56685"
+      },
+      {
+        "item": "moredyes:sandstone_9f8c85"
+      },
+      {
+        "item": "moredyes:sandstone_deb233"
+      },
+      {
+        "item": "moredyes:sandstone_aca526"
+      },
+      {
+        "item": "moredyes:sandstone_e57f6c"
+      },
+      {
+        "item": "moredyes:sandstone_92663f"
+      },
+      {
+        "item": "moredyes:sandstone_b98c66"
+      },
+      {
+        "item": "moredyes:sandstone_927f66"
+      },
+      {
+        "item": "moredyes:sandstone_ac5f72"
+      },
+      {
+        "item": "moredyes:sandstone_866672"
+      },
+      {
+        "item": "moredyes:sandstone_9f6633"
+      },
+      {
+        "item": "moredyes:sandstone_9f7f33"
+      },
+      {
+        "item": "moredyes:sandstone_b95933"
+      },
+      {
+        "item": "moredyes:sandstone_794c26"
+      },
+      {
+        "item": "moredyes:sandstone_8c72d8"
+      },
+      {
+        "item": "moredyes:sandstone_cb9886"
+      },
+      {
+        "item": "moredyes:sandstone_998c79"
+      },
+      {
+        "item": "moredyes:sandstone_d265bf"
+      },
+      {
+        "item": "moredyes:sandstone_7f4c92"
+      },
+      {
+        "item": "moredyes:sandstone_a672b9"
+      },
+      {
+        "item": "moredyes:sandstone_7f65b9"
+      },
+      {
+        "item": "moredyes:sandstone_9946c5"
+      },
+      {
+        "item": "moredyes:sandstone_734cc5"
+      },
+      {
+        "item": "moredyes:sandstone_8c4c86"
+      },
+      {
+        "item": "moredyes:sandstone_8c6586"
+      },
+      {
+        "item": "moredyes:sandstone_a64086"
+      },
+      {
+        "item": "moredyes:sandstone_663379"
+      },
+      {
+        "item": "moredyes:sandstone_a5bf86"
+      },
+      {
+        "item": "moredyes:sandstone_72b279"
+      },
+      {
+        "item": "moredyes:sandstone_ac8cbf"
+      },
+      {
+        "item": "moredyes:sandstone_597392"
+      },
+      {
+        "item": "moredyes:sandstone_7f99b9"
+      },
+      {
+        "item": "moredyes:sandstone_598cb9"
+      },
+      {
+        "item": "moredyes:sandstone_726cc5"
+      },
+      {
+        "item": "moredyes:sandstone_4d73c5"
+      },
+      {
+        "item": "moredyes:sandstone_667386"
+      },
+      {
+        "item": "moredyes:sandstone_668c86"
+      },
+      {
+        "item": "moredyes:sandstone_7f6686"
+      },
+      {
+        "item": "moredyes:sandstone_405979"
+      },
+      {
+        "item": "moredyes:sandstone_b2d926"
+      },
+      {
+        "item": "moredyes:sandstone_ebb26c"
+      },
+      {
+        "item": "moredyes:sandstone_99993f"
+      },
+      {
+        "item": "moredyes:sandstone_bfbf66"
+      },
+      {
+        "item": "moredyes:sandstone_99b266"
+      },
+      {
+        "item": "moredyes:sandstone_b29272"
+      },
+      {
+        "item": "moredyes:sandstone_8c9972"
+      },
+      {
+        "item": "moredyes:sandstone_a69933"
+      },
+      {
+        "item": "moredyes:sandstone_a6b233"
+      },
+      {
+        "item": "moredyes:sandstone_bf8c33"
+      },
+      {
+        "item": "moredyes:sandstone_7f7f26"
+      },
+      {
+        "item": "moredyes:sandstone_b8a65f"
+      },
+      {
+        "item": "moredyes:sandstone_668c32"
+      },
+      {
+        "item": "moredyes:sandstone_8cb359"
+      },
+      {
+        "item": "moredyes:sandstone_66a659"
+      },
+      {
+        "item": "moredyes:sandstone_7f5665"
+      },
+      {
+        "item": "moredyes:sandstone_598c65"
+      },
+      {
+        "item": "moredyes:sandstone_738c26"
+      },
+      {
+        "item": "moredyes:sandstone_73a626"
+      },
+      {
+        "item": "moredyes:sandstone_8c8026"
+      },
+      {
+        "item": "moredyes:sandstone_4c7319"
+      },
+      {
+        "item": "moredyes:sandstone_864c5f"
+      },
+      {
+        "item": "moredyes:sandstone_c6596c"
+      },
+      {
+        "item": "moredyes:sandstone_ac7f6c"
+      },
+      {
+        "item": "moredyes:sandstone_ac666c"
+      },
+      {
+        "item": "moredyes:sandstone_9366ab"
+      },
+      {
+        "item": "moredyes:sandstone_b95fab"
+      },
+      {
+        "item": "moredyes:sandstone_9f7f9f"
+      },
+      {
+        "item": "moredyes:sandstone_c68c9f"
+      },
+      {
+        "item": "moredyes:sandstone_9f6679"
+      },
+      {
+        "item": "moredyes:sandstone_727272"
+      },
+      {
+        "item": "moredyes:sandstone_4c6572"
+      },
+      {
+        "item": "moredyes:sandstone_65467f"
+      },
+      {
+        "item": "moredyes:sandstone_404c7f"
+      },
+      {
+        "item": "moredyes:sandstone_594c40"
+      },
+      {
+        "item": "moredyes:sandstone_596540"
+      },
+      {
+        "item": "moredyes:sandstone_724040"
+      },
+      {
+        "item": "moredyes:sandstone_333333"
+      },
+      {
+        "item": "moredyes:sandstone_738c99"
+      },
+      {
+        "item": "moredyes:sandstone_8c6ca5"
+      },
+      {
+        "item": "moredyes:sandstone_6673a5"
+      },
+      {
+        "item": "moredyes:sandstone_807366"
+      },
+      {
+        "item": "moredyes:sandstone_808c66"
+      },
+      {
+        "item": "moredyes:sandstone_996666"
+      },
+      {
+        "item": "moredyes:sandstone_595959"
+      },
+      {
+        "item": "moredyes:sandstone_655fa5"
+      },
+      {
+        "item": "moredyes:sandstone_4066a5"
+      },
+      {
+        "item": "moredyes:sandstone_596666"
+      },
+      {
+        "item": "moredyes:sandstone_597f66"
+      },
+      {
+        "item": "moredyes:sandstone_725966"
+      },
+      {
+        "item": "moredyes:sandstone_334c59"
+      },
+      {
+        "item": "moredyes:sandstone_5945b2"
+      },
+      {
+        "item": "moredyes:sandstone_734573"
+      },
+      {
+        "item": "moredyes:sandstone_735f73"
+      },
+      {
+        "item": "moredyes:sandstone_8c3973"
+      },
+      {
+        "item": "moredyes:sandstone_4c2c66"
+      },
+      {
+        "item": "moredyes:sandstone_4c4c73"
+      },
+      {
+        "item": "moredyes:sandstone_4c6573"
+      },
+      {
+        "item": "moredyes:sandstone_664073"
+      },
+      {
+        "item": "moredyes:sandstone_263366"
+      },
+      {
+        "item": "moredyes:sandstone_403326"
+      },
+      {
+        "item": "moredyes:sandstone_7f4033"
+      },
+      {
+        "item": "moredyes:sandstone_666533"
+      },
+      {
+        "item": "moredyes:sandstone_7f5933"
+      },
+      {
+        "item": "moredyes:sandstone_404c26"
+      },
+      {
+        "item": "moredyes:sandstone_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sandstone"
+  }
+}

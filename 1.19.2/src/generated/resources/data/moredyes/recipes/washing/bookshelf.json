@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:bookshelf_ecbf99"
+      },
+      {
+        "item": "moredyes:bookshelf_d9a6ec"
+      },
+      {
+        "item": "moredyes:bookshelf_b3ccec"
+      },
+      {
+        "item": "moredyes:bookshelf_f2f299"
+      },
+      {
+        "item": "moredyes:bookshelf_bfe68c"
+      },
+      {
+        "item": "moredyes:bookshelf_f9bfd2"
+      },
+      {
+        "item": "moredyes:bookshelf_cccccc"
+      },
+      {
+        "item": "moredyes:bookshelf_a6bfcc"
+      },
+      {
+        "item": "moredyes:bookshelf_bf9fd9"
+      },
+      {
+        "item": "moredyes:bookshelf_99a6d9"
+      },
+      {
+        "item": "moredyes:bookshelf_b3a699"
+      },
+      {
+        "item": "moredyes:bookshelf_b3bf99"
+      },
+      {
+        "item": "moredyes:bookshelf_cc9999"
+      },
+      {
+        "item": "moredyes:bookshelf_c56685"
+      },
+      {
+        "item": "moredyes:bookshelf_9f8c85"
+      },
+      {
+        "item": "moredyes:bookshelf_deb233"
+      },
+      {
+        "item": "moredyes:bookshelf_aca526"
+      },
+      {
+        "item": "moredyes:bookshelf_e57f6c"
+      },
+      {
+        "item": "moredyes:bookshelf_92663f"
+      },
+      {
+        "item": "moredyes:bookshelf_b98c66"
+      },
+      {
+        "item": "moredyes:bookshelf_927f66"
+      },
+      {
+        "item": "moredyes:bookshelf_ac5f72"
+      },
+      {
+        "item": "moredyes:bookshelf_866672"
+      },
+      {
+        "item": "moredyes:bookshelf_9f6633"
+      },
+      {
+        "item": "moredyes:bookshelf_9f7f33"
+      },
+      {
+        "item": "moredyes:bookshelf_b95933"
+      },
+      {
+        "item": "moredyes:bookshelf_794c26"
+      },
+      {
+        "item": "moredyes:bookshelf_8c72d8"
+      },
+      {
+        "item": "moredyes:bookshelf_cb9886"
+      },
+      {
+        "item": "moredyes:bookshelf_998c79"
+      },
+      {
+        "item": "moredyes:bookshelf_d265bf"
+      },
+      {
+        "item": "moredyes:bookshelf_7f4c92"
+      },
+      {
+        "item": "moredyes:bookshelf_a672b9"
+      },
+      {
+        "item": "moredyes:bookshelf_7f65b9"
+      },
+      {
+        "item": "moredyes:bookshelf_9946c5"
+      },
+      {
+        "item": "moredyes:bookshelf_734cc5"
+      },
+      {
+        "item": "moredyes:bookshelf_8c4c86"
+      },
+      {
+        "item": "moredyes:bookshelf_8c6586"
+      },
+      {
+        "item": "moredyes:bookshelf_a64086"
+      },
+      {
+        "item": "moredyes:bookshelf_663379"
+      },
+      {
+        "item": "moredyes:bookshelf_a5bf86"
+      },
+      {
+        "item": "moredyes:bookshelf_72b279"
+      },
+      {
+        "item": "moredyes:bookshelf_ac8cbf"
+      },
+      {
+        "item": "moredyes:bookshelf_597392"
+      },
+      {
+        "item": "moredyes:bookshelf_7f99b9"
+      },
+      {
+        "item": "moredyes:bookshelf_598cb9"
+      },
+      {
+        "item": "moredyes:bookshelf_726cc5"
+      },
+      {
+        "item": "moredyes:bookshelf_4d73c5"
+      },
+      {
+        "item": "moredyes:bookshelf_667386"
+      },
+      {
+        "item": "moredyes:bookshelf_668c86"
+      },
+      {
+        "item": "moredyes:bookshelf_7f6686"
+      },
+      {
+        "item": "moredyes:bookshelf_405979"
+      },
+      {
+        "item": "moredyes:bookshelf_b2d926"
+      },
+      {
+        "item": "moredyes:bookshelf_ebb26c"
+      },
+      {
+        "item": "moredyes:bookshelf_99993f"
+      },
+      {
+        "item": "moredyes:bookshelf_bfbf66"
+      },
+      {
+        "item": "moredyes:bookshelf_99b266"
+      },
+      {
+        "item": "moredyes:bookshelf_b29272"
+      },
+      {
+        "item": "moredyes:bookshelf_8c9972"
+      },
+      {
+        "item": "moredyes:bookshelf_a69933"
+      },
+      {
+        "item": "moredyes:bookshelf_a6b233"
+      },
+      {
+        "item": "moredyes:bookshelf_bf8c33"
+      },
+      {
+        "item": "moredyes:bookshelf_7f7f26"
+      },
+      {
+        "item": "moredyes:bookshelf_b8a65f"
+      },
+      {
+        "item": "moredyes:bookshelf_668c32"
+      },
+      {
+        "item": "moredyes:bookshelf_8cb359"
+      },
+      {
+        "item": "moredyes:bookshelf_66a659"
+      },
+      {
+        "item": "moredyes:bookshelf_7f5665"
+      },
+      {
+        "item": "moredyes:bookshelf_598c65"
+      },
+      {
+        "item": "moredyes:bookshelf_738c26"
+      },
+      {
+        "item": "moredyes:bookshelf_73a626"
+      },
+      {
+        "item": "moredyes:bookshelf_8c8026"
+      },
+      {
+        "item": "moredyes:bookshelf_4c7319"
+      },
+      {
+        "item": "moredyes:bookshelf_864c5f"
+      },
+      {
+        "item": "moredyes:bookshelf_c6596c"
+      },
+      {
+        "item": "moredyes:bookshelf_ac7f6c"
+      },
+      {
+        "item": "moredyes:bookshelf_ac666c"
+      },
+      {
+        "item": "moredyes:bookshelf_9366ab"
+      },
+      {
+        "item": "moredyes:bookshelf_b95fab"
+      },
+      {
+        "item": "moredyes:bookshelf_9f7f9f"
+      },
+      {
+        "item": "moredyes:bookshelf_c68c9f"
+      },
+      {
+        "item": "moredyes:bookshelf_9f6679"
+      },
+      {
+        "item": "moredyes:bookshelf_727272"
+      },
+      {
+        "item": "moredyes:bookshelf_4c6572"
+      },
+      {
+        "item": "moredyes:bookshelf_65467f"
+      },
+      {
+        "item": "moredyes:bookshelf_404c7f"
+      },
+      {
+        "item": "moredyes:bookshelf_594c40"
+      },
+      {
+        "item": "moredyes:bookshelf_596540"
+      },
+      {
+        "item": "moredyes:bookshelf_724040"
+      },
+      {
+        "item": "moredyes:bookshelf_333333"
+      },
+      {
+        "item": "moredyes:bookshelf_738c99"
+      },
+      {
+        "item": "moredyes:bookshelf_8c6ca5"
+      },
+      {
+        "item": "moredyes:bookshelf_6673a5"
+      },
+      {
+        "item": "moredyes:bookshelf_807366"
+      },
+      {
+        "item": "moredyes:bookshelf_808c66"
+      },
+      {
+        "item": "moredyes:bookshelf_996666"
+      },
+      {
+        "item": "moredyes:bookshelf_595959"
+      },
+      {
+        "item": "moredyes:bookshelf_655fa5"
+      },
+      {
+        "item": "moredyes:bookshelf_4066a5"
+      },
+      {
+        "item": "moredyes:bookshelf_596666"
+      },
+      {
+        "item": "moredyes:bookshelf_597f66"
+      },
+      {
+        "item": "moredyes:bookshelf_725966"
+      },
+      {
+        "item": "moredyes:bookshelf_334c59"
+      },
+      {
+        "item": "moredyes:bookshelf_5945b2"
+      },
+      {
+        "item": "moredyes:bookshelf_734573"
+      },
+      {
+        "item": "moredyes:bookshelf_735f73"
+      },
+      {
+        "item": "moredyes:bookshelf_8c3973"
+      },
+      {
+        "item": "moredyes:bookshelf_4c2c66"
+      },
+      {
+        "item": "moredyes:bookshelf_4c4c73"
+      },
+      {
+        "item": "moredyes:bookshelf_4c6573"
+      },
+      {
+        "item": "moredyes:bookshelf_664073"
+      },
+      {
+        "item": "moredyes:bookshelf_263366"
+      },
+      {
+        "item": "moredyes:bookshelf_403326"
+      },
+      {
+        "item": "moredyes:bookshelf_7f4033"
+      },
+      {
+        "item": "moredyes:bookshelf_666533"
+      },
+      {
+        "item": "moredyes:bookshelf_7f5933"
+      },
+      {
+        "item": "moredyes:bookshelf_404c26"
+      },
+      {
+        "item": "moredyes:bookshelf_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bookshelf"
+  }
+}

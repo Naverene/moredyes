@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:lilyofthevalley_ecbf99"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_d9a6ec"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b3ccec"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_f2f299"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_bfe68c"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_f9bfd2"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_cccccc"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_a6bfcc"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_bf9fd9"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_99a6d9"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b3a699"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b3bf99"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_cc9999"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_c56685"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9f8c85"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_deb233"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_aca526"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_e57f6c"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_92663f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b98c66"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_927f66"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_ac5f72"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_866672"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9f6633"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9f7f33"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b95933"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_794c26"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c72d8"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_cb9886"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_998c79"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_d265bf"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f4c92"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_a672b9"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f65b9"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9946c5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_734cc5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c4c86"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c6586"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_a64086"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_663379"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_a5bf86"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_72b279"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_ac8cbf"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_597392"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f99b9"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_598cb9"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_726cc5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4d73c5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_667386"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_668c86"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f6686"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_405979"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b2d926"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_ebb26c"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_99993f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_bfbf66"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_99b266"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b29272"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c9972"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_a69933"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_a6b233"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_bf8c33"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f7f26"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b8a65f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_668c32"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8cb359"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_66a659"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f5665"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_598c65"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_738c26"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_73a626"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c8026"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4c7319"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_864c5f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_c6596c"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_ac7f6c"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_ac666c"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9366ab"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_b95fab"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9f7f9f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_c68c9f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_9f6679"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_727272"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4c6572"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_65467f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_404c7f"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_594c40"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_596540"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_724040"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_333333"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_738c99"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c6ca5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_6673a5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_807366"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_808c66"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_996666"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_595959"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_655fa5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4066a5"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_596666"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_597f66"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_725966"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_334c59"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_5945b2"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_734573"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_735f73"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_8c3973"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4c2c66"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4c4c73"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_4c6573"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_664073"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_263366"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_403326"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f4033"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_666533"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_7f5933"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_404c26"
+      },
+      {
+        "item": "moredyes:lilyofthevalley_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lily_of_the_valley"
+  }
+}
