@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted_wall_post",
+  "textures": {
+    "wall": "moredyes:blocks/tinted/stonebrick"
+  }
+}

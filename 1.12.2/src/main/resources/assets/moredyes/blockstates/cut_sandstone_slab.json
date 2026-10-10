@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:cut_sandstone_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:cut_sandstone_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:cut_sandstone_slab_double"
+    }
+  }
+}

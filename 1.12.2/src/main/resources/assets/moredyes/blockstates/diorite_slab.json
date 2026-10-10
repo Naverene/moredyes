@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:diorite_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:diorite_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:diorite_slab_double"
+    }
+  }
+}

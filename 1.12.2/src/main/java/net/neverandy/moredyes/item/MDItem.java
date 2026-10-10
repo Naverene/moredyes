@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import net.neverandy.moredyes.api.MoreDyesAPI;
+import net.neverandy.moredyes.block.BlockDyedSlab;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
@@ -38,6 +39,11 @@ public class MDItem
 		for(Block block:MDBlock.ALL)
 		{
 			event.getRegistry().register(new ItemBlockColored(block).setRegistryName(block.getRegistryName()));
+		}
+		for(Block block:MDBlock.TILE_COLORED)
+		{
+			Item item=block instanceof BlockDyedSlab?new ItemBlockDyedSlab(block):new ItemBlockTileColored(block);
+			event.getRegistry().register(item.setRegistryName(block.getRegistryName()));
 		}
 		for(Item item:dye)
 		{

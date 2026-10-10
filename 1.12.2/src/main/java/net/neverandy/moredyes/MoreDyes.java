@@ -42,6 +42,7 @@ public class MoreDyes
 	public static CreativeTabs tabBlocks=new Tab("Blocks");
 	public static CreativeTabs tabPlants=new Tab("Plants");
 	public static CreativeTabs tabTrees=new Tab("Trees");
+	public static CreativeTabs tabShapes=new Tab("Shapes");
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -79,6 +80,7 @@ public class MoreDyes
 		((Tab)tabBlocks).setTabIcon(new ItemStack(MDBlock.wool[0]));
 		((Tab)tabPlants).setTabIcon(new ItemStack(MDBlock.tulip[0]));
 		((Tab)tabTrees).setTabIcon(new ItemStack(MDBlock.sapling[0]));
+		((Tab)tabShapes).setTabIcon(new ItemStack(MDBlock.stoneStairs));
 		// Chisel reads its IMC messages after init, so they are sent here.
 		if(Loader.isModLoaded(ChiselCompat.CHISEL))
 		{

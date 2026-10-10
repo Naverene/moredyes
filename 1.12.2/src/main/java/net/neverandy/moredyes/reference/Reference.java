@@ -50,6 +50,37 @@ public class Reference
 	public static final BlockInfo BLOCK_INFO_WORKBENCH=new BlockInfo("workbench",Material.WOOD,2.5f,SoundType.WOOD).tool("axe",0);
 	public static final BlockInfo BLOCK_INFO_CHEST=new BlockInfo("chest",Material.WOOD,2.5f,SoundType.WOOD).tool("axe",0);
 
+	// Blocks from newer Minecraft versions, dyed like the others (as in 1.7.10).
+	public static final BlockInfo BLOCK_INFO_GRANITE=new BlockInfo("granite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_ANDESITE=new BlockInfo("andesite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_POLISHED_GRANITE=new BlockInfo("polished_granite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_POLISHED_DIORITE=new BlockInfo("polished_diorite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_POLISHED_ANDESITE=new BlockInfo("polished_andesite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_CONCRETE=new BlockInfo("concrete",Material.ROCK,1.8f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_CONCRETE_POWDER=new BlockInfo("concrete_powder",Material.SAND,0.5f,SoundType.SAND).tool("shovel",0);
+	public static final BlockInfo BLOCK_INFO_SOUL_SOIL=new BlockInfo("soul_soil",Material.GROUND,0.5f,SoundType.SAND).tool("shovel",0);
+	public static final BlockInfo BLOCK_INFO_BASALT=new BlockInfo("basalt",Material.ROCK,1.25f,SoundType.STONE).tool("pickaxe",0).resistance(7.0f);
+	public static final BlockInfo BLOCK_INFO_POLISHED_BASALT=new BlockInfo("polished_basalt",Material.ROCK,1.25f,SoundType.STONE).tool("pickaxe",0).resistance(7.0f);
+	public static final BlockInfo BLOCK_INFO_SMOOTH_STONE=new BlockInfo("smooth_stone",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_SMOOTH_SANDSTONE=new BlockInfo("smooth_sandstone",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_SMOOTH_QUARTZ=new BlockInfo("smooth_quartz",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_CUT_SANDSTONE=new BlockInfo("cut_sandstone",Material.ROCK,0.8f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_MOSSY_COBBLE=new BlockInfo("mossy_cobble",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_MOSSY_STONE_BRICK=new BlockInfo("mossy_stonebrick",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_NETHER_BRICK=new BlockInfo("nether_brick",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_CRACKED_NETHER_BRICK=new BlockInfo("cracked_nether_brick",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_CHISELED_NETHER_BRICK=new BlockInfo("chiseled_nether_brick",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_END_STONE_BRICK=new BlockInfo("end_stone_brick",Material.ROCK,0.8f,SoundType.STONE).tool("pickaxe",0).resistance(15.0f);
+	public static final BlockInfo BLOCK_INFO_BONE_BLOCK=new BlockInfo("bone_block",Material.ROCK,2.0f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_GLAZED_TERRACOTTA=new BlockInfo("glazed_terracotta",Material.ROCK,1.4f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_NETHERITE_BLOCK=new BlockInfo("netherite_block",Material.IRON,50.0f,SoundType.METAL).tool("pickaxe",3).resistance(1200.0f);
+	public static final BlockInfo BLOCK_INFO_CRYING_OBSIDIAN=new BlockInfo("crying_obsidian",Material.ROCK,50.0f,SoundType.STONE).tool("pickaxe",3).resistance(2000.0f);
+	public static final BlockInfo BLOCK_INFO_CHAIN=new BlockInfo("chain",Material.IRON,5.0f,SoundType.METAL).tool("pickaxe",0).resistance(6.0f);
+	public static final BlockInfo BLOCK_INFO_CORNFLOWER=new BlockInfo("cornflower",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+
+	// Blocks that keep their color in a tile entity, one block for all colors (as in 1.7.10).
+	public static final BlockInfo BLOCK_INFO_IRON_TRAPDOOR=new BlockInfo("iron_trapdoor",Material.IRON,5.0f,SoundType.METAL).tool("pickaxe",0).tab(MoreDyes.tabShapes);
+
 	public static final BlockInfo BLOCK_INFO_PLANK=new BlockInfo("plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
 	public static final BlockInfo BLOCK_INFO_LOG=new BlockInfo("log",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).tab(MoreDyes.tabTrees);
 	public static final BlockInfo BLOCK_INFO_LEAVES=new BlockInfo("leaf",Material.LEAVES,0.2f,SoundType.PLANT).tab(MoreDyes.tabTrees);

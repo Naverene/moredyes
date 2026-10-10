@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted_trapdoor_open",
+  "textures": {
+    "texture": "moredyes:blocks/tinted/iron_trapdoor"
+  }
+}
