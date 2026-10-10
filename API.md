@@ -9,9 +9,10 @@ A More Dyes color is identified by its RGB value, `0xRRGGBB`. That is also the h
 | Version | Every More Dyes dye | Dyes by nearest vanilla color |
 | --- | --- | --- |
 | 1.7.10, 1.12.2 | ore name `moredyesDye` (also in `dye`) | none |
-| 1.16.5, 1.18.2, 1.20.1 Forge | `moredyes:dyes` | `forge:dyes/<color>`, such as `forge:dyes/red` |
+| 1.16.5, 1.18.2, 1.19.2, 1.20.1 Forge | `moredyes:dyes` | `forge:dyes/<color>`, such as `forge:dyes/red` |
 | 1.20.1 Fabric | `moredyes:dyes`, `c:dyes` | `c:<color>_dyes`, such as `c:red_dyes` |
-| 26.1.2, 26.3 | `moredyes:dyes`, `c:dyes` | none |
+| 1.21.1 NeoForge | `moredyes:dyes`, `c:dyes` | `c:dyes/<color>`, such as `c:dyes/red` |
+| 1.21.11 NeoForge and Fabric, 26.1.2, 26.3 | `moredyes:dyes`, `c:dyes` | none |
 
 The nearest-color tags let mods that only know the 16 vanilla colors accept our dyes (Ender Storage, for example). On 26.x the vanilla recipes read NeoForge's `c:dyes/<color>` tags, so our dyes stay out of them; otherwise they would make vanilla-colored wool and glass. Use `MoreDyesAPI.nearestVanillaColor` there instead.
 
