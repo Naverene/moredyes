@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:coal_ecbf99"
+      },
+      {
+        "item": "moredyes:coal_d9a6ec"
+      },
+      {
+        "item": "moredyes:coal_b3ccec"
+      },
+      {
+        "item": "moredyes:coal_f2f299"
+      },
+      {
+        "item": "moredyes:coal_bfe68c"
+      },
+      {
+        "item": "moredyes:coal_f9bfd2"
+      },
+      {
+        "item": "moredyes:coal_cccccc"
+      },
+      {
+        "item": "moredyes:coal_a6bfcc"
+      },
+      {
+        "item": "moredyes:coal_bf9fd9"
+      },
+      {
+        "item": "moredyes:coal_99a6d9"
+      },
+      {
+        "item": "moredyes:coal_b3a699"
+      },
+      {
+        "item": "moredyes:coal_b3bf99"
+      },
+      {
+        "item": "moredyes:coal_cc9999"
+      },
+      {
+        "item": "moredyes:coal_c56685"
+      },
+      {
+        "item": "moredyes:coal_9f8c85"
+      },
+      {
+        "item": "moredyes:coal_deb233"
+      },
+      {
+        "item": "moredyes:coal_aca526"
+      },
+      {
+        "item": "moredyes:coal_e57f6c"
+      },
+      {
+        "item": "moredyes:coal_92663f"
+      },
+      {
+        "item": "moredyes:coal_b98c66"
+      },
+      {
+        "item": "moredyes:coal_927f66"
+      },
+      {
+        "item": "moredyes:coal_ac5f72"
+      },
+      {
+        "item": "moredyes:coal_866672"
+      },
+      {
+        "item": "moredyes:coal_9f6633"
+      },
+      {
+        "item": "moredyes:coal_9f7f33"
+      },
+      {
+        "item": "moredyes:coal_b95933"
+      },
+      {
+        "item": "moredyes:coal_794c26"
+      },
+      {
+        "item": "moredyes:coal_8c72d8"
+      },
+      {
+        "item": "moredyes:coal_cb9886"
+      },
+      {
+        "item": "moredyes:coal_998c79"
+      },
+      {
+        "item": "moredyes:coal_d265bf"
+      },
+      {
+        "item": "moredyes:coal_7f4c92"
+      },
+      {
+        "item": "moredyes:coal_a672b9"
+      },
+      {
+        "item": "moredyes:coal_7f65b9"
+      },
+      {
+        "item": "moredyes:coal_9946c5"
+      },
+      {
+        "item": "moredyes:coal_734cc5"
+      },
+      {
+        "item": "moredyes:coal_8c4c86"
+      },
+      {
+        "item": "moredyes:coal_8c6586"
+      },
+      {
+        "item": "moredyes:coal_a64086"
+      },
+      {
+        "item": "moredyes:coal_663379"
+      },
+      {
+        "item": "moredyes:coal_a5bf86"
+      },
+      {
+        "item": "moredyes:coal_72b279"
+      },
+      {
+        "item": "moredyes:coal_ac8cbf"
+      },
+      {
+        "item": "moredyes:coal_597392"
+      },
+      {
+        "item": "moredyes:coal_7f99b9"
+      },
+      {
+        "item": "moredyes:coal_598cb9"
+      },
+      {
+        "item": "moredyes:coal_726cc5"
+      },
+      {
+        "item": "moredyes:coal_4d73c5"
+      },
+      {
+        "item": "moredyes:coal_667386"
+      },
+      {
+        "item": "moredyes:coal_668c86"
+      },
+      {
+        "item": "moredyes:coal_7f6686"
+      },
+      {
+        "item": "moredyes:coal_405979"
+      },
+      {
+        "item": "moredyes:coal_b2d926"
+      },
+      {
+        "item": "moredyes:coal_ebb26c"
+      },
+      {
+        "item": "moredyes:coal_99993f"
+      },
+      {
+        "item": "moredyes:coal_bfbf66"
+      },
+      {
+        "item": "moredyes:coal_99b266"
+      },
+      {
+        "item": "moredyes:coal_b29272"
+      },
+      {
+        "item": "moredyes:coal_8c9972"
+      },
+      {
+        "item": "moredyes:coal_a69933"
+      },
+      {
+        "item": "moredyes:coal_a6b233"
+      },
+      {
+        "item": "moredyes:coal_bf8c33"
+      },
+      {
+        "item": "moredyes:coal_7f7f26"
+      },
+      {
+        "item": "moredyes:coal_b8a65f"
+      },
+      {
+        "item": "moredyes:coal_668c32"
+      },
+      {
+        "item": "moredyes:coal_8cb359"
+      },
+      {
+        "item": "moredyes:coal_66a659"
+      },
+      {
+        "item": "moredyes:coal_7f5665"
+      },
+      {
+        "item": "moredyes:coal_598c65"
+      },
+      {
+        "item": "moredyes:coal_738c26"
+      },
+      {
+        "item": "moredyes:coal_73a626"
+      },
+      {
+        "item": "moredyes:coal_8c8026"
+      },
+      {
+        "item": "moredyes:coal_4c7319"
+      },
+      {
+        "item": "moredyes:coal_864c5f"
+      },
+      {
+        "item": "moredyes:coal_c6596c"
+      },
+      {
+        "item": "moredyes:coal_ac7f6c"
+      },
+      {
+        "item": "moredyes:coal_ac666c"
+      },
+      {
+        "item": "moredyes:coal_9366ab"
+      },
+      {
+        "item": "moredyes:coal_b95fab"
+      },
+      {
+        "item": "moredyes:coal_9f7f9f"
+      },
+      {
+        "item": "moredyes:coal_c68c9f"
+      },
+      {
+        "item": "moredyes:coal_9f6679"
+      },
+      {
+        "item": "moredyes:coal_727272"
+      },
+      {
+        "item": "moredyes:coal_4c6572"
+      },
+      {
+        "item": "moredyes:coal_65467f"
+      },
+      {
+        "item": "moredyes:coal_404c7f"
+      },
+      {
+        "item": "moredyes:coal_594c40"
+      },
+      {
+        "item": "moredyes:coal_596540"
+      },
+      {
+        "item": "moredyes:coal_724040"
+      },
+      {
+        "item": "moredyes:coal_333333"
+      },
+      {
+        "item": "moredyes:coal_738c99"
+      },
+      {
+        "item": "moredyes:coal_8c6ca5"
+      },
+      {
+        "item": "moredyes:coal_6673a5"
+      },
+      {
+        "item": "moredyes:coal_807366"
+      },
+      {
+        "item": "moredyes:coal_808c66"
+      },
+      {
+        "item": "moredyes:coal_996666"
+      },
+      {
+        "item": "moredyes:coal_595959"
+      },
+      {
+        "item": "moredyes:coal_655fa5"
+      },
+      {
+        "item": "moredyes:coal_4066a5"
+      },
+      {
+        "item": "moredyes:coal_596666"
+      },
+      {
+        "item": "moredyes:coal_597f66"
+      },
+      {
+        "item": "moredyes:coal_725966"
+      },
+      {
+        "item": "moredyes:coal_334c59"
+      },
+      {
+        "item": "moredyes:coal_5945b2"
+      },
+      {
+        "item": "moredyes:coal_734573"
+      },
+      {
+        "item": "moredyes:coal_735f73"
+      },
+      {
+        "item": "moredyes:coal_8c3973"
+      },
+      {
+        "item": "moredyes:coal_4c2c66"
+      },
+      {
+        "item": "moredyes:coal_4c4c73"
+      },
+      {
+        "item": "moredyes:coal_4c6573"
+      },
+      {
+        "item": "moredyes:coal_664073"
+      },
+      {
+        "item": "moredyes:coal_263366"
+      },
+      {
+        "item": "moredyes:coal_403326"
+      },
+      {
+        "item": "moredyes:coal_7f4033"
+      },
+      {
+        "item": "moredyes:coal_666533"
+      },
+      {
+        "item": "moredyes:coal_7f5933"
+      },
+      {
+        "item": "moredyes:coal_404c26"
+      },
+      {
+        "item": "moredyes:coal_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:coal_block"
+  }
+}

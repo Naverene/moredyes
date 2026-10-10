@@ -1,0 +1,1 @@
+{"type":"minecraft:block","pools":[{"bonus_rolls":0.0,"conditions":[{"condition":"minecraft:match_tool","predicate":{"predicates":{"minecraft:enchantments":[{"enchantments":"minecraft:silk_touch","levels":{"min":1}}]}}}],"entries":[{"type":"minecraft:item","name":"moredyes:foggy_glass_pane_b3ccec"}],"rolls":1.0}],"random_sequence":"moredyes:blocks/foggy_glass_pane_b3ccec"}

@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:endstone_ecbf99"
+      },
+      {
+        "item": "moredyes:endstone_d9a6ec"
+      },
+      {
+        "item": "moredyes:endstone_b3ccec"
+      },
+      {
+        "item": "moredyes:endstone_f2f299"
+      },
+      {
+        "item": "moredyes:endstone_bfe68c"
+      },
+      {
+        "item": "moredyes:endstone_f9bfd2"
+      },
+      {
+        "item": "moredyes:endstone_cccccc"
+      },
+      {
+        "item": "moredyes:endstone_a6bfcc"
+      },
+      {
+        "item": "moredyes:endstone_bf9fd9"
+      },
+      {
+        "item": "moredyes:endstone_99a6d9"
+      },
+      {
+        "item": "moredyes:endstone_b3a699"
+      },
+      {
+        "item": "moredyes:endstone_b3bf99"
+      },
+      {
+        "item": "moredyes:endstone_cc9999"
+      },
+      {
+        "item": "moredyes:endstone_c56685"
+      },
+      {
+        "item": "moredyes:endstone_9f8c85"
+      },
+      {
+        "item": "moredyes:endstone_deb233"
+      },
+      {
+        "item": "moredyes:endstone_aca526"
+      },
+      {
+        "item": "moredyes:endstone_e57f6c"
+      },
+      {
+        "item": "moredyes:endstone_92663f"
+      },
+      {
+        "item": "moredyes:endstone_b98c66"
+      },
+      {
+        "item": "moredyes:endstone_927f66"
+      },
+      {
+        "item": "moredyes:endstone_ac5f72"
+      },
+      {
+        "item": "moredyes:endstone_866672"
+      },
+      {
+        "item": "moredyes:endstone_9f6633"
+      },
+      {
+        "item": "moredyes:endstone_9f7f33"
+      },
+      {
+        "item": "moredyes:endstone_b95933"
+      },
+      {
+        "item": "moredyes:endstone_794c26"
+      },
+      {
+        "item": "moredyes:endstone_8c72d8"
+      },
+      {
+        "item": "moredyes:endstone_cb9886"
+      },
+      {
+        "item": "moredyes:endstone_998c79"
+      },
+      {
+        "item": "moredyes:endstone_d265bf"
+      },
+      {
+        "item": "moredyes:endstone_7f4c92"
+      },
+      {
+        "item": "moredyes:endstone_a672b9"
+      },
+      {
+        "item": "moredyes:endstone_7f65b9"
+      },
+      {
+        "item": "moredyes:endstone_9946c5"
+      },
+      {
+        "item": "moredyes:endstone_734cc5"
+      },
+      {
+        "item": "moredyes:endstone_8c4c86"
+      },
+      {
+        "item": "moredyes:endstone_8c6586"
+      },
+      {
+        "item": "moredyes:endstone_a64086"
+      },
+      {
+        "item": "moredyes:endstone_663379"
+      },
+      {
+        "item": "moredyes:endstone_a5bf86"
+      },
+      {
+        "item": "moredyes:endstone_72b279"
+      },
+      {
+        "item": "moredyes:endstone_ac8cbf"
+      },
+      {
+        "item": "moredyes:endstone_597392"
+      },
+      {
+        "item": "moredyes:endstone_7f99b9"
+      },
+      {
+        "item": "moredyes:endstone_598cb9"
+      },
+      {
+        "item": "moredyes:endstone_726cc5"
+      },
+      {
+        "item": "moredyes:endstone_4d73c5"
+      },
+      {
+        "item": "moredyes:endstone_667386"
+      },
+      {
+        "item": "moredyes:endstone_668c86"
+      },
+      {
+        "item": "moredyes:endstone_7f6686"
+      },
+      {
+        "item": "moredyes:endstone_405979"
+      },
+      {
+        "item": "moredyes:endstone_b2d926"
+      },
+      {
+        "item": "moredyes:endstone_ebb26c"
+      },
+      {
+        "item": "moredyes:endstone_99993f"
+      },
+      {
+        "item": "moredyes:endstone_bfbf66"
+      },
+      {
+        "item": "moredyes:endstone_99b266"
+      },
+      {
+        "item": "moredyes:endstone_b29272"
+      },
+      {
+        "item": "moredyes:endstone_8c9972"
+      },
+      {
+        "item": "moredyes:endstone_a69933"
+      },
+      {
+        "item": "moredyes:endstone_a6b233"
+      },
+      {
+        "item": "moredyes:endstone_bf8c33"
+      },
+      {
+        "item": "moredyes:endstone_7f7f26"
+      },
+      {
+        "item": "moredyes:endstone_b8a65f"
+      },
+      {
+        "item": "moredyes:endstone_668c32"
+      },
+      {
+        "item": "moredyes:endstone_8cb359"
+      },
+      {
+        "item": "moredyes:endstone_66a659"
+      },
+      {
+        "item": "moredyes:endstone_7f5665"
+      },
+      {
+        "item": "moredyes:endstone_598c65"
+      },
+      {
+        "item": "moredyes:endstone_738c26"
+      },
+      {
+        "item": "moredyes:endstone_73a626"
+      },
+      {
+        "item": "moredyes:endstone_8c8026"
+      },
+      {
+        "item": "moredyes:endstone_4c7319"
+      },
+      {
+        "item": "moredyes:endstone_864c5f"
+      },
+      {
+        "item": "moredyes:endstone_c6596c"
+      },
+      {
+        "item": "moredyes:endstone_ac7f6c"
+      },
+      {
+        "item": "moredyes:endstone_ac666c"
+      },
+      {
+        "item": "moredyes:endstone_9366ab"
+      },
+      {
+        "item": "moredyes:endstone_b95fab"
+      },
+      {
+        "item": "moredyes:endstone_9f7f9f"
+      },
+      {
+        "item": "moredyes:endstone_c68c9f"
+      },
+      {
+        "item": "moredyes:endstone_9f6679"
+      },
+      {
+        "item": "moredyes:endstone_727272"
+      },
+      {
+        "item": "moredyes:endstone_4c6572"
+      },
+      {
+        "item": "moredyes:endstone_65467f"
+      },
+      {
+        "item": "moredyes:endstone_404c7f"
+      },
+      {
+        "item": "moredyes:endstone_594c40"
+      },
+      {
+        "item": "moredyes:endstone_596540"
+      },
+      {
+        "item": "moredyes:endstone_724040"
+      },
+      {
+        "item": "moredyes:endstone_333333"
+      },
+      {
+        "item": "moredyes:endstone_738c99"
+      },
+      {
+        "item": "moredyes:endstone_8c6ca5"
+      },
+      {
+        "item": "moredyes:endstone_6673a5"
+      },
+      {
+        "item": "moredyes:endstone_807366"
+      },
+      {
+        "item": "moredyes:endstone_808c66"
+      },
+      {
+        "item": "moredyes:endstone_996666"
+      },
+      {
+        "item": "moredyes:endstone_595959"
+      },
+      {
+        "item": "moredyes:endstone_655fa5"
+      },
+      {
+        "item": "moredyes:endstone_4066a5"
+      },
+      {
+        "item": "moredyes:endstone_596666"
+      },
+      {
+        "item": "moredyes:endstone_597f66"
+      },
+      {
+        "item": "moredyes:endstone_725966"
+      },
+      {
+        "item": "moredyes:endstone_334c59"
+      },
+      {
+        "item": "moredyes:endstone_5945b2"
+      },
+      {
+        "item": "moredyes:endstone_734573"
+      },
+      {
+        "item": "moredyes:endstone_735f73"
+      },
+      {
+        "item": "moredyes:endstone_8c3973"
+      },
+      {
+        "item": "moredyes:endstone_4c2c66"
+      },
+      {
+        "item": "moredyes:endstone_4c4c73"
+      },
+      {
+        "item": "moredyes:endstone_4c6573"
+      },
+      {
+        "item": "moredyes:endstone_664073"
+      },
+      {
+        "item": "moredyes:endstone_263366"
+      },
+      {
+        "item": "moredyes:endstone_403326"
+      },
+      {
+        "item": "moredyes:endstone_7f4033"
+      },
+      {
+        "item": "moredyes:endstone_666533"
+      },
+      {
+        "item": "moredyes:endstone_7f5933"
+      },
+      {
+        "item": "moredyes:endstone_404c26"
+      },
+      {
+        "item": "moredyes:endstone_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:end_stone"
+  }
+}

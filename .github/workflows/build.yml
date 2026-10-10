@@ -38,8 +38,13 @@ jobs:
           { "dir": "1.12.2", "java": "8",  "cf_java": "8",  "loader": "forge" },
           { "dir": "1.16.5", "java": "8",  "cf_java": "8",  "loader": "forge" },
           { "dir": "1.18.2", "java": "17", "cf_java": "17", "loader": "forge" },
+          { "dir": "1.19.2", "java": "17", "cf_java": "17", "loader": "forge" },
           { "dir": "1.20.1", "java": "17", "cf_java": "17", "loader": "forge" },
           { "dir": "1.20.1-fabric", "mc": "1.20.1", "checkout": "1.20.1-fabric\n1.20.1", "java": "21", "cf_java": "17", "loader": "fabric" },
+          { "dir": "1.21.1", "java": "21", "cf_java": "21", "loader": "neoforge" },
+          { "dir": "1.21.1-fabric", "mc": "1.21.1", "checkout": "1.21.1-fabric\n1.21.1", "java": "21", "cf_java": "21", "loader": "fabric" },
+          { "dir": "1.21.11", "java": "21", "cf_java": "21", "loader": "neoforge" },
+          { "dir": "1.21.11-fabric", "mc": "1.21.11", "checkout": "1.21.11-fabric\n1.21.11", "java": "21", "cf_java": "21", "loader": "fabric" },
           { "dir": "26.1.2", "java": "25", "cf_java": "25", "loader": "neoforge" },
           { "dir": "26.3",   "java": "25", "cf_java": "25", "loader": "neoforge" }
         ]

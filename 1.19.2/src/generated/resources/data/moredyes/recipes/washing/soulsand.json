@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:soulsand_ecbf99"
+      },
+      {
+        "item": "moredyes:soulsand_d9a6ec"
+      },
+      {
+        "item": "moredyes:soulsand_b3ccec"
+      },
+      {
+        "item": "moredyes:soulsand_f2f299"
+      },
+      {
+        "item": "moredyes:soulsand_bfe68c"
+      },
+      {
+        "item": "moredyes:soulsand_f9bfd2"
+      },
+      {
+        "item": "moredyes:soulsand_cccccc"
+      },
+      {
+        "item": "moredyes:soulsand_a6bfcc"
+      },
+      {
+        "item": "moredyes:soulsand_bf9fd9"
+      },
+      {
+        "item": "moredyes:soulsand_99a6d9"
+      },
+      {
+        "item": "moredyes:soulsand_b3a699"
+      },
+      {
+        "item": "moredyes:soulsand_b3bf99"
+      },
+      {
+        "item": "moredyes:soulsand_cc9999"
+      },
+      {
+        "item": "moredyes:soulsand_c56685"
+      },
+      {
+        "item": "moredyes:soulsand_9f8c85"
+      },
+      {
+        "item": "moredyes:soulsand_deb233"
+      },
+      {
+        "item": "moredyes:soulsand_aca526"
+      },
+      {
+        "item": "moredyes:soulsand_e57f6c"
+      },
+      {
+        "item": "moredyes:soulsand_92663f"
+      },
+      {
+        "item": "moredyes:soulsand_b98c66"
+      },
+      {
+        "item": "moredyes:soulsand_927f66"
+      },
+      {
+        "item": "moredyes:soulsand_ac5f72"
+      },
+      {
+        "item": "moredyes:soulsand_866672"
+      },
+      {
+        "item": "moredyes:soulsand_9f6633"
+      },
+      {
+        "item": "moredyes:soulsand_9f7f33"
+      },
+      {
+        "item": "moredyes:soulsand_b95933"
+      },
+      {
+        "item": "moredyes:soulsand_794c26"
+      },
+      {
+        "item": "moredyes:soulsand_8c72d8"
+      },
+      {
+        "item": "moredyes:soulsand_cb9886"
+      },
+      {
+        "item": "moredyes:soulsand_998c79"
+      },
+      {
+        "item": "moredyes:soulsand_d265bf"
+      },
+      {
+        "item": "moredyes:soulsand_7f4c92"
+      },
+      {
+        "item": "moredyes:soulsand_a672b9"
+      },
+      {
+        "item": "moredyes:soulsand_7f65b9"
+      },
+      {
+        "item": "moredyes:soulsand_9946c5"
+      },
+      {
+        "item": "moredyes:soulsand_734cc5"
+      },
+      {
+        "item": "moredyes:soulsand_8c4c86"
+      },
+      {
+        "item": "moredyes:soulsand_8c6586"
+      },
+      {
+        "item": "moredyes:soulsand_a64086"
+      },
+      {
+        "item": "moredyes:soulsand_663379"
+      },
+      {
+        "item": "moredyes:soulsand_a5bf86"
+      },
+      {
+        "item": "moredyes:soulsand_72b279"
+      },
+      {
+        "item": "moredyes:soulsand_ac8cbf"
+      },
+      {
+        "item": "moredyes:soulsand_597392"
+      },
+      {
+        "item": "moredyes:soulsand_7f99b9"
+      },
+      {
+        "item": "moredyes:soulsand_598cb9"
+      },
+      {
+        "item": "moredyes:soulsand_726cc5"
+      },
+      {
+        "item": "moredyes:soulsand_4d73c5"
+      },
+      {
+        "item": "moredyes:soulsand_667386"
+      },
+      {
+        "item": "moredyes:soulsand_668c86"
+      },
+      {
+        "item": "moredyes:soulsand_7f6686"
+      },
+      {
+        "item": "moredyes:soulsand_405979"
+      },
+      {
+        "item": "moredyes:soulsand_b2d926"
+      },
+      {
+        "item": "moredyes:soulsand_ebb26c"
+      },
+      {
+        "item": "moredyes:soulsand_99993f"
+      },
+      {
+        "item": "moredyes:soulsand_bfbf66"
+      },
+      {
+        "item": "moredyes:soulsand_99b266"
+      },
+      {
+        "item": "moredyes:soulsand_b29272"
+      },
+      {
+        "item": "moredyes:soulsand_8c9972"
+      },
+      {
+        "item": "moredyes:soulsand_a69933"
+      },
+      {
+        "item": "moredyes:soulsand_a6b233"
+      },
+      {
+        "item": "moredyes:soulsand_bf8c33"
+      },
+      {
+        "item": "moredyes:soulsand_7f7f26"
+      },
+      {
+        "item": "moredyes:soulsand_b8a65f"
+      },
+      {
+        "item": "moredyes:soulsand_668c32"
+      },
+      {
+        "item": "moredyes:soulsand_8cb359"
+      },
+      {
+        "item": "moredyes:soulsand_66a659"
+      },
+      {
+        "item": "moredyes:soulsand_7f5665"
+      },
+      {
+        "item": "moredyes:soulsand_598c65"
+      },
+      {
+        "item": "moredyes:soulsand_738c26"
+      },
+      {
+        "item": "moredyes:soulsand_73a626"
+      },
+      {
+        "item": "moredyes:soulsand_8c8026"
+      },
+      {
+        "item": "moredyes:soulsand_4c7319"
+      },
+      {
+        "item": "moredyes:soulsand_864c5f"
+      },
+      {
+        "item": "moredyes:soulsand_c6596c"
+      },
+      {
+        "item": "moredyes:soulsand_ac7f6c"
+      },
+      {
+        "item": "moredyes:soulsand_ac666c"
+      },
+      {
+        "item": "moredyes:soulsand_9366ab"
+      },
+      {
+        "item": "moredyes:soulsand_b95fab"
+      },
+      {
+        "item": "moredyes:soulsand_9f7f9f"
+      },
+      {
+        "item": "moredyes:soulsand_c68c9f"
+      },
+      {
+        "item": "moredyes:soulsand_9f6679"
+      },
+      {
+        "item": "moredyes:soulsand_727272"
+      },
+      {
+        "item": "moredyes:soulsand_4c6572"
+      },
+      {
+        "item": "moredyes:soulsand_65467f"
+      },
+      {
+        "item": "moredyes:soulsand_404c7f"
+      },
+      {
+        "item": "moredyes:soulsand_594c40"
+      },
+      {
+        "item": "moredyes:soulsand_596540"
+      },
+      {
+        "item": "moredyes:soulsand_724040"
+      },
+      {
+        "item": "moredyes:soulsand_333333"
+      },
+      {
+        "item": "moredyes:soulsand_738c99"
+      },
+      {
+        "item": "moredyes:soulsand_8c6ca5"
+      },
+      {
+        "item": "moredyes:soulsand_6673a5"
+      },
+      {
+        "item": "moredyes:soulsand_807366"
+      },
+      {
+        "item": "moredyes:soulsand_808c66"
+      },
+      {
+        "item": "moredyes:soulsand_996666"
+      },
+      {
+        "item": "moredyes:soulsand_595959"
+      },
+      {
+        "item": "moredyes:soulsand_655fa5"
+      },
+      {
+        "item": "moredyes:soulsand_4066a5"
+      },
+      {
+        "item": "moredyes:soulsand_596666"
+      },
+      {
+        "item": "moredyes:soulsand_597f66"
+      },
+      {
+        "item": "moredyes:soulsand_725966"
+      },
+      {
+        "item": "moredyes:soulsand_334c59"
+      },
+      {
+        "item": "moredyes:soulsand_5945b2"
+      },
+      {
+        "item": "moredyes:soulsand_734573"
+      },
+      {
+        "item": "moredyes:soulsand_735f73"
+      },
+      {
+        "item": "moredyes:soulsand_8c3973"
+      },
+      {
+        "item": "moredyes:soulsand_4c2c66"
+      },
+      {
+        "item": "moredyes:soulsand_4c4c73"
+      },
+      {
+        "item": "moredyes:soulsand_4c6573"
+      },
+      {
+        "item": "moredyes:soulsand_664073"
+      },
+      {
+        "item": "moredyes:soulsand_263366"
+      },
+      {
+        "item": "moredyes:soulsand_403326"
+      },
+      {
+        "item": "moredyes:soulsand_7f4033"
+      },
+      {
+        "item": "moredyes:soulsand_666533"
+      },
+      {
+        "item": "moredyes:soulsand_7f5933"
+      },
+      {
+        "item": "moredyes:soulsand_404c26"
+      },
+      {
+        "item": "moredyes:soulsand_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:soul_sand"
+  }
+}

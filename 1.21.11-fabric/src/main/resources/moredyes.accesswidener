@@ -1,0 +1,9 @@
+accessWidener v2 named
+
+# Lets dyed blocks burn like their vanilla blocks (MoreDyes.onInitialize).
+accessible method net/minecraft/world/level/block/FireBlock getIgniteOdds (Lnet/minecraft/world/level/block/state/BlockState;)I
+accessible method net/minecraft/world/level/block/FireBlock getBurnOdds (Lnet/minecraft/world/level/block/state/BlockState;)I
+
+# The item tints moredyes:dye_color and moredyes:state_color, and the dyed chest's item model (MoreDyesClient).
+accessible field net/minecraft/client/color/item/ItemTintSources ID_MAPPER Lnet/minecraft/util/ExtraCodecs$LateBoundIdMapper;
+accessible field net/minecraft/client/renderer/special/SpecialModelRenderers ID_MAPPER Lnet/minecraft/util/ExtraCodecs$LateBoundIdMapper;
