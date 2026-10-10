@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "moredyes-screenshots",
+  "version": "1.0.0",
+  "name": "More Dyes screenshots",
+  "description": "Dev only (./gradlew runScreenshots): builds a scene of dyed blocks, checks the data and takes screenshots.",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["net.neverandy.moredyes.screenshots.MoreDyesScreenshots"]
+  },
+  "depends": {
+    "moredyes": "*"
+  }
+}
