@@ -126,6 +126,7 @@ public class MoreDyes
     {
         ModNetwork.register();
         event.enqueueWork(ModWorldGen::setup);
+        event.enqueueWork(MDBlock::registerPottedPlants);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)
@@ -174,6 +175,11 @@ public class MoreDyes
                 for (Block[] flowers : MDBlock.tallFlowerArrays)
                 {
                     ItemBlockRenderTypes.setRenderLayer(flowers[i], RenderType.cutout());
+                }
+                ItemBlockRenderTypes.setRenderLayer(MDBlock.chainArray[i], RenderType.cutout());
+                for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+                {
+                    ItemBlockRenderTypes.setRenderLayer(potted.pots[i], RenderType.cutout());
                 }
             }
             for (DyedShapes shapes : DyedShapes.ALL)

@@ -1,0 +1,7 @@
+{
+  "parent": "moredyes:block/tinted/flower_pot_cross_layered",
+  "textures": {
+    "plant": "moredyes:block/tinted/lilyofthevalley_petals",
+    "overlay": "moredyes:block/tinted/lilyofthevalley_stem"
+  }
+}

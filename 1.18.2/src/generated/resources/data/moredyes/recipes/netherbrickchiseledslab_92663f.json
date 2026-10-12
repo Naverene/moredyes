@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:netherbrickchiseled_92663f"
+    }
+  },
+  "result": {
+    "item": "moredyes:netherbrickchiseledslab_92663f",
+    "count": 6
+  }
+}

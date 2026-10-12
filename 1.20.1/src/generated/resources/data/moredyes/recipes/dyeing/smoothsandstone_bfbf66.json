@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "item": "moredyes:bfbf66_dye"
+    },
+    "S": {
+      "item": "minecraft:smooth_sandstone"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moredyes:smoothsandstone_bfbf66"
+  },
+  "show_notification": true
+}

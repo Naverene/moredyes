@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:endstonebrick_cccccc"
+    }
+  },
+  "result": {
+    "item": "moredyes:endstonebrickstairs_cccccc",
+    "count": 4
+  }
+}

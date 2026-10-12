@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "moredyes:ac8cbf_dye"
+    },
+    "S": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moredyes:basalt_ac8cbf"
+  }
+}

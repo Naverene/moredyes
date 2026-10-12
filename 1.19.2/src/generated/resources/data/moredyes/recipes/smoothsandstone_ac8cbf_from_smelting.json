@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moredyes:sandstone_ac8cbf"
+  },
+  "result": "moredyes:smoothsandstone_ac8cbf"
+}

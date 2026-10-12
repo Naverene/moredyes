@@ -1,4 +1,4 @@
-// 1.19.2	2026-10-10T16:52:02.378757533	Tags for minecraft:item
+// 1.19.2	2026-10-12T19:25:08.679257309	Tags for minecraft:item
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/items/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/items/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/items/glass_panes.json
@@ -7,11 +7,11 @@ cc6c18a7810ef5f3b7fc7c85ec6c77af4946fca8 data/minecraft/tags/items/leaves.json
 12d52c39421d6790f33f190c5d80a00cc73798c1 data/minecraft/tags/items/planks.json
 5dd59e2280e40a5fd4440bb939aae36e8cb53ba3 data/minecraft/tags/items/saplings.json
 f6d87d2895a55f36d2574165d316064334f61392 data/minecraft/tags/items/signs.json
-cdfc128d52cc5dd2d70e858b9961050879d1e75b data/minecraft/tags/items/slabs.json
+3641e2e693aabade8d60d4bb53478b482375dae8 data/minecraft/tags/items/slabs.json
 08f0ecbf1d1630b3e59ddc2001135d56aca77858 data/minecraft/tags/items/small_flowers.json
-e0fb03843bba8b8bf36ac35641d2cf2700f20dbd data/minecraft/tags/items/stairs.json
+eb9e45b04011e5ac07789bf824824db5c48165c1 data/minecraft/tags/items/stairs.json
 0aa6986685f7340cffc0fc2248479fdb1b06e0f2 data/minecraft/tags/items/tall_flowers.json
-e3440c4d7c12f21d625e2ee13591edb9bb24c156 data/minecraft/tags/items/walls.json
+3e4fc05e3361d31f83945d5b134d2933e3ea61ce data/minecraft/tags/items/walls.json
 f5c878d546040e65966f80bcca6c6d034a668e35 data/minecraft/tags/items/wooden_fences.json
 2b1bc69055a49cd088f48f63dce5df06e7087c39 data/minecraft/tags/items/wooden_slabs.json
 eaf995ac6a0deb0af706f89ae984257581fab7eb data/minecraft/tags/items/wooden_stairs.json

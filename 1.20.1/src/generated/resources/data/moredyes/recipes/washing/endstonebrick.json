@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:endstonebrick_ecbf99"
+      },
+      {
+        "item": "moredyes:endstonebrick_d9a6ec"
+      },
+      {
+        "item": "moredyes:endstonebrick_b3ccec"
+      },
+      {
+        "item": "moredyes:endstonebrick_f2f299"
+      },
+      {
+        "item": "moredyes:endstonebrick_bfe68c"
+      },
+      {
+        "item": "moredyes:endstonebrick_f9bfd2"
+      },
+      {
+        "item": "moredyes:endstonebrick_cccccc"
+      },
+      {
+        "item": "moredyes:endstonebrick_a6bfcc"
+      },
+      {
+        "item": "moredyes:endstonebrick_bf9fd9"
+      },
+      {
+        "item": "moredyes:endstonebrick_99a6d9"
+      },
+      {
+        "item": "moredyes:endstonebrick_b3a699"
+      },
+      {
+        "item": "moredyes:endstonebrick_b3bf99"
+      },
+      {
+        "item": "moredyes:endstonebrick_cc9999"
+      },
+      {
+        "item": "moredyes:endstonebrick_c56685"
+      },
+      {
+        "item": "moredyes:endstonebrick_9f8c85"
+      },
+      {
+        "item": "moredyes:endstonebrick_deb233"
+      },
+      {
+        "item": "moredyes:endstonebrick_aca526"
+      },
+      {
+        "item": "moredyes:endstonebrick_e57f6c"
+      },
+      {
+        "item": "moredyes:endstonebrick_92663f"
+      },
+      {
+        "item": "moredyes:endstonebrick_b98c66"
+      },
+      {
+        "item": "moredyes:endstonebrick_927f66"
+      },
+      {
+        "item": "moredyes:endstonebrick_ac5f72"
+      },
+      {
+        "item": "moredyes:endstonebrick_866672"
+      },
+      {
+        "item": "moredyes:endstonebrick_9f6633"
+      },
+      {
+        "item": "moredyes:endstonebrick_9f7f33"
+      },
+      {
+        "item": "moredyes:endstonebrick_b95933"
+      },
+      {
+        "item": "moredyes:endstonebrick_794c26"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c72d8"
+      },
+      {
+        "item": "moredyes:endstonebrick_cb9886"
+      },
+      {
+        "item": "moredyes:endstonebrick_998c79"
+      },
+      {
+        "item": "moredyes:endstonebrick_d265bf"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f4c92"
+      },
+      {
+        "item": "moredyes:endstonebrick_a672b9"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f65b9"
+      },
+      {
+        "item": "moredyes:endstonebrick_9946c5"
+      },
+      {
+        "item": "moredyes:endstonebrick_734cc5"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c4c86"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c6586"
+      },
+      {
+        "item": "moredyes:endstonebrick_a64086"
+      },
+      {
+        "item": "moredyes:endstonebrick_663379"
+      },
+      {
+        "item": "moredyes:endstonebrick_a5bf86"
+      },
+      {
+        "item": "moredyes:endstonebrick_72b279"
+      },
+      {
+        "item": "moredyes:endstonebrick_ac8cbf"
+      },
+      {
+        "item": "moredyes:endstonebrick_597392"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f99b9"
+      },
+      {
+        "item": "moredyes:endstonebrick_598cb9"
+      },
+      {
+        "item": "moredyes:endstonebrick_726cc5"
+      },
+      {
+        "item": "moredyes:endstonebrick_4d73c5"
+      },
+      {
+        "item": "moredyes:endstonebrick_667386"
+      },
+      {
+        "item": "moredyes:endstonebrick_668c86"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f6686"
+      },
+      {
+        "item": "moredyes:endstonebrick_405979"
+      },
+      {
+        "item": "moredyes:endstonebrick_b2d926"
+      },
+      {
+        "item": "moredyes:endstonebrick_ebb26c"
+      },
+      {
+        "item": "moredyes:endstonebrick_99993f"
+      },
+      {
+        "item": "moredyes:endstonebrick_bfbf66"
+      },
+      {
+        "item": "moredyes:endstonebrick_99b266"
+      },
+      {
+        "item": "moredyes:endstonebrick_b29272"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c9972"
+      },
+      {
+        "item": "moredyes:endstonebrick_a69933"
+      },
+      {
+        "item": "moredyes:endstonebrick_a6b233"
+      },
+      {
+        "item": "moredyes:endstonebrick_bf8c33"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f7f26"
+      },
+      {
+        "item": "moredyes:endstonebrick_b8a65f"
+      },
+      {
+        "item": "moredyes:endstonebrick_668c32"
+      },
+      {
+        "item": "moredyes:endstonebrick_8cb359"
+      },
+      {
+        "item": "moredyes:endstonebrick_66a659"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f5665"
+      },
+      {
+        "item": "moredyes:endstonebrick_598c65"
+      },
+      {
+        "item": "moredyes:endstonebrick_738c26"
+      },
+      {
+        "item": "moredyes:endstonebrick_73a626"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c8026"
+      },
+      {
+        "item": "moredyes:endstonebrick_4c7319"
+      },
+      {
+        "item": "moredyes:endstonebrick_864c5f"
+      },
+      {
+        "item": "moredyes:endstonebrick_c6596c"
+      },
+      {
+        "item": "moredyes:endstonebrick_ac7f6c"
+      },
+      {
+        "item": "moredyes:endstonebrick_ac666c"
+      },
+      {
+        "item": "moredyes:endstonebrick_9366ab"
+      },
+      {
+        "item": "moredyes:endstonebrick_b95fab"
+      },
+      {
+        "item": "moredyes:endstonebrick_9f7f9f"
+      },
+      {
+        "item": "moredyes:endstonebrick_c68c9f"
+      },
+      {
+        "item": "moredyes:endstonebrick_9f6679"
+      },
+      {
+        "item": "moredyes:endstonebrick_727272"
+      },
+      {
+        "item": "moredyes:endstonebrick_4c6572"
+      },
+      {
+        "item": "moredyes:endstonebrick_65467f"
+      },
+      {
+        "item": "moredyes:endstonebrick_404c7f"
+      },
+      {
+        "item": "moredyes:endstonebrick_594c40"
+      },
+      {
+        "item": "moredyes:endstonebrick_596540"
+      },
+      {
+        "item": "moredyes:endstonebrick_724040"
+      },
+      {
+        "item": "moredyes:endstonebrick_333333"
+      },
+      {
+        "item": "moredyes:endstonebrick_738c99"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c6ca5"
+      },
+      {
+        "item": "moredyes:endstonebrick_6673a5"
+      },
+      {
+        "item": "moredyes:endstonebrick_807366"
+      },
+      {
+        "item": "moredyes:endstonebrick_808c66"
+      },
+      {
+        "item": "moredyes:endstonebrick_996666"
+      },
+      {
+        "item": "moredyes:endstonebrick_595959"
+      },
+      {
+        "item": "moredyes:endstonebrick_655fa5"
+      },
+      {
+        "item": "moredyes:endstonebrick_4066a5"
+      },
+      {
+        "item": "moredyes:endstonebrick_596666"
+      },
+      {
+        "item": "moredyes:endstonebrick_597f66"
+      },
+      {
+        "item": "moredyes:endstonebrick_725966"
+      },
+      {
+        "item": "moredyes:endstonebrick_334c59"
+      },
+      {
+        "item": "moredyes:endstonebrick_5945b2"
+      },
+      {
+        "item": "moredyes:endstonebrick_734573"
+      },
+      {
+        "item": "moredyes:endstonebrick_735f73"
+      },
+      {
+        "item": "moredyes:endstonebrick_8c3973"
+      },
+      {
+        "item": "moredyes:endstonebrick_4c2c66"
+      },
+      {
+        "item": "moredyes:endstonebrick_4c4c73"
+      },
+      {
+        "item": "moredyes:endstonebrick_4c6573"
+      },
+      {
+        "item": "moredyes:endstonebrick_664073"
+      },
+      {
+        "item": "moredyes:endstonebrick_263366"
+      },
+      {
+        "item": "moredyes:endstonebrick_403326"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f4033"
+      },
+      {
+        "item": "moredyes:endstonebrick_666533"
+      },
+      {
+        "item": "moredyes:endstonebrick_7f5933"
+      },
+      {
+        "item": "moredyes:endstonebrick_404c26"
+      },
+      {
+        "item": "moredyes:endstonebrick_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:end_stone_bricks"
+  }
+}

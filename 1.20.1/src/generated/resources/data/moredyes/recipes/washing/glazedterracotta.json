@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:glazedterracotta_ecbf99"
+      },
+      {
+        "item": "moredyes:glazedterracotta_d9a6ec"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b3ccec"
+      },
+      {
+        "item": "moredyes:glazedterracotta_f2f299"
+      },
+      {
+        "item": "moredyes:glazedterracotta_bfe68c"
+      },
+      {
+        "item": "moredyes:glazedterracotta_f9bfd2"
+      },
+      {
+        "item": "moredyes:glazedterracotta_cccccc"
+      },
+      {
+        "item": "moredyes:glazedterracotta_a6bfcc"
+      },
+      {
+        "item": "moredyes:glazedterracotta_bf9fd9"
+      },
+      {
+        "item": "moredyes:glazedterracotta_99a6d9"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b3a699"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b3bf99"
+      },
+      {
+        "item": "moredyes:glazedterracotta_cc9999"
+      },
+      {
+        "item": "moredyes:glazedterracotta_c56685"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9f8c85"
+      },
+      {
+        "item": "moredyes:glazedterracotta_deb233"
+      },
+      {
+        "item": "moredyes:glazedterracotta_aca526"
+      },
+      {
+        "item": "moredyes:glazedterracotta_e57f6c"
+      },
+      {
+        "item": "moredyes:glazedterracotta_92663f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b98c66"
+      },
+      {
+        "item": "moredyes:glazedterracotta_927f66"
+      },
+      {
+        "item": "moredyes:glazedterracotta_ac5f72"
+      },
+      {
+        "item": "moredyes:glazedterracotta_866672"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9f6633"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9f7f33"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b95933"
+      },
+      {
+        "item": "moredyes:glazedterracotta_794c26"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c72d8"
+      },
+      {
+        "item": "moredyes:glazedterracotta_cb9886"
+      },
+      {
+        "item": "moredyes:glazedterracotta_998c79"
+      },
+      {
+        "item": "moredyes:glazedterracotta_d265bf"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f4c92"
+      },
+      {
+        "item": "moredyes:glazedterracotta_a672b9"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f65b9"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9946c5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_734cc5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c4c86"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c6586"
+      },
+      {
+        "item": "moredyes:glazedterracotta_a64086"
+      },
+      {
+        "item": "moredyes:glazedterracotta_663379"
+      },
+      {
+        "item": "moredyes:glazedterracotta_a5bf86"
+      },
+      {
+        "item": "moredyes:glazedterracotta_72b279"
+      },
+      {
+        "item": "moredyes:glazedterracotta_ac8cbf"
+      },
+      {
+        "item": "moredyes:glazedterracotta_597392"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f99b9"
+      },
+      {
+        "item": "moredyes:glazedterracotta_598cb9"
+      },
+      {
+        "item": "moredyes:glazedterracotta_726cc5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4d73c5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_667386"
+      },
+      {
+        "item": "moredyes:glazedterracotta_668c86"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f6686"
+      },
+      {
+        "item": "moredyes:glazedterracotta_405979"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b2d926"
+      },
+      {
+        "item": "moredyes:glazedterracotta_ebb26c"
+      },
+      {
+        "item": "moredyes:glazedterracotta_99993f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_bfbf66"
+      },
+      {
+        "item": "moredyes:glazedterracotta_99b266"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b29272"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c9972"
+      },
+      {
+        "item": "moredyes:glazedterracotta_a69933"
+      },
+      {
+        "item": "moredyes:glazedterracotta_a6b233"
+      },
+      {
+        "item": "moredyes:glazedterracotta_bf8c33"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f7f26"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b8a65f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_668c32"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8cb359"
+      },
+      {
+        "item": "moredyes:glazedterracotta_66a659"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f5665"
+      },
+      {
+        "item": "moredyes:glazedterracotta_598c65"
+      },
+      {
+        "item": "moredyes:glazedterracotta_738c26"
+      },
+      {
+        "item": "moredyes:glazedterracotta_73a626"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c8026"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4c7319"
+      },
+      {
+        "item": "moredyes:glazedterracotta_864c5f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_c6596c"
+      },
+      {
+        "item": "moredyes:glazedterracotta_ac7f6c"
+      },
+      {
+        "item": "moredyes:glazedterracotta_ac666c"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9366ab"
+      },
+      {
+        "item": "moredyes:glazedterracotta_b95fab"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9f7f9f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_c68c9f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_9f6679"
+      },
+      {
+        "item": "moredyes:glazedterracotta_727272"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4c6572"
+      },
+      {
+        "item": "moredyes:glazedterracotta_65467f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_404c7f"
+      },
+      {
+        "item": "moredyes:glazedterracotta_594c40"
+      },
+      {
+        "item": "moredyes:glazedterracotta_596540"
+      },
+      {
+        "item": "moredyes:glazedterracotta_724040"
+      },
+      {
+        "item": "moredyes:glazedterracotta_333333"
+      },
+      {
+        "item": "moredyes:glazedterracotta_738c99"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c6ca5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_6673a5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_807366"
+      },
+      {
+        "item": "moredyes:glazedterracotta_808c66"
+      },
+      {
+        "item": "moredyes:glazedterracotta_996666"
+      },
+      {
+        "item": "moredyes:glazedterracotta_595959"
+      },
+      {
+        "item": "moredyes:glazedterracotta_655fa5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4066a5"
+      },
+      {
+        "item": "moredyes:glazedterracotta_596666"
+      },
+      {
+        "item": "moredyes:glazedterracotta_597f66"
+      },
+      {
+        "item": "moredyes:glazedterracotta_725966"
+      },
+      {
+        "item": "moredyes:glazedterracotta_334c59"
+      },
+      {
+        "item": "moredyes:glazedterracotta_5945b2"
+      },
+      {
+        "item": "moredyes:glazedterracotta_734573"
+      },
+      {
+        "item": "moredyes:glazedterracotta_735f73"
+      },
+      {
+        "item": "moredyes:glazedterracotta_8c3973"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4c2c66"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4c4c73"
+      },
+      {
+        "item": "moredyes:glazedterracotta_4c6573"
+      },
+      {
+        "item": "moredyes:glazedterracotta_664073"
+      },
+      {
+        "item": "moredyes:glazedterracotta_263366"
+      },
+      {
+        "item": "moredyes:glazedterracotta_403326"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f4033"
+      },
+      {
+        "item": "moredyes:glazedterracotta_666533"
+      },
+      {
+        "item": "moredyes:glazedterracotta_7f5933"
+      },
+      {
+        "item": "moredyes:glazedterracotta_404c26"
+      },
+      {
+        "item": "moredyes:glazedterracotta_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_glazed_terracotta"
+  }
+}

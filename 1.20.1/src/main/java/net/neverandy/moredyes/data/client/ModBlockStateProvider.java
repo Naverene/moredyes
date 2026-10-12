@@ -4,7 +4,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.StairBlock;
@@ -86,6 +88,24 @@ public class ModBlockStateProvider extends BlockStateProvider
                     .texture("end", tex("quartz_chiseled_top")));
             pillar(MDBlock.quartzPillarArray[i], "quartz_pillar", "quartz_pillar_top");
             pillar(MDBlock.boneBlockArray[i], "bone_block_side", "bone_block_top");
+            cubeAll(MDBlock.soulSoilArray[i], "soul_soil");
+            pillar(MDBlock.basaltArray[i], "basalt_side", "basalt_top");
+            pillar(MDBlock.polishedBasaltArray[i], "polished_basalt_side", "polished_basalt_top");
+            cubeAll(MDBlock.smoothStoneArray[i], "smooth_stone");
+            cubeAll(MDBlock.smoothSandstoneArray[i], "sandstone_top");
+            cubeAll(MDBlock.netherBrickArray[i], "nether_brick");
+            cubeAll(MDBlock.netherBrickCrackedArray[i], "nether_brick_cracked");
+            cubeAll(MDBlock.netherBrickChiseledArray[i], "nether_brick_chiseled");
+            cubeAll(MDBlock.endStoneBrickArray[i], "endstone_brick");
+            cubeAll(MDBlock.netheriteArray[i], "netherite");
+            cubeAll(MDBlock.cryingObsidianArray[i], "crying_obsidian");
+            GlazedTerracottaBlock glazed = MDBlock.glazedTerracottaArray[i];
+            // Vanilla turns glazed terracotta from facing south, not north as Forge's helper assumes.
+            horizontalBlock(glazed, tinted(glazed, "template_glazed_terracotta").texture("pattern", tex("glazed_terracotta")), 0);
+            ChainBlock chain = MDBlock.chainArray[i];
+            // Like vanilla, one model turned on its side for the x and z axes.
+            ModelFile chainModel = tinted(chain, "chain").texture("all", tex("chain"));
+            axisBlock(chain, chainModel, chainModel);
             for (int f = 0; f < MDBlock.SMALL_FLOWERS.length; f++)
             {
                 Block flower = MDBlock.smallFlowerArrays[f][i];
@@ -144,6 +164,17 @@ public class ModBlockStateProvider extends BlockStateProvider
         for (DyedShapes shapes : DyedShapes.ALL)
         {
             shapes(shapes);
+        }
+        // A pot holding a dyed plant: the plant's petals tinted, its stem and the pot in their own colors.
+        for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+        {
+            ModelFile model = models().withExistingParent("block/potted" + potted.type, modLoc("block/tinted/flower_pot_cross_layered"))
+                    .texture("plant", tex(potted.petals))
+                    .texture("overlay", tex(potted.stem));
+            for (Block pot : potted.pots)
+            {
+                simpleBlock(pot, model);
+            }
         }
     }
 

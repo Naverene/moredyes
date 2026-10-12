@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:smoothstone_ecbf99"
+      },
+      {
+        "item": "moredyes:smoothstone_d9a6ec"
+      },
+      {
+        "item": "moredyes:smoothstone_b3ccec"
+      },
+      {
+        "item": "moredyes:smoothstone_f2f299"
+      },
+      {
+        "item": "moredyes:smoothstone_bfe68c"
+      },
+      {
+        "item": "moredyes:smoothstone_f9bfd2"
+      },
+      {
+        "item": "moredyes:smoothstone_cccccc"
+      },
+      {
+        "item": "moredyes:smoothstone_a6bfcc"
+      },
+      {
+        "item": "moredyes:smoothstone_bf9fd9"
+      },
+      {
+        "item": "moredyes:smoothstone_99a6d9"
+      },
+      {
+        "item": "moredyes:smoothstone_b3a699"
+      },
+      {
+        "item": "moredyes:smoothstone_b3bf99"
+      },
+      {
+        "item": "moredyes:smoothstone_cc9999"
+      },
+      {
+        "item": "moredyes:smoothstone_c56685"
+      },
+      {
+        "item": "moredyes:smoothstone_9f8c85"
+      },
+      {
+        "item": "moredyes:smoothstone_deb233"
+      },
+      {
+        "item": "moredyes:smoothstone_aca526"
+      },
+      {
+        "item": "moredyes:smoothstone_e57f6c"
+      },
+      {
+        "item": "moredyes:smoothstone_92663f"
+      },
+      {
+        "item": "moredyes:smoothstone_b98c66"
+      },
+      {
+        "item": "moredyes:smoothstone_927f66"
+      },
+      {
+        "item": "moredyes:smoothstone_ac5f72"
+      },
+      {
+        "item": "moredyes:smoothstone_866672"
+      },
+      {
+        "item": "moredyes:smoothstone_9f6633"
+      },
+      {
+        "item": "moredyes:smoothstone_9f7f33"
+      },
+      {
+        "item": "moredyes:smoothstone_b95933"
+      },
+      {
+        "item": "moredyes:smoothstone_794c26"
+      },
+      {
+        "item": "moredyes:smoothstone_8c72d8"
+      },
+      {
+        "item": "moredyes:smoothstone_cb9886"
+      },
+      {
+        "item": "moredyes:smoothstone_998c79"
+      },
+      {
+        "item": "moredyes:smoothstone_d265bf"
+      },
+      {
+        "item": "moredyes:smoothstone_7f4c92"
+      },
+      {
+        "item": "moredyes:smoothstone_a672b9"
+      },
+      {
+        "item": "moredyes:smoothstone_7f65b9"
+      },
+      {
+        "item": "moredyes:smoothstone_9946c5"
+      },
+      {
+        "item": "moredyes:smoothstone_734cc5"
+      },
+      {
+        "item": "moredyes:smoothstone_8c4c86"
+      },
+      {
+        "item": "moredyes:smoothstone_8c6586"
+      },
+      {
+        "item": "moredyes:smoothstone_a64086"
+      },
+      {
+        "item": "moredyes:smoothstone_663379"
+      },
+      {
+        "item": "moredyes:smoothstone_a5bf86"
+      },
+      {
+        "item": "moredyes:smoothstone_72b279"
+      },
+      {
+        "item": "moredyes:smoothstone_ac8cbf"
+      },
+      {
+        "item": "moredyes:smoothstone_597392"
+      },
+      {
+        "item": "moredyes:smoothstone_7f99b9"
+      },
+      {
+        "item": "moredyes:smoothstone_598cb9"
+      },
+      {
+        "item": "moredyes:smoothstone_726cc5"
+      },
+      {
+        "item": "moredyes:smoothstone_4d73c5"
+      },
+      {
+        "item": "moredyes:smoothstone_667386"
+      },
+      {
+        "item": "moredyes:smoothstone_668c86"
+      },
+      {
+        "item": "moredyes:smoothstone_7f6686"
+      },
+      {
+        "item": "moredyes:smoothstone_405979"
+      },
+      {
+        "item": "moredyes:smoothstone_b2d926"
+      },
+      {
+        "item": "moredyes:smoothstone_ebb26c"
+      },
+      {
+        "item": "moredyes:smoothstone_99993f"
+      },
+      {
+        "item": "moredyes:smoothstone_bfbf66"
+      },
+      {
+        "item": "moredyes:smoothstone_99b266"
+      },
+      {
+        "item": "moredyes:smoothstone_b29272"
+      },
+      {
+        "item": "moredyes:smoothstone_8c9972"
+      },
+      {
+        "item": "moredyes:smoothstone_a69933"
+      },
+      {
+        "item": "moredyes:smoothstone_a6b233"
+      },
+      {
+        "item": "moredyes:smoothstone_bf8c33"
+      },
+      {
+        "item": "moredyes:smoothstone_7f7f26"
+      },
+      {
+        "item": "moredyes:smoothstone_b8a65f"
+      },
+      {
+        "item": "moredyes:smoothstone_668c32"
+      },
+      {
+        "item": "moredyes:smoothstone_8cb359"
+      },
+      {
+        "item": "moredyes:smoothstone_66a659"
+      },
+      {
+        "item": "moredyes:smoothstone_7f5665"
+      },
+      {
+        "item": "moredyes:smoothstone_598c65"
+      },
+      {
+        "item": "moredyes:smoothstone_738c26"
+      },
+      {
+        "item": "moredyes:smoothstone_73a626"
+      },
+      {
+        "item": "moredyes:smoothstone_8c8026"
+      },
+      {
+        "item": "moredyes:smoothstone_4c7319"
+      },
+      {
+        "item": "moredyes:smoothstone_864c5f"
+      },
+      {
+        "item": "moredyes:smoothstone_c6596c"
+      },
+      {
+        "item": "moredyes:smoothstone_ac7f6c"
+      },
+      {
+        "item": "moredyes:smoothstone_ac666c"
+      },
+      {
+        "item": "moredyes:smoothstone_9366ab"
+      },
+      {
+        "item": "moredyes:smoothstone_b95fab"
+      },
+      {
+        "item": "moredyes:smoothstone_9f7f9f"
+      },
+      {
+        "item": "moredyes:smoothstone_c68c9f"
+      },
+      {
+        "item": "moredyes:smoothstone_9f6679"
+      },
+      {
+        "item": "moredyes:smoothstone_727272"
+      },
+      {
+        "item": "moredyes:smoothstone_4c6572"
+      },
+      {
+        "item": "moredyes:smoothstone_65467f"
+      },
+      {
+        "item": "moredyes:smoothstone_404c7f"
+      },
+      {
+        "item": "moredyes:smoothstone_594c40"
+      },
+      {
+        "item": "moredyes:smoothstone_596540"
+      },
+      {
+        "item": "moredyes:smoothstone_724040"
+      },
+      {
+        "item": "moredyes:smoothstone_333333"
+      },
+      {
+        "item": "moredyes:smoothstone_738c99"
+      },
+      {
+        "item": "moredyes:smoothstone_8c6ca5"
+      },
+      {
+        "item": "moredyes:smoothstone_6673a5"
+      },
+      {
+        "item": "moredyes:smoothstone_807366"
+      },
+      {
+        "item": "moredyes:smoothstone_808c66"
+      },
+      {
+        "item": "moredyes:smoothstone_996666"
+      },
+      {
+        "item": "moredyes:smoothstone_595959"
+      },
+      {
+        "item": "moredyes:smoothstone_655fa5"
+      },
+      {
+        "item": "moredyes:smoothstone_4066a5"
+      },
+      {
+        "item": "moredyes:smoothstone_596666"
+      },
+      {
+        "item": "moredyes:smoothstone_597f66"
+      },
+      {
+        "item": "moredyes:smoothstone_725966"
+      },
+      {
+        "item": "moredyes:smoothstone_334c59"
+      },
+      {
+        "item": "moredyes:smoothstone_5945b2"
+      },
+      {
+        "item": "moredyes:smoothstone_734573"
+      },
+      {
+        "item": "moredyes:smoothstone_735f73"
+      },
+      {
+        "item": "moredyes:smoothstone_8c3973"
+      },
+      {
+        "item": "moredyes:smoothstone_4c2c66"
+      },
+      {
+        "item": "moredyes:smoothstone_4c4c73"
+      },
+      {
+        "item": "moredyes:smoothstone_4c6573"
+      },
+      {
+        "item": "moredyes:smoothstone_664073"
+      },
+      {
+        "item": "moredyes:smoothstone_263366"
+      },
+      {
+        "item": "moredyes:smoothstone_403326"
+      },
+      {
+        "item": "moredyes:smoothstone_7f4033"
+      },
+      {
+        "item": "moredyes:smoothstone_666533"
+      },
+      {
+        "item": "moredyes:smoothstone_7f5933"
+      },
+      {
+        "item": "moredyes:smoothstone_404c26"
+      },
+      {
+        "item": "moredyes:smoothstone_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:smooth_stone"
+  }
+}

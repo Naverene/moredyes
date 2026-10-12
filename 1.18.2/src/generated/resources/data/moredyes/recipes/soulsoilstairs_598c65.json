@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:soulsoil_598c65"
+    }
+  },
+  "result": {
+    "item": "moredyes:soulsoilstairs_598c65",
+    "count": 4
+  }
+}

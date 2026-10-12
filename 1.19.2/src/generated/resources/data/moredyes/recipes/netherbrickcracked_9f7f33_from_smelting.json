@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moredyes:netherbrick_9f7f33"
+  },
+  "result": "moredyes:netherbrickcracked_9f7f33"
+}

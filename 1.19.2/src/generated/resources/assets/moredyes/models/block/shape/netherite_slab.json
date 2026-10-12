@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/slab",
+  "textures": {
+    "bottom": "moredyes:block/tinted/netherite",
+    "side": "moredyes:block/tinted/netherite",
+    "top": "moredyes:block/tinted/netherite"
+  }
+}

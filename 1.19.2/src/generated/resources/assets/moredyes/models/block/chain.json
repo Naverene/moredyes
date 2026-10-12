@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted/chain",
+  "textures": {
+    "all": "moredyes:block/tinted/chain"
+  }
+}

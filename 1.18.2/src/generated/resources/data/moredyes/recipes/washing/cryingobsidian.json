@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:cryingobsidian_ecbf99"
+      },
+      {
+        "item": "moredyes:cryingobsidian_d9a6ec"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b3ccec"
+      },
+      {
+        "item": "moredyes:cryingobsidian_f2f299"
+      },
+      {
+        "item": "moredyes:cryingobsidian_bfe68c"
+      },
+      {
+        "item": "moredyes:cryingobsidian_f9bfd2"
+      },
+      {
+        "item": "moredyes:cryingobsidian_cccccc"
+      },
+      {
+        "item": "moredyes:cryingobsidian_a6bfcc"
+      },
+      {
+        "item": "moredyes:cryingobsidian_bf9fd9"
+      },
+      {
+        "item": "moredyes:cryingobsidian_99a6d9"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b3a699"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b3bf99"
+      },
+      {
+        "item": "moredyes:cryingobsidian_cc9999"
+      },
+      {
+        "item": "moredyes:cryingobsidian_c56685"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9f8c85"
+      },
+      {
+        "item": "moredyes:cryingobsidian_deb233"
+      },
+      {
+        "item": "moredyes:cryingobsidian_aca526"
+      },
+      {
+        "item": "moredyes:cryingobsidian_e57f6c"
+      },
+      {
+        "item": "moredyes:cryingobsidian_92663f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b98c66"
+      },
+      {
+        "item": "moredyes:cryingobsidian_927f66"
+      },
+      {
+        "item": "moredyes:cryingobsidian_ac5f72"
+      },
+      {
+        "item": "moredyes:cryingobsidian_866672"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9f6633"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9f7f33"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b95933"
+      },
+      {
+        "item": "moredyes:cryingobsidian_794c26"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c72d8"
+      },
+      {
+        "item": "moredyes:cryingobsidian_cb9886"
+      },
+      {
+        "item": "moredyes:cryingobsidian_998c79"
+      },
+      {
+        "item": "moredyes:cryingobsidian_d265bf"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f4c92"
+      },
+      {
+        "item": "moredyes:cryingobsidian_a672b9"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f65b9"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9946c5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_734cc5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c4c86"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c6586"
+      },
+      {
+        "item": "moredyes:cryingobsidian_a64086"
+      },
+      {
+        "item": "moredyes:cryingobsidian_663379"
+      },
+      {
+        "item": "moredyes:cryingobsidian_a5bf86"
+      },
+      {
+        "item": "moredyes:cryingobsidian_72b279"
+      },
+      {
+        "item": "moredyes:cryingobsidian_ac8cbf"
+      },
+      {
+        "item": "moredyes:cryingobsidian_597392"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f99b9"
+      },
+      {
+        "item": "moredyes:cryingobsidian_598cb9"
+      },
+      {
+        "item": "moredyes:cryingobsidian_726cc5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4d73c5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_667386"
+      },
+      {
+        "item": "moredyes:cryingobsidian_668c86"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f6686"
+      },
+      {
+        "item": "moredyes:cryingobsidian_405979"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b2d926"
+      },
+      {
+        "item": "moredyes:cryingobsidian_ebb26c"
+      },
+      {
+        "item": "moredyes:cryingobsidian_99993f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_bfbf66"
+      },
+      {
+        "item": "moredyes:cryingobsidian_99b266"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b29272"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c9972"
+      },
+      {
+        "item": "moredyes:cryingobsidian_a69933"
+      },
+      {
+        "item": "moredyes:cryingobsidian_a6b233"
+      },
+      {
+        "item": "moredyes:cryingobsidian_bf8c33"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f7f26"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b8a65f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_668c32"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8cb359"
+      },
+      {
+        "item": "moredyes:cryingobsidian_66a659"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f5665"
+      },
+      {
+        "item": "moredyes:cryingobsidian_598c65"
+      },
+      {
+        "item": "moredyes:cryingobsidian_738c26"
+      },
+      {
+        "item": "moredyes:cryingobsidian_73a626"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c8026"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4c7319"
+      },
+      {
+        "item": "moredyes:cryingobsidian_864c5f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_c6596c"
+      },
+      {
+        "item": "moredyes:cryingobsidian_ac7f6c"
+      },
+      {
+        "item": "moredyes:cryingobsidian_ac666c"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9366ab"
+      },
+      {
+        "item": "moredyes:cryingobsidian_b95fab"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9f7f9f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_c68c9f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_9f6679"
+      },
+      {
+        "item": "moredyes:cryingobsidian_727272"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4c6572"
+      },
+      {
+        "item": "moredyes:cryingobsidian_65467f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_404c7f"
+      },
+      {
+        "item": "moredyes:cryingobsidian_594c40"
+      },
+      {
+        "item": "moredyes:cryingobsidian_596540"
+      },
+      {
+        "item": "moredyes:cryingobsidian_724040"
+      },
+      {
+        "item": "moredyes:cryingobsidian_333333"
+      },
+      {
+        "item": "moredyes:cryingobsidian_738c99"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c6ca5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_6673a5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_807366"
+      },
+      {
+        "item": "moredyes:cryingobsidian_808c66"
+      },
+      {
+        "item": "moredyes:cryingobsidian_996666"
+      },
+      {
+        "item": "moredyes:cryingobsidian_595959"
+      },
+      {
+        "item": "moredyes:cryingobsidian_655fa5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4066a5"
+      },
+      {
+        "item": "moredyes:cryingobsidian_596666"
+      },
+      {
+        "item": "moredyes:cryingobsidian_597f66"
+      },
+      {
+        "item": "moredyes:cryingobsidian_725966"
+      },
+      {
+        "item": "moredyes:cryingobsidian_334c59"
+      },
+      {
+        "item": "moredyes:cryingobsidian_5945b2"
+      },
+      {
+        "item": "moredyes:cryingobsidian_734573"
+      },
+      {
+        "item": "moredyes:cryingobsidian_735f73"
+      },
+      {
+        "item": "moredyes:cryingobsidian_8c3973"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4c2c66"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4c4c73"
+      },
+      {
+        "item": "moredyes:cryingobsidian_4c6573"
+      },
+      {
+        "item": "moredyes:cryingobsidian_664073"
+      },
+      {
+        "item": "moredyes:cryingobsidian_263366"
+      },
+      {
+        "item": "moredyes:cryingobsidian_403326"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f4033"
+      },
+      {
+        "item": "moredyes:cryingobsidian_666533"
+      },
+      {
+        "item": "moredyes:cryingobsidian_7f5933"
+      },
+      {
+        "item": "moredyes:cryingobsidian_404c26"
+      },
+      {
+        "item": "moredyes:cryingobsidian_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:crying_obsidian"
+  }
+}

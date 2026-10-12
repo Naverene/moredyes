@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:basalt_99b266"
+    }
+  },
+  "result": {
+    "item": "moredyes:basaltslab_99b266",
+    "count": 6
+  }
+}

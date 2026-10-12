@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "moredyes:596540_dye"
+    },
+    "S": {
+      "item": "minecraft:chiseled_nether_bricks"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moredyes:netherbrickchiseled_596540"
+  }
+}

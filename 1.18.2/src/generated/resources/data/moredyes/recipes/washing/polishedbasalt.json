@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:polishedbasalt_ecbf99"
+      },
+      {
+        "item": "moredyes:polishedbasalt_d9a6ec"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b3ccec"
+      },
+      {
+        "item": "moredyes:polishedbasalt_f2f299"
+      },
+      {
+        "item": "moredyes:polishedbasalt_bfe68c"
+      },
+      {
+        "item": "moredyes:polishedbasalt_f9bfd2"
+      },
+      {
+        "item": "moredyes:polishedbasalt_cccccc"
+      },
+      {
+        "item": "moredyes:polishedbasalt_a6bfcc"
+      },
+      {
+        "item": "moredyes:polishedbasalt_bf9fd9"
+      },
+      {
+        "item": "moredyes:polishedbasalt_99a6d9"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b3a699"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b3bf99"
+      },
+      {
+        "item": "moredyes:polishedbasalt_cc9999"
+      },
+      {
+        "item": "moredyes:polishedbasalt_c56685"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9f8c85"
+      },
+      {
+        "item": "moredyes:polishedbasalt_deb233"
+      },
+      {
+        "item": "moredyes:polishedbasalt_aca526"
+      },
+      {
+        "item": "moredyes:polishedbasalt_e57f6c"
+      },
+      {
+        "item": "moredyes:polishedbasalt_92663f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b98c66"
+      },
+      {
+        "item": "moredyes:polishedbasalt_927f66"
+      },
+      {
+        "item": "moredyes:polishedbasalt_ac5f72"
+      },
+      {
+        "item": "moredyes:polishedbasalt_866672"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9f6633"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9f7f33"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b95933"
+      },
+      {
+        "item": "moredyes:polishedbasalt_794c26"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c72d8"
+      },
+      {
+        "item": "moredyes:polishedbasalt_cb9886"
+      },
+      {
+        "item": "moredyes:polishedbasalt_998c79"
+      },
+      {
+        "item": "moredyes:polishedbasalt_d265bf"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f4c92"
+      },
+      {
+        "item": "moredyes:polishedbasalt_a672b9"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f65b9"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9946c5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_734cc5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c4c86"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c6586"
+      },
+      {
+        "item": "moredyes:polishedbasalt_a64086"
+      },
+      {
+        "item": "moredyes:polishedbasalt_663379"
+      },
+      {
+        "item": "moredyes:polishedbasalt_a5bf86"
+      },
+      {
+        "item": "moredyes:polishedbasalt_72b279"
+      },
+      {
+        "item": "moredyes:polishedbasalt_ac8cbf"
+      },
+      {
+        "item": "moredyes:polishedbasalt_597392"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f99b9"
+      },
+      {
+        "item": "moredyes:polishedbasalt_598cb9"
+      },
+      {
+        "item": "moredyes:polishedbasalt_726cc5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4d73c5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_667386"
+      },
+      {
+        "item": "moredyes:polishedbasalt_668c86"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f6686"
+      },
+      {
+        "item": "moredyes:polishedbasalt_405979"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b2d926"
+      },
+      {
+        "item": "moredyes:polishedbasalt_ebb26c"
+      },
+      {
+        "item": "moredyes:polishedbasalt_99993f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_bfbf66"
+      },
+      {
+        "item": "moredyes:polishedbasalt_99b266"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b29272"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c9972"
+      },
+      {
+        "item": "moredyes:polishedbasalt_a69933"
+      },
+      {
+        "item": "moredyes:polishedbasalt_a6b233"
+      },
+      {
+        "item": "moredyes:polishedbasalt_bf8c33"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f7f26"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b8a65f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_668c32"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8cb359"
+      },
+      {
+        "item": "moredyes:polishedbasalt_66a659"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f5665"
+      },
+      {
+        "item": "moredyes:polishedbasalt_598c65"
+      },
+      {
+        "item": "moredyes:polishedbasalt_738c26"
+      },
+      {
+        "item": "moredyes:polishedbasalt_73a626"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c8026"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4c7319"
+      },
+      {
+        "item": "moredyes:polishedbasalt_864c5f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_c6596c"
+      },
+      {
+        "item": "moredyes:polishedbasalt_ac7f6c"
+      },
+      {
+        "item": "moredyes:polishedbasalt_ac666c"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9366ab"
+      },
+      {
+        "item": "moredyes:polishedbasalt_b95fab"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9f7f9f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_c68c9f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_9f6679"
+      },
+      {
+        "item": "moredyes:polishedbasalt_727272"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4c6572"
+      },
+      {
+        "item": "moredyes:polishedbasalt_65467f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_404c7f"
+      },
+      {
+        "item": "moredyes:polishedbasalt_594c40"
+      },
+      {
+        "item": "moredyes:polishedbasalt_596540"
+      },
+      {
+        "item": "moredyes:polishedbasalt_724040"
+      },
+      {
+        "item": "moredyes:polishedbasalt_333333"
+      },
+      {
+        "item": "moredyes:polishedbasalt_738c99"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c6ca5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_6673a5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_807366"
+      },
+      {
+        "item": "moredyes:polishedbasalt_808c66"
+      },
+      {
+        "item": "moredyes:polishedbasalt_996666"
+      },
+      {
+        "item": "moredyes:polishedbasalt_595959"
+      },
+      {
+        "item": "moredyes:polishedbasalt_655fa5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4066a5"
+      },
+      {
+        "item": "moredyes:polishedbasalt_596666"
+      },
+      {
+        "item": "moredyes:polishedbasalt_597f66"
+      },
+      {
+        "item": "moredyes:polishedbasalt_725966"
+      },
+      {
+        "item": "moredyes:polishedbasalt_334c59"
+      },
+      {
+        "item": "moredyes:polishedbasalt_5945b2"
+      },
+      {
+        "item": "moredyes:polishedbasalt_734573"
+      },
+      {
+        "item": "moredyes:polishedbasalt_735f73"
+      },
+      {
+        "item": "moredyes:polishedbasalt_8c3973"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4c2c66"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4c4c73"
+      },
+      {
+        "item": "moredyes:polishedbasalt_4c6573"
+      },
+      {
+        "item": "moredyes:polishedbasalt_664073"
+      },
+      {
+        "item": "moredyes:polishedbasalt_263366"
+      },
+      {
+        "item": "moredyes:polishedbasalt_403326"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f4033"
+      },
+      {
+        "item": "moredyes:polishedbasalt_666533"
+      },
+      {
+        "item": "moredyes:polishedbasalt_7f5933"
+      },
+      {
+        "item": "moredyes:polishedbasalt_404c26"
+      },
+      {
+        "item": "moredyes:polishedbasalt_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:polished_basalt"
+  }
+}

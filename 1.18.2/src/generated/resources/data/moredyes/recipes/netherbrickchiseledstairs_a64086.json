@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:netherbrickchiseled_a64086"
+    }
+  },
+  "result": {
+    "item": "moredyes:netherbrickchiseledstairs_a64086",
+    "count": 4
+  }
+}

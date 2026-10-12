@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moredyes:hardendclay_9366ab"
+  },
+  "result": "moredyes:glazedterracotta_9366ab"
+}
