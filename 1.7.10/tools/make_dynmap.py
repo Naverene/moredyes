@@ -5,8 +5,8 @@ shapes of the blocks that are not full cubes). Run it again after adding or chan
 
 The game tints grey textures it makes when it loads (client/TintSources), and the map has none of those, so the
 textures here name the same sources and have compat/dynmap/TintedTextureProcessor make the grey versions. The tint is
-DyeColorMultiplier, which reads the shade from the metadata or, for stairs, slabs, walls, trapdoors and pistons, from
-the color tile entity.
+DyeColorMultiplier, which reads the shade from the metadata or, for stairs, slabs, walls, trapdoors, pistons and the
+dyed Iron Chests and Storage Drawers, from the tile entity.
 """
 
 from pathlib import Path
@@ -122,6 +122,17 @@ CROPPED = {
     "chest/top": (CHEST, "14:0:14:14"),
     "chest/side": (CHEST, "14:33:14:10"),
 }
+# The dyed Iron Chests (compat/ironchest), one block per tier, drawn like the chest above from the tier's model
+# texture, with its grey panels tinted and its frame and latch drawn over them untinted.
+IRON_CHEST_TIERS = ["Iron", "Gold", "Diamond", "Copper", "Silver"]
+# The dyed Storage Drawers (compat/storagedrawers): registry name -> (front texture, half depth). Their textures are
+# made from Storage Drawers' oak drawers, as in the game.
+DRAWERS = {
+    "dyedFullDrawers1": ("front_1", False), "dyedFullDrawers2": ("front_2", False),
+    "dyedFullDrawers4": ("front_4", False), "dyedHalfDrawers2": ("front_2", True),
+    "dyedHalfDrawers4": ("front_4", True),
+}
+DRAWER_PARTS = ["front_1", "front_2", "front_4", "side", "side_h", "side_v"]
 # Untinted textures used as they are.
 NATURAL = {
     "log_oak": vanilla("log_oak"),
@@ -250,6 +261,16 @@ def texture_file():
         lines.append(f"texture:id={tid(key)},filename={path},{PROCESSOR},crop={crop}")
     for key, path in NATURAL.items():
         lines.append(f"texture:id={tid(key)},filename={path}")
+    # Only loaded when Iron Chests or Storage Drawers is installed: the map skips textures no known block uses.
+    for tier in IRON_CHEST_TIERS:
+        path = f"assets/ironchest/textures/model/{tier.lower()}chest.png"
+        for part, crop in (("top", CROPPED["chest/top"][1]), ("side", CROPPED["chest/side"][1])):
+            for transform, suffix in (("chestPanels", ""), ("chestTrim", "Trim")):
+                lines.append(f"texture:id={tid(f'ironchest/{tier.lower()}/{part}{suffix}')},filename={path},"
+                             f"{PROCESSOR},transform={transform},crop={crop}")
+    for part in DRAWER_PARTS:
+        lines.append(f"texture:id={tid('drawers/' + part)},"
+                     f"filename=assets/storagedrawers/textures/blocks/drawers_oak_{part}.png,{PROCESSOR}")
     lines.append("")
 
     def t(key, modifier=TINTED):
@@ -297,6 +318,20 @@ def texture_file():
         lines.append(f"block:id=%{name},data=*,patch0={t(bottom)},patch1={t(top)},patch2-5={t(side)},"
                      f"transparency=SEMITRANSPARENT,{TINT}")
     lines.append(f"block:id=%ironTrapdoor,data=*,patch0-5={t('ironTrapdoor')},transparency=TRANSPARENT,{TINT}")
+
+    lines.append("")
+    lines.append("# Dyed Iron Chests and Storage Drawers, the color in a tile entity")
+    for tier in IRON_CHEST_TIERS:
+        key = f"ironchest/{tier.lower()}/"
+        lines.append(f"block:id=%dyed{tier}Chest,data=*,patch0-1=0:{tid(key + 'topTrim')},"
+                     f"patch2-5=0:{tid(key + 'sideTrim')},patch6-7={t(key + 'top')},patch8-11={t(key + 'side')},"
+                     + ",".join(f"layer{face}={face + 6}" for face in range(6)) + f",transparency=TRANSPARENT,{TINT}")
+    # DyedDrawersRenderer's textures: top and bottom, left and right, back, front.
+    for name, (front, half) in DRAWERS.items():
+        top, sides = ("side_h", "side_v") if half else ("side", "side")
+        lines.append(f"block:id=%{name},data=*,patch0={t('drawers/' + top)},patch1={t('drawers/' + sides)},"
+                     f"patch2={t('drawers/side')},patch3={t('drawers/' + front)},"
+                     f"transparency={'SEMITRANSPARENT' if half else 'OPAQUE'},{TINT}")
 
     # Pistons: the cobblestone is tinted and the wood, iron and cracks are drawn over it untinted (patches 6 to 11
     # hold the tinted layer under faces 0 to 5), with the wooden strip on the sides towards the front.
@@ -379,6 +414,12 @@ def models_file():
         bounds = facing_box(facing, 0.25) if extended else box()
         lines.append(f"customblock:id=%piston,id=%stickyPiston,data={meta},{renderer},{bounds}")
         lines.append(f"customblock:id=%pistonHead,data={meta},{renderer},{facing_box(facing, -0.25)}")
+    lines.append("")
+    lines.append("# Dyed Iron Chests and Storage Drawers (the drawers turn the way their tile entity says)")
+    lines.append(f"customblock:{ids(f'%dyed{tier}Chest' for tier in IRON_CHEST_TIERS)},data=*,{renderer},"
+                 f"{box(0.0625, 0.9375, 0.0, 0.875, 0.0625, 0.9375)}")
+    for name, (front, half) in DRAWERS.items():
+        lines.append(f"customblock:id=%{name},data=*,class={PACKAGE}.DyedDrawersRenderer,depth={0.5 if half else 1.0}")
     return "\n".join(lines) + "\n"
 
 

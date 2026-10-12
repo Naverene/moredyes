@@ -12,8 +12,9 @@ import info.kg6jay.moredyes.utility.ColorUtil;
 
 /**
  * The dye color a block is tinted with on the web map, as in the game: the shade in the metadata for the blocks made
- * per color set, or the color in the tile entity for stairs, slabs, walls, trapdoors and pistons. The map only reads
- * that tile entity for blocks whose shape asks for it (TileColorBoxRenderer and the other renderers here).
+ * per color set, or the color in the tile entity for stairs, slabs, walls, trapdoors, pistons and the dyed Iron Chests
+ * and Storage Drawers. The map only reads that tile entity for blocks whose shape asks for it (TileColorBoxRenderer and
+ * the other renderers here).
  */
 public class DyeColorMultiplier extends CustomColorMultiplier {
 
@@ -28,7 +29,10 @@ public class DyeColorMultiplier extends CustomColorMultiplier {
         if (shade == 0) {
             Block block = Block.getBlockById(id);
             if (!(block instanceof IBlockColored colored)) {
-                Object color = context.getBlockTileEntityField("color");
+                Object color = context.getBlockTileEntityField(TileColorFields.COLOR);
+                if (color == null) {
+                    color = context.getBlockTileEntityField(TileColorFields.DRAWER_COLOR);
+                }
                 return ColorIndex.rgb(color instanceof Number number ? number.intValue() : 0);
             }
             shade = 1 + ColorUtil.shade(colorStrings(colored.getColorSet()), context.getBlockData());

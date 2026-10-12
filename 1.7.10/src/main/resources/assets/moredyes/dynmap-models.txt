@@ -72,3 +72,11 @@ customblock:id=%piston,id=%stickyPiston,data=12,class=info.kg6jay.moredyes.compa
 customblock:id=%pistonHead,data=12,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=0.25,ymin=0.0,ymax=1.0,zmin=0.0,zmax=1.0
 customblock:id=%piston,id=%stickyPiston,data=13,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=0.75,ymin=0.0,ymax=1.0,zmin=0.0,zmax=1.0
 customblock:id=%pistonHead,data=13,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.75,xmax=1.0,ymin=0.0,ymax=1.0,zmin=0.0,zmax=1.0
+
+# Dyed Iron Chests and Storage Drawers (the drawers turn the way their tile entity says)
+customblock:id=%dyedIronChest,id=%dyedGoldChest,id=%dyedDiamondChest,id=%dyedCopperChest,id=%dyedSilverChest,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0625,xmax=0.9375,ymin=0.0,ymax=0.875,zmin=0.0625,zmax=0.9375
+customblock:id=%dyedFullDrawers1,data=*,class=info.kg6jay.moredyes.compat.dynmap.DyedDrawersRenderer,depth=1.0
+customblock:id=%dyedFullDrawers2,data=*,class=info.kg6jay.moredyes.compat.dynmap.DyedDrawersRenderer,depth=1.0
+customblock:id=%dyedFullDrawers4,data=*,class=info.kg6jay.moredyes.compat.dynmap.DyedDrawersRenderer,depth=1.0
+customblock:id=%dyedHalfDrawers2,data=*,class=info.kg6jay.moredyes.compat.dynmap.DyedDrawersRenderer,depth=0.5
+customblock:id=%dyedHalfDrawers4,data=*,class=info.kg6jay.moredyes.compat.dynmap.DyedDrawersRenderer,depth=0.5

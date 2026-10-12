@@ -21,7 +21,7 @@ If Storage Drawers is installed, its drawers come in every color in all five siz
 
 The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).
 
-GTNH Web Map (the GT: New Horizons version of Dynmap) draws the dyed blocks in their colors and shapes, using the definitions in `assets/moredyes/dynmap-texture.txt` and `dynmap-models.txt`. These are made by `tools/make_dynmap.py`, so run it again after adding or changing a block. The map makes the grey textures and reads the colors with the classes in `compat/dynmap`, which only load when the map is installed. The dyed Iron Chests and Storage Drawers are not on the map yet. To run the game with the map while developing, pass `-Pweb_map=true` to Gradle.
+GTNH Web Map (the GT: New Horizons version of Dynmap) draws the dyed blocks in their colors and shapes, using the definitions in `assets/moredyes/dynmap-texture.txt` and `dynmap-models.txt`. These are made by `tools/make_dynmap.py`, so run it again after adding or changing a block. The map makes the grey textures and reads the colors with the classes in `compat/dynmap`, which only load when the map is installed. The dyed Iron Chests and Storage Drawers are on the map too when those mods are installed. To run the game with the map while developing, pass `-Pweb_map=true` to Gradle.
 
 ## Blocks from newer Minecraft versions
 

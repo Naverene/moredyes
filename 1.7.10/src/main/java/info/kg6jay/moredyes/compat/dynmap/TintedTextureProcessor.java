@@ -11,7 +11,7 @@ import info.kg6jay.moredyes.utility.TintPixels;
  * Makes a texture for the web map the way client/TintSources makes the game's: the grey texture a dyed block is tinted
  * from, or the untinted parts drawn over it. Set on a texture line as processor=, with transform= naming what to do
  * (see apply) and an optional crop=x:y:width:height, in pixels of a 64 pixel wide texture, for model textures such as
- * the chest.
+ * the chests.
  */
 public class TintedTextureProcessor extends CustomTextureProcessor {
 
@@ -52,11 +52,13 @@ public class TintedTextureProcessor extends CustomTextureProcessor {
             height = Math.max(1, Math.round(this.crop[3] * scale));
         }
 
+        // Iron Chests' chest textures are split by looking at the whole texture first.
+        TintPixels.MetalChest chest = this.transform.startsWith("chest") ? new TintPixels.MetalChest(argb, w, h) : null;
         int[] region = new int[width * height];
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int sx = Math.min(x0 + x, w - 1), sy = Math.min(y0 + y, h - 1);
-                region[y * width + x] = this.apply(argb[sy * w + sx], sx, sy, w);
+                region[y * width + x] = this.apply(argb[sy * w + sx], sx, sy, w, chest);
             }
         }
 
@@ -73,9 +75,16 @@ public class TintedTextureProcessor extends CustomTextureProcessor {
         texturePack.setTileARGB(tileToDyntile[0], tile);
     }
 
-    /** One pixel of the result, from the pixel at x, y of a source texture this many pixels wide. */
-    private int apply(int argb, int x, int y, int size) {
+    /**
+     * One pixel of the result, from the pixel at x, y of a source texture this many pixels wide, and that texture split
+     * into panels and trim if it is an Iron Chests chest.
+     */
+    private int apply(int argb, int x, int y, int size, TintPixels.MetalChest chest) {
         switch (this.transform) {
+            case "chestPanels":
+                return chest.panel(argb, x, y);
+            case "chestTrim":
+                return chest.trim(argb, x, y);
             case "greyIfGreen":
                 return TintPixels.isGreen(argb) ? TintPixels.grey(argb) : 0;
             case "greyIfNotGreen":
