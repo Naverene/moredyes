@@ -37,6 +37,33 @@ repositories {
     }
 }
 
+// Iron Chests carries LibGui inside its jar, and LibGui its own two libraries. The dev game doesn't load jars inside
+// jars, so for -Pcompat_mods=true they are unpacked and put on the run classpath next to it. The jar is fetched
+// directly: Loom doesn't allow resolving dependencies while it sets up.
+def ironChestNestedJars() {
+    def out = layout.buildDirectory.dir('ironchest-nested').get().asFile
+    out.mkdirs()
+    def ironChests = new File(out, "ironchest-${iron_chests_version}.jar")
+    if (!ironChests.exists()) {
+        def download = new File(out, ironChests.name + '.part')
+        URI.create("https://api.modrinth.com/maven/maven/modrinth/ironchest/${iron_chests_version}/ironchest-${iron_chests_version}.jar")
+                .toURL().withInputStream { download.bytes = it.bytes }
+        download.renameTo(ironChests)
+    }
+    def found = []
+    def unpack
+    unpack = { File jar ->
+        zipTree(jar).matching { include 'META-INF/jars/*.jar' }.each { File nested ->
+            def target = new File(out, nested.name)
+            target.bytes = nested.bytes
+            found << target
+            unpack(target)
+        }
+    }
+    unpack(ironChests)
+    return files(found)
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     // Mojang's names, the same ones the Forge 1.20.1 build uses, so the code reads the same in both.
@@ -49,6 +76,14 @@ dependencies {
     modCompileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
     if (project.findProperty('compat_mods') == 'true') {
         modRuntimeOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    }
+
+    // Optional: Iron Chests (its Fabric port), which More Dyes adds dyed iron, gold, diamond and copper chests to. Like
+    // Storage Drawers it is compile-time only, and -Pcompat_mods=true runs the game with it.
+    modCompileOnly "maven.modrinth:ironchest:${iron_chests_version}"
+    if (project.findProperty('compat_mods') == 'true') {
+        modRuntimeOnly "maven.modrinth:ironchest:${iron_chests_version}"
+        modRuntimeOnly ironChestNestedJars()
     }
 
     // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
@@ -74,13 +109,15 @@ def forgeDir = file('../1.20.1')
 def forgeGenerated = new File(forgeDir, 'src/generated/resources')
 // Wall recipes are Forge conditional recipes (skipped when wall_blocks is off). Every one of them is a wall.
 def wallRecipes = ['data/moredyes/recipes/*wall_*.json', 'data/moredyes/recipes/stonecutting/*wall_*.json']
-// Iron Chests has no Fabric version (the Fabric chest mods are different mods), so the dyed Iron Chests' recipes
-// and models stay out. The dyed Storage Drawers' resources are shared: their recipes carry Fabric's condition too.
-def ironChestResources = [
-        'data/moredyes/recipes/iron_chests/**',
-        'assets/moredyes/blockstates/dyed_*_chest.json', 'assets/moredyes/models/item/dyed_*_chest.json',
-]
+// The dyed Iron Chests' recipes (compat/ironchest) are Forge conditional recipes whose results carry NBT, which
+// vanilla's recipes don't read on Fabric, so they are rewritten (convertIronChestRecipes). Their item models name
+// Forge Iron Chests' item models; the Fabric port's are flat icons, so this folder has its own (vanilla's chest item
+// model, drawn by compat/ironchest/client). The dyed Storage Drawers' resources are shared as they are: their recipes
+// carry Fabric's condition too.
+def ironChestRecipes = 'data/moredyes/recipes/iron_chests/*.json'
+def ironChestItemModels = 'assets/moredyes/models/item/dyed_*_chest.json'
 def fabricRecipesDir = layout.buildDirectory.dir('generated/fabricRecipes')
+def fabricIronChestRecipesDir = layout.buildDirectory.dir('generated/fabricIronChestRecipes')
 
 // Rewrites each Forge conditional recipe as the plain recipe with Fabric's load condition, which
 // MoreDyes registers as moredyes:walls_enabled.
@@ -110,8 +147,38 @@ tasks.register('convertWallRecipes') {
     }
 }
 
+// Rewrites each dyed Iron Chests recipe with Fabric's load condition (Iron Chests installed) and as More Dyes' shapeless
+// recipe that reads the result's NBT, which also keeps the chest's name when it is dyed again.
+tasks.register('convertIronChestRecipes') {
+    def source = new File(forgeDir, 'src/main/resources')
+    inputs.files(fileTree(source) { include ironChestRecipes })
+    outputs.dir(fabricIronChestRecipesDir)
+    doLast {
+        def out = fabricIronChestRecipesDir.get().asFile
+        project.delete(out)
+        def slurper = new JsonSlurper()
+        fileTree(source) { include ironChestRecipes }.visit { FileVisitDetails details ->
+            if (details.directory) {
+                return
+            }
+            def json = slurper.parse(details.file)
+            def conditions = json.remove('conditions')
+            if (json.type != 'minecraft:crafting_shapeless' || conditions != [[type: 'forge:mod_loaded', modid: 'ironchest']]) {
+                throw new GradleException("Unexpected Iron Chests recipe ${details.relativePath}")
+            }
+            def recipe = [:]
+            recipe['fabric:load_conditions'] = [[condition: 'fabric:all_mods_loaded', values: ['ironchest']]]
+            recipe.putAll(json)
+            recipe.type = 'moredyes:crafting_shapeless_keep_nbt'
+            def target = new File(out, details.relativePath.pathString)
+            target.parentFile.mkdirs()
+            target.text = JsonOutput.prettyPrint(JsonOutput.toJson(recipe))
+        }
+    }
+}
+
 tasks.named('processResources', ProcessResources).configure {
-    dependsOn 'convertWallRecipes'
+    dependsOn 'convertWallRecipes', 'convertIronChestRecipes'
     var replaceProperties = [
             minecraft_version: minecraft_version, loader_version: loader_version,
             mod_id: mod_id, mod_name: mod_name, mod_version: mod_version,
@@ -124,7 +191,7 @@ tasks.named('processResources', ProcessResources).configure {
 
     from(new File(forgeDir, 'src/main/resources')) {
         exclude 'META-INF/mods.toml'
-        exclude ironChestResources
+        exclude ironChestRecipes, ironChestItemModels
     }
     from(forgeGenerated) {
         exclude '.cache'
@@ -133,6 +200,7 @@ tasks.named('processResources', ProcessResources).configure {
         exclude wallRecipes
     }
     from(fabricRecipesDir)
+    from(fabricIronChestRecipesDir)
 }
 
 tasks.named('jar', Jar).configure {

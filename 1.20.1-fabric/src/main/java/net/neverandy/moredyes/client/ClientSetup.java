@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.ironchest.client.IronChestClient;
 import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
@@ -28,6 +29,10 @@ public final class ClientSetup implements ClientModInitializer
         if (FabricLoader.getInstance().isModLoaded("storagedrawers"))
         {
             StorageDrawersClient.register();
+        }
+        if (FabricLoader.getInstance().isModLoaded("ironchest"))
+        {
+            IronChestClient.register();
         }
     }
 

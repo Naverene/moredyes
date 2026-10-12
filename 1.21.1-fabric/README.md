@@ -51,7 +51,22 @@ block entity types from its list of drawer blocks while it initializes, and Fabr
 order, so `StorageDrawersBlockEntitiesMixin` registers the dyed drawers from Storage Drawers' initializer, just before it
 makes them. Those mixins are only applied when Storage Drawers is installed.
 
-To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` to Gradle.
+## Iron Chests
+
+If [Iron Chests](https://modrinth.com/mod/ironchest) (its Fabric port, by anner) is installed, its iron, gold, diamond
+and copper chests come in every color too, as on NeoForge 1.21.11: craft one (or a dyed one) with a dye. They hold as
+much as the plain chest of the tier and open its screen, and Iron Chests' upgrade items keep the color (an iron-to-gold
+upgrade on a dyed iron chest gives a dyed gold chest; a wood-to-iron upgrade on a dyed chest gives a dyed iron chest).
+The Fabric port's chests are all metal, unlike the NeoForge mod's, so the metal panels take the dye color and the frame,
+latch and inside keep the tier's own colors: `compat/ironchest/client/DyedIronChestTextures` splits Iron Chests' loaded
+textures into a grey panel texture, tinted in code, and the rest. The code is in `compat/ironchest`; the NeoForge 1.21.1
+folder has no dyed Iron Chests, so this build writes their blockstates, item models and recipes, and adds them to the
+pickaxe tag and their block names to the language file (`generateIronChestResources` in build.gradle). The recipes only
+load when Iron Chests is installed. Iron Chests' screen is built on LibGui, which Iron Chests carries inside its jar, so
+More Dyes opens it by reflection rather than compiling against LibGui.
+
+To run the game with Storage Drawers and Iron Chests while developing, pass `-Pcompat_mods=true` to Gradle (the build
+unpacks LibGui from the Iron Chests jar for the dev game).
 
 ## For other mods
 
