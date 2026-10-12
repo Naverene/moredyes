@@ -39,7 +39,13 @@ dependencies {
     api(project.files("lib/Chisel-2.9.5.11-api.jar"))
     api(project.files("lib/CoFHCore-[1.7.10]3.1.4-329-dev.jar"))
     api(project.files("lib/ThermalExpansion-[1.7.10]4.1.5-248-API.zip"))
-    //api(project.files("gtnh-web-map-0.3.28-dev.jar"))
+    // GTNH Web Map (the GT: New Horizons fork of Dynmap) reads assets/moredyes/dynmap-*.txt from this jar and loads
+    // the classes in compat/dynmap by name from there, so it is only needed to compile them. Run the game with it by
+    // passing -Pweb_map=true.
+    compileOnly(project.files("lib/gtnh-web-map-0.3.28-dev.jar"))
+    if (project.findProperty("web_map") == "true") {
+        runtimeOnlyNonPublishable(project.files("lib/gtnh-web-map-0.3.28-dev.jar"))
+    }
 
     // Optional mods that More Dyes adds dyed versions of (compat/ironchest, compat/storagedrawers): cpw's Iron Chests
     // 6.0.62.742 and Storage Drawers 1.10.9, the last 1.7.10 releases (CurseForge file ids in gradle.properties). The
