@@ -36,6 +36,9 @@ public class FlowerGenerator implements IWorldGenerator {
     private void generateSurface(Random random, int x, int z, World world) {
         generateFlowers(MDBlock.tulip, random, x, z, world);
         generateFlowers(MDBlock.cornflower, random, x, z, world);
+        // The other dyed flowers are made from their vanilla flowers; lily of the valley, like the cornflower, is not
+        // in 1.7, so it grows wild.
+        generateFlowers(MDBlock.lilyOfTheValley, random, x, z, world);
     }
 
     private void generateFlowers(Block[] flowers, Random random, int x, int z, World world) {

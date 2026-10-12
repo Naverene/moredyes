@@ -2,6 +2,7 @@ package info.kg6jay.moredyes.block;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
@@ -32,9 +33,11 @@ import info.kg6jay.moredyes.utility.ColorIndex;
 public class MDBlockDyedStairs extends BlockStairs {
 
     private final TileColor.Icons icons;
+    private final Block model;
 
     /**
-     * @param model    a block of the material the stairs are made of, which they take their hardness and sound from
+     * @param model    a block of the material the stairs are made of, which they take their hardness, sound, light and
+     *                 see-through look from
      * @param name     registry name, such as "graniteStairs"
      * @param textures the tinted texture keys, one for all sides or three for top, side and bottom
      */
@@ -44,6 +47,30 @@ public class MDBlockDyedStairs extends BlockStairs {
         this.setHarvestLevel(model.getHarvestTool(0), model.getHarvestLevel(0));
         this.setBlockName(Reference.MOD_ID + "." + name);
         this.setCreativeTab(MoreDyes.tabShapes);
+        // The look of the full block: a glowstone one glows, an ice one is slippery and both ice and glass are
+        // see-through.
+        this.setLightLevel(model.getLightValue() / 15.0F);
+        this.slipperiness = model.slipperiness;
+        if (!model.isOpaqueCube()) {
+            this.setLightOpacity(model.getLightOpacity());
+        }
+        this.model = model;
+    }
+
+    /**
+     * Vanilla stairs pass this on to the block they are made of, which would let dyed concrete powder stairs set into a
+     * full block of concrete next to water.
+     */
+    @Override
+    public void onBlockAdded(World world, int x, int y, int z) {}
+
+    @Override
+    public void updateTick(World world, int x, int y, int z, Random random) {}
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return this.model.getRenderBlockPass();
     }
 
     @Override

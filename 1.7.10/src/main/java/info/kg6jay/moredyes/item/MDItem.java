@@ -11,18 +11,22 @@ import info.kg6jay.moredyes.block.MDBlock;
 public class MDItem {
 
     public static Item[] dye;
+    /** Dyed signs in every color (see MDItemDyedSign). */
+    public static Item sign;
 
     public static void initialize() {
         dye = new Item[MDBlock.colors.length];
         for (int i = 0; i < MDBlock.colors.length; i++) {
             dye[i] = new MDItemDye(MDBlock.colorStrings[i], MDBlock.colors[i], i);
         }
+        sign = new MDItemDyedSign();
     }
 
     public static void register() {
         for (Item item : dye) {
             GameRegistry.registerItem(item, item.getUnlocalizedName());
         }
+        GameRegistry.registerItem(sign, "sign");
     }
 
     public static void registerOreDict() {

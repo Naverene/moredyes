@@ -64,6 +64,21 @@ public class ChiselCompat {
         add(chisel, "stonebrickMossy", MDBlock.mossyStoneBrick, Blocks.stonebrick, 1);
         add(chisel, "netherBrick", MDBlock.netherBrick, Blocks.nether_brick, 0);
         add(chisel, "sandstoneCut", MDBlock.cutSandstone, Blocks.sandstone, 2);
+        add(chisel, "sandstoneChiseled", MDBlock.chiseledSandstone, Blocks.sandstone, 1);
+        add(chisel, "quartzChiseled", MDBlock.chiseledQuartz, Blocks.quartz_block, 1);
+        add(chisel, "quartzPillar", MDBlock.quartzPillar, Blocks.quartz_block, 2);
+        add(chisel, "endstone", MDBlock.endStone, Blocks.end_stone, 0);
+        add(chisel, "ice", MDBlock.ice, Blocks.ice, 0);
+        add(chisel, "packedice", MDBlock.packedIce, Blocks.packed_ice, 0);
+        add(chisel, "snow", MDBlock.snow, Blocks.snow, 0);
+        add(chisel, "gravel", MDBlock.gravel, Blocks.gravel, 0);
+        if (ConfigHandler.chisel_plank) {
+            add(chisel, "plankSpruce", MDBlock.sprucePlank, Blocks.planks, 1);
+            add(chisel, "plankBirch", MDBlock.birchPlank, Blocks.planks, 2);
+            add(chisel, "plankJungle", MDBlock.junglePlank, Blocks.planks, 3);
+            add(chisel, "plankAcacia", MDBlock.acaciaPlank, Blocks.planks, 4);
+            add(chisel, "plankDarkOak", MDBlock.darkOakPlank, Blocks.planks, 5);
+        }
     }
 
     private static void add(ICarvingRegistry chisel, String name, Block[] blocks, Block vanilla, int vanillaMeta) {

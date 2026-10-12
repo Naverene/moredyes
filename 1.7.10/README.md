@@ -23,11 +23,15 @@ The dyed chests and drawers are one block per tier or size, with the color in th
 
 ## Blocks from newer Minecraft versions
 
-Many blocks from Minecraft 1.8 to 1.16 are available in every color: granite, andesite and their polished versions (and polished diorite), concrete and concrete powder, soul soil, basalt and polished basalt, smooth stone, smooth sandstone, smooth quartz, cut sandstone, end stone bricks, cracked and chiseled nether bricks, bone blocks, glazed terracotta, blocks of netherite, crying obsidian, chains and cornflowers. Mossy cobblestone, mossy stone bricks and nether bricks come in every color too, because their stairs and walls are made from them.
+Many blocks from Minecraft 1.8 to 1.16 are available in every color: granite, andesite and their polished versions (and polished diorite), concrete and concrete powder, soul soil, basalt and polished basalt, smooth stone, smooth sandstone, smooth quartz, cut sandstone, end stone bricks, cracked and chiseled nether bricks, bone blocks, glazed terracotta, blocks of netherite, crying obsidian, quartz bricks, chains, cornflowers and lilies of the valley. Mossy cobblestone, mossy stone bricks and nether bricks come in every color too, because their stairs and walls are made from them.
+
+So do more of the 1.7 blocks: end stone, gravel, ice, packed ice, snow blocks, chiseled quartz, quartz pillars, chiseled sandstone, the planks of all six woods (oak planks were already dyed), and the flowers: poppies, dandelions, blue orchids, alliums, azure bluets and oxeye daisies, and the tall lilacs, peonies and rose bushes. The petals take the dye and the stems stay green, like the dyed tulips. Dyed ice and packed ice behave like the vanilla ones (slippery, and they need Silk Touch to drop). Quartz pillars and the other blocks that store their color in the metadata only stand upright, like the dyed basalt and bone blocks.
+
+Fences of all six woods and signs come in every color as well, and so does a crafting table slab, which opens the crafting grid like a whole crafting table. Dyed fences of every wood connect to each other, as in 1.8. A dyed flower, tulip, cornflower or sapling goes into an empty flower pot like a vanilla one and keeps its color there; breaking the pot gives back the pot and the plant.
 
 Plain granite and andesite generate underground and are crafted as in 1.8, unless another mod already provides them (the same as diorite). Concrete powder turns into concrete when it touches water.
 
-Stairs, slabs and walls come in every color for stone, granite, diorite, andesite, the polished stones, mossy cobblestone, mossy stone bricks, end stone bricks, smooth sandstone, smooth quartz, nether bricks, bricks, stone bricks, sandstone and cut sandstone (not every material has all three shapes, the same as in vanilla). They are crafted from dyed blocks of one shade with the vanilla recipes and are in their own creative tab. Iron trapdoors come in every color as well and, like iron doors, only open with redstone. Pistons and sticky pistons come in every color too and work like the vanilla ones; craft a piston or sticky piston with a dye, or put a slimeball on top of a dyed piston to make it sticky. The rod of an extended piston keeps its wood color, and other pistons cannot push a dyed piston (in 1.7.10 pistons cannot move blocks that store extra data, the same as chests).
+Stairs and slabs come in every color for every full block that has them in Minecraft 1.16: stone, cobblestone and mossy cobblestone, stone bricks (plain, cracked, carved and mossy), bricks, stained clay, coal, lapis, redstone, quartz (plain, bricks, chiseled, pillar and smooth), obsidian, glowstone, soul sand, sand, sandstone (plain, chiseled and cut), granite, diorite, andesite and the polished stones, end stone, ice, packed ice, snow, bone blocks, both glasses, wool, concrete, concrete powder and the planks of all six woods. Smooth sandstone, end stone bricks and nether bricks have stairs too. Walls come for the vanilla wall materials: cobblestone, mossy cobblestone, bricks, stone bricks, mossy stone bricks, granite, diorite, andesite, sandstone, end stone, end stone bricks and nether bricks. A glowstone slab glows and ice stairs are slippery, like the full blocks. They are crafted from dyed blocks of one shade with the vanilla recipes and are in their own creative tab. Iron trapdoors come in every color as well and, like iron doors, only open with redstone. Pistons and sticky pistons come in every color too and work like the vanilla ones; craft a piston or sticky piston with a dye, or put a slimeball on top of a dyed piston to make it sticky. The rod of an extended piston keeps its wood color, and other pistons cannot push a dyed piston (in 1.7.10 pistons cannot move blocks that store extra data, the same as chests).
 
 Most of these use their vanilla recipe with dyed blocks of one shade, or eight blocks around a dye. Blocks that have no recipe in 1.7:
 
@@ -38,8 +42,16 @@ Most of these use their vanilla recipe with dyed blocks of one shade, or eight b
 - Chain: an iron ingot above and below a dye make four.
 - Bone block: eight bone meal around a dye.
 - Iron trapdoor: four iron ingots and a dye.
+- Quartz bricks: four dyed quartz blocks in a square.
+- Packed ice: nine dyed ice.
+- Lily of the valley: grows wild, like the cornflower, and both make a dye of their shade.
+- Fences: dyed planks of one shade with two sticks between them make three, as in 1.8 (a dyed oak fence can also be made from eight vanilla fences around a dye).
+- Signs: six dyed planks of one shade (any wood) and a stick make three, or eight vanilla signs around a dye.
+- Crafting table slab: three dyed crafting tables in a row.
 
-Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks and nether bricks) can be washed back. Stairs, slabs and walls cannot be washed.
+Planks of any of the six woods in one shade also make that shade's crafting table and chest. Dyed flowers do not give dye back, or eight flowers and a dye would make eight dyes.
+
+Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks, nether bricks, end stone, gravel, ice, packed ice, snow, chiseled quartz, quartz pillars, chiseled sandstone, the planks and the small flowers apart from lily of the valley) can be washed back. Stairs, slabs, walls, fences, tall flowers and signs cannot be washed.
 
 Workstations from newer versions (loom, smoker, barrel and so on) are left to other mods.
 Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and shearing or killing it gives wool in that color. A vanilla dye puts it back on a vanilla color. Some new sheep also spawn in a random mod color; the `sheepSpawnChance` config option sets how often (5% by default, 0 to turn it off).
@@ -58,15 +70,16 @@ GTNH's NotEnoughItems can fold many items into one collapsible entry, but mods c
 # - Before the first group of the GTNH file (above "# spawn egg", line 23 in GTNH 2.9's file): every kind below
 #   gets its own "Dyed ..." group. Recommended.
 # - At the end of the file: these kinds stay in GTNH's generic groups instead, and their lines below do nothing:
-#     planks             -> line 854  $plankWood !$plateWood   (our ore name plankWood)
+#     planks (6 woods)   -> line 854  $plankWood !$plateWood   (our ore name plankWood)
 #     logs               -> line 806  $logwood ...             (our ore name logWood)
 #     saplings           -> line 356  ... $treeSapling ...     (our ore name treeSapling)
-#     the 13 stairs      -> line 794  stair !chisel:           (registry names like moredyes:stoneStairs)
-#     the 3 slabs        -> line 795  slab !double !full       (moredyes:stoneSlab, dioriteSlab, cutSandstoneSlab)
+#     the 49 stairs      -> line 794  stair !chisel:           (registry names like moredyes:stoneStairs)
+#     the 47 slabs       -> line 795  slab !double !full       (registry names like moredyes:stoneSlab)
 #     iron trapdoors     -> line 793  trapdoor                 (moredyes:ironTrapdoor)
 #     dyed drawers       -> lines 47-51 halfdrawers2 ... fulldrawers4 (these match anywhere in the name, ignoring
 #                           case, so moredyes:dyedFullDrawers1 joins Storage Drawers' own 1x1 drawers group)
-#   Every other kind matches no GTNH group (leaves are "...MixLeaf", walls are not "minecraft:..._wall", the
+#   Every other kind matches no GTNH group (leaves are "...MixLeaf", walls are not "minecraft:..._wall", flowers are
+#   not "minecraft:..._flower" or minecraft:double_plant, fences are not minecraft:fence, the
 #   dyes are not minecraft:dye, wool, glass and chests are not the vanilla ids, and the dyed Iron Chests are
 #   moredyes:dyed<Tier>Chest, which line 528 (IronChest's upgrades) does not take), so it gets its own group either way.
 # The dyed Iron Chests and Storage Drawers groups only fill when those mods are installed; without those mods the
@@ -187,6 +200,48 @@ r/^moredyes:[a-z]+MixCryingObsidian$/
 r/^moredyes:[a-z]+MixCornflower$/
 ; {"displayName":"Dyed Chains"}
 r/^moredyes:[a-z]+MixChain$/
+; {"displayName":"Dyed End Stone"}
+r/^moredyes:[a-z]+MixEndStone$/
+; {"displayName":"Dyed Gravel"}
+r/^moredyes:[a-z]+MixGravel$/
+; {"displayName":"Dyed Ice"}
+r/^moredyes:[a-z]+MixIce$/
+; {"displayName":"Dyed Packed Ice"}
+r/^moredyes:[a-z]+MixPackedIce$/
+; {"displayName":"Dyed Snow Blocks"}
+r/^moredyes:[a-z]+MixSnow$/
+; {"displayName":"Dyed Quartz Bricks"}
+r/^moredyes:[a-z]+MixQuartzBricks$/
+; {"displayName":"Dyed Chiseled Quartz Blocks"}
+r/^moredyes:[a-z]+MixChiseledQuartz$/
+; {"displayName":"Dyed Quartz Pillars"}
+r/^moredyes:[a-z]+MixQuartzPillar$/
+; {"displayName":"Dyed Chiseled Sandstone"}
+r/^moredyes:[a-z]+MixChiseledSandstone$/
+; {"displayName":"Dyed Spruce Planks"}
+r/^moredyes:[a-z]+MixSprucePlank$/
+; {"displayName":"Dyed Birch Planks"}
+r/^moredyes:[a-z]+MixBirchPlank$/
+; {"displayName":"Dyed Jungle Planks"}
+r/^moredyes:[a-z]+MixJunglePlank$/
+; {"displayName":"Dyed Acacia Planks"}
+r/^moredyes:[a-z]+MixAcaciaPlank$/
+; {"displayName":"Dyed Dark Oak Planks"}
+r/^moredyes:[a-z]+MixDarkOakPlank$/
+; {"displayName":"Dyed Alliums"}
+r/^moredyes:[a-z]+MixAllium$/
+; {"displayName":"Dyed Azure Bluets"}
+r/^moredyes:[a-z]+MixAzureBluet$/
+; {"displayName":"Dyed Blue Orchids"}
+r/^moredyes:[a-z]+MixBlueOrchid$/
+; {"displayName":"Dyed Dandelions"}
+r/^moredyes:[a-z]+MixDandelion$/
+; {"displayName":"Dyed Lilies of the Valley"}
+r/^moredyes:[a-z]+MixLilyOfTheValley$/
+; {"displayName":"Dyed Oxeye Daisies"}
+r/^moredyes:[a-z]+MixOxeyeDaisy$/
+; {"displayName":"Dyed Poppies"}
+r/^moredyes:[a-z]+MixPoppy$/
 ; {"displayName":"Dyed Rockwool"}
 r/^moredyes:[a-z]+MixRockwool$/
 ; {"displayName":"Dyed Stone Stairs"}
@@ -239,6 +294,192 @@ r/^moredyes:netherBrickWall$/
 r/^moredyes:sandstoneWall$/
 ; {"displayName":"Dyed End Stone Brick Walls"}
 r/^moredyes:endStoneBrickWall$/
+; {"displayName":"Dyed Cobblestone Stairs"}
+r/^moredyes:cobbleStairs$/
+; {"displayName":"Dyed Stone Brick Stairs"}
+r/^moredyes:stonebrickStairs$/
+; {"displayName":"Dyed Cracked Stone Brick Stairs"}
+r/^moredyes:stonebrickCrackedStairs$/
+; {"displayName":"Dyed Carved Stone Brick Stairs"}
+r/^moredyes:stonebrickCarvedStairs$/
+; {"displayName":"Dyed Brick Stairs"}
+r/^moredyes:brickStairs$/
+; {"displayName":"Dyed Hardened Stained Clay Stairs"}
+r/^moredyes:clayStairs$/
+; {"displayName":"Dyed Coal Stairs"}
+r/^moredyes:coalStairs$/
+; {"displayName":"Dyed Lapis Stairs"}
+r/^moredyes:lapisStairs$/
+; {"displayName":"Dyed Redstone Stairs"}
+r/^moredyes:redstoneStairs$/
+; {"displayName":"Dyed Quartz Stairs"}
+r/^moredyes:quartzStairs$/
+; {"displayName":"Dyed Quartz Brick Stairs"}
+r/^moredyes:quartzBrickStairs$/
+; {"displayName":"Dyed Chiseled Quartz Stairs"}
+r/^moredyes:chiseledQuartzStairs$/
+; {"displayName":"Dyed Quartz Pillar Stairs"}
+r/^moredyes:quartzPillarStairs$/
+; {"displayName":"Dyed Obsidian Stairs"}
+r/^moredyes:obsidianStairs$/
+; {"displayName":"Dyed Glowstone Stairs"}
+r/^moredyes:glowstoneStairs$/
+; {"displayName":"Dyed Soulsand Stairs"}
+r/^moredyes:soulsandStairs$/
+; {"displayName":"Dyed Sand Stairs"}
+r/^moredyes:sandStairs$/
+; {"displayName":"Dyed Sandstone Stairs"}
+r/^moredyes:sandstoneStairs$/
+; {"displayName":"Dyed Chiseled Sandstone Stairs"}
+r/^moredyes:chiseledSandstoneStairs$/
+; {"displayName":"Dyed Cut Sandstone Stairs"}
+r/^moredyes:cutSandstoneStairs$/
+; {"displayName":"Dyed End Stone Stairs"}
+r/^moredyes:endStoneStairs$/
+; {"displayName":"Dyed Ice Stairs"}
+r/^moredyes:iceStairs$/
+; {"displayName":"Dyed Packed Ice Stairs"}
+r/^moredyes:packedIceStairs$/
+; {"displayName":"Dyed Snow Stairs"}
+r/^moredyes:snowStairs$/
+; {"displayName":"Dyed Bone Block Stairs"}
+r/^moredyes:boneBlockStairs$/
+; {"displayName":"Dyed Clear Glass Stairs"}
+r/^moredyes:glassStairs$/
+; {"displayName":"Dyed Foggy Glass Stairs"}
+r/^moredyes:glassFoggyStairs$/
+; {"displayName":"Dyed Wool Stairs"}
+r/^moredyes:woolStairs$/
+; {"displayName":"Dyed Concrete Stairs"}
+r/^moredyes:concreteStairs$/
+; {"displayName":"Dyed Concrete Powder Stairs"}
+r/^moredyes:concretePowderStairs$/
+; {"displayName":"Dyed Oak Stairs"}
+r/^moredyes:oakStairs$/
+; {"displayName":"Dyed Spruce Stairs"}
+r/^moredyes:spruceStairs$/
+; {"displayName":"Dyed Birch Stairs"}
+r/^moredyes:birchStairs$/
+; {"displayName":"Dyed Jungle Stairs"}
+r/^moredyes:jungleStairs$/
+; {"displayName":"Dyed Acacia Stairs"}
+r/^moredyes:acaciaStairs$/
+; {"displayName":"Dyed Dark Oak Stairs"}
+r/^moredyes:darkOakStairs$/
+; {"displayName":"Dyed Cobblestone Slabs"}
+r/^moredyes:cobbleSlab$/
+; {"displayName":"Dyed Mossy Cobblestone Slabs"}
+r/^moredyes:mossyCobbleSlab$/
+; {"displayName":"Dyed Stone Brick Slabs"}
+r/^moredyes:stonebrickSlab$/
+; {"displayName":"Dyed Cracked Stone Brick Slabs"}
+r/^moredyes:stonebrickCrackedSlab$/
+; {"displayName":"Dyed Carved Stone Brick Slabs"}
+r/^moredyes:stonebrickCarvedSlab$/
+; {"displayName":"Dyed Mossy Stone Brick Slabs"}
+r/^moredyes:mossyStonebrickSlab$/
+; {"displayName":"Dyed Brick Slabs"}
+r/^moredyes:brickSlab$/
+; {"displayName":"Dyed Hardened Stained Clay Slabs"}
+r/^moredyes:claySlab$/
+; {"displayName":"Dyed Coal Slabs"}
+r/^moredyes:coalSlab$/
+; {"displayName":"Dyed Lapis Slabs"}
+r/^moredyes:lapisSlab$/
+; {"displayName":"Dyed Redstone Slabs"}
+r/^moredyes:redstoneSlab$/
+; {"displayName":"Dyed Quartz Slabs"}
+r/^moredyes:quartzSlab$/
+; {"displayName":"Dyed Quartz Brick Slabs"}
+r/^moredyes:quartzBrickSlab$/
+; {"displayName":"Dyed Chiseled Quartz Slabs"}
+r/^moredyes:chiseledQuartzSlab$/
+; {"displayName":"Dyed Quartz Pillar Slabs"}
+r/^moredyes:quartzPillarSlab$/
+; {"displayName":"Dyed Smooth Quartz Slabs"}
+r/^moredyes:smoothQuartzSlab$/
+; {"displayName":"Dyed Obsidian Slabs"}
+r/^moredyes:obsidianSlab$/
+; {"displayName":"Dyed Glowstone Slabs"}
+r/^moredyes:glowstoneSlab$/
+; {"displayName":"Dyed Soulsand Slabs"}
+r/^moredyes:soulsandSlab$/
+; {"displayName":"Dyed Sand Slabs"}
+r/^moredyes:sandSlab$/
+; {"displayName":"Dyed Sandstone Slabs"}
+r/^moredyes:sandstoneSlab$/
+; {"displayName":"Dyed Chiseled Sandstone Slabs"}
+r/^moredyes:chiseledSandstoneSlab$/
+; {"displayName":"Dyed Granite Slabs"}
+r/^moredyes:graniteSlab$/
+; {"displayName":"Dyed Andesite Slabs"}
+r/^moredyes:andesiteSlab$/
+; {"displayName":"Dyed Polished Granite Slabs"}
+r/^moredyes:polishedGraniteSlab$/
+; {"displayName":"Dyed Polished Diorite Slabs"}
+r/^moredyes:polishedDioriteSlab$/
+; {"displayName":"Dyed Polished Andesite Slabs"}
+r/^moredyes:polishedAndesiteSlab$/
+; {"displayName":"Dyed End Stone Slabs"}
+r/^moredyes:endStoneSlab$/
+; {"displayName":"Dyed Ice Slabs"}
+r/^moredyes:iceSlab$/
+; {"displayName":"Dyed Packed Ice Slabs"}
+r/^moredyes:packedIceSlab$/
+; {"displayName":"Dyed Snow Slabs"}
+r/^moredyes:snowSlab$/
+; {"displayName":"Dyed Bone Block Slabs"}
+r/^moredyes:boneBlockSlab$/
+; {"displayName":"Dyed Clear Glass Slabs"}
+r/^moredyes:glassSlab$/
+; {"displayName":"Dyed Foggy Glass Slabs"}
+r/^moredyes:glassFoggySlab$/
+; {"displayName":"Dyed Wool Slabs"}
+r/^moredyes:woolSlab$/
+; {"displayName":"Dyed Concrete Slabs"}
+r/^moredyes:concreteSlab$/
+; {"displayName":"Dyed Concrete Powder Slabs"}
+r/^moredyes:concretePowderSlab$/
+; {"displayName":"Dyed Oak Slabs"}
+r/^moredyes:oakSlab$/
+; {"displayName":"Dyed Spruce Slabs"}
+r/^moredyes:spruceSlab$/
+; {"displayName":"Dyed Birch Slabs"}
+r/^moredyes:birchSlab$/
+; {"displayName":"Dyed Jungle Slabs"}
+r/^moredyes:jungleSlab$/
+; {"displayName":"Dyed Acacia Slabs"}
+r/^moredyes:acaciaSlab$/
+; {"displayName":"Dyed Dark Oak Slabs"}
+r/^moredyes:darkOakSlab$/
+; {"displayName":"Dyed Crafting Table Slabs"}
+r/^moredyes:workbenchSlab$/
+; {"displayName":"Dyed Cobblestone Walls"}
+r/^moredyes:cobbleWall$/
+; {"displayName":"Dyed Mossy Cobblestone Walls"}
+r/^moredyes:mossyCobbleWall$/
+; {"displayName":"Dyed End Stone Walls"}
+r/^moredyes:endStoneWall$/
+; {"displayName":"Dyed Oak Fences"}
+r/^moredyes:oakFence$/
+; {"displayName":"Dyed Spruce Fences"}
+r/^moredyes:spruceFence$/
+; {"displayName":"Dyed Birch Fences"}
+r/^moredyes:birchFence$/
+; {"displayName":"Dyed Jungle Fences"}
+r/^moredyes:jungleFence$/
+; {"displayName":"Dyed Acacia Fences"}
+r/^moredyes:acaciaFence$/
+; {"displayName":"Dyed Dark Oak Fences"}
+r/^moredyes:darkOakFence$/
+; {"displayName":"Dyed Lilacs"}
+r/^moredyes:lilac$/
+; {"displayName":"Dyed Peonys"}
+r/^moredyes:peony$/
+; {"displayName":"Dyed Rose Bushes"}
+r/^moredyes:roseBush$/
+; {"displayName":"Dyed Signs"}
+r/^moredyes:sign$/
 ; {"displayName":"Dyed Iron Trapdoors"}
 r/^moredyes:ironTrapdoor$/
 ; {"displayName":"Dyed Pistons"}
@@ -276,7 +517,7 @@ The grey textures are made from the vanilla textures when the game loads, so the
 
 To give a new block a texture, add a line to `TintSources` and call `TintedTextures.register(iconRegister, "<key>")` from the block's `registerBlockIcons`. Parts that should keep their natural color, such as a flower's stem or a log's bark, are drawn as a separate untinted layer (see `ILayeredBlock`).
 
-Stairs, slabs, walls, trapdoors and pistons need their metadata for their direction or shape, so they keep their color in a small tile entity instead. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
+Stairs, slabs, walls, fences, tall flowers, trapdoors and pistons need their metadata for their direction, shape or half, so they keep their color in a small tile entity instead; signs keep it with their text. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
 
 ## For other mods
 

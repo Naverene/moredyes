@@ -317,49 +317,49 @@ public class Reference {
         1.0f,
         MoreDyes.tabTrees);
     public static final BlockInfo BLOCK_INFO_SPRUCE_PLANKS = new BlockInfo(
-        "spruce_planks",
+        "sprucePlank",
         Material.wood,
         2.0F,
         Block.soundTypeWood,
         "axe",
         0,
-        1.0f,
+        5.0f,
         MoreDyes.tabTrees);
     public static final BlockInfo BLOCK_INFO_BIRCH_PLANKS = new BlockInfo(
-        "birch_planks",
+        "birchPlank",
         Material.wood,
         2.0F,
         Block.soundTypeWood,
         "axe",
         0,
-        1.0f,
+        5.0f,
         MoreDyes.tabTrees);
     public static final BlockInfo BLOCK_INFO_JUNGLE_PLANKS = new BlockInfo(
-        "jungle_planks",
+        "junglePlank",
         Material.wood,
         2.0F,
         Block.soundTypeWood,
         "axe",
         0,
-        1.0f,
+        5.0f,
         MoreDyes.tabTrees);
     public static final BlockInfo BLOCK_INFO_ACACIA_PLANKS = new BlockInfo(
-        "acacia_planks",
+        "acaciaPlank",
         Material.wood,
         2.0F,
         Block.soundTypeWood,
         "axe",
         0,
-        1.0f,
+        5.0f,
         MoreDyes.tabTrees);
     public static final BlockInfo BLOCK_INFO_DARK_OAK_PLANKS = new BlockInfo(
-        "dark_oak_planks",
+        "darkOakPlank",
         Material.wood,
         2.0F,
         Block.soundTypeWood,
         "axe",
         0,
-        1.0f,
+        5.0f,
         MoreDyes.tabTrees);
     public static final BlockInfo BLOCK_INFO_OAK_SAPLING = new BlockInfo(
         "oak_sapling",
@@ -420,9 +420,9 @@ public class Reference {
         Material.sand,
         0.6F,
         Block.soundTypeGravel,
-        null,
-        1,
-        10.0f,
+        "shovel",
+        0,
+        3.0f,
         MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_OAK_LOG = new BlockInfo(
         "oak_log",
@@ -542,7 +542,7 @@ public class Reference {
         10.0f,
         MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_CHISELED_SANDSTONE = new BlockInfo(
-        "chiseled_sandstone",
+        "chiseledSandstone",
         Material.rock,
         2.0F,
         Block.soundTypeStone,
@@ -596,14 +596,14 @@ public class Reference {
         10.0f,
         MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_OXEYE_DAISY = new BlockInfo(
-        "oxeye_daisy",
+        "oxeyeDaisy",
         Material.plants,
-        0,
+        0.0f,
         Block.soundTypeGrass,
         null,
         0,
-        1.0f,
-        MoreDyes.tabTrees); // Effects.REGENERATION, ,
+        0.0f,
+        MoreDyes.tabPlants);
     public static final BlockInfo BLOCK_INFO_CORNFLOWER = new BlockInfo(
         "cornflower",
         Material.plants,
@@ -613,6 +613,94 @@ public class Reference {
         0,
         0.0f,
         MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_ALLIUM = new BlockInfo(
+        "allium",
+        Material.plants,
+        0.0f,
+        Block.soundTypeGrass,
+        null,
+        0,
+        0.0f,
+        MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_AZURE_BLUET = new BlockInfo(
+        "azureBluet",
+        Material.plants,
+        0.0f,
+        Block.soundTypeGrass,
+        null,
+        0,
+        0.0f,
+        MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_BLUE_ORCHID = new BlockInfo(
+        "blueOrchid",
+        Material.plants,
+        0.0f,
+        Block.soundTypeGrass,
+        null,
+        0,
+        0.0f,
+        MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_DANDELION = new BlockInfo(
+        "dandelion",
+        Material.plants,
+        0.0f,
+        Block.soundTypeGrass,
+        null,
+        0,
+        0.0f,
+        MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_LILY_OF_THE_VALLEY = new BlockInfo(
+        "lilyOfTheValley",
+        Material.plants,
+        0.0f,
+        Block.soundTypeGrass,
+        null,
+        0,
+        0.0f,
+        MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_POPPY = new BlockInfo(
+        "poppy",
+        Material.plants,
+        0.0f,
+        Block.soundTypeGrass,
+        null,
+        0,
+        0.0f,
+        MoreDyes.tabPlants);
+    public static final BlockInfo BLOCK_INFO_ICE = new BlockInfo(
+        "ice",
+        Material.ice,
+        0.5f,
+        Block.soundTypeGlass,
+        "pickaxe",
+        0,
+        2.5f,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_PACKED_ICE = new BlockInfo(
+        "packedIce",
+        Material.packedIce,
+        0.5f,
+        Block.soundTypeGlass,
+        "pickaxe",
+        0,
+        2.5f,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_SNOW_BLOCK = new BlockInfo(
+        "snow",
+        Material.craftedSnow,
+        0.2f,
+        Block.soundTypeSnow,
+        "shovel",
+        0,
+        1.0f,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_QUARTZ_BRICKS = new BlockInfo(
+        "quartzBricks",
+        Material.rock,
+        0.8f,
+        Block.soundTypePiston,
+        "pickaxe",
+        2);
     public static final BlockInfo BLOCK_INFO_BOOKSHELF = new BlockInfo(
         "bookshelf",
         Material.wood,
@@ -1191,13 +1279,13 @@ public class Reference {
         9f,
         MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_END_STONE = new BlockInfo(
-        "end_stone",
+        "endStone",
         Material.rock,
         3.0F,
         Block.soundTypeStone,
         "pickaxe",
-        1,
-        9.0F,
+        0,
+        15.0F,
         MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_REDSTONE_LAMP = new BlockInfo(
         "redstone_lamp",
@@ -1353,23 +1441,19 @@ public class Reference {
         4.5f,
         MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_CHISELED_QUARTZ_BLOCK = new BlockInfo(
-        "chiseled_quartz_block",
+        "chiseledQuartz",
         Material.rock,
-        3.0f,
-        Block.soundTypeStone,
+        0.8f,
+        Block.soundTypePiston,
         "pickaxe",
-        1,
-        6.0f,
-        MoreDyes.tabBlocks);
+        2);
     public static final BlockInfo BLOCK_INFO_QUARTZ_PILLAR = new BlockInfo(
-        "quartz_pillar",
+        "quartzPillar",
         Material.rock,
-        3.0f,
-        Block.soundTypeStone,
+        0.8f,
+        Block.soundTypePiston,
         "pickaxe",
-        1,
-        6.0f,
-        MoreDyes.tabBlocks);
+        2);
     public static final BlockInfo BLOCK_INFO_QUARTZ_STAIRS = new BlockInfo(
         "quartz_stairs",
         Material.rock,
@@ -1458,17 +1542,17 @@ public class Reference {
         Block.soundTypeGrass,
         null,
         0,
-        0.1f,
-        MoreDyes.tabTrees);
+        0.0f,
+        MoreDyes.tabPlants);
     public static final BlockInfo BLOCK_INFO_ROSE_BUSH = new BlockInfo(
-        "rose_bush",
+        "roseBush",
         Material.plants,
         0.0f,
         Block.soundTypeGrass,
         null,
         0,
-        0.1f,
-        MoreDyes.tabTrees);
+        0.0f,
+        MoreDyes.tabPlants);
     public static final BlockInfo BLOCK_INFO_PEONY = new BlockInfo(
         "peony",
         Material.plants,
@@ -1476,8 +1560,8 @@ public class Reference {
         Block.soundTypeGrass,
         null,
         0,
-        0.1f,
-        MoreDyes.tabTrees);
+        0.0f,
+        MoreDyes.tabPlants);
     public static final BlockInfo BLOCK_INFO_OAK_SLAB = new BlockInfo(
         "oak_slab",
         Material.wood,
@@ -2337,25 +2421,19 @@ public class Reference {
     /**
      * To-do list of Minecraft 1.7 blocks to add dyed versions of. Nothing reads this list.
      * <p>
-     * Dyed planks come in one kind of wood, so each oak_ entry stands for every wood type (a dyed spruce door would be
-     * the same as a dyed oak door). The blocks from newer Minecraft versions are all in the mod now, apart from the
-     * workstations (loom, smoker, barrel and so on), which are left to other mods; the shulker box is covered by the
-     * dyed chest. The stairs, slabs and walls below can use MDBlockDyedStairs, MDBlockDyedSlab and MDBlockDyedWall.
+     * The blocks from newer Minecraft versions are all in the mod now, apart from the workstations (loom, smoker,
+     * barrel and so on), which are left to other mods; the shulker box is covered by the dyed chest. The stairs, slabs
+     * and walls, fences, flowers, signs and flower pots are done too. What is left works as well as looks (doors,
+     * trapdoors, beds, buttons and the like) and stays out of the mod for now.
      */
-    public static final String[] BLOCKTYPES = { "dispenser", "chiseled_sandstone", "note_block", "bed", "piston",
-        "piston_head", "oxeye_daisy", "furnace", "ladder", "iron_door", "jukebox", "pumpkin", "netherrack",
-        "jack_o_lantern", "cake", "infested_stone", "infested_cobblestone", "infested_stone_bricks",
-        "infested_mossy_stone_bricks", "infested_cracked_stone_bricks", "infested_chiseled_stone_bricks", "iron_bars",
-        "nether_brick_fence", "enchanting_table", "cauldron", "end_stone", "redstone_lamp", "flower_pot", "hopper",
-        "chiseled_quartz_block", "quartz_pillar", "hay_block", "carpet", "sunflower", "lilac", "rose_bush", "peony",
-        "gravel", "dirt",
-        // Stairs, slabs and walls
-        "oak_stairs", "cobblestone_stairs", "brick_stairs", "stone_brick_stairs", "sandstone_stairs", "quartz_stairs",
-        "oak_slab", "smooth_stone_slab", "sandstone_slab", "cobblestone_slab", "brick_slab", "stone_brick_slab",
-        "nether_brick_slab", "quartz_slab", "cobblestone_wall", "mossy_cobblestone_wall",
+    public static final String[] BLOCKTYPES = { "dispenser", "note_block", "bed", "furnace", "ladder", "iron_door",
+        "jukebox", "pumpkin", "netherrack", "jack_o_lantern", "cake", "infested_stone", "infested_cobblestone",
+        "infested_stone_bricks", "infested_mossy_stone_bricks", "infested_cracked_stone_bricks",
+        "infested_chiseled_stone_bricks", "iron_bars", "nether_brick_fence", "enchanting_table", "cauldron",
+        "redstone_lamp", "hopper", "hay_block", "carpet", "sunflower", "dirt",
         // Wooden and redstone parts
-        "oak_sign", "oak_door", "oak_trapdoor", "oak_fence", "oak_fence_gate", "oak_button", "oak_pressure_plate",
-        "stone_button", "stone_pressure_plate", "light_weighted_pressure_plate", "heavy_weighted_pressure_plate" };
+        "oak_door", "oak_trapdoor", "oak_fence_gate", "oak_button", "oak_pressure_plate", "stone_button",
+        "stone_pressure_plate", "light_weighted_pressure_plate", "heavy_weighted_pressure_plate" };
 
     public static final BlockInfo BLOCK_INFO_ROCK_WOOL = new BlockInfo(
         "woolRock",

@@ -38,9 +38,11 @@ public class MDBlockDyedSlab extends Block {
     public static final int BOTTOM = 0, TOP = 1, DOUBLE = 2;
 
     private final TileColor.Icons icons;
+    private final Block model;
 
     /**
-     * @param model    a block of the material the slab is made of, which it takes its hardness and sound from
+     * @param model    a block of the material the slab is made of, which it takes its hardness, sound, light and
+     *                 see-through look from
      * @param name     registry name, such as "dioriteSlab"
      * @param textures the tinted texture keys, one for all sides or three for top, side and bottom
      */
@@ -56,6 +58,20 @@ public class MDBlockDyedSlab extends Block {
         this.setBlockName(Reference.MOD_ID + "." + name);
         this.setCreativeTab(MoreDyes.tabShapes);
         this.setBlockBoundsForItemRender();
+        // The look of the full block: a glowstone one glows, an ice one is slippery and both ice and glass are
+        // see-through.
+        this.setLightLevel(model.getLightValue() / 15.0F);
+        this.slipperiness = model.slipperiness;
+        if (!model.isOpaqueCube()) {
+            this.setLightOpacity(model.getLightOpacity());
+        }
+        this.model = model;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return this.model.getRenderBlockPass();
     }
 
     @Override
