@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted_fence_side",
+  "textures": {
+    "texture": "moredyes:blocks/tinted/acacia_plank"
+  }
+}

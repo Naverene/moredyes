@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/birch_plank",
+    "down": "moredyes:blocks/tinted/birch_plank",
+    "up": "moredyes:blocks/tinted/birch_plank",
+    "north": "moredyes:blocks/tinted/birch_plank",
+    "south": "moredyes:blocks/tinted/birch_plank",
+    "west": "moredyes:blocks/tinted/birch_plank",
+    "east": "moredyes:blocks/tinted/birch_plank"
+  }
+}

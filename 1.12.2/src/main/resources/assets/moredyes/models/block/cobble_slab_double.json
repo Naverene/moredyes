@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/cobble",
+    "down": "moredyes:blocks/tinted/cobble",
+    "up": "moredyes:blocks/tinted/cobble",
+    "north": "moredyes:blocks/tinted/cobble",
+    "south": "moredyes:blocks/tinted/cobble",
+    "west": "moredyes:blocks/tinted/cobble",
+    "east": "moredyes:blocks/tinted/cobble"
+  }
+}

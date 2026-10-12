@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/polished_diorite",
+    "down": "moredyes:blocks/tinted/polished_diorite",
+    "up": "moredyes:blocks/tinted/polished_diorite",
+    "north": "moredyes:blocks/tinted/polished_diorite",
+    "south": "moredyes:blocks/tinted/polished_diorite",
+    "west": "moredyes:blocks/tinted/polished_diorite",
+    "east": "moredyes:blocks/tinted/polished_diorite"
+  }
+}

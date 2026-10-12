@@ -18,6 +18,7 @@ import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
+import net.neverandy.moredyes.handler.FlowerPotHandler;
 import net.neverandy.moredyes.handler.FuelHandler;
 import net.neverandy.moredyes.handler.GuiHandler;
 import net.neverandy.moredyes.item.MDItem;
@@ -75,6 +76,7 @@ public class MoreDyes
 		MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
 		MinecraftForge.EVENT_BUS.register(new FuelHandler());
 		MinecraftForge.EVENT_BUS.register(new DyedSheepHandler());
+		MinecraftForge.EVENT_BUS.register(new FlowerPotHandler());
 		proxy.init();
 		((Tab)tabDyes).setTabIcon(new ItemStack(MDItem.dye[0]));
 		((Tab)tabBlocks).setTabIcon(new ItemStack(MDBlock.wool[0]));

@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_inner_stairs",
+  "textures": {
+    "top": "moredyes:blocks/tinted/clay",
+    "side": "moredyes:blocks/tinted/clay",
+    "bottom": "moredyes:blocks/tinted/clay"
+  }
+}

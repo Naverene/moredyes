@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_half_slab",
+  "textures": {
+    "top": "moredyes:blocks/tinted/obsidian",
+    "side": "moredyes:blocks/tinted/obsidian",
+    "bottom": "moredyes:blocks/tinted/obsidian"
+  }
+}

@@ -40,6 +40,11 @@ public class ChiselCompat
 		existing("redstone",MDBlock.redstone);
 		existing("sandstoneyellow",MDBlock.sandstone);
 		existing("planks-oak",MDBlock.plank);
+		existing("planks-spruce",MDBlock.sprucePlank);
+		existing("planks-birch",MDBlock.birchPlank);
+		existing("planks-jungle",MDBlock.junglePlank);
+		existing("planks-acacia",MDBlock.acaciaPlank);
+		existing("planks-dark-oak",MDBlock.darkOakPlank);
 		existing("wool_white",MDBlock.wool);
 		existing("hardenedclay",MDBlock.hardenedClay);
 		existing("bricks",MDBlock.brick);

@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_half_slab",
+  "textures": {
+    "top": "moredyes:blocks/tinted/polished_andesite",
+    "side": "moredyes:blocks/tinted/polished_andesite",
+    "bottom": "moredyes:blocks/tinted/polished_andesite"
+  }
+}

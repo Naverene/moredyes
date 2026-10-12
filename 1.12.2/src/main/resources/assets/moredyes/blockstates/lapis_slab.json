@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:lapis_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:lapis_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:lapis_slab_double"
+    }
+  }
+}

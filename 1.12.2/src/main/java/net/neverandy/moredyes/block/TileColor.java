@@ -11,12 +11,14 @@ import net.minecraft.world.World;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.tileentity.TileEntityColor;
 import net.neverandy.moredyes.tileentity.TileEntityDyedPiston;
+import net.neverandy.moredyes.tileentity.TileEntityDyedSign;
 import net.neverandy.moredyes.utility.ColorUtil;
 
 /**
- * Shared code for the blocks that keep their color in a TileEntityColor (stairs, slabs, walls, the iron trapdoor and
- * pistons), as in 1.7.10. Their metadata holds their shape, so there is one such block for all colors, and the item
- * damage is the color's position in ColorStrings.ALL.
+ * Shared code for the blocks that keep their color in a TileEntityColor (stairs, slabs, walls, fences, tall flowers,
+ * flower pots, the iron trapdoor and pistons; signs keep theirs in TileEntityDyedSign), as in 1.7.10. Their metadata
+ * holds their shape, so there is one such block for all colors, and the item damage is the color's position in
+ * ColorStrings.ALL.
  * <p>
  * These blocks stay in the world until harvestBlock when a player breaks them (see {@link #harvested}), so the
  * tile entity, and with it the color, is still there when the drops are worked out. Like any block with a tile
@@ -45,6 +47,10 @@ public final class TileColor
 		{
 			return ((TileEntityDyedPiston)tile).getColor();
 		}
+		if(tile instanceof TileEntityDyedSign)
+		{
+			return ((TileEntityDyedSign)tile).getColor();
+		}
 		return 0;
 	}
 	/** Sets the color of the block at this position and sends it to the players who can see it. */
@@ -54,9 +60,17 @@ public final class TileColor
 		if(tile instanceof TileEntityColor)
 		{
 			((TileEntityColor)tile).setColor(color);
-			IBlockState state=world.getBlockState(pos);
-			world.notifyBlockUpdate(pos,state,state,3);
 		}
+		else if(tile instanceof TileEntityDyedSign)
+		{
+			((TileEntityDyedSign)tile).setColor(color);
+		}
+		else
+		{
+			return;
+		}
+		IBlockState state=world.getBlockState(pos);
+		world.notifyBlockUpdate(pos,state,state,3);
 	}
 	/** The color as 0xRRGGBB. */
 	public static int rgb(int color)

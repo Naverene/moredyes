@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_inner_stairs",
+  "textures": {
+    "top": "moredyes:blocks/tinted/packed_ice",
+    "side": "moredyes:blocks/tinted/packed_ice",
+    "bottom": "moredyes:blocks/tinted/packed_ice"
+  }
+}

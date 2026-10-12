@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "plant=tulip": {
+      "model": "moredyes:potted_tulip"
+    },
+    "plant=cornflower": {
+      "model": "moredyes:potted_cornflower"
+    },
+    "plant=allium": {
+      "model": "moredyes:potted_allium"
+    },
+    "plant=azure_bluet": {
+      "model": "moredyes:potted_azure_bluet"
+    },
+    "plant=blue_orchid": {
+      "model": "moredyes:potted_blue_orchid"
+    },
+    "plant=dandelion": {
+      "model": "moredyes:potted_dandelion"
+    },
+    "plant=lily_of_the_valley": {
+      "model": "moredyes:potted_lily_of_the_valley"
+    },
+    "plant=oxeye_daisy": {
+      "model": "moredyes:potted_oxeye_daisy"
+    },
+    "plant=poppy": {
+      "model": "moredyes:potted_poppy"
+    },
+    "plant=sapling": {
+      "model": "moredyes:potted_sapling"
+    }
+  }
+}

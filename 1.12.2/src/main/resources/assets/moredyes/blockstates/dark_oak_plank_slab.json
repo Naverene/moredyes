@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:dark_oak_plank_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:dark_oak_plank_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:dark_oak_plank_slab_double"
+    }
+  }
+}

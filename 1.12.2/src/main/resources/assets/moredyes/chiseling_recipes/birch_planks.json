@@ -1,0 +1,467 @@
+{
+  "type": "rechiseled:chiseling",
+  "overwrite": false,
+  "entries": [
+    {
+      "block": "minecraft:planks",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_white"
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:birch_plank_white",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:birch_plank_orange"
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:birch_plank_orange",
+      "block_meta": 13
+    },
+    {
+      "block": "moredyes:birch_plank_magenta"
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:birch_plank_magenta",
+      "block_meta": 12
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue"
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:birch_plank_light_blue",
+      "block_meta": 11
+    },
+    {
+      "block": "moredyes:birch_plank_yellow"
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:birch_plank_yellow",
+      "block_meta": 10
+    },
+    {
+      "block": "moredyes:birch_plank_lime"
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_lime",
+      "block_meta": 9
+    },
+    {
+      "block": "moredyes:birch_plank_pink"
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_pink",
+      "block_meta": 8
+    },
+    {
+      "block": "moredyes:birch_plank_gray"
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_gray",
+      "block_meta": 7
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray"
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_light_gray",
+      "block_meta": 6
+    },
+    {
+      "block": "moredyes:birch_plank_cyan"
+    },
+    {
+      "block": "moredyes:birch_plank_cyan",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_cyan",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_cyan",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_cyan",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_cyan",
+      "block_meta": 5
+    },
+    {
+      "block": "moredyes:birch_plank_purple"
+    },
+    {
+      "block": "moredyes:birch_plank_purple",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_purple",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_purple",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_purple",
+      "block_meta": 4
+    },
+    {
+      "block": "moredyes:birch_plank_blue"
+    },
+    {
+      "block": "moredyes:birch_plank_blue",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_blue",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_blue",
+      "block_meta": 3
+    },
+    {
+      "block": "moredyes:birch_plank_brown"
+    },
+    {
+      "block": "moredyes:birch_plank_brown",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_brown",
+      "block_meta": 2
+    },
+    {
+      "block": "moredyes:birch_plank_green"
+    },
+    {
+      "block": "moredyes:birch_plank_green",
+      "block_meta": 1
+    },
+    {
+      "block": "moredyes:birch_plank_red"
+    }
+  ]
+}

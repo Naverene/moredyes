@@ -42,6 +42,11 @@ GROUPS = {
     'redstone_block': ([('minecraft:redstone_block', 0)], ['redstone']),
     'sandstone': ([('minecraft:sandstone', 0)], ['sandstone']),
     'oak_planks': ([('minecraft:planks', 0)], ['plank']),
+    'spruce_planks': ([('minecraft:planks', 1)], ['spruce_plank']),
+    'birch_planks': ([('minecraft:planks', 2)], ['birch_plank']),
+    'jungle_planks': ([('minecraft:planks', 3)], ['jungle_plank']),
+    'acacia_planks': ([('minecraft:planks', 4)], ['acacia_plank']),
+    'dark_oak_planks': ([('minecraft:planks', 5)], ['dark_oak_plank']),
     # Groups of our own.
     'wool': ([('minecraft:wool', 0)], ['wool']),
     'soul_sand': ([('minecraft:soul_sand', 0)], ['soulsand']),

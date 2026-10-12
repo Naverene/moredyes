@@ -18,6 +18,8 @@ public class MDItem
 {
 	/** One dye item per color group; the metadata is the shade. */
 	public static Item[] dye;
+	/** The dyed sign, in every color (see ItemDyedSign). */
+	public static Item sign;
 
 	public static void initialize()
 	{
@@ -26,6 +28,7 @@ public class MDItem
 		{
 			dye[g]=new MDItemDye(g);
 		}
+		sign=new ItemDyedSign();
 	}
 	/** The dye of a color, by its position in ColorStrings.ALL. */
 	public static ItemStack dyeStack(int colorIndex,int count)
@@ -45,6 +48,7 @@ public class MDItem
 			Item item=block instanceof BlockDyedSlab?new ItemBlockDyedSlab(block):new ItemBlockTileColored(block);
 			event.getRegistry().register(item.setRegistryName(block.getRegistryName()));
 		}
+		event.getRegistry().register(sign);
 		for(Item item:dye)
 		{
 			OreDictionary.registerOre("dye",new ItemStack(item,1,OreDictionary.WILDCARD_VALUE));

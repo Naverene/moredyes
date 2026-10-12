@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_half_slab",
+  "textures": {
+    "top": "moredyes:blocks/tinted/sandstone_top",
+    "side": "moredyes:blocks/tinted/chiseled_sandstone",
+    "bottom": "moredyes:blocks/tinted/sandstone_top"
+  }
+}

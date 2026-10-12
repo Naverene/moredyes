@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/jungle_plank",
+    "down": "moredyes:blocks/tinted/jungle_plank",
+    "up": "moredyes:blocks/tinted/jungle_plank",
+    "north": "moredyes:blocks/tinted/jungle_plank",
+    "south": "moredyes:blocks/tinted/jungle_plank",
+    "west": "moredyes:blocks/tinted/jungle_plank",
+    "east": "moredyes:blocks/tinted/jungle_plank"
+  }
+}

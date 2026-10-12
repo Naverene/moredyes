@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:snow_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:snow_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:snow_slab_double"
+    }
+  }
+}

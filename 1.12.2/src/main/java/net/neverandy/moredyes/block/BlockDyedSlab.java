@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
@@ -19,6 +20,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.TileEntityColor;
@@ -27,7 +30,8 @@ import net.neverandy.moredyes.utility.BlockInfo;
 /**
  * Dyed slabs in every color, made from a dyed block. The color is kept in a tile entity (see TileColor), so one
  * block holds the bottom, top and double slab, which only join when both halves have the same color (see
- * ItemBlockDyedSlab).
+ * ItemBlockDyedSlab). A slab of glass or ice is see-through, one of glowstone glows and one of ice is slippery, like
+ * the block it is made of.
  */
 public class BlockDyedSlab extends Block implements ITileColoredBlock
 {
@@ -47,8 +51,11 @@ public class BlockDyedSlab extends Block implements ITileColoredBlock
 	private static final AxisAlignedBB TOP_AABB=new AxisAlignedBB(0.0,0.5,0.0,1.0,1.0,1.0);
 
 	private final String typeName;
+	/** One block of the dyed kind the slab is made of, for its look. */
+	private final Block base;
+	private final boolean opaque;
 
-	public BlockDyedSlab(BlockInfo info,String name)
+	public BlockDyedSlab(Block base,BlockInfo info,String name)
 	{
 		super(info.blockMaterial);
 		this.typeName=name;
@@ -65,7 +72,12 @@ public class BlockDyedSlab extends Block implements ITileColoredBlock
 		this.setRegistryName(Reference.MOD_ID,name);
 		this.setUnlocalizedName(Reference.MOD_ID+"."+name);
 		this.setCreativeTab(MoreDyes.tabShapes);
-		this.setLightOpacity(255);
+		this.base=base;
+		IBlockState baseState=base.getDefaultState();
+		this.opaque=baseState.isOpaqueCube();
+		this.setLightOpacity(this.opaque?255:baseState.getLightOpacity());
+		this.setLightLevel(baseState.getLightValue()/15.0f);
+		this.slipperiness=base.slipperiness;
 		this.useNeighborBrightness=true;
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE,Type.BOTTOM));
 	}
@@ -113,7 +125,13 @@ public class BlockDyedSlab extends Block implements ITileColoredBlock
 	@Override
 	public boolean isOpaqueCube(IBlockState state)
 	{
-		return state.getValue(TYPE)==Type.DOUBLE;
+		return this.opaque&&state.getValue(TYPE)==Type.DOUBLE;
+	}
+	@Override
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer()
+	{
+		return this.base.getBlockLayer();
 	}
 	@Override
 	public boolean isFullCube(IBlockState state)
@@ -139,7 +157,7 @@ public class BlockDyedSlab extends Block implements ITileColoredBlock
 	public boolean doesSideBlockRendering(IBlockState state,IBlockAccess world,BlockPos pos,EnumFacing face)
 	{
 		Type type=state.getValue(TYPE);
-		return type==Type.DOUBLE||face==EnumFacing.UP&&type==Type.TOP||face==EnumFacing.DOWN&&type==Type.BOTTOM;
+		return this.opaque&&(type==Type.DOUBLE||face==EnumFacing.UP&&type==Type.TOP||face==EnumFacing.DOWN&&type==Type.BOTTOM);
 	}
 	@Override
 	public boolean hasTileEntity(IBlockState state)
