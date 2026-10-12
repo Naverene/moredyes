@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.utility.TintPixels;
 
 /**
  * Where each tinted texture comes from. To give a new block a texture, add a line here and call
@@ -54,18 +55,15 @@ public final class TintSources {
     }
 
     /** Converts to grey using the pixel's brightness, keeping its transparency. */
-    public static final PixelTransform GREY = TintSources::grey;
+    public static final PixelTransform GREY = TintPixels::grey;
     /** Grey where the pixel is green, transparent elsewhere (the leaves of a sapling). */
-    public static final PixelTransform GREY_IF_GREEN = argb -> isGreen(argb) ? grey(argb) : 0;
+    public static final PixelTransform GREY_IF_GREEN = argb -> TintPixels.isGreen(argb) ? TintPixels.grey(argb) : 0;
     /** Grey where the pixel is not green, transparent elsewhere (the petals of a flower). */
-    public static final PixelTransform GREY_IF_NOT_GREEN = argb -> isGreen(argb) ? 0 : grey(argb);
+    public static final PixelTransform GREY_IF_NOT_GREEN = argb -> TintPixels.isGreen(argb) ? 0 : TintPixels.grey(argb);
     /** Unchanged where the pixel is green, transparent elsewhere (the stem of a flower). */
-    public static final PixelTransform KEEP_IF_GREEN = argb -> isGreen(argb) ? argb : 0;
+    public static final PixelTransform KEEP_IF_GREEN = argb -> TintPixels.isGreen(argb) ? argb : 0;
     /** Unchanged where the pixel is not green, transparent elsewhere (the trunk of a sapling). */
-    public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> isGreen(argb) ? 0 : argb;
-
-    /** The darkest greys of a piston's cobblestone (the cracks and edges), which stay grey on a dyed piston. */
-    private static final int PISTON_DARK = 0x60;
+    public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> TintPixels.isGreen(argb) ? 0 : argb;
 
     /**
      * Unchanged where the pixel is not cobblestone or is one of its darkest greys, transparent elsewhere: the wood,
@@ -82,10 +80,7 @@ public final class TintSources {
 
             @Override
             public int apply(int argb, int x, int y, int size) {
-                int px = x * 16 / size, py = y * 16 / size;
-                boolean trim = inside ? px >= 5 && px <= 10 && py >= 5 && py <= 10 : side && py < 4;
-                boolean dark = (grey(argb) & 255) < PISTON_DARK;
-                return trim || dark ? argb : 0;
+                return TintPixels.isPistonTrim(argb, x, y, size, side, inside) ? argb : 0;
             }
         };
     }
@@ -95,10 +90,7 @@ public final class TintSources {
      * (vanilla nether brick is dark red), so the dye still shows.
      */
     public static PixelTransform greyBrighter(float factor) {
-        return argb -> {
-            int lum = Math.min(255, Math.round((grey(argb) & 255) * factor));
-            return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
-        };
+        return argb -> TintPixels.greyBrighter(argb, factor);
     }
 
     /**
@@ -159,7 +151,7 @@ public final class TintSources {
                         int argb = image.getRGB(x, y);
                         if ((argb >>> 24) != 0 && !(x < latchWidth && y < latchHeight) && !nearColor(argb, frame)) {
                             panel[y * width + x] = true;
-                            int lum = grey(argb) & 255;
+                            int lum = TintPixels.grey(argb) & 255;
                             sum += lum;
                             count++;
                             top = Math.max(top, lum);
@@ -186,7 +178,7 @@ public final class TintSources {
                         if (!isPanel) {
                             return 0;
                         }
-                        int lum = grey(argb) & 255;
+                        int lum = TintPixels.grey(argb) & 255;
                         if (mean < PANEL_BRIGHTNESS) {
                             double d = lum - mean;
                             lum = (int) Math
@@ -346,18 +338,4 @@ public final class TintSources {
         return new ResourceLocation(Reference.MOD_ID, "textures/" + path + ".png");
     }
 
-    private static int grey(int argb) {
-        int r = argb >> 16 & 255, g = argb >> 8 & 255, b = argb & 255;
-        int lum = Math.min(255, Math.round(0.299F * r + 0.587F * g + 0.114F * b));
-        return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
-    }
-
-    private static boolean isGreen(int argb) {
-        if ((argb >>> 24) == 0) {
-            return false;
-        }
-        float[] hsb = java.awt.Color.RGBtoHSB(argb >> 16 & 255, argb >> 8 & 255, argb & 255, null);
-        float hue = hsb[0] * 360.0F;
-        return hsb[1] > 0.15F && hue >= 65.0F && hue <= 170.0F;
-    }
 }
