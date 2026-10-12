@@ -1,5 +1,20 @@
 // Add any additional repositories for your dependencies here.
 
 repositories {
-
+    // Three Scala libraries from Forge 1.7.10's library list are only hosted on the OvermindDL1 Forge mirror, which the
+    // GTNH buildscript adds. When that host is down the build fails (the v1.4.0 release did), so the jars and poms are
+    // kept in lib/maven and these modules are only looked up there.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Vendored Forge libraries"
+                url = file("lib/maven")
+            }
+        }
+        filter {
+            includeModule("org.scala-lang", "scala-parser-combinators_2.11")
+            includeModule("org.scala-lang", "scala-swing_2.11")
+            includeModule("org.scala-lang", "scala-xml_2.11")
+        }
+    }
 }
