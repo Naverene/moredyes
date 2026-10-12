@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.block.Kind;
+import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.ironchest.client.IronChestClient;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import net.neverandy.moredyes.registry.ModBlockEntities;
@@ -35,6 +37,9 @@ public class MoreDyesClient implements ClientModInitializer {
         // Optional compat, only touched when the other mod is installed.
         if (FabricLoader.getInstance().isModLoaded(StorageDrawersCompat.MOD_ID)) {
             StorageDrawersClient.register();
+        }
+        if (FabricLoader.getInstance().isModLoaded(IronChestCompat.MOD_ID)) {
+            IronChestClient.register();
         }
     }
 

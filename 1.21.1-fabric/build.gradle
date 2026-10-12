@@ -47,6 +47,33 @@ repositories {
     }
 }
 
+// Iron Chests carries LibGui inside its jar, and LibGui its own two libraries. The dev game doesn't load jars inside
+// jars, so for -Pcompat_mods=true they are unpacked and put on the run classpath next to it. The jar is fetched
+// directly: Loom doesn't allow resolving dependencies while it sets up.
+def ironChestNestedJars() {
+    def out = layout.buildDirectory.dir('ironchest-nested').get().asFile
+    out.mkdirs()
+    def ironChests = new File(out, "ironchest-${iron_chests_version}.jar")
+    if (!ironChests.exists()) {
+        def download = new File(out, ironChests.name + '.part')
+        URI.create("https://api.modrinth.com/maven/maven/modrinth/ironchest/${iron_chests_version}/ironchest-${iron_chests_version}.jar")
+                .toURL().withInputStream { download.bytes = it.bytes }
+        download.renameTo(ironChests)
+    }
+    def found = []
+    def unpack
+    unpack = { File jar ->
+        zipTree(jar).matching { include 'META-INF/jars/*.jar' }.each { File nested ->
+            def target = new File(out, nested.name)
+            target.bytes = nested.bytes
+            found << target
+            unpack(target)
+        }
+    }
+    unpack(ironChests)
+    return files(found)
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     // Mojang's names, the same ones the NeoForge 1.21.1 build uses, so the code reads the same in both.
@@ -59,6 +86,14 @@ dependencies {
     modCompileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
     if (project.findProperty('compat_mods') == 'true') {
         modLocalRuntime "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    }
+
+    // Optional: Iron Chests (its Fabric port), which More Dyes adds dyed iron, gold, diamond and copper chests to. Like
+    // Storage Drawers it is compile-time only, and -Pcompat_mods=true runs the game with it.
+    modCompileOnly "maven.modrinth:ironchest:${iron_chests_version}"
+    if (project.findProperty('compat_mods') == 'true') {
+        modLocalRuntime "maven.modrinth:ironchest:${iron_chests_version}"
+        modLocalRuntime ironChestNestedJars()
     }
 
     // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
@@ -85,6 +120,13 @@ def conditionalRecipes = ['data/moredyes/recipe/dyeing/*_drawers_*.json']
 // from the jar by the mod itself (see registry/DataMaps) under moredyes/fabric/.
 def neoData = 'data/neoforge/**'
 def fabricResourcesDir = layout.buildDirectory.dir('generated/fabricResources')
+// The NeoForge 1.21.1 build has no dyed Iron Chests, so generateIronChestResources writes theirs (compat/ironchest).
+// The pickaxe tag gets them as optional entries and the language file their block names, so NeoForge's copies of
+// those two are replaced.
+def ironChestTiers = ['iron', 'gold', 'diamond', 'copper']
+def pickaxeTag = 'data/minecraft/tags/block/mineable/pickaxe.json'
+def language = 'assets/moredyes/lang/en_us.json'
+def ironChestResourcesDir = layout.buildDirectory.dir('generated/ironChestResources')
 
 // Rewrites each recipe with NeoForge conditions as the same recipe with Fabric's load conditions.
 tasks.register('convertConditionalRecipes') {
@@ -117,8 +159,58 @@ tasks.register('convertConditionalRecipes') {
     }
 }
 
+// For each tier: a blockstate naming Iron Chests' block model (only its particle texture is used; the chest is drawn by
+// a renderer), vanilla's chest item model (builtin/entity, drawn by compat/ironchest/client), and a recipe per color that
+// dyes an Iron Chests chest or a dyed one. The recipes only load when Iron Chests is installed, and keep the chest's
+// name when it is dyed again. Colors are numbered in the order of color/ColorGroup.
+tasks.register('generateIronChestResources') {
+    def colorGroups = file('src/main/java/net/neverandy/moredyes/color/ColorGroup.java')
+    def neoPickaxeTag = new File(neoGenerated, pickaxeTag)
+    def neoLanguage = new File(neoGenerated, language)
+    inputs.files(colorGroups, neoPickaxeTag, neoLanguage)
+    inputs.property('tiers', ironChestTiers)
+    outputs.dir(ironChestResourcesDir)
+    doLast {
+        def out = ironChestResourcesDir.get().asFile
+        project.delete(out)
+        def write = { String path, Object json ->
+            def target = new File(out, path)
+            target.parentFile.mkdirs()
+            target.text = JsonOutput.toJson(json)
+        }
+        def colors = (colorGroups.text =~ /"([0-9a-f]{6})"/).collect { it[1] }
+        if (colors.size() != 118) {
+            throw new GradleException("Expected 118 colors in ${colorGroups}, found ${colors.size()}")
+        }
+        ironChestTiers.each { tier ->
+            def name = "${tier}_chest"
+            write("assets/moredyes/blockstates/${name}.json", [variants: ['': [model: "ironchest:block/${name}"]]])
+            write("assets/moredyes/models/item/${name}.json", [parent: 'minecraft:item/chest'])
+            colors.eachWithIndex { color, index ->
+                write("data/moredyes/recipe/dyeing/${name}_${color}.json", [
+                        'fabric:load_conditions': [[condition: 'fabric:all_mods_loaded', values: ['ironchest']]],
+                        type: 'moredyes:crafting_shapeless_keep_components',
+                        category: 'building',
+                        group: "moredyes:${name}",
+                        ingredients: [[[item: "ironchest:${name}"], [item: "moredyes:${name}"]], [item: "moredyes:dye_${color}"]],
+                        result: [count: 1, id: "moredyes:${name}", components: ['minecraft:block_state': [color: "${index}"]]],
+                ])
+            }
+        }
+        def tag = new JsonSlurper().parse(neoPickaxeTag)
+        tag.values += ironChestTiers.collect { [id: "moredyes:${it}_chest", required: false] }
+        write(pickaxeTag, tag)
+        // As in the NeoForge 1.21.11 build. The items are named after Iron Chests' chests in code (DyedIronChestItem).
+        def names = new JsonSlurper().parse(neoLanguage, 'UTF-8')
+        ironChestTiers.each { names["block.moredyes.${it}_chest".toString()] = "Dyed ${it.capitalize()} Chest".toString() }
+        def target = new File(out, language)
+        target.parentFile.mkdirs()
+        target.setText(JsonOutput.prettyPrint(JsonOutput.toJson(names)), 'UTF-8')
+    }
+}
+
 tasks.named('processResources', ProcessResources).configure {
-    dependsOn 'convertConditionalRecipes'
+    dependsOn 'convertConditionalRecipes', 'generateIronChestResources'
     var replaceProperties = [
             minecraft_version: minecraft_version, loader_version: loader_version,
             mod_id: mod_id, mod_name: mod_name, mod_version: mod_version,
@@ -142,6 +234,7 @@ tasks.named('processResources', ProcessResources).configure {
         exclude 'data/moredyes/loot_modifiers/**'
         exclude neoData
         exclude conditionalRecipes
+        exclude pickaxeTag, language
     }
     from(new File(neoGenerated, 'data/neoforge')) {
         include 'data_maps/item/compostables.json', 'data_maps/item/furnace_fuels.json'
@@ -149,6 +242,7 @@ tasks.named('processResources', ProcessResources).configure {
         includeEmptyDirs = false
     }
     from(fabricResourcesDir)
+    from(ironChestResourcesDir)
 }
 
 tasks.named('jar', Jar).configure {

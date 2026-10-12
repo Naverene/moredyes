@@ -35,10 +35,24 @@ every color in all six sizes, as on Forge: craft any wooden drawer of a size wit
 `tools/make_compat_resources.py` gives the recipes both loaders' mod-loaded conditions). Storage Drawers makes its block
 entity types from its list of drawer blocks while it initializes, and Fabric runs the mods' initializers in no set
 order, so `mixin/compat/StorageDrawersMixin` registers the dyed drawers from Storage Drawers' initializer, just before it
-makes them. That mixin is only applied when Storage Drawers is installed. Iron Chests has no Fabric version, so the
-dyed Iron Chests are Forge-only.
+makes them. That mixin is only applied when Storage Drawers is installed.
 
-To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` to Gradle.
+## Iron Chests
+
+If [Iron Chests](https://modrinth.com/mod/ironchest) (its Fabric port, by anner) is installed, its iron, gold, diamond
+and copper chests come in every color too, as on Forge: craft one (or a dyed one) with a dye. They hold as much as the
+plain chest of the tier and open its screen, and Iron Chests' upgrade items keep the color (an iron-to-gold upgrade on a
+dyed iron chest gives a dyed gold chest; a wood-to-iron upgrade on a dyed chest gives a dyed iron chest). The Fabric
+port's chests are all metal, unlike the Forge mod's, so the metal panels take the dye color and the frame, latch and
+inside keep the tier's own colors: `compat/ironchest/client/DyedIronChestTextures` splits Iron Chests' loaded textures
+into a grey panel texture, tinted in code, and the rest. The code is in `compat/ironchest`; the blockstates, names and
+mineable tag are the Forge folder's, its recipes are rewritten with Fabric's load condition while building, and the item
+models are this folder's own (vanilla's chest item model). The recipes only load when Iron Chests is installed. Iron
+Chests' screen is built on LibGui, which Iron Chests carries inside its jar, so More Dyes opens it by reflection rather
+than compiling against LibGui.
+
+To run the game with Storage Drawers and Iron Chests while developing, pass `-Pcompat_mods=true` to Gradle (the build
+unpacks LibGui from the Iron Chests jar for the dev game).
 
 ## For other mods
 

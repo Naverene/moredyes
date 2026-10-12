@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.FireBlock;
 
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
@@ -53,6 +54,9 @@ public class MoreDyes implements ModInitializer {
         if (FabricLoader.getInstance().isModLoaded(StorageDrawersCompat.MOD_ID)) {
             // The drawers themselves are registered from Storage Drawers' initializer (StorageDrawersBlockEntitiesMixin).
             StorageDrawersCompat.init();
+        }
+        if (FabricLoader.getInstance().isModLoaded(IronChestCompat.MOD_ID)) {
+            IronChestCompat.register();
         }
         LOGGER.info("More Dyes registered {} colors of {} kinds of block", MixColors.ALL.size(), Kind.values().length);
     }

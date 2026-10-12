@@ -5,6 +5,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.resources.ResourceLocation;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
@@ -42,6 +43,10 @@ public class MoreDyes implements ModInitializer
         {
             // The drawers themselves are registered from Storage Drawers' initializer (mixin/compat/StorageDrawersMixin).
             StorageDrawersCompat.init();
+        }
+        if (FabricLoader.getInstance().isModLoaded(IronChestCompat.MOD_ID))
+        {
+            IronChestCompat.register();
         }
     }
 }

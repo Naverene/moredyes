@@ -28,12 +28,12 @@ events and config are replaced with Fabric API and a few mixins:
 - `moredyes.accesswidener` opens up the vanilla lists of item tint and special item model types, which Fabric API has
   no registry for.
 
-The models, textures, language file, recipes, loot tables, tags, worldgen features and Rechiseled files are not
-copied: the build reads them from `../1.21.11/src/main/resources` and `../1.21.11/src/generated/resources`, so this
-folder needs the NeoForge folder next to it. NeoForge-only files are left out (the biome modifier, the loot modifier
-and the Iron Chests files), the data maps and recipe priorities go into the jar under `moredyes/fabric/` for the mod to
-read, and the dyed drawer recipes are rewritten with Fabric's load conditions while building. To add a block, add it
-on the NeoForge side, run its `tools/generate_resources.py`, and check that it registers here too.
+The models, textures, language file, recipes, loot tables, tags, worldgen features and Rechiseled files are not copied:
+the build reads them from `../1.21.11/src/main/resources` and `../1.21.11/src/generated/resources`, so this folder needs
+the NeoForge folder next to it. NeoForge-only files are left out (the biome modifier and the loot modifier), the data
+maps and recipe priorities go into the jar under `moredyes/fabric/` for the mod to read, and the dyed drawer and Iron
+Chests recipes and loot tables are rewritten with Fabric's load conditions while building. To add a block, add it on the
+NeoForge side, run its `tools/generate_resources.py`, and check that it registers here too.
 
 The settings are in `config/moredyes.properties`: `sheep_spawn_chance` (0 to 1, 0.05 by default) is the chance that a
 sheep spawning in the world has a random More Dyes color.
@@ -45,10 +45,24 @@ every color in all six sizes, as on NeoForge: craft any wooden drawer of a size 
 `compat/storagedrawers`; the models, textures, tags and recipes are the NeoForge folder's. Storage Drawers makes its
 block entity types from its list of drawer blocks while it initializes, and Fabric runs the mods' initializers in no set
 order, so `StorageDrawersBlockEntitiesMixin` registers the dyed drawers from Storage Drawers' initializer, just before it
-makes them. Those mixins are only applied when Storage Drawers is installed. Iron Chests has no Fabric version, so the
-dyed Iron Chests are NeoForge-only.
+makes them. Those mixins are only applied when Storage Drawers is installed.
 
-To run the game with Storage Drawers while developing, pass `-Pcompat_mods=true` to Gradle.
+## Iron Chests
+
+If [Iron Chests](https://modrinth.com/mod/ironchest) (its Fabric port, by anner) is installed, its iron, gold, diamond
+and copper chests come in every color too, as on NeoForge: craft one (or a dyed one) with a dye. They hold as much as
+the plain chest of the tier and open its screen, and Iron Chests' upgrade items keep the color (an iron-to-gold upgrade
+on a dyed iron chest gives a dyed gold chest; a wood-to-iron upgrade on a dyed chest gives a dyed iron chest). The
+Fabric port's chests are all metal, unlike the NeoForge mod's, so the metal panels take the dye color and the frame,
+latch and inside keep the tier's own colors: `compat/ironchest/client/DyedIronChestTextures` splits Iron Chests' loaded
+textures into a grey panel texture, tinted in code, and the rest. The code is in `compat/ironchest`; the blockstates,
+item models, names, loot tables and recipes are the NeoForge folder's, with vanilla's chest item model in place of
+NeoForge Iron Chests' as the item models' base. The recipes only load when Iron Chests is installed. Iron Chests' screen
+is built on LibGui, which Iron Chests carries inside its jar, so More Dyes opens it by reflection rather than compiling
+against LibGui.
+
+To run the game with Storage Drawers and Iron Chests while developing, pass `-Pcompat_mods=true` to Gradle (the build
+unpacks LibGui from the Iron Chests jar for the dev game).
 
 ## For other mods
 
