@@ -76,6 +76,12 @@ public class BlockDyedTallFlower extends BlockBush implements ITileColoredBlock
 	{
 		return Block.EnumOffsetType.XZ;
 	}
+	/** Like the small dyed flowers, it can also be planted on sand. */
+	@Override
+	protected boolean canSustainBush(IBlockState state)
+	{
+		return super.canSustainBush(state)||BlockColoredFlower.isSand(state);
+	}
 	/** Needs room for the upper half. */
 	@Override
 	public boolean canPlaceBlockAt(World world,BlockPos pos)

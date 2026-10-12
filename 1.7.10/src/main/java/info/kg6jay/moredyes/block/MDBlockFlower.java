@@ -78,8 +78,13 @@ public class MDBlockFlower extends MDBlockColoredPlant implements IPlantable {
      * Can this block stay at this position. Similar to canPlaceBlockAt except gets checked often with plants.
      */
     public boolean canBlockStay(World world, int x, int y, int z) {
-        return world.getBlock(x, y - 1, z)
-            .canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+        Block below = world.getBlock(x, y - 1, z);
+        return isSand(below) || below.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+    }
+
+    /** Dyed flowers can also be planted on sand, vanilla or dyed. */
+    public static boolean isSand(Block block) {
+        return block == Blocks.sand || block instanceof MDBlockColoredSand;
     }
 
     /**

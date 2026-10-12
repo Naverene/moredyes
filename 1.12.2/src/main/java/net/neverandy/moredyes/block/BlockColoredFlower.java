@@ -5,6 +5,7 @@ import net.minecraft.block.BlockBush;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -30,6 +31,16 @@ public class BlockColoredFlower extends BlockBush implements IColoredBlock
 		info.apply(this,ColorStrings.GROUP_NAMES[group]);
 		this.setSoundType(info.sound);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockColored.SHADE,0));
+	}
+	/** Dyed flowers can also be planted on sand, vanilla or dyed. */
+	@Override
+	protected boolean canSustainBush(IBlockState state)
+	{
+		return super.canSustainBush(state)||isSand(state);
+	}
+	public static boolean isSand(IBlockState state)
+	{
+		return state.getBlock()==Blocks.SAND||state.getBlock() instanceof BlockColoredSand;
 	}
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state,IBlockAccess source,BlockPos pos)

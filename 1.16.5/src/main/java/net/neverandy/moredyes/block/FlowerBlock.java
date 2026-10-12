@@ -4,12 +4,15 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.neverandy.moredyes.utility.BlockInfo;
+
+import java.util.Arrays;
 
 public class FlowerBlock extends BushBlock
 {
@@ -34,6 +37,18 @@ public class FlowerBlock extends BushBlock
     {
         Vector3d offset = state.getOffset(world, pos);
         return SHAPE.withOffset(offset.x, offset.y, offset.z);
+    }
+
+    @Override
+    protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos)
+    {
+        return super.isValidGround(state, world, pos) || isSand(state);
+    }
+
+    /** Dyed flowers can also be planted on sand, vanilla or dyed. */
+    public static boolean isSand(BlockState state)
+    {
+        return state.isIn(BlockTags.SAND) || Arrays.asList(MDBlock.sandArray).contains(state.getBlock());
     }
 
     @Override

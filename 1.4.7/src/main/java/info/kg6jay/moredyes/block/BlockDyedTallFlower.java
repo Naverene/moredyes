@@ -46,6 +46,12 @@ public class BlockDyedTallFlower extends BlockDyedPlant {
         return top ? this.topStem : this.bottomStem;
     }
 
+    /** Like the small dyed flowers, it can also be planted on sand. */
+    @Override
+    protected boolean canThisPlantGrowOnThisBlockID(int id) {
+        return super.canThisPlantGrowOnThisBlockID(id) || BlockDyedFlower.isSand(id);
+    }
+
     /** There must be room for the top half. */
     @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {

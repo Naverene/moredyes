@@ -385,7 +385,7 @@ public class MDBlock
         }
         for (int f = 0; f < TALL_FLOWERS.length; f++)
         {
-            registerColors(TALL_FLOWERS[f][0], tallFlowerArrays[f], () -> new TallFlowerBlock(AbstractBlock.Properties.from(Blocks.LILAC)), MoreDyes.tabPlants);
+            registerColors(TALL_FLOWERS[f][0], tallFlowerArrays[f], () -> new DyedTallFlowerBlock(AbstractBlock.Properties.from(Blocks.LILAC)), MoreDyes.tabPlants);
         }
     }
 

@@ -160,7 +160,7 @@ public enum Kind {
     CRYING_OBSIDIAN("crying_obsidian", "crying_obsidian", Tab.BLOCKS, (color, p) -> new CryingObsidianBlock(p)),
     CHAIN("chain", "chain", Tab.BLOCKS, (color, p) -> new ChainBlock(p)),
 
-    TULIP("tulip", "white_tulip", Tab.PLANTS, (color, p) -> new FlowerBlock(MobEffects.WEAKNESS, 7.0F, p)),
+    TULIP("tulip", "white_tulip", Tab.PLANTS, (color, p) -> new DyedFlowerBlock(MobEffects.WEAKNESS, 7.0F, p)),
     ALLIUM("allium", "allium", Tab.PLANTS, flower("allium")),
     AZURE_BLUET("azure_bluet", "azure_bluet", Tab.PLANTS, flower("azure_bluet")),
     BLUE_ORCHID("orchid", "blue_orchid", Tab.PLANTS, flower("blue_orchid")),
@@ -169,9 +169,9 @@ public enum Kind {
     LILY_OF_THE_VALLEY("lily_of_the_valley", "lily_of_the_valley", Tab.PLANTS, flower("lily_of_the_valley")),
     OXEYE_DAISY("oxeye_daisy", "oxeye_daisy", Tab.PLANTS, flower("oxeye_daisy")),
     POPPY("poppy", "poppy", Tab.PLANTS, flower("poppy")),
-    LILAC("lilac", "lilac", Tab.PLANTS, (color, p) -> new TallFlowerBlock(p)),
-    PEONY("peony", "peony", Tab.PLANTS, (color, p) -> new TallFlowerBlock(p)),
-    ROSE_BUSH("rose_bush", "rose_bush", Tab.PLANTS, (color, p) -> new TallFlowerBlock(p)),
+    LILAC("lilac", "lilac", Tab.PLANTS, (color, p) -> new DyedTallFlowerBlock(p)),
+    PEONY("peony", "peony", Tab.PLANTS, (color, p) -> new DyedTallFlowerBlock(p)),
+    ROSE_BUSH("rose_bush", "rose_bush", Tab.PLANTS, (color, p) -> new DyedTallFlowerBlock(p)),
 
     // Slabs, stairs and walls, made from the dyed block of the same color. Only vanilla's wall types get walls: a wall
     // has 324 block states, and walls of every type in all the colors would need more memory than a client has.
@@ -420,7 +420,7 @@ public enum Kind {
 
     /** A small flower with the vanilla flower's suspicious stew effects. */
     private static BiFunction<MixColor, BlockBehaviour.Properties, Block> flower(String vanilla) {
-        return (color, p) -> new FlowerBlock(((FlowerBlock) BuiltInRegistries.BLOCK
+        return (color, p) -> new DyedFlowerBlock(((FlowerBlock) BuiltInRegistries.BLOCK
             .get(ResourceLocation.withDefaultNamespace(vanilla))).getSuspiciousEffects(), p);
     }
 

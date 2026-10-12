@@ -68,8 +68,9 @@ public class MDBlockDyedTallFlower extends Block implements ILayeredBlock, IPlan
     }
 
     private boolean canSustain(World world, int x, int y, int z) {
-        return world.getBlock(x, y - 1, z)
-            .canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+        Block below = world.getBlock(x, y - 1, z);
+        return MDBlockFlower.isSand(below)
+            || below.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
     }
 
     /** Places the top half too, both in the color of the item. */
