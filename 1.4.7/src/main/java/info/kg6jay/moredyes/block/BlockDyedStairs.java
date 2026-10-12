@@ -24,10 +24,14 @@ import info.kg6jay.moredyes.Textures;
 public class BlockDyedStairs extends BlockStairs implements IDyedBlock {
 
     private final String displayName;
+    /** Made of glass or ice, so drawn see-through like them. */
+    private final boolean translucent;
 
     public BlockDyedStairs(int id, BlockDyed model, String name, CreativeTabs tab) {
         super(id, model, 0);
         this.displayName = model.getDyedName() + " Stairs";
+        Shapes.copyLook(this, model);
+        this.translucent = model instanceof BlockDyedGlass;
         this.setBlockName("moredyes." + name);
         this.setCreativeTab(tab);
         this.setTextureFile(Textures.SHEET);
@@ -40,6 +44,17 @@ public class BlockDyedStairs extends BlockStairs implements IDyedBlock {
     @Override
     public String getDyedName() {
         return this.displayName;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return this.translucent ? 1 : 0;
+    }
+
+    @Override
+    public boolean canRenderInPass(int pass) {
+        return pass == (this.translucent ? 1 : 0);
     }
 
     @Override

@@ -22,6 +22,7 @@ import info.kg6jay.moredyes.block.MDBlocks;
 import info.kg6jay.moredyes.entity.EntityFallingDyed;
 import info.kg6jay.moredyes.handler.BonemealHandler;
 import info.kg6jay.moredyes.handler.CauldronWashHandler;
+import info.kg6jay.moredyes.handler.FlowerPotHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
@@ -70,6 +71,11 @@ public class MoreDyes {
 
         // Same ore names as the vanilla blocks, so recipes that take any planks or logs take dyed ones too.
         OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.plank, 1, -1));
+        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.birchPlank, 1, -1));
+        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.sprucePlank, 1, -1));
+        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.junglePlank, 1, -1));
+        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.acaciaPlank, 1, -1));
+        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.darkOakPlank, 1, -1));
         OreDictionary.registerOre("logWood", new ItemStack(MDBlocks.log, 1, -1));
         OreDictionary.registerOre("treeSapling", new ItemStack(MDBlocks.sapling, 1, -1));
         OreDictionary.registerOre("treeLeaves", new ItemStack(MDBlocks.leaves, 1, -1));
@@ -88,6 +94,7 @@ public class MoreDyes {
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
         MinecraftForge.EVENT_BUS.register(new BonemealHandler());
+        MinecraftForge.EVENT_BUS.register(new FlowerPotHandler());
     }
 
     @PostInit

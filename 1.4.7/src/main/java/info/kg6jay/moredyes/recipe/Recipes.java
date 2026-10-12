@@ -1,6 +1,7 @@
 package info.kg6jay.moredyes.recipe;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -16,7 +17,9 @@ import info.kg6jay.moredyes.item.MDItems;
 /**
  * The crafting and smelting recipes, the same as in the 1.7.10 version where Minecraft 1.4.7 has the ingredients.
  * Blocks that 1.4.7 does not have yet are replaced: quartz blocks by snow blocks, stained clay by clay blocks, and
- * the coal and redstone blocks by eight coal or redstone dust around a dye (which craft back into eight).
+ * the coal and redstone blocks by eight coal or redstone dust around a dye (which craft back into eight). The newer
+ * blocks with no vanilla 1.4.7 block to dye are made from other dyed blocks or from the nearest vanilla plants (see
+ * addNewerBlockRecipes).
  */
 public final class Recipes {
 
@@ -78,7 +81,7 @@ public final class Recipes {
         surround(MDBlocks.cutSandstone, color, new ItemStack(Block.sandStone, 1, 2), dye);
         surround(MDBlocks.bookshelf, color, new ItemStack(Block.bookShelf), dye);
         surround(MDBlocks.netherBrick, color, new ItemStack(Block.netherBrick), dye);
-        surround(MDBlocks.endStoneBrick, color, new ItemStack(Block.whiteStone), dye);
+        // End stone bricks come from dyed end stone, as in vanilla (see addNewerBlockRecipes).
         surround(MDBlocks.granite, color, new ItemStack(MDBlocks.granitePlain), dye);
         surround(MDBlocks.diorite, color, new ItemStack(MDBlocks.dioritePlain), dye);
         surround(MDBlocks.andesite, color, new ItemStack(MDBlocks.andesitePlain), dye);
@@ -131,19 +134,111 @@ public final class Recipes {
         GameRegistry.addShapelessRecipe(stack(MDBlocks.ironTrapdoor, 1, color), Item.ingotIron, Item.ingotIron,
             Item.ingotIron, Item.ingotIron, dye);
         GameRegistry.addRecipe(stack(MDBlocks.chain, 4, color), "I", "D", "I", 'I', Item.ingotIron, 'D', dye);
+
+        addNewerBlockRecipes(color, dye);
     }
 
-    /** Stairs, slabs and walls from dyed blocks of one color, with the vanilla shapes and amounts. */
+    /**
+     * The blocks the modern versions have that this one lacked. Where Minecraft 1.4.7 has the vanilla block, eight of
+     * it around a dye make eight dyed ones; otherwise the dyed block comes from other dyed blocks, the way vanilla
+     * makes it (quartz bricks from quartz blocks), or from the nearest vanilla plants.
+     */
+    private static void addNewerBlockRecipes(int color, ItemStack dye) {
+        surround(MDBlocks.endStone, color, new ItemStack(Block.whiteStone), dye);
+        square(MDBlocks.endStoneBrick, MDBlocks.endStone, color);
+        surround(MDBlocks.gravel, color, new ItemStack(Block.gravel), dye);
+        surround(MDBlocks.ice, color, new ItemStack(Block.ice), dye);
+        GameRegistry.addRecipe(stack(MDBlocks.packedIce, 1, color), "III", "III", "III", 'I',
+            stack(MDBlocks.ice, 1, color));
+        // Eight snowballs make two snow blocks, so a dye in them makes two dyed ones. Eight snow blocks around a dye
+        // already make the dyed quartz blocks.
+        surround(MDBlocks.snow, color, new ItemStack(Item.snowball), dye, 2);
+        surround(MDBlocks.chiseledSandstone, color, new ItemStack(Block.sandStone, 1, 1), dye);
+        GameRegistry.addRecipe(stack(MDBlocks.chiseledSandstone, 1, color), "S", "S", 'S',
+            stack(MDBlocks.sandstoneSlab, 1, color));
+        square(MDBlocks.quartzBricks, MDBlocks.quartz, color);
+        GameRegistry.addRecipe(stack(MDBlocks.quartzPillar, 2, color), "Q", "Q", 'Q', stack(MDBlocks.quartz, 1, color));
+        GameRegistry.addRecipe(stack(MDBlocks.chiseledQuartz, 1, color), "S", "S", 'S',
+            stack(MDBlocks.quartzSlab, 1, color));
+
+        // Planks of the other woods. These go first, or the dyed oak plank recipe, which takes any planks, would win.
+        // Acacia and dark oak do not exist yet: two dyed oak planks with two dyed jungle or spruce planks make them.
+        addFirst(new ShapedOreRecipe(stack(MDBlocks.sprucePlank, 8, color), "SSS", "SDS", "SSS", 'S',
+            new ItemStack(Block.planks, 1, 1), 'D', dye));
+        addFirst(new ShapedOreRecipe(stack(MDBlocks.birchPlank, 8, color), "SSS", "SDS", "SSS", 'S',
+            new ItemStack(Block.planks, 1, 2), 'D', dye));
+        addFirst(new ShapedOreRecipe(stack(MDBlocks.junglePlank, 8, color), "SSS", "SDS", "SSS", 'S',
+            new ItemStack(Block.planks, 1, 3), 'D', dye));
+        // Also first: any four planks in a square make a crafting table.
+        ItemStack oak = stack(MDBlocks.plank, 1, color);
+        addFirst(new ShapedOreRecipe(stack(MDBlocks.acaciaPlank, 4, color), "OJ", "JO", 'O', oak, 'J',
+            stack(MDBlocks.junglePlank, 1, color)));
+        addFirst(new ShapedOreRecipe(stack(MDBlocks.darkOakPlank, 4, color), "OS", "SO", 'O', oak, 'S',
+            stack(MDBlocks.sprucePlank, 1, color)));
+
+        // Signs from dyed planks of any wood, ahead of the vanilla sign recipe, which takes any planks too.
+        for (Block plank : new Block[] { MDBlocks.plank, MDBlocks.birchPlank, MDBlocks.sprucePlank,
+            MDBlocks.junglePlank, MDBlocks.acaciaPlank, MDBlocks.darkOakPlank }) {
+            addFirst(new ShapedOreRecipe(stack(MDBlocks.sign, 3, color), "PPP", "PPP", " S ", 'P',
+                stack(plank, 1, color), 'S', Item.stick));
+        }
+        GameRegistry.addShapelessRecipe(stack(MDBlocks.sign, 1, color), Item.sign, dye);
+
+        // Flowers: eight vanilla flowers around a dye. Minecraft 1.4.7 only has the dandelion and the rose (poppy);
+        // the others come from the plants nearest them: alliums from roses and dandelions, azure bluets from grass,
+        // oxeye daisies from ferns, orchids from lily pads (both grow in swamps), lilies of the valley from vines.
+        // The tall flowers are two small ones of the same color: lilacs from alliums, peonies from tulips and rose
+        // bushes from poppies.
+        surround(MDBlocks.dandelion, color, new ItemStack(Block.plantYellow), dye);
+        surround(MDBlocks.poppy, color, new ItemStack(Block.plantRed), dye);
+        GameRegistry.addRecipe(stack(MDBlocks.allium, 8, color), "RYR", "YDY", "RYR", 'R', Block.plantRed, 'Y',
+            Block.plantYellow, 'D', dye);
+        surround(MDBlocks.azureBluet, color, new ItemStack(Block.tallGrass, 1, 1), dye);
+        surround(MDBlocks.oxeyeDaisy, color, new ItemStack(Block.tallGrass, 1, 2), dye);
+        surround(MDBlocks.blueOrchid, color, new ItemStack(Block.waterlily), dye);
+        surround(MDBlocks.lilyOfTheValley, color, new ItemStack(Block.vine), dye);
+        tallFlower(MDBlocks.lilac, MDBlocks.allium, color);
+        tallFlower(MDBlocks.peony, MDBlocks.tulip, color);
+        tallFlower(MDBlocks.roseBush, MDBlocks.poppy, color);
+        for (Block flower : new Block[] { MDBlocks.allium, MDBlocks.azureBluet, MDBlocks.blueOrchid,
+            MDBlocks.dandelion, MDBlocks.lilyOfTheValley, MDBlocks.oxeyeDaisy, MDBlocks.poppy }) {
+            GameRegistry.addShapelessRecipe(dye.copy(), stack(flower, 1, color));
+        }
+        for (Block flower : new Block[] { MDBlocks.lilac, MDBlocks.peony, MDBlocks.roseBush }) {
+            ItemStack dyes = dye.copy();
+            dyes.stackSize = 2;
+            GameRegistry.addShapelessRecipe(dyes, stack(flower, 1, color));
+        }
+    }
+
+    private static void tallFlower(Block tall, Block small, int color) {
+        GameRegistry.addRecipe(stack(tall, 1, color), "F", "F", 'F', stack(small, 1, color));
+    }
+
+    /**
+     * Stairs, slabs, walls and fences from dyed blocks of one color, with the vanilla shapes and amounts (fences as in
+     * Minecraft 1.8 and later: planks and sticks, three at a time).
+     */
     private static void addShapeRecipes() {
         for (MDBlocks.Shape shape : MDBlocks.SHAPES) {
             for (int color = 0; color < Colors.COUNT; color++) {
                 ItemStack base = stack(shape.base, 1, color);
+                IRecipe recipe;
                 if (shape.kind == MDBlocks.Shape.STAIRS) {
-                    GameRegistry.addRecipe(stack(shape.block, 4, color), "S  ", "SS ", "SSS", 'S', base);
+                    recipe = new ShapedOreRecipe(stack(shape.block, 4, color), "S  ", "SS ", "SSS", 'S', base);
                 } else if (shape.kind == MDBlocks.Shape.SLAB) {
-                    GameRegistry.addRecipe(stack(shape.block, 6, color), "SSS", 'S', base);
+                    recipe = new ShapedOreRecipe(stack(shape.block, 6, color), "SSS", 'S', base);
+                } else if (shape.kind == MDBlocks.Shape.FENCE) {
+                    recipe = new ShapedOreRecipe(stack(shape.block, 3, color), "PSP", "PSP", 'P', base, 'S',
+                        Item.stick);
                 } else {
-                    GameRegistry.addRecipe(stack(shape.block, 6, color), "SSS", "SSS", 'S', base);
+                    recipe = new ShapedOreRecipe(stack(shape.block, 6, color), "SSS", "SSS", 'S', base);
+                }
+                // Dyed planks count as any planks, so the vanilla wooden stairs and slab recipes would take them.
+                if (shape.base.blockMaterial == Material.wood) {
+                    addFirst(recipe);
+                } else {
+                    GameRegistry.addRecipe(recipe);
                 }
             }
         }

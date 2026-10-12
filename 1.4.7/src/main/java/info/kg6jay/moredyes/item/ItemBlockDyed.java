@@ -13,6 +13,7 @@ import info.kg6jay.moredyes.block.BlockDyedChest;
 import info.kg6jay.moredyes.block.Dyed;
 import info.kg6jay.moredyes.block.IDyedBlock;
 import info.kg6jay.moredyes.block.ILayeredBlock;
+import info.kg6jay.moredyes.block.MDBlocks;
 
 /**
  * The item of a dyed block. Its damage is the color; placing it puts the color in the block's tile entity. Named
@@ -53,6 +54,21 @@ public class ItemBlockDyed extends ItemBlock {
             block.onPostBlockPlaced(world, x, y, z, metadata);
         }
         return true;
+    }
+
+    /**
+     * Checked on the client before a click is sent. A dyed plant cannot be placed on a flower pot, but the click must
+     * still reach the server, which puts the plant in the pot (see FlowerPotHandler).
+     */
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean canPlaceItemBlockOnSide(World world, int x, int y, int z, int side, EntityPlayer player,
+        ItemStack stack) {
+        if (world.getBlockId(x, y, z) == Block.flowerPot.blockID && world.getBlockMetadata(x, y, z) == 0
+            && MDBlocks.POTTABLE.contains(this.block())) {
+            return true;
+        }
+        return super.canPlaceItemBlockOnSide(world, x, y, z, side, player, stack);
     }
 
     @Override

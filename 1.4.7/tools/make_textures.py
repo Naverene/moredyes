@@ -10,6 +10,7 @@ Writes:
   src/main/resources/moredyes/terrain.png     the sheet
   src/main/resources/moredyes/chest.png       grey single chest model texture
   src/main/resources/moredyes/largechest.png  grey double chest model texture
+  src/main/resources/moredyes/sign.png        grey sign model texture
   src/main/java/info/kg6jay/moredyes/Textures.java  the index of each texture in the sheet
 
 Usage: python3 tools/make_textures.py [path to a Minecraft 1.7.10 client jar]
@@ -29,6 +30,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 BASE = os.path.join(ROOT, "..", "1.7.10", "src", "main", "resources", "assets", "moredyes", "textures", "blocks",
                     "base")
+# The grey textures of the 1.16.5 version, for the blocks added after 1.7.10's set (end stone, ice, the other woods'
+# planks, the flowers and so on); their petals and stems are already split into a tinted and a natural layer.
+TINTED = os.path.join(ROOT, "..", "1.16.5", "src", "main", "resources", "assets", "moredyes", "textures", "block",
+                      "tinted")
 MANIFEST = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
 
 
@@ -77,8 +82,8 @@ def grey_brighter(factor):
     return f
 
 
-# (key, source, transform). A source starting with "base/" is one of the mod's own grey textures; anything else is a
-# vanilla 1.7.10 path under assets/minecraft/textures. Same as TintSources in the 1.7.10 version, plus the untinted
+# (key, source, transform). A source starting with "base/" is one of the mod's own grey textures, one starting with
+# "tinted/" is one of the 1.16.5 version's; anything else is a vanilla 1.7.10 path under assets/minecraft/textures. Same as TintSources in the 1.7.10 version, plus the untinted
 # log bark, which 1.7.10 takes straight from vanilla.
 SOURCES = [
     ("wool", "blocks/wool_colored_white", grey),
@@ -159,11 +164,59 @@ SOURCES = [
     ("sapling/leaves", "blocks/sapling_oak", grey_if_green),
     ("sapling/trunk", "blocks/sapling_oak", keep_if_not_green),
     ("dye", "items/dye_powder_white", grey),
+    # The blocks the modern versions have that this one lacked, from the 1.16.5 textures.
+    ("endStone", "tinted/endstone", grey),
+    ("quartzBricks", "tinted/quartz_bricks", grey),
+    ("chiseledQuartz/top", "tinted/quartz_chiseled_top", grey),
+    ("chiseledQuartz/side", "tinted/quartz_chiseled", grey),
+    ("quartzPillar/top", "tinted/quartz_pillar_top", grey),
+    ("quartzPillar/side", "tinted/quartz_pillar", grey),
+    ("gravel", "tinted/gravel", grey),
+    ("ice", "tinted/ice", grey),
+    ("packedIce", "tinted/packed_ice", grey),
+    ("snow", "tinted/snow", grey),
+    ("chiseledSandstone", "tinted/sandstone_carved", grey),
+    ("birchPlank", "tinted/birch_planks", grey),
+    ("sprucePlank", "tinted/spruce_planks", grey),
+    ("junglePlank", "tinted/jungle_planks", grey),
+    ("acaciaPlank", "tinted/acacia_planks", grey),
+    ("darkOakPlank", "tinted/dark_oak_planks", grey),
+    ("allium/petals", "tinted/allium_petals", grey),
+    ("allium/stem", "tinted/allium_stem", keep),
+    ("azureBluet/petals", "tinted/azurebluet_petals", grey),
+    ("azureBluet/stem", "tinted/azurebluet_stem", keep),
+    ("blueOrchid/petals", "tinted/orchid_petals", grey),
+    ("blueOrchid/stem", "tinted/orchid_stem", keep),
+    ("dandelion/petals", "tinted/dandelion_petals", grey),
+    ("dandelion/stem", "tinted/dandelion_stem", keep),
+    ("lilyOfTheValley/petals", "tinted/lilyofthevalley_petals", grey),
+    ("lilyOfTheValley/stem", "tinted/lilyofthevalley_stem", keep),
+    ("oxeyeDaisy/petals", "tinted/oxeyedaisy_petals", grey),
+    ("oxeyeDaisy/stem", "tinted/oxeyedaisy_stem", keep),
+    ("poppy/petals", "tinted/poppy_petals", grey),
+    ("poppy/stem", "tinted/poppy_stem", keep),
+    ("lilac/top/petals", "tinted/lilac_top_petals", grey),
+    ("lilac/top/stem", "tinted/lilac_top_stem", keep),
+    ("lilac/bottom/petals", "tinted/lilac_bottom_petals", grey),
+    ("lilac/bottom/stem", "tinted/lilac_bottom_stem", keep),
+    ("peony/top/petals", "tinted/peony_top_petals", grey),
+    ("peony/top/stem", "tinted/peony_top_stem", keep),
+    ("peony/bottom/petals", "tinted/peony_bottom_petals", grey),
+    ("peony/bottom/stem", "tinted/peony_bottom_stem", keep),
+    ("roseBush/top/petals", "tinted/rosebush_top_petals", grey),
+    ("roseBush/top/stem", "tinted/rosebush_top_stem", keep),
+    ("roseBush/bottom/petals", "tinted/rosebush_bottom_petals", grey),
+    ("roseBush/bottom/stem", "tinted/rosebush_bottom_stem", keep),
+    ("signItem", "tinted/sign", grey),
+    # Untinted: the pot and its soil, drawn around a dyed plant in a flower pot.
+    ("flowerPot", "blocks/flower_pot", keep),
+    ("flowerPotDirt", "blocks/dirt", keep),
 ]
 
 MODELS = [
     ("chest.png", "entity/chest/normal"),
     ("largechest.png", "entity/chest/normal_double"),
+    ("sign.png", "entity/sign"),
 ]
 
 
@@ -184,6 +237,8 @@ def client_jar():
 def load(jar, source):
     if source.startswith("base/"):
         return Image.open(os.path.join(BASE, source[5:] + ".png")).convert("RGBA")
+    if source.startswith("tinted/"):
+        return Image.open(os.path.join(TINTED, source[7:] + ".png")).convert("RGBA")
     return Image.open(io.BytesIO(jar.read("assets/minecraft/textures/" + source + ".png"))).convert("RGBA")
 
 
@@ -227,6 +282,7 @@ def main():
         "    public static final String SHEET = \"/moredyes/terrain.png\";",
         "    public static final String CHEST = \"/moredyes/chest.png\";",
         "    public static final String LARGE_CHEST = \"/moredyes/largechest.png\";",
+        "    public static final String SIGN = \"/moredyes/sign.png\";",
         "",
     ]
     for index, (key, _, _) in enumerate(SOURCES):

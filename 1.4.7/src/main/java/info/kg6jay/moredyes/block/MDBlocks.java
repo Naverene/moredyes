@@ -1,6 +1,7 @@
 package info.kg6jay.moredyes.block;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -13,6 +14,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.Textures;
 import info.kg6jay.moredyes.item.ItemBlockDyed;
+import info.kg6jay.moredyes.item.ItemBlockDyedSign;
 import info.kg6jay.moredyes.item.ItemBlockDyedSlab;
 
 /**
@@ -42,10 +44,21 @@ public final class MDBlocks {
 
     public static Block ironTrapdoor;
 
-    /** A stair, slab or wall block and the dyed block it is crafted from. */
+    /** Blocks the newer versions have; made after the others, so their default IDs follow the older blocks' IDs. */
+    public static Block endStone, quartzBricks, chiseledQuartz, quartzPillar, gravel, ice, packedIce, snow,
+        chiseledSandstone, birchPlank, sprucePlank, junglePlank, acaciaPlank, darkOakPlank, allium, azureBluet,
+        blueOrchid, dandelion, lilyOfTheValley, oxeyeDaisy, poppy, lilac, peony, roseBush, sign, wallSign, flowerPot;
+
+    /** Slabs that recipes for other blocks take. */
+    public static Block quartzSlab, sandstoneSlab;
+
+    /** The dyed plants a flower pot can hold; the potted plant's metadata is its index here. */
+    public static final List<Block> POTTABLE = new ArrayList<Block>();
+
+    /** A stair, slab, wall or fence block and the dyed block it is crafted from. */
     public static final class Shape {
 
-        public static final int STAIRS = 0, SLAB = 1, WALL = 2;
+        public static final int STAIRS = 0, SLAB = 1, WALL = 2, FENCE = 3;
 
         public final Block block;
         public final Block base;
@@ -60,7 +73,7 @@ public final class MDBlocks {
 
     public static final List<Shape> SHAPES = new ArrayList<Shape>();
 
-    /** Every dyed block that is a full kind of its own (not a stair, slab or wall), in creative menu order. */
+    /** Every dyed block that is a kind of its own (not a stair, slab, wall or fence), in creative menu order. */
     public static final List<Block> DYED = new ArrayList<Block>();
 
     private static Configuration config;
@@ -223,6 +236,124 @@ public final class MDBlocks {
 
         ironTrapdoor = new BlockDyedTrapdoor(id("ironTrapdoor"), info("ironTrapdoor", "Iron Trapdoor", Material.iron,
             5.0F, METAL, PICKAXE, 1, 5.0F, shapes));
+
+        addNewerBlocks(blocks, plants, trees, shapes);
+    }
+
+    /**
+     * The blocks the modern versions have that this one lacked: more full blocks, the other woods' planks, flowers,
+     * signs, potted plants, fences and the remaining stairs, slabs and walls. Blocks that Minecraft 1.4.7 does not
+     * have (packed ice, acacia, lilac...) use the grey textures of the 1.16.5 version, like the newer stones above.
+     */
+    private static void addNewerBlocks(CreativeTabs blocks, CreativeTabs plants, CreativeTabs trees,
+        CreativeTabs shapes) {
+        endStone = dyed(stoneLike("endStone", "End Stone", 3.0F, 15.0F, Textures.END_STONE));
+        quartzBricks = dyed(quartzLike("quartzBricks", "Quartz Bricks", Faces.all(Textures.QUARTZ_BRICKS)));
+        chiseledQuartz = dyed(quartzLike("chiseledQuartz", "Chiseled Quartz Block",
+            Faces.of(Textures.CHISELED_QUARTZ_TOP, Textures.CHISELED_QUARTZ_SIDE, Textures.CHISELED_QUARTZ_TOP)));
+        quartzPillar = dyed(quartzLike("quartzPillar", "Quartz Pillar",
+            Faces.of(Textures.QUARTZ_PILLAR_TOP, Textures.QUARTZ_PILLAR_SIDE, Textures.QUARTZ_PILLAR_TOP)));
+        gravel = dyed(new BlockDyedGravel(id("gravel"), info("gravel", "Gravel", Material.sand, 0.6F,
+            Block.soundGravelFootstep, SHOVEL, 0, 1.0F, blocks), Faces.all(Textures.GRAVEL)));
+        ice = dyed(new BlockDyedIce(id("ice"), info("ice", "Ice", Material.ice, 0.5F, GLASS, PICKAXE, 0, 1.0F,
+            blocks), Faces.all(Textures.ICE)));
+        // Material.clay rather than ice: packed ice is opaque, and like vanilla it needs no tool.
+        packedIce = dyed(new BlockDyed(id("packedIce"), info("packedIce", "Packed Ice", Material.clay, 0.5F, GLASS,
+            PICKAXE, 0, 1.0F, blocks), Faces.all(Textures.PACKED_ICE)));
+        packedIce.slipperiness = 0.98F;
+        snow = dyed(new BlockDyed(id("snow"), info("snow", "Snow Block", Material.craftedSnow, 0.2F, CLOTH, SHOVEL, 0,
+            1.0F, blocks), Faces.all(Textures.SNOW)));
+        chiseledSandstone = dyed(new BlockDyed(id("chiseledSandstone"), info("chiseledSandstone",
+            "Chiseled Sandstone", Material.rock, 0.8F, STONE, PICKAXE, 1, 1.0F, blocks),
+            Faces.of(Textures.SANDSTONE_TOP, Textures.CHISELED_SANDSTONE, Textures.SANDSTONE_TOP)));
+
+        birchPlank = dyed(plankLike("birchPlank", "Birch Plank", Textures.BIRCH_PLANK));
+        sprucePlank = dyed(plankLike("sprucePlank", "Spruce Plank", Textures.SPRUCE_PLANK));
+        junglePlank = dyed(plankLike("junglePlank", "Jungle Plank", Textures.JUNGLE_PLANK));
+        acaciaPlank = dyed(plankLike("acaciaPlank", "Acacia Plank", Textures.ACACIA_PLANK));
+        darkOakPlank = dyed(plankLike("darkOakPlank", "Dark Oak Plank", Textures.DARK_OAK_PLANK));
+
+        allium = dyed(flower("allium", "Allium", Textures.ALLIUM_PETALS, Textures.ALLIUM_STEM));
+        azureBluet = dyed(flower("azureBluet", "Azure Bluet", Textures.AZURE_BLUET_PETALS, Textures.AZURE_BLUET_STEM));
+        blueOrchid = dyed(flower("blueOrchid", "Blue Orchid", Textures.BLUE_ORCHID_PETALS, Textures.BLUE_ORCHID_STEM));
+        dandelion = dyed(flower("dandelion", "Dandelion", Textures.DANDELION_PETALS, Textures.DANDELION_STEM));
+        lilyOfTheValley = dyed(flower("lilyOfTheValley", "Lily of the Valley", Textures.LILY_OF_THE_VALLEY_PETALS,
+            Textures.LILY_OF_THE_VALLEY_STEM));
+        oxeyeDaisy = dyed(flower("oxeyeDaisy", "Oxeye Daisy", Textures.OXEYE_DAISY_PETALS, Textures.OXEYE_DAISY_STEM));
+        poppy = dyed(flower("poppy", "Poppy", Textures.POPPY_PETALS, Textures.POPPY_STEM));
+        lilac = dyed(new BlockDyedTallFlower(id("lilac"), info("lilac", "Lilac", Material.plants, 0.0F, GRASS, null,
+            0, 0.0F, plants), Textures.LILAC_TOP_PETALS, Textures.LILAC_TOP_STEM, Textures.LILAC_BOTTOM_PETALS,
+            Textures.LILAC_BOTTOM_STEM));
+        peony = dyed(new BlockDyedTallFlower(id("peony"), info("peony", "Peony", Material.plants, 0.0F, GRASS, null,
+            0, 0.0F, plants), Textures.PEONY_TOP_PETALS, Textures.PEONY_TOP_STEM, Textures.PEONY_BOTTOM_PETALS,
+            Textures.PEONY_BOTTOM_STEM));
+        roseBush = dyed(new BlockDyedTallFlower(id("roseBush"), info("roseBush", "Rose Bush", Material.plants, 0.0F,
+            GRASS, null, 0, 0.0F, plants), Textures.ROSE_BUSH_TOP_PETALS, Textures.ROSE_BUSH_TOP_STEM,
+            Textures.ROSE_BUSH_BOTTOM_PETALS, Textures.ROSE_BUSH_BOTTOM_STEM));
+
+        // The standing sign's item is the dyed sign players hold; the wall sign and the pot have none of their own.
+        sign = new BlockDyedSign(id("sign"), info("sign", "Sign", Material.wood, 1.0F, WOOD, AXE, 0, 1.0F, blocks),
+            true);
+        wallSign = new BlockDyedSign(id("wallSign"), info("wallSign", "Sign", Material.wood, 1.0F, WOOD, AXE, 0, 1.0F,
+            null), false);
+        flowerPot = new BlockDyedFlowerPot(id("flowerPot"), info("flowerPot", "Flower Pot", Material.circuits, 0.0F,
+            STONE, null, 0, 0.0F, null));
+        POTTABLE.addAll(Arrays.asList(tulip, cornflower, allium, azureBluet, blueOrchid, dandelion, lilyOfTheValley,
+            oxeyeDaisy, poppy, sapling));
+
+        // Stairs and slabs for every full block that has them in the modern versions, and the vanilla wall types.
+        stairs(cobble, "cobbleStairs", shapes);
+        slab(cobble, "cobbleSlab", shapes);
+        slab(mossyCobble, "mossyCobbleSlab", shapes);
+        stairsAndSlab(stonebrick, "stonebrick", shapes);
+        stairsAndSlab(stonebrickCracked, "stonebrickCracked", shapes);
+        stairsAndSlab(stonebrickCarved, "stonebrickCarved", shapes);
+        slab(mossyStonebrick, "mossyStonebrickSlab", shapes);
+        stairsAndSlab(brick, "brick", shapes);
+        stairsAndSlab(clay, "clay", shapes);
+        stairsAndSlab(coal, "coal", shapes);
+        stairsAndSlab(lapis, "lapis", shapes);
+        stairsAndSlab(redstone, "redstone", shapes);
+        stairs(quartz, "quartzStairs", shapes);
+        quartzSlab = slab(quartz, "quartzSlab", shapes);
+        stairsAndSlab(quartzBricks, "quartzBricks", shapes);
+        stairsAndSlab(chiseledQuartz, "chiseledQuartz", shapes);
+        stairsAndSlab(quartzPillar, "quartzPillar", shapes);
+        slab(smoothQuartz, "smoothQuartzSlab", shapes);
+        stairsAndSlab(obsidian, "obsidian", shapes);
+        stairsAndSlab(glowstone, "glowstone", shapes);
+        stairsAndSlab(soulsand, "soulsand", shapes);
+        stairsAndSlab(sand, "sand", shapes);
+        stairs(sandstone, "sandstoneStairs", shapes);
+        sandstoneSlab = slab(sandstone, "sandstoneSlab", shapes);
+        stairsAndSlab(chiseledSandstone, "chiseledSandstone", shapes);
+        stairs(cutSandstone, "cutSandstoneStairs", shapes);
+        slab(granite, "graniteSlab", shapes);
+        slab(andesite, "andesiteSlab", shapes);
+        slab(polishedGranite, "polishedGraniteSlab", shapes);
+        slab(polishedDiorite, "polishedDioriteSlab", shapes);
+        slab(polishedAndesite, "polishedAndesiteSlab", shapes);
+        stairsAndSlab(endStone, "endStone", shapes);
+        stairsAndSlab(ice, "ice", shapes);
+        stairsAndSlab(packedIce, "packedIce", shapes);
+        stairsAndSlab(snow, "snow", shapes);
+        stairsAndSlab(boneBlock, "boneBlock", shapes);
+        stairsAndSlab(glassClear, "glassClear", shapes);
+        stairsAndSlab(glassFoggy, "glassFoggy", shapes);
+        stairsAndSlab(wool, "wool", shapes);
+        stairsAndSlab(concrete, "concrete", shapes);
+        stairsAndSlab(concretePowder, "concretePowder", shapes);
+        for (Block plank : new Block[] { plank, birchPlank, sprucePlank, junglePlank, acaciaPlank, darkOakPlank }) {
+            String name = registryName(plank);
+            stairsAndSlab(plank, name, shapes);
+            SHAPES.add(new Shape(new BlockDyedFence(id(name + "Fence"), (BlockDyed) plank, name + "Fence", shapes),
+                plank, Shape.FENCE));
+        }
+        SHAPES.add(new Shape(new BlockDyedWorkbenchSlab(id("workbenchSlab"), (BlockDyed) workbench, "workbenchSlab",
+            shapes), workbench, Shape.SLAB));
+        wall(cobble, "cobbleWall", shapes);
+        wall(mossyCobble, "mossyCobbleWall", shapes);
+        wall(endStone, "endStoneWall", shapes);
     }
 
     public static void register() {
@@ -237,8 +368,12 @@ public final class MDBlocks {
                 : ItemBlockDyed.class, registryName(shape.block));
         }
         GameRegistry.registerBlock(ironTrapdoor, ItemBlockDyed.class, registryName(ironTrapdoor));
+        GameRegistry.registerBlock(sign, ItemBlockDyedSign.class, registryName(sign));
+        GameRegistry.registerBlock(wallSign, ItemBlockDyed.class, registryName(wallSign));
+        GameRegistry.registerBlock(flowerPot, ItemBlockDyed.class, registryName(flowerPot));
         GameRegistry.registerTileEntity(TileEntityDyed.class, "MoreDyesColor");
         GameRegistry.registerTileEntity(TileEntityDyedChest.class, "MoreDyesChest");
+        GameRegistry.registerTileEntity(TileEntityDyedSign.class, "MoreDyesSign");
 
         // Same fire settings as the vanilla blocks (encouragement, flammability).
         Block.setBurnProperties(wool.blockID, 30, 60);
@@ -249,6 +384,18 @@ public final class MDBlocks {
         Block.setBurnProperties(tulip.blockID, 60, 100);
         Block.setBurnProperties(cornflower.blockID, 60, 100);
         Block.setBurnProperties(coal.blockID, 5, 5);
+        for (Block plank : new Block[] { birchPlank, sprucePlank, junglePlank, acaciaPlank, darkOakPlank }) {
+            Block.setBurnProperties(plank.blockID, 5, 20);
+        }
+        for (Shape shape : SHAPES) {
+            if (shape.block.blockMaterial == Material.wood) {
+                Block.setBurnProperties(shape.block.blockID, 5, 20);
+            }
+        }
+        for (Block flower : new Block[] { allium, azureBluet, blueOrchid, dandelion, lilyOfTheValley, oxeyeDaisy, poppy,
+            lilac, peony, roseBush }) {
+            Block.setBurnProperties(flower.blockID, 60, 100);
+        }
     }
 
     /** The registry name of a block named "moredyes.name" is "name". */
@@ -271,6 +418,22 @@ public final class MDBlocks {
             MoreDyes.tabBlocks), Faces.all(texture));
     }
 
+    /** A dyed block with the same properties as the dyed quartz block. */
+    private static Block quartzLike(String name, String displayName, Faces faces) {
+        return new BlockDyed(id(name), info(name, displayName, Material.rock, 0.8F, STONE, PICKAXE, 2, 1.0F,
+            MoreDyes.tabBlocks), faces);
+    }
+
+    private static Block plankLike(String name, String displayName, int texture) {
+        return new BlockDyed(id(name), info(name, displayName, Material.wood, 2.0F, WOOD, AXE, 0, 5.0F,
+            MoreDyes.tabTrees), Faces.all(texture));
+    }
+
+    private static Block flower(String name, String displayName, int petals, int stem) {
+        return new BlockDyedFlower(id(name), info(name, displayName, Material.plants, 0.0F, GRASS, null, 0, 0.0F,
+            MoreDyes.tabPlants), petals, stem);
+    }
+
     private static Block dyed(Block block) {
         DYED.add(block);
         return block;
@@ -280,8 +443,16 @@ public final class MDBlocks {
         SHAPES.add(new Shape(new BlockDyedStairs(id(name), (BlockDyed) base, name, tab), base, Shape.STAIRS));
     }
 
-    private static void slab(Block base, String name, CreativeTabs tab) {
-        SHAPES.add(new Shape(new BlockDyedSlab(id(name), (BlockDyed) base, name, tab), base, Shape.SLAB));
+    private static Block slab(Block base, String name, CreativeTabs tab) {
+        Block block = new BlockDyedSlab(id(name), (BlockDyed) base, name, tab);
+        SHAPES.add(new Shape(block, base, Shape.SLAB));
+        return block;
+    }
+
+    /** Stairs named "<name>Stairs" and a slab named "<name>Slab". */
+    private static void stairsAndSlab(Block base, String name, CreativeTabs tab) {
+        stairs(base, name + "Stairs", tab);
+        slab(base, name + "Slab", tab);
     }
 
     private static void wall(Block base, String name, CreativeTabs tab) {

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -51,6 +52,17 @@ public class CauldronWashHandler {
         this.put(MDBlocks.diorite, MDBlocks.dioritePlain, 0);
         this.put(MDBlocks.granite, MDBlocks.granitePlain, 0);
         this.put(MDBlocks.andesite, MDBlocks.andesitePlain, 0);
+        this.put(MDBlocks.endStone, Block.whiteStone, 0);
+        this.put(MDBlocks.gravel, Block.gravel, 0);
+        this.put(MDBlocks.ice, Block.ice, 0);
+        this.put(MDBlocks.snow, Block.blockSnow, 0);
+        this.put(MDBlocks.chiseledSandstone, Block.sandStone, 1);
+        this.put(MDBlocks.sprucePlank, Block.planks, 1);
+        this.put(MDBlocks.birchPlank, Block.planks, 2);
+        this.put(MDBlocks.junglePlank, Block.planks, 3);
+        this.put(MDBlocks.dandelion, Block.plantYellow, 0);
+        this.put(MDBlocks.poppy, Block.plantRed, 0);
+        this.washed.put(MDBlocks.sign.blockID, new ItemStack(Item.sign));
     }
 
     private void put(Block dyed, Block vanilla, int meta) {
