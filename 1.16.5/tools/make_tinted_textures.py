@@ -42,7 +42,7 @@ def is_green(p):
 # half brightness. Each grey texture is shifted up until its average is this bright, keeping its pattern.
 BRIGHTNESS = 200
 # Materials that are meant to stay dark whatever their dye.
-STAY_DARK = {'obsidian', 'coal'}
+STAY_DARK = {'obsidian', 'coal', 'crying_obsidian'}
 
 
 def brighten(pixels, stats=None):
@@ -131,6 +131,21 @@ SOURCES = {
     'ice': ('block/ice', GREY),
     'packed_ice': ('block/packed_ice', GREY),
     'snow': ('block/snow', GREY),
+    'soul_soil': ('block/soul_soil', GREY),
+    'basalt_side': ('block/basalt_side', GREY),
+    'basalt_top': ('block/basalt_top', GREY),
+    'polished_basalt_side': ('block/polished_basalt_side', GREY),
+    'polished_basalt_top': ('block/polished_basalt_top', GREY),
+    'smooth_stone': ('block/smooth_stone', GREY),
+    'nether_brick': ('block/nether_bricks', GREY),
+    'nether_brick_cracked': ('block/cracked_nether_bricks', GREY),
+    'nether_brick_chiseled': ('block/chiseled_nether_bricks', GREY),
+    'endstone_brick': ('block/end_stone_bricks', GREY),
+    'glazed_terracotta': ('block/white_glazed_terracotta', GREY),
+    'netherite': ('block/netherite_block', GREY),
+    'crying_obsidian': ('block/crying_obsidian', GREY),
+    'chain': ('block/chain', GREY),
+    'chain_item': ('item/chain', GREY),
 }
 # Dyed flowers: the petals take the dye color and the green stem and leaves keep theirs, like the tulip.
 FLOWERS = {'allium': 'allium', 'azurebluet': 'azure_bluet', 'cornflower': 'cornflower', 'dandelion': 'dandelion',

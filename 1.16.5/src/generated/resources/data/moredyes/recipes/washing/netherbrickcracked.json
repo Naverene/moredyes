@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:netherbrickcracked_ecbf99"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_d9a6ec"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b3ccec"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_f2f299"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_bfe68c"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_f9bfd2"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_cccccc"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_a6bfcc"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_bf9fd9"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_99a6d9"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b3a699"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b3bf99"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_cc9999"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_c56685"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9f8c85"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_deb233"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_aca526"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_e57f6c"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_92663f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b98c66"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_927f66"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_ac5f72"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_866672"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9f6633"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9f7f33"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b95933"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_794c26"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c72d8"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_cb9886"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_998c79"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_d265bf"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f4c92"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_a672b9"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f65b9"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9946c5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_734cc5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c4c86"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c6586"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_a64086"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_663379"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_a5bf86"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_72b279"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_ac8cbf"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_597392"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f99b9"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_598cb9"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_726cc5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4d73c5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_667386"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_668c86"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f6686"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_405979"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b2d926"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_ebb26c"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_99993f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_bfbf66"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_99b266"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b29272"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c9972"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_a69933"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_a6b233"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_bf8c33"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f7f26"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b8a65f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_668c32"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8cb359"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_66a659"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f5665"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_598c65"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_738c26"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_73a626"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c8026"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4c7319"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_864c5f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_c6596c"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_ac7f6c"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_ac666c"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9366ab"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_b95fab"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9f7f9f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_c68c9f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_9f6679"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_727272"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4c6572"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_65467f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_404c7f"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_594c40"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_596540"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_724040"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_333333"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_738c99"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c6ca5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_6673a5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_807366"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_808c66"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_996666"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_595959"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_655fa5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4066a5"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_596666"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_597f66"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_725966"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_334c59"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_5945b2"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_734573"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_735f73"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_8c3973"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4c2c66"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4c4c73"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_4c6573"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_664073"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_263366"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_403326"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f4033"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_666533"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_7f5933"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_404c26"
+      },
+      {
+        "item": "moredyes:netherbrickcracked_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cracked_nether_bricks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/cube_bottom_top",
+  "textures": {
+    "side": "moredyes:block/tinted/crying_obsidian",
+    "top": "moredyes:block/tinted/crying_obsidian",
+    "bottom": "moredyes:block/tinted/crying_obsidian"
+  }
+}

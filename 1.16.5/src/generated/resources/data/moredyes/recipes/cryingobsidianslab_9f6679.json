@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:cryingobsidian_9f6679"
+    }
+  },
+  "result": {
+    "item": "moredyes:cryingobsidianslab_9f6679",
+    "count": 6
+  }
+}

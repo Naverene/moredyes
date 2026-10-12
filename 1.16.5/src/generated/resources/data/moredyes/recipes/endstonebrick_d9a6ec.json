@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moredyes:endstone_d9a6ec"
+    }
+  },
+  "result": {
+    "item": "moredyes:endstonebrick_d9a6ec",
+    "count": 4
+  }
+}

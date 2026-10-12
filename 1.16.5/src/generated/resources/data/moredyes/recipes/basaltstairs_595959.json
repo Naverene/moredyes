@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:basalt_595959"
+    }
+  },
+  "result": {
+    "item": "moredyes:basaltstairs_595959",
+    "count": 4
+  }
+}

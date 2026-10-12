@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/stairs",
+  "textures": {
+    "side": "moredyes:block/tinted/soul_soil",
+    "top": "moredyes:block/tinted/soul_soil",
+    "bottom": "moredyes:block/tinted/soul_soil"
+  }
+}

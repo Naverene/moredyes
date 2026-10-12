@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moredyes:basalt_d9a6ec"
+    }
+  },
+  "result": {
+    "item": "moredyes:polishedbasalt_d9a6ec",
+    "count": 4
+  }
+}

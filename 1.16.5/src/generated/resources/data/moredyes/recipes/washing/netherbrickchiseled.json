@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:netherbrickchiseled_ecbf99"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_d9a6ec"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b3ccec"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_f2f299"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_bfe68c"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_f9bfd2"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_cccccc"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_a6bfcc"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_bf9fd9"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_99a6d9"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b3a699"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b3bf99"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_cc9999"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_c56685"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9f8c85"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_deb233"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_aca526"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_e57f6c"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_92663f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b98c66"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_927f66"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_ac5f72"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_866672"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9f6633"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9f7f33"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b95933"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_794c26"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c72d8"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_cb9886"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_998c79"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_d265bf"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f4c92"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_a672b9"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f65b9"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9946c5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_734cc5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c4c86"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c6586"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_a64086"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_663379"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_a5bf86"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_72b279"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_ac8cbf"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_597392"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f99b9"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_598cb9"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_726cc5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4d73c5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_667386"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_668c86"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f6686"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_405979"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b2d926"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_ebb26c"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_99993f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_bfbf66"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_99b266"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b29272"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c9972"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_a69933"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_a6b233"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_bf8c33"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f7f26"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b8a65f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_668c32"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8cb359"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_66a659"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f5665"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_598c65"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_738c26"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_73a626"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c8026"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4c7319"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_864c5f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_c6596c"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_ac7f6c"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_ac666c"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9366ab"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_b95fab"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9f7f9f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_c68c9f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_9f6679"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_727272"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4c6572"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_65467f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_404c7f"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_594c40"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_596540"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_724040"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_333333"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_738c99"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c6ca5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_6673a5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_807366"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_808c66"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_996666"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_595959"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_655fa5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4066a5"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_596666"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_597f66"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_725966"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_334c59"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_5945b2"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_734573"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_735f73"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_8c3973"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4c2c66"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4c4c73"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_4c6573"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_664073"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_263366"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_403326"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f4033"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_666533"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_7f5933"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_404c26"
+      },
+      {
+        "item": "moredyes:netherbrickchiseled_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chiseled_nether_bricks"
+  }
+}

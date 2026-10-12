@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moredyes:basalt_a6b233"
+  },
+  "result": "moredyes:basaltslab_a6b233",
+  "count": 2
+}
