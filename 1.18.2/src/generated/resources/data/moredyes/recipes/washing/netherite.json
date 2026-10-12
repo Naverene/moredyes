@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:netherite_ecbf99"
+      },
+      {
+        "item": "moredyes:netherite_d9a6ec"
+      },
+      {
+        "item": "moredyes:netherite_b3ccec"
+      },
+      {
+        "item": "moredyes:netherite_f2f299"
+      },
+      {
+        "item": "moredyes:netherite_bfe68c"
+      },
+      {
+        "item": "moredyes:netherite_f9bfd2"
+      },
+      {
+        "item": "moredyes:netherite_cccccc"
+      },
+      {
+        "item": "moredyes:netherite_a6bfcc"
+      },
+      {
+        "item": "moredyes:netherite_bf9fd9"
+      },
+      {
+        "item": "moredyes:netherite_99a6d9"
+      },
+      {
+        "item": "moredyes:netherite_b3a699"
+      },
+      {
+        "item": "moredyes:netherite_b3bf99"
+      },
+      {
+        "item": "moredyes:netherite_cc9999"
+      },
+      {
+        "item": "moredyes:netherite_c56685"
+      },
+      {
+        "item": "moredyes:netherite_9f8c85"
+      },
+      {
+        "item": "moredyes:netherite_deb233"
+      },
+      {
+        "item": "moredyes:netherite_aca526"
+      },
+      {
+        "item": "moredyes:netherite_e57f6c"
+      },
+      {
+        "item": "moredyes:netherite_92663f"
+      },
+      {
+        "item": "moredyes:netherite_b98c66"
+      },
+      {
+        "item": "moredyes:netherite_927f66"
+      },
+      {
+        "item": "moredyes:netherite_ac5f72"
+      },
+      {
+        "item": "moredyes:netherite_866672"
+      },
+      {
+        "item": "moredyes:netherite_9f6633"
+      },
+      {
+        "item": "moredyes:netherite_9f7f33"
+      },
+      {
+        "item": "moredyes:netherite_b95933"
+      },
+      {
+        "item": "moredyes:netherite_794c26"
+      },
+      {
+        "item": "moredyes:netherite_8c72d8"
+      },
+      {
+        "item": "moredyes:netherite_cb9886"
+      },
+      {
+        "item": "moredyes:netherite_998c79"
+      },
+      {
+        "item": "moredyes:netherite_d265bf"
+      },
+      {
+        "item": "moredyes:netherite_7f4c92"
+      },
+      {
+        "item": "moredyes:netherite_a672b9"
+      },
+      {
+        "item": "moredyes:netherite_7f65b9"
+      },
+      {
+        "item": "moredyes:netherite_9946c5"
+      },
+      {
+        "item": "moredyes:netherite_734cc5"
+      },
+      {
+        "item": "moredyes:netherite_8c4c86"
+      },
+      {
+        "item": "moredyes:netherite_8c6586"
+      },
+      {
+        "item": "moredyes:netherite_a64086"
+      },
+      {
+        "item": "moredyes:netherite_663379"
+      },
+      {
+        "item": "moredyes:netherite_a5bf86"
+      },
+      {
+        "item": "moredyes:netherite_72b279"
+      },
+      {
+        "item": "moredyes:netherite_ac8cbf"
+      },
+      {
+        "item": "moredyes:netherite_597392"
+      },
+      {
+        "item": "moredyes:netherite_7f99b9"
+      },
+      {
+        "item": "moredyes:netherite_598cb9"
+      },
+      {
+        "item": "moredyes:netherite_726cc5"
+      },
+      {
+        "item": "moredyes:netherite_4d73c5"
+      },
+      {
+        "item": "moredyes:netherite_667386"
+      },
+      {
+        "item": "moredyes:netherite_668c86"
+      },
+      {
+        "item": "moredyes:netherite_7f6686"
+      },
+      {
+        "item": "moredyes:netherite_405979"
+      },
+      {
+        "item": "moredyes:netherite_b2d926"
+      },
+      {
+        "item": "moredyes:netherite_ebb26c"
+      },
+      {
+        "item": "moredyes:netherite_99993f"
+      },
+      {
+        "item": "moredyes:netherite_bfbf66"
+      },
+      {
+        "item": "moredyes:netherite_99b266"
+      },
+      {
+        "item": "moredyes:netherite_b29272"
+      },
+      {
+        "item": "moredyes:netherite_8c9972"
+      },
+      {
+        "item": "moredyes:netherite_a69933"
+      },
+      {
+        "item": "moredyes:netherite_a6b233"
+      },
+      {
+        "item": "moredyes:netherite_bf8c33"
+      },
+      {
+        "item": "moredyes:netherite_7f7f26"
+      },
+      {
+        "item": "moredyes:netherite_b8a65f"
+      },
+      {
+        "item": "moredyes:netherite_668c32"
+      },
+      {
+        "item": "moredyes:netherite_8cb359"
+      },
+      {
+        "item": "moredyes:netherite_66a659"
+      },
+      {
+        "item": "moredyes:netherite_7f5665"
+      },
+      {
+        "item": "moredyes:netherite_598c65"
+      },
+      {
+        "item": "moredyes:netherite_738c26"
+      },
+      {
+        "item": "moredyes:netherite_73a626"
+      },
+      {
+        "item": "moredyes:netherite_8c8026"
+      },
+      {
+        "item": "moredyes:netherite_4c7319"
+      },
+      {
+        "item": "moredyes:netherite_864c5f"
+      },
+      {
+        "item": "moredyes:netherite_c6596c"
+      },
+      {
+        "item": "moredyes:netherite_ac7f6c"
+      },
+      {
+        "item": "moredyes:netherite_ac666c"
+      },
+      {
+        "item": "moredyes:netherite_9366ab"
+      },
+      {
+        "item": "moredyes:netherite_b95fab"
+      },
+      {
+        "item": "moredyes:netherite_9f7f9f"
+      },
+      {
+        "item": "moredyes:netherite_c68c9f"
+      },
+      {
+        "item": "moredyes:netherite_9f6679"
+      },
+      {
+        "item": "moredyes:netherite_727272"
+      },
+      {
+        "item": "moredyes:netherite_4c6572"
+      },
+      {
+        "item": "moredyes:netherite_65467f"
+      },
+      {
+        "item": "moredyes:netherite_404c7f"
+      },
+      {
+        "item": "moredyes:netherite_594c40"
+      },
+      {
+        "item": "moredyes:netherite_596540"
+      },
+      {
+        "item": "moredyes:netherite_724040"
+      },
+      {
+        "item": "moredyes:netherite_333333"
+      },
+      {
+        "item": "moredyes:netherite_738c99"
+      },
+      {
+        "item": "moredyes:netherite_8c6ca5"
+      },
+      {
+        "item": "moredyes:netherite_6673a5"
+      },
+      {
+        "item": "moredyes:netherite_807366"
+      },
+      {
+        "item": "moredyes:netherite_808c66"
+      },
+      {
+        "item": "moredyes:netherite_996666"
+      },
+      {
+        "item": "moredyes:netherite_595959"
+      },
+      {
+        "item": "moredyes:netherite_655fa5"
+      },
+      {
+        "item": "moredyes:netherite_4066a5"
+      },
+      {
+        "item": "moredyes:netherite_596666"
+      },
+      {
+        "item": "moredyes:netherite_597f66"
+      },
+      {
+        "item": "moredyes:netherite_725966"
+      },
+      {
+        "item": "moredyes:netherite_334c59"
+      },
+      {
+        "item": "moredyes:netherite_5945b2"
+      },
+      {
+        "item": "moredyes:netherite_734573"
+      },
+      {
+        "item": "moredyes:netherite_735f73"
+      },
+      {
+        "item": "moredyes:netherite_8c3973"
+      },
+      {
+        "item": "moredyes:netherite_4c2c66"
+      },
+      {
+        "item": "moredyes:netherite_4c4c73"
+      },
+      {
+        "item": "moredyes:netherite_4c6573"
+      },
+      {
+        "item": "moredyes:netherite_664073"
+      },
+      {
+        "item": "moredyes:netherite_263366"
+      },
+      {
+        "item": "moredyes:netherite_403326"
+      },
+      {
+        "item": "moredyes:netherite_7f4033"
+      },
+      {
+        "item": "moredyes:netherite_666533"
+      },
+      {
+        "item": "moredyes:netherite_7f5933"
+      },
+      {
+        "item": "moredyes:netherite_404c26"
+      },
+      {
+        "item": "moredyes:netherite_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:netherite_block"
+  }
+}

@@ -59,5 +59,6 @@ public class MoreDyes
     private void setup(final FMLCommonSetupEvent event)
     {
         ModNetwork.register();
+        event.enqueueWork(MDBlock::registerPottedPlants);
     }
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/acacia_plank",
+    "down": "moredyes:blocks/tinted/acacia_plank",
+    "up": "moredyes:blocks/tinted/acacia_plank",
+    "north": "moredyes:blocks/tinted/acacia_plank",
+    "south": "moredyes:blocks/tinted/acacia_plank",
+    "west": "moredyes:blocks/tinted/acacia_plank",
+    "east": "moredyes:blocks/tinted/acacia_plank"
+  }
+}

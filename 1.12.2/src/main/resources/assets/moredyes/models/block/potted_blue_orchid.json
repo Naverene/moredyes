@@ -1,0 +1,10 @@
+{
+  "parent": "moredyes:block/tinted_flower_pot_cross",
+  "textures": {
+    "particle": "minecraft:blocks/flower_pot",
+    "flowerpot": "minecraft:blocks/flower_pot",
+    "dirt": "minecraft:blocks/dirt",
+    "tinted": "moredyes:blocks/tinted/blue_orchid_petals",
+    "natural": "moredyes:blocks/tinted/blue_orchid_stem"
+  }
+}

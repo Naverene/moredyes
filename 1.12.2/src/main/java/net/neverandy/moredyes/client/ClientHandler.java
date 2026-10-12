@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.client;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,7 @@ import net.neverandy.moredyes.item.MDItemDye;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.TileEntityDyedChest;
+import net.neverandy.moredyes.tileentity.TileEntityDyedSign;
 import net.neverandy.moredyes.utility.LogHelper;
 
 /**
@@ -99,6 +101,21 @@ public class ClientHandler
 				return new ModelResourceLocation("minecraft:piston_head",this.getPropertyString(state.getProperties()));
 			}
 		});
+		// Signs are drawn by DyedSignRenderer; their model only gives the breaking particles.
+		StateMapperBase signModel=new StateMapperBase()
+		{
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+			{
+				return new ModelResourceLocation(Reference.MOD_ID+":sign","normal");
+			}
+		};
+		ModelLoader.setCustomStateMapper(MDBlock.standingSign,signModel);
+		ModelLoader.setCustomStateMapper(MDBlock.wallSign,signModel);
+		for(int meta=0;meta<ColorStrings.ALL.length;meta++)
+		{
+			ModelLoader.setCustomModelResourceLocation(MDItem.sign,meta,new ModelResourceLocation(Reference.MOD_ID+":sign","inventory"));
+		}
 		for(Item dye:MDItem.dye)
 		{
 			for(int meta=0;meta<((MDItemDye)dye).getShadeCount();meta++)
@@ -127,15 +144,22 @@ public class ClientHandler
 			return tintIndex==TINTED?((MDItemDye)stack.getItem()).getColor(stack.getMetadata()):-1;
 		},MDItem.dye);
 		// The blocks that keep their color in a tile entity; a moving dyed piston carries it in its moving block.
+		// The flower pot has no item; only its plant is tinted.
 		Block[] tileColored=MDBlock.TILE_COLORED.toArray(new Block[0]);
+		Block[] tileColoredBlocks=Arrays.copyOf(tileColored,tileColored.length+1);
+		tileColoredBlocks[tileColored.length]=MDBlock.flowerPot;
 		mc.getBlockColors().registerBlockColorHandler((state,world,pos,tintIndex)->
 		{
 			return tintIndex==TINTED&&world!=null&&pos!=null?TileColor.rgb(TileColor.get(world,pos)):-1;
-		},tileColored);
+		},tileColoredBlocks);
 		mc.getItemColors().registerItemColorHandler((stack,tintIndex)->
 		{
 			return tintIndex==TINTED?TileColor.rgb(stack.getMetadata()):-1;
 		},tileColored);
+		mc.getItemColors().registerItemColorHandler((stack,tintIndex)->
+		{
+			return tintIndex==TINTED?TileColor.rgb(stack.getMetadata()):-1;
+		},MDItem.sign);
 	}
 
 	/** Swaps the wool layer of the vanilla sheep renderer for one that knows the mod's colors. */
@@ -173,10 +197,11 @@ public class ClientHandler
 		});
 	}
 
-	/** Chests are drawn by a renderer instead of a model, both in the world and as items. */
+	/** Chests are drawn by a renderer instead of a model, both in the world and as items; signs in the world. */
 	public static void registerChestRenderers()
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedChest.class,new DyedChestRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedSign.class,new DyedSignRenderer());
 		DyedChestItemRenderer itemRenderer=new DyedChestItemRenderer();
 		for(Block chest:MDBlock.chest)
 		{

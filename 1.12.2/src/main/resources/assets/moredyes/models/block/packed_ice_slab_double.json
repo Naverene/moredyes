@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/packed_ice",
+    "down": "moredyes:blocks/tinted/packed_ice",
+    "up": "moredyes:blocks/tinted/packed_ice",
+    "north": "moredyes:blocks/tinted/packed_ice",
+    "south": "moredyes:blocks/tinted/packed_ice",
+    "west": "moredyes:blocks/tinted/packed_ice",
+    "east": "moredyes:blocks/tinted/packed_ice"
+  }
+}

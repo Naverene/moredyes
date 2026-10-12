@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/inner_stairs",
+  "textures": {
+    "side": "moredyes:block/tinted/nether_brick_cracked",
+    "top": "moredyes:block/tinted/nether_brick_cracked",
+    "bottom": "moredyes:block/tinted/nether_brick_cracked"
+  }
+}

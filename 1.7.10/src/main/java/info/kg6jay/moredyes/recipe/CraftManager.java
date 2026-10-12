@@ -462,6 +462,7 @@ public class CraftManager {
             .add(new ShapelessOreRecipe(new ItemStack(Items.coal, 9, 0), "blockCoal"));
 
         addNewerBlockRecipes();
+        addMissingBlockRecipes();
         addShapeRecipes();
     }
 
@@ -577,7 +578,115 @@ public class CraftManager {
         }
     }
 
-    /** Stairs, slabs and walls from dyed blocks of one shade, with the vanilla shapes and amounts. */
+    /**
+     * The rest of the full blocks, flowers and planks that Minecraft 1.16 has in every color, and the dyed signs. Like
+     * the other blocks they are dyed with eight vanilla blocks around a dye (the dyed flowers do not give dye back,
+     * or eight flowers and a dye would make eight dyes), and the shaped ones also have their vanilla recipe with dyed
+     * blocks of one shade. The recipes whose vanilla blocks also count as "plankWood" or "blockQuartz" come first, so
+     * the recipe for dyed oak planks or dyed quartz does not take them.
+     */
+    private static void addMissingBlockRecipes() {
+        Block quartzSlab = MDBlock.shapeOf(MDBlock.quartz, MDBlock.Shape.Kind.SLAB);
+        Block sandstoneSlab = MDBlock.shapeOf(MDBlock.sandstone, MDBlock.Shape.Kind.SLAB);
+        Block[][] woods = { MDBlock.plank, MDBlock.sprucePlank, MDBlock.birchPlank, MDBlock.junglePlank,
+            MDBlock.acaciaPlank, MDBlock.darkOakPlank };
+        for (int a = 0; a < MDBlock.colors.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) MDBlock.endStone[a]).getMaxMeta(); i++) {
+                ItemStack dye = new ItemStack(MDItem.dye[a], 1, i);
+                int color = ColorIndex.of(a, i);
+
+                addSurroundRecipe(MDBlock.endStone[a], i, new ItemStack(Blocks.end_stone), dye);
+                addSurroundRecipe(MDBlock.gravel[a], i, new ItemStack(Blocks.gravel), dye);
+                addSurroundRecipe(MDBlock.ice[a], i, new ItemStack(Blocks.ice), dye);
+                addSurroundRecipe(MDBlock.packedIce[a], i, new ItemStack(Blocks.packed_ice), dye);
+                addSurroundRecipe(MDBlock.snow[a], i, new ItemStack(Blocks.snow), dye);
+                addPriorityRecipe(
+                    surround(MDBlock.chiseledQuartz[a], i, new ItemStack(Blocks.quartz_block, 1, 1), dye));
+                addPriorityRecipe(surround(MDBlock.quartzPillar[a], i, new ItemStack(Blocks.quartz_block, 1, 2), dye));
+                addSurroundRecipe(MDBlock.chiseledSandstone[a], i, new ItemStack(Blocks.sandstone, 1, 1), dye);
+                for (int wood = 1; wood < woods.length; wood++) {
+                    addPriorityRecipe(surround(woods[wood][a], i, new ItemStack(Blocks.planks, 1, wood), dye));
+                }
+                addSurroundRecipe(MDBlock.poppy[a], i, new ItemStack(Blocks.red_flower, 1, 0), dye);
+                addSurroundRecipe(MDBlock.blueOrchid[a], i, new ItemStack(Blocks.red_flower, 1, 1), dye);
+                addSurroundRecipe(MDBlock.allium[a], i, new ItemStack(Blocks.red_flower, 1, 2), dye);
+                addSurroundRecipe(MDBlock.azureBluet[a], i, new ItemStack(Blocks.red_flower, 1, 3), dye);
+                addSurroundRecipe(MDBlock.oxeyeDaisy[a], i, new ItemStack(Blocks.red_flower, 1, 8), dye);
+                addSurroundRecipe(MDBlock.dandelion[a], i, new ItemStack(Blocks.yellow_flower), dye);
+                // Lily of the valley is not in 1.7; it grows wild, like the cornflower, and makes dye like it
+                GameRegistry.addShapelessRecipe(dye.copy(), new ItemStack(MDBlock.lilyOfTheValley[a], 1, i));
+                // The tall flowers, the oak fence and the sign keep their color in a tile entity, so the item damage
+                // is the color's number.
+                addSurroundRecipe(MDBlock.lilac, color, new ItemStack(Blocks.double_plant, 1, 1), dye);
+                addSurroundRecipe(MDBlock.roseBush, color, new ItemStack(Blocks.double_plant, 1, 4), dye);
+                addSurroundRecipe(MDBlock.peony, color, new ItemStack(Blocks.double_plant, 1, 5), dye);
+                addSurroundRecipe(MDBlock.oakFence, color, new ItemStack(Blocks.fence), dye);
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDItem.sign, 8, color),
+                    "SSS",
+                    "SDS",
+                    "SSS",
+                    'S',
+                    Items.sign,
+                    'D',
+                    dye);
+
+                // Quartz bricks (Minecraft 1.16): four quartz blocks in a square
+                addSquareRecipe(MDBlock.quartzBricks[a], MDBlock.quartz[a], i);
+                // Chiseled quartz and chiseled sandstone: two slabs on top of each other; quartz pillars: two blocks
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.chiseledQuartz[a], 1, i),
+                    "S",
+                    "S",
+                    'S',
+                    new ItemStack(quartzSlab, 1, color));
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.chiseledSandstone[a], 1, i),
+                    "S",
+                    "S",
+                    'S',
+                    new ItemStack(sandstoneSlab, 1, color));
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.quartzPillar[a], 2, i),
+                    "Q",
+                    "Q",
+                    'Q',
+                    new ItemStack(MDBlock.quartz[a], 1, i));
+                // Packed ice has no recipe in 1.7; from Minecraft 1.14 it is nine ice
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.packedIce[a], 1, i),
+                    "III",
+                    "III",
+                    "III",
+                    'I',
+                    new ItemStack(MDBlock.ice[a], 1, i));
+
+                // Dyed planks of any wood in one shade make the dyed crafting table, chest and sign (six planks and a
+                // stick make three signs, as in vanilla).
+                for (int wood = 1; wood < woods.length; wood++) {
+                    ItemStack plank = new ItemStack(woods[wood][a], 1, i);
+                    addPriorityRecipe(
+                        new ShapedOreRecipe(new ItemStack(MDBlock.chest[a], 1, i), "PPP", "P P", "PPP", 'P', plank));
+                    addPriorityRecipe(
+                        new ShapedOreRecipe(new ItemStack(MDBlock.workbench[a], 1, i), "PP", "PP", 'P', plank));
+                }
+                for (Block[] wood : woods) {
+                    addPriorityRecipe(
+                        new ShapedOreRecipe(
+                            new ItemStack(MDItem.sign, 3, color),
+                            "PPP",
+                            "PPP",
+                            " S ",
+                            'P',
+                            new ItemStack(wood[a], 1, i),
+                            'S',
+                            "stickWood"));
+                }
+            }
+        }
+    }
+
+    /** Stairs, slabs, walls and fences from dyed blocks of one shade, with the vanilla shapes and amounts. */
     private static void addShapeRecipes() {
         for (MDBlock.Shape shape : MDBlock.SHAPES) {
             for (int color = 0; color < ColorIndex.count(); color++) {
@@ -588,6 +697,16 @@ public class CraftManager {
                     case SLAB -> GameRegistry.addShapedRecipe(new ItemStack(shape.block, 6, color), "SSS", 'S', base);
                     case WALL -> GameRegistry
                         .addShapedRecipe(new ItemStack(shape.block, 6, color), "SSS", "SSS", 'S', base);
+                    // The fence recipe of Minecraft 1.8: planks with sticks between them
+                    case FENCE -> GameRegistry.addRecipe(
+                        new ShapedOreRecipe(
+                            new ItemStack(shape.block, 3, color),
+                            "P#P",
+                            "P#P",
+                            'P',
+                            base,
+                            '#',
+                            "stickWood"));
                 }
             }
         }
@@ -627,6 +746,10 @@ public class CraftManager {
 
     private static void addSurroundRecipe(Block output, int meta, ItemStack surround, ItemStack dye) {
         GameRegistry.addShapedRecipe(new ItemStack(output, 8, meta), "SSS", "SDS", "SSS", 'S', surround, 'D', dye);
+    }
+
+    private static IRecipe surround(Block output, int meta, ItemStack surround, ItemStack dye) {
+        return new ShapedOreRecipe(new ItemStack(output, 8, meta), "SSS", "SDS", "SSS", 'S', surround, 'D', dye);
     }
 
     private static void addOreSurroundRecipe(Block output, int meta, String surround, ItemStack dye) {

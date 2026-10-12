@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "moredyes:blocks/tinted/blue_orchid_petals",
+    "layer1": "moredyes:blocks/tinted/blue_orchid_stem"
+  }
+}

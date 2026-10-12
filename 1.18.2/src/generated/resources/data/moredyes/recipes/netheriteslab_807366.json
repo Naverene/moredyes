@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:netherite_807366"
+    }
+  },
+  "result": {
+    "item": "moredyes:netheriteslab_807366",
+    "count": 6
+  }
+}

@@ -45,6 +45,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider
         tag(BlockTags.SMALL_FLOWERS).add(concat(MDBlock.smallFlowerArrays));
         tag(BlockTags.TALL_FLOWERS).add(concat(MDBlock.tallFlowerArrays));
         tag(BlockTags.ICE).add(concat(MDBlock.iceArray, MDBlock.packedIceArray));
+        for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+        {
+            tag(BlockTags.FLOWER_POTS).add(potted.pots);
+        }
+        tag(BlockTags.SOUL_FIRE_BASE_BLOCKS).add(MDBlock.soulSoilArray);
+        tag(BlockTags.SOUL_SPEED_BLOCKS).add(MDBlock.soulSoilArray);
+        tag(BlockTags.BEACON_BASE_BLOCKS).add(MDBlock.netheriteArray);
         for (DyedShapes shapes : DyedShapes.ALL)
         {
             // Wooden slabs and stairs are in the wooden tags, which are part of the plain ones.
@@ -89,6 +96,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider
             }
         }
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(MDBlock.obsidianArray);
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(concat(MDBlock.cryingObsidianArray, MDBlock.netheriteArray));
         tag(BlockTags.NEEDS_STONE_TOOL).add(MDBlock.lapisArray);
 
         // Dyed Iron Chests (compat/ironchest) only exist when Iron Chests is installed, so they are optional entries.

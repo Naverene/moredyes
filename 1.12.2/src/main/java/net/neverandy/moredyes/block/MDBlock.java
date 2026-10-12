@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,7 @@ import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.TileEntityColor;
 import net.neverandy.moredyes.tileentity.TileEntityDyedChest;
 import net.neverandy.moredyes.tileentity.TileEntityDyedPiston;
+import net.neverandy.moredyes.tileentity.TileEntityDyedSign;
 import net.neverandy.moredyes.utility.BlockInfo;
 
 @EventBusSubscriber(modid=Reference.MOD_ID)
@@ -84,20 +86,41 @@ public class MDBlock
 	public static Block[] cryingObsidian;
 	public static Block[] chain;
 	public static Block[] cornflower;
+	// The rest of the blocks of the newer versions (as in 1.16.5).
+	public static Block[] endStone;
+	public static Block[] chiseledSandstone;
+	public static Block[] quartzBricks;
+	public static Block[] chiseledQuartz;
+	public static Block[] quartzPillar;
+	public static Block[] gravel;
+	public static Block[] ice;
+	public static Block[] packedIce;
+	public static Block[] snow;
+	public static Block[] birchPlank;
+	public static Block[] sprucePlank;
+	public static Block[] junglePlank;
+	public static Block[] acaciaPlank;
+	public static Block[] darkOakPlank;
+	public static Block[] allium;
+	public static Block[] azureBluet;
+	public static Block[] blueOrchid;
+	public static Block[] dandelion;
+	public static Block[] lilyOfTheValley;
+	public static Block[] oxeyeDaisy;
+	public static Block[] poppy;
 
 	// One block per color, in the order of ColorStrings.ALL.
 	public static Block[] log;
 	public static Block[] leaf;
 	public static Block[] chest;
 
-	// One block for all colors, which keeps the color in a tile entity (see TileColor).
-	public static Block stoneStairs,graniteStairs,polishedGraniteStairs,dioriteStairs,polishedDioriteStairs,andesiteStairs,
-			polishedAndesiteStairs,mossyCobbleStairs,mossyStonebrickStairs,endStoneBrickStairs,smoothSandstoneStairs,
-			smoothQuartzStairs,netherBrickStairs;
-	public static Block stoneSlab,cutSandstoneSlab,dioriteSlab;
-	public static Block brickWall,stonebrickWall,mossyStonebrickWall,graniteWall,dioriteWall,andesiteWall,netherBrickWall,
-			sandstoneWall,endStoneBrickWall;
+	// One block for all colors, which keeps the color in a tile entity (see TileColor). The stairs, slabs, walls and
+	// fences are listed in SHAPES.
+	public static Block stoneStairs;
 	public static Block ironTrapdoor,piston,stickyPiston,pistonHead;
+	public static Block lilac,peony,roseBush;
+	/** Without an item: the sign item places one of these, and a dyed plant used on a vanilla flower pot this. */
+	public static Block standingSign,wallSign,flowerPot;
 
 	/** Every block of the mod with a color group per block, in the order it is registered and listed in the creative tabs. */
 	public static final List<Block> ALL=new ArrayList<Block>();
@@ -167,6 +190,27 @@ public class MDBlock
 		cryingObsidian=new Block[groups];
 		chain=new Block[groups];
 		cornflower=new Block[groups];
+		endStone=new Block[groups];
+		chiseledSandstone=new Block[groups];
+		quartzBricks=new Block[groups];
+		chiseledQuartz=new Block[groups];
+		quartzPillar=new Block[groups];
+		gravel=new Block[groups];
+		ice=new Block[groups];
+		packedIce=new Block[groups];
+		snow=new Block[groups];
+		birchPlank=new Block[groups];
+		sprucePlank=new Block[groups];
+		junglePlank=new Block[groups];
+		acaciaPlank=new Block[groups];
+		darkOakPlank=new Block[groups];
+		allium=new Block[groups];
+		azureBluet=new Block[groups];
+		blueOrchid=new Block[groups];
+		dandelion=new Block[groups];
+		lilyOfTheValley=new Block[groups];
+		oxeyeDaisy=new Block[groups];
+		poppy=new Block[groups];
 		boolean thermal=Loader.isModLoaded("thermalfoundation");
 		if(thermal)
 		{
@@ -232,6 +276,28 @@ public class MDBlock
 			cryingObsidian[g]=new BlockColoredObsidian(Reference.BLOCK_INFO_CRYING_OBSIDIAN,g).setLightLevel(10.0f/15.0f);
 			chain[g]=new BlockColoredChain(Reference.BLOCK_INFO_CHAIN,g);
 			cornflower[g]=new BlockColoredFlower(Reference.BLOCK_INFO_CORNFLOWER,g);
+			endStone[g]=new BlockColored(Reference.BLOCK_INFO_END_STONE,g);
+			chiseledSandstone[g]=new BlockColored(Reference.BLOCK_INFO_CHISELED_SANDSTONE,g);
+			quartzBricks[g]=new BlockColored(Reference.BLOCK_INFO_QUARTZ_BRICKS,g);
+			chiseledQuartz[g]=new BlockColored(Reference.BLOCK_INFO_CHISELED_QUARTZ,g);
+			// Upright only, like the dyed bone block and basalt: the shade fills the metadata.
+			quartzPillar[g]=new BlockColored(Reference.BLOCK_INFO_QUARTZ_PILLAR,g);
+			gravel[g]=new BlockColoredGravel(Reference.BLOCK_INFO_GRAVEL,g);
+			ice[g]=new BlockColoredIce(Reference.BLOCK_INFO_ICE,g,false);
+			packedIce[g]=new BlockColoredIce(Reference.BLOCK_INFO_PACKED_ICE,g,true);
+			snow[g]=new BlockColoredSnow(Reference.BLOCK_INFO_SNOW,g);
+			birchPlank[g]=new BlockColored(Reference.BLOCK_INFO_BIRCH_PLANK,g);
+			sprucePlank[g]=new BlockColored(Reference.BLOCK_INFO_SPRUCE_PLANK,g);
+			junglePlank[g]=new BlockColored(Reference.BLOCK_INFO_JUNGLE_PLANK,g);
+			acaciaPlank[g]=new BlockColored(Reference.BLOCK_INFO_ACACIA_PLANK,g);
+			darkOakPlank[g]=new BlockColored(Reference.BLOCK_INFO_DARK_OAK_PLANK,g);
+			allium[g]=new BlockColoredFlower(Reference.BLOCK_INFO_ALLIUM,g);
+			azureBluet[g]=new BlockColoredFlower(Reference.BLOCK_INFO_AZURE_BLUET,g);
+			blueOrchid[g]=new BlockColoredFlower(Reference.BLOCK_INFO_BLUE_ORCHID,g);
+			dandelion[g]=new BlockColoredFlower(Reference.BLOCK_INFO_DANDELION,g);
+			lilyOfTheValley[g]=new BlockColoredFlower(Reference.BLOCK_INFO_LILY_OF_THE_VALLEY,g);
+			oxeyeDaisy[g]=new BlockColoredFlower(Reference.BLOCK_INFO_OXEYE_DAISY,g);
+			poppy[g]=new BlockColoredFlower(Reference.BLOCK_INFO_POPPY,g);
 		}
 		for(int i=0;i<colors;i++)
 		{
@@ -245,40 +311,90 @@ public class MDBlock
 				granite,polishedGranite,polishedDiorite,andesite,polishedAndesite,smoothStone,mossyCobble,mossyStonebrick,
 				smoothSandstone,cutSandstone,smoothQuartz,concrete,concretePowder,glazedTerracotta,netherBrick,
 				crackedNetherBrick,chiseledNetherBrick,soulSoil,basalt,polishedBasalt,endStoneBrick,boneBlock,netheriteBlock,
-				cryingObsidian,chain,cornflower);
+				cryingObsidian,chain,cornflower,
+				endStone,chiseledSandstone,quartzBricks,chiseledQuartz,quartzPillar,gravel,ice,packedIce,snow,
+				birchPlank,sprucePlank,junglePlank,acaciaPlank,darkOakPlank,
+				allium,azureBluet,blueOrchid,dandelion,lilyOfTheValley,oxeyeDaisy,poppy);
 		initializeTileColored();
 		registerWashing();
 	}
-	/** Stairs, slabs and walls of the dyed blocks with the vanilla shapes, the iron trapdoor and pistons. */
+	/**
+	 * Stairs and slabs of the dyed blocks (every kind 1.16.5 has them for, and the stairs this version had before),
+	 * walls of the kinds vanilla has walls for, fences of the six woods, the crafting table slab, the iron trapdoor,
+	 * pistons, tall flowers, signs and the flower pot.
+	 */
 	private static void initializeTileColored()
 	{
-		stoneStairs=stairs(stone,Reference.BLOCK_INFO_STONE);
-		graniteStairs=stairs(granite,Reference.BLOCK_INFO_GRANITE);
-		polishedGraniteStairs=stairs(polishedGranite,Reference.BLOCK_INFO_POLISHED_GRANITE);
-		dioriteStairs=stairs(diorite,Reference.BLOCK_INFO_DIORITE);
-		polishedDioriteStairs=stairs(polishedDiorite,Reference.BLOCK_INFO_POLISHED_DIORITE);
-		andesiteStairs=stairs(andesite,Reference.BLOCK_INFO_ANDESITE);
-		polishedAndesiteStairs=stairs(polishedAndesite,Reference.BLOCK_INFO_POLISHED_ANDESITE);
-		mossyCobbleStairs=stairs(mossyCobble,Reference.BLOCK_INFO_MOSSY_COBBLE);
-		mossyStonebrickStairs=stairs(mossyStonebrick,Reference.BLOCK_INFO_MOSSY_STONE_BRICK);
-		endStoneBrickStairs=stairs(endStoneBrick,Reference.BLOCK_INFO_END_STONE_BRICK);
-		smoothSandstoneStairs=stairs(smoothSandstone,Reference.BLOCK_INFO_SMOOTH_SANDSTONE);
-		smoothQuartzStairs=stairs(smoothQuartz,Reference.BLOCK_INFO_SMOOTH_QUARTZ);
-		netherBrickStairs=stairs(netherBrick,Reference.BLOCK_INFO_NETHER_BRICK);
+		stoneStairs=stairsAndSlab(stone,Reference.BLOCK_INFO_STONE);
+		stairsAndSlab(cobble,Reference.BLOCK_INFO_COBBLE);
+		stairsAndSlab(mossyCobble,Reference.BLOCK_INFO_MOSSY_COBBLE);
+		stairsAndSlab(stonebrick,Reference.BLOCK_INFO_STONE_BRICK);
+		stairsAndSlab(stonebrickCracked,Reference.BLOCK_INFO_STONE_BRICK_CRACKED);
+		stairsAndSlab(stonebrickCarved,Reference.BLOCK_INFO_STONE_BRICK_CARVED);
+		stairsAndSlab(mossyStonebrick,Reference.BLOCK_INFO_MOSSY_STONE_BRICK);
+		stairsAndSlab(brick,Reference.BLOCK_INFO_BRICK);
+		stairsAndSlab(clay,Reference.BLOCK_INFO_CLAY);
+		stairsAndSlab(coal,Reference.BLOCK_INFO_COAL);
+		stairsAndSlab(lapis,Reference.BLOCK_INFO_LAPIS);
+		stairsAndSlab(redstone,Reference.BLOCK_INFO_REDSTONE);
+		stairsAndSlab(quartz,Reference.BLOCK_INFO_QUARTZ);
+		stairsAndSlab(quartzBricks,Reference.BLOCK_INFO_QUARTZ_BRICKS);
+		stairsAndSlab(chiseledQuartz,Reference.BLOCK_INFO_CHISELED_QUARTZ);
+		stairsAndSlab(quartzPillar,Reference.BLOCK_INFO_QUARTZ_PILLAR);
+		stairsAndSlab(smoothQuartz,Reference.BLOCK_INFO_SMOOTH_QUARTZ);
+		stairsAndSlab(obsidian,Reference.BLOCK_INFO_OBSIDIAN);
+		stairsAndSlab(glowstone,Reference.BLOCK_INFO_GLOWSTONE);
+		stairsAndSlab(soulsand,Reference.BLOCK_INFO_SOULSAND);
+		stairsAndSlab(sand,Reference.BLOCK_INFO_SAND);
+		stairsAndSlab(sandstone,Reference.BLOCK_INFO_SANDSTONE);
+		stairsAndSlab(chiseledSandstone,Reference.BLOCK_INFO_CHISELED_SANDSTONE);
+		stairsAndSlab(cutSandstone,Reference.BLOCK_INFO_CUT_SANDSTONE);
+		stairsAndSlab(smoothSandstone,Reference.BLOCK_INFO_SMOOTH_SANDSTONE);
+		stairsAndSlab(andesite,Reference.BLOCK_INFO_ANDESITE);
+		stairsAndSlab(diorite,Reference.BLOCK_INFO_DIORITE);
+		stairsAndSlab(granite,Reference.BLOCK_INFO_GRANITE);
+		stairsAndSlab(polishedAndesite,Reference.BLOCK_INFO_POLISHED_ANDESITE);
+		stairsAndSlab(polishedDiorite,Reference.BLOCK_INFO_POLISHED_DIORITE);
+		stairsAndSlab(polishedGranite,Reference.BLOCK_INFO_POLISHED_GRANITE);
+		stairsAndSlab(endStone,Reference.BLOCK_INFO_END_STONE);
+		stairsAndSlab(endStoneBrick,Reference.BLOCK_INFO_END_STONE_BRICK);
+		stairsAndSlab(netherBrick,Reference.BLOCK_INFO_NETHER_BRICK);
+		stairsAndSlab(ice,Reference.BLOCK_INFO_ICE);
+		stairsAndSlab(packedIce,Reference.BLOCK_INFO_PACKED_ICE);
+		stairsAndSlab(snow,Reference.BLOCK_INFO_SNOW);
+		stairsAndSlab(boneBlock,Reference.BLOCK_INFO_BONE_BLOCK);
+		stairsAndSlab(glass,Reference.BLOCK_INFO_GLASS);
+		stairsAndSlab(glassFoggy,Reference.BLOCK_INFO_GLASS_FOGGY);
+		stairsAndSlab(wool,Reference.BLOCK_INFO_WOOL);
+		stairsAndSlab(concrete,Reference.BLOCK_INFO_CONCRETE);
+		stairsAndSlab(concretePowder,Reference.BLOCK_INFO_CONCRETE_POWDER);
+		stairsAndSlab(plank,Reference.BLOCK_INFO_PLANK);
+		stairsAndSlab(birchPlank,Reference.BLOCK_INFO_BIRCH_PLANK);
+		stairsAndSlab(sprucePlank,Reference.BLOCK_INFO_SPRUCE_PLANK);
+		stairsAndSlab(junglePlank,Reference.BLOCK_INFO_JUNGLE_PLANK);
+		stairsAndSlab(acaciaPlank,Reference.BLOCK_INFO_ACACIA_PLANK);
+		stairsAndSlab(darkOakPlank,Reference.BLOCK_INFO_DARK_OAK_PLANK);
+		shape(new BlockDyedWorkbenchSlab(workbench[0],Reference.BLOCK_INFO_WORKBENCH,"workbench_slab"),workbench,Shape.Kind.SLAB);
 
-		stoneSlab=shape(new BlockDyedSlab(Reference.BLOCK_INFO_STONE,"stone_slab"),stone,Shape.Kind.SLAB);
-		cutSandstoneSlab=shape(new BlockDyedSlab(Reference.BLOCK_INFO_CUT_SANDSTONE,"cut_sandstone_slab"),cutSandstone,Shape.Kind.SLAB);
-		dioriteSlab=shape(new BlockDyedSlab(Reference.BLOCK_INFO_DIORITE,"diorite_slab"),diorite,Shape.Kind.SLAB);
+		wall(cobble,Reference.BLOCK_INFO_COBBLE);
+		wall(mossyCobble,Reference.BLOCK_INFO_MOSSY_COBBLE);
+		wall(brick,Reference.BLOCK_INFO_BRICK);
+		wall(stonebrick,Reference.BLOCK_INFO_STONE_BRICK);
+		wall(mossyStonebrick,Reference.BLOCK_INFO_MOSSY_STONE_BRICK);
+		wall(granite,Reference.BLOCK_INFO_GRANITE);
+		wall(diorite,Reference.BLOCK_INFO_DIORITE);
+		wall(andesite,Reference.BLOCK_INFO_ANDESITE);
+		wall(netherBrick,Reference.BLOCK_INFO_NETHER_BRICK);
+		wall(sandstone,Reference.BLOCK_INFO_SANDSTONE);
+		wall(endStone,Reference.BLOCK_INFO_END_STONE);
+		wall(endStoneBrick,Reference.BLOCK_INFO_END_STONE_BRICK);
 
-		brickWall=wall(brick,Reference.BLOCK_INFO_BRICK);
-		stonebrickWall=wall(stonebrick,Reference.BLOCK_INFO_STONE_BRICK);
-		mossyStonebrickWall=wall(mossyStonebrick,Reference.BLOCK_INFO_MOSSY_STONE_BRICK);
-		graniteWall=wall(granite,Reference.BLOCK_INFO_GRANITE);
-		dioriteWall=wall(diorite,Reference.BLOCK_INFO_DIORITE);
-		andesiteWall=wall(andesite,Reference.BLOCK_INFO_ANDESITE);
-		netherBrickWall=wall(netherBrick,Reference.BLOCK_INFO_NETHER_BRICK);
-		sandstoneWall=wall(sandstone,Reference.BLOCK_INFO_SANDSTONE);
-		endStoneBrickWall=wall(endStoneBrick,Reference.BLOCK_INFO_END_STONE_BRICK);
+		fence(plank,Reference.BLOCK_INFO_PLANK,"oak_fence",Blocks.OAK_FENCE);
+		fence(birchPlank,Reference.BLOCK_INFO_BIRCH_PLANK,"birch_fence",Blocks.BIRCH_FENCE);
+		fence(sprucePlank,Reference.BLOCK_INFO_SPRUCE_PLANK,"spruce_fence",Blocks.SPRUCE_FENCE);
+		fence(junglePlank,Reference.BLOCK_INFO_JUNGLE_PLANK,"jungle_fence",Blocks.JUNGLE_FENCE);
+		fence(acaciaPlank,Reference.BLOCK_INFO_ACACIA_PLANK,"acacia_fence",Blocks.ACACIA_FENCE);
+		fence(darkOakPlank,Reference.BLOCK_INFO_DARK_OAK_PLANK,"dark_oak_fence",Blocks.DARK_OAK_FENCE);
 
 		ironTrapdoor=new BlockDyedTrapdoor(Reference.BLOCK_INFO_IRON_TRAPDOOR);
 		piston=new BlockDyedPiston(false,"piston");
@@ -287,14 +403,52 @@ public class MDBlock
 		TILE_COLORED.add(ironTrapdoor);
 		TILE_COLORED.add(piston);
 		TILE_COLORED.add(stickyPiston);
+
+		lilac=new BlockDyedTallFlower(Reference.BLOCK_INFO_LILAC);
+		peony=new BlockDyedTallFlower(Reference.BLOCK_INFO_PEONY);
+		roseBush=new BlockDyedTallFlower(Reference.BLOCK_INFO_ROSE_BUSH);
+		TILE_COLORED.add(lilac);
+		TILE_COLORED.add(peony);
+		TILE_COLORED.add(roseBush);
+
+		standingSign=new BlockDyedSign.Standing(Reference.BLOCK_INFO_SIGN);
+		wallSign=new BlockDyedSign.Wall(Reference.BLOCK_INFO_SIGN);
+		flowerPot=new BlockDyedFlowerPot();
+	}
+	/** The dyed blocks of each plant a flower pot can hold, one per color group. */
+	public static Block[] pottable(BlockDyedFlowerPot.Plant plant)
+	{
+		switch(plant)
+		{
+		case TULIP:
+			return tulip;
+		case CORNFLOWER:
+			return cornflower;
+		case ALLIUM:
+			return allium;
+		case AZURE_BLUET:
+			return azureBluet;
+		case BLUE_ORCHID:
+			return blueOrchid;
+		case DANDELION:
+			return dandelion;
+		case LILY_OF_THE_VALLEY:
+			return lilyOfTheValley;
+		case OXEYE_DAISY:
+			return oxeyeDaisy;
+		case POPPY:
+			return poppy;
+		default:
+			return sapling;
+		}
 	}
 
-	/** A shape made from a dyed block, for its recipe: stairs, slab or wall, and the dyed block it is made of. */
+	/** A shape made from a dyed block, for its recipe: stairs, slab, wall or fence, and the dyed block it is made of. */
 	public static class Shape
 	{
 		public enum Kind
 		{
-			STAIRS,SLAB,WALL
+			STAIRS,SLAB,WALL,FENCE
 		}
 
 		public final Block block;
@@ -316,9 +470,17 @@ public class MDBlock
 		TILE_COLORED.add(block);
 		return block;
 	}
-	private static Block stairs(Block[] base,BlockInfo info)
+	/** Stairs and a slab of a dyed kind; returns the stairs. */
+	private static Block stairsAndSlab(Block[] base,BlockInfo info)
 	{
-		return shape(new BlockDyedStairs(base[0],info,info.blockName+"_stairs"),base,Shape.Kind.STAIRS);
+		Block stairs=shape(new BlockDyedStairs(base[0],info,info.blockName+"_stairs"),base,Shape.Kind.STAIRS);
+		shape(new BlockDyedSlab(base[0],info,info.blockName+"_slab"),base,Shape.Kind.SLAB);
+		return stairs;
+	}
+	/** A fence of dyed planks, which washes back into the vanilla fence of its wood. */
+	private static void fence(Block[] planks,BlockInfo info,String name,Block vanilla)
+	{
+		WASHED.put(shape(new BlockDyedFence(info,name),planks,Shape.Kind.FENCE),new ItemStack(vanilla));
 	}
 	private static Block wall(Block[] base,BlockInfo info)
 	{
@@ -350,9 +512,13 @@ public class MDBlock
 			event.getRegistry().register(block);
 		}
 		event.getRegistry().register(pistonHead);
+		event.getRegistry().register(standingSign);
+		event.getRegistry().register(wallSign);
+		event.getRegistry().register(flowerPot);
 		GameRegistry.registerTileEntity(TileEntityDyedChest.class,new ResourceLocation(Reference.MOD_ID,"chest"));
 		GameRegistry.registerTileEntity(TileEntityColor.class,new ResourceLocation(Reference.MOD_ID,"color"));
 		GameRegistry.registerTileEntity(TileEntityDyedPiston.class,new ResourceLocation(Reference.MOD_ID,"moving_piston"));
+		GameRegistry.registerTileEntity(TileEntityDyedSign.class,new ResourceLocation(Reference.MOD_ID,"sign"));
 	}
 
 	private static void registerWashing()
@@ -399,6 +565,29 @@ public class MDBlock
 		washed(endStoneBrick,new ItemStack(Blocks.END_BRICKS));
 		washed(boneBlock,new ItemStack(Blocks.BONE_BLOCK));
 		washed(glazedTerracotta,new ItemStack(Blocks.WHITE_GLAZED_TERRACOTTA));
+		washed(endStone,new ItemStack(Blocks.END_STONE));
+		washed(chiseledSandstone,new ItemStack(Blocks.SANDSTONE,1,1));
+		washed(chiseledQuartz,new ItemStack(Blocks.QUARTZ_BLOCK,1,1));
+		washed(quartzPillar,new ItemStack(Blocks.QUARTZ_BLOCK,1,2));
+		washed(gravel,new ItemStack(Blocks.GRAVEL));
+		washed(ice,new ItemStack(Blocks.ICE));
+		washed(packedIce,new ItemStack(Blocks.PACKED_ICE));
+		washed(snow,new ItemStack(Blocks.SNOW));
+		washed(sprucePlank,new ItemStack(Blocks.PLANKS,1,1));
+		washed(birchPlank,new ItemStack(Blocks.PLANKS,1,2));
+		washed(junglePlank,new ItemStack(Blocks.PLANKS,1,3));
+		washed(acaciaPlank,new ItemStack(Blocks.PLANKS,1,4));
+		washed(darkOakPlank,new ItemStack(Blocks.PLANKS,1,5));
+		washed(poppy,new ItemStack(Blocks.RED_FLOWER,1,0));
+		washed(blueOrchid,new ItemStack(Blocks.RED_FLOWER,1,1));
+		washed(allium,new ItemStack(Blocks.RED_FLOWER,1,2));
+		washed(azureBluet,new ItemStack(Blocks.RED_FLOWER,1,3));
+		washed(oxeyeDaisy,new ItemStack(Blocks.RED_FLOWER,1,8));
+		washed(dandelion,new ItemStack(Blocks.YELLOW_FLOWER,1,0));
+		// Blocks that keep their color in a tile entity, with every color in one item
+		WASHED.put(lilac,new ItemStack(Blocks.DOUBLE_PLANT,1,1));
+		WASHED.put(roseBush,new ItemStack(Blocks.DOUBLE_PLANT,1,4));
+		WASHED.put(peony,new ItemStack(Blocks.DOUBLE_PLANT,1,5));
 	}
 	private static void washed(Block[] dyed,ItemStack vanilla)
 	{
@@ -461,6 +650,23 @@ public class MDBlock
 		ore(smoothQuartz,"blockQuartz");
 		ore(smoothSandstone,"sandstone");
 		ore(cutSandstone,"sandstone");
+		ore(chiseledSandstone,"sandstone");
+		ore(chiseledQuartz,"blockQuartz");
+		ore(quartzPillar,"blockQuartz");
+		ore(endStone,"endstone");
+		ore(gravel,"gravel");
+		ore(birchPlank,"plankWood");
+		ore(sprucePlank,"plankWood");
+		ore(junglePlank,"plankWood");
+		ore(acaciaPlank,"plankWood");
+		ore(darkOakPlank,"plankWood");
+		for(Shape shape:SHAPES)
+		{
+			if(shape.kind==Shape.Kind.FENCE)
+			{
+				OreDictionary.registerOre("fenceWood",new ItemStack(shape.block,1,OreDictionary.WILDCARD_VALUE));
+			}
+		}
 		if(rockwool!=null)
 		{
 			// Thermal Foundation registers its own rockwool under the same name.
@@ -495,6 +701,35 @@ public class MDBlock
 		fire(tulip,60,100);
 		fire(cornflower,60,100);
 		fire(coal,5,5);
+		fire(birchPlank,5,20);
+		fire(sprucePlank,5,20);
+		fire(junglePlank,5,20);
+		fire(acaciaPlank,5,20);
+		fire(darkOakPlank,5,20);
+		fire(allium,60,100);
+		fire(azureBluet,60,100);
+		fire(blueOrchid,60,100);
+		fire(dandelion,60,100);
+		fire(lilyOfTheValley,60,100);
+		fire(oxeyeDaisy,60,100);
+		fire(poppy,60,100);
+		for(Block tall:new Block[]{lilac,peony,roseBush})
+		{
+			Blocks.FIRE.setFireInfo(tall,60,100);
+		}
+		// Wooden stairs, slabs and fences burn like planks, wool ones like wool.
+		for(Shape shape:SHAPES)
+		{
+			Material material=shape.block.getDefaultState().getMaterial();
+			if(material==Material.WOOD)
+			{
+				Blocks.FIRE.setFireInfo(shape.block,5,20);
+			}
+			else if(material==Material.CLOTH)
+			{
+				Blocks.FIRE.setFireInfo(shape.block,30,60);
+			}
+		}
 	}
 	private static void fire(Block[] blocks,int encouragement,int flammability)
 	{

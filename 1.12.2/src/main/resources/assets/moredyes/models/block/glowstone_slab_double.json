@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/glowstone",
+    "down": "moredyes:blocks/tinted/glowstone",
+    "up": "moredyes:blocks/tinted/glowstone",
+    "north": "moredyes:blocks/tinted/glowstone",
+    "south": "moredyes:blocks/tinted/glowstone",
+    "west": "moredyes:blocks/tinted/glowstone",
+    "east": "moredyes:blocks/tinted/glowstone"
+  }
+}

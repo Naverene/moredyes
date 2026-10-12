@@ -9,10 +9,14 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import info.kg6jay.moredyes.Textures;
 import info.kg6jay.moredyes.block.BlockDyedChest;
+import info.kg6jay.moredyes.block.BlockDyedFlowerPot;
 import info.kg6jay.moredyes.block.BlockDyedLog;
 import info.kg6jay.moredyes.block.BlockDyedPlant;
 import info.kg6jay.moredyes.block.TileEntityDyedChest;
+import info.kg6jay.moredyes.block.TileEntityDyedSign;
 import info.kg6jay.moredyes.client.DyedChestRenderer;
+import info.kg6jay.moredyes.client.DyedSignRenderer;
+import info.kg6jay.moredyes.client.FlowerPotRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderDyedSheep;
 import info.kg6jay.moredyes.client.RenderFallingDyed;
@@ -27,16 +31,20 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.preloadTexture(Textures.SHEET);
         MinecraftForgeClient.preloadTexture(Textures.CHEST);
         MinecraftForgeClient.preloadTexture(Textures.LARGE_CHEST);
+        MinecraftForgeClient.preloadTexture(Textures.SIGN);
 
         BlockDyedPlant.renderId = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(BlockDyedPlant.renderId, true));
         BlockDyedLog.renderId = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(BlockDyedLog.renderId, false));
+        BlockDyedFlowerPot.renderId = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new FlowerPotRenderer());
 
         DyedChestRenderer chest = new DyedChestRenderer();
         BlockDyedChest.renderId = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(chest);
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedChest.class, chest);
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedSign.class, new DyedSignRenderer());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityFallingDyed.class, new RenderFallingDyed());
         RenderingRegistry.registerEntityRenderingHandler(EntitySheep.class, new RenderDyedSheep());

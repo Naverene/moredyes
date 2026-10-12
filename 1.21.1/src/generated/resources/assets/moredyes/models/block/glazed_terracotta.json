@@ -1,0 +1,93 @@
+{
+  "parent": "minecraft:block/white_glazed_terracotta",
+  "textures": {
+    "t0": "moredyes:block/glazed_terracotta",
+    "particle": "moredyes:block/glazed_terracotta"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t0",
+          "cullface": "down",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t0",
+          "cullface": "up",
+          "tintindex": 0
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t0",
+          "cullface": "north",
+          "rotation": 90,
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t0",
+          "cullface": "south",
+          "rotation": 270,
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t0",
+          "cullface": "west",
+          "rotation": 0,
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t0",
+          "cullface": "east",
+          "rotation": 180,
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

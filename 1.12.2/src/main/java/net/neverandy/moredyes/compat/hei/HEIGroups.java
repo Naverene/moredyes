@@ -45,6 +45,7 @@ final class HEIGroups
 		{
 			add(kinds,Item.getItemFromBlock(block));
 		}
+		add(kinds,MDItem.sign);
 		// The compat items exist only with their mod, and their classes are only touched then.
 		if(Loader.isModLoaded(IronChestCompat.MOD_ID))
 		{

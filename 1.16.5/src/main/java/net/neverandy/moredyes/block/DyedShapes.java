@@ -38,7 +38,8 @@ public final class DyedShapes
      * all 118 colors would need about 1.76 million states, more memory than a game client can load.
      */
     private static final Set<String> WALL_TYPES = new HashSet<>(Arrays.asList(
-            "cobble", "mossycobble", "brick", "stonebrick", "mossystonebrick", "granite", "andesite", "diorite", "sandstone", "endstone"));
+            "cobble", "mossycobble", "brick", "stonebrick", "mossystonebrick", "granite", "andesite", "diorite", "sandstone", "endstone",
+            "netherbrick", "endstonebrick"));
 
     /** The registry prefix, such as "stone" for "stoneslab_334c59", and the English name, such as "Stone". */
     public final String type;

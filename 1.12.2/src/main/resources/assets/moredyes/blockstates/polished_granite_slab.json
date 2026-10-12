@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:polished_granite_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:polished_granite_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:polished_granite_slab_double"
+    }
+  }
+}

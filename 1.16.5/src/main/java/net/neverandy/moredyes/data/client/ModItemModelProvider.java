@@ -1,6 +1,8 @@
 package net.neverandy.moredyes.data.client;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ChainBlock;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.StandingSignBlock;
@@ -40,9 +42,9 @@ public class ModItemModelProvider extends ItemModelProvider
         for (RegistryObject<Block> entry : MDBlock.BLOCKS.getEntries())
         {
             Block block = entry.get();
-            if (block instanceof BlockPistonHead || block instanceof WallSignBlock || block instanceof SlabBlock || block instanceof StairsBlock || block instanceof WallBlock)
+            if (block instanceof BlockPistonHead || block instanceof FlowerPotBlock || block instanceof WallSignBlock || block instanceof SlabBlock || block instanceof StairsBlock || block instanceof WallBlock)
             {
-                // Piston heads and wall signs have no item; slabs, stairs and walls are below.
+                // Piston heads, potted plants and wall signs have no item; slabs, stairs and walls are below.
                 continue;
             }
             String name = entry.getId().getPath();
@@ -67,6 +69,10 @@ public class ModItemModelProvider extends ItemModelProvider
             else if (block instanceof StandingSignBlock)
             {
                 withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/tinted/sign"));
+            }
+            else if (block instanceof ChainBlock)
+            {
+                withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/tinted/chain_item"));
             }
             else if (block instanceof BlockGlassPane)
             {

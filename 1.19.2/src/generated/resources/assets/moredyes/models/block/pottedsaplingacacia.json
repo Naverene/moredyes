@@ -1,0 +1,7 @@
+{
+  "parent": "moredyes:block/tinted/flower_pot_cross_layered",
+  "textures": {
+    "overlay": "moredyes:block/tinted/acacia_sapling_trunk",
+    "plant": "moredyes:block/tinted/acacia_sapling_leaves"
+  }
+}

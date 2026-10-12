@@ -19,7 +19,8 @@ import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.ColorIndex;
 
 /**
- * Shared code for the blocks that keep their color in a TileEntityMDColor (stairs, slabs, walls, trapdoors, pistons).
+ * Shared code for the blocks that keep their color in a TileEntityMDColor (stairs, slabs, walls, fences, tall flowers,
+ * trapdoors, pistons).
  * There is one such block for all colors; the item damage is the color's number (see ColorIndex).
  * <p>
  * These blocks keep themselves in the world until harvestBlock when a player breaks them (see removedByPlayer), so

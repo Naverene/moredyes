@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:chiseled_sandstone_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:chiseled_sandstone_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:chiseled_sandstone_slab_double"
+    }
+  }
+}

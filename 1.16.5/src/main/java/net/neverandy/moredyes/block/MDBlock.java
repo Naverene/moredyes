@@ -3,7 +3,11 @@ package net.neverandy.moredyes.block;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ChainBlock;
+import net.minecraft.block.CryingObsidianBlock;
 import net.minecraft.block.FallingBlock;
+import net.minecraft.block.FlowerPotBlock;
+import net.minecraft.block.GlazedTerracottaBlock;
 import net.minecraft.block.IceBlock;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.TallFlowerBlock;
@@ -24,6 +28,8 @@ import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.utility.BlockInfo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class MDBlock
@@ -189,6 +195,22 @@ public class MDBlock
     public static Block[] packedIceArray = new Block[totalColorCount];
     public static Block[] snowArray = new Block[totalColorCount];
 
+    // The full blocks 1.7.10 More Dyes added later (from vanilla 1.14 to 1.16); each copies its vanilla block.
+    public static Block[] soulSoilArray = new Block[totalColorCount];
+    public static RotatedPillarBlock[] basaltArray = new RotatedPillarBlock[totalColorCount];
+    public static RotatedPillarBlock[] polishedBasaltArray = new RotatedPillarBlock[totalColorCount];
+    public static Block[] smoothStoneArray = new Block[totalColorCount];
+    /** Smooth sandstone; "sandstonesmooth" is cut sandstone, named before vanilla had both. */
+    public static Block[] smoothSandstoneArray = new Block[totalColorCount];
+    public static Block[] netherBrickArray = new Block[totalColorCount];
+    public static Block[] netherBrickCrackedArray = new Block[totalColorCount];
+    public static Block[] netherBrickChiseledArray = new Block[totalColorCount];
+    public static Block[] endStoneBrickArray = new Block[totalColorCount];
+    public static GlazedTerracottaBlock[] glazedTerracottaArray = new GlazedTerracottaBlock[totalColorCount];
+    public static Block[] netheriteArray = new Block[totalColorCount];
+    public static CryingObsidianBlock[] cryingObsidianArray = new CryingObsidianBlock[totalColorCount];
+    public static ChainBlock[] chainArray = new ChainBlock[totalColorCount];
+
     /** Small flowers, as {registry type, vanilla flower}; each array in smallFlowerArrays matches one row. */
     public static final String[][] SMALL_FLOWERS = {
         {"allium", "allium"}, {"azurebluet", "azure_bluet"}, {"cornflower", "cornflower"}, {"dandelion", "dandelion"},
@@ -197,6 +219,30 @@ public class MDBlock
     /** Two-block-tall flowers, as {registry type, vanilla flower}. */
     public static final String[][] TALL_FLOWERS = {{"lilac", "lilac"}, {"peony", "peony"}, {"rosebush", "rose_bush"}};
     public static final TallFlowerBlock[][] tallFlowerArrays = new TallFlowerBlock[TALL_FLOWERS.length][totalColorCount];
+
+    /**
+     * Flower pots holding a dyed flower or sapling: one row per plant type, one pot per color. The vanilla flower pot
+     * learns them in common setup (see {@link #registerPottedPlants}), so a dyed plant can be put in an empty pot.
+     */
+    public static final List<PottedPlants> POTTED = new ArrayList<>();
+
+    /** The potted forms of one type of plant. petals and stem are its tinted and untinted textures in block/tinted. */
+    public static final class PottedPlants
+    {
+        public final String type;
+        public final String petals;
+        public final String stem;
+        public final Block[] plants;
+        public final FlowerPotBlock[] pots = new FlowerPotBlock[totalColorCount];
+
+        PottedPlants(String type, String petals, String stem, Block[] plants)
+        {
+            this.type = type;
+            this.petals = petals;
+            this.stem = stem;
+            this.plants = plants;
+        }
+    }
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
@@ -288,7 +334,9 @@ public class MDBlock
         registerSigns();
 
         registerMoreBlocks();
+        registerNewerBlocks();
         registerFlowers();
+        registerPots();
         registerShapes();
     }
 
@@ -312,6 +360,23 @@ public class MDBlock
         registerColors("snow", snowArray, () -> new Block(AbstractBlock.Properties.from(Blocks.SNOW_BLOCK)));
     }
 
+    private static void registerNewerBlocks()
+    {
+        registerColors("soulsoil", soulSoilArray, () -> new Block(AbstractBlock.Properties.from(Blocks.SOUL_SOIL)));
+        registerColors("basalt", basaltArray, () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.BASALT)), MoreDyes.tabBlocks);
+        registerColors("polishedbasalt", polishedBasaltArray, () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.POLISHED_BASALT)), MoreDyes.tabBlocks);
+        registerColors("smoothstone", smoothStoneArray, () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_STONE)));
+        registerColors("smoothsandstone", smoothSandstoneArray, () -> new Block(AbstractBlock.Properties.from(Blocks.SMOOTH_SANDSTONE)));
+        registerColors("netherbrick", netherBrickArray, () -> new Block(AbstractBlock.Properties.from(Blocks.NETHER_BRICKS)));
+        registerColors("netherbrickcracked", netherBrickCrackedArray, () -> new Block(AbstractBlock.Properties.from(Blocks.CRACKED_NETHER_BRICKS)));
+        registerColors("netherbrickchiseled", netherBrickChiseledArray, () -> new Block(AbstractBlock.Properties.from(Blocks.CHISELED_NETHER_BRICKS)));
+        registerColors("endstonebrick", endStoneBrickArray, () -> new Block(AbstractBlock.Properties.from(Blocks.END_STONE_BRICKS)));
+        registerColors("glazedterracotta", glazedTerracottaArray, () -> new GlazedTerracottaBlock(AbstractBlock.Properties.from(Blocks.WHITE_GLAZED_TERRACOTTA)), MoreDyes.tabBlocks);
+        registerColors("netherite", netheriteArray, () -> new Block(AbstractBlock.Properties.from(Blocks.NETHERITE_BLOCK)));
+        registerColors("cryingobsidian", cryingObsidianArray, () -> new CryingObsidianBlock(AbstractBlock.Properties.from(Blocks.CRYING_OBSIDIAN)), MoreDyes.tabBlocks);
+        registerColors("chain", chainArray, () -> new ChainBlock(AbstractBlock.Properties.from(Blocks.CHAIN)), MoreDyes.tabBlocks);
+    }
+
     private static void registerFlowers()
     {
         for (int f = 0; f < SMALL_FLOWERS.length; f++)
@@ -320,7 +385,48 @@ public class MDBlock
         }
         for (int f = 0; f < TALL_FLOWERS.length; f++)
         {
-            registerColors(TALL_FLOWERS[f][0], tallFlowerArrays[f], () -> new TallFlowerBlock(AbstractBlock.Properties.from(Blocks.LILAC)), MoreDyes.tabPlants);
+            registerColors(TALL_FLOWERS[f][0], tallFlowerArrays[f], () -> new DyedTallFlowerBlock(AbstractBlock.Properties.from(Blocks.LILAC)), MoreDyes.tabPlants);
+        }
+    }
+
+    private static void registerPots()
+    {
+        POTTED.add(new PottedPlants("tulip", "tulip_petals", "tulip_stem", tulipArray));
+        for (int f = 0; f < SMALL_FLOWERS.length; f++)
+        {
+            String type = SMALL_FLOWERS[f][0];
+            POTTED.add(new PottedPlants(type, type + "_petals", type + "_stem", smallFlowerArrays[f]));
+        }
+        for (String wood : DyeTrees.WOODS)
+        {
+            // Saplings are registered as "saplingdarkoak" and so on.
+            String type = "sapling" + wood.replace("_", "");
+            POTTED.add(new PottedPlants(type, wood + "_sapling_leaves", wood + "_sapling_trunk", DyeTrees.saplings(wood)));
+        }
+        for (PottedPlants potted : POTTED)
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                Block plant = potted.plants[i];
+                FlowerPotBlock pot = new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, () -> plant,
+                        AbstractBlock.Properties.from(Blocks.POTTED_WHITE_TULIP));
+                potted.pots[i] = pot;
+                BLOCKS.register("potted" + potted.type + "_" + ColorStrings.ALL[i], () -> pot);
+            }
+        }
+    }
+
+    /** Lets the vanilla flower pot take the dyed plants. Must run after registration, in common setup. */
+    public static void registerPottedPlants()
+    {
+        FlowerPotBlock emptyPot = (FlowerPotBlock) Blocks.FLOWER_POT;
+        for (PottedPlants potted : POTTED)
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                FlowerPotBlock pot = potted.pots[i];
+                emptyPot.addPlant(potted.plants[i].getRegistryName(), () -> pot);
+            }
         }
     }
 
@@ -363,6 +469,18 @@ public class MDBlock
         DyedShapes.of("polisheddiorite", "Polished Diorite", polishedDioriteArray, "polished_diorite", "polished_diorite");
         DyedShapes.of("polishedgranite", "Polished Granite", polishedGraniteArray, "polished_granite", "polished_granite");
         DyedShapes.of("endstone", "End Stone", endstoneArray, "endstone", "end_stone");
+        DyedShapes.of("soulsoil", "Soul Soil", soulSoilArray, "soul_soil", "soul_soil");
+        DyedShapes.of("basalt", "Basalt", basaltArray, "basalt_side", "basalt_top", "basalt_top", DyedShapes.Layer.SOLID, "basalt");
+        DyedShapes.of("polishedbasalt", "Polished Basalt", polishedBasaltArray, "polished_basalt_side", "polished_basalt_top",
+                "polished_basalt_top", DyedShapes.Layer.SOLID, "polished_basalt");
+        DyedShapes.of("smoothstone", "Smooth Stone", smoothStoneArray, "smooth_stone", "smooth_stone");
+        DyedShapes.of("smoothsandstone", "Smooth Sandstone", smoothSandstoneArray, "sandstone_top", "smooth_sandstone");
+        DyedShapes.of("netherbrick", "Nether Brick", netherBrickArray, "nether_brick", "nether_bricks");
+        DyedShapes.of("netherbrickcracked", "Cracked Nether Brick", netherBrickCrackedArray, "nether_brick_cracked", "cracked_nether_bricks");
+        DyedShapes.of("netherbrickchiseled", "Chiseled Nether Brick", netherBrickChiseledArray, "nether_brick_chiseled", "chiseled_nether_bricks");
+        DyedShapes.of("endstonebrick", "End Stone Brick", endStoneBrickArray, "endstone_brick", "end_stone_bricks");
+        DyedShapes.of("netherite", "Netherite", netheriteArray, "netherite", "netherite_block");
+        DyedShapes.of("cryingobsidian", "Crying Obsidian", cryingObsidianArray, "crying_obsidian", "crying_obsidian");
         DyedShapes.of("ice", "Ice", iceArray, "ice", "ice", "ice", DyedShapes.Layer.TRANSLUCENT, "ice");
         DyedShapes.of("packedice", "Packed Ice", packedIceArray, "packed_ice", "packed_ice");
         DyedShapes.of("snow", "Snow", snowArray, "snow", "snow_block");

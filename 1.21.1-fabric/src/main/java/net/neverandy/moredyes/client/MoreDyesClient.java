@@ -57,7 +57,8 @@ public class MoreDyesClient implements ClientModInitializer {
             return layer(kind.base());
         }
         String id = kind.id();
-        if (kind.tab() == Kind.Tab.PLANTS || id.endsWith("_sapling") || id.equals("glass") || id.contains("piston")) {
+        if (kind.tab() == Kind.Tab.PLANTS || id.endsWith("_sapling") || id.equals("glass") || id.contains("piston")
+            || id.equals("chain")) {
             return RenderType.cutout();
         }
         if (id.endsWith("_leaves") || id.equals("glass_pane")) {

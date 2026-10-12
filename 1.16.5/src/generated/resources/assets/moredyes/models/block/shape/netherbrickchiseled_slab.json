@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/slab",
+  "textures": {
+    "side": "moredyes:block/tinted/nether_brick_chiseled",
+    "top": "moredyes:block/tinted/nether_brick_chiseled",
+    "bottom": "moredyes:block/tinted/nether_brick_chiseled"
+  }
+}

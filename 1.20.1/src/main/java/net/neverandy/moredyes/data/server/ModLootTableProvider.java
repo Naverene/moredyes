@@ -67,6 +67,11 @@ public class ModLootTableProvider
                 {
                     add(shapes.slabs[i], this::createSlabItemTable);
                 }
+                for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+                {
+                    Block plant = potted.plants[i];
+                    add(potted.pots[i], pot -> createPotFlowerItemTable(plant));
+                }
                 for (String wood : DyeTrees.WOODS)
                 {
                     Block sapling = DyeTrees.saplings(wood)[i];

@@ -6,6 +6,7 @@ public final class Textures {
     public static final String SHEET = "/moredyes/terrain.png";
     public static final String CHEST = "/moredyes/chest.png";
     public static final String LARGE_CHEST = "/moredyes/largechest.png";
+    public static final String SIGN = "/moredyes/sign.png";
 
     public static final int WOOL = 0;
     public static final int STONE = 1;
@@ -82,6 +83,51 @@ public final class Textures {
     public static final int SAPLING_LEAVES = 73;
     public static final int SAPLING_TRUNK = 74;
     public static final int DYE = 75;
+    public static final int END_STONE = 76;
+    public static final int QUARTZ_BRICKS = 77;
+    public static final int CHISELED_QUARTZ_TOP = 78;
+    public static final int CHISELED_QUARTZ_SIDE = 79;
+    public static final int QUARTZ_PILLAR_TOP = 80;
+    public static final int QUARTZ_PILLAR_SIDE = 81;
+    public static final int GRAVEL = 82;
+    public static final int ICE = 83;
+    public static final int PACKED_ICE = 84;
+    public static final int SNOW = 85;
+    public static final int CHISELED_SANDSTONE = 86;
+    public static final int BIRCH_PLANK = 87;
+    public static final int SPRUCE_PLANK = 88;
+    public static final int JUNGLE_PLANK = 89;
+    public static final int ACACIA_PLANK = 90;
+    public static final int DARK_OAK_PLANK = 91;
+    public static final int ALLIUM_PETALS = 92;
+    public static final int ALLIUM_STEM = 93;
+    public static final int AZURE_BLUET_PETALS = 94;
+    public static final int AZURE_BLUET_STEM = 95;
+    public static final int BLUE_ORCHID_PETALS = 96;
+    public static final int BLUE_ORCHID_STEM = 97;
+    public static final int DANDELION_PETALS = 98;
+    public static final int DANDELION_STEM = 99;
+    public static final int LILY_OF_THE_VALLEY_PETALS = 100;
+    public static final int LILY_OF_THE_VALLEY_STEM = 101;
+    public static final int OXEYE_DAISY_PETALS = 102;
+    public static final int OXEYE_DAISY_STEM = 103;
+    public static final int POPPY_PETALS = 104;
+    public static final int POPPY_STEM = 105;
+    public static final int LILAC_TOP_PETALS = 106;
+    public static final int LILAC_TOP_STEM = 107;
+    public static final int LILAC_BOTTOM_PETALS = 108;
+    public static final int LILAC_BOTTOM_STEM = 109;
+    public static final int PEONY_TOP_PETALS = 110;
+    public static final int PEONY_TOP_STEM = 111;
+    public static final int PEONY_BOTTOM_PETALS = 112;
+    public static final int PEONY_BOTTOM_STEM = 113;
+    public static final int ROSE_BUSH_TOP_PETALS = 114;
+    public static final int ROSE_BUSH_TOP_STEM = 115;
+    public static final int ROSE_BUSH_BOTTOM_PETALS = 116;
+    public static final int ROSE_BUSH_BOTTOM_STEM = 117;
+    public static final int SIGN_ITEM = 118;
+    public static final int FLOWER_POT = 119;
+    public static final int FLOWER_POT_DIRT = 120;
 
     private Textures() {}
 }

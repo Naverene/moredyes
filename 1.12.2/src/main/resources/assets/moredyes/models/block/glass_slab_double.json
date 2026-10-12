@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/glass",
+    "down": "moredyes:blocks/tinted/glass",
+    "up": "moredyes:blocks/tinted/glass",
+    "north": "moredyes:blocks/tinted/glass",
+    "south": "moredyes:blocks/tinted/glass",
+    "west": "moredyes:blocks/tinted/glass",
+    "east": "moredyes:blocks/tinted/glass"
+  }
+}

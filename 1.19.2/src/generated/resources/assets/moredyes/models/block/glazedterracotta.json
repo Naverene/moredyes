@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted/template_glazed_terracotta",
+  "textures": {
+    "pattern": "moredyes:block/tinted/glazed_terracotta"
+  }
+}

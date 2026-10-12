@@ -132,6 +132,7 @@ public class MoreDyes
     {
         ModNetwork.register();
         event.enqueueWork(ModWorldGen::setup);
+        event.enqueueWork(MDBlock::registerPottedPlants);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)
@@ -178,6 +179,11 @@ public class MoreDyes
                 RenderTypeLookup.setRenderLayer(MDBlock.stickyPistonArray[i], RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(MDBlock.pistonArray[i], RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(MDBlock.iceArray[i], RenderType.getTranslucent());
+                RenderTypeLookup.setRenderLayer(MDBlock.chainArray[i], RenderType.getCutout());
+                for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+                {
+                    RenderTypeLookup.setRenderLayer(potted.pots[i], RenderType.getCutout());
+                }
                 for (Block[] flowers : MDBlock.smallFlowerArrays)
                 {
                     RenderTypeLookup.setRenderLayer(flowers[i], RenderType.getCutout());

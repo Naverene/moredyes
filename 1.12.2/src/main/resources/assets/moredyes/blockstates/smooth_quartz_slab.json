@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:smooth_quartz_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:smooth_quartz_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:smooth_quartz_slab_double"
+    }
+  }
+}

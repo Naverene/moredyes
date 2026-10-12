@@ -39,7 +39,8 @@ public final class DyedShapes
      * all 118 colors would need about 1.76 million states, more memory than a game client can load.
      */
     private static final Set<String> WALL_TYPES = new HashSet<>(Arrays.asList(
-            "cobble", "mossycobble", "brick", "stonebrick", "mossystonebrick", "granite", "andesite", "diorite", "sandstone", "endstone"));
+            "cobble", "mossycobble", "brick", "stonebrick", "mossystonebrick", "granite", "andesite", "diorite", "sandstone", "endstone",
+            "netherbrick", "endstonebrick"));
 
     /** The registry prefix, such as "stone" for "stoneslab_334c59", and the English name, such as "Stone". */
     public final String type;
@@ -179,6 +180,18 @@ public final class DyedShapes
         of("polisheddiorite", "Polished Diorite", polishedDioriteArray, "polished_diorite", "polished_diorite");
         of("polishedgranite", "Polished Granite", polishedGraniteArray, "polished_granite", "polished_granite");
         of("endstone", "End Stone", endstoneArray, "endstone", "end_stone");
+        of("soulsoil", "Soul Soil", soulSoilArray, "soul_soil", "soul_soil");
+        of("basalt", "Basalt", basaltArray, "basalt_side", "basalt_top", "basalt_top", Layer.SOLID, "basalt");
+        of("polishedbasalt", "Polished Basalt", polishedBasaltArray, "polished_basalt_side", "polished_basalt_top",
+                "polished_basalt_top", Layer.SOLID, "polished_basalt");
+        of("smoothstone", "Smooth Stone", smoothStoneArray, "smooth_stone", "smooth_stone");
+        of("smoothsandstone", "Smooth Sandstone", smoothSandstoneArray, "sandstone_top", "smooth_sandstone");
+        of("netherbrick", "Nether Brick", netherBrickArray, "nether_brick", "nether_bricks");
+        of("netherbrickcracked", "Cracked Nether Brick", netherBrickCrackedArray, "nether_brick_cracked", "cracked_nether_bricks");
+        of("netherbrickchiseled", "Chiseled Nether Brick", netherBrickChiseledArray, "nether_brick_chiseled", "chiseled_nether_bricks");
+        of("endstonebrick", "End Stone Brick", endStoneBrickArray, "endstone_brick", "end_stone_bricks");
+        of("netherite", "Netherite", netheriteArray, "netherite", "netherite_block");
+        of("cryingobsidian", "Crying Obsidian", cryingObsidianArray, "crying_obsidian", "crying_obsidian");
         of("ice", "Ice", iceArray, "ice", "ice", "ice", Layer.TRANSLUCENT, "ice");
         of("packedice", "Packed Ice", packedIceArray, "packed_ice", "packed_ice");
         of("snow", "Snow", snowArray, "snow", "snow_block");

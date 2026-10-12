@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moredyes:netherbrickchiseled_998c79"
+  },
+  "result": "moredyes:netherbrickchiseledstairs_998c79",
+  "count": 1
+}

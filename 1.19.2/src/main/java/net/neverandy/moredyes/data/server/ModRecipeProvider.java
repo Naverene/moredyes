@@ -325,6 +325,26 @@ public class ModRecipeProvider extends RecipeProvider
                     .unlockedBy("has_block", has(MDBlock.iceArray[i])).save(out, id(name(MDBlock.packedIceArray[i])));
             unpack(MDBlock.boneBlockArray[i], Items.BONE_MEAL);
 
+            dyeable(i, MDBlock.soulSoilArray[i], "soul_soil");
+            dyeable(i, MDBlock.basaltArray[i], "basalt");
+            dyeable(i, MDBlock.polishedBasaltArray[i], "polished_basalt");
+            dyeable(i, MDBlock.smoothStoneArray[i], "smooth_stone");
+            dyeable(i, MDBlock.smoothSandstoneArray[i], "smooth_sandstone");
+            dyeable(i, MDBlock.netherBrickArray[i], "nether_bricks");
+            dyeable(i, MDBlock.netherBrickCrackedArray[i], "cracked_nether_bricks");
+            dyeable(i, MDBlock.netherBrickChiseledArray[i], "chiseled_nether_bricks");
+            dyeable(i, MDBlock.endStoneBrickArray[i], "end_stone_bricks");
+            dyeable(i, MDBlock.glazedTerracottaArray[i], "white_glazed_terracotta");
+            dyeable(i, MDBlock.netheriteArray[i], "netherite_block");
+            dyeable(i, MDBlock.cryingObsidianArray[i], "crying_obsidian");
+            dyeable(i, MDBlock.chainArray[i], "chain");
+            square(MDBlock.basaltArray[i], MDBlock.polishedBasaltArray[i]);
+            square(MDBlock.endstoneArray[i], MDBlock.endStoneBrickArray[i]);
+            smelt(MDBlock.stoneArray[i], MDBlock.smoothStoneArray[i], 0.1F);
+            smelt(MDBlock.sandstoneArray[i], MDBlock.smoothSandstoneArray[i], 0.1F);
+            smelt(MDBlock.netherBrickArray[i], MDBlock.netherBrickCrackedArray[i], 0.1F);
+            smelt(MDBlock.hardenedClayArray[i], MDBlock.glazedTerracottaArray[i], 0.1F);
+
             // Dyed flowers are for decoration; they don't make dye, or eight flowers and a dye would make eight dyes.
             for (int f = 0; f < MDBlock.SMALL_FLOWERS.length; f++)
             {

@@ -1,0 +1,97 @@
+{
+  "parent": "minecraft:block/iron_chain",
+  "textures": {
+    "t0": "moredyes:block/chain",
+    "particle": "moredyes:block/chain"
+  },
+  "elements": [
+    {
+      "from": [
+        6.5,
+        0,
+        8
+      ],
+      "to": [
+        9.5,
+        16,
+        8
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "y",
+        "angle": 45
+      },
+      "shade": false,
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            0,
+            0,
+            16
+          ],
+          "texture": "#t0",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            3,
+            16
+          ],
+          "texture": "#t0",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        0,
+        6.5
+      ],
+      "to": [
+        8,
+        16,
+        9.5
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "y",
+        "angle": 45
+      },
+      "shade": false,
+      "faces": {
+        "west": {
+          "uv": [
+            6,
+            0,
+            3,
+            16
+          ],
+          "texture": "#t0",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            3,
+            0,
+            6,
+            16
+          ],
+          "texture": "#t0",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

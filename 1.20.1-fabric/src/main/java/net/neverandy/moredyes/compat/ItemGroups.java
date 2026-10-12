@@ -27,9 +27,9 @@ public final class ItemGroups
 
     private static final Set<String> COLORS = new HashSet<>(Arrays.asList(ColorStrings.ALL));
     /** Last words of names that read the same in the plural, such as "Glass" or "Concrete Powder". */
-    private static final Set<String> UNCOUNTABLE = new HashSet<>(Arrays.asList("Andesite", "Clay", "Cobblestone",
+    private static final Set<String> UNCOUNTABLE = new HashSet<>(Arrays.asList("Andesite", "Basalt", "Clay", "Cobblestone",
             "Concrete", "Diorite", "Glass", "Glowstone", "Granite", "Gravel", "Ice", "Obsidian", "Powder", "Rockwool",
-            "Sand", "Sandstone", "Stone", "Terracotta", "Wood", "Wool"));
+            "Sand", "Sandstone", "Soil", "Stone", "Terracotta", "Wood", "Wool"));
 
     private ItemGroups()
     {

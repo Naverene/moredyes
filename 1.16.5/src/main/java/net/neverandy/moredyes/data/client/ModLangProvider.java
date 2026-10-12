@@ -15,6 +15,8 @@ public class ModLangProvider extends LanguageProvider
     private static final String[] FLOWER_NAMES = {"Allium", "Azure Bluet", "Cornflower", "Dandelion", "Lily of the Valley",
             "Orchid", "Oxeye Daisy", "Poppy"};
     private static final String[] TALL_FLOWER_NAMES = {"Lilac", "Peony", "Rose Bush"};
+    /** English names in the order of DyeTrees.WOODS. */
+    private static final String[] WOOD_NAMES = {"Oak", "Birch", "Spruce", "Jungle", "Acacia", "Dark Oak"};
 
     public ModLangProvider(DataGenerator gen, String modid, String locale)
     {
@@ -99,6 +101,27 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.iceArray[i], c + "Ice");
             add(MDBlock.packedIceArray[i], c + "Packed Ice");
             add(MDBlock.snowArray[i], c + "Snow Block");
+            add(MDBlock.soulSoilArray[i], c + "Soul Soil");
+            add(MDBlock.basaltArray[i], c + "Basalt");
+            add(MDBlock.polishedBasaltArray[i], c + "Polished Basalt");
+            add(MDBlock.smoothStoneArray[i], c + "Smooth Stone");
+            add(MDBlock.smoothSandstoneArray[i], c + "Smooth Sandstone");
+            add(MDBlock.netherBrickArray[i], c + "Nether Bricks");
+            add(MDBlock.netherBrickCrackedArray[i], c + "Cracked Nether Bricks");
+            add(MDBlock.netherBrickChiseledArray[i], c + "Chiseled Nether Bricks");
+            add(MDBlock.endStoneBrickArray[i], c + "End Stone Bricks");
+            add(MDBlock.glazedTerracottaArray[i], c + "Glazed Terracotta");
+            add(MDBlock.netheriteArray[i], c + "Block of Netherite");
+            add(MDBlock.cryingObsidianArray[i], c + "Crying Obsidian");
+            add(MDBlock.chainArray[i], c + "Chain");
+            // "Potted 334C59 Tulip", like vanilla's "Potted White Tulip". MDBlock.POTTED holds the tulip, then the small
+            // flowers, then the saplings.
+            for (int p = 0; p < MDBlock.POTTED.size(); p++)
+            {
+                String plant = p == 0 ? "Tulip" : p <= FLOWER_NAMES.length ? FLOWER_NAMES[p - 1]
+                        : WOOD_NAMES[p - 1 - FLOWER_NAMES.length] + " Sapling";
+                add(MDBlock.POTTED.get(p).pots[i], "Potted " + c + plant);
+            }
             for (int f = 0; f < FLOWER_NAMES.length; f++)
             {
                 add(MDBlock.smallFlowerArrays[f][i], c + FLOWER_NAMES[f]);

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:birch_plank_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:birch_plank_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:birch_plank_slab_double"
+    }
+  }
+}

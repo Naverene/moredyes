@@ -15,7 +15,7 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.reference.ColorStrings;
 
-/** Scatters dyed tulips and cornflowers of every color over the surface of new chunks. */
+/** Scatters dyed tulips, cornflowers and lilies of the valley of every color over the surface of new chunks. */
 public class FlowerGenerator implements IWorldGenerator
 {
 	@Override
@@ -28,6 +28,7 @@ public class FlowerGenerator implements IWorldGenerator
 		}
 		generateFlowers(MDBlock.tulip,random,chunkX,chunkZ,world);
 		generateFlowers(MDBlock.cornflower,random,chunkX,chunkZ,world);
+		generateFlowers(MDBlock.lilyOfTheValley,random,chunkX,chunkZ,world);
 	}
 	private static void generateFlowers(Block[] flowers,Random random,int chunkX,int chunkZ,World world)
 	{

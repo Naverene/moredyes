@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:soulsand_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:soulsand_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:soulsand_slab_double"
+    }
+  }
+}

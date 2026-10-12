@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:jungle_plank_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:jungle_plank_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:jungle_plank_slab_double"
+    }
+  }
+}

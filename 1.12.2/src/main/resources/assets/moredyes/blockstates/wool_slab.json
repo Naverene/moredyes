@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:wool_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:wool_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:wool_slab_double"
+    }
+  }
+}

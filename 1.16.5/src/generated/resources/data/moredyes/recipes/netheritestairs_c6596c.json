@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moredyes:netherite_c6596c"
+    }
+  },
+  "result": {
+    "item": "moredyes:netheritestairs_c6596c",
+    "count": 4
+  }
+}

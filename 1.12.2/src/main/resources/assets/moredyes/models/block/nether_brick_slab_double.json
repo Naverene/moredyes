@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/nether_brick",
+    "down": "moredyes:blocks/tinted/nether_brick",
+    "up": "moredyes:blocks/tinted/nether_brick",
+    "north": "moredyes:blocks/tinted/nether_brick",
+    "south": "moredyes:blocks/tinted/nether_brick",
+    "west": "moredyes:blocks/tinted/nether_brick",
+    "east": "moredyes:blocks/tinted/nether_brick"
+  }
+}

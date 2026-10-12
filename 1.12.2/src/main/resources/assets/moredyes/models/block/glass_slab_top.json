@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_upper_slab",
+  "textures": {
+    "top": "moredyes:blocks/tinted/glass",
+    "side": "moredyes:blocks/tinted/glass",
+    "bottom": "moredyes:blocks/tinted/glass"
+  }
+}

@@ -224,6 +224,47 @@ public final class TintSources {
         add("cornflower/petals", modTexture("blocks/base/cornflower"), GREY_IF_NOT_GREEN, false);
         add("cornflower/stem", modTexture("blocks/base/cornflower"), KEEP_IF_GREEN, false);
 
+        // More full blocks, the planks of the other woods, and the flowers. Lily of the valley and quartz bricks are
+        // not
+        // in 1.7, so they have grey textures of their own (the lily's stem keeps its green).
+        block("endStone", "end_stone");
+        block("gravel", "gravel");
+        block("ice", "ice");
+        block("packedIce", "ice_packed");
+        block("snow", "snow");
+        base("quartzBricks");
+        block("chiseledQuartz/top", "quartz_block_chiseled_top");
+        block("chiseledQuartz/side", "quartz_block_chiseled");
+        block("chiseledQuartz/bottom", "quartz_block_chiseled_top");
+        block("quartzPillar/top", "quartz_block_lines_top");
+        block("quartzPillar/side", "quartz_block_lines");
+        block("quartzPillar/bottom", "quartz_block_lines_top");
+        block("chiseledSandstone/top", "sandstone_top");
+        block("chiseledSandstone/side", "sandstone_carved");
+        block("chiseledSandstone/bottom", "sandstone_top");
+        block("sprucePlank", "planks_spruce");
+        block("birchPlank", "planks_birch");
+        block("junglePlank", "planks_jungle");
+        block("acaciaPlank", "planks_acacia");
+        block("darkOakPlank", "planks_big_oak");
+        flower("allium", "flower_allium");
+        flower("azureBluet", "flower_houstonia");
+        flower("blueOrchid", "flower_blue_orchid");
+        flower("dandelion", "flower_dandelion");
+        flower("oxeyeDaisy", "flower_oxeye_daisy");
+        flower("poppy", "flower_rose");
+        base("lilyOfTheValley/petals");
+        add("lilyOfTheValley/stem", modTexture("blocks/base/lilyOfTheValley/stem"), argb -> argb, false);
+        flower("lilac/top", "double_plant_syringa_top");
+        flower("lilac/bottom", "double_plant_syringa_bottom");
+        flower("peony/top", "double_plant_paeonia_top");
+        flower("peony/bottom", "double_plant_paeonia_bottom");
+        flower("roseBush/top", "double_plant_rose_top");
+        flower("roseBush/bottom", "double_plant_rose_bottom");
+        // Signs: the item, and the model the sign renderer draws
+        add("sign", new ResourceLocation("minecraft", "textures/items/sign.png"), GREY, false);
+        add("sign/model", new ResourceLocation("minecraft", "textures/entity/sign.png"), GREY, true);
+
         add("tulip/petals", vanillaBlock("flower_tulip_white"), GREY_IF_NOT_GREEN, false);
         add("tulip/stem", vanillaBlock("flower_tulip_white"), KEEP_IF_GREEN, false);
         add("sapling/leaves", vanillaBlock("sapling_oak"), GREY_IF_GREEN, false);
@@ -256,6 +297,16 @@ public final class TintSources {
 
     private static void block(String key, String vanillaName) {
         add(key, vanillaBlock(vanillaName), GREY, false);
+    }
+
+    /**
+     * A flower's petals (tinted) and stem (in its own colors) from one vanilla texture, as "key/petals" and "key/stem".
+     * For a half of a tall flower, such as "lilac/top", they are "lilac/topPetals" and "lilac/topStem".
+     */
+    private static void flower(String key, String vanillaName) {
+        boolean half = key.contains("/");
+        add(key + (half ? "Petals" : "/petals"), vanillaBlock(vanillaName), GREY_IF_NOT_GREEN, false);
+        add(key + (half ? "Stem" : "/stem"), vanillaBlock(vanillaName), KEEP_IF_GREEN, false);
     }
 
     /** A texture of this mod's own, at textures/blocks/base/&lt;key&gt;.png. */

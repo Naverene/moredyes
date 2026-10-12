@@ -40,6 +40,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider
         getOrCreateBuilder(BlockTags.SMALL_FLOWERS).add(concat(MDBlock.smallFlowerArrays));
         getOrCreateBuilder(BlockTags.TALL_FLOWERS).add(concat(MDBlock.tallFlowerArrays));
         getOrCreateBuilder(BlockTags.ICE).add(concat(MDBlock.iceArray, MDBlock.packedIceArray));
+        for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+        {
+            getOrCreateBuilder(BlockTags.FLOWER_POTS).add(potted.pots);
+        }
+        getOrCreateBuilder(BlockTags.SOUL_FIRE_BASE_BLOCKS).add(MDBlock.soulSoilArray);
+        getOrCreateBuilder(BlockTags.SOUL_SPEED_BLOCKS).add(MDBlock.soulSoilArray);
+        getOrCreateBuilder(BlockTags.BEACON_BASE_BLOCKS).add(MDBlock.netheriteArray);
         for (DyedShapes shapes : DyedShapes.ALL)
         {
             // Wooden slabs and stairs are in the wooden tags, which are part of the plain ones.

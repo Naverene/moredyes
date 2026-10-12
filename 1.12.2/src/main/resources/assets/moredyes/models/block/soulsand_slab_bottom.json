@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_half_slab",
+  "textures": {
+    "top": "moredyes:blocks/tinted/soulsand",
+    "side": "moredyes:blocks/tinted/soulsand",
+    "bottom": "moredyes:blocks/tinted/soulsand"
+  }
+}

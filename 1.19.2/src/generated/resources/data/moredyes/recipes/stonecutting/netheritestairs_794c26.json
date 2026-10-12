@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moredyes:netherite_794c26"
+  },
+  "result": "moredyes:netheritestairs_794c26"
+}

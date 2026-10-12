@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "moredyes:blocks/tinted/lily_of_the_valley_petals",
+    "layer1": "moredyes:blocks/tinted/lily_of_the_valley_stem"
+  }
+}

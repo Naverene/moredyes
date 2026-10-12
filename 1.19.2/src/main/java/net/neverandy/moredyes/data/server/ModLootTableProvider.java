@@ -80,6 +80,11 @@ public class ModLootTableProvider extends LootTableProvider
                 {
                     add(shapes.slabs[i], BlockLoot::createSlabItemTable);
                 }
+                for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+                {
+                    Block plant = potted.plants[i];
+                    add(potted.pots[i], pot -> createPotFlowerItemTable(plant));
+                }
                 for (String wood : DyeTrees.WOODS)
                 {
                     Block sapling = DyeTrees.saplings(wood)[i];

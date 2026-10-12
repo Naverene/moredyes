@@ -7,10 +7,11 @@ import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.world.World;
 
 import info.kg6jay.moredyes.block.BlockDyedWorkbench;
+import info.kg6jay.moredyes.block.BlockDyedWorkbenchSlab;
 
 /**
  * The vanilla crafting table container closes itself unless the block is the vanilla crafting table, so the dyed
- * crafting tables need their own check.
+ * crafting tables and crafting table slabs need their own check.
  */
 public class ContainerDyedWorkbench extends ContainerWorkbench {
 
@@ -27,7 +28,8 @@ public class ContainerDyedWorkbench extends ContainerWorkbench {
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return Block.blocksList[this.world.getBlockId(this.x, this.y, this.z)] instanceof BlockDyedWorkbench
+        Block block = Block.blocksList[this.world.getBlockId(this.x, this.y, this.z)];
+        return (block instanceof BlockDyedWorkbench || block instanceof BlockDyedWorkbenchSlab)
             && player.getDistanceSq(this.x + 0.5D, this.y + 0.5D, this.z + 0.5D) <= 64.0D;
     }
 }

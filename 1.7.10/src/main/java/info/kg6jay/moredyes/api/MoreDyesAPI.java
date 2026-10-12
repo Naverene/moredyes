@@ -17,6 +17,7 @@ import info.kg6jay.moredyes.block.IBlockColored;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDSign;
 import info.kg6jay.moredyes.compat.ironchest.DyedIronChestItem;
 import info.kg6jay.moredyes.compat.ironchest.DyedIronChestTile;
 import info.kg6jay.moredyes.compat.storagedrawers.DyedDrawersItem;
@@ -25,6 +26,7 @@ import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.item.MDItemBlockTileColored;
 import info.kg6jay.moredyes.item.MDItemDye;
+import info.kg6jay.moredyes.item.MDItemDyedSign;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.ColorIndex;
 
@@ -100,8 +102,9 @@ public final class MoreDyesAPI {
         if (item instanceof MDItemDye dye) {
             return shade(dye.set, damage);
         }
-        // Stairs, slabs, walls, trapdoors and pistons are one block for every color, numbered as in ColorIndex.
-        if (item instanceof MDItemBlockTileColored
+        // Stairs, slabs, walls, fences, tall flowers, signs, trapdoors and pistons are one block (or item) for every
+        // color, numbered as in ColorIndex.
+        if (item instanceof MDItemBlockTileColored || item instanceof MDItemDyedSign
             || Loader.isModLoaded(Reference.IRON_CHESTS) && item instanceof DyedIronChestItem
             || Loader.isModLoaded(Reference.STORAGE_DRAWERS) && item instanceof DyedDrawersItem) {
             return index(damage);
@@ -122,6 +125,9 @@ public final class MoreDyesAPI {
         }
         if (tile instanceof TileEntityMDPiston piston) {
             return index(piston.getColor());
+        }
+        if (tile instanceof TileEntityMDSign sign) {
+            return index(sign.getColor());
         }
         if (Loader.isModLoaded(Reference.IRON_CHESTS) && tile instanceof DyedIronChestTile chest) {
             return index(chest.getColor());

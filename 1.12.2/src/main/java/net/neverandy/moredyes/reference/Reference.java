@@ -78,8 +78,35 @@ public class Reference
 	public static final BlockInfo BLOCK_INFO_CHAIN=new BlockInfo("chain",Material.IRON,5.0f,SoundType.METAL).tool("pickaxe",0).resistance(6.0f);
 	public static final BlockInfo BLOCK_INFO_CORNFLOWER=new BlockInfo("cornflower",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
 
+	// The rest of the blocks the newer versions have (as in 1.16.5). Quartz bricks and lily of the valley are not in 1.12.
+	public static final BlockInfo BLOCK_INFO_END_STONE=new BlockInfo("end_stone",Material.ROCK,3.0f,SoundType.STONE).tool("pickaxe",0).resistance(15.0f);
+	public static final BlockInfo BLOCK_INFO_CHISELED_SANDSTONE=new BlockInfo("chiseled_sandstone",Material.ROCK,0.8f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_QUARTZ_BRICKS=new BlockInfo("quartz_bricks",Material.ROCK,0.8f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_CHISELED_QUARTZ=new BlockInfo("chiseled_quartz",Material.ROCK,0.8f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_QUARTZ_PILLAR=new BlockInfo("quartz_pillar",Material.ROCK,0.8f,SoundType.STONE).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_GRAVEL=new BlockInfo("gravel",Material.SAND,0.6f,SoundType.GROUND).tool("shovel",0);
+	public static final BlockInfo BLOCK_INFO_ICE=new BlockInfo("ice",Material.ICE,0.5f,SoundType.GLASS).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_PACKED_ICE=new BlockInfo("packed_ice",Material.PACKED_ICE,0.5f,SoundType.GLASS).tool("pickaxe",0);
+	public static final BlockInfo BLOCK_INFO_SNOW=new BlockInfo("snow",Material.CRAFTED_SNOW,0.2f,SoundType.SNOW).tool("shovel",0);
+	public static final BlockInfo BLOCK_INFO_ALLIUM=new BlockInfo("allium",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_AZURE_BLUET=new BlockInfo("azure_bluet",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_BLUE_ORCHID=new BlockInfo("blue_orchid",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_DANDELION=new BlockInfo("dandelion",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_LILY_OF_THE_VALLEY=new BlockInfo("lily_of_the_valley",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_OXEYE_DAISY=new BlockInfo("oxeye_daisy",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_POPPY=new BlockInfo("poppy",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_BIRCH_PLANK=new BlockInfo("birch_plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
+	public static final BlockInfo BLOCK_INFO_SPRUCE_PLANK=new BlockInfo("spruce_plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
+	public static final BlockInfo BLOCK_INFO_JUNGLE_PLANK=new BlockInfo("jungle_plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
+	public static final BlockInfo BLOCK_INFO_ACACIA_PLANK=new BlockInfo("acacia_plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
+	public static final BlockInfo BLOCK_INFO_DARK_OAK_PLANK=new BlockInfo("dark_oak_plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
+
 	// Blocks that keep their color in a tile entity, one block for all colors (as in 1.7.10).
 	public static final BlockInfo BLOCK_INFO_IRON_TRAPDOOR=new BlockInfo("iron_trapdoor",Material.IRON,5.0f,SoundType.METAL).tool("pickaxe",0).tab(MoreDyes.tabShapes);
+	public static final BlockInfo BLOCK_INFO_LILAC=new BlockInfo("lilac",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_PEONY=new BlockInfo("peony",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_ROSE_BUSH=new BlockInfo("rose_bush",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
+	public static final BlockInfo BLOCK_INFO_SIGN=new BlockInfo("sign",Material.WOOD,1.0f,SoundType.WOOD).tool("axe",0);
 
 	public static final BlockInfo BLOCK_INFO_PLANK=new BlockInfo("plank",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).resistance(5.0f).tab(MoreDyes.tabTrees);
 	public static final BlockInfo BLOCK_INFO_LOG=new BlockInfo("log",Material.WOOD,2.0f,SoundType.WOOD).tool("axe",0).tab(MoreDyes.tabTrees);

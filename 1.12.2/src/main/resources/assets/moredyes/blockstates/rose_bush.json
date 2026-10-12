@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moredyes:rose_bush_bottom"
+    },
+    "half=upper": {
+      "model": "moredyes:rose_bush_top"
+    }
+  }
+}

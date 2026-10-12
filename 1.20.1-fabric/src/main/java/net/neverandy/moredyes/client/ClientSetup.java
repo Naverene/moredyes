@@ -54,6 +54,11 @@ public final class ClientSetup implements ClientModInitializer
                 {
                     layer(RenderType.cutout(), flowers[i]);
                 }
+                layer(RenderType.cutout(), MDBlock.chainArray[i]);
+                for (MDBlock.PottedPlants potted : MDBlock.POTTED)
+                {
+                    layer(RenderType.cutout(), potted.pots[i]);
+                }
             }
             for (DyedShapes shapes : DyedShapes.ALL)
             {

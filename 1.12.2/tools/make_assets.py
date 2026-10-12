@@ -46,6 +46,7 @@ GREY_IF_GREEN = lambda p: grey(p) if is_green(p) else CLEAR
 GREY_IF_NOT_GREEN = lambda p: CLEAR if is_green(p) else grey(p)
 KEEP_IF_GREEN = lambda p: p if is_green(p) else CLEAR
 KEEP_IF_NOT_GREEN = lambda p: CLEAR if is_green(p) else p
+KEEP = lambda p: p
 
 # output texture -> (vanilla texture under textures/, or base: file in tools/base, transform)
 TEXTURES = {
@@ -119,7 +120,52 @@ TEXTURES = {
     'blocks/tinted/piston_side': ('blocks/piston_side', GREY),
     'blocks/tinted/piston_bottom': ('blocks/piston_bottom', GREY),
     'blocks/tinted/piston_inner': ('blocks/piston_inner', GREY),
+    # The rest of the blocks of the newer versions (as in 1.16.5). Quartz bricks and lily of the valley are not in 1.12;
+    # theirs are the 1.16.5 version's grey textures.
+    'blocks/tinted/end_stone': ('blocks/end_stone', GREY),
+    'blocks/tinted/chiseled_sandstone': ('blocks/sandstone_carved', GREY),
+    'blocks/tinted/quartz_bricks': ('base:quartz_bricks', GREY),
+    'blocks/tinted/chiseled_quartz_side': ('blocks/quartz_block_chiseled', GREY),
+    'blocks/tinted/chiseled_quartz_top': ('blocks/quartz_block_chiseled_top', GREY),
+    'blocks/tinted/quartz_pillar_side': ('blocks/quartz_block_lines', GREY),
+    'blocks/tinted/quartz_pillar_top': ('blocks/quartz_block_lines_top', GREY),
+    'blocks/tinted/gravel': ('blocks/gravel', GREY),
+    'blocks/tinted/ice': ('blocks/ice', GREY),
+    'blocks/tinted/packed_ice': ('blocks/ice_packed', GREY),
+    'blocks/tinted/snow': ('blocks/snow', GREY),
+    'blocks/tinted/birch_plank': ('blocks/planks_birch', GREY),
+    'blocks/tinted/spruce_plank': ('blocks/planks_spruce', GREY),
+    'blocks/tinted/jungle_plank': ('blocks/planks_jungle', GREY),
+    'blocks/tinted/acacia_plank': ('blocks/planks_acacia', GREY),
+    'blocks/tinted/dark_oak_plank': ('blocks/planks_big_oak', GREY),
+    'blocks/tinted/lily_of_the_valley_petals': ('base:lily_of_the_valley_petals', GREY),
+    'blocks/tinted/lily_of_the_valley_stem': ('base:lily_of_the_valley_stem', KEEP),
+    'items/sign': ('items/sign', GREY),
+    'entity/sign': ('entity/sign', GREY),
 }
+
+# Flowers whose petals take the dye and whose stem keeps its green: block type -> vanilla texture under blocks/.
+FLOWERS = {
+    'allium': 'flower_allium',
+    'azure_bluet': 'flower_houstonia',
+    'blue_orchid': 'flower_blue_orchid',
+    'dandelion': 'flower_dandelion',
+    'oxeye_daisy': 'flower_oxeye_daisy',
+    'poppy': 'flower_rose',
+}
+# Two-block-tall flowers: block type -> vanilla texture under blocks/, without _bottom or _top.
+TALL_FLOWERS = {
+    'lilac': 'double_plant_syringa',
+    'peony': 'double_plant_paeonia',
+    'rose_bush': 'double_plant_rose',
+}
+for _name, _vanilla in FLOWERS.items():
+    TEXTURES['blocks/tinted/%s_petals' % _name] = ('blocks/' + _vanilla, GREY_IF_NOT_GREEN)
+    TEXTURES['blocks/tinted/%s_stem' % _name] = ('blocks/' + _vanilla, KEEP_IF_GREEN)
+for _name, _vanilla in TALL_FLOWERS.items():
+    for _half in ['bottom', 'top']:
+        TEXTURES['blocks/tinted/%s_%s_petals' % (_name, _half)] = ('blocks/%s_%s' % (_vanilla, _half), GREY_IF_NOT_GREEN)
+        TEXTURES['blocks/tinted/%s_%s_stem' % (_name, _half)] = ('blocks/%s_%s' % (_vanilla, _half), KEEP_IF_GREEN)
 
 # Only the cobblestone on a dyed piston takes the dye. Its wood, iron and darkest greys (the cracks and edges) are
 # drawn over the tinted texture in their own colors, from these overlays; the face and the head keep the vanilla
@@ -188,6 +234,17 @@ CUBE_ALL = {
     'glazed_terracotta': T + 'glazed_terracotta',
     'netherite_block': T + 'netherite_block',
     'crying_obsidian': T + 'crying_obsidian',
+    'end_stone': T + 'end_stone',
+    'quartz_bricks': T + 'quartz_bricks',
+    'gravel': T + 'gravel',
+    'ice': T + 'ice',
+    'packed_ice': T + 'packed_ice',
+    'snow': T + 'snow',
+    'birch_plank': T + 'birch_plank',
+    'spruce_plank': T + 'spruce_plank',
+    'jungle_plank': T + 'jungle_plank',
+    'acacia_plank': T + 'acacia_plank',
+    'dark_oak_plank': T + 'dark_oak_plank',
     # The vanilla oak leaves texture is already grey; the game tints it with the biome color.
     'leaf': 'minecraft:blocks/leaves_oak',
 }
@@ -202,6 +259,9 @@ CUBE = {
     'polished_basalt': top_side_bottom(T + 'polished_basalt_top', T + 'polished_basalt_side', T + 'polished_basalt_top'),
     'cut_sandstone': top_side_bottom(T + 'sandstone_top', T + 'cut_sandstone_side', T + 'sandstone_top'),
     'bone_block': top_side_bottom(T + 'bone_block_top', T + 'bone_block_side', T + 'bone_block_top'),
+    'chiseled_sandstone': top_side_bottom(T + 'sandstone_top', T + 'chiseled_sandstone', T + 'sandstone_top'),
+    'chiseled_quartz': top_side_bottom(T + 'chiseled_quartz_top', T + 'chiseled_quartz_side', T + 'chiseled_quartz_top'),
+    'quartz_pillar': top_side_bottom(T + 'quartz_pillar_top', T + 'quartz_pillar_side', T + 'quartz_pillar_top'),
     'quartz': dict(particle=T + 'quartz_side', down=T + 'quartz_bottom', up=T + 'quartz_top',
                    north=T + 'quartz_side', south=T + 'quartz_side', west=T + 'quartz_side', east=T + 'quartz_side'),
     'sandstone': dict(particle=T + 'sandstone_side', down=T + 'sandstone_bottom', up=T + 'sandstone_top',
@@ -219,15 +279,29 @@ CROSS = {
     'sapling': (T + 'sapling_leaves', T + 'sapling_trunk'),
     'tulip': (T + 'tulip_petals', T + 'tulip_stem'),
     'cornflower': (T + 'cornflower_petals', T + 'cornflower_stem'),
+    'lily_of_the_valley': (T + 'lily_of_the_valley_petals', T + 'lily_of_the_valley_stem'),
 }
+CROSS.update({name: (T + name + '_petals', T + name + '_stem') for name in FLOWERS})
 
 # Stairs, slabs and walls: block name -> the dyed block they are made of. One block holds every color, which it keeps in
 # a tile entity, so each has one blockstate file, item model and set of block models.
-STAIRS = ['stone', 'granite', 'polished_granite', 'diorite', 'polished_diorite', 'andesite', 'polished_andesite',
-          'mossy_cobble', 'mossy_stonebrick', 'end_stone_brick', 'smooth_sandstone', 'smooth_quartz', 'nether_brick']
-SLABS = ['stone', 'cut_sandstone', 'diorite']
-WALLS = ['brick', 'stonebrick', 'mossy_stonebrick', 'granite', 'diorite', 'andesite', 'nether_brick', 'sandstone',
-         'end_stone_brick']
+# Every kind with stairs also has a slab (MDBlock.stairsAndSlab).
+STAIRS = ['stone', 'cobble', 'mossy_cobble', 'stonebrick', 'stonebrick_cracked', 'stonebrick_carved', 'mossy_stonebrick',
+          'brick', 'clay', 'coal', 'lapis', 'redstone', 'quartz', 'quartz_bricks', 'chiseled_quartz', 'quartz_pillar',
+          'smooth_quartz', 'obsidian', 'glowstone', 'soulsand', 'sand', 'sandstone', 'chiseled_sandstone',
+          'cut_sandstone', 'smooth_sandstone', 'andesite', 'diorite', 'granite', 'polished_andesite',
+          'polished_diorite', 'polished_granite', 'end_stone', 'end_stone_brick', 'nether_brick', 'ice', 'packed_ice',
+          'snow', 'bone_block', 'glass', 'glass_foggy', 'wool', 'concrete', 'concrete_powder', 'plank', 'birch_plank',
+          'spruce_plank', 'jungle_plank', 'acacia_plank', 'dark_oak_plank']
+SLABS = STAIRS + ['workbench']
+WALLS = ['cobble', 'mossy_cobble', 'brick', 'stonebrick', 'mossy_stonebrick', 'granite', 'diorite', 'andesite',
+         'nether_brick', 'sandstone', 'end_stone', 'end_stone_brick']
+# Fences: block name -> the dyed planks they are made of.
+FENCES = {'oak_fence': 'plank', 'birch_fence': 'birch_plank', 'spruce_fence': 'spruce_plank',
+          'jungle_fence': 'jungle_plank', 'acacia_fence': 'acacia_plank', 'dark_oak_fence': 'dark_oak_plank'}
+# The plants a dyed flower pot holds, as BlockDyedFlowerPot.Plant names them.
+POTTED = ['tulip', 'cornflower', 'allium', 'azure_bluet', 'blue_orchid', 'dandelion', 'lily_of_the_valley', 'oxeye_daisy',
+          'poppy', 'sapling']
 
 # Glass panes: block type -> texture of the pane's face.
 PANES = {
@@ -389,11 +463,15 @@ def make_models(jar):
 
     flat_item('dye', 'moredyes:items/dye')
     make_shape_models(jar)
+    make_plant_models(jar)
     print('wrote the models and blockstates')
 
 
 def sides_of(name):
     """The top, side and bottom texture of a dyed block, for the stairs, slabs and walls made of it."""
+    if name == 'workbench':
+        # The crafting table slab shows the plain side all around rather than the front with the tools.
+        return {'top': T + 'workbench_top', 'side': T + 'workbench_side', 'bottom': T + 'plank'}
     if name in CUBE_ALL:
         return {'top': CUBE_ALL[name], 'side': CUBE_ALL[name], 'bottom': CUBE_ALL[name]}
     textures = CUBE[name]
@@ -415,7 +493,8 @@ def vanilla_state(jar, name):
 
 def make_shape_models(jar):
     for part in ['stairs', 'inner_stairs', 'outer_stairs', 'half_slab', 'upper_slab', 'wall_post', 'wall_side',
-                 'wall_inventory', 'trapdoor_bottom', 'trapdoor_top', 'trapdoor_open']:
+                 'wall_inventory', 'trapdoor_bottom', 'trapdoor_top', 'trapdoor_open', 'fence_post', 'fence_side',
+                 'fence_inventory']:
         tinted_copy(jar, part, 'tinted_' + part)
 
     stairs_state = vanilla_state(jar, 'stone_brick_stairs')
@@ -456,6 +535,17 @@ def make_shape_models(jar):
         write_json('blockstates/%s.json' % name, state)
         write_json('models/item/%s.json' % name, {'parent': 'moredyes:block/%s_inventory' % name})
 
+    for name, planks in sorted(FENCES.items()):
+        texture = {'texture': CUBE_ALL[planks]}
+        for part in ['post', 'side', 'inventory']:
+            write_json('models/block/%s_%s.json' % (name, part),
+                       {'parent': 'moredyes:block/tinted_fence_' + part, 'textures': texture})
+        state = vanilla_state(jar, 'fence')
+        for case in state['multipart']:
+            case['apply']['model'] = 'moredyes:' + case['apply']['model'].replace('oak_fence', name)
+        write_json('blockstates/%s.json' % name, state)
+        write_json('models/item/%s.json' % name, {'parent': 'moredyes:block/%s_inventory' % name})
+
     trapdoor = {'texture': T + 'iron_trapdoor'}
     for part in ['bottom', 'top', 'open']:
         write_json('models/block/iron_trapdoor_%s.json' % part,
@@ -467,6 +557,54 @@ def make_shape_models(jar):
     write_json('models/item/iron_trapdoor.json', {'parent': 'moredyes:block/iron_trapdoor_bottom'})
 
     make_piston_models(jar)
+
+
+def make_plant_models(jar):
+    # Tall flowers: a two-layer cross for each half; the item shows the top half, like vanilla's.
+    for name in sorted(TALL_FLOWERS):
+        variants = {}
+        for half, state in [('bottom', 'lower'), ('top', 'upper')]:
+            tinted, natural = T + '%s_%s_petals' % (name, half), T + '%s_%s_stem' % (name, half)
+            write_json('models/block/%s_%s.json' % (name, half), {
+                'ambientocclusion': False,
+                'textures': {'particle': natural, 'tinted': tinted, 'natural': natural},
+                'elements': cross_planes('#natural', False) + cross_planes('#tinted', True),
+            })
+            variants['half=' + state] = {'model': 'moredyes:%s_%s' % (name, half)}
+        write_json('blockstates/%s.json' % name, {'variants': variants})
+        flat_item(name, T + name + '_top_petals', T + name + '_top_stem')
+
+    # Flower pots: the vanilla potted plant, with the plant in two layers, the petals tinted.
+    model = json.loads(jar.read('assets/minecraft/models/block/flower_pot_cross.json').decode('utf-8'))
+    elements = []
+    for element in model['elements']:
+        if any(face['texture'] == '#plant' for face in element['faces'].values()):
+            tinted = json.loads(json.dumps(element))
+            for face in element['faces'].values():
+                face['texture'] = '#natural'
+            for face in tinted['faces'].values():
+                face['texture'] = '#tinted'
+                face['tintindex'] = 0
+            elements += [element, tinted]
+        else:
+            elements.append(element)
+    model['elements'] = elements
+    write_json('models/block/tinted_flower_pot_cross.json', model)
+    variants = {}
+    for plant in POTTED:
+        tinted, natural = CROSS[plant]
+        write_json('models/block/potted_%s.json' % plant, {
+            'parent': 'moredyes:block/tinted_flower_pot_cross',
+            'textures': {'particle': 'minecraft:blocks/flower_pot', 'flowerpot': 'minecraft:blocks/flower_pot',
+                         'dirt': 'minecraft:blocks/dirt', 'tinted': tinted, 'natural': natural},
+        })
+        variants['plant=' + plant] = {'model': 'moredyes:potted_' + plant}
+    write_json('blockstates/flower_pot.json', {'variants': variants})
+
+    # Signs are drawn by the sign renderer; the model only gives the breaking particles.
+    write_json('models/block/sign.json', {'textures': {'particle': T + 'plank'}})
+    write_json('blockstates/sign.json', {'variants': {'normal': {'model': 'moredyes:sign'}}})
+    flat_item('sign', 'moredyes:items/sign')
 
 
 def piston_model(textures, extended, inventory=False):

@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted_wall_side",
+  "textures": {
+    "wall": "moredyes:blocks/tinted/mossy_cobble"
+  }
+}

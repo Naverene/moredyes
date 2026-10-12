@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/andesite",
+    "down": "moredyes:blocks/tinted/andesite",
+    "up": "moredyes:blocks/tinted/andesite",
+    "north": "moredyes:blocks/tinted/andesite",
+    "south": "moredyes:blocks/tinted/andesite",
+    "west": "moredyes:blocks/tinted/andesite",
+    "east": "moredyes:blocks/tinted/andesite"
+  }
+}

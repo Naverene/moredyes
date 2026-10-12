@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:coal_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:coal_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:coal_slab_double"
+    }
+  }
+}

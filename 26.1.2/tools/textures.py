@@ -33,7 +33,7 @@ WOODS = ['oak', 'birch', 'spruce', 'jungle', 'acacia', 'dark_oak']
 # at half brightness. Each grey texture is shifted up until its average is this bright, keeping its pattern.
 BRIGHTNESS = 200
 # Materials that are meant to stay dark whatever their dye.
-STAY_DARK = {'block/obsidian', 'block/coal_block'}
+STAY_DARK = {'block/obsidian', 'block/coal_block', 'block/crying_obsidian'}
 
 GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_IF_NOT_COBBLESTONE = (
     'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'keep_if_not_cobblestone')
@@ -86,12 +86,17 @@ TEXTURES = {
                            ('block/piston_inner_overlay', KEEP_IF_NOT_COBBLESTONE, False)],
     'block/white_tulip': [('block/tulip', GREY_IF_NOT_GREEN, True), ('block/tulip_stem', KEEP_IF_GREEN, False)],
     'item/white_dye': [('item/dye', GREY, True)],
+    'block/white_glazed_terracotta': [('block/glazed_terracotta', GREY, True)],
+    'block/iron_chain': [('block/chain', GREY, True)],
+    'item/iron_chain': [('item/chain', GREY, True)],
     'item/oak_sign': [('item/sign', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
               'quartz_pillar', 'quartz_pillar_top', 'bone_block_side', 'bone_block_top', 'gravel', 'ice',
-              'packed_ice', 'snow']:
+              'packed_ice', 'snow', 'soul_soil', 'basalt_side', 'basalt_top', 'polished_basalt_side',
+              'polished_basalt_top', 'smooth_stone', 'nether_bricks', 'cracked_nether_bricks',
+              'chiseled_nether_bricks', 'end_stone_bricks', 'netherite_block', 'crying_obsidian']:
     TEXTURES['block/' + _name] = [('block/' + _name, GREY, True)]
 # Flowers: the petals take the dye, the green stem and leaves are drawn over them in their own colors.
 for _name in ['allium', 'azure_bluet', 'blue_orchid', 'cornflower', 'dandelion', 'lily_of_the_valley', 'oxeye_daisy',

@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/cube_bottom_top",
+  "textures": {
+    "bottom": "moredyes:block/tinted/smooth_stone",
+    "side": "moredyes:block/tinted/smooth_stone",
+    "top": "moredyes:block/tinted/smooth_stone"
+  }
+}

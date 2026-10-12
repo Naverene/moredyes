@@ -10,6 +10,8 @@ import cpw.mods.fml.common.Loader;
 import info.kg6jay.moredyes.block.RenderIds;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDSign;
+import info.kg6jay.moredyes.client.FlowerPotRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
 import info.kg6jay.moredyes.client.TintedTextures;
@@ -19,6 +21,7 @@ import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
 import info.kg6jay.moredyes.render.TileEntityMDPistonRenderer;
+import info.kg6jay.moredyes.render.TileEntityMDSignRenderer;
 
 public class ClientProxy extends CommonProxy {
 
@@ -45,6 +48,9 @@ public class ClientProxy extends CommonProxy {
         RenderIds.layeredPiston = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry
             .registerBlockHandler(new LayeredBlockRenderer(RenderIds.layeredPiston, LayeredBlockRenderer.Shape.PISTON));
+        RenderIds.flowerPot = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new FlowerPotRenderer(RenderIds.flowerPot));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDSign.class, new TileEntityMDSignRenderer());
 
         if (Loader.isModLoaded(Reference.IRON_CHESTS)) {
             IronChestClient.register();

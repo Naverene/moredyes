@@ -2,7 +2,9 @@ package net.neverandy.moredyes.data.client;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
@@ -39,9 +41,9 @@ public class ModItemModelProvider extends ItemModelProvider
         for (RegistryObject<Block> entry : MDBlock.BLOCKS.getEntries())
         {
             Block block = entry.get();
-            if (block instanceof BlockPistonHead || block instanceof WallSignBlock || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
+            if (block instanceof BlockPistonHead || block instanceof FlowerPotBlock || block instanceof WallSignBlock || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
             {
-                // Piston heads and wall signs have no item; slabs, stairs and walls are below.
+                // Piston heads, potted plants and wall signs have no item; slabs, stairs and walls are below.
                 continue;
             }
             String name = entry.getId().getPath();
@@ -66,6 +68,10 @@ public class ModItemModelProvider extends ItemModelProvider
             else if (block instanceof StandingSignBlock)
             {
                 withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/tinted/sign"));
+            }
+            else if (block instanceof ChainBlock)
+            {
+                withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/tinted/chain_item"));
             }
             else if (block instanceof IronBarsBlock)
             {

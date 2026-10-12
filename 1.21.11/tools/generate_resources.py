@@ -933,7 +933,12 @@ def recipes(jars, w, kinds, colors):
         smelt('%s_from_smelting' % b('glass').split(':')[1], b('sand'), b('glass'), 0.1)
         smelt('%s_from_smelting' % b('foggy_glass').split(':')[1], b('glass'), b('foggy_glass'), 0.1)
         smelt('%s_from_smelting' % b('terracotta').split(':')[1], b('clay'), b('terracotta'), 0.35)
-        for src, dst in [('stone', 'stone_bricks'), ('sand', 'sandstone'), ('sandstone', 'cut_sandstone')]:
+        for src, dst, xp in [('stone', 'smooth_stone', 0.1), ('sandstone', 'smooth_sandstone', 0.1),
+                             ('nether_bricks', 'cracked_nether_bricks', 0.1),
+                             ('terracotta', 'glazed_terracotta', 0.1)]:
+            smelt('%s_from_smelting' % b(dst).split(':')[1], b(src), b(dst), xp)
+        for src, dst in [('stone', 'stone_bricks'), ('sand', 'sandstone'), ('sandstone', 'cut_sandstone'),
+                         ('basalt', 'polished_basalt'), ('end_stone', 'end_stone_bricks')]:
             shaped('%s_%s' % (dst, c), b(dst), 4, ['SS', 'SS'], {'S': b(src)}, True)
         for block, unpacked in [('redstone_block', 'redstone'), ('lapis_block', 'lapis_lazuli')]:
             shapeless('unpacking/%s_%s' % (block, c), 'minecraft:' + unpacked, 9, [b(block)], 'redstone')

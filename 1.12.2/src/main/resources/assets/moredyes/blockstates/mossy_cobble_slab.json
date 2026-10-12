@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:mossy_cobble_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:mossy_cobble_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:mossy_cobble_slab_double"
+    }
+  }
+}

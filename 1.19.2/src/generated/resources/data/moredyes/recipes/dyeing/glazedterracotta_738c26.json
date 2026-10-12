@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "moredyes:738c26_dye"
+    },
+    "S": {
+      "item": "minecraft:white_glazed_terracotta"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moredyes:glazedterracotta_738c26"
+  }
+}

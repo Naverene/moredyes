@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_upper_slab",
+  "textures": {
+    "top": "moredyes:blocks/tinted/stonebrick",
+    "side": "moredyes:blocks/tinted/stonebrick",
+    "bottom": "moredyes:blocks/tinted/stonebrick"
+  }
+}

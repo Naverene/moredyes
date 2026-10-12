@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moredyes:smoothstone_9f6679"
+  },
+  "result": "moredyes:smoothstoneslab_9f6679"
+}

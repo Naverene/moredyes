@@ -14,11 +14,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
- * Dyed glass, clear or foggy. Like vanilla glass it drops nothing unless broken with silk touch. The faces between
- * two glass blocks of the same kind and color are hidden, so a wall of one color looks like one pane.
+ * Dyed glass, clear or foggy, and the base of dyed ice. Like vanilla glass it drops nothing unless broken with silk
+ * touch. The faces between two glass blocks of the same kind and color are hidden, so a wall of one color looks like
+ * one pane.
  */
 public class BlockDyedGlass extends BlockDyed {
 
+    /** "Clear" or "Foggy", put before the name; null for none. */
     private final String variant;
 
     public BlockDyedGlass(int id, BlockInfo info, Faces faces, String variant) {
@@ -28,7 +30,7 @@ public class BlockDyedGlass extends BlockDyed {
 
     @Override
     public String getDyedName() {
-        return this.variant + " " + this.info.displayName;
+        return this.variant == null ? this.info.displayName : this.variant + " " + this.info.displayName;
     }
 
     @Override

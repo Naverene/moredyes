@@ -1,26 +1,30 @@
-// 1.19.2	2026-10-10T16:54:34.55300741	Tags for minecraft:block
+// 1.19.2	2026-10-12T19:25:09.276975646	Tags for minecraft:block
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/blocks/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/blocks/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/blocks/glass_panes.json
+b33a462276d5f73b85a7cc6953edb3cd858e7df9 data/minecraft/tags/blocks/beacon_base_blocks.json
+36f939bf8f6f77fd333893553e29da001daa38a0 data/minecraft/tags/blocks/flower_pots.json
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/minecraft/tags/blocks/guarded_by_piglins.json
 ca4da529306cedbfcd777445a32fbda24aa8002a data/minecraft/tags/blocks/ice.json
 cc6c18a7810ef5f3b7fc7c85ec6c77af4946fca8 data/minecraft/tags/blocks/leaves.json
 80e0efbc572d896b8958609c7751161bd1f7ed23 data/minecraft/tags/blocks/logs_that_burn.json
 5f86e1fc14e1ab16fc0a0f4a6c4c309317c3cb96 data/minecraft/tags/blocks/mineable/axe.json
 58372b6d5ab0c867eef4fb29812549b10f733df8 data/minecraft/tags/blocks/mineable/hoe.json
-a7f789af84696deb1202fbf19126e3a422445b31 data/minecraft/tags/blocks/mineable/pickaxe.json
-c3779e24be104b6156c6f5b2a30fd7966e2aaac1 data/minecraft/tags/blocks/mineable/shovel.json
-c6234de78d6c9114fd8a9ab295c8d03eeb9a6cbc data/minecraft/tags/blocks/needs_diamond_tool.json
+128ab3ba8389e1a4905ed3f4c19f7a2b28d39f96 data/minecraft/tags/blocks/mineable/pickaxe.json
+0eb3d7341dc10369c5860099fe04d1781e6e6050 data/minecraft/tags/blocks/mineable/shovel.json
+c8fb6be79b1289597c3c78c52eeb5467e595e079 data/minecraft/tags/blocks/needs_diamond_tool.json
 1432db7d370c2e6259a5793cb7d4d47653f5e5a6 data/minecraft/tags/blocks/needs_stone_tool.json
 12d52c39421d6790f33f190c5d80a00cc73798c1 data/minecraft/tags/blocks/planks.json
 5dd59e2280e40a5fd4440bb939aae36e8cb53ba3 data/minecraft/tags/blocks/saplings.json
-cdfc128d52cc5dd2d70e858b9961050879d1e75b data/minecraft/tags/blocks/slabs.json
+3641e2e693aabade8d60d4bb53478b482375dae8 data/minecraft/tags/blocks/slabs.json
 08f0ecbf1d1630b3e59ddc2001135d56aca77858 data/minecraft/tags/blocks/small_flowers.json
-e0fb03843bba8b8bf36ac35641d2cf2700f20dbd data/minecraft/tags/blocks/stairs.json
+5c13c97d3ed072dfac562f523380cbe24cbbc741 data/minecraft/tags/blocks/soul_fire_base_blocks.json
+5c13c97d3ed072dfac562f523380cbe24cbbc741 data/minecraft/tags/blocks/soul_speed_blocks.json
+eb9e45b04011e5ac07789bf824824db5c48165c1 data/minecraft/tags/blocks/stairs.json
 f6d87d2895a55f36d2574165d316064334f61392 data/minecraft/tags/blocks/standing_signs.json
 0aa6986685f7340cffc0fc2248479fdb1b06e0f2 data/minecraft/tags/blocks/tall_flowers.json
 ce5dc3df6bc6feef19f4845f928a6f09cba79475 data/minecraft/tags/blocks/wall_signs.json
-e3440c4d7c12f21d625e2ee13591edb9bb24c156 data/minecraft/tags/blocks/walls.json
+3e4fc05e3361d31f83945d5b134d2933e3ea61ce data/minecraft/tags/blocks/walls.json
 f5c878d546040e65966f80bcca6c6d034a668e35 data/minecraft/tags/blocks/wooden_fences.json
 2b1bc69055a49cd088f48f63dce5df06e7087c39 data/minecraft/tags/blocks/wooden_slabs.json
 eaf995ac6a0deb0af706f89ae984257581fab7eb data/minecraft/tags/blocks/wooden_stairs.json

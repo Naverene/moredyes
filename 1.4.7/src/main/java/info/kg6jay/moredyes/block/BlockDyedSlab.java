@@ -33,6 +33,8 @@ public class BlockDyedSlab extends Block implements IDyedBlock {
 
     private final String displayName;
     private final Faces faces;
+    /** Made of glass or ice, so drawn see-through like them. */
+    private final boolean translucent;
 
     public BlockDyedSlab(int id, BlockDyed model, String name, CreativeTabs tab) {
         super(id, model.faces.side(), model.blockMaterial);
@@ -42,6 +44,8 @@ public class BlockDyedSlab extends Block implements IDyedBlock {
         this.setResistance(model.getExplosionResistance(null) * 5.0F / 3.0F);
         this.setStepSound(model.stepSound);
         this.setLightOpacity(255);
+        Shapes.copyLook(this, model);
+        this.translucent = model instanceof BlockDyedGlass;
         Block.useNeighborBrightness[id] = true;
         this.setBlockName("moredyes." + name);
         this.setCreativeTab(tab);
@@ -92,6 +96,17 @@ public class BlockDyedSlab extends Block implements IDyedBlock {
     @Override
     public boolean isOpaqueCube() {
         return false;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return this.translucent ? 1 : 0;
+    }
+
+    @Override
+    public boolean canRenderInPass(int pass) {
+        return pass == (this.translucent ? 1 : 0);
     }
 
     @Override

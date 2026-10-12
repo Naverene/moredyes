@@ -11,9 +11,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChainBlock;
+import net.minecraft.world.level.block.CryingObsidianBlock;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.IceBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -146,6 +150,22 @@ public class MDBlock
     public static Block[] packedIceArray = new Block[COLORS];
     public static Block[] snowArray = new Block[COLORS];
 
+    // The full blocks 1.7.10 More Dyes added later (from vanilla 1.14 to 1.16); each copies its vanilla block.
+    public static Block[] soulSoilArray = new Block[COLORS];
+    public static RotatedPillarBlock[] basaltArray = new RotatedPillarBlock[COLORS];
+    public static RotatedPillarBlock[] polishedBasaltArray = new RotatedPillarBlock[COLORS];
+    public static Block[] smoothStoneArray = new Block[COLORS];
+    /** Smooth sandstone; "sandstonesmooth" is cut sandstone, named before vanilla had both. */
+    public static Block[] smoothSandstoneArray = new Block[COLORS];
+    public static Block[] netherBrickArray = new Block[COLORS];
+    public static Block[] netherBrickCrackedArray = new Block[COLORS];
+    public static Block[] netherBrickChiseledArray = new Block[COLORS];
+    public static Block[] endStoneBrickArray = new Block[COLORS];
+    public static GlazedTerracottaBlock[] glazedTerracottaArray = new GlazedTerracottaBlock[COLORS];
+    public static Block[] netheriteArray = new Block[COLORS];
+    public static CryingObsidianBlock[] cryingObsidianArray = new CryingObsidianBlock[COLORS];
+    public static ChainBlock[] chainArray = new ChainBlock[COLORS];
+
     /** Small flowers, as {registry type, vanilla flower}; each array in smallFlowerArrays matches one row. */
     public static final String[][] SMALL_FLOWERS = {
         {"allium", "allium"}, {"azurebluet", "azure_bluet"}, {"cornflower", "cornflower"}, {"dandelion", "dandelion"},
@@ -154,6 +174,30 @@ public class MDBlock
     /** Two-block-tall flowers, as {registry type, vanilla flower}. */
     public static final String[][] TALL_FLOWERS = {{"lilac", "lilac"}, {"peony", "peony"}, {"rosebush", "rose_bush"}};
     public static final TallFlowerBlock[][] tallFlowerArrays = new TallFlowerBlock[TALL_FLOWERS.length][COLORS];
+
+    /**
+     * Flower pots holding a dyed flower or sapling: one row per plant type, one pot per color. Each pot adds itself to
+     * the vanilla flower pot's map of plants when it is made, so a dyed plant can be put in an empty pot.
+     */
+    public static final List<PottedPlants> POTTED = new ArrayList<>();
+
+    /** The potted forms of one type of plant. petals and stem are its tinted and untinted textures in block/tinted. */
+    public static final class PottedPlants
+    {
+        public final String type;
+        public final String petals;
+        public final String stem;
+        public final Block[] plants;
+        public final FlowerPotBlock[] pots = new FlowerPotBlock[COLORS];
+
+        PottedPlants(String type, String petals, String stem, Block[] plants)
+        {
+            this.type = type;
+            this.petals = petals;
+            this.stem = stem;
+            this.plants = plants;
+        }
+    }
 
     private static final TagKey<Block> PICKAXE = BlockTags.MINEABLE_WITH_PICKAXE;
     private static final TagKey<Block> AXE = BlockTags.MINEABLE_WITH_AXE;
@@ -223,7 +267,9 @@ public class MDBlock
         registerPistons();
         registerSigns();
         registerMoreBlocks();
+        registerNewerBlocks();
         registerFlowers();
+        registerPots();
         DyedShapes.registerAll();
 
         // The same burn and spread chances as the vanilla bookshelf.
@@ -285,6 +331,25 @@ public class MDBlock
         colors("snow", snowArray, () -> new Block(copy(Blocks.SNOW_BLOCK)), MDTabs.BLOCKS, SHOVEL);
     }
 
+    private static void registerNewerBlocks()
+    {
+        colors("soulsoil", soulSoilArray, () -> new Block(copy(Blocks.SOUL_SOIL)), MDTabs.BLOCKS, SHOVEL);
+        colors("basalt", basaltArray, () -> new RotatedPillarBlock(copy(Blocks.BASALT)), MDTabs.BLOCKS, PICKAXE);
+        colors("polishedbasalt", polishedBasaltArray, () -> new RotatedPillarBlock(copy(Blocks.POLISHED_BASALT)), MDTabs.BLOCKS, PICKAXE);
+        colors("smoothstone", smoothStoneArray, () -> new Block(copy(Blocks.SMOOTH_STONE)), MDTabs.BLOCKS, PICKAXE);
+        colors("smoothsandstone", smoothSandstoneArray, () -> new Block(copy(Blocks.SMOOTH_SANDSTONE)), MDTabs.BLOCKS, PICKAXE);
+        colors("netherbrick", netherBrickArray, () -> new Block(copy(Blocks.NETHER_BRICKS)), MDTabs.BLOCKS, PICKAXE);
+        colors("netherbrickcracked", netherBrickCrackedArray, () -> new Block(copy(Blocks.CRACKED_NETHER_BRICKS)), MDTabs.BLOCKS, PICKAXE);
+        colors("netherbrickchiseled", netherBrickChiseledArray, () -> new Block(copy(Blocks.CHISELED_NETHER_BRICKS)), MDTabs.BLOCKS, PICKAXE);
+        colors("endstonebrick", endStoneBrickArray, () -> new Block(copy(Blocks.END_STONE_BRICKS)), MDTabs.BLOCKS, PICKAXE);
+        colors("glazedterracotta", glazedTerracottaArray, () -> new GlazedTerracottaBlock(copy(Blocks.WHITE_GLAZED_TERRACOTTA)), MDTabs.BLOCKS, PICKAXE);
+        colors("netherite", netheriteArray, () -> new Block(copy(Blocks.NETHERITE_BLOCK)), MDTabs.BLOCKS, PICKAXE);
+        NEEDS_TOOL.put(netheriteArray, BlockTags.NEEDS_DIAMOND_TOOL);
+        colors("cryingobsidian", cryingObsidianArray, () -> new CryingObsidianBlock(copy(Blocks.CRYING_OBSIDIAN)), MDTabs.BLOCKS, PICKAXE);
+        NEEDS_TOOL.put(cryingObsidianArray, BlockTags.NEEDS_DIAMOND_TOOL);
+        colors("chain", chainArray, () -> new ChainBlock(copy(Blocks.CHAIN)), MDTabs.BLOCKS, PICKAXE);
+    }
+
     private static void registerFlowers()
     {
         for (int f = 0; f < SMALL_FLOWERS.length; f++)
@@ -293,7 +358,35 @@ public class MDBlock
         }
         for (int f = 0; f < TALL_FLOWERS.length; f++)
         {
-            colors(TALL_FLOWERS[f][0], tallFlowerArrays[f], () -> new TallFlowerBlock(copy(Blocks.LILAC)), MDTabs.PLANTS, null);
+            colors(TALL_FLOWERS[f][0], tallFlowerArrays[f], () -> new DyedTallFlowerBlock(copy(Blocks.LILAC)), MDTabs.PLANTS, null);
+        }
+    }
+
+    /** One flower pot per dyed plant and color, which has no item: it is placed by using the plant on an empty pot. */
+    private static void registerPots()
+    {
+        POTTED.add(new PottedPlants("tulip", "tulip_petals", "tulip_stem", tulipArray));
+        for (int f = 0; f < SMALL_FLOWERS.length; f++)
+        {
+            String type = SMALL_FLOWERS[f][0];
+            POTTED.add(new PottedPlants(type, type + "_petals", type + "_stem", smallFlowerArrays[f]));
+        }
+        for (String wood : DyeTrees.WOODS)
+        {
+            // Saplings are registered as "saplingdarkoak" and so on.
+            String type = "sapling" + wood.replace("_", "");
+            POTTED.add(new PottedPlants(type, wood + "_sapling_leaves", wood + "_sapling_trunk", DyeTrees.saplings(wood)));
+        }
+        for (PottedPlants potted : POTTED)
+        {
+            for (int i = 0; i < COLORS; i++)
+            {
+                // The vanilla constructor puts the pot in FlowerPotBlock's map from plant to pot, which is what
+                // lets an empty pot take the plant; the plants are already registered.
+                Block plant = potted.plants[i];
+                register("potted" + potted.type + "_" + ColorStrings.ALL[i], potted.pots, i,
+                        () -> new FlowerPotBlock(plant, copy(Blocks.POTTED_WHITE_TULIP)), null, null);
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -14,10 +15,13 @@ import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDFlowerPot;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDSign;
 import info.kg6jay.moredyes.item.MDItemBlockChest;
 import info.kg6jay.moredyes.item.MDItemBlockColored;
 import info.kg6jay.moredyes.item.MDItemBlockDyedSlab;
+import info.kg6jay.moredyes.item.MDItemBlockDyedTallFlower;
 import info.kg6jay.moredyes.item.MDItemBlockTileColored;
 import info.kg6jay.moredyes.reference.ColorStrings;
 import info.kg6jay.moredyes.reference.Reference;
@@ -98,6 +102,30 @@ public class MDBlock {
     public static Block[] cornflower;
     public static Block[] chain;
 
+    // More full blocks and flowers from newer Minecraft versions, and planks of the other five woods for the fences,
+    // stairs and slabs
+    public static Block[] endStone;
+    public static Block[] gravel;
+    public static Block[] ice;
+    public static Block[] packedIce;
+    public static Block[] snow;
+    public static Block[] quartzBricks;
+    public static Block[] chiseledQuartz;
+    public static Block[] quartzPillar;
+    public static Block[] chiseledSandstone;
+    public static Block[] sprucePlank;
+    public static Block[] birchPlank;
+    public static Block[] junglePlank;
+    public static Block[] acaciaPlank;
+    public static Block[] darkOakPlank;
+    public static Block[] allium;
+    public static Block[] azureBluet;
+    public static Block[] blueOrchid;
+    public static Block[] dandelion;
+    public static Block[] lilyOfTheValley;
+    public static Block[] oxeyeDaisy;
+    public static Block[] poppy;
+
     /**
      * Stairs, slabs and walls. Each is one block for every color, with the color in a tile entity, so these are not
      * arrays. See SHAPES for what each is made from.
@@ -108,17 +136,28 @@ public class MDBlock {
     public static Block stoneSlab, cutSandstoneSlab, dioriteSlab;
     public static Block brickWall, stoneBrickWall, mossyStoneBrickWall, graniteWall, dioriteWall, andesiteWall,
         netherBrickWall, sandstoneWall, endStoneBrickWall;
+    /**
+     * The fences, the crafting table slab and the stairs, slabs and walls added with them are only kept in SHAPES.
+     */
+    public static Block oakFence, workbenchSlab;
+    /** Tall flowers, which need their metadata for their top and bottom half, keep their color in a tile entity too. */
+    public static Block lilac, peony, roseBush;
+    /** Dyed signs: one block for every standing sign and one for every wall sign, with the color in the tile entity. */
+    public static Block standingSign, wallSign;
+    /** A flower pot holding a dyed plant. */
+    public static Block flowerPot;
     public static Block ironTrapdoor;
     /** Pistons, like trapdoors, keep their color in a tile entity. The head has no item and is shared by both. */
     public static Block piston, stickyPiston, pistonHead;
 
-    /** A stair, slab or wall block and the dyed blocks it is crafted from. */
+    /** A stair, slab, wall or fence block and the dyed blocks it is crafted from. */
     public static final class Shape {
 
         public enum Kind {
             STAIRS,
             SLAB,
-            WALL
+            WALL,
+            FENCE
         }
 
         public final Block block;
@@ -133,6 +172,16 @@ public class MDBlock {
     }
 
     public static final List<Shape> SHAPES = new ArrayList<>();
+
+    /** The stair, slab, wall or fence block of this kind made from these dyed blocks, or null if there is none. */
+    public static Block shapeOf(Block[] base, Shape.Kind kind) {
+        for (Shape shape : SHAPES) {
+            if (shape.base == base && shape.kind == kind) {
+                return shape.block;
+            }
+        }
+        return null;
+    }
 
     public static void initialize() {
         int l = colors.length;
@@ -199,6 +248,27 @@ public class MDBlock {
         cryingObsidian = new Block[l];
         cornflower = new Block[l];
         chain = new Block[l];
+        endStone = new Block[l];
+        gravel = new Block[l];
+        ice = new Block[l];
+        packedIce = new Block[l];
+        snow = new Block[l];
+        quartzBricks = new Block[l];
+        chiseledQuartz = new Block[l];
+        quartzPillar = new Block[l];
+        chiseledSandstone = new Block[l];
+        sprucePlank = new Block[l];
+        birchPlank = new Block[l];
+        junglePlank = new Block[l];
+        acaciaPlank = new Block[l];
+        darkOakPlank = new Block[l];
+        allium = new Block[l];
+        azureBluet = new Block[l];
+        blueOrchid = new Block[l];
+        dandelion = new Block[l];
+        lilyOfTheValley = new Block[l];
+        oxeyeDaisy = new Block[l];
+        poppy = new Block[l];
 
         for (int i = 0; i < colors.length; i++) {
             String[] shades = colorStrings[i];
@@ -266,6 +336,32 @@ public class MDBlock {
                 .setLightLevel(10.0F / 15.0F);
             cornflower[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_CORNFLOWER, set, "cornflower");
             chain[i] = new MDBlockChain(shades, Reference.BLOCK_INFO_CHAIN, set);
+
+            endStone[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_END_STONE, set);
+            gravel[i] = new MDBlockColoredSand(shades, Reference.BLOCK_INFO_GRAVEL, set);
+            ice[i] = new MDBlockIce(shades, Reference.BLOCK_INFO_ICE, set);
+            packedIce[i] = new MDBlockPackedIce(shades, Reference.BLOCK_INFO_PACKED_ICE, set);
+            snow[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SNOW_BLOCK, set);
+            quartzBricks[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_QUARTZ_BRICKS, set);
+            chiseledQuartz[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_CHISELED_QUARTZ_BLOCK, set);
+            quartzPillar[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_QUARTZ_PILLAR, set);
+            chiseledSandstone[i] = new MDBlockColoredMulti(shades, Reference.BLOCK_INFO_CHISELED_SANDSTONE, set);
+            sprucePlank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SPRUCE_PLANKS, set);
+            birchPlank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_BIRCH_PLANKS, set);
+            junglePlank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_JUNGLE_PLANKS, set);
+            acaciaPlank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_ACACIA_PLANKS, set);
+            darkOakPlank[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_DARK_OAK_PLANKS, set);
+            allium[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_ALLIUM, set, "allium");
+            azureBluet[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_AZURE_BLUET, set, "azureBluet");
+            blueOrchid[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_BLUE_ORCHID, set, "blueOrchid");
+            dandelion[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_DANDELION, set, "dandelion");
+            lilyOfTheValley[i] = new MDBlockFlower(
+                shades,
+                Reference.BLOCK_INFO_LILY_OF_THE_VALLEY,
+                set,
+                "lilyOfTheValley");
+            oxeyeDaisy[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_OXEYE_DAISY, set, "oxeyeDaisy");
+            poppy[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_POPPY, set, "poppy");
         }
 
         stoneStairs = stairs(stone, "stoneStairs", "stone");
@@ -301,6 +397,131 @@ public class MDBlock {
         sandstoneWall = wall(sandstone, "sandstoneWall", "sandstone/top", "sandstone/side", "sandstone/bottom");
         endStoneBrickWall = wall(endStoneBrick, "endStoneBrickWall", "endStoneBrick");
 
+        // Stairs and slabs for the rest of the full blocks that have them in Minecraft 1.16, and walls for the rest of
+        // the vanilla wall materials. Each texture list is the one the full block uses.
+        stairs(cobble, "cobbleStairs", "cobble");
+        stairs(stoneBrick, "stonebrickStairs", "stonebrick");
+        stairs(stoneBrickCracked, "stonebrickCrackedStairs", "stonebrickCracked");
+        stairs(stoneBrickCarved, "stonebrickCarvedStairs", "stonebrickCarved");
+        stairs(brick, "brickStairs", "brick");
+        stairs(clay, "clayStairs", "clay");
+        stairs(coal, "coalStairs", "coal");
+        stairs(lapis, "lapisStairs", "lapis");
+        stairs(redstone, "redstoneStairs", "redstone");
+        stairs(quartz, "quartzStairs", "quartz/top", "quartz/side", "quartz/bottom");
+        stairs(quartzBricks, "quartzBrickStairs", "quartzBricks");
+        stairs(
+            chiseledQuartz,
+            "chiseledQuartzStairs",
+            "chiseledQuartz/top",
+            "chiseledQuartz/side",
+            "chiseledQuartz/bottom");
+        stairs(quartzPillar, "quartzPillarStairs", "quartzPillar/top", "quartzPillar/side", "quartzPillar/bottom");
+        stairs(obsidian, "obsidianStairs", "obsidian");
+        stairs(glowstone, "glowstoneStairs", "glowstone");
+        stairs(soulsand, "soulsandStairs", "soulsand");
+        stairs(sand, "sandStairs", "sand");
+        stairs(sandstone, "sandstoneStairs", "sandstone/top", "sandstone/side", "sandstone/bottom");
+        stairs(
+            chiseledSandstone,
+            "chiseledSandstoneStairs",
+            "chiseledSandstone/top",
+            "chiseledSandstone/side",
+            "chiseledSandstone/bottom");
+        stairs(cutSandstone, "cutSandstoneStairs", "cutSandstone/top", "cutSandstone/side", "cutSandstone/bottom");
+        stairs(endStone, "endStoneStairs", "endStone");
+        stairs(ice, "iceStairs", "ice");
+        stairs(packedIce, "packedIceStairs", "packedIce");
+        stairs(snow, "snowStairs", "snow");
+        stairs(boneBlock, "boneBlockStairs", "boneBlock/top", "boneBlock/side", "boneBlock/bottom");
+        stairs(glassClear, "glassStairs", "glass/clear");
+        stairs(glassFoggy, "glassFoggyStairs", "glass/foggy");
+        stairs(wool, "woolStairs", "wool");
+        stairs(concrete, "concreteStairs", "concrete");
+        stairs(concretePowder, "concretePowderStairs", "concretePowder");
+        stairs(plank, "oakStairs", "plank");
+        stairs(sprucePlank, "spruceStairs", "sprucePlank");
+        stairs(birchPlank, "birchStairs", "birchPlank");
+        stairs(junglePlank, "jungleStairs", "junglePlank");
+        stairs(acaciaPlank, "acaciaStairs", "acaciaPlank");
+        stairs(darkOakPlank, "darkOakStairs", "darkOakPlank");
+
+        slab(cobble, "cobbleSlab", "cobble");
+        slab(mossyCobble, "mossyCobbleSlab", "mossyCobble");
+        slab(stoneBrick, "stonebrickSlab", "stonebrick");
+        slab(stoneBrickCracked, "stonebrickCrackedSlab", "stonebrickCracked");
+        slab(stoneBrickCarved, "stonebrickCarvedSlab", "stonebrickCarved");
+        slab(mossyStoneBrick, "mossyStonebrickSlab", "mossyStonebrick");
+        slab(brick, "brickSlab", "brick");
+        slab(clay, "claySlab", "clay");
+        slab(coal, "coalSlab", "coal");
+        slab(lapis, "lapisSlab", "lapis");
+        slab(redstone, "redstoneSlab", "redstone");
+        slab(quartz, "quartzSlab", "quartz/top", "quartz/side", "quartz/bottom");
+        slab(quartzBricks, "quartzBrickSlab", "quartzBricks");
+        slab(
+            chiseledQuartz,
+            "chiseledQuartzSlab",
+            "chiseledQuartz/top",
+            "chiseledQuartz/side",
+            "chiseledQuartz/bottom");
+        slab(quartzPillar, "quartzPillarSlab", "quartzPillar/top", "quartzPillar/side", "quartzPillar/bottom");
+        slab(smoothQuartz, "smoothQuartzSlab", "smoothQuartz");
+        slab(obsidian, "obsidianSlab", "obsidian");
+        slab(glowstone, "glowstoneSlab", "glowstone");
+        slab(soulsand, "soulsandSlab", "soulsand");
+        slab(sand, "sandSlab", "sand");
+        slab(sandstone, "sandstoneSlab", "sandstone/top", "sandstone/side", "sandstone/bottom");
+        slab(
+            chiseledSandstone,
+            "chiseledSandstoneSlab",
+            "chiseledSandstone/top",
+            "chiseledSandstone/side",
+            "chiseledSandstone/bottom");
+        slab(granite, "graniteSlab", "granite");
+        slab(andesite, "andesiteSlab", "andesite");
+        slab(polishedGranite, "polishedGraniteSlab", "polishedGranite");
+        slab(polishedDiorite, "polishedDioriteSlab", "polishedDiorite");
+        slab(polishedAndesite, "polishedAndesiteSlab", "polishedAndesite");
+        slab(endStone, "endStoneSlab", "endStone");
+        slab(ice, "iceSlab", "ice");
+        slab(packedIce, "packedIceSlab", "packedIce");
+        slab(snow, "snowSlab", "snow");
+        slab(boneBlock, "boneBlockSlab", "boneBlock/top", "boneBlock/side", "boneBlock/bottom");
+        slab(glassClear, "glassSlab", "glass/clear");
+        slab(glassFoggy, "glassFoggySlab", "glass/foggy");
+        slab(wool, "woolSlab", "wool");
+        slab(concrete, "concreteSlab", "concrete");
+        slab(concretePowder, "concretePowderSlab", "concretePowder");
+        slab(plank, "oakSlab", "plank");
+        slab(sprucePlank, "spruceSlab", "sprucePlank");
+        slab(birchPlank, "birchSlab", "birchPlank");
+        slab(junglePlank, "jungleSlab", "junglePlank");
+        slab(acaciaPlank, "acaciaSlab", "acaciaPlank");
+        slab(darkOakPlank, "darkOakSlab", "darkOakPlank");
+        workbenchSlab = shape(
+            new MDBlockDyedWorkbenchSlab(workbench[0], "workbenchSlab", "workbench/top", "workbench/side", "plank"),
+            workbench,
+            Shape.Kind.SLAB);
+
+        wall(cobble, "cobbleWall", "cobble");
+        wall(mossyCobble, "mossyCobbleWall", "mossyCobble");
+        wall(endStone, "endStoneWall", "endStone");
+
+        oakFence = fence(plank, "oakFence", "plank");
+        fence(sprucePlank, "spruceFence", "sprucePlank");
+        fence(birchPlank, "birchFence", "birchPlank");
+        fence(junglePlank, "jungleFence", "junglePlank");
+        fence(acaciaPlank, "acaciaFence", "acaciaPlank");
+        fence(darkOakPlank, "darkOakFence", "darkOakPlank");
+
+        lilac = new MDBlockDyedTallFlower(Reference.BLOCK_INFO_LILAC);
+        peony = new MDBlockDyedTallFlower(Reference.BLOCK_INFO_PEONY);
+        roseBush = new MDBlockDyedTallFlower(Reference.BLOCK_INFO_ROSE_BUSH);
+        standingSign = new MDBlockDyedSign(true, "standingSign");
+        wallSign = new MDBlockDyedSign(false, "wallSign");
+        flowerPot = new MDBlockFlowerPot();
+
         ironTrapdoor = new MDBlockDyedTrapdoor(Reference.BLOCK_INFO_IRON_TRAPDOOR, "ironTrapdoor");
         piston = new MDBlockDyedPiston(false, "piston");
         stickyPiston = new MDBlockDyedPiston(true, "stickyPiston");
@@ -308,20 +529,23 @@ public class MDBlock {
     }
 
     private static Block stairs(Block[] base, String name, String... textures) {
-        Block block = new MDBlockDyedStairs(base[0], name, textures);
-        SHAPES.add(new Shape(block, base, Shape.Kind.STAIRS));
-        return block;
+        return shape(new MDBlockDyedStairs(base[0], name, textures), base, Shape.Kind.STAIRS);
     }
 
     private static Block slab(Block[] base, String name, String... textures) {
-        Block block = new MDBlockDyedSlab(base[0], name, textures);
-        SHAPES.add(new Shape(block, base, Shape.Kind.SLAB));
-        return block;
+        return shape(new MDBlockDyedSlab(base[0], name, textures), base, Shape.Kind.SLAB);
     }
 
     private static Block wall(Block[] base, String name, String... textures) {
-        Block block = new MDBlockDyedWall(base[0], name, textures);
-        SHAPES.add(new Shape(block, base, Shape.Kind.WALL));
+        return shape(new MDBlockDyedWall(base[0], name, textures), base, Shape.Kind.WALL);
+    }
+
+    private static Block fence(Block[] planks, String name, String texture) {
+        return shape(new MDBlockDyedFence(planks[0], name, texture), planks, Shape.Kind.FENCE);
+    }
+
+    private static Block shape(Block block, Block[] base, Shape.Kind kind) {
+        SHAPES.add(new Shape(block, base, kind));
         return block;
     }
 
@@ -390,6 +614,27 @@ public class MDBlock {
         register(cryingObsidian, "CryingObsidian");
         register(cornflower, "Cornflower");
         register(chain, "Chain");
+        register(endStone, "EndStone");
+        register(gravel, "Gravel");
+        register(ice, "Ice");
+        register(packedIce, "PackedIce");
+        register(snow, "Snow");
+        register(quartzBricks, "QuartzBricks");
+        register(chiseledQuartz, "ChiseledQuartz");
+        register(quartzPillar, "QuartzPillar");
+        register(chiseledSandstone, "ChiseledSandstone");
+        register(sprucePlank, "SprucePlank");
+        register(birchPlank, "BirchPlank");
+        register(junglePlank, "JunglePlank");
+        register(acaciaPlank, "AcaciaPlank");
+        register(darkOakPlank, "DarkOakPlank");
+        register(allium, "Allium");
+        register(azureBluet, "AzureBluet");
+        register(blueOrchid, "BlueOrchid");
+        register(dandelion, "Dandelion");
+        register(lilyOfTheValley, "LilyOfTheValley");
+        register(oxeyeDaisy, "OxeyeDaisy");
+        register(poppy, "Poppy");
 
         for (Shape shape : SHAPES) {
             Class<? extends MDItemBlockTileColored> item = shape.kind == Shape.Kind.SLAB ? MDItemBlockDyedSlab.class
@@ -400,6 +645,13 @@ public class MDBlock {
         GameRegistry.registerBlock(piston, MDItemBlockTileColored.class, registryName(piston));
         GameRegistry.registerBlock(stickyPiston, MDItemBlockTileColored.class, registryName(stickyPiston));
         GameRegistry.registerBlock(pistonHead, (Class<? extends ItemBlock>) null, registryName(pistonHead));
+        for (Block flower : new Block[] { lilac, peony, roseBush }) {
+            GameRegistry.registerBlock(flower, MDItemBlockDyedTallFlower.class, registryName(flower));
+        }
+        // The signs are placed by MDItem.sign, and potted plants by using them on a vanilla flower pot.
+        GameRegistry.registerBlock(standingSign, (Class<? extends ItemBlock>) null, registryName(standingSign));
+        GameRegistry.registerBlock(wallSign, (Class<? extends ItemBlock>) null, registryName(wallSign));
+        GameRegistry.registerBlock(flowerPot, (Class<? extends ItemBlock>) null, registryName(flowerPot));
     }
 
     /** The registry name of a block named "moredyes.name" is "name". */
@@ -458,6 +710,25 @@ public class MDBlock {
             WASHED.put(mossyCobble[i], new ItemStack(Blocks.mossy_cobblestone));
             WASHED.put(mossyStoneBrick[i], new ItemStack(Blocks.stonebrick, 1, 1));
             WASHED.put(netherBrick[i], new ItemStack(Blocks.nether_brick));
+            WASHED.put(endStone[i], new ItemStack(Blocks.end_stone));
+            WASHED.put(gravel[i], new ItemStack(Blocks.gravel));
+            WASHED.put(ice[i], new ItemStack(Blocks.ice));
+            WASHED.put(packedIce[i], new ItemStack(Blocks.packed_ice));
+            WASHED.put(snow[i], new ItemStack(Blocks.snow));
+            WASHED.put(chiseledQuartz[i], new ItemStack(Blocks.quartz_block, 1, 1));
+            WASHED.put(quartzPillar[i], new ItemStack(Blocks.quartz_block, 1, 2));
+            WASHED.put(chiseledSandstone[i], new ItemStack(Blocks.sandstone, 1, 1));
+            WASHED.put(sprucePlank[i], new ItemStack(Blocks.planks, 1, 1));
+            WASHED.put(birchPlank[i], new ItemStack(Blocks.planks, 1, 2));
+            WASHED.put(junglePlank[i], new ItemStack(Blocks.planks, 1, 3));
+            WASHED.put(acaciaPlank[i], new ItemStack(Blocks.planks, 1, 4));
+            WASHED.put(darkOakPlank[i], new ItemStack(Blocks.planks, 1, 5));
+            WASHED.put(poppy[i], new ItemStack(Blocks.red_flower, 1, 0));
+            WASHED.put(blueOrchid[i], new ItemStack(Blocks.red_flower, 1, 1));
+            WASHED.put(allium[i], new ItemStack(Blocks.red_flower, 1, 2));
+            WASHED.put(azureBluet[i], new ItemStack(Blocks.red_flower, 1, 3));
+            WASHED.put(oxeyeDaisy[i], new ItemStack(Blocks.red_flower, 1, 8));
+            WASHED.put(dandelion[i], new ItemStack(Blocks.yellow_flower));
         }
     }
 
@@ -472,6 +743,23 @@ public class MDBlock {
             Blocks.fire.setFireInfo(tulip[i], 60, 100);
             Blocks.fire.setFireInfo(coal[i], 5, 5);
             Blocks.fire.setFireInfo(cornflower[i], 60, 100);
+            for (Block[] planks : new Block[][] { sprucePlank, birchPlank, junglePlank, acaciaPlank, darkOakPlank }) {
+                Blocks.fire.setFireInfo(planks[i], 5, 20);
+            }
+            for (Block[] flower : new Block[][] { allium, azureBluet, blueOrchid, dandelion, lilyOfTheValley,
+                oxeyeDaisy, poppy }) {
+                Blocks.fire.setFireInfo(flower[i], 60, 100);
+            }
+        }
+        for (Shape shape : SHAPES) {
+            if (shape.block.getMaterial() == Material.wood) {
+                Blocks.fire.setFireInfo(shape.block, 5, 20);
+            } else if (shape.block.getMaterial() == Material.cloth) {
+                Blocks.fire.setFireInfo(shape.block, 30, 60);
+            }
+        }
+        for (Block flower : new Block[] { lilac, peony, roseBush }) {
+            Blocks.fire.setFireInfo(flower, 60, 100);
         }
     }
 
@@ -479,6 +767,8 @@ public class MDBlock {
         GameRegistry.registerTileEntity(TileEntityMDBlockColoredChest.class, "MDBlockColoredChest");
         GameRegistry.registerTileEntity(TileEntityMDColor.class, "MDColor");
         GameRegistry.registerTileEntity(TileEntityMDPiston.class, "MDPiston");
+        GameRegistry.registerTileEntity(TileEntityMDSign.class, "MDSign");
+        GameRegistry.registerTileEntity(TileEntityMDFlowerPot.class, "MDFlowerPot");
     }
 
     /**
@@ -544,6 +834,14 @@ public class MDBlock {
                 ore(smoothQuartz[a], i, "blockQuartz");
                 ore(smoothSandstone[a], i, "sandstone");
                 ore(cutSandstone[a], i, "sandstone");
+                ore(chiseledQuartz[a], i, "blockQuartz");
+                ore(quartzPillar[a], i, "blockQuartz");
+                ore(chiseledSandstone[a], i, "sandstone");
+                ore(sprucePlank[a], i, "plankWood");
+                ore(birchPlank[a], i, "plankWood");
+                ore(junglePlank[a], i, "plankWood");
+                ore(acaciaPlank[a], i, "plankWood");
+                ore(darkOakPlank[a], i, "plankWood");
             }
         }
     }

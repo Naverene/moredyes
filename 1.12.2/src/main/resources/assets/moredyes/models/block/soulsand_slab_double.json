@@ -1,0 +1,12 @@
+{
+  "parent": "moredyes:block/tinted_cube",
+  "textures": {
+    "particle": "moredyes:blocks/tinted/soulsand",
+    "down": "moredyes:blocks/tinted/soulsand",
+    "up": "moredyes:blocks/tinted/soulsand",
+    "north": "moredyes:blocks/tinted/soulsand",
+    "south": "moredyes:blocks/tinted/soulsand",
+    "west": "moredyes:blocks/tinted/soulsand",
+    "east": "moredyes:blocks/tinted/soulsand"
+  }
+}

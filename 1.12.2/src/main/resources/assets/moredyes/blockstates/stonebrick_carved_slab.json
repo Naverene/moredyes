@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:stonebrick_carved_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:stonebrick_carved_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:stonebrick_carved_slab_double"
+    }
+  }
+}

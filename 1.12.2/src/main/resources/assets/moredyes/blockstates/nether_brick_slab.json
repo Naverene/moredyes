@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:nether_brick_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:nether_brick_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:nether_brick_slab_double"
+    }
+  }
+}

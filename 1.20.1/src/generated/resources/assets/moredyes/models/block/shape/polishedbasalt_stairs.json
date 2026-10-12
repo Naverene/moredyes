@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted/stairs",
+  "textures": {
+    "bottom": "moredyes:block/tinted/polished_basalt_top",
+    "side": "moredyes:block/tinted/polished_basalt_side",
+    "top": "moredyes:block/tinted/polished_basalt_top"
+  }
+}

@@ -9,6 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -80,14 +81,17 @@ public class CraftManager
 		List<IRecipe> chests=new ArrayList<IRecipe>();
 		List<IRecipe> workbenches=new ArrayList<IRecipe>();
 		List<IRecipe> bookshelves=new ArrayList<IRecipe>();
+		List<IRecipe> signs=new ArrayList<IRecipe>();
 		for(int i=0;i<ColorStrings.ALL.length;i++)
 		{
 			registerColor(i,chests,workbenches,bookshelves);
+			registerMissingBlocks(i,chests,workbenches,bookshelves,signs);
 		}
 		registerWashing();
 		guard("chest",chests);
 		guard("crafting_table",workbenches);
 		guard("bookshelf",bookshelves);
+		guard("sign",signs);
 		registry=null;
 		if(ConfigHandler.gregtechRecipes&&Loader.isModLoaded(GregTechCompat.GREGTECH))
 		{
@@ -176,7 +180,7 @@ public class CraftManager
 		dyeing(MDBlock.glass,g,s,"blockGlassColorless");
 		dyeing(MDBlock.glassPane,g,s,"paneGlassColorless");
 		dyeing(MDBlock.bookshelf,g,s,"bookshelf");
-		dyeing(MDBlock.plank,g,s,"plankWood");
+		dyeing(MDBlock.plank,g,s,wood(MDBlock.plank,0));
 		if(MDBlock.rockwool!=null)
 		{
 			dyeing(MDBlock.rockwool,g,s,"blockRockwool");
@@ -277,7 +281,7 @@ public class CraftManager
 		// Basalt forms from lava over soul soil in 1.16; here it is smelted from dyed soul soil, as in 1.7.10.
 		smelting(new ItemStack(MDBlock.soulSoil[g],1,s),new ItemStack(MDBlock.basalt[g],1,s),0.1F);
 
-		// Stairs, slabs and walls from dyed blocks of one shade, with the vanilla shapes and amounts
+		// Stairs, slabs, walls and fences from dyed blocks of one shade, with the vanilla shapes and amounts
 		for(MDBlock.Shape shape:MDBlock.SHAPES)
 		{
 			ItemStack base=new ItemStack(shape.base[g],1,s);
@@ -293,8 +297,109 @@ public class CraftManager
 			case WALL:
 				shaped(name+"/"+color,name,new ItemStack(shape.block,6,index),"SSS","SSS",'S',base);
 				break;
+			case FENCE:
+				shaped(name+"/"+color,name,new ItemStack(shape.block,3,index),"PSP","PSP",'P',base,'S',"stickWood");
+				break;
 			}
 		}
+	}
+	/**
+	 * The rest of the blocks the newer versions have (as in 1.16.5). Those with a vanilla 1.12 block are dyed like the
+	 * others, eight around a dye; the planks of each wood only take planks of that wood, so that each keeps its own
+	 * dyed planks. Those 1.12 lacks have recipes of their own, noted below, and lily of the valley grows in the world
+	 * like the cornflower.
+	 */
+	private static void registerMissingBlocks(int index,List<IRecipe> chests,List<IRecipe> workbenches,List<IRecipe> bookshelves,List<IRecipe> signs)
+	{
+		int g=ColorStrings.groupOf(index);
+		int s=ColorStrings.shadeOf(index);
+		String color=ColorStrings.ALL[index];
+		ItemStack dye=new ItemStack(MDItem.dye[g],1,s);
+		dyeing(MDBlock.endStone,g,s,new ItemStack(Blocks.END_STONE));
+		dyeing(MDBlock.chiseledSandstone,g,s,new ItemStack(Blocks.SANDSTONE,1,1));
+		dyeing(MDBlock.chiseledQuartz,g,s,new ItemStack(Blocks.QUARTZ_BLOCK,1,1));
+		dyeing(MDBlock.quartzPillar,g,s,new ItemStack(Blocks.QUARTZ_BLOCK,1,2));
+		dyeing(MDBlock.gravel,g,s,new ItemStack(Blocks.GRAVEL));
+		dyeing(MDBlock.ice,g,s,new ItemStack(Blocks.ICE));
+		dyeing(MDBlock.packedIce,g,s,new ItemStack(Blocks.PACKED_ICE));
+		dyeing(MDBlock.snow,g,s,new ItemStack(Blocks.SNOW));
+		dyeing(MDBlock.sprucePlank,g,s,wood(MDBlock.sprucePlank,1));
+		dyeing(MDBlock.birchPlank,g,s,wood(MDBlock.birchPlank,2));
+		dyeing(MDBlock.junglePlank,g,s,wood(MDBlock.junglePlank,3));
+		dyeing(MDBlock.acaciaPlank,g,s,wood(MDBlock.acaciaPlank,4));
+		dyeing(MDBlock.darkOakPlank,g,s,wood(MDBlock.darkOakPlank,5));
+		dyeing(MDBlock.poppy,g,s,new ItemStack(Blocks.RED_FLOWER,1,0));
+		dyeing(MDBlock.blueOrchid,g,s,new ItemStack(Blocks.RED_FLOWER,1,1));
+		dyeing(MDBlock.allium,g,s,new ItemStack(Blocks.RED_FLOWER,1,2));
+		dyeing(MDBlock.azureBluet,g,s,new ItemStack(Blocks.RED_FLOWER,1,3));
+		dyeing(MDBlock.oxeyeDaisy,g,s,new ItemStack(Blocks.RED_FLOWER,1,8));
+		dyeing(MDBlock.dandelion,g,s,new ItemStack(Blocks.YELLOW_FLOWER));
+
+		// Like the vanilla blocks: two quartz blocks on top of each other make two pillars, and two slabs a chiseled block
+		shaped("quartz_pillar/"+color,"quartz_pillar",new ItemStack(MDBlock.quartzPillar[g],2,s),"Q","Q",'Q',new ItemStack(MDBlock.quartz[g],1,s));
+		shaped("chiseled_quartz/"+color,"chiseled_quartz",new ItemStack(MDBlock.chiseledQuartz[g],1,s),"S","S",'S',slab("quartz",index));
+		shaped("chiseled_sandstone/"+color,"chiseled_sandstone",new ItemStack(MDBlock.chiseledSandstone[g],1,s),"S","S",'S',slab("sandstone",index));
+		// Quartz bricks (not in 1.12): four dyed quartz blocks in a square, like 1.16
+		square("quartz_bricks/"+color,MDBlock.quartzBricks,MDBlock.quartz,g,s);
+
+		// A small flower makes one dye, a tall one two
+		for(Block[] flower:new Block[][]{MDBlock.allium,MDBlock.azureBluet,MDBlock.blueOrchid,MDBlock.dandelion,MDBlock.lilyOfTheValley,
+				MDBlock.oxeyeDaisy,MDBlock.poppy})
+		{
+			String type=((IColoredBlock)flower[g]).getTypeName();
+			shapeless("dye_from_"+type+"/"+color,"dye_from_"+type,dye.copy(),new ItemStack(flower[g],1,s));
+		}
+		tallFlower(MDBlock.lilac,new ItemStack(Blocks.DOUBLE_PLANT,1,1),index,dye);
+		tallFlower(MDBlock.roseBush,new ItemStack(Blocks.DOUBLE_PLANT,1,4),index,dye);
+		tallFlower(MDBlock.peony,new ItemStack(Blocks.DOUBLE_PLANT,1,5),index,dye);
+
+		// Dyed planks of the other woods also make a dyed chest, crafting table and bookshelf, as oak ones do
+		for(Block[] planks:new Block[][]{MDBlock.sprucePlank,MDBlock.birchPlank,MDBlock.junglePlank,MDBlock.acaciaPlank,MDBlock.darkOakPlank})
+		{
+			ItemStack plank=new ItemStack(planks[g],1,s);
+			String type=((IColoredBlock)planks[g]).getTypeName();
+			chests.add(shaped("chest/"+type+"_"+color,"chest",new ItemStack(MDBlock.chest[index]),"PPP","P P","PPP",'P',plank));
+			workbenches.add(shaped("workbench/"+type+"_"+color,"workbench",new ItemStack(MDBlock.workbench[g],1,s),"PP","PP",'P',plank));
+			bookshelves.add(shaped("bookshelf/"+type+"_"+color,"bookshelf",new ItemStack(MDBlock.bookshelf[g],1,s),"PPP","BBB","PPP",'P',plank,'B',Items.BOOK));
+		}
+
+		// Signs: six dyed oak planks of one shade and a stick, like vanilla, or eight vanilla signs around a dye
+		ItemStack sign=new ItemStack(MDItem.sign,3,index);
+		signs.add(shaped("sign/"+color,"sign",sign,"PPP","PPP"," S ",'P',new ItemStack(MDBlock.plank[g],1,s),'S',"stickWood"));
+		shaped("dyeing/sign_"+color,"sign",new ItemStack(MDItem.sign,8,index),"SSS","SDS","SSS",'S',Items.SIGN,'D',dye);
+	}
+	/** The vanilla planks of a wood and every dyed shade of them, so dyed planks can be dyed again. */
+	private static Ingredient wood(Block[] dyed,int vanillaMeta)
+	{
+		ItemStack[] stacks=new ItemStack[dyed.length+1];
+		stacks[0]=new ItemStack(Blocks.PLANKS,1,vanillaMeta);
+		for(int i=0;i<dyed.length;i++)
+		{
+			stacks[i+1]=new ItemStack(dyed[i],1,OreDictionary.WILDCARD_VALUE);
+		}
+		return Ingredient.fromStacks(stacks);
+	}
+	/** The dyed slab of a kind ("quartz" for quartz_slab) in a color. */
+	private static ItemStack slab(String kind,int index)
+	{
+		for(MDBlock.Shape shape:MDBlock.SHAPES)
+		{
+			if(shape.kind==MDBlock.Shape.Kind.SLAB&&((ITileColoredBlock)shape.block).getTypeName().equals(kind+"_slab"))
+			{
+				return new ItemStack(shape.block,1,index);
+			}
+		}
+		throw new IllegalArgumentException("No dyed slab of "+kind);
+	}
+	/** Eight vanilla tall flowers around a dye make eight dyed ones, and a dyed one makes two dyes. */
+	private static void tallFlower(Block flower,ItemStack vanilla,int index,ItemStack dye)
+	{
+		String type=((ITileColoredBlock)flower).getTypeName();
+		String color=ColorStrings.ALL[index];
+		shaped("dyeing/"+type+"_"+color,type,new ItemStack(flower,8,index),"SSS","SDS","SSS",'S',vanilla,'D',dye);
+		ItemStack dyes=dye.copy();
+		dyes.setCount(2);
+		shapeless("dye_from_"+type+"/"+color,"dye_from_"+type,dyes,new ItemStack(flower,1,index));
 	}
 	/** Four dyed blocks of one shade in a square make four of another dyed block, like vanilla polished stone. */
 	private static void square(String name,Block[] output,Block[] input,int group,int shade)
@@ -317,6 +422,7 @@ public class CraftManager
 			shapeless("washing/"+dyed.getRegistryName().getResourcePath(),"washing",entry.getValue().copy(),
 					new ItemStack(dyed,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
 		}
+		shapeless("washing/sign","washing",new ItemStack(Items.SIGN),new ItemStack(MDItem.sign,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
 	}
 	/** Makes a vanilla recipe step aside for the mod's recipes that use the same shape. */
 	private static void guard(String vanillaName,List<IRecipe> preferred)
