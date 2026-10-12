@@ -14,9 +14,12 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.ConcretePowderBlock;
+import net.minecraft.world.level.block.CryingObsidianBlock;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.IceBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
@@ -144,6 +147,19 @@ public enum Kind {
     ICE("ice", "ice", Tab.BLOCKS, (color, p) -> new IceBlock(p)),
     PACKED_ICE("packed_ice", "packed_ice", Tab.BLOCKS, simple()),
     SNOW_BLOCK("snow_block", "snow_block", Tab.BLOCKS, simple()),
+    SOUL_SOIL("soul_soil", "soul_soil", Tab.BLOCKS, simple()),
+    BASALT("basalt", "basalt", Tab.BLOCKS, log()),
+    POLISHED_BASALT("polished_basalt", "polished_basalt", Tab.BLOCKS, log()),
+    SMOOTH_STONE("smooth_stone", "smooth_stone", Tab.BLOCKS, simple()),
+    SMOOTH_SANDSTONE("smooth_sandstone", "smooth_sandstone", Tab.BLOCKS, simple()),
+    NETHER_BRICKS("nether_bricks", "nether_bricks", Tab.BLOCKS, simple()),
+    CRACKED_NETHER_BRICKS("cracked_nether_bricks", "cracked_nether_bricks", Tab.BLOCKS, simple()),
+    CHISELED_NETHER_BRICKS("chiseled_nether_bricks", "chiseled_nether_bricks", Tab.BLOCKS, simple()),
+    END_STONE_BRICKS("end_stone_bricks", "end_stone_bricks", Tab.BLOCKS, simple()),
+    GLAZED_TERRACOTTA("glazed_terracotta", "white_glazed_terracotta", Tab.BLOCKS, (color, p) -> new GlazedTerracottaBlock(p)),
+    NETHERITE_BLOCK("netherite_block", "netherite_block", Tab.BLOCKS, simple()),
+    CRYING_OBSIDIAN("crying_obsidian", "crying_obsidian", Tab.BLOCKS, (color, p) -> new CryingObsidianBlock(p)),
+    CHAIN("chain", "iron_chain", Tab.BLOCKS, (color, p) -> new ChainBlock(p)),
 
     TULIP("tulip", "white_tulip", Tab.PLANTS, (color, p) -> new FlowerBlock(MobEffects.WEAKNESS, 7.0F, p)),
     ALLIUM("allium", "allium", Tab.PLANTS, flower("allium")),
@@ -262,6 +278,30 @@ public enum Kind {
     ACACIA_STAIRS(Shape.STAIRS, "acacia_stairs", ACACIA_PLANKS),
     DARK_OAK_SLAB(Shape.SLAB, "dark_oak_slab", DARK_OAK_PLANKS),
     DARK_OAK_STAIRS(Shape.STAIRS, "dark_oak_stairs", DARK_OAK_PLANKS),
+    SOUL_SOIL_SLAB(Shape.SLAB, "soul_soil_slab", SOUL_SOIL),
+    SOUL_SOIL_STAIRS(Shape.STAIRS, "soul_soil_stairs", SOUL_SOIL),
+    BASALT_SLAB(Shape.SLAB, "basalt_slab", BASALT),
+    BASALT_STAIRS(Shape.STAIRS, "basalt_stairs", BASALT),
+    POLISHED_BASALT_SLAB(Shape.SLAB, "polished_basalt_slab", POLISHED_BASALT),
+    POLISHED_BASALT_STAIRS(Shape.STAIRS, "polished_basalt_stairs", POLISHED_BASALT),
+    SMOOTH_STONE_SLAB(Shape.SLAB, "smooth_stone_slab", SMOOTH_STONE),
+    SMOOTH_STONE_STAIRS(Shape.STAIRS, "smooth_stone_stairs", SMOOTH_STONE),
+    SMOOTH_SANDSTONE_SLAB(Shape.SLAB, "smooth_sandstone_slab", SMOOTH_SANDSTONE),
+    SMOOTH_SANDSTONE_STAIRS(Shape.STAIRS, "smooth_sandstone_stairs", SMOOTH_SANDSTONE),
+    NETHER_BRICK_SLAB(Shape.SLAB, "nether_brick_slab", NETHER_BRICKS),
+    NETHER_BRICK_STAIRS(Shape.STAIRS, "nether_brick_stairs", NETHER_BRICKS),
+    NETHER_BRICK_WALL(Shape.WALL, "nether_brick_wall", NETHER_BRICKS),
+    CRACKED_NETHER_BRICK_SLAB(Shape.SLAB, "cracked_nether_brick_slab", CRACKED_NETHER_BRICKS),
+    CRACKED_NETHER_BRICK_STAIRS(Shape.STAIRS, "cracked_nether_brick_stairs", CRACKED_NETHER_BRICKS),
+    CHISELED_NETHER_BRICK_SLAB(Shape.SLAB, "chiseled_nether_brick_slab", CHISELED_NETHER_BRICKS),
+    CHISELED_NETHER_BRICK_STAIRS(Shape.STAIRS, "chiseled_nether_brick_stairs", CHISELED_NETHER_BRICKS),
+    END_STONE_BRICK_SLAB(Shape.SLAB, "end_stone_brick_slab", END_STONE_BRICKS),
+    END_STONE_BRICK_STAIRS(Shape.STAIRS, "end_stone_brick_stairs", END_STONE_BRICKS),
+    END_STONE_BRICK_WALL(Shape.WALL, "end_stone_brick_wall", END_STONE_BRICKS),
+    NETHERITE_SLAB(Shape.SLAB, "netherite_slab", NETHERITE_BLOCK),
+    NETHERITE_STAIRS(Shape.STAIRS, "netherite_stairs", NETHERITE_BLOCK),
+    CRYING_OBSIDIAN_SLAB(Shape.SLAB, "crying_obsidian_slab", CRYING_OBSIDIAN),
+    CRYING_OBSIDIAN_STAIRS(Shape.STAIRS, "crying_obsidian_stairs", CRYING_OBSIDIAN),
     /** Half a dyed crafting table, which works as a crafting table too. */
     CRAFTING_TABLE_SLAB(Shape.SLAB, "crafting_table_slab", CRAFTING_TABLE, (color, p) -> new DyedCraftingSlabBlock(p)),
     ;

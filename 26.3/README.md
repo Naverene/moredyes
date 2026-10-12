@@ -3,10 +3,12 @@
 This mod adds 118 new dyes to Minecraft, one for every mix of two vanilla dye colors. Each color also comes with
 blocks dyed in it: wool, stone and stone bricks (in all varieties), cobblestone and mossy cobblestone, andesite,
 diorite and granite (plain and polished), end stone, bricks, clay, terracotta, concrete and concrete powder, sand,
-gravel and sandstone, soul sand, obsidian, glowstone, bone blocks, ice, packed ice and snow, blocks of coal, lapis,
-redstone and quartz (and quartz bricks, pillars, chiseled and smooth quartz), clear and foggy glass and panes,
-bookshelves, crafting tables, chests, pistons and sticky pistons, logs, planks, leaves, saplings and fences in all six
-woods, and twelve flowers. Most of the blocks also come as slabs and stairs, and those vanilla has walls for as walls.
+gravel and sandstone (plain, cut, chiseled and smooth), soul sand and soul soil, basalt and polished basalt, smooth
+stone, nether bricks (plain, cracked and chiseled), end stone bricks, glazed terracotta, obsidian and crying obsidian,
+glowstone, bone blocks, ice, packed ice and snow, blocks of coal, lapis, redstone, quartz and netherite (and quartz
+bricks, pillars, chiseled and smooth quartz), clear and foggy glass and panes, chains, bookshelves, crafting tables,
+chests, pistons and sticky pistons, logs, planks, leaves, saplings and fences in all six woods, and twelve flowers.
+Most of the blocks also come as slabs and stairs, and those vanilla has walls for as walls.
 A crafting table slab works like a crafting table. The colors are named by their hex code.
 
 This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
