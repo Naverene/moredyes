@@ -41,6 +41,23 @@ public class ModLangProvider extends LanguageProvider
         add("itemGroup.blocks", "MoreDyes Blocks");
         add("itemGroup.shapes", "MoreDyes Slabs, Stairs and Walls");
 
+        // The paint gun (paint/PaintGunItem).
+        add("item.moredyes.paint_gun", "Paint Gun");
+        add("item.moredyes.paint_gun.blocks_left", "Enough ink for %s blocks in this color");
+        add("item.moredyes.paint_gun.brush", "Brush: %sx%s");
+        add("item.moredyes.paint_gun.color", "Color: %s");
+        add("item.moredyes.paint_gun.creative", "Creative mode: painting is free");
+        add("item.moredyes.paint_gun.empty", "Out of ink for this color. Right-click dyes onto the gun to load it.");
+        add("item.moredyes.paint_gun.help", "Right-click dyes onto it to load it. Use it in the air to pick a color; sneak and use it on a block to copy that block's color.");
+        add("item.moredyes.paint_gun.ink.black", "Black ink: %s dyes");
+        add("item.moredyes.paint_gun.ink.blue", "Blue ink: %s dyes");
+        add("item.moredyes.paint_gun.ink.green", "Green ink: %s dyes");
+        add("item.moredyes.paint_gun.ink.red", "Red ink: %s dyes");
+        add("item.moredyes.paint_gun.ink.white", "White ink: %s dyes");
+        add("item.moredyes.paint_gun.mode.erase", "Mode: Remove paint");
+        add("item.moredyes.paint_gun.mode.paint", "Mode: Paint");
+        add("item.moredyes.paint_gun.picked", "Picked color %s");
+
         // Dyed Iron Chests (compat/ironchest). The color's hex code fills in the %s.
         for (String tier : Reference.IRON_CHEST_TIERS)
         {

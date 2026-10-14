@@ -116,6 +116,10 @@ def wallRecipes = ['data/moredyes/recipes/*wall_*.json', 'data/moredyes/recipes/
 // carry Fabric's condition too.
 def ironChestRecipes = 'data/moredyes/recipes/iron_chests/*.json'
 def ironChestItemModels = 'assets/moredyes/models/item/dyed_*_chest.json'
+// The paint gun (paint/ in the Forge build) is only in the Forge build so far. Its atlas file names a Forge-side sprite
+// source, which Fabric's texture loader would reject.
+def paintGunFiles = ['assets/minecraft/atlases/blocks.json', 'data/moredyes/recipes/paint_gun.json',
+                     'assets/moredyes/models/item/paint_gun.json', 'assets/moredyes/textures/item/paint_gun*.png']
 def fabricRecipesDir = layout.buildDirectory.dir('generated/fabricRecipes')
 def fabricIronChestRecipesDir = layout.buildDirectory.dir('generated/fabricIronChestRecipes')
 
@@ -192,6 +196,7 @@ tasks.named('processResources', ProcessResources).configure {
     from(new File(forgeDir, 'src/main/resources')) {
         exclude 'META-INF/mods.toml'
         exclude ironChestRecipes, ironChestItemModels
+        exclude paintGunFiles
     }
     from(forgeGenerated) {
         exclude '.cache'

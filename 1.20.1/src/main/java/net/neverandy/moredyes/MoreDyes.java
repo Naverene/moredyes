@@ -1,7 +1,10 @@
 package net.neverandy.moredyes;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -16,6 +19,7 @@ import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDTabs;
 import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.network.ModNetwork;
+import net.neverandy.moredyes.paint.PaintData;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 import net.neverandy.moredyes.world.ModWorldGen;
@@ -37,6 +41,7 @@ public class MoreDyes
 
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(this::setup);
+        modBus.addListener((RegisterCapabilitiesEvent event) -> event.register(PaintData.class));
 
         MDBlock.register(modBus);
         MDItem.register(modBus);
@@ -44,6 +49,8 @@ public class MoreDyes
         ModTileEntities.register(modBus);
         ModWorldGen.register(modBus);
         ModRecipes.register(modBus);
+        // The grey block textures painted blocks are drawn with; their sprite source has to exist before textures load.
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> net.neverandy.moredyes.paint.client.GreySprites::registerSourceType);
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
         if (ModList.get().isLoaded("ironchest"))
