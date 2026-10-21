@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.toggle.Toggles;
 
 /**
  * Adds the dye trees and patches of dyed tulips to the overworld. The features are data files
@@ -24,8 +25,18 @@ public final class ModWorldGen {
     private ModWorldGen() {}
 
     public static void register() {
-        BiomeModifications.addFeature(overworldLand(), GenerationStep.Decoration.VEGETAL_DECORATION, placed("dye_trees"));
-        BiomeModifications.addFeature(overworldLand(), GenerationStep.Decoration.VEGETAL_DECORATION, placed("tulips"));
+        BiomeModifications.addFeature(overworldLand().and(kept("dye_trees")), GenerationStep.Decoration.VEGETAL_DECORATION,
+            placed("dye_trees"));
+        BiomeModifications.addFeature(overworldLand().and(kept("tulips")), GenerationStep.Decoration.VEGETAL_DECORATION,
+            placed("tulips"));
+    }
+
+    /**
+     * Whether a feature is still there: turned off in the config (generate_trees, generate_flowers), or dropped with
+     * the blocks it places (see toggle/DataFilter). Checked when the biomes are changed, after the data has loaded.
+     */
+    private static Predicate<BiomeSelectionContext> kept(String name) {
+        return context -> !Toggles.isLeftOut(MoreDyes.MOD_ID + ":" + name);
     }
 
     /** Overworld biomes that aren't water, beach, desert, badlands, icy, mushroom fields or caves. */

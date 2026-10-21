@@ -112,7 +112,8 @@ public final class DyedSheep {
         if (!(context.getOptionalParameter(LootContextParams.THIS_ENTITY) instanceof Sheep sheep)) {
             return;
         }
-        getColor(sheep).ifPresent(color -> loot.replaceAll(stack -> isVanillaWool(stack)
+        // Without dyed wool (turned off in the config) a dyed sheep drops white wool.
+        getColor(sheep).filter(color -> Kind.WOOL.enabled()).ifPresent(color -> loot.replaceAll(stack -> isVanillaWool(stack)
             ? new ItemStack(ModItems.get(Kind.WOOL, color), stack.getCount())
             : stack));
     }

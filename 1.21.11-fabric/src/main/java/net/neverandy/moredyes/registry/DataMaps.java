@@ -19,6 +19,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.toggle.Toggles;
 
 /**
  * Which items burn in a furnace and which can be composted. The NeoForge build keeps these as data maps
@@ -43,6 +44,10 @@ public final class DataMaps {
     private static Map<Item, JsonObject> values(String name) {
         Map<Item, JsonObject> values = new LinkedHashMap<>();
         for (Map.Entry<String, JsonElement> entry : read(name).getAsJsonObject("values").entrySet()) {
+            if (Toggles.isLeftOut(entry.getKey())) {
+                // A block the config turned off.
+                continue;
+            }
             Item item = BuiltInRegistries.ITEM.getOptional(Identifier.parse(entry.getKey()))
                 .orElseThrow(() -> new IllegalStateException("Unknown item " + entry.getKey() + " in " + name));
             values.put(item, entry.getValue().getAsJsonObject());
