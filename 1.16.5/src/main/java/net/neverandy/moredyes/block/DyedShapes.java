@@ -7,9 +7,9 @@ import net.minecraft.block.StairsBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.toggle.Toggles;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +56,7 @@ public final class DyedShapes
     public final SlabBlock[] slabs = new SlabBlock[ColorStrings.ALL.length];
     /** Empty for a type that only has slabs. */
     public final StairsBlock[] stairs;
-    /** Empty for types without walls, and when walls are turned off in the config. */
+    /** Empty for types without walls. Shapes the config turns off (see Toggles) stay null. */
     public final WallBlock[] walls;
 
     private final Function<AbstractBlock.Properties, SlabBlock> slabFactory;
@@ -74,7 +74,7 @@ public final class DyedShapes
         this.vanilla = vanilla;
         this.slabFactory = slabFactory;
         this.stairs = new StairsBlock[withStairs ? ColorStrings.ALL.length : 0];
-        this.walls = new WallBlock[ConfigHandler.wallBlocks.get() && WALL_TYPES.contains(type) ? ColorStrings.ALL.length : 0];
+        this.walls = new WallBlock[WALL_TYPES.contains(type) ? ColorStrings.ALL.length : 0];
     }
 
     /** A type with one texture on every face. */
@@ -102,23 +102,46 @@ public final class DyedShapes
     /** Must run after the full blocks are made, since each shape copies the full block's properties. */
     public void register()
     {
+        // Each shape copies its full block, so it can't be made when the config turned that off (see Toggles).
+        boolean base = full[0] != null;
+        boolean withSlabs = keep(base && Toggles.slabs, "slab");
+        boolean withStairs = stairs.length > 0 && keep(base && Toggles.stairs, "stairs");
+        boolean withWalls = walls.length > 0 && keep(base && Toggles.walls, "wall");
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
             Block block = full[i];
+            if (block == null)
+            {
+                continue;
+            }
             AbstractBlock.Properties properties = AbstractBlock.Properties.from(block);
-            slabs[i] = add(type + "slab_" + color, slabFactory.apply(properties));
-            if (stairs.length > 0)
+            if (withSlabs)
+            {
+                slabs[i] = add(type + "slab_" + color, slabFactory.apply(properties));
+            }
+            if (withStairs)
             {
                 stairs[i] = add(type + "stairs_" + color, new StairsBlock(block::getDefaultState, properties));
             }
-            if (walls.length > 0)
+            if (withWalls)
             {
                 // Not solid, so the game skips caching six face-occlusion shapes for each of a wall's 324 states.
                 // That cache is most of what walls cost in memory, and walls rarely hide a neighbor's face anyway.
                 walls[i] = add(type + "wall_" + color, new DyedWallBlock(AbstractBlock.Properties.from(block).notSolid()));
             }
         }
+    }
+
+    /** Whether to make this type's {@code shape}; if not, its blocks are noted as left out. */
+    private boolean keep(boolean on, String shape)
+    {
+        if (!on)
+        {
+            MDBlock.leaveOutAll(type + shape);
+            return false;
+        }
+        return !MDBlock.leaveOut(type + shape);
     }
 
     private static <B extends Block> B add(String name, B block)
