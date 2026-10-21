@@ -8,7 +8,8 @@
     "PistonBaseBlockMixin",
     "PistonHeadBlockMixin",
     "DiodeBlockMixin",
-    "RecipeManagerMixin"
+    "RecipeManagerMixin",
+    "MultiPackResourceManagerMixin"
   ],
   "client": [
     "SheepFurLayerMixin"
