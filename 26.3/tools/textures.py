@@ -111,7 +111,7 @@ for _wood in WOODS:
 
 # Foggy glass replaces the vanilla glass texture with its own, made from tools/base/foggy_glass.png.
 FOGGY_GLASS = 'block/foggy_glass'
-# Speckled granite (after GregTech's granite) replaces the vanilla granite textures of its kinds with its own, made
+# Speckled granite (GregTech's red granite textures, LGPL-3.0, see THIRD_PARTY_NOTICES.md) replaces the vanilla granite textures of its kinds with its own, made
 # from tools/base/<kind>.png: kind -> (vanilla texture it replaces, texture in this mod).
 OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
                 'smooth_speckled_granite': ('block/polished_granite', 'block/smooth_speckled_granite')}

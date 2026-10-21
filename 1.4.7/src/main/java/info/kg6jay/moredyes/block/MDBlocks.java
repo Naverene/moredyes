@@ -49,7 +49,7 @@ public final class MDBlocks {
         chiseledSandstone, birchPlank, sprucePlank, junglePlank, acaciaPlank, darkOakPlank, allium, azureBluet,
         blueOrchid, dandelion, lilyOfTheValley, oxeyeDaisy, poppy, lilac, peony, roseBush, sign, wallSign, flowerPot;
 
-    /** Granite drawn after GregTech's: coarse light and dark grains, and a polished tile. Made last of all. */
+    /** Granite with GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md), greyed and tinted. Made last of all. */
     public static Block speckledGranite, smoothSpeckledGranite;
 
     /** Slabs that recipes for other blocks take. */

@@ -137,7 +137,7 @@ public class MDBlock
     public static Block[] polishedAndesiteArray = new Block[COLORS];
     public static Block[] polishedDioriteArray = new Block[COLORS];
     public static Block[] polishedGraniteArray = new Block[COLORS];
-    /** Granite drawn after GregTech's: coarse light and dark grains, and a polished tile. */
+    /** Granite with GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md), greyed and tinted. */
     public static Block[] speckledGraniteArray = new Block[COLORS];
     public static Block[] smoothSpeckledGraniteArray = new Block[COLORS];
     public static Block[] endstoneArray = new Block[COLORS];

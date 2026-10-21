@@ -190,7 +190,7 @@ public final class TintSources {
         base("granite");
         base("andesite");
         base("polishedGranite");
-        // Drawn for More Dyes after GregTech's granite.
+        // GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md).
         base("speckledGranite");
         base("smoothSpeckledGranite");
         base("polishedDiorite");

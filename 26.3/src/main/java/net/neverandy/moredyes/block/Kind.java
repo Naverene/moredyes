@@ -135,7 +135,7 @@ public enum Kind {
     POLISHED_ANDESITE("polished_andesite", "polished_andesite", Tab.BLOCKS, simple()),
     POLISHED_DIORITE("polished_diorite", "polished_diorite", Tab.BLOCKS, simple()),
     POLISHED_GRANITE("polished_granite", "polished_granite", Tab.BLOCKS, simple()),
-    // Granite drawn after GregTech's (coarse light and dark grains, and a polished tile), with its own textures.
+    // Granite with GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md), greyed and tinted.
     SPECKLED_GRANITE("speckled_granite", "granite", Tab.BLOCKS, simple()),
     SMOOTH_SPECKLED_GRANITE("smooth_speckled_granite", "polished_granite", Tab.BLOCKS, simple()),
     END_STONE("end_stone", "end_stone", Tab.BLOCKS, simple()),

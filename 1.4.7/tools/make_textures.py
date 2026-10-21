@@ -211,7 +211,7 @@ SOURCES = [
     # Untinted: the pot and its soil, drawn around a dyed plant in a flower pot.
     ("flowerPot", "blocks/flower_pot", keep),
     ("flowerPotDirt", "blocks/dirt", keep),
-    # Drawn for More Dyes after GregTech's granite (in the 1.7.10 version's base textures).
+    # GregTech's red granite textures (in the 1.7.10 version's base textures; LGPL-3.0, see THIRD_PARTY_NOTICES.md).
     ("speckledGranite", "base/speckledGranite", grey),
     ("smoothSpeckledGranite", "base/smoothSpeckledGranite", grey),
 ]

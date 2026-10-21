@@ -91,7 +91,7 @@ TEXTURES = {
     'blocks/tinted/granite': ('blocks/stone_granite', GREY),
     'blocks/tinted/andesite': ('blocks/stone_andesite', GREY),
     'blocks/tinted/polished_granite': ('blocks/stone_granite_smooth', GREY),
-    # Drawn for More Dyes after GregTech's granite, not taken from vanilla.
+    # GregTech's red granite textures (tools/base, LGPL-3.0, see THIRD_PARTY_NOTICES.md), not vanilla's.
     'blocks/tinted/speckled_granite': ('base:speckled_granite', GREY),
     'blocks/tinted/smooth_speckled_granite': ('base:smooth_speckled_granite', GREY),
     'blocks/tinted/polished_diorite': ('blocks/stone_diorite_smooth', GREY),

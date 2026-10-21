@@ -116,7 +116,7 @@ SOURCES = {
     'polished_andesite': ('block/polished_andesite', GREY),
     'polished_diorite': ('block/polished_diorite', GREY),
     'polished_granite': ('block/polished_granite', GREY),
-    # Drawn for More Dyes after GregTech's granite (tools/base), not taken from vanilla.
+    # GregTech's red granite textures (tools/base, LGPL-3.0, see THIRD_PARTY_NOTICES.md), not vanilla's.
     'speckled_granite': ('base:speckled_granite', GREY),
     'smooth_speckled_granite': ('base:smooth_speckled_granite', GREY),
     'endstone': ('block/end_stone', GREY),
