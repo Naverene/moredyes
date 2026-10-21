@@ -24,7 +24,7 @@ public final class CauldronWashing {
     /** Adds the washing to vanilla's water cauldron interactions. Called once, on the main thread, at common setup. */
     public static void register() {
         for (Kind kind : Kind.values()) {
-            if (!kind.hasItem() || kind.washed().isEmpty()) {
+            if (!kind.hasItem() || !kind.enabled() || kind.washed().isEmpty()) {
                 continue;
             }
             Item washed = kind.washed().get();

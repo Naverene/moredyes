@@ -7,6 +7,7 @@
     "DiodeBlockMixin",
     "EndCrystalItemMixin",
     "EntityMixin",
+    "MultiPackResourceManagerMixin",
     "PistonBaseBlockMixin",
     "PistonHeadBlockMixin",
     "PortalShapeMixin",

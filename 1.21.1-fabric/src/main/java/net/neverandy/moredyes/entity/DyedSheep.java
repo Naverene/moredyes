@@ -107,7 +107,8 @@ public final class DyedSheep {
      * EntityMixin for every item a sheep drops, whether shorn (1.21.1 doesn't use a loot table for that) or killed.
      */
     public static ItemStack drop(Sheep sheep, ItemStack stack) {
-        if (!isVanillaWool(stack)) {
+        // Without dyed wool (turned off in the config) a dyed sheep drops white wool.
+        if (!isVanillaWool(stack) || !Kind.WOOL.enabled()) {
             return stack;
         }
         return getColor(sheep).map(color -> new ItemStack(ModItems.get(Kind.WOOL, color), stack.getCount()))

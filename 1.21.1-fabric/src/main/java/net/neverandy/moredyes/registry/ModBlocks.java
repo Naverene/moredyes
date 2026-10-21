@@ -24,8 +24,12 @@ import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.toggle.Toggles;
 
-/** Registers one block of every {@link Kind} in every {@link MixColor}, and flower pots for the plants. */
+/**
+ * Registers one block of every {@link Kind} in every {@link MixColor}, and flower pots for the plants. Kinds the config
+ * leaves out (see {@link Kind#enabled()}) are not registered: {@link #all} is empty for them and {@link #get} null.
+ */
 public final class ModBlocks {
 
     /** The kinds that can be put in a flower pot. */
@@ -46,6 +50,12 @@ public final class ModBlocks {
         for (Kind kind : Kind.values()) {
             Map<MixColor, Block> byColor = new LinkedHashMap<>();
             BY_KIND.put(kind, byColor);
+            if (!kind.enabled()) {
+                // Turned off in the config. Its recipes, drops and tags are dropped as they load (see toggle/DataFilter).
+                MixColors.ALL.forEach(color -> Toggles.leftOut(color.id(kind.id())));
+                BY_KIND.put(kind, Map.of());
+                continue;
+            }
             for (MixColor color : MixColors.ALL) {
                 // A slab, stairs or wall copies the dyed block it is made from, which is registered before it.
                 BlockBehaviour.Properties properties = kind.base() != null
@@ -59,6 +69,10 @@ public final class ModBlocks {
         for (Kind kind : POTTABLE) {
             for (MixColor color : MixColors.ALL) {
                 Block plant = get(kind, color);
+                if (plant == null) {
+                    Toggles.leftOut("potted_" + color.id(kind.id()));
+                    continue;
+                }
                 POTTED.add((FlowerPotBlock) register("potted_" + color.id(kind.id()), p -> new FlowerPotBlock(plant, p),
                     BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_WHITE_TULIP)));
             }
@@ -73,6 +87,7 @@ public final class ModBlocks {
         return block;
     }
 
+    /** The block of a kind in a color, or null when the config leaves the kind out. */
     public static Block get(Kind kind, MixColor color) {
         return BY_KIND.get(kind).get(color);
     }
