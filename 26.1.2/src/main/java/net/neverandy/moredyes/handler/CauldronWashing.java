@@ -27,7 +27,7 @@ public final class CauldronWashing {
 
     public static void register(RegisterCauldronInteractionEvent.Interaction event) {
         for (Kind kind : Kind.values()) {
-            if (!kind.hasItem() || kind.washed().isEmpty()) {
+            if (!kind.hasItem() || !kind.enabled() || kind.washed().isEmpty()) {
                 continue;
             }
             Item washed = kind.washed().get();
