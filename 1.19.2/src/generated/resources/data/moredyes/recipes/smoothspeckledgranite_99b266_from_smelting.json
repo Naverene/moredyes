@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moredyes:speckledgranite_99b266"
+  },
+  "result": "moredyes:smoothspeckledgranite_99b266"
+}

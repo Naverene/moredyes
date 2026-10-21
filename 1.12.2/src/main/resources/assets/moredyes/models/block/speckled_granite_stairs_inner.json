@@ -1,0 +1,8 @@
+{
+  "parent": "moredyes:block/tinted_inner_stairs",
+  "textures": {
+    "top": "moredyes:blocks/tinted/speckled_granite",
+    "side": "moredyes:blocks/tinted/speckled_granite",
+    "bottom": "moredyes:blocks/tinted/speckled_granite"
+  }
+}

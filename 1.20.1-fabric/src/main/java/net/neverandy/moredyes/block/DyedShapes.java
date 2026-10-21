@@ -179,6 +179,8 @@ public final class DyedShapes
         of("polishedandesite", "Polished Andesite", polishedAndesiteArray, "polished_andesite", "polished_andesite");
         of("polisheddiorite", "Polished Diorite", polishedDioriteArray, "polished_diorite", "polished_diorite");
         of("polishedgranite", "Polished Granite", polishedGraniteArray, "polished_granite", "polished_granite");
+        of("speckledgranite", "Speckled Granite", speckledGraniteArray, "speckled_granite", "granite");
+        of("smoothspeckledgranite", "Smooth Speckled Granite", smoothSpeckledGraniteArray, "smooth_speckled_granite", "polished_granite");
         of("endstone", "End Stone", endstoneArray, "endstone", "end_stone");
         of("soulsoil", "Soul Soil", soulSoilArray, "soul_soil", "soul_soil");
         of("basalt", "Basalt", basaltArray, "basalt_side", "basalt_top", "basalt_top", Layer.SOLID, "basalt");

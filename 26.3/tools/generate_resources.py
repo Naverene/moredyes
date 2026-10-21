@@ -29,7 +29,7 @@ import sys
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from textures import TEXTURES, FOGGY_GLASS, WOODS, client_jar  # noqa: E402
+from textures import TEXTURES, FOGGY_GLASS, OWN_TEXTURES, WOODS, client_jar  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'src/generated/resources')
@@ -162,7 +162,9 @@ DYE_MIXES = [
 ]
 
 # Kinds that are dyed by putting eight vanilla blocks around a dye. The others are made another way (see recipes()).
-NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip'}
+# The English names of the kinds whose vanilla block has another name.
+OWN_NAMES = {'speckled_granite': 'Speckled Granite', 'smooth_speckled_granite': 'Smooth Speckled Granite'}
+NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip'}
 # Tags the dyed blocks are not added to even though their vanilla block is in them: tags that name the vanilla color,
 # and tags that would let a dyed block make a vanilla block in a recipe that has a dyed version.
 TAG_EXCLUDED = re.compile(r'white|colorless|uncolored|undyed|smelts_to_glass|(^|/)(oak|birch|spruce|jungle|acacia|dark_oak)_logs$')
@@ -336,6 +338,9 @@ class Models:
         texture = short(texture)
         if kind.startswith('foggy_glass') and texture == 'block/glass':
             return [(MOD + ':' + FOGGY_GLASS, True)]
+        for own, (replaced, name) in OWN_TEXTURES.items():
+            if (kind == own or kind.startswith(own + '_')) and texture == replaced:
+                return [(MOD + ':' + name, True)]
         if texture in TEXTURES:
             return [(MOD + ':' + name, tinted) for name, _, tinted in TEXTURES[texture]]
         return None
@@ -518,6 +523,7 @@ def main():
         base_name = lang['block.minecraft.' + vanilla].replace('White ', '')
         if kind.startswith('foggy_'):
             base_name = 'Foggy ' + base_name
+        base_name = OWN_NAMES.get(kind, base_name)
         if kind == 'orchid':
             base_name = 'Orchid'
         if kind in ('sign', 'wall_sign'):
@@ -673,6 +679,7 @@ def shapes(jars, w, models, kinds, colors, lang, names, groups):
         base_name = lang['block.minecraft.' + vanilla_of[base]].replace('White ', '')
         if base.startswith('foggy_'):
             base_name = 'Foggy ' + base_name
+        base_name = OWN_NAMES.get(base, base_name)
         name = shape_name(lang, kind, shape, base_name)
         groups[kind] = 'Dyed ' + plural(name)
         for color in colors:
@@ -929,6 +936,17 @@ def recipes(jars, w, kinds, colors):
             shapeless('unpacking/%s_%s' % (block, c), 'minecraft:' + unpacked, 9, [b(block)], 'redstone')
         shaped('glass_pane_%s' % c, b('glass_pane'), 16, ['GGG', 'GGG'], {'G': b('glass')}, True)
         shaped('foggy_glass_pane_%s' % c, b('foggy_glass_pane'), 16, ['GGG', 'GGG'], {'G': b('foggy_glass')}, True)
+        # Speckled granite: eight dyed granite around a flint. It smelts, or is cut, into smooth speckled granite, and
+        # both wash back into the vanilla granite they are drawn after.
+        wash('speckled_granite')
+        wash('smooth_speckled_granite')
+        shaped('speckled_granite_%s' % c, b('speckled_granite'), 8, ['GGG', 'GFG', 'GGG'],
+               {'G': b('granite'), 'F': 'minecraft:flint'}, True)
+        smelt('%s_from_smelting' % b('smooth_speckled_granite').split(':')[1], b('speckled_granite'),
+              b('smooth_speckled_granite'), 0.1)
+        w.write('data/%s/recipe/stonecutting/smooth_speckled_granite_%s.json' % (MOD, c), {
+            'type': 'minecraft:stonecutting', 'ingredient': b('speckled_granite'),
+            'result': {'count': 1, 'id': b('smooth_speckled_granite')}})
 
         # The dyed planks of every wood work together, but only in one color. These win over the vanilla recipes
         # that take any planks, so dyed planks make dyed chests and tables (see recipe_priorities.json).

@@ -91,6 +91,9 @@ TEXTURES = {
     'blocks/tinted/granite': ('blocks/stone_granite', GREY),
     'blocks/tinted/andesite': ('blocks/stone_andesite', GREY),
     'blocks/tinted/polished_granite': ('blocks/stone_granite_smooth', GREY),
+    # Drawn for More Dyes after GregTech's granite, not taken from vanilla.
+    'blocks/tinted/speckled_granite': ('base:speckled_granite', GREY),
+    'blocks/tinted/smooth_speckled_granite': ('base:smooth_speckled_granite', GREY),
     'blocks/tinted/polished_diorite': ('blocks/stone_diorite_smooth', GREY),
     'blocks/tinted/polished_andesite': ('blocks/stone_andesite_smooth', GREY),
     'blocks/tinted/concrete': ('blocks/concrete_white', GREY),
@@ -217,6 +220,8 @@ CUBE_ALL = {
     'granite': T + 'granite',
     'andesite': T + 'andesite',
     'polished_granite': T + 'polished_granite',
+    'speckled_granite': T + 'speckled_granite',
+    'smooth_speckled_granite': T + 'smooth_speckled_granite',
     'polished_diorite': T + 'polished_diorite',
     'polished_andesite': T + 'polished_andesite',
     'concrete': T + 'concrete',
@@ -290,7 +295,7 @@ STAIRS = ['stone', 'cobble', 'mossy_cobble', 'stonebrick', 'stonebrick_cracked',
           'brick', 'clay', 'coal', 'lapis', 'redstone', 'quartz', 'quartz_bricks', 'chiseled_quartz', 'quartz_pillar',
           'smooth_quartz', 'obsidian', 'glowstone', 'soulsand', 'sand', 'sandstone', 'chiseled_sandstone',
           'cut_sandstone', 'smooth_sandstone', 'andesite', 'diorite', 'granite', 'polished_andesite',
-          'polished_diorite', 'polished_granite', 'end_stone', 'end_stone_brick', 'nether_brick', 'ice', 'packed_ice',
+          'polished_diorite', 'polished_granite', 'speckled_granite', 'smooth_speckled_granite', 'end_stone', 'end_stone_brick', 'nether_brick', 'ice', 'packed_ice',
           'snow', 'bone_block', 'glass', 'glass_foggy', 'wool', 'concrete', 'concrete_powder', 'plank', 'birch_plank',
           'spruce_plank', 'jungle_plank', 'acacia_plank', 'dark_oak_plank']
 SLABS = STAIRS + ['workbench']

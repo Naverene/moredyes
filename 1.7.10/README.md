@@ -156,6 +156,10 @@ r/^moredyes:[a-z]+MixGranite$/
 r/^moredyes:[a-z]+MixAndesite$/
 ; {"displayName":"Dyed Polished Granite"}
 r/^moredyes:[a-z]+MixPolishedGranite$/
+; {"displayName":"Dyed Speckled Granite"}
+r/^moredyes:[a-z]+MixSpeckledGranite$/
+; {"displayName":"Dyed Smooth Speckled Granite"}
+r/^moredyes:[a-z]+MixSmoothSpeckledGranite$/
 ; {"displayName":"Dyed Polished Diorite"}
 r/^moredyes:[a-z]+MixPolishedDiorite$/
 ; {"displayName":"Dyed Polished Andesite"}
@@ -252,6 +256,10 @@ r/^moredyes:stoneStairs$/
 r/^moredyes:graniteStairs$/
 ; {"displayName":"Dyed Polished Granite Stairs"}
 r/^moredyes:polishedGraniteStairs$/
+; {"displayName":"Dyed Speckled Granite Stairs"}
+r/^moredyes:speckledGraniteStairs$/
+; {"displayName":"Dyed Smooth Speckled Granite Stairs"}
+r/^moredyes:smoothSpeckledGraniteStairs$/
 ; {"displayName":"Dyed Diorite Stairs"}
 r/^moredyes:dioriteStairs$/
 ; {"displayName":"Dyed Polished Diorite Stairs"}
@@ -418,6 +426,10 @@ r/^moredyes:graniteSlab$/
 r/^moredyes:andesiteSlab$/
 ; {"displayName":"Dyed Polished Granite Slabs"}
 r/^moredyes:polishedGraniteSlab$/
+; {"displayName":"Dyed Speckled Granite Slabs"}
+r/^moredyes:speckledGraniteSlab$/
+; {"displayName":"Dyed Smooth Speckled Granite Slabs"}
+r/^moredyes:smoothSpeckledGraniteSlab$/
 ; {"displayName":"Dyed Polished Diorite Slabs"}
 r/^moredyes:polishedDioriteSlab$/
 ; {"displayName":"Dyed Polished Andesite Slabs"}

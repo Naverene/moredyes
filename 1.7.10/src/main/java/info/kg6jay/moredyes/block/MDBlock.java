@@ -78,6 +78,9 @@ public class MDBlock {
     public static Block[] granite;
     public static Block[] andesite;
     public static Block[] polishedGranite;
+    /** Granite drawn after GregTech's: coarse light and dark grains, and a polished tile. */
+    public static Block[] speckledGranite;
+    public static Block[] smoothSpeckledGranite;
     public static Block[] polishedDiorite;
     public static Block[] polishedAndesite;
     public static Block[] concrete;
@@ -225,6 +228,8 @@ public class MDBlock {
         granite = new Block[l];
         andesite = new Block[l];
         polishedGranite = new Block[l];
+        speckledGranite = new Block[l];
+        smoothSpeckledGranite = new Block[l];
         polishedDiorite = new Block[l];
         polishedAndesite = new Block[l];
         concrete = new Block[l];
@@ -308,6 +313,8 @@ public class MDBlock {
             granite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_GRANITE, set);
             andesite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_ANDESITE, set);
             polishedGranite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_POLISHED_GRANITE, set);
+            speckledGranite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SPECKLED_GRANITE, set);
+            smoothSpeckledGranite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_SMOOTH_SPECKLED_GRANITE, set);
             polishedDiorite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_POLISHED_DIORITE, set);
             polishedAndesite[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_POLISHED_ANDESITE, set);
             concrete[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_CONCRETE, set);
@@ -367,6 +374,8 @@ public class MDBlock {
         stoneStairs = stairs(stone, "stoneStairs", "stone");
         graniteStairs = stairs(granite, "graniteStairs", "granite");
         polishedGraniteStairs = stairs(polishedGranite, "polishedGraniteStairs", "polishedGranite");
+        stairs(speckledGranite, "speckledGraniteStairs", "speckledGranite");
+        stairs(smoothSpeckledGranite, "smoothSpeckledGraniteStairs", "smoothSpeckledGranite");
         dioriteStairs = stairs(diorite, "dioriteStairs", "diorite");
         polishedDioriteStairs = stairs(polishedDiorite, "polishedDioriteStairs", "polishedDiorite");
         andesiteStairs = stairs(andesite, "andesiteStairs", "andesite");
@@ -481,6 +490,8 @@ public class MDBlock {
         slab(granite, "graniteSlab", "granite");
         slab(andesite, "andesiteSlab", "andesite");
         slab(polishedGranite, "polishedGraniteSlab", "polishedGranite");
+        slab(speckledGranite, "speckledGraniteSlab", "speckledGranite");
+        slab(smoothSpeckledGranite, "smoothSpeckledGraniteSlab", "smoothSpeckledGranite");
         slab(polishedDiorite, "polishedDioriteSlab", "polishedDiorite");
         slab(polishedAndesite, "polishedAndesiteSlab", "polishedAndesite");
         slab(endStone, "endStoneSlab", "endStone");
@@ -591,6 +602,8 @@ public class MDBlock {
         register(granite, "Granite");
         register(andesite, "Andesite");
         register(polishedGranite, "PolishedGranite");
+        register(speckledGranite, "SpeckledGranite");
+        register(smoothSpeckledGranite, "SmoothSpeckledGranite");
         register(polishedDiorite, "PolishedDiorite");
         register(polishedAndesite, "PolishedAndesite");
         register(concrete, "Concrete");
@@ -705,6 +718,7 @@ public class MDBlock {
             WASHED.put(bookshelf[i], new ItemStack(Blocks.bookshelf));
             WASHED.put(diorite[i], new ItemStack(dioritePlain));
             WASHED.put(granite[i], new ItemStack(granitePlain));
+            WASHED.put(speckledGranite[i], new ItemStack(granitePlain));
             WASHED.put(andesite[i], new ItemStack(andesitePlain));
             WASHED.put(cutSandstone[i], new ItemStack(Blocks.sandstone, 1, 2));
             WASHED.put(mossyCobble[i], new ItemStack(Blocks.mossy_cobblestone));

@@ -49,6 +49,9 @@ public final class MDBlocks {
         chiseledSandstone, birchPlank, sprucePlank, junglePlank, acaciaPlank, darkOakPlank, allium, azureBluet,
         blueOrchid, dandelion, lilyOfTheValley, oxeyeDaisy, poppy, lilac, peony, roseBush, sign, wallSign, flowerPot;
 
+    /** Granite drawn after GregTech's: coarse light and dark grains, and a polished tile. Made last of all. */
+    public static Block speckledGranite, smoothSpeckledGranite;
+
     /** Slabs that recipes for other blocks take. */
     public static Block quartzSlab, sandstoneSlab;
 
@@ -354,6 +357,14 @@ public final class MDBlocks {
         wall(cobble, "cobbleWall", shapes);
         wall(mossyCobble, "mossyCobbleWall", shapes);
         wall(endStone, "endStoneWall", shapes);
+
+        // Added after everything above, so those blocks keep their IDs.
+        speckledGranite = dyed(stoneLike("speckledGranite", "Speckled Granite", 1.5F, 10.0F,
+            Textures.SPECKLED_GRANITE));
+        smoothSpeckledGranite = dyed(stoneLike("smoothSpeckledGranite", "Smooth Speckled Granite", 1.5F, 10.0F,
+            Textures.SMOOTH_SPECKLED_GRANITE));
+        stairsAndSlab(speckledGranite, "speckledGranite", shapes);
+        stairsAndSlab(smoothSpeckledGranite, "smoothSpeckledGranite", shapes);
     }
 
     public static void register() {

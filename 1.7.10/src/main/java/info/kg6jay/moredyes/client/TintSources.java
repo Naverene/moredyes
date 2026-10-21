@@ -190,6 +190,9 @@ public final class TintSources {
         base("granite");
         base("andesite");
         base("polishedGranite");
+        // Drawn for More Dyes after GregTech's granite.
+        base("speckledGranite");
+        base("smoothSpeckledGranite");
         base("polishedDiorite");
         base("polishedAndesite");
         base("concrete");

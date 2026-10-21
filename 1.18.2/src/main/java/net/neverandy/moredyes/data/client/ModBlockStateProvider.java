@@ -75,6 +75,8 @@ public class ModBlockStateProvider extends BlockStateProvider
             cubeAll(MDBlock.polishedAndesiteArray[i], "polished_andesite");
             cubeAll(MDBlock.polishedDioriteArray[i], "polished_diorite");
             cubeAll(MDBlock.polishedGraniteArray[i], "polished_granite");
+            cubeAll(MDBlock.speckledGraniteArray[i], "speckled_granite");
+            cubeAll(MDBlock.smoothSpeckledGraniteArray[i], "smooth_speckled_granite");
             cubeAll(MDBlock.endstoneArray[i], "endstone");
             cubeAll(MDBlock.mossyCobbleArray[i], "mossy_cobble");
             cubeAll(MDBlock.mossyStonebrickArray[i], "mossy_stonebrick");

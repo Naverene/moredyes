@@ -183,6 +183,9 @@ public class MDBlock
     public static Block[] polishedAndesiteArray = new Block[totalColorCount];
     public static Block[] polishedDioriteArray = new Block[totalColorCount];
     public static Block[] polishedGraniteArray = new Block[totalColorCount];
+    /** Granite drawn after GregTech's: coarse light and dark grains, and a polished tile. */
+    public static Block[] speckledGraniteArray = new Block[totalColorCount];
+    public static Block[] smoothSpeckledGraniteArray = new Block[totalColorCount];
     public static Block[] endstoneArray = new Block[totalColorCount];
     public static Block[] mossyCobbleArray = new Block[totalColorCount];
     public static Block[] mossyStonebrickArray = new Block[totalColorCount];
@@ -354,6 +357,8 @@ public class MDBlock
         registerColors("polishedandesite", polishedAndesiteArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)));
         registerColors("polisheddiorite", polishedDioriteArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)));
         registerColors("polishedgranite", polishedGraniteArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)));
+        registerColors("speckledgranite", speckledGraniteArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+        registerColors("smoothspeckledgranite", smoothSpeckledGraniteArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)));
         registerColors("endstone", endstoneArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE)));
         registerColors("mossycobble", mossyCobbleArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSSY_COBBLESTONE)));
         registerColors("mossystonebrick", mossyStonebrickArray, () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSSY_STONE_BRICKS)));
@@ -476,6 +481,8 @@ public class MDBlock
         DyedShapes.of("polishedandesite", "Polished Andesite", polishedAndesiteArray, "polished_andesite", "polished_andesite");
         DyedShapes.of("polisheddiorite", "Polished Diorite", polishedDioriteArray, "polished_diorite", "polished_diorite");
         DyedShapes.of("polishedgranite", "Polished Granite", polishedGraniteArray, "polished_granite", "polished_granite");
+        DyedShapes.of("speckledgranite", "Speckled Granite", speckledGraniteArray, "speckled_granite", "granite");
+        DyedShapes.of("smoothspeckledgranite", "Smooth Speckled Granite", smoothSpeckledGraniteArray, "smooth_speckled_granite", "polished_granite");
         DyedShapes.of("endstone", "End Stone", endstoneArray, "endstone", "end_stone");
         DyedShapes.of("soulsoil", "Soul Soil", soulSoilArray, "soul_soil", "soul_soil");
         DyedShapes.of("basalt", "Basalt", basaltArray, "basalt_side", "basalt_top", "basalt_top", DyedShapes.Layer.SOLID, "basalt");
