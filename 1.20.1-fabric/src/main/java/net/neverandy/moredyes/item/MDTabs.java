@@ -42,6 +42,11 @@ public enum MDTabs
     {
         for (MDTabs tab : values())
         {
+            // A tab whose blocks the config all turned off is left out.
+            if (tab.items.isEmpty())
+            {
+                continue;
+            }
             Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(Reference.MOD_ID, tab.id), FabricItemGroup.builder()
                     .title(Component.translatable("itemGroup." + tab.id))
                     .icon(() -> new ItemStack(tab.items.get(Math.min(tab.icon, tab.items.size() - 1))))

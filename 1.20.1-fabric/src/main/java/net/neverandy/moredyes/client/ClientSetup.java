@@ -81,7 +81,14 @@ public final class ClientSetup implements ClientModInitializer
 
     private static void layer(RenderType type, Block... blocks)
     {
-        BlockRenderLayerMap.INSTANCE.putBlocks(type, blocks);
+        for (Block block : blocks)
+        {
+            // Blocks the config turned off are null.
+            if (block != null)
+            {
+                BlockRenderLayerMap.INSTANCE.putBlock(block, type);
+            }
+        }
     }
 
     private static void renderers()
@@ -93,6 +100,10 @@ public final class ClientSetup implements ClientModInitializer
         EntityRendererRegistry.register(EntityType.SHEEP, DyedSheepRenderer::new);
         for (Block chest : MDBlock.chestArray)
         {
+            if (chest == null)
+            {
+                continue;
+            }
             BuiltinItemRendererRegistry.INSTANCE.register(chest, ChestItemRenderer.get());
         }
     }

@@ -191,6 +191,8 @@ tasks.named('processResources', ProcessResources).configure {
 
     from(new File(forgeDir, 'src/main/resources')) {
         exclude 'META-INF/mods.toml'
+        // Forge's mixin config names its SRG methods; this build has its own.
+        exclude 'moredyes.mixins.json'
         exclude ironChestRecipes, ironChestItemModels
     }
     from(forgeGenerated) {

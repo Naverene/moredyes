@@ -2,12 +2,15 @@ package net.neverandy.moredyes;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.toggle.Toggles;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -16,15 +19,24 @@ import java.util.Properties;
  */
 public final class ConfigHandler
 {
+    private static boolean loaded;
     private static boolean worldGenTree = true;
     private static boolean worldGenFlower = true;
     private static double sheepSpawnChance = 0.05D;
-    private static boolean wallBlocks = true;
 
     private ConfigHandler() {}
 
-    public static void load()
+    /**
+     * Reads the file, once. Storage Drawers' initializer can run before More Dyes' own (see StorageDrawersMixin), so
+     * whichever needs the settings first loads them.
+     */
+    public static synchronized void load()
     {
+        if (loaded)
+        {
+            return;
+        }
+        loaded = true;
         Path path = FabricLoader.getInstance().getConfigDir().resolve(Reference.MOD_ID + ".properties");
         Properties properties = new Properties();
         if (Files.exists(path))
@@ -38,8 +50,8 @@ public final class ConfigHandler
                 MoreDyes.LOGGER.warn("Could not read {}, using the default settings", path, e);
             }
         }
-        worldGenFlower = Boolean.parseBoolean(properties.getProperty("generate_flowers", "true"));
-        worldGenTree = Boolean.parseBoolean(properties.getProperty("generate_trees", "true"));
+        worldGenFlower = flag(properties, "generate_flowers");
+        worldGenTree = flag(properties, "generate_trees");
         try
         {
             sheepSpawnChance = Math.max(0.0D, Math.min(1.0D, Double.parseDouble(properties.getProperty("sheep_spawn_chance", "0.05"))));
@@ -48,7 +60,22 @@ public final class ConfigHandler
         {
             sheepSpawnChance = 0.05D;
         }
-        wallBlocks = Boolean.parseBoolean(properties.getProperty("wall_blocks", "true"));
+        Toggles.stairs = flag(properties, "stair_blocks");
+        Toggles.slabs = flag(properties, "slab_blocks");
+        Toggles.walls = flag(properties, "wall_blocks");
+        Toggles.fences = flag(properties, "fence_blocks");
+        Toggles.panes = flag(properties, "pane_blocks");
+        List<String> disabled = new ArrayList<>();
+        for (String name : properties.getProperty("disabled_blocks", "").split(","))
+        {
+            if (!name.isBlank())
+            {
+                disabled.add(name.trim());
+            }
+        }
+        Toggles.setDisabledTypes(disabled);
+        Toggles.ironChests = flag(properties, "iron_chests");
+        Toggles.storageDrawers = flag(properties, "storage_drawers");
 
         try (Writer writer = Files.newBufferedWriter(path))
         {
@@ -59,14 +86,38 @@ public final class ConfigHandler
             writer.write("generate_trees=" + worldGenTree + "\n\n");
             writer.write("# Chance (0 to 1) that a sheep spawning in the world has a random MoreDyes color\n");
             writer.write("sheep_spawn_chance=" + sheepSpawnChance + "\n\n");
+            writer.write("# Add dyed stairs.\n");
+            writer.write("# This and the settings below choose which blocks the mod adds; turning blocks off saves memory and loading time.\n");
+            writer.write("# A server and its players must use the same settings, and blocks that are turned off disappear from worlds that have them.\n");
+            writer.write("stair_blocks=" + Toggles.stairs + "\n\n");
+            writer.write("# Add dyed slabs\n");
+            writer.write("slab_blocks=" + Toggles.slabs + "\n\n");
             writer.write("# Add dyed walls (for the block types vanilla has walls for). They take about 1 GB of memory; turn this off to save it.\n");
-            writer.write("# A server and its players must use the same setting, and worlds built with walls lose them when it is off.\n");
-            writer.write("wall_blocks=" + wallBlocks + "\n");
+            writer.write("wall_blocks=" + Toggles.walls + "\n\n");
+            writer.write("# Add dyed wooden fences\n");
+            writer.write("fence_blocks=" + Toggles.fences + "\n\n");
+            writer.write("# Add dyed glass panes\n");
+            writer.write("pane_blocks=" + Toggles.panes + "\n\n");
+            writer.write("# Block types to leave out, separated by commas, named as in their ids without the color: concretepowder leaves out\n");
+            writer.write("# moredyes:concretepowder_334c59 and every other color. Leaving out a block also leaves out its slabs, stairs and walls,\n");
+            writer.write("# and stoneslab, stonestairs or stonewall leave out just one shape. For example chest,piston,sign\n");
+            writer.write("# The log lists every type if a name isn't one.\n");
+            writer.write("disabled_blocks=" + String.join(",", disabled) + "\n\n");
+            writer.write("# Add dyed Iron Chests, when Iron Chests is installed\n");
+            writer.write("iron_chests=" + Toggles.ironChests + "\n\n");
+            writer.write("# Add dyed Storage Drawers, when Storage Drawers is installed\n");
+            writer.write("storage_drawers=" + Toggles.storageDrawers + "\n");
         }
         catch (IOException e)
         {
             MoreDyes.LOGGER.warn("Could not write {}", path, e);
         }
+    }
+
+    /** A true/false setting, on unless the file says otherwise. */
+    private static boolean flag(Properties properties, String key)
+    {
+        return Boolean.parseBoolean(properties.getProperty(key, "true").trim());
     }
 
     public static boolean worldGenTree()
@@ -82,11 +133,5 @@ public final class ConfigHandler
     public static double sheepSpawnChance()
     {
         return sheepSpawnChance;
-    }
-
-    /** Whether dyed walls are registered. */
-    public static boolean wallBlocks()
-    {
-        return wallBlocks;
     }
 }

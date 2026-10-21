@@ -24,6 +24,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import net.minecraft.util.RandomSource;
 import net.minecraft.core.BlockPos;
 import net.neverandy.moredyes.ConfigHandler;
+import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 
@@ -46,8 +47,10 @@ public final class ModWorldGen
                 {
                     RandomSource random = context.random();
                     String wood = DyeTrees.WOODS[random.nextInt(DyeTrees.WOODS.length)];
-                    return DyeTrees.tree(wood, random.nextInt(ColorStrings.ALL.length))
-                            .place(context.level(), context.chunkGenerator(), random, context.origin());
+                    int color = random.nextInt(ColorStrings.ALL.length);
+                    // A wood whose logs or leaves are turned off in the config doesn't grow.
+                    return DyeTrees.canGrow(wood, color)
+                            && DyeTrees.tree(wood, color).place(context.level(), context.chunkGenerator(), random, context.origin());
                 }
             };
 
@@ -61,7 +64,11 @@ public final class ModWorldGen
         Registry.register(BuiltInRegistries.PLACEMENT_MODIFIER_TYPE, new ResourceLocation(Reference.MOD_ID, "config"), CONFIG_FILTER);
 
         BiomeModifications.addFeature(overworldLand(), GenerationStep.Decoration.VEGETAL_DECORATION, placed("dye_trees"));
-        BiomeModifications.addFeature(overworldLand(), GenerationStep.Decoration.VEGETAL_DECORATION, placed("tulips"));
+        // Turning off the tulips in the config also drops their feature files (see toggle/DataFilter).
+        if (MDBlock.tulipArray[0] != null)
+        {
+            BiomeModifications.addFeature(overworldLand(), GenerationStep.Decoration.VEGETAL_DECORATION, placed("tulips"));
+        }
     }
 
     /** Overworld land that isn't water, beach, badlands, desert, mushroom fields, underground or snowy. */
