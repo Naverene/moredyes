@@ -2,6 +2,7 @@ package net.neverandy.moredyes.toggle;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.neverandy.moredyes.MoreDyes;
 
 import java.io.ByteArrayInputStream;
@@ -9,21 +10,69 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.WeakHashMap;
 
 /** Runs DataFilter over the files a resource manager lists (see mixin/MultiPackResourceManagerMixin). */
 public final class FilteredResources
 {
+    /** The resource managers whose world gen files were already gone over (see {@link #prepareWorldGen}). */
+    private static final Set<ResourceManager> PREPARED = Collections.newSetFromMap(new WeakHashMap<>());
+    /** Set while this class lists files itself, so that listing isn't filtered. */
+    private static final ThreadLocal<Boolean> BUSY = ThreadLocal.withInitial(() -> false);
+
     private FilteredResources() {}
 
-    public static Map<Identifier, Resource> filter(String path, Map<Identifier, Resource> resources)
+    /**
+     * Goes over every world gen file once, before any is handed out, so that a feature dropped with its blocks also
+     * drops the features and biome modifiers that use it. The game loads the world gen folders on several threads at
+     * once, so the folders can't count on each other being filtered first.
+     */
+    private static void prepareWorldGen(ResourceManager manager, String path)
     {
-        if (!Toggles.anythingLeftOut())
+        if (!path.startsWith("worldgen") && !path.startsWith("neoforge"))
+        {
+            return;
+        }
+        synchronized (PREPARED)
+        {
+            if (!PREPARED.add(manager))
+            {
+                return;
+            }
+            BUSY.set(true);
+            try
+            {
+                Map<Identifier, Resource> all = manager.listResources("worldgen", location -> location.getPath().endsWith(".json"));
+                int leftOut;
+                do
+                {
+                    leftOut = Toggles.leftOutCount();
+                    for (Map.Entry<Identifier, Resource> entry : all.entrySet())
+                    {
+                        filter(entry.getKey(), entry.getValue());
+                    }
+                }
+                while (Toggles.leftOutCount() != leftOut);
+            }
+            finally
+            {
+                BUSY.set(false);
+            }
+        }
+    }
+
+    public static Map<Identifier, Resource> filter(ResourceManager manager, String path, Map<Identifier, Resource> resources)
+    {
+        if (BUSY.get() || !Toggles.anythingLeftOut())
         {
             return resources;
         }
+        prepareWorldGen(manager, path);
         Map<Identifier, Resource> kept;
         int leftOut;
         // A dropped world gen file can name another file of the same folder (a tree that a random selector picks),
@@ -46,12 +95,13 @@ public final class FilteredResources
         return kept;
     }
 
-    public static Map<Identifier, List<Resource>> filterStacks(String path, Map<Identifier, List<Resource>> stacks)
+    public static Map<Identifier, List<Resource>> filterStacks(ResourceManager manager, String path, Map<Identifier, List<Resource>> stacks)
     {
-        if (!Toggles.anythingLeftOut())
+        if (BUSY.get() || !Toggles.anythingLeftOut())
         {
             return stacks;
         }
+        prepareWorldGen(manager, path);
         Map<Identifier, List<Resource>> kept;
         int leftOut;
         do
