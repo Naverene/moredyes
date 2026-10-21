@@ -128,6 +128,8 @@ public final class Textures {
     public static final int SIGN_ITEM = 118;
     public static final int FLOWER_POT = 119;
     public static final int FLOWER_POT_DIRT = 120;
+    public static final int SPECKLED_GRANITE = 121;
+    public static final int SMOOTH_SPECKLED_GRANITE = 122;
 
     private Textures() {}
 }

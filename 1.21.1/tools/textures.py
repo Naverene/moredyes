@@ -110,6 +110,10 @@ for _wood in WOODS:
 
 # Foggy glass replaces the vanilla glass texture with its own, made from tools/base/foggy_glass.png.
 FOGGY_GLASS = 'block/foggy_glass'
+# Speckled granite (GregTech's red granite textures, LGPL-3.0, see THIRD_PARTY_NOTICES.md) replaces the vanilla granite textures of its kinds with its own, made
+# from tools/base/<kind>.png: kind -> (vanilla texture it replaces, texture in this mod).
+OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
+                'smooth_speckled_granite': ('block/polished_granite', 'block/smooth_speckled_granite')}
 
 # Chest textures go on the chest atlas (textures/entity/chest). The latch keeps its natural color: its pixels sit in the
 # top-left corner of the texture, (width, height) given here.
@@ -232,6 +236,11 @@ def main():
     foggy.putdata(brighten([grey(p) for p in foggy.get_flattened_data()]))
     save(foggy, FOGGY_GLASS)
     count += 1
+    for kind, (_, name) in sorted(OWN_TEXTURES.items()):
+        own = first_frame(Image.open(os.path.join(BASE, kind + '.png')).convert('RGBA'))
+        own.putdata(brighten([grey(p) for p in own.get_flattened_data()]))
+        save(own, name)
+        count += 1
 
     # The sign is drawn from the sign atlas (textures/entity/signs), by client/DyedSignRenderer.
     sign = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/signs/oak.png'))).convert('RGBA')

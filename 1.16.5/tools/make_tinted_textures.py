@@ -116,6 +116,9 @@ SOURCES = {
     'polished_andesite': ('block/polished_andesite', GREY),
     'polished_diorite': ('block/polished_diorite', GREY),
     'polished_granite': ('block/polished_granite', GREY),
+    # GregTech's red granite textures (tools/base, LGPL-3.0, see THIRD_PARTY_NOTICES.md), not vanilla's.
+    'speckled_granite': ('base:speckled_granite', GREY),
+    'smooth_speckled_granite': ('base:smooth_speckled_granite', GREY),
     'endstone': ('block/end_stone', GREY),
     'mossy_cobble': ('block/mossy_cobblestone', GREY),
     'mossy_stonebrick': ('block/mossy_stone_bricks', GREY),

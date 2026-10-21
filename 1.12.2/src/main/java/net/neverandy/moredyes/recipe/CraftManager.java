@@ -239,6 +239,10 @@ public class CraftManager
 		dyeing(MDBlock.boneBlock,g,s,new ItemStack(Blocks.BONE_BLOCK));
 
 		square("polished_granite/"+color,MDBlock.polishedGranite,MDBlock.granite,g,s);
+		// Speckled granite (not in vanilla): eight dyed granite around a flint. It smelts into smooth speckled granite.
+		shaped("speckled_granite/"+color,"speckled_granite",new ItemStack(MDBlock.speckledGranite[g],8,s),"GGG","GFG","GGG",
+				'G',new ItemStack(MDBlock.granite[g],1,s),'F',Items.FLINT);
+		smelting(new ItemStack(MDBlock.speckledGranite[g],1,s),new ItemStack(MDBlock.smoothSpeckledGranite[g],1,s),0.1F);
 		square("polished_diorite/"+color,MDBlock.polishedDiorite,MDBlock.diorite,g,s);
 		square("polished_andesite/"+color,MDBlock.polishedAndesite,MDBlock.andesite,g,s);
 		square("polished_basalt/"+color,MDBlock.polishedBasalt,MDBlock.basalt,g,s);

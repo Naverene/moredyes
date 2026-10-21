@@ -137,6 +137,9 @@ public class MDBlock
     public static Block[] polishedAndesiteArray = new Block[COLORS];
     public static Block[] polishedDioriteArray = new Block[COLORS];
     public static Block[] polishedGraniteArray = new Block[COLORS];
+    /** Granite with GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md), greyed and tinted. */
+    public static Block[] speckledGraniteArray = new Block[COLORS];
+    public static Block[] smoothSpeckledGraniteArray = new Block[COLORS];
     public static Block[] endstoneArray = new Block[COLORS];
     public static Block[] mossyCobbleArray = new Block[COLORS];
     public static Block[] mossyStonebrickArray = new Block[COLORS];
@@ -317,6 +320,8 @@ public class MDBlock
         colors("polishedandesite", polishedAndesiteArray, () -> new Block(copy(Blocks.POLISHED_ANDESITE)), MDTabs.BLOCKS, PICKAXE);
         colors("polisheddiorite", polishedDioriteArray, () -> new Block(copy(Blocks.POLISHED_DIORITE)), MDTabs.BLOCKS, PICKAXE);
         colors("polishedgranite", polishedGraniteArray, () -> new Block(copy(Blocks.POLISHED_GRANITE)), MDTabs.BLOCKS, PICKAXE);
+        colors("speckledgranite", speckledGraniteArray, () -> new Block(copy(Blocks.GRANITE)), MDTabs.BLOCKS, PICKAXE);
+        colors("smoothspeckledgranite", smoothSpeckledGraniteArray, () -> new Block(copy(Blocks.POLISHED_GRANITE)), MDTabs.BLOCKS, PICKAXE);
         colors("endstone", endstoneArray, () -> new Block(copy(Blocks.END_STONE)), MDTabs.BLOCKS, PICKAXE);
         colors("mossycobble", mossyCobbleArray, () -> new Block(copy(Blocks.MOSSY_COBBLESTONE)), MDTabs.BLOCKS, PICKAXE);
         colors("mossystonebrick", mossyStonebrickArray, () -> new Block(copy(Blocks.MOSSY_STONE_BRICKS)), MDTabs.BLOCKS, PICKAXE);

@@ -51,6 +51,7 @@ public class CauldronWashHandler {
         this.put(MDBlocks.netherBrick, Block.netherBrick, 0);
         this.put(MDBlocks.diorite, MDBlocks.dioritePlain, 0);
         this.put(MDBlocks.granite, MDBlocks.granitePlain, 0);
+        this.put(MDBlocks.speckledGranite, MDBlocks.granitePlain, 0);
         this.put(MDBlocks.andesite, MDBlocks.andesitePlain, 0);
         this.put(MDBlocks.endStone, Block.whiteStone, 0);
         this.put(MDBlocks.gravel, Block.gravel, 0);

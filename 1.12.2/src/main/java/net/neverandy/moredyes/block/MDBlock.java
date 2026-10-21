@@ -63,6 +63,9 @@ public class MDBlock
 	public static Block[] granite;
 	public static Block[] andesite;
 	public static Block[] polishedGranite;
+	/** Granite with GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md), greyed and tinted. */
+	public static Block[] speckledGranite;
+	public static Block[] smoothSpeckledGranite;
 	public static Block[] polishedDiorite;
 	public static Block[] polishedAndesite;
 	public static Block[] concrete;
@@ -167,6 +170,8 @@ public class MDBlock
 		granite=new Block[groups];
 		andesite=new Block[groups];
 		polishedGranite=new Block[groups];
+		speckledGranite=new Block[groups];
+		smoothSpeckledGranite=new Block[groups];
 		polishedDiorite=new Block[groups];
 		polishedAndesite=new Block[groups];
 		concrete=new Block[groups];
@@ -253,6 +258,8 @@ public class MDBlock
 			granite[g]=new BlockColored(Reference.BLOCK_INFO_GRANITE,g);
 			andesite[g]=new BlockColored(Reference.BLOCK_INFO_ANDESITE,g);
 			polishedGranite[g]=new BlockColored(Reference.BLOCK_INFO_POLISHED_GRANITE,g);
+			speckledGranite[g]=new BlockColored(Reference.BLOCK_INFO_SPECKLED_GRANITE,g);
+			smoothSpeckledGranite[g]=new BlockColored(Reference.BLOCK_INFO_SMOOTH_SPECKLED_GRANITE,g);
 			polishedDiorite[g]=new BlockColored(Reference.BLOCK_INFO_POLISHED_DIORITE,g);
 			polishedAndesite[g]=new BlockColored(Reference.BLOCK_INFO_POLISHED_ANDESITE,g);
 			concrete[g]=new BlockColored(Reference.BLOCK_INFO_CONCRETE,g);
@@ -308,7 +315,7 @@ public class MDBlock
 		add(wool,stone,cobble,stonebrick,stonebrickCracked,stonebrickCarved,diorite,brick,clay,hardenedClay,sand,sandstone,
 				glass,glassFoggy,glassPane,glassFoggyPane,quartz,obsidian,soulsand,glowstone,coal,lapis,redstone,rockwool,
 				bookshelf,workbench,chest,sapling,log,leaf,plank,tulip,
-				granite,polishedGranite,polishedDiorite,andesite,polishedAndesite,smoothStone,mossyCobble,mossyStonebrick,
+				granite,polishedGranite,speckledGranite,smoothSpeckledGranite,polishedDiorite,andesite,polishedAndesite,smoothStone,mossyCobble,mossyStonebrick,
 				smoothSandstone,cutSandstone,smoothQuartz,concrete,concretePowder,glazedTerracotta,netherBrick,
 				crackedNetherBrick,chiseledNetherBrick,soulSoil,basalt,polishedBasalt,endStoneBrick,boneBlock,netheriteBlock,
 				cryingObsidian,chain,cornflower,
@@ -356,6 +363,8 @@ public class MDBlock
 		stairsAndSlab(polishedAndesite,Reference.BLOCK_INFO_POLISHED_ANDESITE);
 		stairsAndSlab(polishedDiorite,Reference.BLOCK_INFO_POLISHED_DIORITE);
 		stairsAndSlab(polishedGranite,Reference.BLOCK_INFO_POLISHED_GRANITE);
+		stairsAndSlab(speckledGranite,Reference.BLOCK_INFO_SPECKLED_GRANITE);
+		stairsAndSlab(smoothSpeckledGranite,Reference.BLOCK_INFO_SMOOTH_SPECKLED_GRANITE);
 		stairsAndSlab(endStone,Reference.BLOCK_INFO_END_STONE);
 		stairsAndSlab(endStoneBrick,Reference.BLOCK_INFO_END_STONE_BRICK);
 		stairsAndSlab(netherBrick,Reference.BLOCK_INFO_NETHER_BRICK);
@@ -553,6 +562,8 @@ public class MDBlock
 		washed(sapling,new ItemStack(Blocks.SAPLING,1,0));
 		washed(granite,new ItemStack(Blocks.STONE,1,1));
 		washed(polishedGranite,new ItemStack(Blocks.STONE,1,2));
+		washed(speckledGranite,new ItemStack(Blocks.STONE,1,1));
+		washed(smoothSpeckledGranite,new ItemStack(Blocks.STONE,1,2));
 		washed(polishedDiorite,new ItemStack(Blocks.STONE,1,4));
 		washed(andesite,new ItemStack(Blocks.STONE,1,5));
 		washed(polishedAndesite,new ItemStack(Blocks.STONE,1,6));

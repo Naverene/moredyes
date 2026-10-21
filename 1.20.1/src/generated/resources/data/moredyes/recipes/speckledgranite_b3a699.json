@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "G": {
+      "item": "moredyes:granite_b3a699"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GFG",
+    "GGG"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moredyes:speckledgranite_b3a699"
+  },
+  "show_notification": true
+}

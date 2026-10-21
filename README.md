@@ -40,4 +40,4 @@ Each folder used to be its own repository. Their full histories were brought in 
 
 ## License
 
-More Dyes is released under the MIT License; see [LICENSE](LICENSE).
+More Dyes is released under the MIT License; see [LICENSE](LICENSE). The speckled granite textures come from GregTech 5 Unofficial and are under the LGPL-3.0; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

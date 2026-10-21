@@ -24,6 +24,8 @@ customblock:id=%endStoneBrickStairs,data=*,class=info.kg6jay.moredyes.compat.dyn
 customblock:id=%smoothSandstoneStairs,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorStairsRenderer
 customblock:id=%smoothQuartzStairs,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorStairsRenderer
 customblock:id=%netherBrickStairs,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorStairsRenderer
+customblock:id=%speckledGraniteStairs,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorStairsRenderer
+customblock:id=%smoothSpeckledGraniteStairs,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorStairsRenderer
 customblock:id=%brickWall,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorWallRenderer,type=wall,link0=%brickWall,link1=%stonebrickWall,link2=%mossyStonebrickWall,link3=%graniteWall,link4=%dioriteWall,link5=%andesiteWall,link6=%netherBrickWall,link7=%sandstoneWall,link8=%endStoneBrickWall
 customblock:id=%stonebrickWall,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorWallRenderer,type=wall,link0=%brickWall,link1=%stonebrickWall,link2=%mossyStonebrickWall,link3=%graniteWall,link4=%dioriteWall,link5=%andesiteWall,link6=%netherBrickWall,link7=%sandstoneWall,link8=%endStoneBrickWall
 customblock:id=%mossyStonebrickWall,data=*,class=info.kg6jay.moredyes.compat.dynmap.TileColorWallRenderer,type=wall,link0=%brickWall,link1=%stonebrickWall,link2=%mossyStonebrickWall,link3=%graniteWall,link4=%dioriteWall,link5=%andesiteWall,link6=%netherBrickWall,link7=%sandstoneWall,link8=%endStoneBrickWall
@@ -42,6 +44,12 @@ customblock:id=%cutSandstoneSlab,data=2,class=info.kg6jay.moredyes.compat.dynmap
 customblock:id=%dioriteSlab,data=0,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=0.5,zmin=0.0,zmax=1.0
 customblock:id=%dioriteSlab,data=1,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.5,ymax=1.0,zmin=0.0,zmax=1.0
 customblock:id=%dioriteSlab,data=2,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=1.0,zmin=0.0,zmax=1.0
+customblock:id=%speckledGraniteSlab,data=0,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=0.5,zmin=0.0,zmax=1.0
+customblock:id=%speckledGraniteSlab,data=1,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.5,ymax=1.0,zmin=0.0,zmax=1.0
+customblock:id=%speckledGraniteSlab,data=2,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=1.0,zmin=0.0,zmax=1.0
+customblock:id=%smoothSpeckledGraniteSlab,data=0,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=0.5,zmin=0.0,zmax=1.0
+customblock:id=%smoothSpeckledGraniteSlab,data=1,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.5,ymax=1.0,zmin=0.0,zmax=1.0
+customblock:id=%smoothSpeckledGraniteSlab,data=2,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=1.0,zmin=0.0,zmax=1.0
 customblock:id=%ironTrapdoor,data=0,data=1,data=2,data=3,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=0.1875,zmin=0.0,zmax=1.0
 customblock:id=%ironTrapdoor,data=8,data=9,data=10,data=11,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.8125,ymax=1.0,zmin=0.0,zmax=1.0
 customblock:id=%ironTrapdoor,data=4,data=12,class=info.kg6jay.moredyes.compat.dynmap.TileColorBoxRenderer,xmin=0.0,xmax=1.0,ymin=0.0,ymax=1.0,zmin=0.8125,zmax=1.0

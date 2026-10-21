@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moredyes:speckled_granite_slab_bottom"
+    },
+    "type=top": {
+      "model": "moredyes:speckled_granite_slab_top"
+    },
+    "type=double": {
+      "model": "moredyes:speckled_granite_slab_double"
+    }
+  }
+}

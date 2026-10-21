@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-12T19:37:18.924494555	Tags for minecraft:block mod id moredyes
+// 1.20.1	2026-10-21T01:17:10.779982696	Tags for minecraft:block mod id moredyes
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/blocks/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/blocks/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/blocks/glass_panes.json
@@ -9,19 +9,19 @@ b33a462276d5f73b85a7cc6953edb3cd858e7df9 data/minecraft/tags/blocks/beacon_base_
 ca4da529306cedbfcd777445a32fbda24aa8002a data/minecraft/tags/blocks/ice.json
 cc6c18a7810ef5f3b7fc7c85ec6c77af4946fca8 data/minecraft/tags/blocks/leaves.json
 80e0efbc572d896b8958609c7751161bd1f7ed23 data/minecraft/tags/blocks/logs_that_burn.json
-0c10e8f7569d4e116f869ea63a2da5aaa0e57fe8 data/minecraft/tags/blocks/mineable/axe.json
-dbaffd6c07669c316778921b9f7317ccae4912d9 data/minecraft/tags/blocks/mineable/hoe.json
-2104bb48965ed8ad8939d3f8c9b9c170f6664f6e data/minecraft/tags/blocks/mineable/pickaxe.json
-2ee6eab3f72bbcd596ecb0066d2c2f51ba04cea9 data/minecraft/tags/blocks/mineable/shovel.json
-1d971d7218339522bc29589b198d5e9f2178fb82 data/minecraft/tags/blocks/needs_diamond_tool.json
-df193248d80831be462f05900f073ad23c3ddf21 data/minecraft/tags/blocks/needs_stone_tool.json
+aedb0f3fc0cfe120865222042290b27feb764ae8 data/minecraft/tags/blocks/mineable/axe.json
+0498c34e581d45cb5deb8285b62ecdc245bd59d2 data/minecraft/tags/blocks/mineable/hoe.json
+907cc3f1b7c6179770b3fe0a546e397e054fd3a8 data/minecraft/tags/blocks/mineable/pickaxe.json
+d15d788375389ec9a37c6a0267fec6da85c3ddd7 data/minecraft/tags/blocks/mineable/shovel.json
+5217708fb67026c3ce19634d6ee04663f7bbf08f data/minecraft/tags/blocks/needs_diamond_tool.json
+c9c704a15deff57a554f1f92b9f8244fdb1a970c data/minecraft/tags/blocks/needs_stone_tool.json
 12d52c39421d6790f33f190c5d80a00cc73798c1 data/minecraft/tags/blocks/planks.json
 5dd59e2280e40a5fd4440bb939aae36e8cb53ba3 data/minecraft/tags/blocks/saplings.json
-3641e2e693aabade8d60d4bb53478b482375dae8 data/minecraft/tags/blocks/slabs.json
+1e500b9aa53cb42cdf9fafe39e29a8f367393116 data/minecraft/tags/blocks/slabs.json
 08f0ecbf1d1630b3e59ddc2001135d56aca77858 data/minecraft/tags/blocks/small_flowers.json
 5c13c97d3ed072dfac562f523380cbe24cbbc741 data/minecraft/tags/blocks/soul_fire_base_blocks.json
 5c13c97d3ed072dfac562f523380cbe24cbbc741 data/minecraft/tags/blocks/soul_speed_blocks.json
-eb9e45b04011e5ac07789bf824824db5c48165c1 data/minecraft/tags/blocks/stairs.json
+100981dbc3912189033933a2e0b2bf4cb405c360 data/minecraft/tags/blocks/stairs.json
 f6d87d2895a55f36d2574165d316064334f61392 data/minecraft/tags/blocks/standing_signs.json
 0aa6986685f7340cffc0fc2248479fdb1b06e0f2 data/minecraft/tags/blocks/tall_flowers.json
 ce5dc3df6bc6feef19f4845f928a6f09cba79475 data/minecraft/tags/blocks/wall_signs.json

@@ -54,6 +54,8 @@ public class Reference
 	public static final BlockInfo BLOCK_INFO_GRANITE=new BlockInfo("granite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_ANDESITE=new BlockInfo("andesite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_POLISHED_GRANITE=new BlockInfo("polished_granite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_SPECKLED_GRANITE=new BlockInfo("speckled_granite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
+	public static final BlockInfo BLOCK_INFO_SMOOTH_SPECKLED_GRANITE=new BlockInfo("smooth_speckled_granite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_POLISHED_DIORITE=new BlockInfo("polished_diorite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_POLISHED_ANDESITE=new BlockInfo("polished_andesite",Material.ROCK,1.5f,SoundType.STONE).tool("pickaxe",0).resistance(10.0f);
 	public static final BlockInfo BLOCK_INFO_CONCRETE=new BlockInfo("concrete",Material.ROCK,1.8f,SoundType.STONE).tool("pickaxe",0);

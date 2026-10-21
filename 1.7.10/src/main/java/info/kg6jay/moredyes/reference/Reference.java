@@ -280,6 +280,24 @@ public class Reference {
         1,
         10.0f,
         MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_SPECKLED_GRANITE = new BlockInfo(
+        "speckledGranite",
+        Material.rock,
+        1.5f,
+        Block.soundTypeStone,
+        "pickaxe",
+        1,
+        10.0f,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_SMOOTH_SPECKLED_GRANITE = new BlockInfo(
+        "smoothSpeckledGranite",
+        Material.rock,
+        1.5f,
+        Block.soundTypeStone,
+        "pickaxe",
+        1,
+        10.0f,
+        MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_POLISHED_DIORITE = new BlockInfo(
         "polishedDiorite",
         Material.rock,

@@ -98,6 +98,8 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.polishedAndesiteArray[i], c + "Polished Andesite");
             add(MDBlock.polishedDioriteArray[i], c + "Polished Diorite");
             add(MDBlock.polishedGraniteArray[i], c + "Polished Granite");
+            add(MDBlock.speckledGraniteArray[i], c + "Speckled Granite");
+            add(MDBlock.smoothSpeckledGraniteArray[i], c + "Smooth Speckled Granite");
             add(MDBlock.endstoneArray[i], c + "End Stone");
             add(MDBlock.mossyCobbleArray[i], c + "Mossy Cobblestone");
             add(MDBlock.mossyStonebrickArray[i], c + "Mossy Stone Bricks");

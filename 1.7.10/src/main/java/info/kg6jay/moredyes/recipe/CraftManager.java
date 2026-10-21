@@ -486,6 +486,17 @@ public class CraftManager {
                 addSurroundRecipe(MDBlock.endStoneBrick[a], i, new ItemStack(Blocks.end_stone), dye);
 
                 addSquareRecipe(MDBlock.polishedGranite[a], MDBlock.granite[a], i);
+                // Speckled granite: eight dyed granite around a flint. It smelts into smooth speckled granite.
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.speckledGranite[a], 8, i),
+                    "GGG",
+                    "GFG",
+                    "GGG",
+                    'G',
+                    new ItemStack(MDBlock.granite[a], 1, i),
+                    'F',
+                    Items.flint);
+                addSmelting(MDBlock.speckledGranite[a], MDBlock.smoothSpeckledGranite[a], i);
                 addSquareRecipe(MDBlock.polishedDiorite[a], MDBlock.diorite[a], i);
                 addSquareRecipe(MDBlock.polishedAndesite[a], MDBlock.andesite[a], i);
                 addSquareRecipe(MDBlock.polishedBasalt[a], MDBlock.basalt[a], i);

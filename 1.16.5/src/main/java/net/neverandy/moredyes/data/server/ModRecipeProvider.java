@@ -315,6 +315,7 @@ public class ModRecipeProvider extends RecipeProvider
             square(MDBlock.andesiteArray[i], MDBlock.polishedAndesiteArray[i]);
             square(MDBlock.dioriteArray[i], MDBlock.polishedDioriteArray[i]);
             square(MDBlock.graniteArray[i], MDBlock.polishedGraniteArray[i]);
+            speckledGranite(MDBlock.graniteArray[i], MDBlock.speckledGraniteArray[i], MDBlock.smoothSpeckledGraniteArray[i]);
             square(MDBlock.quartzArray[i], MDBlock.quartzBricksArray[i]);
             smelt(MDBlock.quartzArray[i], MDBlock.quartzSmoothArray[i], 0.1F);
             mossy(MDBlock.cobbleArray[i], MDBlock.mossyCobbleArray[i]);
@@ -418,6 +419,21 @@ public class ModRecipeProvider extends RecipeProvider
             ShapedRecipeBuilder.shapedRecipe(chiseled).key('#', slab).patternLine("#").patternLine("#")
                     .addCriterion("has_slab", hasItem(slab)).build(out, id(name(chiseled)));
         }
+    }
+
+    /**
+     * Eight dyed granite around a flint make eight speckled granite of that color, and speckled granite smelts (or is
+     * cut) into smooth speckled granite. They wash back into vanilla granite and polished granite.
+     */
+    private void speckledGranite(Block granite, Block speckled, Block smooth)
+    {
+        ShapedRecipeBuilder.shapedRecipe(speckled, 8).key('G', granite).key('F', Items.FLINT)
+                .patternLine("GGG").patternLine("GFG").patternLine("GGG")
+                .addCriterion("has_block", hasItem(granite)).build(out, id(name(speckled)));
+        smelt(speckled, smooth, 0.1F);
+        stonecutting(speckled, smooth, 1);
+        washable(speckled, "granite");
+        washable(smooth, "polished_granite");
     }
 
     private void stonecutting(Block input, Block result, int count)

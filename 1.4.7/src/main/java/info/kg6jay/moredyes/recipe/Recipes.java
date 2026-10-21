@@ -98,6 +98,9 @@ public final class Recipes {
         // Same shapes as the vanilla recipes.
         square(MDBlocks.stonebrick, MDBlocks.stone, color);
         square(MDBlocks.polishedGranite, MDBlocks.granite, color);
+        // Speckled granite: eight dyed granite around a flint. It smelts into smooth speckled granite.
+        GameRegistry.addRecipe(stack(MDBlocks.speckledGranite, 8, color), "GGG", "GFG", "GGG", 'G',
+            stack(MDBlocks.granite, 1, color), 'F', Item.flint);
         square(MDBlocks.polishedDiorite, MDBlocks.diorite, color);
         square(MDBlocks.polishedAndesite, MDBlocks.andesite, color);
         square(MDBlocks.polishedBasalt, MDBlocks.basalt, color);
@@ -272,6 +275,7 @@ public final class Recipes {
             smelt(MDBlocks.quartz, MDBlocks.smoothQuartz, color, 0.1F);
             smelt(MDBlocks.netherBrick, MDBlocks.crackedNetherBrick, color, 0.1F);
             smelt(MDBlocks.hardenedClay, MDBlocks.glazedTerracotta, color, 0.1F);
+            smelt(MDBlocks.speckledGranite, MDBlocks.smoothSpeckledGranite, color, 0.1F);
             // Basalt forms from lava over soul soil in 1.16, so it is smelted from dyed soul soil here.
             smelt(MDBlocks.soulSoil, MDBlocks.basalt, color, 0.1F);
         }

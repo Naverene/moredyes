@@ -81,6 +81,8 @@ SOURCES = {
     "granite": (base("granite"), "grey"),
     "andesite": (base("andesite"), "grey"),
     "polishedGranite": (base("polishedGranite"), "grey"),
+    "speckledGranite": (base("speckledGranite"), "grey"),
+    "smoothSpeckledGranite": (base("smoothSpeckledGranite"), "grey"),
     "polishedDiorite": (base("polishedDiorite"), "grey"),
     "polishedAndesite": (base("polishedAndesite"), "grey"),
     "concrete": (base("concrete"), "grey"),
@@ -149,7 +151,8 @@ CUBES = {
     "Sand": "sand", "HardenedClay": "hardenedClay",
     "Sandstone": ("sandstone/top", "sandstone/side", "sandstone/bottom"),
     "Bookshelf": ("plank", "bookshelf", "plank"), "Diorite": "diorite", "Granite": "granite", "Andesite": "andesite",
-    "PolishedGranite": "polishedGranite", "PolishedDiorite": "polishedDiorite", "PolishedAndesite": "polishedAndesite",
+    "PolishedGranite": "polishedGranite", "SpeckledGranite": "speckledGranite",
+    "SmoothSpeckledGranite": "smoothSpeckledGranite", "PolishedDiorite": "polishedDiorite", "PolishedAndesite": "polishedAndesite",
     "Concrete": "concrete", "ConcretePowder": "concretePowder", "SoulSoil": "soulSoil",
     "Basalt": ("basalt/top", "basalt/side", "basalt/bottom"),
     "PolishedBasalt": ("polishedBasalt/top", "polishedBasalt/side", "polishedBasalt/bottom"),
@@ -175,11 +178,12 @@ STAIRS = {
     "polishedAndesiteStairs": "polishedAndesite", "mossyCobbleStairs": "mossyCobble",
     "mossyStonebrickStairs": "mossyStonebrick", "endStoneBrickStairs": "endStoneBrick",
     "smoothSandstoneStairs": "smoothSandstone", "smoothQuartzStairs": "smoothQuartz",
-    "netherBrickStairs": "netherBrick",
+    "netherBrickStairs": "netherBrick", "speckledGraniteStairs": "speckledGranite",
+    "smoothSpeckledGraniteStairs": "smoothSpeckledGranite",
 }
 SLABS = {
     "stoneSlab": "stone", "cutSandstoneSlab": ("cutSandstone/top", "cutSandstone/side", "cutSandstone/bottom"),
-    "dioriteSlab": "diorite",
+    "dioriteSlab": "diorite", "speckledGraniteSlab": "speckledGranite", "smoothSpeckledGraniteSlab": "smoothSpeckledGranite",
 }
 WALLS = {
     "brickWall": "brick", "stonebrickWall": "stonebrick", "mossyStonebrickWall": "mossyStonebrick",
