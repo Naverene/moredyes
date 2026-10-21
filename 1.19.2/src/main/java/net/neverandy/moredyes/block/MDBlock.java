@@ -29,19 +29,23 @@ import net.neverandy.moredyes.item.ChestItem;
 import net.neverandy.moredyes.item.MDTabs;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.toggle.Toggles;
 import net.neverandy.moredyes.world.DyeTrees;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
  * Every dyed block, one per color of each type, named "<type>_<color>" such as "wool_334c59". Each block copies the
  * properties of its vanilla block, so it breaks, sounds and burns the same way. The arrays are filled when the blocks
- * are registered, so they can only be read once registration is done.
+ * are registered, so they can only be read once registration is done. Blocks the config turns off (see Toggles) are not
+ * registered and stay null in their arrays.
  */
 public class MDBlock
 {
@@ -54,6 +58,8 @@ public class MDBlock
     public static final Map<Block[], TagKey<Block>> MINEABLE = new IdentityHashMap<>();
     /** Arrays of blocks that need at least a stone, iron or diamond tool to drop, like their vanilla blocks. */
     public static final Map<Block[], TagKey<Block>> NEEDS_TOOL = new IdentityHashMap<>();
+    /** The arrays whose blocks the config turned off; they stay full of nulls. */
+    private static final Set<Block[]> DISABLED = Collections.newSetFromMap(new IdentityHashMap<>());
 
     public static Block[] brickArray = new Block[COLORS];
     public static Block[] clayArray = new Block[COLORS];
@@ -236,6 +242,11 @@ public class MDBlock
         colors("quartz", quartzArray, () -> new Block(copy(Blocks.QUARTZ_BLOCK)), MDTabs.BLOCKS, PICKAXE);
         colors("workbench", workbenchArray, () -> new WorkbenchBlock(copy(Blocks.CRAFTING_TABLE)), MDTabs.BLOCKS, AXE);
         colors("chest", chestArray, () -> new BlockChest(copy(Blocks.CHEST)), MDTabs.BLOCKS, AXE, ChestItem::new);
+        if (!Toggles.panes)
+        {
+            disable(glassPaneArray);
+            disable(glassFoggyPaneArray);
+        }
         colors("glasspane", glassPaneArray, () -> new IronBarsBlock(copy(Blocks.GLASS_PANE)), MDTabs.BLOCKS, null);
         colors("glassfoggypane", glassFoggyPaneArray, () -> new IronBarsBlock(copy(Blocks.GLASS_PANE)), MDTabs.BLOCKS, null);
         colors("bookshelf", bookshelfArray, () -> new BlockBookshelf(copy(Blocks.BOOKSHELF)), MDTabs.BLOCKS, AXE);
@@ -296,6 +307,10 @@ public class MDBlock
 
     private static void fence(String wood, FenceBlock[] fences, Block vanilla)
     {
+        if (!Toggles.fences)
+        {
+            disable(fences);
+        }
         colors(wood + "fence", fences, () -> new FenceBlock(copy(vanilla)), MDTabs.TREES, AXE);
     }
 
@@ -380,6 +395,10 @@ public class MDBlock
         }
         for (PottedPlants potted : POTTED)
         {
+            if (isDisabled(potted.plants))
+            {
+                disable(potted.pots);
+            }
             for (int i = 0; i < COLORS; i++)
             {
                 final int color = i;
@@ -399,6 +418,10 @@ public class MDBlock
             for (int i = 0; i < COLORS; i++)
             {
                 FlowerPotBlock pot = potted.pots[i];
+                if (pot == null)
+                {
+                    continue;
+                }
                 emptyPot.addPlant(ForgeRegistries.BLOCKS.getKey(potted.plants[i]), () -> pot);
             }
         }
@@ -410,6 +433,13 @@ public class MDBlock
         MINEABLE.put(pistonArray, PICKAXE);
         MINEABLE.put(stickyPistonArray, PICKAXE);
         MINEABLE.put(pistonHeadArray, PICKAXE);
+        // A piston needs its head, so leaving out either leaves out both (sticky pistons can go on their own).
+        if (!Toggles.typeEnabled("piston") || !Toggles.typeEnabled("pistonhead"))
+        {
+            disable(pistonArray);
+            disable(stickyPistonArray);
+            disable(pistonHeadArray);
+        }
         for (int i = 0; i < COLORS; i++)
         {
             final int color = i;
@@ -425,6 +455,11 @@ public class MDBlock
     {
         MINEABLE.put(signArray, AXE);
         MINEABLE.put(wallSignArray, AXE);
+        if (!Toggles.typeEnabled("sign") || !Toggles.typeEnabled("wallsign"))
+        {
+            disable(signArray);
+            disable(wallSignArray);
+        }
         for (int i = 0; i < COLORS; i++)
         {
             final int color = i;
@@ -463,9 +498,33 @@ public class MDBlock
         }
     }
 
-    /** Registers one block, and its item in the tab unless the tab is null. */
+    /** Leaves out every block of an array: they are not registered (see Toggles). */
+    static void disable(Block[] array)
+    {
+        DISABLED.add(array);
+    }
+
+    /** Whether the config turned off the blocks of an array, which are then all null. */
+    public static boolean isDisabled(Block[] array)
+    {
+        return DISABLED.contains(array);
+    }
+
+    /**
+     * Registers one block, and its item in the tab unless the tab is null. Returns null without registering anything
+     * when the config turns off the block's type or its array.
+     */
     static <B extends Block> RegistryObject<B> register(String name, B[] array, int index, Supplier<B> factory, MDTabs tab, ItemFactory item)
     {
+        if (!Toggles.typeEnabled(name.substring(0, name.lastIndexOf('_'))))
+        {
+            disable(array);
+        }
+        if (isDisabled(array))
+        {
+            Toggles.leftOut(name);
+            return null;
+        }
         RegistryObject<B> block = BLOCKS.register(name, () -> array[index] = factory.get());
         if (tab != null)
         {

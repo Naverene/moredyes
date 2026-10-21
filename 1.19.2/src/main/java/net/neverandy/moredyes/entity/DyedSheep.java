@@ -147,7 +147,7 @@ public final class DyedSheep
         List<Sheep> sheep = event.getLevel().getEntitiesOfClass(Sheep.class,
                 new AABB(x - 0.01D, y - 0.01D, z - 0.01D, x + 0.01D, y + 0.01D, z + 0.01D),
                 s -> s.isSheared() && getColor(s) >= 0);
-        if (!sheep.isEmpty())
+        if (!sheep.isEmpty() && MDBlock.woolArray[getColor(sheep.get(0))] != null)
         {
             item.setItem(new ItemStack(MDBlock.woolArray[getColor(sheep.get(0))], stack.getCount()));
         }
@@ -162,7 +162,8 @@ public final class DyedSheep
             return;
         }
         int color = getColor(sheep);
-        if (color < 0)
+        // Without dyed wool (turned off in the config) a dyed sheep drops white wool.
+        if (color < 0 || MDBlock.woolArray[color] == null)
         {
             return;
         }

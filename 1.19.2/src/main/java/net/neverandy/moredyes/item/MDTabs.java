@@ -4,6 +4,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -38,7 +39,9 @@ public enum MDTabs
             @Override
             public ItemStack makeIcon()
             {
-                return new ItemStack(items.get(Math.min(MDTabs.this.icon, items.size() - 1)).get());
+                // Every block of a tab can be turned off in the config, which leaves it empty.
+                return items.isEmpty() ? new ItemStack(Items.WHITE_DYE)
+                        : new ItemStack(items.get(Math.min(MDTabs.this.icon, items.size() - 1)).get());
             }
 
             /** The items in the order they were registered, rather than the registry's order. */

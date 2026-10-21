@@ -41,8 +41,10 @@ public final class ModWorldGen
                 {
                     RandomSource random = context.random();
                     String wood = DyeTrees.WOODS[random.nextInt(DyeTrees.WOODS.length)];
-                    return DyeTrees.tree(wood, random.nextInt(ColorStrings.ALL.length))
-                            .place(context.level(), context.chunkGenerator(), random, context.origin());
+                    int color = random.nextInt(ColorStrings.ALL.length);
+                    // A wood whose logs or leaves are turned off in the config doesn't grow.
+                    return DyeTrees.canGrow(wood, color)
+                            && DyeTrees.tree(wood, color).place(context.level(), context.chunkGenerator(), random, context.origin());
                 }
             });
 

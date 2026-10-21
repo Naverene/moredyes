@@ -47,6 +47,11 @@ public enum MDTabs
     {
         for (MDTabs tab : values())
         {
+            // A tab whose blocks are all turned off in the config is left out.
+            if (tab.items.isEmpty())
+            {
+                continue;
+            }
             TABS.register(tab.id, () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup." + tab.id))
                     .icon(() -> new ItemStack(tab.items.get(Math.min(tab.icon, tab.items.size() - 1)).get()))
