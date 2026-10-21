@@ -27,6 +27,7 @@ import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.toggle.Toggles;
 import net.neverandy.moredyes.utility.BlockInfo;
 
 import java.util.ArrayList;
@@ -261,6 +262,7 @@ public class MDBlock
                 .resolve(Reference.MOD_ID + "-client.toml").toString());
         ConfigHandler.loadConfigFile(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get()
                 .resolve(Reference.MOD_ID + "-server.toml").toString());
+        ConfigHandler.applyToggles();
     }
 
     public static void initialize()
@@ -418,6 +420,16 @@ public class MDBlock
         }
         for (PottedPlants potted : POTTED)
         {
+            // No pots for plants the config turned off.
+            if (potted.plants[0] == null)
+            {
+                leaveOutAll("potted" + potted.type);
+                continue;
+            }
+            if (leaveOut("potted" + potted.type))
+            {
+                continue;
+            }
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
                 Block plant = potted.plants[i];
@@ -438,6 +450,10 @@ public class MDBlock
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
                 FlowerPotBlock pot = potted.pots[i];
+                if (pot == null)
+                {
+                    continue;
+                }
                 emptyPot.addPlant(potted.plants[i].getRegistryName(), () -> pot);
             }
         }
@@ -521,6 +537,33 @@ public class MDBlock
         }
     }
 
+    /**
+     * Whether the config turns off a block type (see Toggles). If it does, the type's blocks are noted as left out,
+     * and the caller makes none of them, so their array stays full of nulls.
+     */
+    static boolean leaveOut(String type)
+    {
+        boolean off = !Toggles.typeEnabled(type) || (!Toggles.fences && type.endsWith("fence"))
+                || (!Toggles.panes && (type.equals("glasspane") || type.equals("glassfoggypane")));
+        if (off)
+        {
+            leaveOutAll(type);
+        }
+        return off;
+    }
+
+    /** Notes every color of these block types as left out. */
+    static void leaveOutAll(String... types)
+    {
+        for (String type : types)
+        {
+            for (String color : ColorStrings.ALL)
+            {
+                Toggles.leftOut(type + "_" + color);
+            }
+        }
+    }
+
     private static void registerColors(String type, Block[] array, Supplier<Block> factory)
     {
         registerColors(type, array, factory, MoreDyes.tabBlocks);
@@ -529,6 +572,10 @@ public class MDBlock
     /** Makes one block of a type per color, named "<type>_<color>", with an item in the given tab. */
     private static <B extends Block> void registerColors(String type, B[] array, Supplier<B> factory, CreativeModeTab tab)
     {
+        if (leaveOut(type))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             final B block = factory.get();
@@ -541,6 +588,10 @@ public class MDBlock
 
     private static void registerHardenedClay()
     {
+        if (leaveOut("hardendclay"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -558,6 +609,12 @@ public class MDBlock
     /** Oak signs in each color. The wall sign has no item; it is placed by the sign's item and drops it. */
     private static void registerSigns()
     {
+        // A sign needs its wall sign, so leaving out either leaves out both.
+        if (leaveOut("sign") | leaveOut("wallsign"))
+        {
+            leaveOutAll("sign", "wallsign");
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -582,6 +639,12 @@ public class MDBlock
 
     private static void registerPistons()
     {
+        // The pistons of a color share one head, so they are left out together.
+        if (leaveOut("piston") | leaveOut("stickypiston") | leaveOut("pistonhead"))
+        {
+            leaveOutAll("piston", "stickypiston", "pistonhead");
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -604,6 +667,10 @@ public class MDBlock
 
     private static void registerDiorite()
     {
+        if (leaveOut("diorite"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -619,6 +686,10 @@ public class MDBlock
 
     private static void registerLadder()
     {
+        if (leaveOut("ladder"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -634,6 +705,10 @@ public class MDBlock
 
     private static void registerConcretePowder()
     {
+        if (leaveOut("concretepowder"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -649,6 +724,10 @@ public class MDBlock
     }
     private static void registerConcrete()
     {
+        if (leaveOut("concrete"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -664,6 +743,10 @@ public class MDBlock
 
     private static void registerAndesite()
     {
+        if (leaveOut("andesite"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -679,6 +762,10 @@ public class MDBlock
 
     private static void registerSandstone()
     {
+        if (leaveOut("sandstone"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -694,6 +781,10 @@ public class MDBlock
 
     private static void registerSandstoneCarved()
     {
+        if (leaveOut("sandstonecarved"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -709,6 +800,10 @@ public class MDBlock
 
     private static void registerSandstoneSmooth()
     {
+        if (leaveOut("sandstonesmooth"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -724,6 +819,10 @@ public class MDBlock
 
     private static void registerGlass()
     {
+        if (leaveOut("glass"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -740,6 +839,10 @@ public class MDBlock
 
     private static void registerSand()
     {
+        if (leaveOut("sand"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -756,6 +859,10 @@ public class MDBlock
 
     private static void registerLeaf()
     {
+        if (leaveOut("leaf"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -772,6 +879,10 @@ public class MDBlock
 
     private static void registerBrick()
     {
+        if (leaveOut("brick"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -788,6 +899,10 @@ public class MDBlock
 
     private static void registerClay()
     {
+        if (leaveOut("clay"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -803,6 +918,10 @@ public class MDBlock
 
     private static void registerWool()
     {
+        if (leaveOut("wool"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -818,6 +937,10 @@ public class MDBlock
 
     private static void registerCobble()
     {
+        if (leaveOut("cobble"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -833,6 +956,10 @@ public class MDBlock
 
     private static void registerStonebrick()
     {
+        if (leaveOut("stonebrick"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -848,6 +975,10 @@ public class MDBlock
 
     private static void registerStonebrickCracked()
     {
+        if (leaveOut("stonebrickcracked"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -863,6 +994,10 @@ public class MDBlock
 
     private static void registerStonebrickCarved()
     {
+        if (leaveOut("stonebrickcarved"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -878,6 +1013,10 @@ public class MDBlock
 
     private static void registerStone()
     {
+        if (leaveOut("stone"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -893,6 +1032,10 @@ public class MDBlock
 
     private static void registerObsidian()
     {
+        if (leaveOut("obsidian"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -908,6 +1051,10 @@ public class MDBlock
 
     private static void registerLapis()
     {
+        if (leaveOut("lapis"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -923,6 +1070,10 @@ public class MDBlock
 
     private static void registerGlowstone()
     {
+        if (leaveOut("glowstone"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -938,6 +1089,10 @@ public class MDBlock
 
     private static void registerCoal()
     {
+        if (leaveOut("coal"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -953,6 +1108,10 @@ public class MDBlock
 
     private static void registerSoulsand()
     {
+        if (leaveOut("soulsand"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -968,6 +1127,10 @@ public class MDBlock
 
     private static void registerOakPlank()
     {
+        if (leaveOut("plank"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -984,6 +1147,10 @@ public class MDBlock
 
     private static void registerRedstone()
     {
+        if (leaveOut("redstone"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1000,6 +1167,10 @@ public class MDBlock
 
     private static void registerQuartz()
     {
+        if (leaveOut("quartz"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1016,6 +1187,10 @@ public class MDBlock
 
     private static void registerGlassFoggy() //Doesn't work for some reason?
     {
+        if (leaveOut("glassfoggy"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1031,6 +1206,10 @@ public class MDBlock
 
     private static void registerOakSapling()
     {
+        if (leaveOut("saplingoak"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1046,6 +1225,10 @@ public class MDBlock
     }
     private static void registerBirchSapling()
     {
+        if (leaveOut("saplingbirch"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1061,6 +1244,10 @@ public class MDBlock
     }
     private static void registerDarkOakSapling()
     {
+        if (leaveOut("saplingdarkoak"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1075,6 +1262,10 @@ public class MDBlock
     }
     private static void registerAcaciaSapling()
     {
+        if (leaveOut("saplingacacia"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1090,6 +1281,10 @@ public class MDBlock
 
     private static void registerSpruceSapling()
     {
+        if (leaveOut("saplingspruce"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1104,6 +1299,10 @@ public class MDBlock
     }
     private static void registerJungleSapling()
     {
+        if (leaveOut("saplingjungle"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1119,6 +1318,10 @@ public class MDBlock
     }
     private static void registerTulip()
     {
+        if (leaveOut("tulip"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1134,6 +1337,10 @@ public class MDBlock
 
     private static void registerWorkbench()
     {
+        if (leaveOut("workbench"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1149,6 +1356,10 @@ public class MDBlock
 
     private static void registerBookshelves()
     {
+        if (leaveOut("bookshelf"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String name = "bookshelf_" + ColorStrings.ALL[i];
@@ -1162,10 +1373,18 @@ public class MDBlock
 
     private static void registerGlassPanes()
     {
+        boolean plain = !leaveOut("glasspane");
+        boolean foggy = !leaveOut("glassfoggypane");
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
-            glassPaneArray[i] = registerPane("glasspane_" + ColorStrings.ALL[i]);
-            glassFoggyPaneArray[i] = registerPane("glassfoggypane_" + ColorStrings.ALL[i]);
+            if (plain)
+            {
+                glassPaneArray[i] = registerPane("glasspane_" + ColorStrings.ALL[i]);
+            }
+            if (foggy)
+            {
+                glassFoggyPaneArray[i] = registerPane("glassfoggypane_" + ColorStrings.ALL[i]);
+            }
         }
     }
 
@@ -1180,6 +1399,10 @@ public class MDBlock
 
     private static void registerChest()
     {
+        if (leaveOut("chest"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String name = "chest_" + ColorStrings.ALL[i];
@@ -1193,6 +1416,10 @@ public class MDBlock
 
     private static void registerOakLog()
     {
+        if (leaveOut("oaklog"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1208,6 +1435,10 @@ public class MDBlock
 
     private static void registerBirchLog()
     {
+        if (leaveOut("birchlog"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1223,6 +1454,10 @@ public class MDBlock
 
     private static void registerBirchLeaves()
     {
+        if (leaveOut("birchleaves"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1238,6 +1473,10 @@ public class MDBlock
 
     private static void registerBirchPlanks()
     {
+        if (leaveOut("birchplanks"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1253,6 +1492,10 @@ public class MDBlock
 
     private static void registerJungleLog()
     {
+        if (leaveOut("junglelog"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1268,6 +1511,10 @@ public class MDBlock
 
     private static void registerJunglePLanks()
     {
+        if (leaveOut("jungleplanks"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1283,6 +1530,10 @@ public class MDBlock
 
     private static void registerJungleLeaves()
     {
+        if (leaveOut("jungleleaves"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1298,6 +1549,10 @@ public class MDBlock
 
     private static void registerAcaciaLog()
     {
+        if (leaveOut("acacialog"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1313,6 +1568,10 @@ public class MDBlock
 
     private static void registerAcaciaPlanks()
     {
+        if (leaveOut("acaciaplanks"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1342,6 +1601,10 @@ public class MDBlock
 
     private static void registerAcaciaLeaves()
     {
+        if (leaveOut("acacialeaves"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1357,6 +1620,10 @@ public class MDBlock
 
     private static void registerSpruceLog()
     {
+        if (leaveOut("sprucelog"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1372,6 +1639,10 @@ public class MDBlock
 
     private static void registerSprucePLanks()
     {
+        if (leaveOut("spruceplanks"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1386,6 +1657,10 @@ public class MDBlock
     }
     private static void registerSpruceFence()
     {
+        if (leaveOut("sprucefence"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1400,6 +1675,10 @@ public class MDBlock
     }
     private static void registerBirchFence()
     {
+        if (leaveOut("birchfence"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1414,6 +1693,10 @@ public class MDBlock
     }
     private static void registerOakFence()
     {
+        if (leaveOut("oakfence"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1428,6 +1711,10 @@ public class MDBlock
     }
     private static void registerDarkOakFence()
     {
+        if (leaveOut("darkoakfence"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1442,6 +1729,10 @@ public class MDBlock
     }
     private static void registerAcaciaFence()
     {
+        if (leaveOut("acaciafence"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1456,6 +1747,10 @@ public class MDBlock
     }
     private static void registerJungleFence()
     {
+        if (leaveOut("junglefence"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1470,6 +1765,10 @@ public class MDBlock
     }
     private static void registerSpruceLeaves()
     {
+        if (leaveOut("spruceleaves"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1485,6 +1784,10 @@ public class MDBlock
 
     private static void registerDarkOakLog()
     {
+        if (leaveOut("darkoaklog"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1500,6 +1803,10 @@ public class MDBlock
 
     private static void registerDarkOakPlanks()
     {
+        if (leaveOut("darkoakplanks"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];
@@ -1515,6 +1822,10 @@ public class MDBlock
 
     private static void registerDarkOakLeaves()
     {
+        if (leaveOut("darkoakleaves"))
+        {
+            return;
+        }
         for (int i = 0; i < ColorStrings.ALL.length; i++)
         {
             String color = ColorStrings.ALL[i];

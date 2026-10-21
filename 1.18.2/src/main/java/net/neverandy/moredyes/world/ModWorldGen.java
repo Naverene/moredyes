@@ -46,8 +46,10 @@ public final class ModWorldGen
         {
             Random rand = context.random();
             String wood = DyeTrees.WOODS[rand.nextInt(DyeTrees.WOODS.length)];
-            return DyeTrees.tree(wood, rand.nextInt(ColorStrings.ALL.length))
-                    .place(context.level(), context.chunkGenerator(), rand, context.origin());
+            int color = rand.nextInt(ColorStrings.ALL.length);
+            // A wood whose logs or leaves are turned off in the config doesn't grow.
+            return DyeTrees.canGrow(wood, color)
+                    && DyeTrees.tree(wood, color).place(context.level(), context.chunkGenerator(), rand, context.origin());
         }
     });
 
@@ -75,6 +77,11 @@ public final class ModWorldGen
                 FeatureUtils.register(Reference.MOD_ID + ":dye_trees", DYE_TREE.get()),
                 RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
+        // No tulips when the config turned them off.
+        if (MDBlock.tulipArray[0] == null)
+        {
+            return;
+        }
         SimpleWeightedRandomList.Builder<BlockState> anyTulip = SimpleWeightedRandomList.builder();
         for (Block tulip : MDBlock.tulipArray)
         {
@@ -98,7 +105,7 @@ public final class ModWorldGen
         {
             event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, dyeTrees);
         }
-        if (ConfigHandler.worldGenFlower.get())
+        if (ConfigHandler.worldGenFlower.get() && tulips != null)
         {
             event.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, tulips);
         }
