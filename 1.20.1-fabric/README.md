@@ -66,4 +66,5 @@ Builds on Java 21 (the mod itself runs on Java 17).
 - `./gradlew runClient` and `./gradlew runServer` start the game with the mod.
 
 The settings are in `config/moredyes.properties`. The wall blocks take about 1 GB of memory; turn them off with
-`wall_blocks=false`. A server and its players must use the same setting.
+`wall_blocks=false`. A server and its players must use the same setting. The same file can turn off the other shapes
+and any block type; see "Turning parts of the mod off" in the [main README](../README.md).

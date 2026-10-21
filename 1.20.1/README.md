@@ -40,4 +40,5 @@ Needs Java 17.
   finished `./gradlew build`). Run it after adding a dyed block type.
 
 The wall blocks take about 1 GB of memory. They can be turned off with `wall_blocks` in `config/moredyes-client.toml`;
-a server and its players must use the same setting.
+a server and its players must use the same setting. The same file can turn off the other shapes and any block type; see
+"Turning parts of the mod off" in the [main README](../README.md).

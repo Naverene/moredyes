@@ -22,6 +22,28 @@ This repository holds every version of the mod, one folder per Minecraft version
 
 Each Minecraft folder is its own Gradle project with its own wrapper. Open the folder for the version you want in your IDE (not the repository root), and run `./gradlew build` inside it. The jar lands in that folder's `build/libs` as `moredyes-<mod version>-<Minecraft version>-<loader>.jar`, such as `moredyes-1.3.0-1.20.1-forge.jar` or `moredyes-1.3.0-1.21.1-neoforge.jar`. Each Fabric build uses the models, textures, recipes and other data files from the Forge or NeoForge folder of the same Minecraft version, so it needs that folder next to it.
 
+## Turning parts of the mod off
+
+Modpacks that only want some of the blocks can leave the rest out. Blocks that are turned off are never added, so they
+also save memory and loading time, and their recipes, loot tables and world gen go with them. The settings are read at
+startup: restart the game after changing them. A server and its players must use the same settings, and blocks that
+are turned off disappear from worlds that already have them.
+
+| Setting | What it does |
+| --- | --- |
+| `stair_blocks`, `slab_blocks`, `wall_blocks`, `fence_blocks`, `pane_blocks` | Add dyed stairs, slabs, walls, wooden fences and glass panes (`true` by default). Walls take the most memory. |
+| `disabled_blocks` | Block types to leave out, named as in their ids without the color. On 1.16.5 to 1.20.1 that is for example `["concretepowder", "chest", "piston", "sign"]`; on 1.21.1 and newer it is `["concrete_powder", "chest", "piston", "sign"]`. Leaving out a type also leaves out its stairs, slabs and walls. The log lists every type name if one is wrong. |
+| `generate_trees`, `generate_flowers` | Grow dye trees and dyed tulips in new chunks. |
+| `iron_chests`, `storage_drawers` | Add dyed Iron Chests and Storage Drawers when those mods are installed. |
+
+Where the settings live:
+
+- Forge 1.16.5 to 1.20.1: `config/moredyes-client.toml` (on servers too, since it decides which blocks exist).
+- NeoForge 1.21.1 and newer: `config/moredyes-startup.toml`.
+- Fabric: `config/moredyes.properties`, with lists written as `disabled_blocks=chest,piston,sign`.
+- 1.7.10 and 1.12.2 have only the world gen, Iron Chests, Storage Drawers and GregTech recipe switches, in the
+  mod's `.cfg` file (see that version's README).
+
 ## For other mods
 
 Other mods can read and use More Dyes colors through tags and the `MoreDyesAPI` class in every version; see [API.md](API.md).
