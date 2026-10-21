@@ -18,6 +18,7 @@ import net.neverandy.moredyes.item.crafting.ModRecipes;
 import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
+import net.neverandy.moredyes.toggle.Toggles;
 import net.neverandy.moredyes.world.ModWorldGen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,6 +40,7 @@ public class MoreDyes
         modBus.addListener(this::setup);
 
         MDBlock.register(modBus);
+        warnUnknownTypes();
         MDItem.register(modBus);
         MDTabs.register(modBus);
         ModTileEntities.register(modBus);
@@ -46,13 +48,38 @@ public class MoreDyes
         ModRecipes.register(modBus);
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
-        if (ModList.get().isLoaded("ironchest"))
+        if (ModList.get().isLoaded("ironchest") && Toggles.ironChests)
         {
             IronChestCompat.register(modBus);
         }
-        if (ModList.get().isLoaded("storagedrawers"))
+        if (ModList.get().isLoaded("storagedrawers") && Toggles.storageDrawers)
         {
             StorageDrawersCompat.register(modBus);
+        }
+        // Turned off in the config: their recipes and tags are then dropped like those of turned-off blocks.
+        if (!Toggles.ironChests)
+        {
+            for (String tier : Reference.IRON_CHEST_TIERS)
+            {
+                Toggles.leftOut("dyed_" + tier + "_chest");
+            }
+        }
+        if (!Toggles.storageDrawers)
+        {
+            for (String size : Reference.DRAWER_SIZES)
+            {
+                Toggles.leftOut("dyed_" + size);
+            }
+        }
+    }
+
+    /** Names in the config's disabled_blocks that match no block type, likely typos. */
+    private static void warnUnknownTypes()
+    {
+        if (!Toggles.unknownTypes().isEmpty())
+        {
+            LOGGER.warn("disabled_blocks in moredyes-client.toml names {}, which aren't More Dyes block types. The types are: {}",
+                    Toggles.unknownTypes(), Toggles.knownTypes());
         }
     }
 

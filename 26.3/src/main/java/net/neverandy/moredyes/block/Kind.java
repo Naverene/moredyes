@@ -42,6 +42,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.registry.ModBlocks;
+import net.neverandy.moredyes.toggle.Toggles;
 
 /**
  * Every kind of block that comes in all of the mixed colors. Each kind is registered once per color under the name
@@ -382,6 +383,36 @@ public enum Kind {
 
     public boolean hasItem() {
         return tab != Tab.NONE;
+    }
+
+    /**
+     * Whether the config keeps this kind (see Toggles and Config). A kind is left out when its id is in
+     * disabled_blocks, when its shape is turned off, or when a kind it needs is left out: a slab, stairs or wall needs
+     * its block, concrete powder its concrete, a piston its head, and a sign its wall sign.
+     */
+    public boolean enabled() {
+        if (!Toggles.typeEnabled(id)) {
+            return false;
+        }
+        if (shape != null) {
+            boolean on = switch (shape) {
+                case SLAB -> Toggles.slabs;
+                case STAIRS -> Toggles.stairs;
+                case WALL -> Toggles.walls;
+            };
+            return on && base.enabled();
+        }
+        if (id.endsWith("_fence")) {
+            return Toggles.fences;
+        }
+        return switch (this) {
+            case GLASS_PANE, FOGGY_GLASS_PANE -> Toggles.panes;
+            case CONCRETE_POWDER -> CONCRETE.enabled();
+            // Sticky pistons can go on their own; a piston and its head can't do without each other.
+            case PISTON, PISTON_HEAD, STICKY_PISTON -> Toggles.typeEnabled(PISTON.id) && Toggles.typeEnabled(PISTON_HEAD.id);
+            case SIGN, WALL_SIGN -> Toggles.typeEnabled(SIGN.id) && Toggles.typeEnabled(WALL_SIGN.id);
+            default -> true;
+        };
     }
 
     /** The vanilla block this kind copies. For a slab, stairs or wall, that is the vanilla block of its base kind. */

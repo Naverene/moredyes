@@ -54,11 +54,11 @@ public class MoreDyes
 		MDItem.initialize();
 		MDBlock.initialize();
 		// Optional compat. Those classes refer to the other mod's classes, so they are only touched when it is installed.
-		if(Loader.isModLoaded(IronChestCompat.MOD_ID))
+		if(ConfigHandler.ironChestsAdded())
 		{
 			IronChestCompat.preInit();
 		}
-		if(Loader.isModLoaded(StorageDrawersCompat.MOD_ID))
+		if(ConfigHandler.storageDrawersAdded())
 		{
 			StorageDrawersCompat.preInit();
 		}

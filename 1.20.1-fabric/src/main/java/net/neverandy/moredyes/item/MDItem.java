@@ -26,6 +26,10 @@ public class MDItem
         // Dyed chests burn as long as a vanilla chest.
         for (BlockChest chest : MDBlock.chestArray)
         {
+            if (chest == null)
+            {
+                continue;
+            }
             FuelRegistry.INSTANCE.add(chest, 300);
         }
     }

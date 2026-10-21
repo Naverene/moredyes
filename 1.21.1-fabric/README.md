@@ -40,7 +40,8 @@ Fabric API has a recipe that uses them (on Fabric the vanilla recipes ask for th
 other mods' recipes that ask for, say, any blue dye take the bluish More Dyes dyes.
 
 The settings are in `config/moredyes.properties`: `sheep_spawn_chance` (0 to 1, 0.05 by default) is the chance that a
-sheep spawning in the world has a random More Dyes color.
+sheep spawning in the world has a random More Dyes color. The same file can turn off shapes, block types, world gen
+and mod compat; see "Turning parts of the mod off" in the [main README](../README.md).
 
 ## Storage Drawers
 

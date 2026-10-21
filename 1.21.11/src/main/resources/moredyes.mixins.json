@@ -4,6 +4,7 @@
   "package": "net.neverandy.moredyes.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "MultiPackResourceManagerMixin",
     "EndCrystalItemMixin",
     "PistonBaseBlockMixin",
     "PistonHeadBlockMixin",

@@ -72,7 +72,11 @@ public final class ClientSetup
     {
         for (Block block : blocks)
         {
-            ItemBlockRenderTypes.setRenderLayer(block, type);
+            // Blocks the config turned off are null.
+            if (block != null)
+            {
+                ItemBlockRenderTypes.setRenderLayer(block, type);
+            }
         }
     }
 

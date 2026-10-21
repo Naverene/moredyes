@@ -36,7 +36,8 @@ Chests recipes and loot tables are rewritten with Fabric's load conditions while
 NeoForge side, run its `tools/generate_resources.py`, and check that it registers here too.
 
 The settings are in `config/moredyes.properties`: `sheep_spawn_chance` (0 to 1, 0.05 by default) is the chance that a
-sheep spawning in the world has a random More Dyes color.
+sheep spawning in the world has a random More Dyes color. The same file can turn off shapes, block types, world gen
+and mod compat; see "Turning parts of the mod off" in the [main README](../README.md).
 
 ## Storage Drawers
 

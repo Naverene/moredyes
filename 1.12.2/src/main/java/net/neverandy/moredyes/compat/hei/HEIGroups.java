@@ -10,9 +10,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.common.Loader;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.Reference;
@@ -47,14 +47,14 @@ final class HEIGroups
 		}
 		add(kinds,MDItem.sign);
 		// The compat items exist only with their mod, and their classes are only touched then.
-		if(Loader.isModLoaded(IronChestCompat.MOD_ID))
+		if(ConfigHandler.ironChestsAdded())
 		{
 			for(IronChestCompat.Tier tier:IronChestCompat.Tier.values())
 			{
 				add(kinds,tier.item);
 			}
 		}
-		if(Loader.isModLoaded(StorageDrawersCompat.MOD_ID))
+		if(ConfigHandler.storageDrawersAdded())
 		{
 			add(kinds,StorageDrawersCompat.drawersItem);
 		}

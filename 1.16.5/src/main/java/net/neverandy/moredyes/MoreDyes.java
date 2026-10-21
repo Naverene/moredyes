@@ -16,6 +16,10 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.neverandy.moredyes.toggle.Toggles;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -57,14 +61,14 @@ public class MoreDyes
         @Override
         public ItemStack createIcon()
         {
-            return new ItemStack(MDBlock.darkOakLogArray[78]);
+            return icon(MDBlock.darkOakLogArray, 78);
         }
     };
     public static final ItemGroup tabPlants = new ItemGroup("plants")
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(MDBlock.oakSaplingArray[56]);
+            return icon(MDBlock.oakSaplingArray, 56);
         }
     };
     public static final ItemGroup tabDyes = new ItemGroup("dyes")
@@ -78,16 +82,55 @@ public class MoreDyes
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(MDBlock.brickArray[100]);
+            return icon(MDBlock.brickArray, 100);
         }
     };
     public static final ItemGroup tabShapes = new ItemGroup("shapes")
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(DyedShapes.ALL.get(0).stairs[100]);
+            for (DyedShapes shapes : DyedShapes.ALL)
+            {
+                for (Block[] blocks : new Block[][]{shapes.stairs, shapes.slabs, shapes.walls})
+                {
+                    if (blocks.length > 0 && blocks[100] != null)
+                    {
+                        return new ItemStack(blocks[100]);
+                    }
+                }
+            }
+            return new ItemStack(Items.WHITE_DYE);
         }
     };
+
+    /** A tab's icon: the block at {@code index}, or another one when the config turned that off. */
+    private static ItemStack icon(Block[] blocks, int index)
+    {
+        if (blocks[index] != null)
+        {
+            return new ItemStack(blocks[index]);
+        }
+        for (Block block : blocks)
+        {
+            if (block != null)
+            {
+                return new ItemStack(block);
+            }
+        }
+        return new ItemStack(Items.WHITE_DYE);
+    }
+
+    /**
+     * Sets a block's render layer, skipping blocks the config turned off (null). The layer is passed as an Object so
+     * that this class doesn't name RenderType, a client class, in a method signature, which servers can't load.
+     */
+    private static void layer(Block block, Object type)
+    {
+        if (block != null)
+        {
+            RenderTypeLookup.setRenderLayer(block, (RenderType) type);
+        }
+    }
 
     public MoreDyes()
     {
@@ -111,6 +154,9 @@ public class MoreDyes
 
         //RegistryHandler.init();
         MDBlock.initialize();
+        // The blocks are made when block registration starts, so unknown names in the config are reported then.
+        FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Block.class, EventPriority.LOW,
+                (RegistryEvent.Register<Block> event) -> warnUnknownTypes());
         MDItem.initialize();
         ModWorldGen.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModTileEntities.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -118,13 +164,38 @@ public class MoreDyes
         ModRecipes.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
-        if (ModList.get().isLoaded("ironchest"))
+        if (ModList.get().isLoaded("ironchest") && Toggles.ironChests)
         {
             IronChestCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
-        if (ModList.get().isLoaded("storagedrawers"))
+        if (ModList.get().isLoaded("storagedrawers") && Toggles.storageDrawers)
         {
             StorageDrawersCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
+        }
+        // Turned off in the config: their recipes and tags are then dropped like those of turned-off blocks.
+        if (!Toggles.ironChests)
+        {
+            for (String tier : Reference.IRON_CHEST_TIERS)
+            {
+                Toggles.leftOut("dyed_" + tier + "_chest");
+            }
+        }
+        if (!Toggles.storageDrawers)
+        {
+            for (String size : Reference.DRAWER_SIZES)
+            {
+                Toggles.leftOut("dyed_" + size);
+            }
+        }
+    }
+
+    /** Names in the config's disabled_blocks that match no block type, likely typos. */
+    private static void warnUnknownTypes()
+    {
+        if (!Toggles.unknownTypes().isEmpty())
+        {
+            LOGGER.warn("disabled_blocks in moredyes-client.toml names {}, which aren't More Dyes block types. The types are: {}",
+                    Toggles.unknownTypes(), Toggles.knownTypes());
         }
     }
 
@@ -146,51 +217,51 @@ public class MoreDyes
         //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         for (BlockGlass block: MDBlock.glassArray)
         {
-            event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(block, RenderType.getCutout()));
+            event.enqueueWork(() -> layer(block, RenderType.getCutout()));
         }
         event.enqueueWork(() ->
         {
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
-                RenderTypeLookup.setRenderLayer(MDBlock.glassPaneArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.glassPaneArray[i], RenderType.getCutoutMipped());
                 // Foggy glass is half see-through, so it needs the translucent layer.
-                RenderTypeLookup.setRenderLayer(MDBlock.glassFoggyArray[i], RenderType.getTranslucent());
-                RenderTypeLookup.setRenderLayer(MDBlock.glassFoggyPaneArray[i], RenderType.getTranslucent());
+                layer(MDBlock.glassFoggyArray[i], RenderType.getTranslucent());
+                layer(MDBlock.glassFoggyPaneArray[i], RenderType.getTranslucent());
             }
         });
         event.enqueueWork(() ->
         {
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
-                RenderTypeLookup.setRenderLayer(MDBlock.tulipArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.oakSaplingArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.birchSaplingArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.acaciaSaplingArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.darkOakSaplingArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.jungleSaplingArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.spruceSaplingArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.oakLeafArray[i], RenderType.getCutoutMipped());
-                RenderTypeLookup.setRenderLayer(MDBlock.birchLeafArray[i], RenderType.getCutoutMipped());
-                RenderTypeLookup.setRenderLayer(MDBlock.acaciaLeafArray[i], RenderType.getCutoutMipped());
-                RenderTypeLookup.setRenderLayer(MDBlock.darkOakLeafArray[i], RenderType.getCutoutMipped());
-                RenderTypeLookup.setRenderLayer(MDBlock.jungleLeafArray[i], RenderType.getCutoutMipped());
-                RenderTypeLookup.setRenderLayer(MDBlock.spruceLafArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.tulipArray[i], RenderType.getCutout());
+                layer(MDBlock.oakSaplingArray[i], RenderType.getCutout());
+                layer(MDBlock.birchSaplingArray[i], RenderType.getCutout());
+                layer(MDBlock.acaciaSaplingArray[i], RenderType.getCutout());
+                layer(MDBlock.darkOakSaplingArray[i], RenderType.getCutout());
+                layer(MDBlock.jungleSaplingArray[i], RenderType.getCutout());
+                layer(MDBlock.spruceSaplingArray[i], RenderType.getCutout());
+                layer(MDBlock.oakLeafArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.birchLeafArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.acaciaLeafArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.darkOakLeafArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.jungleLeafArray[i], RenderType.getCutoutMipped());
+                layer(MDBlock.spruceLafArray[i], RenderType.getCutoutMipped());
                 // The wood and iron on a dyed piston are an untinted layer drawn over the tinted cobblestone, with see-through gaps.
-                RenderTypeLookup.setRenderLayer(MDBlock.stickyPistonArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.pistonArray[i], RenderType.getCutout());
-                RenderTypeLookup.setRenderLayer(MDBlock.iceArray[i], RenderType.getTranslucent());
-                RenderTypeLookup.setRenderLayer(MDBlock.chainArray[i], RenderType.getCutout());
+                layer(MDBlock.stickyPistonArray[i], RenderType.getCutout());
+                layer(MDBlock.pistonArray[i], RenderType.getCutout());
+                layer(MDBlock.iceArray[i], RenderType.getTranslucent());
+                layer(MDBlock.chainArray[i], RenderType.getCutout());
                 for (MDBlock.PottedPlants potted : MDBlock.POTTED)
                 {
-                    RenderTypeLookup.setRenderLayer(potted.pots[i], RenderType.getCutout());
+                    layer(potted.pots[i], RenderType.getCutout());
                 }
                 for (Block[] flowers : MDBlock.smallFlowerArrays)
                 {
-                    RenderTypeLookup.setRenderLayer(flowers[i], RenderType.getCutout());
+                    layer(flowers[i], RenderType.getCutout());
                 }
                 for (Block[] flowers : MDBlock.tallFlowerArrays)
                 {
-                    RenderTypeLookup.setRenderLayer(flowers[i], RenderType.getCutout());
+                    layer(flowers[i], RenderType.getCutout());
                 }
             }
             for (DyedShapes shapes : DyedShapes.ALL)
@@ -204,7 +275,7 @@ public class MoreDyes
                 {
                     for (Block block : blocks)
                     {
-                        RenderTypeLookup.setRenderLayer(block, layer);
+                        layer(block, layer);
                     }
                 }
             }

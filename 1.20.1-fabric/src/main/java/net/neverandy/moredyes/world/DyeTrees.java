@@ -50,6 +50,11 @@ public final class DyeTrees
             @Override
             public boolean growTree(ServerLevel level, ChunkGenerator generator, BlockPos pos, BlockState sapling, RandomSource random)
             {
+                // No tree when the config turned off its log or leaves.
+                if (!canGrow(wood, colorIndex))
+                {
+                    return false;
+                }
                 BlockState fluid = level.getFluidState(pos).createLegacyBlock();
                 level.setBlock(pos, fluid, 4);
                 if (tree(wood, colorIndex).place(level, generator, random, pos))
@@ -64,6 +69,12 @@ public final class DyeTrees
                 return false;
             }
         };
+    }
+
+    /** Whether the log and leaves of a tree are there; the config can turn either off. */
+    public static boolean canGrow(String wood, int colorIndex)
+    {
+        return logs(wood)[colorIndex] != null && leaves(wood)[colorIndex] != null;
     }
 
     public static ConfiguredFeature<TreeConfiguration, ?> tree(String wood, int colorIndex)

@@ -24,7 +24,7 @@ public final class CauldronWashing {
     /** Adds the interactions to vanilla's water cauldron map. Call after the items are registered. */
     public static void register() {
         for (Kind kind : Kind.values()) {
-            if (!kind.hasItem() || kind.washed().isEmpty()) {
+            if (!kind.hasItem() || !kind.enabled() || kind.washed().isEmpty()) {
                 continue;
             }
             Item washed = kind.washed().get();

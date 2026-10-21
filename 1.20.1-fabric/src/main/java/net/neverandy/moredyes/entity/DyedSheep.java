@@ -101,7 +101,8 @@ public final class DyedSheep
     public static ItemStack drop(Sheep sheep, ItemStack stack)
     {
         int color = getColor(sheep);
-        if (color < 0 || !stack.is(ItemTags.WOOL) || !"minecraft".equals(BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace()))
+        // Without dyed wool (turned off in the config) a dyed sheep drops white wool.
+        if (color < 0 || MDBlock.woolArray[color] == null || !stack.is(ItemTags.WOOL) || !"minecraft".equals(BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace()))
         {
             return stack;
         }

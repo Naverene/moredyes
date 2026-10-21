@@ -6,7 +6,6 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Loader;
 import info.kg6jay.moredyes.block.RenderIds;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
@@ -18,7 +17,7 @@ import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.compat.ironchest.client.IronChestClient;
 import info.kg6jay.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import info.kg6jay.moredyes.entity.SheepColor;
-import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
 import info.kg6jay.moredyes.render.TileEntityMDPistonRenderer;
 import info.kg6jay.moredyes.render.TileEntityMDSignRenderer;
@@ -52,10 +51,10 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerBlockHandler(new FlowerPotRenderer(RenderIds.flowerPot));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDSign.class, new TileEntityMDSignRenderer());
 
-        if (Loader.isModLoaded(Reference.IRON_CHESTS)) {
+        if (ConfigHandler.ironChests()) {
             IronChestClient.register();
         }
-        if (Loader.isModLoaded(Reference.STORAGE_DRAWERS)) {
+        if (ConfigHandler.storageDrawers()) {
             StorageDrawersClient.register();
         }
 

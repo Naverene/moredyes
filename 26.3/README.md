@@ -25,6 +25,8 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
 * A dye used on a sheep dyes its wool, and some sheep spawn already dyed (the chance is `sheep_spawn_chance` in the
   server config, `serverconfig/moredyes-server.toml`). Lambs take a color from a parent.
 * Dye trees grow in the overworld about every four chunks, and patches of dyed tulips about every other chunk.
+* `config/moredyes-startup.toml` can turn off shapes, block types, world gen and mod compat; see "Turning parts of
+  the mod off" in the [main README](../README.md).
 * Dyed blocks behave like their vanilla block: dyed obsidian makes nether portals and holds end crystals, dyed redstone
   blocks power repeaters and comparators, dyed bookshelves power enchanting tables, and dyed soul sand makes bubble
   columns.

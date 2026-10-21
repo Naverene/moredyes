@@ -22,6 +22,7 @@ import net.neverandy.moredyes.registry.ModBlockEntities;
 import net.neverandy.moredyes.registry.ModBlocks;
 import net.neverandy.moredyes.registry.ModCreativeTabs;
 import net.neverandy.moredyes.registry.ModItems;
+import net.neverandy.moredyes.toggle.Toggles;
 
 @Mod(MoreDyes.MOD_ID)
 public class MoreDyes {
@@ -30,7 +31,14 @@ public class MoreDyes {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MoreDyes(IEventBus modBus, ModContainer container) {
+        // A startup config is read as soon as it is registered, so it can choose which blocks to register.
+        container.registerConfig(ModConfig.Type.STARTUP, Config.STARTUP_SPEC);
+        Config.applyStartup();
         ModBlocks.register(modBus);
+        if (!Toggles.unknownTypes().isEmpty()) {
+            LOGGER.warn("disabled_blocks in moredyes-startup.toml names {}, which aren't More Dyes block types. The types are: {}",
+                Toggles.unknownTypes(), Toggles.knownTypes());
+        }
         ModItems.register(modBus);
         ModBlockEntities.register(modBus);
         ModCreativeTabs.register(modBus);
@@ -39,8 +47,18 @@ public class MoreDyes {
         modBus.addListener(MoreDyes::commonSetup);
         container.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
         // Optional compat. Its classes refer to the other mod's classes, so they are only touched when it's installed.
-        if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID)) {
+        if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID) && Toggles.storageDrawers) {
             StorageDrawersCompat.register(modBus);
+        }
+        leaveOutCompat();
+    }
+
+    /** Compat blocks turned off in the config: their recipes and tags are dropped like those of turned-off blocks. */
+    private static void leaveOutCompat() {
+        if (!Toggles.storageDrawers) {
+            for (String size : new String[]{"full_drawers_1", "full_drawers_2", "full_drawers_4", "half_drawers_1", "half_drawers_2", "half_drawers_4"}) {
+                Toggles.leftOut(size);
+            }
         }
     }
 

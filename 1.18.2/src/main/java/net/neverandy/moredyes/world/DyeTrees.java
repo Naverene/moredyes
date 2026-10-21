@@ -39,9 +39,16 @@ public final class DyeTrees
             @Override
             protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random rand, boolean largeHive)
             {
-                return Holder.direct(tree(wood, colorIndex));
+                // No tree when the config turned off its log or leaves.
+                return canGrow(wood, colorIndex) ? Holder.direct(tree(wood, colorIndex)) : null;
             }
         };
+    }
+
+    /** Whether the log and leaves of a tree are there; the config can turn either off. */
+    public static boolean canGrow(String wood, int colorIndex)
+    {
+        return logs(wood)[colorIndex] != null && leaves(wood)[colorIndex] != null;
     }
 
     public static ConfiguredFeature<TreeConfiguration, ?> tree(String wood, int colorIndex)

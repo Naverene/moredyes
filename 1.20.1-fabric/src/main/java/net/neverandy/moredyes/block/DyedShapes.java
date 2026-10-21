@@ -6,9 +6,9 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.item.MDTabs;
 import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.toggle.Toggles;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,7 +57,7 @@ public final class DyedShapes
     public final SlabBlock[] slabs = new SlabBlock[COLORS];
     /** Empty for a type that only has slabs. */
     public final StairBlock[] stairs;
-    /** Empty for types without walls, and when walls are turned off in the config. */
+    /** Empty for types without walls. Shapes the config turns off (see Toggles) stay null. */
     public final WallBlock[] walls;
 
     private final Function<BlockBehaviour.Properties, SlabBlock> slabFactory;
@@ -75,7 +75,7 @@ public final class DyedShapes
         this.vanilla = vanilla;
         this.slabFactory = slabFactory;
         this.stairs = new StairBlock[withStairs ? COLORS : 0];
-        this.walls = new WallBlock[ConfigHandler.wallBlocks() && WALL_TYPES.contains(type) ? COLORS : 0];
+        this.walls = new WallBlock[WALL_TYPES.contains(type) ? COLORS : 0];
     }
 
     /** A type with one texture on every face. */
@@ -109,6 +109,19 @@ public final class DyedShapes
     /** Each shape copies the full block's properties, so it is registered after the full block. */
     private void register()
     {
+        // Each shape copies its full block, so it can't be made without it.
+        if (!Toggles.slabs || MDBlock.isDisabled(full))
+        {
+            MDBlock.disable(slabs);
+        }
+        if (!Toggles.stairs || MDBlock.isDisabled(full))
+        {
+            MDBlock.disable(stairs);
+        }
+        if (!Toggles.walls || MDBlock.isDisabled(full))
+        {
+            MDBlock.disable(walls);
+        }
         if (MINEABLE.containsKey(full))
         {
             MINEABLE.put(slabs, MINEABLE.get(full));

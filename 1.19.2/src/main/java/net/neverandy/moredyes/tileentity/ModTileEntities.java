@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.tileentity;
 
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -8,6 +9,9 @@ import net.minecraftforge.registries.RegistryObject;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.Reference;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public final class ModTileEntities
 {
     public static final DeferredRegister<BlockEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Reference.MOD_ID);
@@ -15,14 +19,20 @@ public final class ModTileEntities
     /** One block entity type shared by every dyed chest. */
     @SuppressWarnings("DataFlowIssue")
     public static final RegistryObject<BlockEntityType<MDChestTileEntity>> CHEST = TILE_ENTITIES.register("chest",
-            () -> BlockEntityType.Builder.of(MDChestTileEntity::new, MDBlock.chestArray).build(null));
+            () -> BlockEntityType.Builder.of(MDChestTileEntity::new, present(MDBlock.chestArray)).build(null));
 
     /** One block entity type shared by every dyed sign, standing or on a wall. */
     @SuppressWarnings("DataFlowIssue")
     public static final RegistryObject<BlockEntityType<DyedSignBlockEntity>> SIGN = TILE_ENTITIES.register("sign",
-            () -> BlockEntityType.Builder.of(DyedSignBlockEntity::new, MDBlock.signs()).build(null));
+            () -> BlockEntityType.Builder.of(DyedSignBlockEntity::new, present(MDBlock.signs())).build(null));
 
     private ModTileEntities() {}
+
+    /** The blocks the config didn't turn off. */
+    private static Block[] present(Block[] blocks)
+    {
+        return Arrays.stream(blocks).filter(Objects::nonNull).toArray(Block[]::new);
+    }
 
     public static void register(IEventBus modBus)
     {

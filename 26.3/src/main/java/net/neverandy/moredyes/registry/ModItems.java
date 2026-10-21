@@ -34,7 +34,7 @@ public final class ModItems {
             DYES.put(color, ITEMS.registerItem(color.id("dye"), p -> new MixDyeItem(color, p)));
         }
         for (Kind kind : Kind.values()) {
-            if (!kind.hasItem()) {
+            if (!kind.hasItem() || !kind.enabled()) {
                 continue;
             }
             Map<MixColor, DeferredItem<BlockItem>> byColor = new LinkedHashMap<>();
@@ -89,7 +89,9 @@ public final class ModItems {
         return DYES.get(color);
     }
 
+    /** The item of a kind in a color, or null when the kind has no item or the config leaves it out. */
     public static DeferredItem<BlockItem> get(Kind kind, MixColor color) {
-        return BLOCK_ITEMS.get(kind).get(color);
+        Map<MixColor, DeferredItem<BlockItem>> byColor = BLOCK_ITEMS.get(kind);
+        return byColor == null ? null : byColor.get(color);
     }
 }

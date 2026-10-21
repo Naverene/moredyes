@@ -1,6 +1,7 @@
 package net.neverandy.moredyes.registry;
 
-import java.util.function.Supplier;
+import java.util.Arrays;
+import java.util.List;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
@@ -8,7 +9,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 import net.neverandy.moredyes.MoreDyes;
@@ -31,23 +31,29 @@ public final class ModCreativeTabs {
                 .icon(() -> new ItemStack(ModItems.dye(ICON_COLOR)))
                 .displayItems((parameters, output) -> MixColors.ALL.forEach(color -> output.accept(ModItems.dye(color))))
                 .build());
-        register("blocks", Kind.Tab.BLOCKS, () -> ModItems.get(Kind.BRICKS, ICON_COLOR));
-        register("trees", Kind.Tab.TREES, () -> ModItems.get(Kind.OAK_SAPLING, ICON_COLOR));
-        register("plants", Kind.Tab.PLANTS, () -> ModItems.get(Kind.TULIP, ICON_COLOR));
-        register("shapes", Kind.Tab.SHAPES, () -> ModItems.get(Kind.STONE_BRICK_STAIRS, ICON_COLOR));
+        register("blocks", Kind.Tab.BLOCKS, Kind.BRICKS);
+        register("trees", Kind.Tab.TREES, Kind.OAK_SAPLING);
+        register("plants", Kind.Tab.PLANTS, Kind.TULIP);
+        register("shapes", Kind.Tab.SHAPES, Kind.STONE_BRICK_STAIRS);
     }
 
-    /** A tab listing every block of the kinds in {@code tab}, grouped by kind and then by color. */
-    private static void register(String name, Kind.Tab tab, Supplier<Item> icon) {
+    /**
+     * A tab listing every block of the kinds in {@code tab}, grouped by kind and then by color. Its icon is the
+     * {@code icon} kind, or the first kind the config kept. A tab whose kinds are all turned off is left out.
+     */
+    private static void register(String name, Kind.Tab tab, Kind icon) {
+        List<Kind> kinds = Arrays.stream(Kind.values()).filter(kind -> kind.tab() == tab && kind.enabled()).toList();
+        if (kinds.isEmpty()) {
+            return;
+        }
+        Kind iconKind = kinds.contains(icon) ? icon : kinds.get(0);
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MoreDyes.MOD_ID, name),
             FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup.moredyes." + name))
-                .icon(() -> new ItemStack(icon.get()))
+                .icon(() -> new ItemStack(ModItems.get(iconKind, ICON_COLOR)))
                 .displayItems((parameters, output) -> {
-                    for (Kind kind : Kind.values()) {
-                        if (kind.tab() == tab) {
-                            MixColors.ALL.forEach(color -> output.accept(ModItems.get(kind, color)));
-                        }
+                    for (Kind kind : kinds) {
+                        MixColors.ALL.forEach(color -> output.accept(ModItems.get(kind, color)));
                     }
                 })
                 .build());

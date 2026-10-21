@@ -16,8 +16,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.toggle.Toggles;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,7 +51,8 @@ public final class StorageDrawersCompat
      */
     public static void registerBlocks()
     {
-        if (!DRAWERS.isEmpty())
+        ConfigHandler.load();
+        if (!DRAWERS.isEmpty() || !Toggles.storageDrawers)
         {
             return;
         }

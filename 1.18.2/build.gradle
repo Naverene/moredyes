@@ -26,6 +26,11 @@ minecraft {
     mappings channel: 'official', version: "${mc_version}"
 
     runs {
+        configureEach {
+            // The released jar names its mixins in its manifest; the dev game is told here.
+            args '-mixin.config=moredyes.mixins.json'
+        }
+
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
@@ -131,7 +136,8 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : "${mod_version}",
                 "Implementation-Vendor"   : "moredyes",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "moredyes.mixins.json"
         ])
     }
 }

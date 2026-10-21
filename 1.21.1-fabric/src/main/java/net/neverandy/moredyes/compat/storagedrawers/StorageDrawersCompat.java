@@ -21,7 +21,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
+import net.neverandy.moredyes.Config;
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.toggle.Toggles;
 import net.neverandy.moredyes.color.MixColors;
 
 /**
@@ -68,7 +70,8 @@ public final class StorageDrawersCompat {
 
     /** Registers the drawers, once. Called just before Storage Drawers makes its block entity types. */
     public static synchronized void registerBlocks() {
-        if (!DRAWERS.isEmpty()) {
+        Config.load();
+        if (!DRAWERS.isEmpty() || !Toggles.storageDrawers) {
             return;
         }
         for (String size : SIZES) {
