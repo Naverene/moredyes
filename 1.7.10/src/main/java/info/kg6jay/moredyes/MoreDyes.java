@@ -72,10 +72,10 @@ public class MoreDyes {
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it is
         // installed.
-        if (Loader.isModLoaded(Reference.IRON_CHESTS)) {
+        if (ConfigHandler.ironChests()) {
             IronChestCompat.preInit();
         }
-        if (Loader.isModLoaded(Reference.STORAGE_DRAWERS)) {
+        if (ConfigHandler.storageDrawers()) {
             StorageDrawersCompat.preInit();
         }
 
@@ -101,10 +101,10 @@ public class MoreDyes {
         GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();
-        if (Loader.isModLoaded(Reference.IRON_CHESTS)) {
+        if (ConfigHandler.ironChests()) {
             IronChestCompat.init();
         }
-        if (Loader.isModLoaded(Reference.STORAGE_DRAWERS)) {
+        if (ConfigHandler.storageDrawers()) {
             StorageDrawersCompat.init();
         }
         LogHelper.info("Initialization Complete");
@@ -117,7 +117,7 @@ public class MoreDyes {
         if (Loader.isModLoaded("chisel")) {
             ChiselCompat.registerChisel();
         }
-        if (Loader.isModLoaded("gregtech")) {
+        if (Loader.isModLoaded("gregtech") && ConfigHandler.gregtech_recipes) {
             GTCompat.registerRecipes();
         }
         ((Tab) tabDyes).setTabIconItem(MDItem.dye[0]);
