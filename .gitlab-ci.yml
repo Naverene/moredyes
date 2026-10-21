@@ -1,0 +1,151 @@
+# Everyday builds for the self-hosted GitLab, so they no longer use GitHub Actions minutes. GitHub
+# still builds and publishes releases (v* tags); see .github/workflows/build.yml.
+#
+# - a merge request builds only the versions whose folders it changes
+# - a push to a branch builds the versions changed since the branch's last push
+# - a pipeline started by hand (Build > Pipelines > Run pipeline) builds every version; set the
+#   variable SERVER_CHECK to 1 there to also check that each version loads on a server
+# Each job keeps its jar for a week, on the job's page.
+#
+# The jobs run in eclipse-temurin Docker images, so the runner needs the Docker executor.
+
+workflow:
+  rules:
+    # One pipeline per change: the merge request's one when there is a merge request, otherwise the push's.
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "web"
+
+variables:
+  SERVER_CHECK: "0"
+  # Keeps Gradle's downloads inside the project folder, so the runner's cache can keep them between builds.
+  GRADLE_USER_HOME: $CI_PROJECT_DIR/.gradle-home
+  GRADLE_OPTS: -Dorg.gradle.daemon=false
+
+.build:
+  stage: build
+  image: eclipse-temurin:${JAVA}-jdk
+  # MC_DIR (the version folder) and JAVA are set by each job below.
+  cache:
+    key: gradle-$MC_DIR
+    paths:
+      - .gradle-home/caches/
+      - .gradle-home/wrapper/
+  script:
+    - cd "$MC_DIR"
+    # The 1.7.10 build (GTNH buildscript) names its jar after VERSION.
+    - export VERSION=dev
+    - ./gradlew build
+    - if [ "$SERVER_CHECK" = "1" ]; then ./scripts/check-server-starts.sh; fi
+    # Keep only the jar players install (not the -dev, -sources or -api jars).
+    - mkdir -p dist
+    - find build/libs -maxdepth 1 -name '*.jar' ! -name '*-dev.jar' ! -name '*-sources.jar' ! -name '*-api.jar' -exec cp {} dist/ \;
+    - ls -l dist
+  artifacts:
+    name: MoreDyes-$MC_DIR
+    when: always
+    expire_in: 1 week
+    paths:
+      - $MC_DIR/dist/*.jar
+      - $MC_DIR/build/server-check.log
+
+# Changes to this file rebuild every version.
+.rules_template: &rules
+  - if: $CI_PIPELINE_SOURCE == "web"
+  - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    changes:
+      paths: &paths [ "$MC_DIR/**/*", ".gitlab-ci.yml" ]
+      compare_to: $CI_MERGE_REQUEST_DIFF_BASE_SHA
+  - changes: *paths
+
+"1.4.7":
+  extends: .build
+  variables: { MC_DIR: "1.4.7", JAVA: "17" }
+  rules: *rules
+
+"1.7.10":
+  extends: .build
+  variables: { MC_DIR: "1.7.10", JAVA: "21" }
+  rules: *rules
+
+"1.12.2":
+  extends: .build
+  variables: { MC_DIR: "1.12.2", JAVA: "8" }
+  rules: *rules
+
+"1.16.5":
+  extends: .build
+  variables: { MC_DIR: "1.16.5", JAVA: "8" }
+  rules: *rules
+
+"1.18.2":
+  extends: .build
+  variables: { MC_DIR: "1.18.2", JAVA: "17" }
+  rules: *rules
+
+"1.19.2":
+  extends: .build
+  variables: { MC_DIR: "1.19.2", JAVA: "17" }
+  rules: *rules
+
+"1.20.1":
+  extends: .build
+  variables: { MC_DIR: "1.20.1", JAVA: "17" }
+  rules: *rules
+
+# The Fabric builds take their data files from the matching Forge/NeoForge folder, so a change there
+# rebuilds them too.
+"1.20.1-fabric":
+  extends: .build
+  variables: { MC_DIR: "1.20.1-fabric", JAVA: "21" }
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        paths: &p1201 [ "1.20.1-fabric/**/*", "1.20.1/**/*", ".gitlab-ci.yml" ]
+        compare_to: $CI_MERGE_REQUEST_DIFF_BASE_SHA
+    - changes: *p1201
+
+"1.21.1":
+  extends: .build
+  variables: { MC_DIR: "1.21.1", JAVA: "21" }
+  rules: *rules
+
+"1.21.1-fabric":
+  extends: .build
+  variables: { MC_DIR: "1.21.1-fabric", JAVA: "21" }
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        paths: &p1211 [ "1.21.1-fabric/**/*", "1.21.1/**/*", ".gitlab-ci.yml" ]
+        compare_to: $CI_MERGE_REQUEST_DIFF_BASE_SHA
+    - changes: *p1211
+
+"1.21.11":
+  extends: .build
+  variables: { MC_DIR: "1.21.11", JAVA: "21" }
+  rules: *rules
+
+"1.21.11-fabric":
+  extends: .build
+  variables: { MC_DIR: "1.21.11-fabric", JAVA: "21" }
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        paths: &p12111 [ "1.21.11-fabric/**/*", "1.21.11/**/*", ".gitlab-ci.yml" ]
+        compare_to: $CI_MERGE_REQUEST_DIFF_BASE_SHA
+    - changes: *p12111
+
+"26.1.2":
+  extends: .build
+  variables: { MC_DIR: "26.1.2", JAVA: "25" }
+  rules: *rules
+
+"26.3":
+  extends: .build
+  variables: { MC_DIR: "26.3", JAVA: "25" }
+  rules: *rules

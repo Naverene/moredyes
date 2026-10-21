@@ -28,11 +28,15 @@ Other mods can read and use More Dyes colors through tags and the `MoreDyesAPI` 
 
 ## Builds and releases
 
-[`.github/workflows/build.yml`](.github/workflows/build.yml) builds each version on its own Java and checks that it loads on a server.
+Everyday builds run on the self-hosted GitLab ([`.gitlab-ci.yml`](.gitlab-ci.yml)), so they do not use GitHub Actions minutes. Each version builds on its own Java.
 
-- Pull requests build only the versions they change.
-- Every push to the default branch (`main`) builds all versions and replaces the **Development build** pre-release with the newest jar for each one.
-- Pushing a tag such as `v1.2.0` builds every version as mod version 1.2.0, publishes a release with all the jars, and uploads each jar to CurseForge (project 252137) when the `CURSEFORGE_TOKEN` secret is set. Push the tag with git (`git tag v1.2.0 && git push origin v1.2.0`) or make the release on GitHub; both work.
+- Merge requests and pushes build only the versions they change.
+- A pipeline started by hand builds every version; set `SERVER_CHECK=1` to also check each one loads on a server.
+
+GitHub ([`.github/workflows/build.yml`](.github/workflows/build.yml)) only builds releases:
+
+- Pushing a tag such as `v1.2.0` builds every version as mod version 1.2.0, checks each one loads on a server, publishes a release with all the jars, and uploads each jar to CurseForge (project 252137) when the `CURSEFORGE_TOKEN` secret is set. Push the tag with git (`git tag v1.2.0 && git push origin v1.2.0`) or make the release on GitHub; both work.
+- Running the workflow by hand from the Actions tab builds and checks every version without publishing.
 
 ## History
 
