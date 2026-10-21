@@ -1,17 +1,22 @@
 # Builds every Minecraft version of the mod, each from its own folder with its own Java, and publishes
-# the jars. It runs only for releases, to save GitHub Actions minutes; everyday builds of pushes and
-# merge requests run on the self-hosted GitLab instead (see .gitlab-ci.yml).
-# - pushing a version tag such as v1.2.0 builds all versions as that mod version, checks each one loads
-#   on a server, publishes one release with every jar, and uploads each jar to CurseForge when the
-#   CURSEFORGE_TOKEN secret is set
-# - a run started by hand from the Actions tab builds and checks every version without publishing
-# Every build keeps its jar as a downloadable artifact on the run's page.
+# the jars:
+# - pull requests build only the versions whose folders they change (all of them if this workflow changes)
+# - every push (including merges) to the default branch builds all versions and updates the rolling "Development build"
+#   pre-release with every version's jar
+# - pushing a version tag such as v1.2.0 builds all versions as that mod version, publishes one release
+#   with every jar, and uploads each jar to CurseForge when the CURSEFORGE_TOKEN secret is set
+# Every build keeps its jar as a downloadable artifact on the run's page. Version tags (and runs started
+# by hand) also start a server with the mod to catch crashes and data errors while loading; pushes and
+# pull requests skip that check to save time.
 
 name: Build
 
 on:
   push:
+    branches: [ "master", "main" ]
     tags: [ "v*" ]
+  pull_request:
+    branches: [ "master", "main" ]
   workflow_dispatch:
 
 jobs:
@@ -45,10 +50,32 @@ jobs:
           { "dir": "26.3",   "java": "25", "cf_java": "25", "loader": "neoforge" }
         ]
     steps:
+    - uses: actions/checkout@v4
+      if: github.event_name == 'pull_request'
+      with:
+        # Only commit history is needed to list the changed files. A sparse checkout skips old file contents.
+        fetch-depth: 0
+        sparse-checkout: .github
+
     - name: Pick the versions to build
       id: plan
+      env:
+        BASE_SHA: ${{ github.event.pull_request.base.sha }}
       run: |
-        versions=$(jq -c . <<< "$VERSIONS")
+        if [[ "$GITHUB_EVENT_NAME" == pull_request ]]; then
+          # Only the top folder of each changed file matters, and a PR can change 100,000+ files,
+          # which is too long to pass to jq as an argument.
+          changed=$(git diff --no-renames --name-only "$BASE_SHA"...HEAD | cut -d/ -f1 | sort -u | sed 's#$#/#')
+          if grep -q '^\.github/' <<< "$changed"; then
+            versions=$(jq -c . <<< "$VERSIONS")
+          else
+            versions=$(jq -c --arg changed "$changed" \
+              '[.[] | . as $v | (($v.checkout // $v.dir) | split("\n")) as $dirs
+                | select($changed | split("\n") | any(. as $f | $dirs | any(. as $d | $f | startswith($d + "/"))))]' <<< "$VERSIONS")
+          fi
+        else
+          versions=$(jq -c . <<< "$VERSIONS")
+        fi
         echo "Building: $(jq -r 'map(.dir) | join(", ")' <<< "$versions")"
         echo "versions=$versions" >> "$GITHUB_OUTPUT"
 
@@ -89,7 +116,7 @@ jobs:
         # task. Show the Gradle summary only when the job fails, so green runs don't list a red X.
         add-job-summary: on-failure
 
-    # A version tag such as v1.2.0 sets the mod version; runs started by hand use the one in gradle.properties.
+    # A version tag such as v1.2.0 sets the mod version; other builds use the one in gradle.properties.
     # It is passed as ORG_GRADLE_PROJECT_mod_version, so every Gradle run in this job sees it, including
     # the server check (the 1.4.7 build makes its jar again there, which would otherwise be named after
     # gradle.properties). The 1.7.10 build (GTNH buildscript) reads the VERSION variable instead, and
@@ -108,8 +135,10 @@ jobs:
       run: ./gradlew build
 
     # Starts a dedicated server with the mod and a fresh world, and fails on a crash, a mod loading
-    # error, or a recipe, tag or loot table that does not load.
+    # error, or a recipe, tag or loot table that does not load. Only for version tags (releases) and
+    # runs started by hand from the Actions tab.
     - name: Check the mod loads on a server
+      if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
       run: ./scripts/check-server-starts.sh
 
     - name: Upload the server log
@@ -139,9 +168,12 @@ jobs:
   publish:
     name: Publish the jars on GitHub
     needs: build
-    # Version tags only, never runs started by hand.
-    if: startsWith(github.ref, 'refs/tags/v')
+    # Pushes and merges to the default branch, and version tags. Never pull requests.
+    if: github.event_name == 'push' && (github.ref_name == github.event.repository.default_branch || startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
+    # Two quick pushes to the default branch must not replace the development build at the same time.
+    concurrency:
+      group: publish-${{ github.ref }}
     permissions:
       contents: write
     env:
@@ -156,7 +188,20 @@ jobs:
         merge-multiple: true
         path: dist
 
+    - name: Update the development build
+      if: github.ref_name == github.event.repository.default_branch
+      run: |
+        ls -l dist
+        # Replace the previous development build, so the release always holds the newest jars.
+        gh release delete dev-build --yes --cleanup-tag || true
+        gh release create dev-build dist/*.jar \
+          --target "$GITHUB_SHA" \
+          --prerelease \
+          --title "Development build" \
+          --notes "Latest build of $GITHUB_REF_NAME for every Minecraft version, from commit $GITHUB_SHA. Untested; for testing only."
+
     - name: Publish the release for this version
+      if: startsWith(github.ref, 'refs/tags/v')
       run: |
         ls -l dist
         if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
@@ -168,8 +213,9 @@ jobs:
             --generate-notes
         fi
 
-    # Only the 1.7.10 jar goes to Discord.
+    # Only the 1.7.10 jar goes to Discord. Version tags only.
     - name: Post the 1.7.10 jar to Discord
+      if: startsWith(github.ref, 'refs/tags/v')
       env:
         WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       run: |
@@ -187,7 +233,7 @@ jobs:
   curseforge:
     name: CurseForge ${{ matrix.dir }}
     needs: [ plan, publish ]
-    # Version tags only.
+    # Version tags only. Development builds stay on GitHub.
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     permissions:
