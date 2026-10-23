@@ -111,6 +111,12 @@ public class MoreDyesClient {
 
     /** The dyed chest items are drawn as small chests, like vanilla's. */
     private static void clientExtensions(RegisterClientExtensionsEvent event) {
+        Item[] chests = ModBlocks.all(Kind.CHEST).stream().map(DeferredBlock::get).map(Block::asItem)
+            .toArray(Item[]::new);
+        // With chests turned off in the config there are none, and NeoForge refuses an empty list.
+        if (chests.length == 0) {
+            return;
+        }
         IClientItemExtensions chest = new IClientItemExtensions() {
             private DyedChestItemRenderer renderer;
 
@@ -122,7 +128,6 @@ public class MoreDyesClient {
                 return renderer;
             }
         };
-        event.registerItem(chest, ModBlocks.all(Kind.CHEST).stream().map(DeferredBlock::get).map(Block::asItem)
-            .toArray(Item[]::new));
+        event.registerItem(chest, chests);
     }
 }
