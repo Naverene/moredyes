@@ -29,6 +29,7 @@ import net.neverandy.moredyes.network.SheepColorPacket;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -176,7 +177,7 @@ public final class DyedSheep
     }
 
     /**
-     * Some sheep spawn in the world with a random MoreDyes color. FinalizeSpawn fires both for sheep placed when a
+     * Some sheep spawn in the world with a MoreDyes color (see WildSheepColors). FinalizeSpawn fires both for sheep placed when a
      * chunk is generated and for sheep that spawn later; it runs last so it sees whether another mod cancelled it.
      */
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -187,9 +188,13 @@ public final class DyedSheep
         {
             return;
         }
-        if (sheep.getRandom().nextDouble() < ConfigHandler.sheepSpawnChance.get())
+        List<String> all = Arrays.asList(ColorStrings.ALL);
+        String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, all,
+                ConfigHandler.sheepSpawnChance.get(), ConfigHandler.sheepSpawnColors.get(),
+                ConfigHandler.rareSheepSpawnChance.get(), ConfigHandler.rareSheepSpawnColors.get());
+        if (hex != null)
         {
-            setColor(sheep, sheep.getRandom().nextInt(ColorStrings.ALL.length));
+            setColor(sheep, all.indexOf(hex));
         }
     }
 

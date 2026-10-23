@@ -11,7 +11,7 @@ More Dyes adds 118 dyes to Minecraft, each a mix of two of the 16 vanilla dyes, 
 - **Flower pots.** A dyed flower or sapling goes into a flower pot and keeps its color there.
 - **Dyed chests and crafting tables.** Craft a chest or crafting table with a dye, or build one from dyed planks of a single color. Two dyed chests of the same color join into a double chest.
 - **Dye trees and tulips.** Both generate in the overworld in every color. Craft a sapling with a dye to get a dyed sapling. The leaves drop their sapling and their dye, and a tulip crafts into one dye.
-- **Dyed sheep.** Right-click a sheep with one of the dyes to color it. Shearing or killing it gives wool of that color, the wool grows back in it, and lambs take after a parent. A few sheep (5% by default) get a random color when they first appear in the world.
+- **Dyed sheep.** Right-click a sheep with one of the dyes to color it. Shearing or killing it gives wool of that color, the wool grows back in it, and lambs take after a parent. Some sheep get a More Dyes color when they first appear in the world: by default 20% a natural brown, beige or grey and 2% burgundy (`sheepSpawnColors`, `rareSheepSpawnColors` and their chances in the config).
 - **Washing.** Craft a dyed block with a water bucket to get the vanilla block back, or right-click a cauldron holding water with a stack of dyed blocks to wash the whole stack for one level of water.
 
 Dyed blocks behave like the vanilla blocks they are made from: dyed stone drops dyed cobblestone, dyed cobblestone smelts into dyed stone, dyed sand falls and smelts into dyed glass, dyed bookshelves power an enchanting table, and so on. They are also in the ore dictionary under the same names as the vanilla blocks, so recipes from other mods accept them.
@@ -28,7 +28,7 @@ If Storage Drawers is installed, its drawers come in every color in all five siz
 
 With Had Enough Items (HEI, CleanroomMC's fork of JEI, 4.30 or newer) installed, its item list shows each kind of block (and each tier of dyed Iron Chests and size of dyed drawers) as one collapsible entry holding all of its colors, such as "Dyed Wool", and the dyes as one "Mixed Dyes" entry. The original JEI has no such groups and lists every color on its own.
 
-The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a random color.
+The config file has switches for the tree and tulip generation and for whether mobs can spawn on the dyed blocks, and sets how often sheep get a More Dyes color and which colors they get.
 
 ## For other mods
 

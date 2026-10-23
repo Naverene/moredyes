@@ -1,5 +1,7 @@
 package net.neverandy.moredyes.handler;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.entity.Entity;
@@ -197,9 +199,17 @@ public class DyedSheepHandler
 		}
 		data.setBoolean(CHECKED_TAG,true);
 		EntitySheep sheep=(EntitySheep)entity;
-		if(getColor(sheep)<0&&sheep.getRNG().nextFloat()<ConfigHandler.sheepSpawnChance)
+		if(getColor(sheep)>=0)
 		{
-			storeColor(sheep,sheep.getRNG().nextInt(ColorStrings.ALL.length));
+			return;
+		}
+		List<String> all=Arrays.asList(ColorStrings.ALL);
+		String hex=WildSheepColors.pick(sheep.getRNG().nextDouble(),sheep.getRNG()::nextInt,all,
+				ConfigHandler.sheepSpawnChance,ConfigHandler.sheepSpawnColors,
+				ConfigHandler.rareSheepSpawnChance,ConfigHandler.rareSheepSpawnColors);
+		if(hex!=null)
+		{
+			storeColor(sheep,all.indexOf(hex));
 		}
 	}
 

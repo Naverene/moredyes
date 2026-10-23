@@ -39,8 +39,9 @@ The `c:dyes/<color>` tags, which put each dye under its nearest vanilla color, a
 Fabric API has a recipe that uses them (on Fabric the vanilla recipes ask for the vanilla dye items), so they only let
 other mods' recipes that ask for, say, any blue dye take the bluish More Dyes dyes.
 
-The settings are in `config/moredyes.properties`: `sheep_spawn_chance` (0 to 1, 0.05 by default) is the chance that a
-sheep spawning in the world has a random More Dyes color. The same file can turn off shapes, block types, world gen
+The settings are in `config/moredyes.properties`: `sheep_spawn_chance` and `sheep_spawn_colors` (20% natural browns,
+beiges and greys by default) and `rare_sheep_spawn_chance` and `rare_sheep_spawn_colors` (2% burgundy) set which More
+Dyes colors wild sheep spawn with; see "Wild sheep colors" in the [main README](../README.md). The same file can turn off shapes, block types, world gen
 and mod compat; see "Turning parts of the mod off" in the [main README](../README.md).
 
 ## Storage Drawers

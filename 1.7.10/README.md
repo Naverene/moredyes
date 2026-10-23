@@ -56,7 +56,7 @@ Planks of any of the six woods in one shade also make that shade's crafting tabl
 Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks, nether bricks, end stone, gravel, ice, packed ice, snow, chiseled quartz, quartz pillars, chiseled sandstone, the planks and the small flowers apart from lily of the valley) can be washed back. Stairs, slabs, walls, fences, tall flowers and signs cannot be washed.
 
 Workstations from newer versions (loom, smoker, barrel and so on) are left to other mods.
-Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and shearing or killing it gives wool in that color. A vanilla dye puts it back on a vanilla color. Some new sheep also spawn in a random mod color; the `sheepSpawnChance` config option sets how often (5% by default, 0 to turn it off).
+Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and shearing or killing it gives wool in that color. A vanilla dye puts it back on a vanilla color. Some new sheep also spawn in a mod color: by default 20% in a natural brown, beige or grey and 2% in burgundy. The `sheepSpawnChance` and `sheepSpawnColors` config options set the chance and the colors (0 turns it off, an empty list allows any color), and `rareSheepSpawnChance` and `rareSheepSpawnColors` do the same for the rare ones.
 
 ## Item groups in NEI (GT New Horizons)
 

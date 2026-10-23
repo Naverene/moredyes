@@ -1,5 +1,8 @@
 package info.kg6jay.moredyes.handler;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -22,7 +25,7 @@ import info.kg6jay.moredyes.entity.SheepColors;
 import info.kg6jay.moredyes.network.PacketHandler;
 
 /**
- * Lets vanilla sheep wear More Dyes colors: gives some new sheep a random color, drops More Dyes wool when a colored
+ * Lets vanilla sheep wear More Dyes colors: gives some new sheep a More Dyes color (see WildSheepColors), drops More Dyes wool when a colored
  * sheep is sheared or killed, and lets a vanilla dye take the color off again. More Dyes dyes color sheep themselves
  * (see ItemMoreDye).
  */
@@ -43,8 +46,14 @@ public class SheepHandler {
             return;
         }
         Random rand = event.world.rand;
-        if (rand.nextDouble() < MoreDyes.config.sheepSpawnChance) {
-            SheepColors.store(sheep, rand.nextInt(Colors.COUNT));
+        List<String> all = new ArrayList<String>();
+        for (int color = 0; color < Colors.COUNT; color++) {
+            all.add(Colors.hex(color).toLowerCase(Locale.ROOT));
+        }
+        int color = WildSheepColors.pick(rand, all, MoreDyes.config.sheepSpawnChance, MoreDyes.config.sheepSpawnColors,
+            MoreDyes.config.rareSheepSpawnChance, MoreDyes.config.rareSheepSpawnColors);
+        if (color >= 0) {
+            SheepColors.store(sheep, color);
             sheep.setFleeceColor(Colors.set(SheepColors.get(sheep)));
         }
     }

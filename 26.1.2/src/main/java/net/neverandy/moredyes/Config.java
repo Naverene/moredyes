@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
+import net.neverandy.moredyes.entity.WildSheepColors;
 import net.neverandy.moredyes.toggle.Toggles;
 
 /**
@@ -15,8 +16,19 @@ public final class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.DoubleValue SHEEP_SPAWN_CHANCE = BUILDER
-        .comment("Chance (0 to 1) that a sheep spawning in the world has a random More Dyes color")
-        .defineInRange("sheep_spawn_chance", 0.05D, 0.0D, 1.0D);
+        .comment("Chance (0 to 1) that a sheep spawning in the wild gets one of the sheep_spawn_colors")
+        .defineInRange("sheep_spawn_chance", WildSheepColors.NATURAL_CHANCE, 0.0D, 1.0D);
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> SHEEP_SPAWN_COLORS = BUILDER
+        .comment("The More Dyes colors wild sheep can spawn with, as hex like \"7f5933\". The default is the natural",
+            "browns, beiges and greys. Leave it empty ([]) for any More Dyes color.")
+        .defineListAllowEmpty("sheep_spawn_colors", WildSheepColors.NATURAL, () -> "", name -> name instanceof String);
+    public static final ModConfigSpec.DoubleValue RARE_SHEEP_SPAWN_CHANCE = BUILDER
+        .comment("Chance (0 to 1) that a sheep spawning in the wild gets one of the rare_sheep_spawn_colors instead")
+        .defineInRange("rare_sheep_spawn_chance", WildSheepColors.RARE_CHANCE, 0.0D, 1.0D);
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> RARE_SHEEP_SPAWN_COLORS = BUILDER
+        .comment("The rare colors wild sheep can spawn with. The default is burgundy (592626).",
+            "Leave it empty ([]) for any More Dyes color.")
+        .defineListAllowEmpty("rare_sheep_spawn_colors", WildSheepColors.RARE, () -> "", name -> name instanceof String);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

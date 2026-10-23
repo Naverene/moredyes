@@ -2,6 +2,7 @@ package net.neverandy.moredyes;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.entity.WildSheepColors;
 import net.neverandy.moredyes.toggle.Toggles;
 
 import java.io.IOException;
@@ -22,7 +23,10 @@ public final class ConfigHandler
     private static boolean loaded;
     private static boolean worldGenTree = true;
     private static boolean worldGenFlower = true;
-    private static double sheepSpawnChance = 0.05D;
+    private static double sheepSpawnChance = WildSheepColors.NATURAL_CHANCE;
+    private static List<String> sheepSpawnColors = WildSheepColors.NATURAL;
+    private static double rareSheepSpawnChance = WildSheepColors.RARE_CHANCE;
+    private static List<String> rareSheepSpawnColors = WildSheepColors.RARE;
 
     private ConfigHandler() {}
 
@@ -52,14 +56,10 @@ public final class ConfigHandler
         }
         worldGenFlower = flag(properties, "generate_flowers");
         worldGenTree = flag(properties, "generate_trees");
-        try
-        {
-            sheepSpawnChance = Math.max(0.0D, Math.min(1.0D, Double.parseDouble(properties.getProperty("sheep_spawn_chance", "0.05"))));
-        }
-        catch (NumberFormatException e)
-        {
-            sheepSpawnChance = 0.05D;
-        }
+        sheepSpawnChance = chance(properties, "sheep_spawn_chance", WildSheepColors.NATURAL_CHANCE);
+        sheepSpawnColors = colors(properties, "sheep_spawn_colors", WildSheepColors.NATURAL);
+        rareSheepSpawnChance = chance(properties, "rare_sheep_spawn_chance", WildSheepColors.RARE_CHANCE);
+        rareSheepSpawnColors = colors(properties, "rare_sheep_spawn_colors", WildSheepColors.RARE);
         Toggles.stairs = flag(properties, "stair_blocks");
         Toggles.slabs = flag(properties, "slab_blocks");
         Toggles.walls = flag(properties, "wall_blocks");
@@ -84,8 +84,15 @@ public final class ConfigHandler
             writer.write("generate_flowers=" + worldGenFlower + "\n\n");
             writer.write("# Allow MoreDyes trees during world generation\n");
             writer.write("generate_trees=" + worldGenTree + "\n\n");
-            writer.write("# Chance (0 to 1) that a sheep spawning in the world has a random MoreDyes color\n");
+            writer.write("# Chance (0 to 1) that a sheep spawning in the wild gets one of the sheep_spawn_colors\n");
             writer.write("sheep_spawn_chance=" + sheepSpawnChance + "\n\n");
+            writer.write("# The MoreDyes colors wild sheep can spawn with, as hex separated by commas. The default is the natural\n");
+            writer.write("# browns, beiges and greys. Leave it empty for any MoreDyes color.\n");
+            writer.write("sheep_spawn_colors=" + String.join(",", sheepSpawnColors) + "\n\n");
+            writer.write("# Chance (0 to 1) that a sheep spawning in the wild gets one of the rare_sheep_spawn_colors instead\n");
+            writer.write("rare_sheep_spawn_chance=" + rareSheepSpawnChance + "\n\n");
+            writer.write("# The rare colors wild sheep can spawn with. The default is burgundy (592626). Leave it empty for any MoreDyes color.\n");
+            writer.write("rare_sheep_spawn_colors=" + String.join(",", rareSheepSpawnColors) + "\n\n");
             writer.write("# Add dyed stairs.\n");
             writer.write("# This and the settings below choose which blocks the mod adds; turning blocks off saves memory and loading time.\n");
             writer.write("# A server and its players must use the same settings, and blocks that are turned off disappear from worlds that have them.\n");
@@ -130,8 +137,55 @@ public final class ConfigHandler
         return worldGenFlower;
     }
 
+    /** A chance from 0 to 1, or the default if the file has none or it isn't a number. */
+    private static double chance(Properties properties, String key, double fallback)
+    {
+        try
+        {
+            return Math.max(0.0D, Math.min(1.0D, Double.parseDouble(properties.getProperty(key, String.valueOf(fallback)).trim())));
+        }
+        catch (NumberFormatException e)
+        {
+            return fallback;
+        }
+    }
+
+    /** A list of colors separated by commas, or the default if the file has none. */
+    private static List<String> colors(Properties properties, String key, List<String> fallback)
+    {
+        String value = properties.getProperty(key);
+        if (value == null)
+        {
+            return fallback;
+        }
+        List<String> colors = new ArrayList<>();
+        for (String color : value.split(","))
+        {
+            if (!color.isBlank())
+            {
+                colors.add(WildSheepColors.normalize(color));
+            }
+        }
+        return colors;
+    }
+
     public static double sheepSpawnChance()
     {
         return sheepSpawnChance;
+    }
+
+    public static List<String> sheepSpawnColors()
+    {
+        return sheepSpawnColors;
+    }
+
+    public static double rareSheepSpawnChance()
+    {
+        return rareSheepSpawnChance;
+    }
+
+    public static List<String> rareSheepSpawnColors()
+    {
+        return rareSheepSpawnColors;
     }
 }
