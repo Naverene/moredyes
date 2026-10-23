@@ -35,8 +35,9 @@ maps and recipe priorities go into the jar under `moredyes/fabric/` for the mod 
 Chests recipes and loot tables are rewritten with Fabric's load conditions while building. To add a block, add it on the
 NeoForge side, run its `tools/generate_resources.py`, and check that it registers here too.
 
-The settings are in `config/moredyes.properties`: `sheep_spawn_chance` (0 to 1, 0.05 by default) is the chance that a
-sheep spawning in the world has a random More Dyes color. The same file can turn off shapes, block types, world gen
+The settings are in `config/moredyes.properties`: `sheep_spawn_chance` and `sheep_spawn_colors` (20% natural browns,
+beiges and greys by default) and `rare_sheep_spawn_chance` and `rare_sheep_spawn_colors` (2% burgundy) set which More
+Dyes colors wild sheep spawn with; see "Wild sheep colors" in the [main README](../README.md). The same file can turn off shapes, block types, world gen
 and mod compat; see "Turning parts of the mod off" in the [main README](../README.md).
 
 ## Storage Drawers

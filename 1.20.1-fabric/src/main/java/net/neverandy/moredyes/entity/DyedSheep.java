@@ -16,6 +16,9 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.network.SheepColorPacket;
 import net.neverandy.moredyes.reference.ColorStrings;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Lets vanilla sheep wear any MoreDyes color. Vanilla sheep only know the 16 vanilla colors, so the MoreDyes color is
  * kept in a field the mixin adds to the sheep (saved with it, see mixin/SheepMixin) and sent to the players who can
@@ -109,14 +112,24 @@ public final class DyedSheep
         return new ItemStack(MDBlock.woolArray[color], stack.getCount());
     }
 
-    /** Some sheep spawn in the world with a random MoreDyes color, both when a chunk is generated and later. */
+    /**
+     * Some sheep spawn in the world with a MoreDyes color (see WildSheepColors), both when a chunk is generated and
+     * later.
+     */
     public static void spawned(Sheep sheep, MobSpawnType reason)
     {
-        if ((reason == MobSpawnType.NATURAL || reason == MobSpawnType.CHUNK_GENERATION)
-                && sheep.getRandom().nextDouble() < ConfigHandler.sheepSpawnChance())
+        if (reason != MobSpawnType.NATURAL && reason != MobSpawnType.CHUNK_GENERATION)
+        {
+            return;
+        }
+        List<String> all = Arrays.asList(ColorStrings.ALL);
+        String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, all,
+                ConfigHandler.sheepSpawnChance(), ConfigHandler.sheepSpawnColors(),
+                ConfigHandler.rareSheepSpawnChance(), ConfigHandler.rareSheepSpawnColors());
+        if (hex != null)
         {
             // Not in the world yet, so nobody needs telling: players are told when they start seeing it.
-            ((Fleece) sheep).moredyes$setFleece(sheep.getRandom().nextInt(ColorStrings.ALL.length));
+            ((Fleece) sheep).moredyes$setFleece(all.indexOf(hex));
         }
     }
 

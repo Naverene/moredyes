@@ -20,7 +20,7 @@ Dyed saplings can now be crafted from an oak sapling and the appropriate colored
 
 Tulips in all the colors are available from the creative menu. Worldgen now exists for both the dye trees and the tulips.
 
-Sheep can be dyed any MoreDyes color, and a few spawn in the world already dyed.
+Sheep can be dyed any MoreDyes color, and some spawn in the world already dyed in natural browns, beiges and greys, or rarely burgundy (see "Wild sheep colors" in the [main README](../README.md)).
 
 With Roughly Enough Items (REI) installed, its item list shows each kind of item as one collapsible entry holding all of its colors, such as "Dyed Oak Planks", and the dyes as one "Mixed Dyes" entry. JEI and EMI have no such groups and list every color on its own. REI is optional; to try it in the dev game, run `./gradlew runClient -Precipe_viewer=true`.
 

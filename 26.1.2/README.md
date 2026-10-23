@@ -22,8 +22,9 @@ This is the NeoForge port for Minecraft 26.1.2, made from the 26.3 version.
 * A dyed block crafted with a water bucket, or used on a water cauldron, turns back into the vanilla block.
 * Dyed blocks turn into each other like the vanilla ones: cobblestone smelts to stone, logs make planks, dyed planks
   make crafting tables, chests, signs, bookshelves and pistons of their color, and so on.
-* A dye used on a sheep dyes its wool, and some sheep spawn already dyed (the chance is `sheep_spawn_chance` in the
-  server config, `serverconfig/moredyes-server.toml`). Lambs take a color from a parent.
+* A dye used on a sheep dyes its wool, and some sheep spawn already dyed: by default 20% in natural browns,
+  beiges and greys and 2% in burgundy, set in the server config, `serverconfig/moredyes-server.toml` (see "Wild sheep
+  colors" in the [main README](../README.md)). Lambs take a color from a parent.
 * Dye trees grow in the overworld about every four chunks, and patches of dyed tulips about every other chunk.
 * `config/moredyes-startup.toml` can turn off shapes, block types, world gen and mod compat; see "Turning parts of
   the mod off" in the [main README](../README.md).

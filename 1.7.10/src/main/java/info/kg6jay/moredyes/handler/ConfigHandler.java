@@ -20,7 +20,10 @@ public class ConfigHandler {
     public static boolean worldgen_diorite = true;
     public static boolean worldgen_andesite = true;
     public static boolean preventMobSpawning = true;
-    public static double sheepSpawnChance = 0.05;
+    public static double sheepSpawnChance = WildSheepColors.NATURAL_CHANCE;
+    public static String[] sheepSpawnColors = WildSheepColors.NATURAL;
+    public static double rareSheepSpawnChance = WildSheepColors.RARE_CHANCE;
+    public static String[] rareSheepSpawnColors = WildSheepColors.RARE;
     public static boolean iron_chests = true;
     public static boolean storage_drawers = true;
     public static boolean gregtech_recipes = true;
@@ -94,11 +97,29 @@ public class ConfigHandler {
             .get(
                 Configuration.CATEGORY_GENERAL,
                 "sheepSpawnChance",
-                0.05,
-                "Chance, from 0 to 1, that a new sheep spawns in a random More Dyes shade. 0 turns it off.",
+                WildSheepColors.NATURAL_CHANCE,
+                "Chance, from 0 to 1, that a new sheep spawns in one of the sheepSpawnColors. 0 turns it off.",
                 0.0,
                 1.0)
             .getDouble();
+        sheepSpawnColors = config.getStringList(
+            "sheepSpawnColors",
+            Configuration.CATEGORY_GENERAL,
+            WildSheepColors.NATURAL,
+            "The More Dyes shades (hex, like 7f5933) a new sheep can spawn in. The default is the natural browns, beiges and greys. Leave it empty for any More Dyes shade.");
+        rareSheepSpawnChance = config.get(
+            Configuration.CATEGORY_GENERAL,
+            "rareSheepSpawnChance",
+            WildSheepColors.RARE_CHANCE,
+            "Chance, from 0 to 1, that a new sheep spawns in one of the rareSheepSpawnColors instead. 0 turns it off.",
+            0.0,
+            1.0)
+            .getDouble();
+        rareSheepSpawnColors = config.getStringList(
+            "rareSheepSpawnColors",
+            Configuration.CATEGORY_GENERAL,
+            WildSheepColors.RARE,
+            "The rare shades a new sheep can spawn in. The default is burgundy (592626). Leave it empty for any More Dyes shade.");
         iron_chests = config.getBoolean(
             "Compat_IronChests",
             Configuration.CATEGORY_GENERAL,

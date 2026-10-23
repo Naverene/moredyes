@@ -46,6 +46,9 @@ public final class DyedSheep {
         Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "fleece"),
         builder -> builder.persistent(Codec.STRING).syncWith(ByteBufCodecs.STRING_UTF8, AttachmentSyncPredicate.all()));
 
+    /** Every More Dyes color's hex code, for WildSheepColors. */
+    private static final List<String> ALL_HEX = MixColors.ALL.stream().map(MixColor::hex).toList();
+
     private DyedSheep() {}
 
     public static void register() {
@@ -83,13 +86,16 @@ public final class DyedSheep {
         return InteractionResult.SUCCESS;
     }
 
-    /** Some sheep spawn in the world with a random More Dyes color, as set in the config. Called by SheepMixin. */
+    /** Some sheep spawn in the world with a More Dyes color, as set in the config (see WildSheepColors). Called by SheepMixin. */
     public static void onSpawn(Sheep sheep, EntitySpawnReason reason) {
         if (reason != EntitySpawnReason.NATURAL && reason != EntitySpawnReason.CHUNK_GENERATION) {
             return;
         }
-        if (sheep.getRandom().nextDouble() < Config.sheepSpawnChance()) {
-            setColor(sheep, MixColors.ALL.get(sheep.getRandom().nextInt(MixColors.ALL.size())));
+        String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, ALL_HEX,
+            Config.sheepSpawnChance(), Config.sheepSpawnColors(),
+            Config.rareSheepSpawnChance(), Config.rareSheepSpawnColors());
+        if (hex != null) {
+            MixColors.byHex(hex).ifPresent(color -> setColor(sheep, color));
         }
     }
 

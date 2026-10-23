@@ -6,6 +6,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.data.loading.DatagenModLoader;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.entity.WildSheepColors;
 import net.neverandy.moredyes.toggle.Toggles;
 
 import java.io.File;
@@ -19,6 +20,9 @@ public class ConfigHandler
     public static ForgeConfigSpec.BooleanValue worldGenTree;
     public static ForgeConfigSpec.BooleanValue worldGenFlower;
     public static ForgeConfigSpec.DoubleValue sheepSpawnChance;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> sheepSpawnColors;
+    public static ForgeConfigSpec.DoubleValue rareSheepSpawnChance;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> rareSheepSpawnColors;
     private static ForgeConfigSpec.BooleanValue wallBlocks;
     private static ForgeConfigSpec.BooleanValue stairBlocks;
     private static ForgeConfigSpec.BooleanValue slabBlocks;
@@ -35,8 +39,16 @@ public class ConfigHandler
 
         worldGenFlower = client.comment("Allow MoreDyes flowers during world generation").define("generate_flowers", true);
         worldGenTree = client.comment("Allow MoreDyes trees during world generation").define("generate_trees", true);
-        sheepSpawnChance = server.comment("Chance (0 to 1) that a sheep spawning in the world has a random MoreDyes color")
-                .defineInRange("sheep_spawn_chance", 0.05D, 0.0D, 1.0D);
+        sheepSpawnChance = server.comment("Chance (0 to 1) that a sheep spawning in the wild gets one of the sheep_spawn_colors")
+                .defineInRange("sheep_spawn_chance", WildSheepColors.NATURAL_CHANCE, 0.0D, 1.0D);
+        sheepSpawnColors = server.comment("The MoreDyes colors wild sheep can spawn with, as hex like \"7f5933\". The default is the natural",
+                "browns, beiges and greys. Leave it empty ([]) for any MoreDyes color.")
+                .defineListAllowEmpty(List.of("sheep_spawn_colors"), () -> WildSheepColors.NATURAL, name -> name instanceof String);
+        rareSheepSpawnChance = server.comment("Chance (0 to 1) that a sheep spawning in the wild gets one of the rare_sheep_spawn_colors instead")
+                .defineInRange("rare_sheep_spawn_chance", WildSheepColors.RARE_CHANCE, 0.0D, 1.0D);
+        rareSheepSpawnColors = server.comment("The rare colors wild sheep can spawn with. The default is burgundy (592626).",
+                "Leave it empty ([]) for any MoreDyes color.")
+                .defineListAllowEmpty(List.of("rare_sheep_spawn_colors"), () -> WildSheepColors.RARE, name -> name instanceof String);
         // Read when blocks are registered, so they are in the file loaded at startup (moredyes-client.toml) on both sides.
         // The settings for which blocks to add stay at the top of the file, where wall_blocks always was.
         stairBlocks = client.comment("Add dyed stairs.",

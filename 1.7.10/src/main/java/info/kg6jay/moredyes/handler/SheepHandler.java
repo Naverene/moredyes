@@ -1,5 +1,8 @@
 package info.kg6jay.moredyes.handler;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.entity.item.EntityItem;
@@ -36,7 +39,7 @@ public class SheepHandler {
         }
     }
 
-    /** Gives a sheep that is new to the world its chance to spawn in a random More Dyes shade. */
+    /** Gives a sheep that is new to the world its chance to spawn in a More Dyes shade (see WildSheepColors). */
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
         SheepColor color = SheepColor.of(event.entity);
@@ -45,14 +48,23 @@ public class SheepHandler {
         }
         color.settled = true;
         Random rand = event.world.rand;
-        if (color.hasShade() || rand.nextDouble() >= ConfigHandler.sheepSpawnChance) {
+        if (color.hasShade()) {
             return;
         }
-        int total = 0;
+        List<String> all = new ArrayList<String>();
         for (String[] shades : MDBlock.colorStrings) {
-            total += shades.length;
+            all.addAll(Arrays.asList(shades));
         }
-        int pick = rand.nextInt(total);
+        int pick = WildSheepColors.pick(
+            rand,
+            all,
+            ConfigHandler.sheepSpawnChance,
+            ConfigHandler.sheepSpawnColors,
+            ConfigHandler.rareSheepSpawnChance,
+            ConfigHandler.rareSheepSpawnColors);
+        if (pick < 0) {
+            return;
+        }
         for (int set = 0; set < MDBlock.colorStrings.length; set++) {
             if (pick < MDBlock.colorStrings[set].length) {
                 applyShade((EntitySheep) event.entity, color, set, pick);

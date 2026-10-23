@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.entity;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -61,6 +62,9 @@ public final class DyedSheep {
         LOOT_MODIFIERS.register("dyed_sheep_wool", () -> Wool.CODEC);
     }
 
+    /** Every More Dyes color's hex code, for WildSheepColors. */
+    private static final List<String> ALL_HEX = MixColors.ALL.stream().map(MixColor::hex).toList();
+
     private DyedSheep() {}
 
     public static void register(IEventBus modBus) {
@@ -97,15 +101,18 @@ public final class DyedSheep {
         event.setCanceled(true);
     }
 
-    /** Some sheep spawn in the world with a random More Dyes color, as set in the server config. */
+    /** Some sheep spawn in the world with a More Dyes color, as set in the server config (see WildSheepColors). */
     private static void onSpawn(FinalizeSpawnEvent event) {
         if (!(event.getEntity() instanceof Sheep sheep) || event.isSpawnCancelled()
             || (event.getSpawnType() != MobSpawnType.NATURAL
                 && event.getSpawnType() != MobSpawnType.CHUNK_GENERATION)) {
             return;
         }
-        if (sheep.getRandom().nextDouble() < Config.SHEEP_SPAWN_CHANCE.get()) {
-            setColor(sheep, MixColors.ALL.get(sheep.getRandom().nextInt(MixColors.ALL.size())));
+        String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, ALL_HEX,
+            Config.SHEEP_SPAWN_CHANCE.get(), Config.SHEEP_SPAWN_COLORS.get(),
+            Config.RARE_SHEEP_SPAWN_CHANCE.get(), Config.RARE_SHEEP_SPAWN_COLORS.get());
+        if (hex != null) {
+            MixColors.byHex(hex).ifPresent(color -> setColor(sheep, color));
         }
     }
 

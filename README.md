@@ -44,6 +44,30 @@ Where the settings live:
 - 1.7.10 and 1.12.2 have only the world gen, Iron Chests, Storage Drawers and GregTech recipe switches, in the
   mod's `.cfg` file (see that version's README).
 
+## Wild sheep colors
+
+Some sheep spawn in the wild with a More Dyes color, next to the white, greys, black, brown and pink vanilla sheep
+spawn with. By default 20% get one of the natural browns, beiges and greys, and 2% get a rare burgundy (`592626`).
+These are server settings, so a server's own config decides them for everyone who plays on it.
+
+| Setting | What it does |
+| --- | --- |
+| `sheep_spawn_chance` | Chance (0 to 1) that a wild sheep gets one of `sheep_spawn_colors` (`0.2` by default; `0` turns it off). |
+| `sheep_spawn_colors` | The colors to pick from, as hex like `7f5933`. Empty means any More Dyes color. |
+| `rare_sheep_spawn_chance` | Chance (0 to 1) that a wild sheep gets one of `rare_sheep_spawn_colors` instead (`0.02` by default). |
+| `rare_sheep_spawn_colors` | The rare colors (`592626`, burgundy, by default). Empty means any More Dyes color. |
+
+Where the settings live:
+
+- Forge 1.16.5 to 1.20.1 and NeoForge 1.21.1 and newer: the per-world server config, `saves/<world>/serverconfig/moredyes-server.toml`
+  (copy it to `defaultconfigs/` to use it for new worlds).
+- Fabric: `config/moredyes.properties`, with lists written as `sheep_spawn_colors=7f5933,403326`.
+- 1.4.7, 1.7.10 and 1.12.2: the mod's `.cfg` file, as `sheepSpawnChance`, `sheepSpawnColors`, `rareSheepSpawnChance`
+  and `rareSheepSpawnColors`.
+
+Worlds that already have a config file keep the `sheep_spawn_chance` saved in it (it was 0.05), but use the natural
+colors from now on.
+
 ## For other mods
 
 Other mods can read and use More Dyes colors through tags and the `MoreDyesAPI` class in every version; see [API.md](API.md).
