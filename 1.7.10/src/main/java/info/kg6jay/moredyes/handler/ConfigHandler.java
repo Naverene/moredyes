@@ -107,14 +107,13 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             WildSheepColors.NATURAL,
             "The More Dyes shades (hex, like 7f5933) a new sheep can spawn in. The default is the natural browns, beiges and greys. Leave it empty for any More Dyes shade.");
-        rareSheepSpawnChance = config
-            .get(
-                Configuration.CATEGORY_GENERAL,
-                "rareSheepSpawnChance",
-                WildSheepColors.RARE_CHANCE,
-                "Chance, from 0 to 1, that a new sheep spawns in one of the rareSheepSpawnColors instead. 0 turns it off.",
-                0.0,
-                1.0)
+        rareSheepSpawnChance = config.get(
+            Configuration.CATEGORY_GENERAL,
+            "rareSheepSpawnChance",
+            WildSheepColors.RARE_CHANCE,
+            "Chance, from 0 to 1, that a new sheep spawns in one of the rareSheepSpawnColors instead. 0 turns it off.",
+            0.0,
+            1.0)
             .getDouble();
         rareSheepSpawnColors = config.getStringList(
             "rareSheepSpawnColors",
