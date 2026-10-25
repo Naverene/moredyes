@@ -117,6 +117,11 @@ def wallRecipes = ['data/moredyes/recipes/*wall_*.json', 'data/moredyes/recipes/
 // carry Fabric's condition too.
 def ironChestRecipes = 'data/moredyes/recipes/iron_chests/*.json'
 def ironChestItemModels = 'assets/moredyes/models/item/dyed_*_chest.json'
+// The dyed Iron Shulker Boxes (compat/ironshulkerbox) are Forge only: Iron Shulker Boxes has no Fabric 1.20.1 build.
+// Their recipes carry only Forge's mod_loaded condition, which Fabric ignores, so the server would fail to load them.
+def ironShulkerBoxResources = ['data/moredyes/recipes/iron_shulker_boxes/**',
+                               'assets/moredyes/blockstates/dyed_*_shulker_box.json',
+                               'assets/moredyes/models/item/dyed_*_shulker_box.json']
 def fabricRecipesDir = layout.buildDirectory.dir('generated/fabricRecipes')
 def fabricIronChestRecipesDir = layout.buildDirectory.dir('generated/fabricIronChestRecipes')
 
@@ -195,6 +200,7 @@ tasks.named('processResources', ProcessResources).configure {
         // Forge's mixin config names its SRG methods; this build has its own.
         exclude 'moredyes.mixins.json'
         exclude ironChestRecipes, ironChestItemModels
+        exclude ironShulkerBoxResources
     }
     from(forgeGenerated) {
         exclude '.cache'
