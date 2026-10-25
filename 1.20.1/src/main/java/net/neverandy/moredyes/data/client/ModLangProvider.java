@@ -46,6 +46,11 @@ public class ModLangProvider extends LanguageProvider
         {
             add("block.moredyes.dyed_" + tier + "_chest", "%s " + Character.toUpperCase(tier.charAt(0)) + tier.substring(1) + " Chest");
         }
+        // Dyed Iron Shulker Boxes (compat/ironshulkerbox).
+        for (String tier : Reference.IRON_SHULKER_BOX_TIERS)
+        {
+            add("block.moredyes.dyed_" + tier + "_shulker_box", "%s " + Character.toUpperCase(tier.charAt(0)) + tier.substring(1) + " Shulker Box");
+        }
         // Dyed Storage Drawers (compat/storagedrawers), named like Storage Drawers names its own.
         for (String size : Reference.DRAWER_SIZES)
         {

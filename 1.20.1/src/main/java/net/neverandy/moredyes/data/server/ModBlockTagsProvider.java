@@ -83,6 +83,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider
         {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(new ResourceLocation(Reference.MOD_ID, "dyed_" + tier + "_chest"));
         }
+        // Likewise dyed Iron Shulker Boxes (compat/ironshulkerbox).
+        for (String tier : Reference.IRON_SHULKER_BOX_TIERS)
+        {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).addOptional(new ResourceLocation(Reference.MOD_ID, "dyed_" + tier + "_shulker_box"));
+        }
         // Likewise dyed Storage Drawers (compat/storagedrawers).
         for (String size : Reference.DRAWER_SIZES)
         {

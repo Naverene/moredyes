@@ -1,9 +1,14 @@
 package info.kg6jay.moredyes.client;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 
 import cpw.mods.fml.relauncher.Side;
@@ -137,6 +142,63 @@ public final class TintSources {
                     @Override
                     public int apply(int argb, int x, int y, int size) {
                         return panels ? chest.panel(argb, x, y) : chest.trim(argb, x, y);
+                    }
+                };
+            }
+        };
+    }
+
+    /**
+     * The Et Futurum Requiem shulker box tiers that dyed boxes come in (compat/etfuturum), named as its textures are.
+     * "vanilla" is the plain box; the rest are its Iron Chests tiers. Plain names, so nothing here loads its classes.
+     */
+    public static final String[] SHULKER_TIERS = { "vanilla", "iron", "gold", "diamond", "copper", "silver", "crystal",
+        "obsidian" };
+
+    /**
+     * Splits a white Iron Shulker Box texture into its shell and its metal trim by comparing it with the red one of the
+     * same tier: the pixels that differ are the dyed shell, the ones that are the same are the trim. With shell true
+     * this keeps the shell as grey; with shell false it keeps the trim in its own colors. Either way the other part is
+     * transparent.
+     */
+    public static PixelTransform shulkerShell(ResourceLocation red, boolean shell) {
+        return new PixelTransform() {
+
+            @Override
+            public int apply(int argb) {
+                return shell ? TintPixels.grey(argb) : 0;
+            }
+
+            @Override
+            public PixelTransform forImage(BufferedImage image) {
+                BufferedImage other;
+                try (InputStream in = Minecraft.getMinecraft()
+                    .getResourceManager()
+                    .getResource(red)
+                    .getInputStream()) {
+                    other = ImageIO.read(in);
+                } catch (IOException e) {
+                    other = null;
+                }
+                if (other == null || other.getWidth() != image.getWidth() || other.getHeight() != image.getHeight()) {
+                    // No red texture to compare with (a resource pack that changes the sizes): all shell.
+                    return this;
+                }
+                BufferedImage compare = other;
+                return new PixelTransform() {
+
+                    @Override
+                    public int apply(int argb) {
+                        return argb;
+                    }
+
+                    @Override
+                    public int apply(int argb, int x, int y, int size) {
+                        boolean same = compare.getRGB(x, y) == argb;
+                        if (shell) {
+                            return same ? 0 : TintPixels.grey(argb);
+                        }
+                        return same ? argb : 0;
                     }
                 };
             }
@@ -296,6 +358,26 @@ public final class TintSources {
             ResourceLocation model = new ResourceLocation("ironchest", "textures/model/" + tier + "chest.png");
             add("ironchest/" + tier + "_panels", model, metalChest(true), true);
             add("ironchest/" + tier + "_trim", model, metalChest(false), true);
+        }
+        // Et Futurum Requiem's shulker boxes: the plain box is grey all over; the Iron Chests tiers keep their metal.
+        add("shulker/block", vanillaBlock("white_shulker_box"), GREY, false);
+        add(
+            "shulker/vanilla",
+            new ResourceLocation("minecraft", "textures/entity/shulker/shulker_white.png"),
+            GREY,
+            true);
+        for (String tier : SHULKER_TIERS) {
+            if (tier.equals("vanilla")) {
+                continue;
+            }
+            ResourceLocation white = new ResourceLocation(
+                "ironshulkerbox",
+                "textures/model/white/shulker_white_" + tier + ".png");
+            ResourceLocation red = new ResourceLocation(
+                "ironshulkerbox",
+                "textures/model/red/shulker_red_" + tier + ".png");
+            add("shulker/" + tier, white, shulkerShell(red, true), true);
+            add("shulker/" + tier + "_trim", white, shulkerShell(red, false), true);
         }
         for (String part : DRAWER_PARTS) {
             ResourceLocation oak = new ResourceLocation(

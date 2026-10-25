@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
@@ -44,6 +45,12 @@ public class CauldronWashHandler {
         event.setCanceled(true);
         ItemStack result = washed.copy();
         result.stackSize = held.stackSize;
+        // Keeps what the item carries, such as the contents of a shulker box or a custom name.
+        if (held.hasTagCompound()) {
+            result.setTagCompound(
+                (NBTTagCompound) held.getTagCompound()
+                    .copy());
+        }
         player.inventory.setInventorySlotContents(player.inventory.currentItem, result);
         Blocks.cauldron.func_150024_a(world, event.x, event.y, event.z, water - 1);
         player.inventoryContainer.detectAndSendChanges();

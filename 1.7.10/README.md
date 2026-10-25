@@ -19,7 +19,9 @@ If Iron Chests is installed, its iron, gold, diamond, copper and silver chests c
 
 If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye (a taped drawer keeps its contents). They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers when the game loads, in the same way as the other tinted textures.
 
-The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).
+If Et Futurum Requiem is installed (it comes with GT: New Horizons), its shulker boxes come in every color: craft any Et Futurum shulker box, or a dyed one, with a dye. The box keeps its contents, name and tier. With Iron Chests installed, Et Futurum's iron, gold, diamond, copper, silver, crystal and obsidian boxes can be dyed too, and its upgrades work on dyed boxes; the dye colors the shell and the metal trim keeps its color. The grey textures are made from Et Futurum's white boxes when the game loads (the trim is the part that is the same on its white and red boxes). Washing a dyed box in a cauldron gives back Et Futurum's plain box with the contents still inside. The dyed boxes are one block for every color and tier (`moredyes:dyedShulkerBox`): the color is in the tile entity and is the item damage, and the tier is Et Futurum's `Type` tag. The `Compat_EtFuturum` config option leaves them out.
+
+The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with these mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).
 
 GTNH Web Map (the GT: New Horizons version of Dynmap) draws the dyed blocks in their colors and shapes, using the definitions in `assets/moredyes/dynmap-texture.txt` and `dynmap-models.txt`. These are made by `tools/make_dynmap.py`, so run it again after adding or changing a block. The map makes the grey textures and reads the colors with the classes in `compat/dynmap`, which only load when the map is installed. The dyed Iron Chests and Storage Drawers are on the map too when those mods are installed. To run the game with the map while developing, pass `-Pweb_map=true` to Gradle.
 
@@ -88,7 +90,7 @@ GTNH's NotEnoughItems can fold many items into one collapsible entry, but mods c
 #   not "minecraft:..._flower" or minecraft:double_plant, fences are not minecraft:fence, the
 #   dyes are not minecraft:dye, wool, glass and chests are not the vanilla ids, and the dyed Iron Chests are
 #   moredyes:dyed<Tier>Chest, which line 528 (IronChest's upgrades) does not take), so it gets its own group either way.
-# The dyed Iron Chests and Storage Drawers groups only fill when those mods are installed; without those mods the
+# The dyed Iron Chests, shulker box and Storage Drawers groups only fill when those mods are installed; without those mods the
 # lines match nothing and the groups never show.
 ; {"displayName":"Mixed Dyes"}
 r/^moredyes:item\.[a-z]+Dye$/
@@ -518,6 +520,8 @@ r/^moredyes:dyedDiamondChest$/
 r/^moredyes:dyedCopperChest$/
 ; {"displayName":"Dyed Silver Chests"}
 r/^moredyes:dyedSilverChest$/
+; {"displayName":"Dyed Shulker Boxes"}
+r/^moredyes:dyedShulkerBox$/
 ; {"displayName":"Dyed Drawers"}
 r/^moredyes:dyedFullDrawers1$/
 ; {"displayName":"Dyed Drawers 1x2"}

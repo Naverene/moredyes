@@ -40,6 +40,7 @@ import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.block.Furnishings;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.ironshulkerbox.IronShulkerBoxCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.crafting.ModRecipes;
@@ -169,6 +170,10 @@ public class MoreDyes
         {
             IronChestCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
+        if (ModList.get().isLoaded("ironshulkerbox") && Toggles.ironShulkerBoxes)
+        {
+            IronShulkerBoxCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
+        }
         if (ModList.get().isLoaded("storagedrawers") && Toggles.storageDrawers)
         {
             StorageDrawersCompat.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -179,6 +184,13 @@ public class MoreDyes
             for (String tier : Reference.IRON_CHEST_TIERS)
             {
                 Toggles.leftOut("dyed_" + tier + "_chest");
+            }
+        }
+        if (!Toggles.ironShulkerBoxes)
+        {
+            for (String tier : Reference.IRON_SHULKER_BOX_TIERS)
+            {
+                Toggles.leftOut("dyed_" + tier + "_shulker_box");
             }
         }
         if (!Toggles.storageDrawers)

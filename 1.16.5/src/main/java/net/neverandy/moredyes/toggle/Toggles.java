@@ -26,6 +26,7 @@ public final class Toggles
     public static boolean fences = true;
     public static boolean panes = true;
     public static boolean ironChests = true;
+    public static boolean ironShulkerBoxes = true;
     public static boolean storageDrawers = true;
 
     private static final Set<String> disabledTypes = new HashSet<>();

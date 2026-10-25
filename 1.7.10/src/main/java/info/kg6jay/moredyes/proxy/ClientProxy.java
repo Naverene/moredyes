@@ -18,6 +18,7 @@ import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
 import info.kg6jay.moredyes.client.RenderColoredWolf;
 import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.compat.etfuturum.client.EtFuturumClient;
 import info.kg6jay.moredyes.compat.ironchest.client.IronChestClient;
 import info.kg6jay.moredyes.compat.notenoughpets.NotEnoughPetsCompat;
 import info.kg6jay.moredyes.compat.notenoughpets.client.NotEnoughPetsClient;
@@ -65,6 +66,9 @@ public class ClientProxy extends CommonProxy {
         }
         if (ConfigHandler.storageDrawers()) {
             StorageDrawersClient.register();
+        }
+        if (ConfigHandler.etFuturum()) {
+            EtFuturumClient.register();
         }
         if (NotEnoughPetsCompat.LOADED) {
             NotEnoughPetsClient.register();

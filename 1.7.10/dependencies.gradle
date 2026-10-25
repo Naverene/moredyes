@@ -59,6 +59,14 @@ dependencies {
         runtimeOnlyNonPublishable(rfg.deobf("curse.maven:not-enough-pets-322159:${notEnoughPetsFile}"))
     }
 
+    // Et Futurum Requiem (GT: New Horizons' backport of newer Minecraft blocks) has shulker boxes, in the Iron Chests
+    // tiers too; compat/etfuturum adds dyed ones. Its dev jar is already deobfuscated. With -Pcompat_mods=true the game
+    // runs with it and what it needs (GTNHLib, UniMixins).
+    compileOnly("ganymedes01.etfuturum:Et-Futurum-Requiem:${etFuturumVersion}:dev") { transitive = false }
+    if (project.findProperty("compat_mods") == "true") {
+        runtimeOnlyNonPublishable("ganymedes01.etfuturum:Et-Futurum-Requiem:${etFuturumVersion}:dev")
+    }
+
     // Not Enough Pets 2.4.1 (AstroTibs) gives cats a dyeable collar; compat/notenoughpets lets More Dyes dyes color it.
     compileOnly(rfg.deobf("curse.maven:not-enough-pets-322159:${notEnoughPetsFile}"))
 }

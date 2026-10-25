@@ -19,6 +19,7 @@ public class Reference {
     public static final String IRON_CHESTS = "IronChest";
     public static final String STORAGE_DRAWERS = "StorageDrawers";
     public static final String NOT_ENOUGH_PETS = "notenoughpets";
+    public static final String ET_FUTURUM = "etfuturum";
 
     public static final String CLIENT_PROXY = "info.kg6jay.moredyes.proxy.ClientProxy";
     public static final String SERVER_PROXY = "info.kg6jay.moredyes.proxy.ServerProxy";

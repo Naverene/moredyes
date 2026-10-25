@@ -21727,6 +21727,30 @@
     {
       "id": "moredyes:dyed_copper_chest",
       "required": false
+    },
+    {
+      "id": "moredyes:dyed_iron_shulker_box",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_gold_shulker_box",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_diamond_shulker_box",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_copper_shulker_box",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_crystal_shulker_box",
+      "required": false
+    },
+    {
+      "id": "moredyes:dyed_obsidian_shulker_box",
+      "required": false
     }
   ]
 }

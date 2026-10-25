@@ -26,6 +26,7 @@ public class ConfigHandler
 	public static boolean gregtechRecipes=true;
 	public static boolean ironChests=true;
 	public static boolean storageDrawers=true;
+	public static boolean ironShulkerBoxes=true;
 
 	public static void loadConfig(File configFile)
 	{
@@ -48,6 +49,11 @@ public class ConfigHandler
 	{
 		return ironChests&&Loader.isModLoaded(IronChestCompat.MOD_ID);
 	}
+	/** Whether the dyed Iron Shulker Boxes are added: Iron Chests is installed and the config keeps them. */
+	public static boolean ironShulkerBoxesAdded()
+	{
+		return ironShulkerBoxes&&Loader.isModLoaded(IronChestCompat.MOD_ID);
+	}
 	/** Whether the dyed Storage Drawers are added: Storage Drawers is installed and the config keeps them. */
 	public static boolean storageDrawersAdded()
 	{
@@ -64,6 +70,7 @@ public class ConfigHandler
 		rareSheepSpawnColors=Arrays.asList(config.getStringList("rareSheepSpawnColors",Configuration.CATEGORY_GENERAL,WildSheepColors.RARE.toArray(new String[0]),"The rare colors a sheep can get when it first appears in the world. The default is burgundy (592626). Leave it empty for any More Dyes color."));
 		gregtechRecipes=config.getBoolean("gregtechRecipes",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the GregTech mixer and chemical bath recipes. Only matters when GregTech is installed, and takes effect after a restart.");
 		ironChests=config.getBoolean("ironChests",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the dyed Iron Chests. Only matters when Iron Chests is installed, and takes effect after a restart.");
+		ironShulkerBoxes=config.getBoolean("ironShulkerBoxes",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the dyed Iron Shulker Boxes (from Iron Chests). Only matters when Iron Chests is installed, and takes effect after a restart.");
 		storageDrawers=config.getBoolean("storageDrawers",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the dyed Storage Drawers. Only matters when Storage Drawers is installed, and takes effect after a restart.");
 		if(config.hasChanged())
 		{

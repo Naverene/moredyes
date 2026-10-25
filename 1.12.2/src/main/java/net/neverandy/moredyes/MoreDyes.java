@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ChiselCompat;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.ironchest.IronShulkerBoxCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.LlamaCarpets;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
@@ -59,6 +60,10 @@ public class MoreDyes
 		if(ConfigHandler.ironChestsAdded())
 		{
 			IronChestCompat.preInit();
+		}
+		if(ConfigHandler.ironShulkerBoxesAdded())
+		{
+			IronShulkerBoxCompat.preInit();
 		}
 		if(ConfigHandler.storageDrawersAdded())
 		{

@@ -27,6 +27,7 @@ public final class Toggles
     public static boolean panes = true;
     public static boolean ironChests = true;
     public static boolean storageDrawers = true;
+    public static boolean ironShulkerBoxes = true;
 
     private static final Set<String> disabledTypes = new HashSet<>();
     private static final Set<String> knownTypes = Collections.synchronizedSet(new TreeSet<>());

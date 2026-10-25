@@ -1,9 +1,11 @@
 package net.neverandy.moredyes.block;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -138,6 +140,8 @@ public class MDBlock
 	public static final List<Block> TILE_COLORED=new ArrayList<Block>();
 	/** The vanilla block each dyed block turns back into when its color is washed out. */
 	public static final Map<Block,ItemStack> WASHED=new LinkedHashMap<Block,ItemStack>();
+	/** The washable blocks whose item keeps its NBT (a box's contents, its name) when washed. */
+	public static final Set<Block> WASH_KEEPS_NBT=new HashSet<Block>();
 
 	public static void initialize()
 	{

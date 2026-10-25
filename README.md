@@ -35,13 +35,15 @@ are turned off disappear from worlds that already have them.
 | `disabled_blocks` | Block types to leave out, named as in their ids without the color. On 1.16.5 to 1.20.1 that is for example `["concretepowder", "chest", "piston", "sign"]`; on 1.21.1 and newer it is `["concrete_powder", "chest", "piston", "sign"]`. Leaving out a type also leaves out its stairs, slabs and walls. The log lists every type name if one is wrong. |
 | `generate_trees`, `generate_flowers` | Grow dye trees and dyed tulips in new chunks. |
 | `iron_chests`, `storage_drawers` | Add dyed Iron Chests and Storage Drawers when those mods are installed. |
+| `iron_shulker_boxes` | Add dyed Iron Shulker Boxes when that mod is installed (1.16.5 and 1.20.1; on 1.12.2 it is `ironShulkerBoxes`, for the boxes in Iron Chests). |
+| `Compat_EtFuturum` | 1.7.10 only: add dyed Et Futurum Requiem shulker boxes when that mod is installed. |
 
 Where the settings live:
 
 - Forge 1.16.5 to 1.20.1: `config/moredyes-client.toml` (on servers too, since it decides which blocks exist).
 - NeoForge 1.21.1 and newer: `config/moredyes-startup.toml`.
 - Fabric: `config/moredyes.properties`, with lists written as `disabled_blocks=chest,piston,sign`.
-- 1.7.10 and 1.12.2 have only the world gen, Iron Chests, Storage Drawers and GregTech recipe switches, in the
+- 1.7.10 and 1.12.2 have only the world gen, Iron Chests, Iron Shulker Boxes, Et Futurum, Storage Drawers and GregTech recipe switches, in the
   mod's `.cfg` file (see that version's README).
 
 ## Wild sheep colors

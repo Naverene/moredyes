@@ -96,7 +96,9 @@ dependencies {
     // they are compile-time only. Run the game with them by passing -Pcompat_mods=true.
     compileOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
     compileOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
+    compileOnly fg.deobf("curse.maven:iron-shulker-boxes-314911:${iron_shulker_boxes_file}")
     if (project.findProperty('compat_mods') == 'true') {
+        runtimeOnly fg.deobf("curse.maven:iron-shulker-boxes-314911:${iron_shulker_boxes_file}")
         runtimeOnly fg.deobf("com.progwml6.ironchest:ironchest:${iron_chests_version}")
         runtimeOnly fg.deobf("curse.maven:storage-drawers-223852:${storage_drawers_file}")
     }
