@@ -906,7 +906,7 @@ public class MDBlock
         {
             String color = ColorStrings.ALL[i];
             String glass_name = "glass_" + color;
-            final BlockGlass glass = new BlockGlass(Reference.BLOCK_INFO_GLASS);
+            final BlockGlass glass = new BlockGlass(Reference.BLOCK_INFO_GLASS, color);
             final BlockItem glassItem = new BlockItem(glass, new Item.Properties().tab(MoreDyes.tabBlocks));
             glassArray[i] = glass;
             glassItemBlockArray[i] = glassItem;
@@ -1274,7 +1274,7 @@ public class MDBlock
         {
             String color = ColorStrings.ALL[i];
             String glassFoggy_name = "glassfoggy_" + color;
-            final BlockGlass glassFoggy = new BlockGlass(Reference.BLOCK_INFO_GLASS_FOGGY);
+            final BlockGlass glassFoggy = new BlockGlass(Reference.BLOCK_INFO_GLASS_FOGGY, color);
             final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().tab(MoreDyes.tabBlocks));
             glassFoggyArray[i] = glassFoggy;
             glassFoggyItemBlockArray[i] = glassFoggyItem;
@@ -1458,18 +1458,19 @@ public class MDBlock
         {
             if (plain)
             {
-                glassPaneArray[i] = registerPane("glasspane_" + ColorStrings.ALL[i]);
+                glassPaneArray[i] = registerPane("glasspane_", ColorStrings.ALL[i]);
             }
             if (foggy)
             {
-                glassFoggyPaneArray[i] = registerPane("glassfoggypane_" + ColorStrings.ALL[i]);
+                glassFoggyPaneArray[i] = registerPane("glassfoggypane_", ColorStrings.ALL[i]);
             }
         }
     }
 
-    private static BlockGlassPane registerPane(String name)
+    private static BlockGlassPane registerPane(String prefix, String color)
     {
-        final BlockGlassPane pane = new BlockGlassPane(Reference.BLOCK_INFO_GLASS_PANE);
+        String name = prefix + color;
+        final BlockGlassPane pane = new BlockGlassPane(Reference.BLOCK_INFO_GLASS_PANE, color);
         final BlockItem paneItem = new BlockItem(pane, new Item.Properties().tab(MoreDyes.tabBlocks));
         BLOCKS.register(name, () -> pane);
         ITEMS.register(name, () -> paneItem);

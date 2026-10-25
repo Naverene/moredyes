@@ -32,6 +32,7 @@ import net.minecraft.world.level.WorldDataConfiguration;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BeaconBlockEntity;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import net.minecraft.world.level.portal.PortalShape;
@@ -50,8 +51,9 @@ import net.neverandy.moredyes.api.MoreDyesAPI;
 public class MoreDyesScreenshots implements ClientModInitializer {
 
     private static final int Y = -60;
-    private static final String[] SHOTS = {"moredyes-scene", "moredyes-chests-sign", "moredyes-sheep"};
-    private static final String[] VIEWS = {"0.5 -59 -4.5 0 15", "-0.5 -59 -0.5 0 35", "-6 -59 -1.5 0 25"};
+    private static final String[] SHOTS = {"moredyes-scene", "moredyes-chests-sign", "moredyes-sheep", "moredyes-beacons"};
+    private static final String[] VIEWS = {"0.5 -59 -4.5 0 15", "-0.5 -59 -0.5 0 35", "-6 -59 -1.5 0 25",
+        "13.5 -59 -6.5 0 -35"};
 
     private boolean started;
     private int ticks = -1;
@@ -89,6 +91,9 @@ public class MoreDyesScreenshots implements ClientModInitializer {
                 Screenshot.grab(client.gameDirectory, SHOTS[i] + ".png", client.getMainRenderTarget(),
                     message -> MoreDyes.LOGGER.info("Screenshot: {}", message.getString()));
             }
+        }
+        if (ticks == 240 + SHOTS.length * 60 - 10) {
+            server.execute(() -> checkBeacons(server));
         }
         if (ticks == 240 + SHOTS.length * 60) {
             MoreDyes.LOGGER.info("More Dyes screenshots taken into {}", new File(client.gameDirectory, "screenshots"));
@@ -151,6 +156,14 @@ public class MoreDyesScreenshots implements ClientModInitializer {
             MoreDyesAPI.setSheepColor(sheep, colors[i]);
             level.addFreshEntity(sheep);
         }
+        // Beacons shining through dyed glass and a dyed pane.
+        for (int i = 0; i < BEACON_GLASS.length; i++) {
+            int x = BEACON_X + i * 4;
+            run(server, "fill " + (x - 1) + " " + Y + " " + (BEACON_Z - 1) + " " + (x + 1) + " " + Y + " " + (BEACON_Z + 1)
+                + " minecraft:iron_block");
+            run(server, "setblock " + x + " " + (Y + 1) + " " + BEACON_Z + " minecraft:beacon");
+            setBlock(server, x, Y + 3, BEACON_Z, BEACON_GLASS[i]);
+        }
         // Dyed items in the hotbar.
         String[] items = {"chest_c56685", "dye_c56685", "wool_334c59", "sign_b2d926", "oak_sapling_d265bf",
             "glass_pane_e57f6c", "piston_c56685", "tulip_c56685", "stone_brick_stairs_4066a5"};
@@ -202,6 +215,25 @@ public class MoreDyesScreenshots implements ClientModInitializer {
         check(PortalShape.findEmptyPortalShape(level, frame.offset(1, 1, 0), Direction.Axis.X).isPresent(),
             "dyed obsidian makes a portal frame");
         MoreDyes.LOGGER.info("More Dyes checks passed: recipe order, fuel, compost, sheep wool, portal frame");
+    }
+
+    private static final String[] BEACON_GLASS = {"glass_c56685", "foggy_glass_334c59", "glass_pane_b2d926"};
+    private static final int BEACON_X = 9;
+    private static final int BEACON_Z = 4;
+
+    /** Checks that the beam of each beacon takes the exact color of the dyed glass above it. */
+    private static void checkBeacons(MinecraftServer server) {
+        for (int i = 0; i < BEACON_GLASS.length; i++) {
+            BlockPos pos = new BlockPos(BEACON_X + i * 4, Y + 1, BEACON_Z);
+            BeaconBlockEntity beacon = (BeaconBlockEntity) server.overworld().getBlockEntity(pos);
+            List<BeaconBlockEntity.BeaconBeamSection> sections = beacon.getBeamSections();
+            String hex = BEACON_GLASS[i].substring(BEACON_GLASS[i].lastIndexOf('_') + 1);
+            int expected = 0xFF000000 | MoreDyesAPI.displayColor(Integer.parseInt(hex, 16));
+            int got = sections.isEmpty() ? 0 : sections.get(sections.size() - 1).getColor();
+            check(got == expected, "beacon beam through " + BEACON_GLASS[i] + " is " + Integer.toHexString(got)
+                + ", not " + Integer.toHexString(expected));
+        }
+        MoreDyes.LOGGER.info("More Dyes checks passed: beacon beams through dyed glass and panes");
     }
 
     private static Item item(String name) {

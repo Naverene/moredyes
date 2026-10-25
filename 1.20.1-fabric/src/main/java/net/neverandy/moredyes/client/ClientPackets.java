@@ -3,8 +3,10 @@ package net.neverandy.moredyes.client;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.animal.horse.Llama;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.entity.LlamaCarpets;
 import net.neverandy.moredyes.network.LlamaCarpetPacket;
@@ -38,6 +40,10 @@ public final class ClientPackets
         if (entity instanceof Sheep sheep)
         {
             DyedSheep.setColor(sheep, packet.color);
+        }
+        else if (entity instanceof TamableAnimal pet && DyedCollars.hasCollar(pet))
+        {
+            DyedCollars.setColor(pet, packet.color);
         }
     }
 

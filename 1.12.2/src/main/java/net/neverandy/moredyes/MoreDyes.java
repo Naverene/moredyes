@@ -18,6 +18,7 @@ import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.entity.LlamaCarpets;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
 import net.neverandy.moredyes.handler.ConfigHandler;
+import net.neverandy.moredyes.handler.DyedCollarHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
 import net.neverandy.moredyes.handler.FlowerPotHandler;
 import net.neverandy.moredyes.handler.FuelHandler;
@@ -77,6 +78,7 @@ public class MoreDyes
 		MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
 		MinecraftForge.EVENT_BUS.register(new FuelHandler());
 		MinecraftForge.EVENT_BUS.register(new DyedSheepHandler());
+		MinecraftForge.EVENT_BUS.register(new DyedCollarHandler());
 		MinecraftForge.EVENT_BUS.register(new FlowerPotHandler());
 		MinecraftForge.EVENT_BUS.register(new LlamaCarpets());
 		proxy.init();

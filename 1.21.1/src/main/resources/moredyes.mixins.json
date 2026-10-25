@@ -9,10 +9,14 @@
     "PistonHeadBlockMixin",
     "DiodeBlockMixin",
     "RecipeManagerMixin",
-    "MultiPackResourceManagerMixin"
+    "MultiPackResourceManagerMixin",
+    "WolfAccessor",
+    "CatAccessor"
   ],
   "client": [
-    "SheepFurLayerMixin"
+    "SheepFurLayerMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

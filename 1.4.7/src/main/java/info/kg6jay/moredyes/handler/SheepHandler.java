@@ -8,6 +8,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemShears;
@@ -33,6 +34,11 @@ public class SheepHandler {
 
     @ForgeSubscribe
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
+        if (event.world.isRemote && event.entity instanceof EntityWolf) {
+            // The same for a wolf's collar color (see WolfCollars).
+            PacketDispatcher.sendPacketToServer(PacketHandler.askSheep(event.entity.entityId));
+            return;
+        }
         if (!(event.entity instanceof EntitySheep)) {
             return;
         }

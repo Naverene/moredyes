@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.CryingObsidianBlock;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.IceBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
@@ -230,7 +229,7 @@ public class MDBlock
     public static void register()
     {
         // The same order as the 1.16.5 port, which is the order the creative tabs list them in.
-        colors("glass", glassArray, () -> new GlassBlock(copy(Blocks.GLASS)), MDTabs.BLOCKS, null);
+        colorsByHex("glass", glassArray, hex -> new DyedGlassBlock(copy(Blocks.GLASS), hex), MDTabs.BLOCKS, null);
         colors("sand", sandArray, () -> new FallingBlock(copy(Blocks.SAND)), MDTabs.BLOCKS, SHOVEL);
         colors("leaf", oakLeafArray, () -> new LeavesBlock(copy(Blocks.OAK_LEAVES)), MDTabs.TREES, HOE);
         colors("brick", brickArray, () -> new Block(copy(Blocks.BRICKS)), MDTabs.BLOCKS, PICKAXE);
@@ -250,7 +249,7 @@ public class MDBlock
         // A full block, unlike vanilla soul sand, so it doesn't slow anyone down.
         colors("soulsand", soulsandArray, () -> new Block(copy(Blocks.SOUL_SAND).speedFactor(1.0F)), MDTabs.BLOCKS, SHOVEL);
         colors("plank", oakPlankArray, () -> new Block(copy(Blocks.OAK_PLANKS)), MDTabs.BLOCKS, AXE);
-        colors("glassfoggy", glassFoggyArray, () -> new GlassBlock(copy(Blocks.GLASS)), MDTabs.BLOCKS, null);
+        colorsByHex("glassfoggy", glassFoggyArray, hex -> new DyedGlassBlock(copy(Blocks.GLASS), hex), MDTabs.BLOCKS, null);
         colors("quartz", quartzArray, () -> new Block(copy(Blocks.QUARTZ_BLOCK)), MDTabs.BLOCKS, PICKAXE);
         colors("workbench", workbenchArray, () -> new WorkbenchBlock(copy(Blocks.CRAFTING_TABLE)), MDTabs.BLOCKS, AXE);
         colors("chest", chestArray, () -> new BlockChest(copy(Blocks.CHEST)), MDTabs.BLOCKS, AXE, ChestItem::new);
@@ -259,8 +258,8 @@ public class MDBlock
             disable(glassPaneArray);
             disable(glassFoggyPaneArray);
         }
-        colors("glasspane", glassPaneArray, () -> new IronBarsBlock(copy(Blocks.GLASS_PANE)), MDTabs.BLOCKS, null);
-        colors("glassfoggypane", glassFoggyPaneArray, () -> new IronBarsBlock(copy(Blocks.GLASS_PANE)), MDTabs.BLOCKS, null);
+        colorsByHex("glasspane", glassPaneArray, hex -> new DyedGlassPaneBlock(copy(Blocks.GLASS_PANE), hex), MDTabs.BLOCKS, null);
+        colorsByHex("glassfoggypane", glassFoggyPaneArray, hex -> new DyedGlassPaneBlock(copy(Blocks.GLASS_PANE), hex), MDTabs.BLOCKS, null);
         colors("bookshelf", bookshelfArray, () -> new BlockBookshelf(copy(Blocks.BOOKSHELF)), MDTabs.BLOCKS, AXE);
         colors("tulip", tulipArray, () -> new FlowerBlock(copy(Blocks.RED_TULIP)), MDTabs.PLANTS, null);
         colors("redstone", redstoneArray, () -> new PoweredBlock(copy(Blocks.REDSTONE_BLOCK)), MDTabs.BLOCKS, PICKAXE);
@@ -544,6 +543,20 @@ public class MDBlock
         for (int i = 0; i < COLORS; i++)
         {
             register(type + "_" + ColorStrings.ALL[i], array, i, factory, tab, item);
+        }
+    }
+
+    /** Like colors, for blocks that need their color: the factory gets the hex code, such as "334c59". */
+    private static <B extends Block> void colorsByHex(String type, B[] array, Function<String, B> factory, MDTabs tab, TagKey<Block> tool)
+    {
+        if (tool != null)
+        {
+            MINEABLE.put(array, tool);
+        }
+        for (int i = 0; i < COLORS; i++)
+        {
+            String hex = ColorStrings.ALL[i];
+            register(type + "_" + hex, array, i, () -> factory.apply(hex), tab, BlockItem::new);
         }
     }
 

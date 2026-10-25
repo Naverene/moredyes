@@ -26,7 +26,8 @@ import net.neverandy.moredyes.registry.ModBlocks;
 
 /**
  * Client setup: the colors of the dyed blocks and items, which blocks are see-through, and the renderers for dyed
- * chests, signs and pistons. Dyed sheep are drawn by {@code mixin/SheepFurLayerMixin}.
+ * chests, signs and pistons. Dyed sheep are drawn by {@code mixin/SheepFurLayerMixin}, dyed
+ * collars by {@code mixin/WolfCollarLayerMixin} and {@code mixin/CatCollarLayerMixin}.
  */
 public class MoreDyesClient implements ClientModInitializer {
 

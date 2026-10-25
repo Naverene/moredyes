@@ -11,6 +11,7 @@ public class ClientProxy extends CommonProxy
 		ClientHandler.registerChestRenderers();
 		ClientHandler.registerSheepLayer();
 		ClientHandler.registerLlamaLayer();
+		ClientHandler.registerWolfLayer();
 	}
 	@Override
 	public void setSheepColor(int entityId,int color)

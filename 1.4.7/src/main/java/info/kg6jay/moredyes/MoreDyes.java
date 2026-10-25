@@ -26,6 +26,7 @@ import info.kg6jay.moredyes.handler.FlowerPotHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
+import info.kg6jay.moredyes.handler.WolfCollarHandler;
 import info.kg6jay.moredyes.item.MDItems;
 import info.kg6jay.moredyes.network.PacketHandler;
 import info.kg6jay.moredyes.proxy.CommonProxy;
@@ -92,6 +93,7 @@ public class MoreDyes {
         Recipes.addSmelting();
         GameRegistry.registerFuelHandler(new FuelHandler());
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
+        MinecraftForge.EVENT_BUS.register(new WolfCollarHandler());
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
         MinecraftForge.EVENT_BUS.register(new BonemealHandler());
         MinecraftForge.EVENT_BUS.register(new FlowerPotHandler());

@@ -1,7 +1,9 @@
 package info.kg6jay.moredyes.proxy;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -14,9 +16,13 @@ import info.kg6jay.moredyes.client.DyedBedRenderer;
 import info.kg6jay.moredyes.client.FlowerPotRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
+import info.kg6jay.moredyes.client.RenderColoredWolf;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.compat.ironchest.client.IronChestClient;
+import info.kg6jay.moredyes.compat.notenoughpets.NotEnoughPetsCompat;
+import info.kg6jay.moredyes.compat.notenoughpets.client.NotEnoughPetsClient;
 import info.kg6jay.moredyes.compat.storagedrawers.client.StorageDrawersClient;
+import info.kg6jay.moredyes.entity.PetCollar;
 import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
@@ -60,17 +66,25 @@ public class ClientProxy extends CommonProxy {
         if (ConfigHandler.storageDrawers()) {
             StorageDrawersClient.register();
         }
+        if (NotEnoughPetsCompat.LOADED) {
+            NotEnoughPetsClient.register();
+        }
 
         // Draws sheep dyed with More Dyes in their shade; sheep without one look the same as in vanilla.
         RenderingRegistry.registerEntityRenderingHandler(EntitySheep.class, new RenderColoredSheep());
+        // The same for wolves with a More Dyes collar.
+        RenderingRegistry.registerEntityRenderingHandler(EntityWolf.class, new RenderColoredWolf());
     }
 
     @Override
     public void setSheepColor(int entityId, int color) {
         World world = Minecraft.getMinecraft().theWorld;
-        SheepColor sheepColor = world == null ? null : SheepColor.of(world.getEntityByID(entityId));
+        Entity entity = world == null ? null : world.getEntityByID(entityId);
+        SheepColor sheepColor = SheepColor.of(entity);
         if (sheepColor != null) {
             sheepColor.put(color);
+        } else if (PetCollar.hasCollar(entity)) {
+            PetCollar.put(entity, color);
         }
     }
 }

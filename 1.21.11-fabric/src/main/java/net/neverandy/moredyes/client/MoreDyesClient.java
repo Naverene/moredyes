@@ -25,7 +25,8 @@ import net.neverandy.moredyes.registry.ModBlocks;
 
 /**
  * The client side: render layers, tints and renderers. The sheep's wool color is drawn by SheepRendererMixin and
- * SheepRenderStateMixin.
+ * SheepRenderStateMixin; wolf and cat collar colors by Wolf/CatRendererMixin, CollarRenderStateMixin and
+ * Wolf/CatCollarLayerMixin.
  */
 public class MoreDyesClient implements ClientModInitializer {
 
