@@ -1,0 +1,80 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironshulkerbox"
+    }
+  ],
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "category": "misc",
+  "group": "moredyes:dyed_obsidian_shulker_box",
+  "ingredients": [
+    [
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_white"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_orange"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_magenta"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_light_blue"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_yellow"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_lime"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_pink"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_gray"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_light_gray"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_cyan"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_purple"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_blue"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_brown"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_green"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_red"
+      },
+      {
+        "item": "ironshulkerbox:obsidian_shulker_box_black"
+      },
+      {
+        "item": "moredyes:dyed_obsidian_shulker_box"
+      }
+    ],
+    {
+      "item": "moredyes:8c8026_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_obsidian_shulker_box",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "71"
+      }
+    }
+  }
+}

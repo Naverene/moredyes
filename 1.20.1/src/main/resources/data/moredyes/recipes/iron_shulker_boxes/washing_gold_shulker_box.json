@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironshulkerbox"
+    }
+  ],
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "moredyes:dyed_gold_shulker_box"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "ironshulkerbox:gold_shulker_box"
+  }
+}

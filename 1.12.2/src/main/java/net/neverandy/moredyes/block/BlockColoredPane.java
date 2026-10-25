@@ -7,6 +7,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.neverandy.moredyes.reference.ColorStrings;
@@ -84,5 +86,11 @@ public class BlockColoredPane extends BlockPane implements IColoredBlock
 	public String getColorName(int meta)
 	{
 		return this.colors[ColorUtil.clampShade(this.colors,meta)];
+	}
+	/** Tints a beacon beam passing through it in its own color, like vanilla stained glass. */
+	@Override
+	public float[] getBeaconColorMultiplier(IBlockState state,World world,BlockPos pos,BlockPos beaconPos)
+	{
+		return ColorUtil.beaconColor(this.getColor(this.getMetaFromState(state)));
 	}
 }

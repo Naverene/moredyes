@@ -4,6 +4,7 @@
   "package": "net.neverandy.moredyes.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BeaconBlockEntityMixin",
     "DiodeBlockMixin",
     "EndCrystalItemMixin",
     "EntityMixin",
@@ -12,10 +13,14 @@
     "PistonHeadBlockMixin",
     "PortalShapeMixin",
     "RecipeManagerMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "WolfAccessor",
+    "CatAccessor"
   ],
   "client": [
-    "SheepFurLayerMixin"
+    "SheepFurLayerMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

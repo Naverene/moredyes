@@ -1,0 +1,8 @@
+accessWidener v2 named
+
+# Dyed beds, banners and shulker boxes share vanilla's block entities (block/Furnishings).
+accessible field net/minecraft/world/level/block/entity/BlockEntityType validBlocks Ljava/util/Set;
+mutable field net/minecraft/world/level/block/entity/BlockEntityType validBlocks Ljava/util/Set;
+
+# Lets villagers take dyed beds as homes (block/Furnishings).
+accessible method net/minecraft/world/entity/ai/village/poi/PoiTypes registerBlockStates (Lnet/minecraft/core/Holder;Ljava/util/Set;)V

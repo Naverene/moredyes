@@ -1,8 +1,15 @@
 package net.neverandy.moredyes.client;
 
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.LlamaRenderer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -27,7 +34,8 @@ import net.neverandy.moredyes.registry.ModItems;
 
 /**
  * Client setup: the colors of the dyed blocks and items, which blocks are see-through, and the renderers for dyed
- * chests, signs and pistons. Dyed sheep are drawn by {@code mixin/SheepFurLayerMixin}.
+ * chests, signs and pistons. Dyed sheep are drawn by {@code mixin/SheepFurLayerMixin}, dyed
+ * collars by {@code mixin/WolfCollarLayerMixin} and {@code mixin/CatCollarLayerMixin}.
  */
 @Mod(value = MoreDyes.MOD_ID, dist = Dist.CLIENT)
 public class MoreDyesClient {
@@ -37,6 +45,7 @@ public class MoreDyesClient {
         modBus.addListener(MoreDyesClient::blockColors);
         modBus.addListener(MoreDyesClient::itemColors);
         modBus.addListener(MoreDyesClient::renderers);
+        modBus.addListener(MoreDyesClient::layers);
         modBus.addListener(MoreDyesClient::clientExtensions);
         // Optional compat, only touched when the other mod is installed.
         if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID)) {
@@ -107,27 +116,48 @@ public class MoreDyesClient {
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
         // Replaces vanilla's sign renderer, which dyed signs share, so they are drawn in their color.
         event.registerBlockEntityRenderer(BlockEntityType.SIGN, DyedSignRenderer::new);
+        // Likewise for beds, banners and shulker boxes.
+        event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
 
-    /** The dyed chest items are drawn as small chests, like vanilla's. */
+    /** Llamas wear dyed carpets. */
+    private static void layers(EntityRenderersEvent.AddLayers event) {
+        for (EntityType<? extends Llama> type : List.of(EntityType.LLAMA, EntityType.TRADER_LLAMA)) {
+            if (event.getRenderer(type) instanceof LlamaRenderer renderer) {
+                renderer.addLayer(new DyedLlamaDecorLayer(renderer, event.getEntityModels()));
+            }
+        }
+    }
+
+    /**
+     * The dyed chest items are drawn as small chests, like vanilla's, and the dyed beds, banners and shulker boxes
+     * like their vanilla items.
+     */
     private static void clientExtensions(RegisterClientExtensionsEvent event) {
-        Item[] chests = ModBlocks.all(Kind.CHEST).stream().map(DeferredBlock::get).map(Block::asItem)
-            .toArray(Item[]::new);
-        // With chests turned off in the config there are none, and NeoForge refuses an empty list.
-        if (chests.length == 0) {
+        register(event, DyedChestItemRenderer::new, Kind.CHEST);
+        register(event, DyedItemRenderer::new, Kind.BED, Kind.BANNER, Kind.SHULKER_BOX);
+    }
+
+    private static void register(RegisterClientExtensionsEvent event,
+        Supplier<BlockEntityWithoutLevelRenderer> factory, Kind... kinds) {
+        Item[] items = Stream.of(kinds).flatMap(kind -> ModBlocks.all(kind).stream()).map(DeferredBlock::get)
+            .map(Block::asItem).toArray(Item[]::new);
+        // With the kinds turned off in the config there are none, and NeoForge refuses an empty list.
+        if (items.length == 0) {
             return;
         }
-        IClientItemExtensions chest = new IClientItemExtensions() {
-            private DyedChestItemRenderer renderer;
+        event.registerItem(new IClientItemExtensions() {
+            private BlockEntityWithoutLevelRenderer renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if (renderer == null) {
-                    renderer = new DyedChestItemRenderer();
+                    renderer = factory.get();
                 }
                 return renderer;
             }
-        };
-        event.registerItem(chest, chests);
+        }, items);
     }
 }

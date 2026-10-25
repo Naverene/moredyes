@@ -20,6 +20,8 @@ public class MDItem
 	public static Item[] dye;
 	/** The dyed sign, in every color (see ItemDyedSign). */
 	public static Item sign;
+	/** The dyed bed and banner, in every color (see ItemDyedBed and ItemDyedBanner). */
+	public static Item bed,banner;
 
 	public static void initialize()
 	{
@@ -29,6 +31,8 @@ public class MDItem
 			dye[g]=new MDItemDye(g);
 		}
 		sign=new ItemDyedSign();
+		bed=new ItemDyedBed();
+		banner=new ItemDyedBanner();
 	}
 	/** The dye of a color, by its position in ColorStrings.ALL. */
 	public static ItemStack dyeStack(int colorIndex,int count)
@@ -49,6 +53,9 @@ public class MDItem
 			event.getRegistry().register(item.setRegistryName(block.getRegistryName()));
 		}
 		event.getRegistry().register(sign);
+		event.getRegistry().register(bed);
+		event.getRegistry().register(banner);
+		event.getRegistry().register(new ItemDyedShulkerBox(MDBlock.shulkerBox).setRegistryName(MDBlock.shulkerBox.getRegistryName()));
 		for(Item item:dye)
 		{
 			OreDictionary.registerOre("dye",new ItemStack(item,1,OreDictionary.WILDCARD_VALUE));

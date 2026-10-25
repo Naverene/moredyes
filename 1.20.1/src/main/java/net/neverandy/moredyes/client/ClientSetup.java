@@ -2,6 +2,9 @@ package net.neverandy.moredyes.client;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.LlamaRenderer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,7 +17,9 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
-/** Client-only setup: which blocks are see-through, and the renderers for chests, signs, pistons and sheep. */
+import java.util.List;
+
+/** Client-only setup: which blocks are see-through, and the renderers for chests, signs, pistons, beds, banners, shulker boxes, sheep and llamas. */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientSetup
 {
@@ -47,6 +52,7 @@ public final class ClientSetup
                     layer(RenderType.cutout(), flowers[i]);
                 }
                 layer(RenderType.cutout(), MDBlock.chainArray[i]);
+                layer(RenderType.cutout(), MDBlock.carpetArray[i]);
                 for (MDBlock.PottedPlants potted : MDBlock.POTTED)
                 {
                     layer(RenderType.cutout(), potted.pots[i]);
@@ -86,5 +92,22 @@ public final class ClientSetup
         event.registerBlockEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
+        // Dyed beds, banners and shulker boxes share vanilla's block entities, so these replace vanilla's renderers.
+        event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
+    }
+
+    /** Llamas wear dyed carpets. */
+    @SubscribeEvent
+    public static void layers(EntityRenderersEvent.AddLayers event)
+    {
+        for (EntityType<? extends Llama> type : List.of(EntityType.LLAMA, EntityType.TRADER_LLAMA))
+        {
+            if (event.getRenderer(type) instanceof LlamaRenderer renderer)
+            {
+                renderer.addLayer(new DyedLlamaDecorLayer(renderer, event.getEntityModels()));
+            }
+        }
     }
 }

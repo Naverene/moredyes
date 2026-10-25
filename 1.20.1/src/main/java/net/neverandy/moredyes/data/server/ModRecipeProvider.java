@@ -13,7 +13,9 @@ import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
@@ -22,6 +24,7 @@ import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.item.crafting.KeepNbtShapelessRecipe;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.world.DyeTrees;
@@ -276,6 +279,8 @@ public class ModRecipeProvider extends RecipeProvider
                     .unlockedBy("has_planks", has(allPlanks[0])).save(out, id(name(sign)));
             dyeable(i, sign, "oak_sign");
 
+            furnishings(i);
+
             Block shelf = MDBlock.bookshelfArray[i];
             ShapedRecipeBuilder.shaped(BLOCKS, shelf).define('P', Ingredient.of(allPlanks)).define('B', Items.BOOK)
                     .pattern("PPP").pattern("BBB").pattern("PPP")
@@ -477,6 +482,77 @@ public class ModRecipeProvider extends RecipeProvider
     {
         ShapedRecipeBuilder.shaped(MISC, pane, 16).define('G', glass).pattern("GGG").pattern("GGG")
                 .unlockedBy("has_glass", has(glass)).save(out, id(name(pane)));
+    }
+
+    /** Carpets, beds, banners and shulker boxes, made like vanilla's from dyed wool, or dyed from vanilla's. */
+    private void furnishings(int i)
+    {
+        Block wool = MDBlock.woolArray[i];
+        Block carpet = MDBlock.carpetArray[i];
+        ShapedRecipeBuilder.shaped(MISC, carpet, 3).define('W', wool).pattern("WW")
+                .unlockedBy("has_wool", has(wool)).save(out, id(name(carpet)));
+        dyeable(i, carpet, "white_carpet");
+
+        Block bed = MDBlock.bedArray[i];
+        ShapedRecipeBuilder.shaped(MISC, bed).define('W', wool).define('P', ItemTags.PLANKS).pattern("WWW").pattern("PPP")
+                .unlockedBy("has_wool", has(wool)).save(out, id(name(bed)));
+        ShapelessRecipeBuilder.shapeless(MISC, bed).requires(Items.WHITE_BED).requires(MDItem.dye[i])
+                .unlockedBy("has_dye", has(MDItem.dye[i])).save(out, id("dyeing/" + name(bed)));
+        washable(bed, "white_bed");
+
+        // Banners and shulker boxes keep their patterns and contents when they are dyed.
+        Block banner = MDBlock.bannerArray[i];
+        ShapedRecipeBuilder.shaped(MISC, banner).define('W', wool).define('S', Items.STICK).pattern("WWW").pattern("WWW").pattern(" S ")
+                .unlockedBy("has_wool", has(wool)).save(out, id(name(banner)));
+        keepNbt(ShapelessRecipeBuilder.shapeless(MISC, banner).requires(Items.WHITE_BANNER).requires(MDItem.dye[i])
+                .unlockedBy("has_dye", has(MDItem.dye[i])), id("dyeing/" + name(banner)));
+        washable(banner, "white_banner");
+
+        Block box = MDBlock.shulkerBoxArray[i];
+        keepNbt(ShapelessRecipeBuilder.shapeless(MISC, box).requires(ModItemTagsProvider.SHULKER_BOXES).requires(MDItem.dye[i])
+                .unlockedBy("has_dye", has(MDItem.dye[i])), id("dyeing/" + name(box)));
+        if (i == 0)
+        {
+            keepNbt(ShapelessRecipeBuilder.shapeless(MISC, Items.SHULKER_BOX).requires(Ingredient.of(MDBlock.shulkerBoxArray))
+                    .requires(Items.WATER_BUCKET).unlockedBy("has_block", has(box)), id("washing/shulkerbox"));
+        }
+    }
+
+    /** Saves a shapeless recipe as moredyes:crafting_shapeless_keep_nbt, so its result keeps its first ingredient's NBT. */
+    private void keepNbt(ShapelessRecipeBuilder builder, ResourceLocation id)
+    {
+        builder.save(recipe -> out.accept(new FinishedRecipe()
+        {
+            @Override
+            public void serializeRecipeData(JsonObject json)
+            {
+                recipe.serializeRecipeData(json);
+            }
+
+            @Override
+            public ResourceLocation getId()
+            {
+                return recipe.getId();
+            }
+
+            @Override
+            public RecipeSerializer<?> getType()
+            {
+                return KeepNbtShapelessRecipe.SERIALIZER;
+            }
+
+            @Override
+            public JsonObject serializeAdvancement()
+            {
+                return recipe.serializeAdvancement();
+            }
+
+            @Override
+            public ResourceLocation getAdvancementId()
+            {
+                return recipe.getAdvancementId();
+            }
+        }), id);
     }
 
     /** Eight vanilla blocks around a dye make eight dyed blocks, and water washes the color out again. */

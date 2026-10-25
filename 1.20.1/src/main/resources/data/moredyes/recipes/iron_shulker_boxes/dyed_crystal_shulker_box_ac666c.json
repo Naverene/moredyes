@@ -1,0 +1,80 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironshulkerbox"
+    }
+  ],
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "category": "misc",
+  "group": "moredyes:dyed_crystal_shulker_box",
+  "ingredients": [
+    [
+      {
+        "item": "ironshulkerbox:crystal_shulker_box"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_white"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_orange"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_magenta"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_light_blue"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_yellow"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_lime"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_pink"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_gray"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_light_gray"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_cyan"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_purple"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_blue"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_brown"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_green"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_red"
+      },
+      {
+        "item": "ironshulkerbox:crystal_shulker_box_black"
+      },
+      {
+        "item": "moredyes:dyed_crystal_shulker_box"
+      }
+    ],
+    {
+      "item": "moredyes:ac666c_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_crystal_shulker_box",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "76"
+      }
+    }
+  }
+}

@@ -4,13 +4,18 @@
   "package": "net.neverandy.moredyes.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BeaconBlockEntityMixin",
     "EntityMixin",
+    "LlamaMixin",
     "MultiPackResourceManagerMixin",
     "PistonBaseBlockMixin",
     "ServerEntityMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "TamableAnimalMixin"
   ],
   "client": [
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin",
     "SheepFurLayerMixin"
   ],
   "injectors": {

@@ -12,7 +12,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.ConcretePowderBlock;
@@ -21,7 +25,6 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.IceBlock;
-import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PoweredBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -30,8 +33,8 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoulSandBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
-import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -81,10 +84,10 @@ public enum Kind {
     LAPIS_BLOCK("lapis_block", "lapis_block", Tab.BLOCKS, simple()),
     REDSTONE_BLOCK("redstone_block", "redstone_block", Tab.BLOCKS, (color, p) -> new PoweredBlock(p)),
     QUARTZ_BLOCK("quartz_block", "quartz_block", Tab.BLOCKS, simple()),
-    GLASS("glass", "glass", Tab.BLOCKS, (color, p) -> new TransparentBlock(p)),
-    FOGGY_GLASS("foggy_glass", "glass", Tab.BLOCKS, (color, p) -> new TransparentBlock(p)),
-    GLASS_PANE("glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new IronBarsBlock(p)),
-    FOGGY_GLASS_PANE("foggy_glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new IronBarsBlock(p)),
+    GLASS("glass", "glass", Tab.BLOCKS, (color, p) -> new DyedGlassBlock(p, color)),
+    FOGGY_GLASS("foggy_glass", "glass", Tab.BLOCKS, (color, p) -> new DyedGlassBlock(p, color)),
+    GLASS_PANE("glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new DyedGlassPaneBlock(p, color)),
+    FOGGY_GLASS_PANE("foggy_glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new DyedGlassPaneBlock(p, color)),
     BOOKSHELF("bookshelf", "bookshelf", Tab.BLOCKS, simple()),
     CRAFTING_TABLE("crafting_table", "crafting_table", Tab.BLOCKS, (color, p) -> new DyedCraftingTableBlock(p)),
     CHEST("chest", "chest", Tab.BLOCKS, (color, p) -> new DyedChestBlock(p)),
@@ -163,6 +166,20 @@ public enum Kind {
     NETHERITE_BLOCK("netherite_block", "netherite_block", Tab.BLOCKS, simple()),
     CRYING_OBSIDIAN("crying_obsidian", "crying_obsidian", Tab.BLOCKS, (color, p) -> new CryingObsidianBlock(p)),
     CHAIN("chain", "chain", Tab.BLOCKS, (color, p) -> new ChainBlock(p)),
+    /** A carpet. A llama wears it in the carpet's color (see client/DyedLlamaDecorLayer). */
+    CARPET("carpet", "white_carpet", Tab.BLOCKS, (color, p) -> new CarpetBlock(p)),
+    /** A bed, drawn tinted by client/DyedBedRenderer. Vanilla's bed code only needs a color for the bed's map icon. */
+    BED("bed", "white_bed", Tab.BLOCKS, (color, p) -> new BedBlock(DyeColor.WHITE, p)),
+    /**
+     * A banner, drawn by client/DyedBannerRenderer with its base in its own color. It takes patterns on a loom like
+     * a vanilla banner, which sees it as a white one.
+     */
+    BANNER("banner", "white_banner", Tab.BLOCKS, (color, p) -> new BannerBlock(DyeColor.WHITE, p)),
+    /** A banner on a wall. Like the wall sign, it has no item: the banner item places it, and it drops the banner. */
+    WALL_BANNER("wall_banner", "white_wall_banner", Tab.NONE,
+        (color, p) -> new WallBannerBlock(DyeColor.WHITE, p.dropsLike(ModBlocks.get(Kind.BANNER, color).get()))),
+    /** A shulker box, drawn tinted by client/DyedShulkerBoxRenderer. It keeps its contents like vanilla's. */
+    SHULKER_BOX("shulker_box", "white_shulker_box", Tab.BLOCKS, (color, p) -> new DyedShulkerBoxBlock(p)),
 
     TULIP("tulip", "white_tulip", Tab.PLANTS, (color, p) -> new DyedFlowerBlock(MobEffects.WEAKNESS, 7.0F, p)),
     ALLIUM("allium", "allium", Tab.PLANTS, flower("allium")),
@@ -387,7 +404,7 @@ public enum Kind {
     /**
      * Whether the config keeps this kind (see Toggles and Config). A kind is left out when its id is in
      * disabled_blocks, when its shape is turned off, or when a kind it needs is left out: a slab, stairs or wall needs
-     * its block, concrete powder its concrete, a piston its head, and a sign its wall sign.
+     * its block, concrete powder its concrete, a piston its head, a sign its wall sign, and a banner its wall banner.
      */
     public boolean enabled() {
         if (!Toggles.typeEnabled(id)) {
@@ -410,6 +427,7 @@ public enum Kind {
             // Sticky pistons can go on their own; a piston and its head can't do without each other.
             case PISTON, PISTON_HEAD, STICKY_PISTON -> Toggles.typeEnabled(PISTON.id) && Toggles.typeEnabled(PISTON_HEAD.id);
             case SIGN, WALL_SIGN -> Toggles.typeEnabled(SIGN.id) && Toggles.typeEnabled(WALL_SIGN.id);
+            case BANNER, WALL_BANNER -> Toggles.typeEnabled(BANNER.id) && Toggles.typeEnabled(WALL_BANNER.id);
             default -> true;
         };
     }

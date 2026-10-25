@@ -1,7 +1,12 @@
 package net.neverandy.moredyes.block;
 
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CarpetBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.CryingObsidianBlock;
@@ -22,6 +27,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.registries.DeferredRegister;
 import net.neverandy.moredyes.world.DyeTrees;
 import net.neverandy.moredyes.item.ChestItem;
+import net.neverandy.moredyes.item.DyedEntityItems;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.MoreDyes;
@@ -178,6 +184,14 @@ public class MDBlock
     public static BlockChest[] chestArray = new BlockChest[totalColorCount];
     public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[totalColorCount];
     public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[totalColorCount];
+
+    // Carpets, beds, banners and shulker boxes. Beds, banners and shulker boxes are vanilla blocks with the white dye
+    // color (no color for shulker boxes) that share vanilla's block entities; the client draws them in their own color.
+    public static CarpetBlock[] carpetArray = new CarpetBlock[totalColorCount];
+    public static BedBlock[] bedArray = new BedBlock[totalColorCount];
+    public static BannerBlock[] bannerArray = new BannerBlock[totalColorCount];
+    public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[totalColorCount];
+    public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[totalColorCount];
 
     // Full blocks from the sheet's second batch; each copies its vanilla block's properties.
     public static Block[] graniteArray = new Block[totalColorCount];
@@ -345,6 +359,7 @@ public class MDBlock
         //registerLadder();
         registerPistons();
         registerSigns();
+        registerFurnishings();
 
         registerMoreBlocks();
         registerNewerBlocks();
@@ -628,6 +643,70 @@ public class MDBlock
         }
     }
 
+    /** Carpets, beds, banners and shulker boxes in each color. The wall banner has no item, like the wall sign. */
+    private static void registerFurnishings()
+    {
+        registerColors("carpet", carpetArray, () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CARPET)));
+        if (!leaveOut("bed"))
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                final BedBlock bed = new BedBlock(DyeColor.WHITE, BlockBehaviour.Properties.copy(Blocks.WHITE_BED));
+                bedArray[i] = bed;
+                BLOCKS.register("bed_" + ColorStrings.ALL[i], () -> bed);
+                ITEMS.register("bed_" + ColorStrings.ALL[i], () -> new DyedEntityItems.Bed(bed, new Item.Properties().tab(MoreDyes.tabBlocks)));
+            }
+        }
+        // A banner needs its wall banner, so leaving out either leaves out both.
+        if (leaveOut("banner") | leaveOut("wallbanner"))
+        {
+            leaveOutAll("banner", "wallbanner");
+        }
+        else
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                String color = ColorStrings.ALL[i];
+                final BannerBlock banner = new BannerBlock(DyeColor.WHITE, BlockBehaviour.Properties.copy(Blocks.WHITE_BANNER));
+                final WallBannerBlock wallBanner = new WallBannerBlock(DyeColor.WHITE,
+                        BlockBehaviour.Properties.copy(Blocks.WHITE_WALL_BANNER).lootFrom(() -> banner));
+                bannerArray[i] = banner;
+                wallBannerArray[i] = wallBanner;
+                BLOCKS.register("banner_" + color, () -> banner);
+                BLOCKS.register("wallbanner_" + color, () -> wallBanner);
+                ITEMS.register("banner_" + color, () -> new DyedEntityItems.Banner(banner, wallBanner, new Item.Properties().tab(MoreDyes.tabBlocks)));
+            }
+        }
+        if (!leaveOut("shulkerbox"))
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                final DyedShulkerBoxBlock box = new DyedShulkerBoxBlock(
+                        DyedShulkerBoxBlock.properties(BlockBehaviour.Properties.copy(Blocks.WHITE_SHULKER_BOX)));
+                shulkerBoxArray[i] = box;
+                BLOCKS.register("shulkerbox_" + ColorStrings.ALL[i], () -> box);
+                ITEMS.register("shulkerbox_" + ColorStrings.ALL[i], () -> new DyedEntityItems.ShulkerBox(box, new Item.Properties().tab(MoreDyes.tabBlocks)));
+            }
+        }
+    }
+
+    /** Every dyed bed, banner and shulker box block: the blocks that share a vanilla block entity. */
+    public static List<Block> sharingVanillaBlockEntities()
+    {
+        List<Block> blocks = new ArrayList<>();
+        for (Block[] array : new Block[][] {bedArray, bannerArray, wallBannerArray, shulkerBoxArray})
+        {
+            for (Block block : array)
+            {
+                if (block != null)
+                {
+                    blocks.add(block);
+                }
+            }
+        }
+        return blocks;
+    }
+
     /** Every dyed sign block, standing and on a wall. */
     public static Block[] signs()
     {
@@ -827,7 +906,7 @@ public class MDBlock
         {
             String color = ColorStrings.ALL[i];
             String glass_name = "glass_" + color;
-            final BlockGlass glass = new BlockGlass(Reference.BLOCK_INFO_GLASS);
+            final BlockGlass glass = new BlockGlass(Reference.BLOCK_INFO_GLASS, color);
             final BlockItem glassItem = new BlockItem(glass, new Item.Properties().tab(MoreDyes.tabBlocks));
             glassArray[i] = glass;
             glassItemBlockArray[i] = glassItem;
@@ -1195,7 +1274,7 @@ public class MDBlock
         {
             String color = ColorStrings.ALL[i];
             String glassFoggy_name = "glassfoggy_" + color;
-            final BlockGlass glassFoggy = new BlockGlass(Reference.BLOCK_INFO_GLASS_FOGGY);
+            final BlockGlass glassFoggy = new BlockGlass(Reference.BLOCK_INFO_GLASS_FOGGY, color);
             final BlockItem glassFoggyItem = new BlockItem(glassFoggy, new Item.Properties().tab(MoreDyes.tabBlocks));
             glassFoggyArray[i] = glassFoggy;
             glassFoggyItemBlockArray[i] = glassFoggyItem;
@@ -1379,18 +1458,19 @@ public class MDBlock
         {
             if (plain)
             {
-                glassPaneArray[i] = registerPane("glasspane_" + ColorStrings.ALL[i]);
+                glassPaneArray[i] = registerPane("glasspane_", ColorStrings.ALL[i]);
             }
             if (foggy)
             {
-                glassFoggyPaneArray[i] = registerPane("glassfoggypane_" + ColorStrings.ALL[i]);
+                glassFoggyPaneArray[i] = registerPane("glassfoggypane_", ColorStrings.ALL[i]);
             }
         }
     }
 
-    private static BlockGlassPane registerPane(String name)
+    private static BlockGlassPane registerPane(String prefix, String color)
     {
-        final BlockGlassPane pane = new BlockGlassPane(Reference.BLOCK_INFO_GLASS_PANE);
+        String name = prefix + color;
+        final BlockGlassPane pane = new BlockGlassPane(Reference.BLOCK_INFO_GLASS_PANE, color);
         final BlockItem paneItem = new BlockItem(pane, new Item.Properties().tab(MoreDyes.tabBlocks));
         BLOCKS.register(name, () -> pane);
         ITEMS.register(name, () -> paneItem);

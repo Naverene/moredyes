@@ -30,6 +30,14 @@ def grey(p):
     return (lum, lum, lum, a)
 
 
+def is_colorful(p):
+    """Whether a pixel has a color of its own, like a bed's wooden frame or the stripes on a llama's carpet."""
+    r, g, b, a = p
+    if a == 0:
+        return False
+    return colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)[1] > 0.25
+
+
 def is_green(p):
     r, g, b, a = p
     if a == 0:
@@ -107,6 +115,7 @@ SOURCES = {
     'tulip_stem': ('block/white_tulip', KEEP_IF_GREEN),
     'dye': ('item/white_dye', GREY),
     'sign': ('item/oak_sign', GREY),
+    'shulker_box': ('block/white_shulker_box', GREY),
     'glass_pane_top': ('block/glass_pane_top', GREY),
     'bookshelf': ('block/bookshelf', GREY),
     'piston_side': ('block/piston_side', GREY),
@@ -246,6 +255,26 @@ def main():
     image.putdata(brighten([grey(p) for p in image.getdata()]))
     image.save(os.path.join(SIGN_OUT, 'dyed.png'))
     print('wrote the sign texture to %s' % os.path.relpath(SIGN_OUT, ROOT))
+
+    # Beds go on the bed atlas (textures/entity/bed): the grey bedding, tinted by client/DyedBedRenderer, and the
+    # wooden frame drawn over it as it is. A llama's carpet (textures/entity/llama/decor) is split the same way by
+    # client/DyedLlamaDecorLayer, keeping its red and green stripes. Shulker boxes go on the shulker atlas.
+    entity = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures/entity')
+    for source, name, kept in [('entity/bed/white', 'bed/dyed', 'bed/dyed_frame'),
+                               ('entity/llama/decor/white', 'llama/decor/dyed', 'llama/decor/dyed_stripes')]:
+        image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % source))).convert('RGBA')
+        pixels = list(image.getdata())
+        for out, data in [(name, brighten([(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels])),
+                          (kept, [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels])]:
+            layer = Image.new('RGBA', image.size)
+            layer.putdata(data)
+            os.makedirs(os.path.dirname(os.path.join(entity, out)), exist_ok=True)
+            layer.save(os.path.join(entity, out + '.png'))
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/shulker/shulker_white.png'))).convert('RGBA')
+    image.putdata(brighten([grey(p) for p in image.getdata()]))
+    os.makedirs(os.path.join(entity, 'shulker'), exist_ok=True)
+    image.save(os.path.join(entity, 'shulker/dyed.png'))
+    print('wrote the bed, llama carpet and shulker box textures to %s' % os.path.relpath(entity, ROOT))
 
 
 if __name__ == '__main__':

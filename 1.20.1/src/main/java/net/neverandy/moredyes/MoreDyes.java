@@ -8,8 +8,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neverandy.moredyes.block.Furnishings;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.ironshulkerbox.IronShulkerBoxCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
 import net.neverandy.moredyes.item.MDItem;
@@ -56,12 +58,23 @@ public class MoreDyes
         {
             StorageDrawersCompat.register(modBus);
         }
+        if (ModList.get().isLoaded("ironshulkerbox") && Toggles.ironShulkerBoxes)
+        {
+            IronShulkerBoxCompat.register(modBus);
+        }
         // Turned off in the config: their recipes and tags are then dropped like those of turned-off blocks.
         if (!Toggles.ironChests)
         {
             for (String tier : Reference.IRON_CHEST_TIERS)
             {
                 Toggles.leftOut("dyed_" + tier + "_chest");
+            }
+        }
+        if (!Toggles.ironShulkerBoxes)
+        {
+            for (String tier : Reference.IRON_SHULKER_BOX_TIERS)
+            {
+                Toggles.leftOut("dyed_" + tier + "_shulker_box");
             }
         }
         if (!Toggles.storageDrawers)
@@ -87,5 +100,6 @@ public class MoreDyes
     {
         ModNetwork.register();
         event.enqueueWork(MDBlock::registerPottedPlants);
+        event.enqueueWork(Furnishings::setup);
     }
 }

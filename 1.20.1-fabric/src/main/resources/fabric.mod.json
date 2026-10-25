@@ -17,6 +17,7 @@
     "rei_client": ["net.neverandy.moredyes.compat.rei.MoreDyesREIPlugin"]
   },
   "mixins": ["moredyes.mixins.json", "moredyes.compat.mixins.json"],
+  "accessWidener": "moredyes.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.21",
     "minecraft": "${minecraft_version}",

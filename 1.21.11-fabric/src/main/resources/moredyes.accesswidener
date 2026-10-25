@@ -7,3 +7,6 @@ accessible method net/minecraft/world/level/block/FireBlock getBurnOdds (Lnet/mi
 # The item tints moredyes:dye_color and moredyes:state_color, and the dyed chest's item model (MoreDyesClient).
 accessible field net/minecraft/client/color/item/ItemTintSources ID_MAPPER Lnet/minecraft/util/ExtraCodecs$LateBoundIdMapper;
 accessible field net/minecraft/client/renderer/special/SpecialModelRenderers ID_MAPPER Lnet/minecraft/util/ExtraCodecs$LateBoundIdMapper;
+
+# Lets villagers take dyed beds as homes (MoreDyes.onInitialize).
+accessible method net/minecraft/world/entity/ai/village/poi/PoiTypes registerBlockStates (Lnet/minecraft/core/Holder;Ljava/util/Set;)V

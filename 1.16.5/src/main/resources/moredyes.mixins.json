@@ -7,7 +7,9 @@
     "SimpleReloadableResourceManagerMixin"
   ],
   "client": [
-    "SheepWoolLayerMixin"
+    "SheepWoolLayerMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

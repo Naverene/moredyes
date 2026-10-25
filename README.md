@@ -1,6 +1,6 @@
 # More Dyes
 
-More Dyes adds more than 100 new dye colors to Minecraft, with stone, wood, wool, glass, chests, sheep and more in every color. Download it from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/moredyes) or from this repository's releases.
+More Dyes adds more than 100 new dye colors to Minecraft, with stone, wood, wool, glass, chests, sheep, pet collars and more in every color. Download it from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/moredyes) or from this repository's releases.
 
 This repository holds every version of the mod, one folder per Minecraft version:
 
@@ -35,13 +35,15 @@ are turned off disappear from worlds that already have them.
 | `disabled_blocks` | Block types to leave out, named as in their ids without the color. On 1.16.5 to 1.20.1 that is for example `["concretepowder", "chest", "piston", "sign"]`; on 1.21.1 and newer it is `["concrete_powder", "chest", "piston", "sign"]`. Leaving out a type also leaves out its stairs, slabs and walls. The log lists every type name if one is wrong. |
 | `generate_trees`, `generate_flowers` | Grow dye trees and dyed tulips in new chunks. |
 | `iron_chests`, `storage_drawers` | Add dyed Iron Chests and Storage Drawers when those mods are installed. |
+| `iron_shulker_boxes` | Add dyed Iron Shulker Boxes when that mod is installed (1.16.5 and 1.20.1; on 1.12.2 it is `ironShulkerBoxes`, for the boxes in Iron Chests). |
+| `Compat_EtFuturum` | 1.7.10 only: add dyed Et Futurum Requiem shulker boxes when that mod is installed. |
 
 Where the settings live:
 
 - Forge 1.16.5 to 1.20.1: `config/moredyes-client.toml` (on servers too, since it decides which blocks exist).
 - NeoForge 1.21.1 and newer: `config/moredyes-startup.toml`.
 - Fabric: `config/moredyes.properties`, with lists written as `disabled_blocks=chest,piston,sign`.
-- 1.7.10 and 1.12.2 have only the world gen, Iron Chests, Storage Drawers and GregTech recipe switches, in the
+- 1.7.10 and 1.12.2 have only the world gen, Iron Chests, Iron Shulker Boxes, Et Futurum, Storage Drawers and GregTech recipe switches, in the
   mod's `.cfg` file (see that version's README).
 
 ## Wild sheep colors
@@ -68,6 +70,14 @@ Where the settings live:
 
 Worlds that already have a config file keep the `sheep_spawn_chance` saved in it (it was 0.05), but use the natural
 colors from now on.
+
+## Dyed collars
+
+Any More Dyes dye can recolor the collar of a tamed wolf or cat you own: right-click the pet with the dye, the same as
+with a vanilla dye. The collar keeps the exact More Dyes color, and a vanilla dye turns it back to a vanilla color.
+Cats have collars from Minecraft 1.14 on, so 1.4.7 and 1.12.2 only dye wolf collars. On 1.7.10, cats tamed with
+[Not Enough Pets](https://www.curseforge.com/minecraft/mc-mods/not-enough-pets) installed have collars too, and More
+Dyes dyes color them (and Not Enough Pets' own wolves).
 
 ## For other mods
 

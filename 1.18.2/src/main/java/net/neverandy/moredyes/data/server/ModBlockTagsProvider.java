@@ -65,6 +65,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider
             }
         }
         tag(BlockTags.WOOL).add(MDBlock.woolArray);
+        tag(BlockTags.CARPETS).add(MDBlock.carpetArray);
+        tag(BlockTags.BEDS).add(MDBlock.bedArray);
+        tag(BlockTags.BANNERS).add(concat(MDBlock.bannerArray, MDBlock.wallBannerArray));
+        tag(BlockTags.SHULKER_BOXES).add(MDBlock.shulkerBoxArray);
         tag(Tags.Blocks.CHESTS_WOODEN).add(MDBlock.chestArray);
         tag(BlockTags.STANDING_SIGNS).add(MDBlock.signArray);
         tag(BlockTags.WALL_SIGNS).add(MDBlock.wallSignArray);
@@ -95,6 +99,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider
                 tag(tool).add(block);
             }
         }
+        // Shulker shell isn't one of the materials mineable() knows; vanilla's boxes are mined with a pickaxe.
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(MDBlock.shulkerBoxArray);
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(MDBlock.obsidianArray);
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(concat(MDBlock.cryingObsidianArray, MDBlock.netheriteArray));
         tag(BlockTags.NEEDS_STONE_TOOL).add(MDBlock.lapisArray);

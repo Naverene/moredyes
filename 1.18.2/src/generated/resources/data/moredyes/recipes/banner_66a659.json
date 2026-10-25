@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WWW",
+    " S "
+  ],
+  "key": {
+    "W": {
+      "item": "moredyes:wool_66a659"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "moredyes:banner_66a659"
+  }
+}

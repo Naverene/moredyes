@@ -17,6 +17,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.compat.chisel.ChiselCompat;
+import info.kg6jay.moredyes.compat.etfuturum.EtFuturumCompat;
 import info.kg6jay.moredyes.compat.gregtech.GTCompat;
 import info.kg6jay.moredyes.compat.ironchest.IronChestCompat;
 import info.kg6jay.moredyes.compat.storagedrawers.StorageDrawersCompat;
@@ -25,6 +26,7 @@ import info.kg6jay.moredyes.handler.CauldronWashHandler;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
+import info.kg6jay.moredyes.handler.PetCollarHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
@@ -38,7 +40,7 @@ import info.kg6jay.moredyes.utility.LogHelper;
     modid = Reference.MOD_ID,
     name = Reference.MOD_NAME,
     version = Reference.MOD_VERSION,
-    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech;after:IronChest;after:StorageDrawers")
+    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech;after:IronChest;after:StorageDrawers;after:notenoughpets;after:etfuturum")
 public class MoreDyes {
 
     @Mod.Instance(Reference.MOD_ID)
@@ -78,6 +80,9 @@ public class MoreDyes {
         if (ConfigHandler.storageDrawers()) {
             StorageDrawersCompat.preInit();
         }
+        if (ConfigHandler.etFuturum()) {
+            EtFuturumCompat.preInit();
+        }
 
         // Register GUI handler
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
@@ -98,6 +103,7 @@ public class MoreDyes {
         MDBlock.registerWashing();
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
+        MinecraftForge.EVENT_BUS.register(new PetCollarHandler());
         GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();
@@ -106,6 +112,9 @@ public class MoreDyes {
         }
         if (ConfigHandler.storageDrawers()) {
             StorageDrawersCompat.init();
+        }
+        if (ConfigHandler.etFuturum()) {
+            EtFuturumCompat.init();
         }
         LogHelper.info("Initialization Complete");
     }

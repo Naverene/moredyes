@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.neverandy.moredyes.MoreDyes;
 
-/** Tells a client the mod color of a sheep it can see (-1 for none), so it draws the wool in that color. */
+/** Tells a client the mod color of a sheep, or of a wolf's collar, it can see (-1 for none), so it draws it in that color. */
 public class SheepColorMessage implements IMessage
 {
 	private int entityId;

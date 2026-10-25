@@ -1,5 +1,13 @@
 package net.neverandy.moredyes;
 
+import java.util.stream.Collectors;
+
+import net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
+import net.neoforged.neoforge.common.world.poi.ExtendPoiTypesEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -14,8 +22,10 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.neverandy.moredyes.block.Kind;
+import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.registry.ModBlockEntities;
@@ -43,8 +53,10 @@ public class MoreDyes {
         ModBlockEntities.register(modBus);
         ModCreativeTabs.register(modBus);
         DyedSheep.register(modBus);
+        DyedCollars.register(modBus);
         modBus.addListener(CauldronWashing::register);
         modBus.addListener(MoreDyes::commonSetup);
+        modBus.addListener(MoreDyes::bedsAsHomes);
         container.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
         // Optional compat. Its classes refer to the other mod's classes, so they are only touched when it's installed.
         if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID) && Toggles.storageDrawers) {
@@ -62,8 +74,23 @@ public class MoreDyes {
         }
     }
 
+    /** Villagers claim the head of a dyed bed as their home, like a vanilla bed. */
+    private static void bedsAsHomes(ExtendPoiTypesEvent event) {
+        for (var bed : ModBlocks.all(Kind.BED)) {
+            event.addStatesToPoi(PoiTypes.HOME, bed.get().getStateDefinition().getPossibleStates().stream()
+                .filter(state -> state.getValue(BedBlock.PART) == BedPart.HEAD).collect(Collectors.toUnmodifiableSet()));
+        }
+    }
+
     private static void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            // Dispensers place dyed shulker boxes, like vanilla ones.
+            for (MixColor color : MixColors.ALL) {
+                var box = ModItems.get(Kind.SHULKER_BOX, color);
+                if (box != null) {
+                    DispenserBlock.registerBehavior(box.get(), new ShulkerBoxDispenseBehavior());
+                }
+            }
             // Each kind burns like its vanilla block (see FireBlock.bootStrap).
             FireBlock fire = (FireBlock) Blocks.FIRE;
             for (Kind kind : Kind.values()) {

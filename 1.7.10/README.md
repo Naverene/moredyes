@@ -19,7 +19,9 @@ If Iron Chests is installed, its iron, gold, diamond, copper and silver chests c
 
 If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye (a taped drawer keeps its contents). They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers when the game loads, in the same way as the other tinted textures.
 
-The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with both mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).
+If Et Futurum Requiem is installed (it comes with GT: New Horizons), its shulker boxes come in every color: craft any Et Futurum shulker box, or a dyed one, with a dye. The box keeps its contents, name and tier. With Iron Chests installed, Et Futurum's iron, gold, diamond, copper, silver, crystal and obsidian boxes can be dyed too, and its upgrades work on dyed boxes; the dye colors the shell and the metal trim keeps its color. The grey textures are made from Et Futurum's white boxes when the game loads (the trim is the part that is the same on its white and red boxes). Washing a dyed box in a cauldron gives back Et Futurum's plain box with the contents still inside. The dyed boxes are one block for every color and tier (`moredyes:dyedShulkerBox`): the color is in the tile entity and is the item damage, and the tier is Et Futurum's `Type` tag. The `Compat_EtFuturum` config option leaves them out.
+
+The dyed chests and drawers are one block per tier or size, with the color in the tile entity and the color's number as the item damage, like the dyed stairs. To run the game with these mods while developing, pass `-Pcompat_mods=true` to Gradle (for example `./gradlew runClient -Pcompat_mods=true`).
 
 GTNH Web Map (the GT: New Horizons version of Dynmap) draws the dyed blocks in their colors and shapes, using the definitions in `assets/moredyes/dynmap-texture.txt` and `dynmap-models.txt`. These are made by `tools/make_dynmap.py`, so run it again after adding or changing a block. The map makes the grey textures and reads the colors with the classes in `compat/dynmap`, which only load when the map is installed. The dyed Iron Chests and Storage Drawers are on the map too when those mods are installed. To run the game with the map while developing, pass `-Pweb_map=true` to Gradle.
 
@@ -28,6 +30,8 @@ GTNH Web Map (the GT: New Horizons version of Dynmap) draws the dyed blocks in t
 Many blocks from Minecraft 1.8 to 1.16 are available in every color: granite, andesite and their polished versions (and polished diorite), concrete and concrete powder, soul soil, basalt and polished basalt, smooth stone, smooth sandstone, smooth quartz, cut sandstone, end stone bricks, cracked and chiseled nether bricks, bone blocks, glazed terracotta, blocks of netherite, crying obsidian, quartz bricks, chains, cornflowers and lilies of the valley. Mossy cobblestone, mossy stone bricks and nether bricks come in every color too, because their stairs and walls are made from them.
 
 So do more of the 1.7 blocks: end stone, gravel, ice, packed ice, snow blocks, chiseled quartz, quartz pillars, chiseled sandstone, the planks of all six woods (oak planks were already dyed), and the flowers: poppies, dandelions, blue orchids, alliums, azure bluets and oxeye daisies, and the tall lilacs, peonies and rose bushes. The petals take the dye and the stems stay green, like the dyed tulips. Dyed ice and packed ice behave like the vanilla ones (slippery, and they need Silk Touch to drop). Quartz pillars and the other blocks that store their color in the metadata only stand upright, like the dyed basalt and bone blocks.
+
+Carpets and beds come in every color too. Dyed carpets work like vanilla ones; dyed beds work like the vanilla bed (sleeping, setting the spawn point, exploding in the Nether), with the sheet in the dye color and the pillow and frame as in vanilla.
 
 Fences of all six woods and signs come in every color as well, and so does a crafting table slab, which opens the crafting grid like a whole crafting table. Dyed fences of every wood connect to each other, as in 1.8. A dyed flower, tulip, cornflower or sapling goes into an empty flower pot like a vanilla one and keeps its color there; breaking the pot gives back the pot and the plant.
 
@@ -50,10 +54,12 @@ Most of these use their vanilla recipe with dyed blocks of one shade, or eight b
 - Fences: dyed planks of one shade with two sticks between them make three, as in 1.8 (a dyed oak fence can also be made from eight vanilla fences around a dye).
 - Signs: six dyed planks of one shade (any wood) and a stick make three, or eight vanilla signs around a dye.
 - Crafting table slab: three dyed crafting tables in a row.
+- Carpets: two dyed wool of one shade make three, or eight carpets of any vanilla color around a dye.
+- Beds: three dyed wool of one shade over three planks of any wood, or a vanilla bed and a dye.
 
 Planks of any of the six woods in one shade also make that shade's crafting table and chest. Dyed flowers do not give dye back, or eight flowers and a dye would make eight dyes.
 
-Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks, nether bricks, end stone, gravel, ice, packed ice, snow, chiseled quartz, quartz pillars, chiseled sandstone, the planks and the small flowers apart from lily of the valley) can be washed back. Stairs, slabs, walls, fences, tall flowers and signs cannot be washed.
+Only the newer blocks that have a plain or vanilla version (granite, andesite, cut sandstone, mossy cobblestone, mossy stone bricks, nether bricks, end stone, gravel, ice, packed ice, snow, chiseled quartz, quartz pillars, chiseled sandstone, the planks and the small flowers apart from lily of the valley) can be washed back, and so can carpets (to white carpet) and beds (to the vanilla bed). Stairs, slabs, walls, fences, tall flowers and signs cannot be washed.
 
 Workstations from newer versions (loom, smoker, barrel and so on) are left to other mods.
 Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and shearing or killing it gives wool in that color. A vanilla dye puts it back on a vanilla color. Some new sheep also spawn in a mod color: by default 20% in a natural brown, beige or grey and 2% in burgundy. The `sheepSpawnChance` and `sheepSpawnColors` config options set the chance and the colors (0 turns it off, an empty list allows any color), and `rareSheepSpawnChance` and `rareSheepSpawnColors` do the same for the rare ones.
@@ -84,12 +90,14 @@ GTNH's NotEnoughItems can fold many items into one collapsible entry, but mods c
 #   not "minecraft:..._flower" or minecraft:double_plant, fences are not minecraft:fence, the
 #   dyes are not minecraft:dye, wool, glass and chests are not the vanilla ids, and the dyed Iron Chests are
 #   moredyes:dyed<Tier>Chest, which line 528 (IronChest's upgrades) does not take), so it gets its own group either way.
-# The dyed Iron Chests and Storage Drawers groups only fill when those mods are installed; without those mods the
+# The dyed Iron Chests, shulker box and Storage Drawers groups only fill when those mods are installed; without those mods the
 # lines match nothing and the groups never show.
 ; {"displayName":"Mixed Dyes"}
 r/^moredyes:item\.[a-z]+Dye$/
 ; {"displayName":"Dyed Wool"}
 r/^moredyes:[a-z]+MixWool$/
+; {"displayName":"Dyed Carpets"}
+r/^moredyes:[a-z]+MixCarpet$/
 ; {"displayName":"Dyed Stone Bricks"}
 r/^moredyes:[a-z]+MixStonebrick$/
 ; {"displayName":"Dyed Carved Stone Bricks"}
@@ -494,6 +502,8 @@ r/^moredyes:peony$/
 r/^moredyes:roseBush$/
 ; {"displayName":"Dyed Signs"}
 r/^moredyes:sign$/
+; {"displayName":"Dyed Beds"}
+r/^moredyes:dyedBed$/
 ; {"displayName":"Dyed Iron Trapdoors"}
 r/^moredyes:ironTrapdoor$/
 ; {"displayName":"Dyed Pistons"}
@@ -510,6 +520,8 @@ r/^moredyes:dyedDiamondChest$/
 r/^moredyes:dyedCopperChest$/
 ; {"displayName":"Dyed Silver Chests"}
 r/^moredyes:dyedSilverChest$/
+; {"displayName":"Dyed Shulker Boxes"}
+r/^moredyes:dyedShulkerBox$/
 ; {"displayName":"Dyed Drawers"}
 r/^moredyes:dyedFullDrawers1$/
 ; {"displayName":"Dyed Drawers 1x2"}
@@ -531,7 +543,7 @@ The grey textures are made from the vanilla textures when the game loads, so the
 
 To give a new block a texture, add a line to `TintSources` and call `TintedTextures.register(iconRegister, "<key>")` from the block's `registerBlockIcons`. Parts that should keep their natural color, such as a flower's stem or a log's bark, are drawn as a separate untinted layer (see `ILayeredBlock`).
 
-Stairs, slabs, walls, fences, tall flowers, trapdoors and pistons need their metadata for their direction, shape or half, so they keep their color in a small tile entity instead; signs keep it with their text. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
+Stairs, slabs, walls, fences, tall flowers, trapdoors, pistons and beds need their metadata for their direction, shape or half, so they keep their color in a small tile entity instead; signs keep it with their text. Beds are drawn by `client/DyedBedRenderer`, a copy of the vanilla bed renderer that tints the sheet and draws the pillow and frame over it untinted. Each is a single block for all colors, with the color's number (see `ColorIndex`) as the item damage.
 
 ## For other mods
 

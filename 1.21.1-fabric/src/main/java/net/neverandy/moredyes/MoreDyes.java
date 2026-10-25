@@ -1,19 +1,29 @@
 package net.neverandy.moredyes;
 
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.dispenser.ShulkerBoxDispenseBehavior;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.FireBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
 
 import net.neverandy.moredyes.block.Kind;
+import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.registry.DataMaps;
@@ -43,9 +53,23 @@ public class MoreDyes implements ModInitializer {
         ModCreativeTabs.register();
         ModRecipes.register();
         DyedSheep.register();
+        DyedCollars.register();
         ModWorldGen.register();
         DataMaps.register();
         CauldronWashing.register();
+        // Villagers claim the head of a dyed bed as their home, like a vanilla bed.
+        var home = BuiltInRegistries.POINT_OF_INTEREST_TYPE.getHolderOrThrow(PoiTypes.HOME);
+        for (Block bed : ModBlocks.all(Kind.BED)) {
+            PoiTypes.registerBlockStates(home, bed.getStateDefinition().getPossibleStates().stream()
+                .filter(state -> state.getValue(BedBlock.PART) == BedPart.HEAD).collect(Collectors.toUnmodifiableSet()));
+        }
+        // Dispensers place dyed shulker boxes, like vanilla ones.
+        for (MixColor color : MixColors.ALL) {
+            var box = ModItems.get(Kind.SHULKER_BOX, color);
+            if (box != null) {
+                DispenserBlock.registerBehavior(box, new ShulkerBoxDispenseBehavior());
+            }
+        }
         // Each kind burns like its vanilla block (see FireBlock.bootStrap).
         FireBlock fire = (FireBlock) Blocks.FIRE;
         for (Kind kind : Kind.values()) {

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:white_bed"
+    },
+    {
+      "item": "moredyes:598c65_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:bed_598c65"
+  }
+}

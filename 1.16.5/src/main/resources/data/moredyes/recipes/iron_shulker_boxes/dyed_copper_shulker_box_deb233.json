@@ -1,0 +1,76 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironshulkerbox"
+    }
+  ],
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "group": "moredyes:dyed_copper_shulker_box",
+  "ingredients": [
+    [
+      {
+        "item": "ironshulkerbox:copper_shulker_box_white"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_orange"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_magenta"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_light_blue"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_yellow"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_lime"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_pink"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_gray"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_light_gray"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_cyan"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_purple"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_blue"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_brown"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_green"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_red"
+      },
+      {
+        "item": "ironshulkerbox:copper_shulker_box_black"
+      },
+      {
+        "item": "moredyes:dyed_copper_shulker_box"
+      }
+    ],
+    {
+      "item": "moredyes:deb233_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_copper_shulker_box",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "15"
+      }
+    }
+  }
+}

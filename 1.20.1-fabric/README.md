@@ -21,6 +21,7 @@ events and config are replaced with Fabric API and a few mixins:
 - `mixin/SheepFurLayerMixin` tints the vanilla wool layer in a sheep's MoreDyes color (so resource packs that
   replace the sheep model still show it).
 - `mixin/PistonBaseBlockMixin` keeps extended dyed pistons from being pushed.
+- `mixin/LlamaMixin` keeps which dyed carpet a llama wears and tells nearby players (see `entity/LlamaCarpets`).
 - `mixin/compat/StorageDrawersMixin` registers the dyed drawers in time for Storage Drawers (see below).
 
 The models, textures, language file, recipes, loot tables, tags and worldgen features are not copied: the build reads

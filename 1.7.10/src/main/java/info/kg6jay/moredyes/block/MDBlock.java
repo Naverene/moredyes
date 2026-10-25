@@ -36,6 +36,7 @@ public class MDBlock {
     public static String[] colors = new String[] { "white", "orange", "magenta", "lightBlue", "yellow", "lime", "pink",
         "darkGray", "lightGray", "cyan", "purple", "blue", "brown", "green", "red" };
     public static Block[] wool;
+    public static Block[] carpet;
     public static Block[] stoneBrick;
     public static Block[] stoneBrickCarved;
     public static Block[] stoneBrickCracked;
@@ -147,6 +148,8 @@ public class MDBlock {
     public static Block lilac, peony, roseBush;
     /** Dyed signs: one block for every standing sign and one for every wall sign, with the color in the tile entity. */
     public static Block standingSign, wallSign;
+    /** Dyed beds: one block for every color, with the color in a tile entity on both halves. */
+    public static Block bed;
     /** A flower pot holding a dyed plant. */
     public static Block flowerPot;
     public static Block ironTrapdoor;
@@ -193,6 +196,7 @@ public class MDBlock {
         andesitePlain = new MDBlockPlainStone(Reference.BLOCK_INFO_ANDESITE, ColorUtil.WHITE);
 
         wool = new Block[l];
+        carpet = new Block[l];
         stoneBrick = new Block[l];
         stoneBrickCarved = new Block[l];
         stoneBrickCracked = new Block[l];
@@ -279,6 +283,7 @@ public class MDBlock {
             String[] shades = colorStrings[i];
             String set = colors[i];
             wool[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_WOOL, set);
+            carpet[i] = new MDBlockColoredCarpet(shades, Reference.BLOCK_INFO_CARPET, set);
             stoneBrick[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK, set);
             stoneBrickCarved[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK_CARVED, set);
             stoneBrickCracked[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_STONE_BRICK_CRACKED, set);
@@ -531,6 +536,7 @@ public class MDBlock {
         roseBush = new MDBlockDyedTallFlower(Reference.BLOCK_INFO_ROSE_BUSH);
         standingSign = new MDBlockDyedSign(true, "standingSign");
         wallSign = new MDBlockDyedSign(false, "wallSign");
+        bed = new MDBlockDyedBed();
         flowerPot = new MDBlockFlowerPot();
 
         ironTrapdoor = new MDBlockDyedTrapdoor(Reference.BLOCK_INFO_IRON_TRAPDOOR, "ironTrapdoor");
@@ -562,6 +568,7 @@ public class MDBlock {
 
     public static void register() {
         register(wool, "Wool");
+        register(carpet, "Carpet");
         register(stoneBrick, "Stonebrick");
         register(stoneBrickCarved, "StonebrickCarved");
         register(stoneBrickCracked, "StonebrickCracked");
@@ -664,6 +671,8 @@ public class MDBlock {
         // The signs are placed by MDItem.sign, and potted plants by using them on a vanilla flower pot.
         GameRegistry.registerBlock(standingSign, (Class<? extends ItemBlock>) null, registryName(standingSign));
         GameRegistry.registerBlock(wallSign, (Class<? extends ItemBlock>) null, registryName(wallSign));
+        // Placed by MDItem.bed.
+        GameRegistry.registerBlock(bed, (Class<? extends ItemBlock>) null, registryName(bed));
         GameRegistry.registerBlock(flowerPot, (Class<? extends ItemBlock>) null, registryName(flowerPot));
     }
 
@@ -690,6 +699,7 @@ public class MDBlock {
     public static void registerWashing() {
         for (int i = 0; i < colors.length; i++) {
             WASHED.put(wool[i], new ItemStack(Blocks.wool, 1, 0));
+            WASHED.put(carpet[i], new ItemStack(Blocks.carpet, 1, 0));
             WASHED.put(stoneBrick[i], new ItemStack(Blocks.stonebrick, 1, 0));
             WASHED.put(stoneBrickCracked[i], new ItemStack(Blocks.stonebrick, 1, 2));
             WASHED.put(stoneBrickCarved[i], new ItemStack(Blocks.stonebrick, 1, 3));
@@ -750,6 +760,7 @@ public class MDBlock {
     public static void registerFlammability() {
         for (int i = 0; i < colors.length; i++) {
             Blocks.fire.setFireInfo(wool[i], 30, 60);
+            Blocks.fire.setFireInfo(carpet[i], 60, 20);
             Blocks.fire.setFireInfo(plank[i], 5, 20);
             Blocks.fire.setFireInfo(log[i], 5, 5);
             Blocks.fire.setFireInfo(leaf[i], 30, 60);

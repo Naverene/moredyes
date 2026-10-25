@@ -20,6 +20,7 @@ The kinds and colors are read from block/Kind.java and color/ColorGroup.java. Ru
 downloaded Minecraft, and after tools/textures.py:
     python3 tools/generate_resources.py
 """
+import colorsys
 import glob
 import json
 import os
@@ -164,7 +165,15 @@ DYE_MIXES = [
 # Kinds that are dyed by putting eight vanilla blocks around a dye. The others are made another way (see recipes()).
 # The English names of the kinds whose vanilla block has another name.
 OWN_NAMES = {'speckled_granite': 'Speckled Granite', 'smooth_speckled_granite': 'Smooth Speckled Granite'}
-NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip'}
+NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip',
+                      'bed', 'banner', 'wall_banner', 'shulker_box'}
+# Kinds whose block models only name the particle texture (oak planks, which stays undyed), and so are vanilla's.
+VANILLA_MODELS = {'banner', 'wall_banner'}
+# Kinds whose particle texture (a bed's oak planks) stays vanilla's though the rest of the model is dyed.
+VANILLA_PARTICLE = {'bed'}
+# Kinds drawn by a block entity renderer, whose items are drawn by a special model of this mod (see
+# client/Dyed*SpecialRenderer.java): kind -> the vanilla special model type it takes the place of in the vanilla item.
+SPECIAL_ITEMS = {'banner': 'minecraft:banner', 'shulker_box': 'minecraft:shulker_box'}
 # Tags the dyed blocks are not added to even though their vanilla block is in them: tags that name the vanilla color,
 # and tags that would let a dyed block make a vanilla block in a recipe that has a dyed version.
 TAG_EXCLUDED = re.compile(r'white|colorless|uncolored|undyed|smelts_to_glass|(^|/)(oak|birch|spruce|jungle|acacia|dark_oak)_logs$')
@@ -447,7 +456,7 @@ class Models:
 
         particle = resolve(textures.get('particle'))
         if particle:
-            new = self.layers(sprite(particle), kind)
+            new = None if kind in VANILLA_PARTICLE else self.layers(sprite(particle), kind)
             changed |= new is not None
             particle = swap(particle, new[0][0] if new else full(sprite(particle)))
         if not changed:
@@ -519,8 +528,11 @@ def main():
     groups = {'dye': 'Mixed Dyes'}  # recipe viewer groups (compat/rei), by kind
     for kind, vanilla, tab in kinds:
         convert = lambda m, kind=kind, vanilla=vanilla: models.convert(m, kind, vanilla)
+        if kind in VANILLA_MODELS:
+            convert = lambda m: (full(m), None)
         state = remap_models(jars.json('assets/minecraft/blockstates/%s.json' % vanilla), convert)
-        base_name = lang['block.minecraft.' + vanilla].replace('White ', '')
+        # A wall banner has no name of its own: it is called after its banner.
+        base_name = lang['block.minecraft.' + vanilla.replace('_wall_', '_')].replace('White ', '')
         if kind.startswith('foggy_'):
             base_name = 'Foggy ' + base_name
         base_name = OWN_NAMES.get(kind, base_name)
@@ -532,17 +544,10 @@ def main():
         if tab != 'NONE':
             groups[kind] = 'Dyed ' + plural(base_name)
             item = jars.json('assets/minecraft/items/%s.json' % vanilla)['model']
-            if kind == 'chest':
-                item = None  # one per color, below
+            if kind == 'chest' or kind in SPECIAL_ITEMS:
+                pass  # one per color, below
             else:
-                model, tints = convert(item['model'])
-                if tints is None:
-                    tints = [True]
-                while tints and not tints[-1]:
-                    tints.pop()
-                item = {'type': 'minecraft:model', 'model': model}
-                if tints:
-                    item['tints'] = [DYE_COLOR if t else {'type': 'minecraft:constant', 'value': -1} for t in tints]
+                item = dyed_item(item, convert)
         loot = jars.json('data/minecraft/loot_table/blocks/%s.json' % vanilla, {})
         for color in colors:
             name = '%s_%s' % (kind, color)
@@ -553,6 +558,8 @@ def main():
                 if kind == 'chest':
                     model = {'type': 'minecraft:special', 'base': 'minecraft:item/chest',
                              'model': {'type': MOD + ':dyed_chest', 'color': color}}
+                elif kind in SPECIAL_ITEMS:
+                    model = special_item(item, SPECIAL_ITEMS[kind], '%s:dyed_%s' % (MOD, kind), color)
                 else:
                     model = item
                 w.write('assets/%s/items/%s.json' % (MOD, name), {'model': model})
@@ -588,6 +595,7 @@ def main():
     for tab, title in [('dyes', 'Dyes'), ('blocks', 'Blocks'), ('trees', 'Trees'), ('plants', 'Plants'),
                        ('shapes', 'Slabs and Stairs')]:
         names['itemGroup.%s.%s' % (MOD, tab)] = 'More Dyes ' + title
+    carpets_on_llamas(w, colors)
     storage_drawers(w, colors, names)
     for size in read_drawer_sizes():
         groups[size] = names['block.%s.%s' % (MOD, size)]  # "Dyed Drawers 1x1", already a plural
@@ -601,6 +609,59 @@ def main():
     chiseling(w, kinds, colors)
     w.write('data/%s/loot_modifiers/dyed_sheep_wool.json' % MOD, {'type': MOD + ':dyed_sheep_wool'})
     print('wrote %d files to %s' % (w.count, os.path.relpath(OUT, ROOT)))
+
+
+def dyed_item(node, convert):
+    """The vanilla item model with each of its models (one, or several in a composite such as a bed's two halves)
+    swapped for ours, taking the dye color."""
+    if node.get('type') == 'minecraft:composite':
+        return dict(node, models=[dyed_item(n, convert) for n in node['models']])
+    model, tints = convert(node['model'])
+    if tints is None:
+        tints = [True]
+    while tints and not tints[-1]:
+        tints.pop()
+    out = {k: v for k, v in node.items() if k != 'tints'}
+    out.update(type='minecraft:model', model=model)
+    if tints:
+        out['tints'] = [DYE_COLOR if t else {'type': 'minecraft:constant', 'value': -1} for t in tints]
+    return out
+
+
+def special_item(node, vanilla_type, ours, color):
+    """The vanilla item model with each of its vanilla special models (such as {"type": "minecraft:bed", "texture":
+    "minecraft:white"}) swapped for ours in a color, keeping their other fields (a bed's part, a box's openness)."""
+    if isinstance(node, list):
+        return [special_item(n, vanilla_type, ours, color) for n in node]
+    if not isinstance(node, dict):
+        return node
+    if node.get('type') == vanilla_type:
+        out = {k: v for k, v in node.items() if k not in ('texture', 'color')}
+        out.update(type=ours, color=color)
+        return out
+    return {k: special_item(v, vanilla_type, ours, color) for k, v in node.items()}
+
+
+def vivid(hex_color):
+    """MixColors.vivid: the color a dyed block is drawn in, a bit more saturated and brighter than its hex code."""
+    rgb = int(hex_color, 16)
+    r, g, b = (rgb >> 16 & 255) / 255.0, (rgb >> 8 & 255) / 255.0, (rgb & 255) / 255.0
+    hue, saturation, value = colorsys.rgb_to_hsv(r, g, b)
+    if value == 0:
+        return rgb
+    saturation, value = min(1.0, saturation * 1.25), min(1.0, value / 0.8)
+    r, g, b = colorsys.hsv_to_rgb(hue, saturation, value)
+    # Mth.hsvToRgb truncates each channel
+    return int(r * 255) << 16 | int(g * 255) << 8 | int(b * 255)
+
+
+def carpets_on_llamas(w, colors):
+    """An equipment asset for each carpet color, which a llama wearing the carpet is drawn with: the grey carpet
+    (textures/entity/equipment/llama_body/carpet.png, from tools/textures.py) in the carpet's color, and its stripes."""
+    for c in colors:
+        w.write('assets/%s/equipment/carpet_%s.json' % (MOD, c), {'layers': {'llama_body': [
+            {'texture': MOD + ':carpet', 'dyeable': {'color_when_undyed': vivid(c)}},
+            {'texture': MOD + ':carpet_stripes'}]}})
 
 
 def shape_template(shape, base):
@@ -874,6 +935,12 @@ def recipes(jars, w, kinds, colors):
             'type': 'minecraft:crafting_shapeless', 'category': category, 'ingredients': ingredients,
             'result': item(result, count)})
 
+    def transmute(path, ingredient, material, result):
+        """Like vanilla's shulker box dyeing: the result keeps the components (contents, name) of the ingredient."""
+        w.write('data/%s/recipe/%s.json' % (MOD, path), {
+            'type': 'minecraft:crafting_transmute', 'category': 'misc', 'group': 'shulker_box_dye',
+            'input': ingredient, 'material': material, 'result': {'id': result}})
+
     def smelt(path, ingredient, result, xp):
         w.write('data/%s/recipe/%s.json' % (MOD, path), {
             'type': 'minecraft:smelting', 'category': 'blocks', 'cookingtime': 200, 'experience': xp,
@@ -914,6 +981,16 @@ def recipes(jars, w, kinds, colors):
         for kind in ('crafting_table', 'chest'):
             shapeless('dyeing/%s_%s' % (kind, c), b(kind), 1, ['minecraft:' + kind, dye])
             wash(kind)
+        # Beds, banners and carpets are made from dyed wool like vanilla's from colored wool. Any bed and a dye
+        # make a dyed bed. A shulker box of any color and a dye make a dyed one, keeping its contents, like vanilla.
+        shapeless('dyeing/bed_%s' % c, b('bed'), 1, ['#minecraft:beds', dye])
+        wash('bed')
+        wash('banner')
+        shaped('bed_%s' % c, b('bed'), 1, ['WWW', 'PPP'], {'W': b('wool'), 'P': '#minecraft:planks'}, True)
+        shaped('banner_%s' % c, b('banner'), 1, ['WWW', 'WWW', ' S '], {'W': b('wool'), 'S': 'minecraft:stick'}, True)
+        shaped('carpet_%s' % c, b('carpet'), 3, ['WW'], {'W': b('wool')}, True)
+        transmute('dyeing/shulker_box_%s' % c, '#minecraft:shulker_boxes', dye, b('shulker_box'))
+        transmute('washing/shulker_box_%s' % c, b('shulker_box'), 'minecraft:water_bucket', 'minecraft:shulker_box')
         wash('foggy_glass')
         wash('foggy_glass_pane')
         for flower, count in FLOWER_DYES.items():

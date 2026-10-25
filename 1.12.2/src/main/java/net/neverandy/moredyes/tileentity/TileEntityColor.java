@@ -13,7 +13,7 @@ import net.neverandy.moredyes.block.TileColor;
  * The color of a block that holds every color in one block (stairs, slabs, walls, the iron trapdoor and pistons),
  * whose metadata is taken by its shape. See TileColor.
  */
-public class TileEntityColor extends TileEntity
+public class TileEntityColor extends TileEntity implements IDyedTile
 {
 	private static final String COLOR_TAG="color";
 
@@ -28,6 +28,16 @@ public class TileEntityColor extends TileEntity
 	{
 		this.color=TileColor.clamp(color);
 		this.markDirty();
+	}
+	@Override
+	public int getColorIndex()
+	{
+		return this.color;
+	}
+	@Override
+	public void setColorIndex(int color)
+	{
+		this.setColor(color);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound)

@@ -32,6 +32,24 @@ public final class TintPixels {
     }
 
     /** True for a visible green pixel, such as the leaves and stems of a plant. */
+    /**
+     * True for the red sheet of a vanilla bed (block and item textures), as opposed to its white pillow and wooden
+     * frame: red with little green or blue.
+     */
+    public static boolean isBedding(int argb) {
+        int r = argb >> 16 & 255, g = argb >> 8 & 255, b = argb & 255;
+        return (argb >>> 24) != 0 && r >= 0x40 && g < r * 0.53F && b < r * 0.53F;
+    }
+
+    /**
+     * The red sheet of a bed as grey, from its red channel made about as bright as white wool, so the dye shows as
+     * strongly as on dyed wool.
+     */
+    public static int beddingGrey(int argb) {
+        int lum = Math.min(255, Math.round((argb >> 16 & 255) * 1.45F));
+        return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
+    }
+
     public static boolean isGreen(int argb) {
         if ((argb >>> 24) == 0) {
             return false;

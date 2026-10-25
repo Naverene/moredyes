@@ -13,6 +13,8 @@ public class MDItem {
     public static Item[] dye;
     /** Dyed signs in every color (see MDItemDyedSign). */
     public static Item sign;
+    /** Dyed beds in every color (see MDItemDyedBed). */
+    public static Item bed;
 
     public static void initialize() {
         dye = new Item[MDBlock.colors.length];
@@ -20,6 +22,7 @@ public class MDItem {
             dye[i] = new MDItemDye(MDBlock.colorStrings[i], MDBlock.colors[i], i);
         }
         sign = new MDItemDyedSign();
+        bed = new MDItemDyedBed();
     }
 
     public static void register() {
@@ -27,6 +30,7 @@ public class MDItem {
             GameRegistry.registerItem(item, item.getUnlocalizedName());
         }
         GameRegistry.registerItem(sign, "sign");
+        GameRegistry.registerItem(bed, "dyedBed");
     }
 
     public static void registerOreDict() {

@@ -16,6 +16,9 @@ import net.neverandy.moredyes.block.IColoredBlock;
 import net.neverandy.moredyes.block.ITileColoredBlock;
 import net.neverandy.moredyes.block.TileColor;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.ironchest.IronShulkerBoxCompat;
+import net.neverandy.moredyes.compat.ironchest.ItemDyedIronShulkerBox;
+import net.neverandy.moredyes.compat.ironchest.TileEntityDyedIronShulkerBox;
 import net.neverandy.moredyes.compat.ironchest.ItemDyedIronChest;
 import net.neverandy.moredyes.compat.ironchest.TileEntityDyedIronChest;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
@@ -107,6 +110,10 @@ public final class MoreDyesAPI
 		{
 			return color(IronChestCompat.clampColor(meta));
 		}
+		if(Loader.isModLoaded(IronChestCompat.MOD_ID)&&item instanceof ItemDyedIronShulkerBox)
+		{
+			return color(IronShulkerBoxCompat.clampColor(meta));
+		}
 		if(Loader.isModLoaded(StorageDrawersCompat.MOD_ID)&&item==StorageDrawersCompat.drawersItem)
 		{
 			return color(StorageDrawersCompat.colorOf(stack));
@@ -115,7 +122,7 @@ public final class MoreDyesAPI
 	}
 	/**
 	 * The More Dyes color of a placed block, or empty if it is not a dyed More Dyes block. Dyed stairs, slabs, walls,
-	 * iron trapdoors, pistons, iron chests and drawers keep their color in their tile entity, so for them use
+	 * iron trapdoors, pistons, iron chests, iron shulker boxes and drawers keep their color in their tile entity, so for them use
 	 * {@link #getColor(IBlockAccess,BlockPos)}.
 	 */
 	public static OptionalInt getColor(IBlockState state)
@@ -140,6 +147,10 @@ public final class MoreDyesAPI
 		if(Loader.isModLoaded(IronChestCompat.MOD_ID)&&tile instanceof TileEntityDyedIronChest)
 		{
 			return color(((TileEntityDyedIronChest)tile).getColor());
+		}
+		if(Loader.isModLoaded(IronChestCompat.MOD_ID)&&tile instanceof TileEntityDyedIronShulkerBox)
+		{
+			return color(((TileEntityDyedIronShulkerBox)tile).getDyeIndex());
 		}
 		if(Loader.isModLoaded(StorageDrawersCompat.MOD_ID)&&state.getBlock()==StorageDrawersCompat.drawers&&tile instanceof TileEntityDrawers)
 		{

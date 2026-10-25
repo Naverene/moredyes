@@ -26,8 +26,13 @@ public final class ModBlockEntities {
             ResourceLocation.fromNamespaceAndPath(MoreDyes.MOD_ID, "chest"),
             FabricBlockEntityTypeBuilder.create(DyedChestBlockEntity::new, ModBlocks.all(Kind.CHEST).toArray(Block[]::new))
                 .build());
-        // Dyed signs keep their text in a vanilla sign block entity, drawn by DyedSignRenderer.
+        // Dyed signs keep their text in a vanilla sign block entity, drawn by DyedSignRenderer. Dyed beds, banners
+        // and shulker boxes likewise use vanilla's block entities, drawn by the Dyed*Renderer classes.
         Stream.concat(ModBlocks.all(Kind.SIGN).stream(), ModBlocks.all(Kind.WALL_SIGN).stream())
             .forEach(BlockEntityType.SIGN::addSupportedBlock);
+        ModBlocks.all(Kind.BED).forEach(BlockEntityType.BED::addSupportedBlock);
+        Stream.concat(ModBlocks.all(Kind.BANNER).stream(), ModBlocks.all(Kind.WALL_BANNER).stream())
+            .forEach(BlockEntityType.BANNER::addSupportedBlock);
+        ModBlocks.all(Kind.SHULKER_BOX).forEach(BlockEntityType.SHULKER_BOX::addSupportedBlock);
     }
 }

@@ -167,7 +167,10 @@ DYE_MIXES = [
 # Kinds that are dyed by putting eight vanilla blocks around a dye. The others are made another way (see recipes()).
 # The English names of the kinds whose vanilla block has another name.
 OWN_NAMES = {'speckled_granite': 'Speckled Granite', 'smooth_speckled_granite': 'Smooth Speckled Granite'}
-NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip'}
+NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip',
+                      'bed', 'banner', 'wall_banner', 'shulker_box'}
+# Kinds whose block models only name the particle texture (oak planks, which stays undyed), and so are vanilla's.
+VANILLA_MODELS = {'bed', 'banner', 'wall_banner'}
 # Tags the dyed blocks are not added to even though their vanilla block is in them: tags that name the vanilla color,
 # and tags that would let a dyed block make a vanilla block in a recipe that has a dyed version.
 TAG_EXCLUDED = re.compile(r'white|colorless|uncolored|undyed|smelts_to_glass|(^|/)(oak|birch|spruce|jungle|acacia|dark_oak)_logs$')
@@ -501,8 +504,11 @@ def main():
     names = {}
     for kind, vanilla, tab in kinds:
         convert = lambda m, kind=kind, vanilla=vanilla: models.convert(m, kind, vanilla)
+        if kind in VANILLA_MODELS:
+            convert = lambda m: (full(m), None)
         state = remap_models(jars.json('assets/minecraft/blockstates/%s.json' % vanilla), convert)
-        base_name = lang['block.minecraft.' + vanilla].replace('White ', '')
+        # A wall banner has no name of its own: it is called after its banner.
+        base_name = lang['block.minecraft.' + vanilla.replace('_wall_', '_')].replace('White ', '')
         if kind.startswith('foggy_'):
             base_name = 'Foggy ' + base_name
         base_name = OWN_NAMES.get(kind, base_name)
@@ -515,6 +521,9 @@ def main():
             if kind == 'chest':
                 # Vanilla's chest item model hands the drawing to the item's renderer (client/DyedChestItemRenderer).
                 item = {'parent': 'minecraft:item/chest'}
+            elif kind in ('bed', 'banner', 'shulker_box'):
+                # Likewise vanilla's item models of these (builtin/entity) hand the drawing to client/DyedItemRenderer.
+                item = {'parent': 'minecraft:item/' + vanilla}
             else:
                 # An item model that only names a block model is that block model; others (flat items, fences) are
                 # turned into dyed ones of their own.
@@ -951,6 +960,16 @@ def recipes(jars, w, kinds, colors):
             'type': 'minecraft:crafting_shapeless', 'category': category,
             'ingredients': [ingredient(i) for i in ingredients], 'result': item(result, count)})
 
+    def keep_components(path, result, ingredients):
+        """Like vanilla's shulker box dyeing: the result keeps the components (contents, name) of the first ingredient."""
+        w.write('data/%s/recipe/%s.json' % (MOD, path), {
+            'type': MOD + ':crafting_shapeless_keep_components', 'category': 'misc', 'group': 'shulker_box_dye',
+            'ingredients': [ingredient(i) for i in ingredients], 'result': item(result)})
+
+    # 1.21.1 has no item tag of shulker boxes; this one holds vanilla's and the dyed ones, for dyeing them.
+    w.write('data/%s/tags/item/shulker_boxes.json' % MOD, {'values': ['minecraft:shulker_box'] + [
+        'minecraft:%s_shulker_box' % d for d in VANILLA_DYES] + ['%s:shulker_box_%s' % (MOD, c) for c in colors]})
+
     def smelt(path, ingredient_id, result, xp):
         w.write('data/%s/recipe/%s.json' % (MOD, path), {
             'type': 'minecraft:smelting', 'category': 'blocks', 'cookingtime': 200, 'experience': xp,
@@ -991,6 +1010,16 @@ def recipes(jars, w, kinds, colors):
         for kind in ('crafting_table', 'chest'):
             shapeless('dyeing/%s_%s' % (kind, c), b(kind), 1, ['minecraft:' + kind, dye])
             wash(kind)
+        # Beds, banners and carpets are made from dyed wool like vanilla's from colored wool. Any bed and a dye
+        # make a dyed bed. A shulker box of any color and a dye make a dyed one, keeping its contents, like vanilla.
+        shapeless('dyeing/bed_%s' % c, b('bed'), 1, ['#minecraft:beds', dye])
+        wash('bed')
+        wash('banner')
+        shaped('bed_%s' % c, b('bed'), 1, ['WWW', 'PPP'], {'W': b('wool'), 'P': '#minecraft:planks'}, True)
+        shaped('banner_%s' % c, b('banner'), 1, ['WWW', 'WWW', ' S '], {'W': b('wool'), 'S': 'minecraft:stick'}, True)
+        shaped('carpet_%s' % c, b('carpet'), 3, ['WW'], {'W': b('wool')}, True)
+        keep_components('dyeing/shulker_box_%s' % c, b('shulker_box'), ['#%s:shulker_boxes' % MOD, dye])
+        keep_components('washing/shulker_box_%s' % c, 'minecraft:shulker_box', [b('shulker_box'), 'minecraft:water_bucket'])
         wash('foggy_glass')
         wash('foggy_glass_pane')
         for flower, count in FLOWER_DYES.items():
@@ -1122,8 +1151,10 @@ def data_maps(w, kinds, colors):
             continue
         if kind in ('crafting_table', 'bookshelf', 'chest') or re.search(r'_(log|planks|fence)$', kind):
             burn = 300
-        elif kind == 'sign':
-            burn = 200
+        elif kind in ('sign', 'banner'):
+            burn = 200 if kind == 'sign' else 300
+        elif kind == 'carpet':
+            burn = 67
         elif kind == 'coal_block':
             burn = 16000
         elif kind.endswith('_sapling'):

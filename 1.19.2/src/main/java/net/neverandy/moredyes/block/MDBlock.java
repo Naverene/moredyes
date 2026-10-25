@@ -5,14 +5,17 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.CryingObsidianBlock;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.IceBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
@@ -20,12 +23,14 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PoweredBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.neverandy.moredyes.item.ChestItem;
+import net.neverandy.moredyes.item.DyedEntityItems;
 import net.neverandy.moredyes.item.MDTabs;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
@@ -35,6 +40,7 @@ import net.neverandy.moredyes.world.DyeTrees;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,10 +60,13 @@ public class MDBlock
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-    /** The tool that mines each array of blocks fastest (a mineable/ tag), for the block tags. */
-    public static final Map<Block[], TagKey<Block>> MINEABLE = new IdentityHashMap<>();
+    /**
+     * The tool that mines each array of blocks fastest (a mineable/ tag), for the block tags. Arrays are compared by
+     * identity; the map keeps the order they were added in, so the generated tags don't reorder between runs.
+     */
+    public static final Map<Block[], TagKey<Block>> MINEABLE = new LinkedHashMap<>();
     /** Arrays of blocks that need at least a stone, iron or diamond tool to drop, like their vanilla blocks. */
-    public static final Map<Block[], TagKey<Block>> NEEDS_TOOL = new IdentityHashMap<>();
+    public static final Map<Block[], TagKey<Block>> NEEDS_TOOL = new LinkedHashMap<>();
     /** The arrays whose blocks the config turned off; they stay full of nulls. */
     private static final Set<Block[]> DISABLED = Collections.newSetFromMap(new IdentityHashMap<>());
 
@@ -136,6 +145,14 @@ public class MDBlock
     public static BlockChest[] chestArray = new BlockChest[COLORS];
     public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[COLORS];
     public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[COLORS];
+
+    // Carpets, beds, banners and shulker boxes. Beds, banners and shulker boxes are vanilla blocks with the white dye
+    // color (no color for shulker boxes) that share vanilla's block entities; the client draws them in their own color.
+    public static CarpetBlock[] carpetArray = new CarpetBlock[COLORS];
+    public static BedBlock[] bedArray = new BedBlock[COLORS];
+    public static BannerBlock[] bannerArray = new BannerBlock[COLORS];
+    public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[COLORS];
+    public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[COLORS];
 
     // Full blocks from the sheet's second batch.
     public static Block[] graniteArray = new Block[COLORS];
@@ -218,7 +235,7 @@ public class MDBlock
         ITEMS.register(modBus);
 
         // The same order as the 1.16.5 port, which is the order the creative tabs list them in.
-        colors("glass", glassArray, () -> new GlassBlock(copy(Blocks.GLASS)), MDTabs.BLOCKS, null);
+        colorsByHex("glass", glassArray, hex -> new DyedGlassBlock(copy(Blocks.GLASS), hex), MDTabs.BLOCKS, null);
         colors("sand", sandArray, () -> new FallingBlock(copy(Blocks.SAND)), MDTabs.BLOCKS, SHOVEL);
         colors("leaf", oakLeafArray, () -> new LeavesBlock(copy(Blocks.OAK_LEAVES)), MDTabs.TREES, HOE);
         colors("brick", brickArray, () -> new Block(copy(Blocks.BRICKS)), MDTabs.BLOCKS, PICKAXE);
@@ -238,7 +255,7 @@ public class MDBlock
         // A full block, unlike vanilla soul sand, so it doesn't slow anyone down.
         colors("soulsand", soulsandArray, () -> new Block(copy(Blocks.SOUL_SAND).speedFactor(1.0F)), MDTabs.BLOCKS, SHOVEL);
         colors("plank", oakPlankArray, () -> new Block(copy(Blocks.OAK_PLANKS)), MDTabs.BLOCKS, AXE);
-        colors("glassfoggy", glassFoggyArray, () -> new GlassBlock(copy(Blocks.GLASS)), MDTabs.BLOCKS, null);
+        colorsByHex("glassfoggy", glassFoggyArray, hex -> new DyedGlassBlock(copy(Blocks.GLASS), hex), MDTabs.BLOCKS, null);
         colors("quartz", quartzArray, () -> new Block(copy(Blocks.QUARTZ_BLOCK)), MDTabs.BLOCKS, PICKAXE);
         colors("workbench", workbenchArray, () -> new WorkbenchBlock(copy(Blocks.CRAFTING_TABLE)), MDTabs.BLOCKS, AXE);
         colors("chest", chestArray, () -> new BlockChest(copy(Blocks.CHEST)), MDTabs.BLOCKS, AXE, ChestItem::new);
@@ -247,8 +264,8 @@ public class MDBlock
             disable(glassPaneArray);
             disable(glassFoggyPaneArray);
         }
-        colors("glasspane", glassPaneArray, () -> new IronBarsBlock(copy(Blocks.GLASS_PANE)), MDTabs.BLOCKS, null);
-        colors("glassfoggypane", glassFoggyPaneArray, () -> new IronBarsBlock(copy(Blocks.GLASS_PANE)), MDTabs.BLOCKS, null);
+        colorsByHex("glasspane", glassPaneArray, hex -> new DyedGlassPaneBlock(copy(Blocks.GLASS_PANE), hex), MDTabs.BLOCKS, null);
+        colorsByHex("glassfoggypane", glassFoggyPaneArray, hex -> new DyedGlassPaneBlock(copy(Blocks.GLASS_PANE), hex), MDTabs.BLOCKS, null);
         colors("bookshelf", bookshelfArray, () -> new BlockBookshelf(copy(Blocks.BOOKSHELF)), MDTabs.BLOCKS, AXE);
         colors("tulip", tulipArray, () -> new FlowerBlock(copy(Blocks.RED_TULIP)), MDTabs.PLANTS, null);
         colors("redstone", redstoneArray, () -> new PoweredBlock(copy(Blocks.REDSTONE_BLOCK)), MDTabs.BLOCKS, PICKAXE);
@@ -282,6 +299,7 @@ public class MDBlock
 
         registerPistons();
         registerSigns();
+        registerFurnishings();
         registerMoreBlocks();
         registerNewerBlocks();
         registerFlowers();
@@ -471,6 +489,52 @@ public class MDBlock
         }
     }
 
+    /** Carpets, beds, banners and shulker boxes in each color. The wall banner has no item, like the wall sign. */
+    private static void registerFurnishings()
+    {
+        colors("carpet", carpetArray, () -> new CarpetBlock(copy(Blocks.WHITE_CARPET)), MDTabs.BLOCKS, null);
+        for (int i = 0; i < COLORS; i++)
+        {
+            register("bed_" + ColorStrings.ALL[i], bedArray, i, () -> new BedBlock(DyeColor.WHITE, copy(Blocks.WHITE_BED)),
+                    MDTabs.BLOCKS, DyedEntityItems.Bed::new);
+        }
+        MINEABLE.put(bannerArray, AXE);
+        MINEABLE.put(wallBannerArray, AXE);
+        if (!Toggles.typeEnabled("banner") || !Toggles.typeEnabled("wallbanner"))
+        {
+            disable(bannerArray);
+            disable(wallBannerArray);
+        }
+        for (int i = 0; i < COLORS; i++)
+        {
+            final int color = i;
+            String hex = ColorStrings.ALL[i];
+            register("banner_" + hex, bannerArray, i, () -> new BannerBlock(DyeColor.WHITE, copy(Blocks.WHITE_BANNER)), MDTabs.BLOCKS,
+                    (block, properties) -> new DyedEntityItems.Banner(block, wallBannerArray[color], properties));
+            register("wallbanner_" + hex, wallBannerArray, i,
+                    () -> new WallBannerBlock(DyeColor.WHITE, copy(Blocks.WHITE_WALL_BANNER).dropsLike(bannerArray[color])), null, null);
+        }
+        colors("shulkerbox", shulkerBoxArray, () -> new DyedShulkerBoxBlock(DyedShulkerBoxBlock.properties(copy(Blocks.WHITE_SHULKER_BOX))),
+                MDTabs.BLOCKS, PICKAXE, DyedEntityItems.ShulkerBox::new);
+    }
+
+    /** Every dyed bed, banner and shulker box block: the blocks that share a vanilla block entity. */
+    public static List<Block> sharingVanillaBlockEntities()
+    {
+        List<Block> blocks = new ArrayList<>();
+        for (Block[] array : new Block[][] {bedArray, bannerArray, wallBannerArray, shulkerBoxArray})
+        {
+            for (Block block : array)
+            {
+                if (block != null)
+                {
+                    blocks.add(block);
+                }
+            }
+        }
+        return blocks;
+    }
+
     /** Every dyed sign block, standing and on a wall. */
     public static Block[] signs()
     {
@@ -495,6 +559,20 @@ public class MDBlock
         for (int i = 0; i < COLORS; i++)
         {
             register(type + "_" + ColorStrings.ALL[i], array, i, factory, tab, item);
+        }
+    }
+
+    /** Like colors, for blocks that need their color: the factory gets the hex code, such as "334c59". */
+    private static <B extends Block> void colorsByHex(String type, B[] array, Function<String, B> factory, MDTabs tab, TagKey<Block> tool)
+    {
+        if (tool != null)
+        {
+            MINEABLE.put(array, tool);
+        }
+        for (int i = 0; i < COLORS; i++)
+        {
+            String hex = ColorStrings.ALL[i];
+            register(type + "_" + hex, array, i, () -> factory.apply(hex), tab, BlockItem::new);
         }
     }
 

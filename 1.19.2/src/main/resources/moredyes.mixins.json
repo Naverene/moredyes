@@ -7,7 +7,9 @@
     "MultiPackResourceManagerMixin"
   ],
   "client": [
-    "SheepFurLayerMixin"
+    "SheepFurLayerMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockShulkerBox;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.RecipesBanners;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -367,10 +370,50 @@ public class CraftManager
 			bookshelves.add(shaped("bookshelf/"+type+"_"+color,"bookshelf",new ItemStack(MDBlock.bookshelf[g],1,s),"PPP","BBB","PPP",'P',plank,'B',Items.BOOK));
 		}
 
+		registerFurnishings(index,g,s,dye);
+
 		// Signs: six dyed oak planks of one shade and a stick, like vanilla, or eight vanilla signs around a dye
 		ItemStack sign=new ItemStack(MDItem.sign,3,index);
 		signs.add(shaped("sign/"+color,"sign",sign,"PPP","PPP"," S ",'P',new ItemStack(MDBlock.plank[g],1,s),'S',"stickWood"));
 		shaped("dyeing/sign_"+color,"sign",new ItemStack(MDItem.sign,8,index),"SSS","SDS","SSS",'S',Items.SIGN,'D',dye);
+	}
+	/**
+	 * Carpets, beds, banners and shulker boxes, from dyed wool like the vanilla ones, or dyed from vanilla ones. Banners
+	 * and shulker boxes keep their patterns and contents.
+	 */
+	private static void registerFurnishings(int index,int g,int s,ItemStack dye)
+	{
+		String color=ColorStrings.ALL[index];
+		ItemStack wool=new ItemStack(MDBlock.wool[g],1,s);
+		shaped("carpet/"+color,"carpet",new ItemStack(MDBlock.carpet[g],3,s),"WW",'W',wool);
+		dyeing(MDBlock.carpet,g,s,anyOf(new ItemStack(Blocks.CARPET,1,OreDictionary.WILDCARD_VALUE),MDBlock.carpet));
+		shaped("bed/"+color,"bed",new ItemStack(MDItem.bed,1,index),"WWW","PPP",'W',wool,'P',"plankWood");
+		shapeless("dyeing/bed_"+color,"bed",new ItemStack(MDItem.bed,1,index),new ItemStack(Items.BED,1,0),dye);
+		shaped("banner/"+color,"banner",new ItemStack(MDItem.banner,1,index),"WWW","WWW"," S ",'W',wool,'S',"stickWood");
+		keepNbt("dyeing/banner_"+color,"banner",new ItemStack(MDItem.banner,1,index),new ItemStack(Items.BANNER,1,15),dye);
+		keepNbt("dyeing/shulker_box_"+color,"shulker_box",new ItemStack(MDBlock.shulkerBox,1,index),shulkerBoxes(),dye);
+	}
+	/** Every shulker box, vanilla and dyed. */
+	private static Ingredient shulkerBoxes()
+	{
+		List<ItemStack> boxes=new ArrayList<ItemStack>();
+		for(EnumDyeColor color:EnumDyeColor.values())
+		{
+			boxes.add(new ItemStack(BlockShulkerBox.getBlockByColor(color)));
+		}
+		boxes.add(new ItemStack(MDBlock.shulkerBox,1,OreDictionary.WILDCARD_VALUE));
+		return Ingredient.fromStacks(boxes.toArray(new ItemStack[0]));
+	}
+	/** A vanilla block and every shade of its dyed kind, so dyed blocks can be dyed again. */
+	private static Ingredient anyOf(ItemStack vanilla,Block[] dyed)
+	{
+		ItemStack[] stacks=new ItemStack[dyed.length+1];
+		stacks[0]=vanilla;
+		for(int i=0;i<dyed.length;i++)
+		{
+			stacks[i+1]=new ItemStack(dyed[i],1,OreDictionary.WILDCARD_VALUE);
+		}
+		return Ingredient.fromStacks(stacks);
 	}
 	/** The vanilla planks of a wood and every dyed shade of them, so dyed planks can be dyed again. */
 	private static Ingredient wood(Block[] dyed,int vanillaMeta)
@@ -423,10 +466,24 @@ public class CraftManager
 		for(Map.Entry<Block,ItemStack> entry:MDBlock.WASHED.entrySet())
 		{
 			Block dyed=entry.getKey();
-			shapeless("washing/"+dyed.getRegistryName().getResourcePath(),"washing",entry.getValue().copy(),
-					new ItemStack(dyed,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
+			String name="washing/"+dyed.getRegistryName().getResourcePath();
+			ItemStack anyShade=new ItemStack(dyed,1,OreDictionary.WILDCARD_VALUE);
+			if(dyed instanceof BlockShulkerBox||MDBlock.WASH_KEEPS_NBT.contains(dyed))
+			{
+				// The box keeps its contents.
+				keepNbt(name,"washing",entry.getValue().copy(),anyShade,Items.WATER_BUCKET);
+			}
+			else
+			{
+				shapeless(name,"washing",entry.getValue().copy(),anyShade,Items.WATER_BUCKET);
+			}
 		}
 		shapeless("washing/sign","washing",new ItemStack(Items.SIGN),new ItemStack(MDItem.sign,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
+		shapeless("washing/bed","washing",new ItemStack(Items.BED,1,0),new ItemStack(MDItem.bed,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
+		keepNbt("washing/banner","washing",new ItemStack(Items.BANNER,1,15),new ItemStack(MDItem.banner,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
+		// The vanilla banner recipes (adding a pattern, copying one) for dyed banners.
+		registry.register(new DyedBannerRecipe(new RecipesBanners.RecipeAddPattern()).setRegistryName(Reference.MOD_ID,"banner_add_pattern"));
+		registry.register(new DyedBannerRecipe(new RecipesBanners.RecipeDuplicatePattern()).setRegistryName(Reference.MOD_ID,"banner_duplicate"));
 	}
 	/** Makes a vanilla recipe step aside for the mod's recipes that use the same shape. */
 	private static void guard(String vanillaName,List<IRecipe> preferred)
@@ -447,6 +504,10 @@ public class CraftManager
 		IRecipe r=new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID,group),result,recipe).setRegistryName(Reference.MOD_ID,name);
 		registry.register(r);
 		return r;
+	}
+	private static void keepNbt(String name,String group,ItemStack result,Object... recipe)
+	{
+		registry.register(new KeepNbtShapelessRecipe(new ResourceLocation(Reference.MOD_ID,group),result,recipe).setRegistryName(Reference.MOD_ID,name));
 	}
 	private static IRecipe shapeless(String name,String group,ItemStack result,Object... recipe)
 	{

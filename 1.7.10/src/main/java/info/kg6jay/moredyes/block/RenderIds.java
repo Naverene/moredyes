@@ -8,6 +8,8 @@ public final class RenderIds {
     public static int layeredPlant = 1;
     public static int layeredPiston = 16;
     public static int flowerPot = 33;
+    /** Dyed beds (see client/DyedBedRenderer). */
+    public static int bed = 14;
     /** Dyed Iron Chests and Storage Drawers (compat), set by their client setup when the mod is installed. */
     public static int dyedIronChest = 22;
     public static int dyedDrawers = 0;
