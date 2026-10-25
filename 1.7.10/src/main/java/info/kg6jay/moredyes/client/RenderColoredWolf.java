@@ -7,8 +7,8 @@ import net.minecraft.entity.passive.EntityWolf;
 import org.lwjgl.opengl.GL11;
 
 import info.kg6jay.moredyes.block.MDBlock;
-import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.entity.PetCollar;
+import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
 /** The vanilla wolf renderer, drawing a collar with a More Dyes shade (see {@link PetCollar}) in that shade. */

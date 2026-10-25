@@ -25,8 +25,9 @@ public final class NotEnoughPetsClient {
     private NotEnoughPetsClient() {}
 
     public static void register() {
-        RenderingRegistry
-            .registerEntityRenderingHandler(EntityOcelotNEP.class, new Cats(new ModelOcelotNEP(), new ModelOcelotNEP()));
+        RenderingRegistry.registerEntityRenderingHandler(
+            EntityOcelotNEP.class,
+            new Cats(new ModelOcelotNEP(), new ModelOcelotNEP()));
         RenderingRegistry
             .registerEntityRenderingHandler(EntityWolfNEP.class, new Wolves(new ModelWolfNEP(), new ModelWolfNEP()));
     }
