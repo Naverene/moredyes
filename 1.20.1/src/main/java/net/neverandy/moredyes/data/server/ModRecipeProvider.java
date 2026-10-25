@@ -484,7 +484,6 @@ public class ModRecipeProvider extends RecipeProvider
                 .unlockedBy("has_glass", has(glass)).save(out, id(name(pane)));
     }
 
-    /** Eight vanilla blocks around a dye make eight dyed blocks, and water washes the color out again. */
     /** Carpets, beds, banners and shulker boxes, made like vanilla's from dyed wool, or dyed from vanilla's. */
     private void furnishings(int i)
     {
@@ -556,6 +555,7 @@ public class ModRecipeProvider extends RecipeProvider
         }), id);
     }
 
+    /** Eight vanilla blocks around a dye make eight dyed blocks, and water washes the color out again. */
     private void dyeable(int i, Block dyed, String vanilla)
     {
         ShapedRecipeBuilder.shaped(BLOCKS, dyed, 8).define('S', mc(vanilla)).define('D', MDItem.dye[i])

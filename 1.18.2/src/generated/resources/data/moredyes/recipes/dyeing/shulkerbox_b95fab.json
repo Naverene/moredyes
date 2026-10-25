@@ -1,0 +1,14 @@
+{
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "ingredients": [
+    {
+      "tag": "moredyes:shulker_boxes"
+    },
+    {
+      "item": "moredyes:b95fab_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:shulkerbox_b95fab"
+  }
+}
