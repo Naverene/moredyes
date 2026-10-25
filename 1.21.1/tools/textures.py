@@ -24,6 +24,8 @@ import os
 import sys
 import zipfile
 
+from PIL import Image
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures')
 BASE = os.path.join(ROOT, 'tools/base')
@@ -90,6 +92,7 @@ TEXTURES = {
     'block/chain': [('block/chain', GREY, True)],
     'item/chain': [('item/chain', GREY, True)],
     'item/oak_sign': [('item/sign', GREY, True)],
+    'block/white_shulker_box': [('block/shulker_box', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
@@ -118,6 +121,28 @@ OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
 # Chest textures go on the chest atlas (textures/entity/chest). The latch keeps its natural color: its pixels sit in the
 # top-left corner of the texture, (width, height) given here.
 CHESTS = {'normal': (6, 5), 'normal_left': (4, 5), 'normal_right': (4, 5)}
+
+
+def is_colorful(p):
+    """Whether a pixel has a color of its own, like a bed's wooden frame or the stripes on a llama's carpet."""
+    r, g, b, a = p
+    if a == 0:
+        return False
+    _, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    return s > 0.25
+
+
+def split_colorful(image):
+    """(the grey part to tint, brightened; the colorful part, kept as it is) of an RGBA image."""
+    pixels = list(image.get_flattened_data())
+    grey_part = brighten([(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels])
+    kept = [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels]
+    out = []
+    for data in (grey_part, kept):
+        layer = Image.new('RGBA', image.size)
+        layer.putdata(data)
+        out.append(layer)
+    return out
 
 
 def grey(p):
@@ -197,7 +222,6 @@ def save(image, name):
 
 
 def main():
-    from PIL import Image
 
     jar = client_jar()
     vanilla = lambda path: first_frame(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % path)))
@@ -246,6 +270,21 @@ def main():
     sign = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/signs/oak.png'))).convert('RGBA')
     sign.putdata(brighten([grey(p) for p in sign.get_flattened_data()]))
     save(sign, 'entity/signs/dyed')
+    count += 1
+
+    # Beds are drawn from the bed atlas (textures/entity/bed) by client/DyedBedRenderer: the grey bedding tinted, and
+    # the wooden frame over it in its own colors. A llama's carpet (textures/entity/llama/decor) is drawn likewise by
+    # client/DyedLlamaDecorLayer: the grey carpet tinted, and its red and green stripes.
+    for source, name in [('entity/bed/white', 'entity/bed/dyed'), ('entity/llama/decor/white', 'entity/llama/decor/dyed')]:
+        image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % source))).convert('RGBA')
+        tinted, kept = split_colorful(image)
+        save(tinted, name)
+        save(kept, name + ('_frame' if 'bed' in name else '_stripes'))
+        count += 2
+    # Shulker boxes are drawn from the shulker atlas (textures/entity/shulker) by client/DyedShulkerBoxRenderer.
+    shulker = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/shulker/shulker_white.png'))).convert('RGBA')
+    shulker.putdata(brighten([grey(p) for p in shulker.get_flattened_data()]))
+    save(shulker, 'entity/shulker/dyed')
     count += 1
 
     for name, (latch_w, latch_h) in sorted(CHESTS.items()):
