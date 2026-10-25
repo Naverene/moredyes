@@ -36,7 +36,7 @@ are turned off disappear from worlds that already have them.
 | `generate_trees`, `generate_flowers` | Grow dye trees and dyed tulips in new chunks. |
 | `iron_chests`, `storage_drawers` | Add dyed Iron Chests and Storage Drawers when those mods are installed. |
 | `iron_shulker_boxes` | Add dyed Iron Shulker Boxes when that mod is installed (1.16.5 and 1.20.1; on 1.12.2 it is `ironShulkerBoxes`, for the boxes in Iron Chests). |
-| `et_futurum` | 1.7.10 only: add dyed Et Futurum Requiem shulker boxes when that mod is installed. |
+| `Compat_EtFuturum` | 1.7.10 only: add dyed Et Futurum Requiem shulker boxes when that mod is installed. |
 
 Where the settings live:
 
