@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:banner_ecbf99"
+      },
+      {
+        "item": "moredyes:banner_d9a6ec"
+      },
+      {
+        "item": "moredyes:banner_b3ccec"
+      },
+      {
+        "item": "moredyes:banner_f2f299"
+      },
+      {
+        "item": "moredyes:banner_bfe68c"
+      },
+      {
+        "item": "moredyes:banner_f9bfd2"
+      },
+      {
+        "item": "moredyes:banner_cccccc"
+      },
+      {
+        "item": "moredyes:banner_a6bfcc"
+      },
+      {
+        "item": "moredyes:banner_bf9fd9"
+      },
+      {
+        "item": "moredyes:banner_99a6d9"
+      },
+      {
+        "item": "moredyes:banner_b3a699"
+      },
+      {
+        "item": "moredyes:banner_b3bf99"
+      },
+      {
+        "item": "moredyes:banner_cc9999"
+      },
+      {
+        "item": "moredyes:banner_c56685"
+      },
+      {
+        "item": "moredyes:banner_9f8c85"
+      },
+      {
+        "item": "moredyes:banner_deb233"
+      },
+      {
+        "item": "moredyes:banner_aca526"
+      },
+      {
+        "item": "moredyes:banner_e57f6c"
+      },
+      {
+        "item": "moredyes:banner_92663f"
+      },
+      {
+        "item": "moredyes:banner_b98c66"
+      },
+      {
+        "item": "moredyes:banner_927f66"
+      },
+      {
+        "item": "moredyes:banner_ac5f72"
+      },
+      {
+        "item": "moredyes:banner_866672"
+      },
+      {
+        "item": "moredyes:banner_9f6633"
+      },
+      {
+        "item": "moredyes:banner_9f7f33"
+      },
+      {
+        "item": "moredyes:banner_b95933"
+      },
+      {
+        "item": "moredyes:banner_794c26"
+      },
+      {
+        "item": "moredyes:banner_8c72d8"
+      },
+      {
+        "item": "moredyes:banner_cb9886"
+      },
+      {
+        "item": "moredyes:banner_998c79"
+      },
+      {
+        "item": "moredyes:banner_d265bf"
+      },
+      {
+        "item": "moredyes:banner_7f4c92"
+      },
+      {
+        "item": "moredyes:banner_a672b9"
+      },
+      {
+        "item": "moredyes:banner_7f65b9"
+      },
+      {
+        "item": "moredyes:banner_9946c5"
+      },
+      {
+        "item": "moredyes:banner_734cc5"
+      },
+      {
+        "item": "moredyes:banner_8c4c86"
+      },
+      {
+        "item": "moredyes:banner_8c6586"
+      },
+      {
+        "item": "moredyes:banner_a64086"
+      },
+      {
+        "item": "moredyes:banner_663379"
+      },
+      {
+        "item": "moredyes:banner_a5bf86"
+      },
+      {
+        "item": "moredyes:banner_72b279"
+      },
+      {
+        "item": "moredyes:banner_ac8cbf"
+      },
+      {
+        "item": "moredyes:banner_597392"
+      },
+      {
+        "item": "moredyes:banner_7f99b9"
+      },
+      {
+        "item": "moredyes:banner_598cb9"
+      },
+      {
+        "item": "moredyes:banner_726cc5"
+      },
+      {
+        "item": "moredyes:banner_4d73c5"
+      },
+      {
+        "item": "moredyes:banner_667386"
+      },
+      {
+        "item": "moredyes:banner_668c86"
+      },
+      {
+        "item": "moredyes:banner_7f6686"
+      },
+      {
+        "item": "moredyes:banner_405979"
+      },
+      {
+        "item": "moredyes:banner_b2d926"
+      },
+      {
+        "item": "moredyes:banner_ebb26c"
+      },
+      {
+        "item": "moredyes:banner_99993f"
+      },
+      {
+        "item": "moredyes:banner_bfbf66"
+      },
+      {
+        "item": "moredyes:banner_99b266"
+      },
+      {
+        "item": "moredyes:banner_b29272"
+      },
+      {
+        "item": "moredyes:banner_8c9972"
+      },
+      {
+        "item": "moredyes:banner_a69933"
+      },
+      {
+        "item": "moredyes:banner_a6b233"
+      },
+      {
+        "item": "moredyes:banner_bf8c33"
+      },
+      {
+        "item": "moredyes:banner_7f7f26"
+      },
+      {
+        "item": "moredyes:banner_b8a65f"
+      },
+      {
+        "item": "moredyes:banner_668c32"
+      },
+      {
+        "item": "moredyes:banner_8cb359"
+      },
+      {
+        "item": "moredyes:banner_66a659"
+      },
+      {
+        "item": "moredyes:banner_7f5665"
+      },
+      {
+        "item": "moredyes:banner_598c65"
+      },
+      {
+        "item": "moredyes:banner_738c26"
+      },
+      {
+        "item": "moredyes:banner_73a626"
+      },
+      {
+        "item": "moredyes:banner_8c8026"
+      },
+      {
+        "item": "moredyes:banner_4c7319"
+      },
+      {
+        "item": "moredyes:banner_864c5f"
+      },
+      {
+        "item": "moredyes:banner_c6596c"
+      },
+      {
+        "item": "moredyes:banner_ac7f6c"
+      },
+      {
+        "item": "moredyes:banner_ac666c"
+      },
+      {
+        "item": "moredyes:banner_9366ab"
+      },
+      {
+        "item": "moredyes:banner_b95fab"
+      },
+      {
+        "item": "moredyes:banner_9f7f9f"
+      },
+      {
+        "item": "moredyes:banner_c68c9f"
+      },
+      {
+        "item": "moredyes:banner_9f6679"
+      },
+      {
+        "item": "moredyes:banner_727272"
+      },
+      {
+        "item": "moredyes:banner_4c6572"
+      },
+      {
+        "item": "moredyes:banner_65467f"
+      },
+      {
+        "item": "moredyes:banner_404c7f"
+      },
+      {
+        "item": "moredyes:banner_594c40"
+      },
+      {
+        "item": "moredyes:banner_596540"
+      },
+      {
+        "item": "moredyes:banner_724040"
+      },
+      {
+        "item": "moredyes:banner_333333"
+      },
+      {
+        "item": "moredyes:banner_738c99"
+      },
+      {
+        "item": "moredyes:banner_8c6ca5"
+      },
+      {
+        "item": "moredyes:banner_6673a5"
+      },
+      {
+        "item": "moredyes:banner_807366"
+      },
+      {
+        "item": "moredyes:banner_808c66"
+      },
+      {
+        "item": "moredyes:banner_996666"
+      },
+      {
+        "item": "moredyes:banner_595959"
+      },
+      {
+        "item": "moredyes:banner_655fa5"
+      },
+      {
+        "item": "moredyes:banner_4066a5"
+      },
+      {
+        "item": "moredyes:banner_596666"
+      },
+      {
+        "item": "moredyes:banner_597f66"
+      },
+      {
+        "item": "moredyes:banner_725966"
+      },
+      {
+        "item": "moredyes:banner_334c59"
+      },
+      {
+        "item": "moredyes:banner_5945b2"
+      },
+      {
+        "item": "moredyes:banner_734573"
+      },
+      {
+        "item": "moredyes:banner_735f73"
+      },
+      {
+        "item": "moredyes:banner_8c3973"
+      },
+      {
+        "item": "moredyes:banner_4c2c66"
+      },
+      {
+        "item": "moredyes:banner_4c4c73"
+      },
+      {
+        "item": "moredyes:banner_4c6573"
+      },
+      {
+        "item": "moredyes:banner_664073"
+      },
+      {
+        "item": "moredyes:banner_263366"
+      },
+      {
+        "item": "moredyes:banner_403326"
+      },
+      {
+        "item": "moredyes:banner_7f4033"
+      },
+      {
+        "item": "moredyes:banner_666533"
+      },
+      {
+        "item": "moredyes:banner_7f5933"
+      },
+      {
+        "item": "moredyes:banner_404c26"
+      },
+      {
+        "item": "moredyes:banner_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_banner"
+  }
+}

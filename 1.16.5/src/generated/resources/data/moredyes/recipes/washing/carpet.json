@@ -1,0 +1,367 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:carpet_ecbf99"
+      },
+      {
+        "item": "moredyes:carpet_d9a6ec"
+      },
+      {
+        "item": "moredyes:carpet_b3ccec"
+      },
+      {
+        "item": "moredyes:carpet_f2f299"
+      },
+      {
+        "item": "moredyes:carpet_bfe68c"
+      },
+      {
+        "item": "moredyes:carpet_f9bfd2"
+      },
+      {
+        "item": "moredyes:carpet_cccccc"
+      },
+      {
+        "item": "moredyes:carpet_a6bfcc"
+      },
+      {
+        "item": "moredyes:carpet_bf9fd9"
+      },
+      {
+        "item": "moredyes:carpet_99a6d9"
+      },
+      {
+        "item": "moredyes:carpet_b3a699"
+      },
+      {
+        "item": "moredyes:carpet_b3bf99"
+      },
+      {
+        "item": "moredyes:carpet_cc9999"
+      },
+      {
+        "item": "moredyes:carpet_c56685"
+      },
+      {
+        "item": "moredyes:carpet_9f8c85"
+      },
+      {
+        "item": "moredyes:carpet_deb233"
+      },
+      {
+        "item": "moredyes:carpet_aca526"
+      },
+      {
+        "item": "moredyes:carpet_e57f6c"
+      },
+      {
+        "item": "moredyes:carpet_92663f"
+      },
+      {
+        "item": "moredyes:carpet_b98c66"
+      },
+      {
+        "item": "moredyes:carpet_927f66"
+      },
+      {
+        "item": "moredyes:carpet_ac5f72"
+      },
+      {
+        "item": "moredyes:carpet_866672"
+      },
+      {
+        "item": "moredyes:carpet_9f6633"
+      },
+      {
+        "item": "moredyes:carpet_9f7f33"
+      },
+      {
+        "item": "moredyes:carpet_b95933"
+      },
+      {
+        "item": "moredyes:carpet_794c26"
+      },
+      {
+        "item": "moredyes:carpet_8c72d8"
+      },
+      {
+        "item": "moredyes:carpet_cb9886"
+      },
+      {
+        "item": "moredyes:carpet_998c79"
+      },
+      {
+        "item": "moredyes:carpet_d265bf"
+      },
+      {
+        "item": "moredyes:carpet_7f4c92"
+      },
+      {
+        "item": "moredyes:carpet_a672b9"
+      },
+      {
+        "item": "moredyes:carpet_7f65b9"
+      },
+      {
+        "item": "moredyes:carpet_9946c5"
+      },
+      {
+        "item": "moredyes:carpet_734cc5"
+      },
+      {
+        "item": "moredyes:carpet_8c4c86"
+      },
+      {
+        "item": "moredyes:carpet_8c6586"
+      },
+      {
+        "item": "moredyes:carpet_a64086"
+      },
+      {
+        "item": "moredyes:carpet_663379"
+      },
+      {
+        "item": "moredyes:carpet_a5bf86"
+      },
+      {
+        "item": "moredyes:carpet_72b279"
+      },
+      {
+        "item": "moredyes:carpet_ac8cbf"
+      },
+      {
+        "item": "moredyes:carpet_597392"
+      },
+      {
+        "item": "moredyes:carpet_7f99b9"
+      },
+      {
+        "item": "moredyes:carpet_598cb9"
+      },
+      {
+        "item": "moredyes:carpet_726cc5"
+      },
+      {
+        "item": "moredyes:carpet_4d73c5"
+      },
+      {
+        "item": "moredyes:carpet_667386"
+      },
+      {
+        "item": "moredyes:carpet_668c86"
+      },
+      {
+        "item": "moredyes:carpet_7f6686"
+      },
+      {
+        "item": "moredyes:carpet_405979"
+      },
+      {
+        "item": "moredyes:carpet_b2d926"
+      },
+      {
+        "item": "moredyes:carpet_ebb26c"
+      },
+      {
+        "item": "moredyes:carpet_99993f"
+      },
+      {
+        "item": "moredyes:carpet_bfbf66"
+      },
+      {
+        "item": "moredyes:carpet_99b266"
+      },
+      {
+        "item": "moredyes:carpet_b29272"
+      },
+      {
+        "item": "moredyes:carpet_8c9972"
+      },
+      {
+        "item": "moredyes:carpet_a69933"
+      },
+      {
+        "item": "moredyes:carpet_a6b233"
+      },
+      {
+        "item": "moredyes:carpet_bf8c33"
+      },
+      {
+        "item": "moredyes:carpet_7f7f26"
+      },
+      {
+        "item": "moredyes:carpet_b8a65f"
+      },
+      {
+        "item": "moredyes:carpet_668c32"
+      },
+      {
+        "item": "moredyes:carpet_8cb359"
+      },
+      {
+        "item": "moredyes:carpet_66a659"
+      },
+      {
+        "item": "moredyes:carpet_7f5665"
+      },
+      {
+        "item": "moredyes:carpet_598c65"
+      },
+      {
+        "item": "moredyes:carpet_738c26"
+      },
+      {
+        "item": "moredyes:carpet_73a626"
+      },
+      {
+        "item": "moredyes:carpet_8c8026"
+      },
+      {
+        "item": "moredyes:carpet_4c7319"
+      },
+      {
+        "item": "moredyes:carpet_864c5f"
+      },
+      {
+        "item": "moredyes:carpet_c6596c"
+      },
+      {
+        "item": "moredyes:carpet_ac7f6c"
+      },
+      {
+        "item": "moredyes:carpet_ac666c"
+      },
+      {
+        "item": "moredyes:carpet_9366ab"
+      },
+      {
+        "item": "moredyes:carpet_b95fab"
+      },
+      {
+        "item": "moredyes:carpet_9f7f9f"
+      },
+      {
+        "item": "moredyes:carpet_c68c9f"
+      },
+      {
+        "item": "moredyes:carpet_9f6679"
+      },
+      {
+        "item": "moredyes:carpet_727272"
+      },
+      {
+        "item": "moredyes:carpet_4c6572"
+      },
+      {
+        "item": "moredyes:carpet_65467f"
+      },
+      {
+        "item": "moredyes:carpet_404c7f"
+      },
+      {
+        "item": "moredyes:carpet_594c40"
+      },
+      {
+        "item": "moredyes:carpet_596540"
+      },
+      {
+        "item": "moredyes:carpet_724040"
+      },
+      {
+        "item": "moredyes:carpet_333333"
+      },
+      {
+        "item": "moredyes:carpet_738c99"
+      },
+      {
+        "item": "moredyes:carpet_8c6ca5"
+      },
+      {
+        "item": "moredyes:carpet_6673a5"
+      },
+      {
+        "item": "moredyes:carpet_807366"
+      },
+      {
+        "item": "moredyes:carpet_808c66"
+      },
+      {
+        "item": "moredyes:carpet_996666"
+      },
+      {
+        "item": "moredyes:carpet_595959"
+      },
+      {
+        "item": "moredyes:carpet_655fa5"
+      },
+      {
+        "item": "moredyes:carpet_4066a5"
+      },
+      {
+        "item": "moredyes:carpet_596666"
+      },
+      {
+        "item": "moredyes:carpet_597f66"
+      },
+      {
+        "item": "moredyes:carpet_725966"
+      },
+      {
+        "item": "moredyes:carpet_334c59"
+      },
+      {
+        "item": "moredyes:carpet_5945b2"
+      },
+      {
+        "item": "moredyes:carpet_734573"
+      },
+      {
+        "item": "moredyes:carpet_735f73"
+      },
+      {
+        "item": "moredyes:carpet_8c3973"
+      },
+      {
+        "item": "moredyes:carpet_4c2c66"
+      },
+      {
+        "item": "moredyes:carpet_4c4c73"
+      },
+      {
+        "item": "moredyes:carpet_4c6573"
+      },
+      {
+        "item": "moredyes:carpet_664073"
+      },
+      {
+        "item": "moredyes:carpet_263366"
+      },
+      {
+        "item": "moredyes:carpet_403326"
+      },
+      {
+        "item": "moredyes:carpet_7f4033"
+      },
+      {
+        "item": "moredyes:carpet_666533"
+      },
+      {
+        "item": "moredyes:carpet_7f5933"
+      },
+      {
+        "item": "moredyes:carpet_404c26"
+      },
+      {
+        "item": "moredyes:carpet_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_carpet"
+  }
+}

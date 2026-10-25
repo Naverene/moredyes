@@ -9,7 +9,11 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.CryingObsidianBlock;
@@ -23,8 +27,10 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PoweredBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neverandy.moredyes.item.ChestItem;
+import net.neverandy.moredyes.item.DyedEntityItems;
 import net.neverandy.moredyes.item.MDTabs;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
@@ -136,6 +142,14 @@ public class MDBlock
     public static BlockChest[] chestArray = new BlockChest[COLORS];
     public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[COLORS];
     public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[COLORS];
+
+    // Carpets, beds, banners and shulker boxes. Beds, banners and shulker boxes are vanilla blocks with the white dye
+    // color (no color for shulker boxes) that share vanilla's block entities; the client draws them in their own color.
+    public static CarpetBlock[] carpetArray = new CarpetBlock[COLORS];
+    public static BedBlock[] bedArray = new BedBlock[COLORS];
+    public static BannerBlock[] bannerArray = new BannerBlock[COLORS];
+    public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[COLORS];
+    public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[COLORS];
 
     // Full blocks from the sheet's second batch.
     public static Block[] graniteArray = new Block[COLORS];
@@ -279,6 +293,7 @@ public class MDBlock
 
         registerPistons();
         registerSigns();
+        registerFurnishings();
         registerMoreBlocks();
         registerNewerBlocks();
         registerFlowers();
@@ -464,6 +479,44 @@ public class MDBlock
             ITEMS.add(item);
             MDTabs.BLOCKS.add(item);
         }
+    }
+
+    /**
+     * Carpets, beds, banners and shulker boxes in each color. The wall banner has no item, like the wall sign, and the
+     * banner's item is registered after both blocks, since it places either.
+     */
+    private static void registerFurnishings()
+    {
+        colors("carpet", carpetArray, () -> new CarpetBlock(copy(Blocks.WHITE_CARPET)), MDTabs.BLOCKS, null);
+        for (int i = 0; i < COLORS; i++)
+        {
+            register("bed_" + ColorStrings.ALL[i], bedArray, i, () -> new BedBlock(DyeColor.WHITE, copy(Blocks.WHITE_BED)),
+                    MDTabs.BLOCKS, DyedEntityItems.Bed::new);
+        }
+        MINEABLE.put(bannerArray, AXE);
+        MINEABLE.put(wallBannerArray, AXE);
+        if (!Toggles.typeEnabled("banner") || !Toggles.typeEnabled("wallbanner"))
+        {
+            disable(bannerArray);
+            disable(wallBannerArray);
+        }
+        for (int i = 0; i < COLORS; i++)
+        {
+            String hex = ColorStrings.ALL[i];
+            BannerBlock banner = register("banner_" + hex, bannerArray, i, () -> new BannerBlock(DyeColor.WHITE, copy(Blocks.WHITE_BANNER)), null, null);
+            WallBannerBlock wallBanner = register("wallbanner_" + hex, wallBannerArray, i,
+                    () -> new WallBannerBlock(DyeColor.WHITE, copy(Blocks.WHITE_WALL_BANNER).dropsLike(banner)), null, null);
+            if (banner == null)
+            {
+                continue;
+            }
+            Item item = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(Reference.MOD_ID, "banner_" + hex),
+                    new DyedEntityItems.Banner(banner, wallBanner, new Item.Properties()));
+            ITEMS.add(item);
+            MDTabs.BLOCKS.add(item);
+        }
+        colors("shulkerbox", shulkerBoxArray, () -> new DyedShulkerBoxBlock(DyedShulkerBoxBlock.properties(copy(Blocks.WHITE_SHULKER_BOX))),
+                MDTabs.BLOCKS, PICKAXE, DyedEntityItems.ShulkerBox::new);
     }
 
     /** Every dyed sign block, standing and on a wall. */

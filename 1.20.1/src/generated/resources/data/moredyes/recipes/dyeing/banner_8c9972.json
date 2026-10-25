@@ -1,0 +1,15 @@
+{
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:white_banner"
+    },
+    {
+      "item": "moredyes:8c9972_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:banner_8c9972"
+  }
+}

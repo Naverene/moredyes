@@ -3,6 +3,7 @@ package net.neverandy.moredyes.client;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,6 +36,20 @@ public final class ColorHandlers
     {
         Matcher matcher = HEX.matcher(name.getPath());
         return matcher.find() ? vivid(Integer.parseInt(matcher.group(1), 16)) : WHITE;
+    }
+
+    /** The color a More Dyes block is drawn in, or -1 for any other block (such as a vanilla one). */
+    public static int tintOf(Block block)
+    {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(block);
+        return name == null || !Reference.MOD_ID.equals(name.getNamespace()) ? -1 : colorOf(name);
+    }
+
+    /** The color a More Dyes block item is drawn in, or -1 for any other item. */
+    public static int tintOf(Item item)
+    {
+        ResourceLocation name = ForgeRegistries.ITEMS.getKey(item);
+        return name == null || !Reference.MOD_ID.equals(name.getNamespace()) ? -1 : colorOf(name);
     }
 
     /**

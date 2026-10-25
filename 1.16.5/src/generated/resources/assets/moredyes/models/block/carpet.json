@@ -1,0 +1,6 @@
+{
+  "parent": "moredyes:block/tinted/carpet",
+  "textures": {
+    "wool": "moredyes:block/tinted/wool"
+  }
+}

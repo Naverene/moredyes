@@ -12,6 +12,7 @@ import info.kg6jay.moredyes.block.RenderIds;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDSign;
+import info.kg6jay.moredyes.client.DyedBedRenderer;
 import info.kg6jay.moredyes.client.FlowerPotRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
@@ -56,6 +57,8 @@ public class ClientProxy extends CommonProxy {
         RenderIds.flowerPot = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new FlowerPotRenderer(RenderIds.flowerPot));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDSign.class, new TileEntityMDSignRenderer());
+        RenderIds.bed = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new DyedBedRenderer(RenderIds.bed));
 
         if (ConfigHandler.ironChests()) {
             IronChestClient.register();

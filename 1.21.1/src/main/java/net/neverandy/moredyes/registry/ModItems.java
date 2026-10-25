@@ -5,10 +5,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.BannerItem;
+import net.minecraft.world.item.BedItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -37,7 +40,14 @@ public final class ModItems {
             }
             Map<MixColor, DeferredItem<BlockItem>> byColor = new LinkedHashMap<>();
             for (MixColor color : MixColors.ALL) {
-                if (kind == Kind.SIGN) {
+                if (kind == Kind.BANNER) {
+                    byColor.put(color, ITEMS.registerItem(color.id(kind.id()), p -> new BannerItem(
+                        ModBlocks.get(Kind.BANNER, color).get(), ModBlocks.get(Kind.WALL_BANNER, color).get(),
+                        properties(kind, p))));
+                } else if (kind == Kind.BED) {
+                    byColor.put(color, ITEMS.registerItem(color.id(kind.id()),
+                        p -> new BedItem(ModBlocks.get(Kind.BED, color).get(), properties(kind, p))));
+                } else if (kind == Kind.SIGN) {
                     // Places the standing sign, or the wall sign when used on the side of a block.
                     byColor.put(color, ITEMS.registerItem(color.id(kind.id()), p -> new SignItem(properties(kind, p),
                         ModBlocks.get(Kind.SIGN, color).get(), ModBlocks.get(Kind.WALL_SIGN, color).get())));
@@ -63,7 +73,10 @@ public final class ModItems {
     private static Item.Properties properties(Kind kind, Item.Properties p) {
         return switch (kind) {
             case CHEST -> p.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
+            case SHULKER_BOX -> p.stacksTo(1).component(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
             case SIGN -> p.stacksTo(16);
+            case BED -> p.stacksTo(1);
+            case BANNER -> p.stacksTo(16).component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY);
             default -> p;
         };
     }

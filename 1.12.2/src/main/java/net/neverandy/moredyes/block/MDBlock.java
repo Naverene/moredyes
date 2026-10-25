@@ -20,8 +20,11 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.TileEntityColor;
+import net.neverandy.moredyes.tileentity.TileEntityDyedBanner;
+import net.neverandy.moredyes.tileentity.TileEntityDyedBed;
 import net.neverandy.moredyes.tileentity.TileEntityDyedChest;
 import net.neverandy.moredyes.tileentity.TileEntityDyedPiston;
+import net.neverandy.moredyes.tileentity.TileEntityDyedShulkerBox;
 import net.neverandy.moredyes.tileentity.TileEntityDyedSign;
 import net.neverandy.moredyes.utility.BlockInfo;
 
@@ -30,6 +33,7 @@ public class MDBlock
 {
 	// One block per color group; the metadata is the shade.
 	public static Block[] wool;
+	public static Block[] carpet;
 	public static Block[] stonebrick;
 	public static Block[] stonebrickCarved;
 	public static Block[] stonebrickCracked;
@@ -124,6 +128,9 @@ public class MDBlock
 	public static Block lilac,peony,roseBush;
 	/** Without an item: the sign item places one of these, and a dyed plant used on a vanilla flower pot this. */
 	public static Block standingSign,wallSign,flowerPot;
+	/** Beds and banners are placed by their own items (item/ItemDyedBed, item/ItemDyedBanner), like signs. */
+	public static Block bed,standingBanner,wallBanner;
+	public static Block shulkerBox;
 
 	/** Every block of the mod with a color group per block, in the order it is registered and listed in the creative tabs. */
 	public static final List<Block> ALL=new ArrayList<Block>();
@@ -137,6 +144,7 @@ public class MDBlock
 		int groups=ColorStrings.GROUPS.length;
 		int colors=ColorStrings.ALL.length;
 		wool=new Block[groups];
+		carpet=new Block[groups];
 		stonebrick=new Block[groups];
 		stonebrickCarved=new Block[groups];
 		stonebrickCracked=new Block[groups];
@@ -224,6 +232,7 @@ public class MDBlock
 		for(int g=0;g<groups;g++)
 		{
 			wool[g]=new BlockColored(Reference.BLOCK_INFO_WOOL,g);
+			carpet[g]=new BlockColoredCarpet(Reference.BLOCK_INFO_CARPET,g);
 			stonebrick[g]=new BlockColored(Reference.BLOCK_INFO_STONE_BRICK,g);
 			stonebrickCarved[g]=new BlockColored(Reference.BLOCK_INFO_STONE_BRICK_CARVED,g);
 			stonebrickCracked[g]=new BlockColored(Reference.BLOCK_INFO_STONE_BRICK_CRACKED,g);
@@ -312,7 +321,7 @@ public class MDBlock
 			leaf[i]=new BlockDyedLeaves(Reference.BLOCK_INFO_LEAVES,i);
 			chest[i]=new BlockDyedChest(Reference.BLOCK_INFO_CHEST,i);
 		}
-		add(wool,stone,cobble,stonebrick,stonebrickCracked,stonebrickCarved,diorite,brick,clay,hardenedClay,sand,sandstone,
+		add(wool,carpet,stone,cobble,stonebrick,stonebrickCracked,stonebrickCarved,diorite,brick,clay,hardenedClay,sand,sandstone,
 				glass,glassFoggy,glassPane,glassFoggyPane,quartz,obsidian,soulsand,glowstone,coal,lapis,redstone,rockwool,
 				bookshelf,workbench,chest,sapling,log,leaf,plank,tulip,
 				granite,polishedGranite,speckledGranite,smoothSpeckledGranite,polishedDiorite,andesite,polishedAndesite,smoothStone,mossyCobble,mossyStonebrick,
@@ -423,6 +432,11 @@ public class MDBlock
 		standingSign=new BlockDyedSign.Standing(Reference.BLOCK_INFO_SIGN);
 		wallSign=new BlockDyedSign.Wall(Reference.BLOCK_INFO_SIGN);
 		flowerPot=new BlockDyedFlowerPot();
+
+		bed=new BlockDyedBed();
+		standingBanner=new BlockDyedBanner.Standing();
+		wallBanner=new BlockDyedBanner.Wall();
+		shulkerBox=new BlockDyedShulkerBox();
 	}
 	/** The dyed blocks of each plant a flower pot can hold, one per color group. */
 	public static Block[] pottable(BlockDyedFlowerPot.Plant plant)
@@ -524,15 +538,23 @@ public class MDBlock
 		event.getRegistry().register(standingSign);
 		event.getRegistry().register(wallSign);
 		event.getRegistry().register(flowerPot);
+		event.getRegistry().register(bed);
+		event.getRegistry().register(standingBanner);
+		event.getRegistry().register(wallBanner);
+		event.getRegistry().register(shulkerBox);
 		GameRegistry.registerTileEntity(TileEntityDyedChest.class,new ResourceLocation(Reference.MOD_ID,"chest"));
 		GameRegistry.registerTileEntity(TileEntityColor.class,new ResourceLocation(Reference.MOD_ID,"color"));
 		GameRegistry.registerTileEntity(TileEntityDyedPiston.class,new ResourceLocation(Reference.MOD_ID,"moving_piston"));
 		GameRegistry.registerTileEntity(TileEntityDyedSign.class,new ResourceLocation(Reference.MOD_ID,"sign"));
+		GameRegistry.registerTileEntity(TileEntityDyedBed.class,new ResourceLocation(Reference.MOD_ID,"bed"));
+		GameRegistry.registerTileEntity(TileEntityDyedBanner.class,new ResourceLocation(Reference.MOD_ID,"banner"));
+		GameRegistry.registerTileEntity(TileEntityDyedShulkerBox.class,new ResourceLocation(Reference.MOD_ID,"shulker_box"));
 	}
 
 	private static void registerWashing()
 	{
 		washed(wool,new ItemStack(Blocks.WOOL,1,0));
+		washed(carpet,new ItemStack(Blocks.CARPET,1,0));
 		washed(stonebrick,new ItemStack(Blocks.STONEBRICK,1,0));
 		washed(stonebrickCracked,new ItemStack(Blocks.STONEBRICK,1,2));
 		washed(stonebrickCarved,new ItemStack(Blocks.STONEBRICK,1,3));
@@ -599,6 +621,8 @@ public class MDBlock
 		WASHED.put(lilac,new ItemStack(Blocks.DOUBLE_PLANT,1,1));
 		WASHED.put(roseBush,new ItemStack(Blocks.DOUBLE_PLANT,1,4));
 		WASHED.put(peony,new ItemStack(Blocks.DOUBLE_PLANT,1,5));
+		// 1.12 has no plain shulker box; the purple one is what the shulkers drop. It keeps its contents.
+		WASHED.put(shulkerBox,new ItemStack(Blocks.PURPLE_SHULKER_BOX));
 	}
 	private static void washed(Block[] dyed,ItemStack vanilla)
 	{
@@ -705,6 +729,7 @@ public class MDBlock
 	public static void registerFlammability()
 	{
 		fire(wool,30,60);
+		fire(carpet,60,20);
 		fire(plank,5,20);
 		fire(log,5,5);
 		fire(leaf,30,60);

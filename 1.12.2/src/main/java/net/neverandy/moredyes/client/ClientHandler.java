@@ -15,12 +15,14 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderLlama;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.client.renderer.entity.RenderWolf;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerSheepWool;
 import net.minecraft.client.renderer.entity.layers.LayerWolfCollar;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.Item;
@@ -36,13 +38,17 @@ import net.neverandy.moredyes.block.BlockColored;
 import net.neverandy.moredyes.block.IColoredBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.block.TileColor;
+import net.neverandy.moredyes.entity.LlamaCarpets;
 import net.neverandy.moredyes.handler.DyedCollarHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDItemDye;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.tileentity.TileEntityDyedBanner;
+import net.neverandy.moredyes.tileentity.TileEntityDyedBed;
 import net.neverandy.moredyes.tileentity.TileEntityDyedChest;
+import net.neverandy.moredyes.tileentity.TileEntityDyedShulkerBox;
 import net.neverandy.moredyes.tileentity.TileEntityDyedSign;
 import net.neverandy.moredyes.utility.LogHelper;
 
@@ -120,6 +126,21 @@ public class ClientHandler
 		{
 			ModelLoader.setCustomModelResourceLocation(MDItem.sign,meta,new ModelResourceLocation(Reference.MOD_ID+":sign","inventory"));
 		}
+		// Beds, banners and shulker boxes are drawn by their renderers too, items included.
+		particleModel(MDBlock.bed,"bed");
+		particleModel(MDBlock.standingBanner,"banner");
+		particleModel(MDBlock.wallBanner,"banner");
+		for(int meta=0;meta<ColorStrings.ALL.length;meta++)
+		{
+			ModelLoader.setCustomModelResourceLocation(MDItem.bed,meta,new ModelResourceLocation(Reference.MOD_ID+":bed","inventory"));
+			ModelLoader.setCustomModelResourceLocation(MDItem.banner,meta,new ModelResourceLocation(Reference.MOD_ID+":banner","inventory"));
+		}
+		particleModel(MDBlock.shulkerBox,"shulker_box");
+		Item shulkerBox=Item.getItemFromBlock(MDBlock.shulkerBox);
+		for(int meta=0;meta<ColorStrings.ALL.length;meta++)
+		{
+			ModelLoader.setCustomModelResourceLocation(shulkerBox,meta,new ModelResourceLocation(Reference.MOD_ID+":shulker_box","inventory"));
+		}
 		for(Item dye:MDItem.dye)
 		{
 			for(int meta=0;meta<((MDItemDye)dye).getShadeCount();meta++)
@@ -127,6 +148,19 @@ public class ClientHandler
 				ModelLoader.setCustomModelResourceLocation(dye,meta,new ModelResourceLocation(Reference.MOD_ID+":dye","inventory"));
 			}
 		}
+	}
+
+	/** A block drawn by a renderer: its model, named after it, only gives the breaking particles. */
+	private static void particleModel(Block block,final String name)
+	{
+		ModelLoader.setCustomStateMapper(block,new StateMapperBase()
+		{
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+			{
+				return new ModelResourceLocation(Reference.MOD_ID+":"+name,"normal");
+			}
+		});
 	}
 
 	public static void registerColors()
@@ -148,10 +182,12 @@ public class ClientHandler
 			return tintIndex==TINTED?((MDItemDye)stack.getItem()).getColor(stack.getMetadata()):-1;
 		},MDItem.dye);
 		// The blocks that keep their color in a tile entity; a moving dyed piston carries it in its moving block.
-		// The flower pot has no item; only its plant is tinted.
+		// The flower pot has no item; only its plant is tinted. Beds, banners and shulker boxes are drawn by their
+		// renderers, and only their breaking particles take the color from here.
 		Block[] tileColored=MDBlock.TILE_COLORED.toArray(new Block[0]);
-		Block[] tileColoredBlocks=Arrays.copyOf(tileColored,tileColored.length+1);
-		tileColoredBlocks[tileColored.length]=MDBlock.flowerPot;
+		Block[] extra={MDBlock.flowerPot,MDBlock.bed,MDBlock.standingBanner,MDBlock.wallBanner,MDBlock.shulkerBox};
+		Block[] tileColoredBlocks=Arrays.copyOf(tileColored,tileColored.length+extra.length);
+		System.arraycopy(extra,0,tileColoredBlocks,tileColored.length,extra.length);
 		mc.getBlockColors().registerBlockColorHandler((state,world,pos,tintIndex)->
 		{
 			return tintIndex==TINTED&&world!=null&&pos!=null?TileColor.rgb(TileColor.get(world,pos)):-1;
@@ -223,15 +259,53 @@ public class ClientHandler
 		});
 	}
 
-	/** Chests are drawn by a renderer instead of a model, both in the world and as items; signs in the world. */
+	/**
+	 * Chests, beds, banners and shulker boxes are drawn by a renderer instead of a model, both in the world and as
+	 * items; signs in the world.
+	 */
 	public static void registerChestRenderers()
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedChest.class,new DyedChestRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedSign.class,new DyedSignRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedBed.class,new DyedBedRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedBanner.class,new DyedBannerRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDyedShulkerBox.class,new DyedShulkerBoxRenderer());
 		DyedChestItemRenderer itemRenderer=new DyedChestItemRenderer();
 		for(Block chest:MDBlock.chest)
 		{
 			Item.getItemFromBlock(chest).setTileEntityItemStackRenderer(itemRenderer);
 		}
+		DyedFurnishingItemRenderer furnishings=new DyedFurnishingItemRenderer();
+		MDItem.bed.setTileEntityItemStackRenderer(furnishings);
+		MDItem.banner.setTileEntityItemStackRenderer(furnishings);
+		Item.getItemFromBlock(MDBlock.shulkerBox).setTileEntityItemStackRenderer(furnishings);
+	}
+
+	/** Adds the dyed carpet layer to the vanilla llama renderer. */
+	public static void registerLlamaLayer()
+	{
+		Render<?> render=Minecraft.getMinecraft().getRenderManager().entityRenderMap.get(EntityLlama.class);
+		if(!(render instanceof RenderLlama))
+		{
+			LogHelper.warn("Another mod replaced the llama renderer; llamas do not show dyed carpets");
+			return;
+		}
+		((RenderLlama)render).addLayer(new LayerDyedLlamaDecor((RenderLlama)render));
+	}
+	/** Records the color the server sent for a llama's dyed carpet; the carpet layer reads it from there. */
+	public static void setLlamaCarpet(final int entityId,final int color)
+	{
+		final Minecraft mc=Minecraft.getMinecraft();
+		mc.addScheduledTask(()->
+		{
+			if(mc.world!=null)
+			{
+				Entity entity=mc.world.getEntityByID(entityId);
+				if(entity instanceof EntityLlama)
+				{
+					LlamaCarpets.storeClientColor((EntityLlama)entity,color);
+				}
+			}
+		});
 	}
 }

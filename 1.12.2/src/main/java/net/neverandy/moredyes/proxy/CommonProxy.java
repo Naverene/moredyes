@@ -13,4 +13,8 @@ public class CommonProxy
 	public void setSheepColor(int entityId,int color)
 	{
 	}
+	/** Client only: records the color the server sent for a llama's dyed carpet. */
+	public void setLlamaCarpet(int entityId,int color)
+	{
+	}
 }

@@ -34,11 +34,20 @@ public final class ModBlockEntities {
         modBus.addListener(ModBlockEntities::addSigns);
     }
 
-    /** Dyed signs keep their text in a vanilla sign block entity, so the vanilla renderer draws it. */
+    /**
+     * Dyed signs keep their text in a vanilla sign block entity, so the vanilla renderer draws it. Dyed banners and
+     * shulker boxes keep their patterns and contents in the vanilla block entities, which the renderers in client/
+     * draw in their colors.
+     */
     private static void addSigns(BlockEntityTypeAddBlocksEvent event) {
-        Block[] signs = Stream.concat(ModBlocks.all(Kind.SIGN).stream(), ModBlocks.all(Kind.WALL_SIGN).stream())
-            .map(DeferredBlock::get).toArray(Block[]::new);
-        event.modify(BlockEntityTypes.SIGN, signs);
+        event.modify(BlockEntityTypes.SIGN, array(Kind.SIGN, Kind.WALL_SIGN));
+        event.modify(BlockEntityTypes.BANNER, array(Kind.BANNER, Kind.WALL_BANNER));
+        event.modify(BlockEntityTypes.SHULKER_BOX, array(Kind.SHULKER_BOX));
+    }
+
+    private static Block[] array(Kind... kinds) {
+        return Stream.of(kinds).flatMap(kind -> ModBlocks.all(kind).stream()).map(DeferredBlock::get)
+            .toArray(Block[]::new);
     }
 
     private static Set<Block> blocks(Kind kind) {

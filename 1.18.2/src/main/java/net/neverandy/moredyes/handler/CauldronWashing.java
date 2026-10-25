@@ -4,12 +4,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +39,13 @@ public final class CauldronWashing
         BlockState state = world.getBlockState(event.getPos());
         ItemStack held = event.getItemStack();
         if (!state.is(Blocks.WATER_CAULDRON) || held.isEmpty())
+        {
+            return;
+        }
+        // Dyed shulker boxes and patterned banners are washed by vanilla's cauldron code (see Furnishings), which keeps
+        // their contents and patterns.
+        if (Block.byItem(held.getItem()) instanceof ShulkerBoxBlock
+                || held.getItem() instanceof BannerItem && BannerBlockEntity.getPatternCount(held) > 0)
         {
             return;
         }
@@ -68,8 +79,12 @@ public final class CauldronWashing
         {
             return ItemStack.EMPTY;
         }
+        // One recipe per type, such as "washing/wool" for "wool_334c59".
+        String path = item.getPath();
+        int color = path.lastIndexOf('_');
+        String type = color < 0 ? path : path.substring(0, color);
         Optional<? extends Recipe<?>> recipe = world.getRecipeManager()
-                .byKey(new ResourceLocation(Reference.MOD_ID, "washing/" + item.getPath()));
+                .byKey(new ResourceLocation(Reference.MOD_ID, "washing/" + type));
         return recipe.map(Recipe::getResultItem).orElse(ItemStack.EMPTY);
     }
 }

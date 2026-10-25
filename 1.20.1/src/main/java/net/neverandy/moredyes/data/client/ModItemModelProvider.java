@@ -1,6 +1,10 @@
 package net.neverandy.moredyes.data.client;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -41,9 +45,9 @@ public class ModItemModelProvider extends ItemModelProvider
         for (RegistryObject<Block> entry : MDBlock.BLOCKS.getEntries())
         {
             Block block = entry.get();
-            if (block instanceof BlockPistonHead || block instanceof FlowerPotBlock || block instanceof WallSignBlock || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
+            if (block instanceof BlockPistonHead || block instanceof FlowerPotBlock || block instanceof WallSignBlock || block instanceof WallBannerBlock || block instanceof SlabBlock || block instanceof StairBlock || block instanceof WallBlock)
             {
-                // Piston heads, potted plants and wall signs have no item; slabs, stairs and walls are below.
+                // Piston heads, potted plants, wall signs and wall banners have no item; slabs, stairs and walls are below.
                 continue;
             }
             String name = entry.getId().getPath();
@@ -64,6 +68,12 @@ public class ModItemModelProvider extends ItemModelProvider
             {
                 // The vanilla chest item model draws the item with its item renderer (client/ChestItemRenderer).
                 withExistingParent(name, mcLoc("item/chest"));
+            }
+            else if (block instanceof BedBlock || block instanceof BannerBlock || block instanceof ShulkerBoxBlock)
+            {
+                // Vanilla's templates draw the item with its item renderer (client/DyedItemRenderer).
+                String template = block instanceof BedBlock ? "bed" : block instanceof BannerBlock ? "banner" : "shulker_box";
+                withExistingParent(name, mcLoc("item/template_" + template));
             }
             else if (block instanceof StandingSignBlock)
             {

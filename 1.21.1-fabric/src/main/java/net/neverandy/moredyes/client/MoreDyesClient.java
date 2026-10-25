@@ -5,8 +5,10 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.LlamaRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -105,6 +107,16 @@ public class MoreDyesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(BlockEntityType.PISTON, DyedPistonRenderer::new);
         // Replaces vanilla's sign renderer, which dyed signs share, so they are drawn in their color.
         BlockEntityRendererRegistry.register(BlockEntityType.SIGN, DyedSignRenderer::new);
+        // Likewise for beds, banners and shulker boxes.
+        BlockEntityRendererRegistry.register(BlockEntityType.BED, DyedBedRenderer::new);
+        BlockEntityRendererRegistry.register(BlockEntityType.BANNER, DyedBannerRenderer::new);
+        BlockEntityRendererRegistry.register(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
+        // Llamas wear dyed carpets.
+        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((type, renderer, helper, context) -> {
+            if (renderer instanceof LlamaRenderer llama) {
+                helper.register(new DyedLlamaDecorLayer(llama, context.getModelSet()));
+            }
+        });
         // The dyed chest items are drawn as small chests, like vanilla's (their item model is builtin/entity).
         DyedChestItemRenderer chest = new DyedChestItemRenderer();
         for (Block block : ModBlocks.all(Kind.CHEST)) {
@@ -113,6 +125,14 @@ public class MoreDyesClient implements ClientModInitializer {
                     chest.render(item.getBlock(), pose, buffer, light, overlay);
                 }
             });
+        }
+        // Dyed beds, banners and shulker boxes, drawn like their vanilla items.
+        DyedItemRenderer others = new DyedItemRenderer();
+        for (Kind kind : new Kind[]{Kind.BED, Kind.BANNER, Kind.SHULKER_BOX}) {
+            for (Block block : ModBlocks.all(kind)) {
+                BuiltinItemRendererRegistry.INSTANCE.register(block.asItem(),
+                    (stack, context, pose, buffer, light, overlay) -> others.render(stack, pose, buffer, light, overlay));
+            }
         }
     }
 }

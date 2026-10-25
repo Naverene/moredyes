@@ -37,6 +37,7 @@ import net.neverandy.moredyes.block.BlockGlass;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.data.condition.WallsEnabledCondition;
+import net.neverandy.moredyes.block.Furnishings;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
@@ -204,6 +205,7 @@ public class MoreDyes
         ModNetwork.register();
         event.enqueueWork(ModWorldGen::setup);
         event.enqueueWork(MDBlock::registerPottedPlants);
+        event.enqueueWork(Furnishings::setup);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)

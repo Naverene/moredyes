@@ -24,6 +24,8 @@ import os
 import sys
 import zipfile
 
+from PIL import Image
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures')
 BASE = os.path.join(ROOT, 'tools/base')
@@ -37,6 +39,7 @@ STAY_DARK = {'block/obsidian', 'block/coal_block', 'block/crying_obsidian'}
 
 GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_IF_NOT_COBBLESTONE = (
     'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'keep_if_not_cobblestone')
+GREY_IF_NOT_COLORFUL, KEEP_IF_COLORFUL = 'grey_if_not_colorful', 'keep_if_colorful'
 
 # Vanilla texture -> the layers it becomes, as (texture in this mod, how it is made, whether it takes the dye color).
 # The first layer replaces the vanilla texture in the models; a second layer is drawn over it, untinted.
@@ -91,6 +94,10 @@ TEXTURES = {
     'item/iron_chain': [('item/chain', GREY, True)],
     'block/oak_sign': [('block/sign', GREY, True)],
     'item/oak_sign': [('item/sign', GREY, True)],
+    'block/white_shulker_box': [('block/shulker_box', GREY, True)],
+    # Beds are block models: the bedding takes the dye color, and the wooden legs are drawn over it as they are.
+    'block/white_bed_head_up': [('block/bed_head_up', GREY, True)],
+    'block/white_bed_foot_up': [('block/bed_foot_up', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
@@ -113,12 +120,38 @@ for _wood in WOODS:
 FOGGY_GLASS = 'block/foggy_glass'
 # Speckled granite (GregTech's red granite textures, LGPL-3.0, see THIRD_PARTY_NOTICES.md) replaces the vanilla granite textures of its kinds with its own, made
 # from tools/base/<kind>.png: kind -> (vanilla texture it replaces, texture in this mod).
+for _side in ('head_east', 'head_west', 'foot_east', 'foot_west', 'foot_south'):
+    TEXTURES['block/white_bed_' + _side] = [('block/bed_' + _side, GREY_IF_NOT_COLORFUL, True),
+                                            ('block/bed_%s_frame' % _side, KEEP_IF_COLORFUL, False)]
+
 OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
                 'smooth_speckled_granite': ('block/polished_granite', 'block/smooth_speckled_granite')}
 
 # Chest textures go on the chest atlas (textures/entity/chest). The latch keeps its natural color: its pixels sit in the
 # top-left corner of the texture, (width, height) given here.
 CHESTS = {'normal': (6, 5), 'normal_left': (4, 5), 'normal_right': (4, 5)}
+
+
+def is_colorful(p):
+    """Whether a pixel has a color of its own, like a bed's wooden legs or the stripes on a llama's carpet."""
+    r, g, b, a = p
+    if a == 0:
+        return False
+    _, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    return s > 0.25
+
+
+def split_colorful(image):
+    """(the grey part to tint, brightened; the colorful part, kept as it is) of an RGBA image."""
+    pixels = list(image.get_flattened_data())
+    grey_part = brighten([(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels])
+    kept = [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels]
+    out = []
+    for data in (grey_part, kept):
+        layer = Image.new('RGBA', image.size)
+        layer.putdata(data)
+        out.append(layer)
+    return out
 
 
 def grey(p):
@@ -189,7 +222,6 @@ def save(image, name):
 
 
 def main():
-    from PIL import Image
 
     jar = client_jar()
     vanilla = lambda path: first_frame(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % path)))
@@ -210,6 +242,10 @@ def main():
                 pixels = [p if is_green(p) else (0, 0, 0, 0) for p in pixels]
             elif how == KEEP_IF_NOT_GREEN:
                 pixels = [(0, 0, 0, 0) if is_green(p) else p for p in pixels]
+            elif how == GREY_IF_NOT_COLORFUL:
+                pixels = [(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels]
+            elif how == KEEP_IF_COLORFUL:
+                pixels = [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels]
             elif how == KEEP_IF_NOT_COBBLESTONE:
                 w, h = image.size
                 pixels = [(0, 0, 0, 0) if grey(p)[0] >= PISTON_DARK
@@ -233,6 +269,19 @@ def main():
         own.putdata(brighten([grey(p) for p in own.get_flattened_data()]))
         save(own, name)
         count += 1
+
+    # A llama's carpet (textures/entity/equipment/llama_body) is drawn from the layers its equipment asset names: the
+    # grey carpet tinted, and its red and green stripes over it as they are.
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/equipment/llama_body/white.png')))
+    tinted, kept = split_colorful(image.convert('RGBA'))
+    save(tinted, 'entity/equipment/llama_body/carpet')
+    save(kept, 'entity/equipment/llama_body/carpet_stripes')
+    count += 2
+    # Shulker boxes are drawn from the shulker atlas (textures/entity/shulker) by client/DyedShulkerBoxRenderer.
+    shulker = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/shulker/shulker_white.png'))).convert('RGBA')
+    shulker.putdata(brighten([grey(p) for p in shulker.get_flattened_data()]))
+    save(shulker, 'entity/shulker/dyed')
+    count += 1
 
     for name, (latch_w, latch_h) in sorted(CHESTS.items()):
         image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/chest/%s.png' % name))).convert('RGBA')

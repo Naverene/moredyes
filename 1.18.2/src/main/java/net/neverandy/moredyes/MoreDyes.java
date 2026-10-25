@@ -3,6 +3,7 @@ package net.neverandy.moredyes;
 import net.minecraft.world.entity.EntityType;
 import net.neverandy.moredyes.client.DyedPistonRenderer;
 import net.neverandy.moredyes.client.DyedSheepRenderer;
+import net.neverandy.moredyes.block.Furnishings;
 import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.client.ChestRenderer;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
@@ -198,6 +199,7 @@ public class MoreDyes
         ModNetwork.register();
         event.enqueueWork(ModWorldGen::setup);
         event.enqueueWork(MDBlock::registerPottedPlants);
+        event.enqueueWork(Furnishings::setup);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)

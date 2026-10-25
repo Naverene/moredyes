@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WW"
+  ],
+  "key": {
+    "W": {
+      "item": "moredyes:wool_deb233"
+    }
+  },
+  "result": {
+    "item": "moredyes:carpet_deb233",
+    "count": 3
+  }
+}

@@ -3,12 +3,14 @@ package info.kg6jay.moredyes.handler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import info.kg6jay.moredyes.block.MDBlock;
+import info.kg6jay.moredyes.item.MDItem;
 
 /**
  * Right-clicking a cauldron that has water in it with a stack of dyed blocks washes the whole stack back to the
@@ -33,7 +35,8 @@ public class CauldronWashHandler {
         if (water <= 0 || held == null) {
             return;
         }
-        ItemStack washed = MDBlock.WASHED.get(Block.getBlockFromItem(held.getItem()));
+        ItemStack washed = held.getItem() == MDItem.bed ? new ItemStack(Items.bed)
+            : MDBlock.WASHED.get(Block.getBlockFromItem(held.getItem()));
         if (washed == null) {
             return;
         }

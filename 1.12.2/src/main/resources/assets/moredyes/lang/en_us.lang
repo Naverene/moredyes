@@ -10,6 +10,7 @@ moredyes.colored_name=%s %s
 item.moredyes.dye.name=Dye
 
 tile.moredyes.wool.name=Wool
+tile.moredyes.carpet.name=Carpet
 tile.moredyes.rockwool.name=Rockwool
 tile.moredyes.stone.name=Stone
 tile.moredyes.cobble.name=Cobblestone
@@ -224,6 +225,11 @@ tile.moredyes.rose_bush.name=Rose Bush
 tile.moredyes.sign.name=Sign
 item.moredyes.sign.name=Sign
 tile.moredyes.flower_pot.name=Flower Pot
+tile.moredyes.bed.name=Bed
+item.moredyes.bed.name=Bed
+tile.moredyes.banner.name=Banner
+item.moredyes.banner.name=Banner
+tile.moredyes.shulker_box.name=Shulker Box
 
 # Only when Iron Chests is installed (compat/ironchest).
 tile.moredyes.dyed_iron_chest.name=Iron Chest
@@ -452,6 +458,10 @@ group.moredyes.lilac=Dyed Lilacs
 group.moredyes.peony=Dyed Peonies
 group.moredyes.rose_bush=Dyed Rose Bushes
 group.moredyes.sign=Dyed Signs
+group.moredyes.carpet=Dyed Carpets
+group.moredyes.bed=Dyed Beds
+group.moredyes.banner=Dyed Banners
+group.moredyes.shulker_box=Dyed Shulker Boxes
 group.moredyes.dyed_iron_chest=Dyed Iron Chests
 group.moredyes.dyed_gold_chest=Dyed Gold Chests
 group.moredyes.dyed_diamond_chest=Dyed Diamond Chests

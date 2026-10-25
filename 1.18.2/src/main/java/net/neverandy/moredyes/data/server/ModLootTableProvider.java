@@ -10,6 +10,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
@@ -72,6 +75,9 @@ public class ModLootTableProvider extends LootTableProvider
                 add(MDBlock.glassFoggyArray[i], BlockLoot::createSilkTouchOnlyTable);
                 add(MDBlock.glassPaneArray[i], BlockLoot::createSilkTouchOnlyTable);
                 add(MDBlock.bookshelfArray[i], shelf -> createSingleItemTableWithSilkTouch(shelf, Items.BOOK, ConstantValue.exactly(3)));
+                add(MDBlock.bedArray[i], bed -> createSinglePropConditionTable(bed, BedBlock.PART, BedPart.HEAD));
+                add(MDBlock.bannerArray[i], BlockLoot::createBannerDrop);
+                add(MDBlock.shulkerBoxArray[i], BlockLoot::createShulkerBoxDrop);
                 add(MDBlock.glassFoggyPaneArray[i], BlockLoot::createSilkTouchOnlyTable);
                 add(MDBlock.iceArray[i], BlockLoot::createSilkTouchOnlyTable);
                 add(MDBlock.packedIceArray[i], BlockLoot::createSilkTouchOnlyTable);
@@ -100,9 +106,9 @@ public class ModLootTableProvider extends LootTableProvider
         protected Iterable<Block> getKnownBlocks()
         {
             // Piston heads drop nothing, like the vanilla head, walls drop themselves in code (DyedWallBlock), and wall
-            // signs use their sign's loot table.
+            // signs and wall banners use the loot table of their standing block.
             return MDBlock.BLOCKS.getEntries().stream().map(RegistryObject::get).filter(block -> !(block instanceof BlockPistonHead)
-                    && !(block instanceof DyedWallBlock) && !(block instanceof DyedWallSignBlock)).collect(Collectors.toList());
+                    && !(block instanceof DyedWallBlock) && !(block instanceof DyedWallSignBlock) && !(block instanceof WallBannerBlock)).collect(Collectors.toList());
         }
     }
 }

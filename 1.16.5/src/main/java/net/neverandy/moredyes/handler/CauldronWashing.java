@@ -1,6 +1,10 @@
 package net.neverandy.moredyes.handler;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ShulkerBoxBlock;
+import net.minecraft.item.BannerItem;
+import net.minecraft.tileentity.BannerTileEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CauldronBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,6 +42,13 @@ public final class CauldronWashing
         {
             return;
         }
+        // Dyed shulker boxes and patterned banners are washed by vanilla's cauldron code, which keeps their contents
+        // and patterns.
+        if (Block.getBlockFromItem(held.getItem()) instanceof ShulkerBoxBlock
+                || held.getItem() instanceof BannerItem && BannerTileEntity.getPatterns(held) > 0)
+        {
+            return;
+        }
         int water = state.get(CauldronBlock.LEVEL);
         ItemStack washed = washed(world, held);
         if (water <= 0 || washed.isEmpty())
@@ -68,8 +79,12 @@ public final class CauldronWashing
         {
             return ItemStack.EMPTY;
         }
+        // One recipe per type, such as "washing/wool" for "wool_334c59".
+        String path = item.getPath();
+        int color = path.lastIndexOf('_');
+        String type = color < 0 ? path : path.substring(0, color);
         Optional<? extends IRecipe<?>> recipe = world.getRecipeManager()
-                .getRecipe(new ResourceLocation(Reference.MOD_ID, "washing/" + item.getPath()));
+                .getRecipe(new ResourceLocation(Reference.MOD_ID, "washing/" + type));
         return recipe.map(IRecipe::getRecipeOutput).orElse(ItemStack.EMPTY);
     }
 }

@@ -6,10 +6,19 @@ import java.util.Map;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.item.equipment.EquipmentAssets;
+import net.minecraft.world.item.equipment.Equippable;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -39,13 +48,17 @@ public final class ModItems {
             }
             Map<MixColor, DeferredItem<BlockItem>> byColor = new LinkedHashMap<>();
             for (MixColor color : MixColors.ALL) {
-                if (kind == Kind.SIGN) {
+                if (kind == Kind.BANNER) {
+                    byColor.put(color, ITEMS.registerItem(color.id(kind.id()), p -> new BannerItem(
+                        ModBlocks.get(Kind.BANNER, color).get(), ModBlocks.get(Kind.WALL_BANNER, color).get(),
+                        properties(kind, color, p.useBlockDescriptionPrefix()))));
+                } else if (kind == Kind.SIGN) {
                     // Places the standing sign, or the wall sign when used on the side of a block.
                     byColor.put(color, ITEMS.registerItem(color.id(kind.id()), p -> new StandingAndWallBlockItem(
                         ModBlocks.get(Kind.SIGN, color).get(), ModBlocks.get(Kind.WALL_SIGN, color).get(), Direction.DOWN,
-                        properties(kind, p.useBlockDescriptionPrefix()))));
+                        properties(kind, color, p.useBlockDescriptionPrefix()))));
                 } else {
-                    byColor.put(color, ITEMS.registerSimpleBlockItem(ModBlocks.get(kind, color), p -> properties(kind, p)));
+                    byColor.put(color, ITEMS.registerSimpleBlockItem(ModBlocks.get(kind, color), p -> properties(kind, color, p)));
                 }
             }
             BLOCK_ITEMS.put(kind, Collections.unmodifiableMap(byColor));
@@ -62,8 +75,23 @@ public final class ModItems {
      * The item components of the vanilla item a kind copies that matter here: burning in a furnace, composting, and a
      * sign's stack size and text.
      */
-    private static Item.Properties properties(Kind kind, Item.Properties p) {
+    private static Item.Properties properties(Kind kind, MixColor color, Item.Properties p) {
         return switch (kind) {
+            case SHULKER_BOX -> p.stacksTo(1).component(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
+            case BED -> p.stacksTo(1);
+            case BANNER -> p.cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS).stacksTo(16)
+                .component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY);
+            // A llama wears it. Its equipment asset (assets/moredyes/equipment/carpet_<hex>.json) colors the grey
+            // llama carpet texture with the carpet's color.
+            case CARPET -> p.cookingFuel(ContextIntProviders.COOKING_TIME_WOOL_CARPETS)
+                .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.BODY)
+                    .setEquipSound(SoundEvents.LLAMA_SWAG)
+                    .setAsset(ResourceKey.create(EquipmentAssets.ROOT_ID,
+                        Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, color.id(kind.id()))))
+                    .setAllowedEntities(EntityTypes.LLAMA, EntityTypes.TRADER_LLAMA)
+                    .setCanBeSheared(true)
+                    .setShearingSound(SoundEvents.LLAMA_CARPET_UNEQUIP)
+                    .build());
             case CRAFTING_TABLE, BOOKSHELF, OAK_STAIRS, BIRCH_STAIRS, SPRUCE_STAIRS, JUNGLE_STAIRS, ACACIA_STAIRS,
                 DARK_OAK_STAIRS, OAK_LOG, OAK_PLANKS, OAK_FENCE, BIRCH_LOG, BIRCH_PLANKS, BIRCH_FENCE,
                 SPRUCE_LOG, SPRUCE_PLANKS, SPRUCE_FENCE, JUNGLE_LOG, JUNGLE_PLANKS, JUNGLE_FENCE, ACACIA_LOG,

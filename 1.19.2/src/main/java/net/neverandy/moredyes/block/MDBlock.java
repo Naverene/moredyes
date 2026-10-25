@@ -5,7 +5,11 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.CryingObsidianBlock;
@@ -19,12 +23,14 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PoweredBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.neverandy.moredyes.item.ChestItem;
+import net.neverandy.moredyes.item.DyedEntityItems;
 import net.neverandy.moredyes.item.MDTabs;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.reference.Reference;
@@ -34,6 +40,7 @@ import net.neverandy.moredyes.world.DyeTrees;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -53,10 +60,13 @@ public class MDBlock
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-    /** The tool that mines each array of blocks fastest (a mineable/ tag), for the block tags. */
-    public static final Map<Block[], TagKey<Block>> MINEABLE = new IdentityHashMap<>();
+    /**
+     * The tool that mines each array of blocks fastest (a mineable/ tag), for the block tags. Arrays are compared by
+     * identity; the map keeps the order they were added in, so the generated tags don't reorder between runs.
+     */
+    public static final Map<Block[], TagKey<Block>> MINEABLE = new LinkedHashMap<>();
     /** Arrays of blocks that need at least a stone, iron or diamond tool to drop, like their vanilla blocks. */
-    public static final Map<Block[], TagKey<Block>> NEEDS_TOOL = new IdentityHashMap<>();
+    public static final Map<Block[], TagKey<Block>> NEEDS_TOOL = new LinkedHashMap<>();
     /** The arrays whose blocks the config turned off; they stay full of nulls. */
     private static final Set<Block[]> DISABLED = Collections.newSetFromMap(new IdentityHashMap<>());
 
@@ -135,6 +145,14 @@ public class MDBlock
     public static BlockChest[] chestArray = new BlockChest[COLORS];
     public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[COLORS];
     public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[COLORS];
+
+    // Carpets, beds, banners and shulker boxes. Beds, banners and shulker boxes are vanilla blocks with the white dye
+    // color (no color for shulker boxes) that share vanilla's block entities; the client draws them in their own color.
+    public static CarpetBlock[] carpetArray = new CarpetBlock[COLORS];
+    public static BedBlock[] bedArray = new BedBlock[COLORS];
+    public static BannerBlock[] bannerArray = new BannerBlock[COLORS];
+    public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[COLORS];
+    public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[COLORS];
 
     // Full blocks from the sheet's second batch.
     public static Block[] graniteArray = new Block[COLORS];
@@ -281,6 +299,7 @@ public class MDBlock
 
         registerPistons();
         registerSigns();
+        registerFurnishings();
         registerMoreBlocks();
         registerNewerBlocks();
         registerFlowers();
@@ -468,6 +487,52 @@ public class MDBlock
             register("wallsign_" + hex, wallSignArray, i,
                     () -> new DyedWallSignBlock(copy(Blocks.OAK_WALL_SIGN).dropsLike(signArray[color])), null, null);
         }
+    }
+
+    /** Carpets, beds, banners and shulker boxes in each color. The wall banner has no item, like the wall sign. */
+    private static void registerFurnishings()
+    {
+        colors("carpet", carpetArray, () -> new CarpetBlock(copy(Blocks.WHITE_CARPET)), MDTabs.BLOCKS, null);
+        for (int i = 0; i < COLORS; i++)
+        {
+            register("bed_" + ColorStrings.ALL[i], bedArray, i, () -> new BedBlock(DyeColor.WHITE, copy(Blocks.WHITE_BED)),
+                    MDTabs.BLOCKS, DyedEntityItems.Bed::new);
+        }
+        MINEABLE.put(bannerArray, AXE);
+        MINEABLE.put(wallBannerArray, AXE);
+        if (!Toggles.typeEnabled("banner") || !Toggles.typeEnabled("wallbanner"))
+        {
+            disable(bannerArray);
+            disable(wallBannerArray);
+        }
+        for (int i = 0; i < COLORS; i++)
+        {
+            final int color = i;
+            String hex = ColorStrings.ALL[i];
+            register("banner_" + hex, bannerArray, i, () -> new BannerBlock(DyeColor.WHITE, copy(Blocks.WHITE_BANNER)), MDTabs.BLOCKS,
+                    (block, properties) -> new DyedEntityItems.Banner(block, wallBannerArray[color], properties));
+            register("wallbanner_" + hex, wallBannerArray, i,
+                    () -> new WallBannerBlock(DyeColor.WHITE, copy(Blocks.WHITE_WALL_BANNER).dropsLike(bannerArray[color])), null, null);
+        }
+        colors("shulkerbox", shulkerBoxArray, () -> new DyedShulkerBoxBlock(DyedShulkerBoxBlock.properties(copy(Blocks.WHITE_SHULKER_BOX))),
+                MDTabs.BLOCKS, PICKAXE, DyedEntityItems.ShulkerBox::new);
+    }
+
+    /** Every dyed bed, banner and shulker box block: the blocks that share a vanilla block entity. */
+    public static List<Block> sharingVanillaBlockEntities()
+    {
+        List<Block> blocks = new ArrayList<>();
+        for (Block[] array : new Block[][] {bedArray, bannerArray, wallBannerArray, shulkerBoxArray})
+        {
+            for (Block block : array)
+            {
+                if (block != null)
+                {
+                    blocks.add(block);
+                }
+            }
+        }
+        return blocks;
     }
 
     /** Every dyed sign block, standing and on a wall. */

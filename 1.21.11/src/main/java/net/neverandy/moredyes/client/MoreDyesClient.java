@@ -101,6 +101,12 @@ public class MoreDyesClient {
     private static void specialRenderers(RegisterSpecialModelRendererEvent event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_chest"),
             DyedChestSpecialRenderer.Unbaked.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_bed"),
+            DyedBedSpecialRenderer.Unbaked.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_banner"),
+            DyedBannerSpecialRenderer.Unbaked.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_shulker_box"),
+            DyedShulkerBoxSpecialRenderer.Unbaked.MAP_CODEC);
     }
 
     private static void renderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -109,6 +115,10 @@ public class MoreDyesClient {
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, context -> new DyedPistonRenderer());
         // Replaces vanilla's sign renderer, which dyed signs share, so they are drawn in their color.
         event.registerBlockEntityRenderer(BlockEntityType.SIGN, DyedSignRenderer::new);
+        // Likewise for beds, banners and shulker boxes.
+        event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
 
     private static void renderStateModifiers(RegisterRenderStateModifiersEvent event) {

@@ -13,7 +13,10 @@ import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ItemTags;
+import net.neverandy.moredyes.item.crafting.KeepNbtShapelessRecipe;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -272,6 +275,8 @@ public class ModRecipeProvider extends RecipeProvider
                     .addCriterion("has_planks", hasItem(allPlanks[0])).build(out, id(name(sign)));
             dyeable(i, sign, "oak_sign");
 
+            furnishings(i);
+
             Block shelf = MDBlock.bookshelfArray[i];
             ShapedRecipeBuilder.shapedRecipe(shelf).key('P', Ingredient.fromItems(allPlanks)).key('B', Items.BOOK)
                     .patternLine("PPP").patternLine("BBB").patternLine("PPP")
@@ -474,6 +479,77 @@ public class ModRecipeProvider extends RecipeProvider
     {
         ShapedRecipeBuilder.shapedRecipe(pane, 16).key('G', glass).patternLine("GGG").patternLine("GGG")
                 .addCriterion("has_glass", hasItem(glass)).build(out, id(name(pane)));
+    }
+
+    /** Carpets, beds, banners and shulker boxes, made like vanilla's from dyed wool, or dyed from vanilla's. */
+    private void furnishings(int i)
+    {
+        Block wool = MDBlock.woolArray[i];
+        Block carpet = MDBlock.carpetArray[i];
+        ShapedRecipeBuilder.shapedRecipe(carpet, 3).key('W', wool).patternLine("WW")
+                .addCriterion("has_wool", hasItem(wool)).build(out, id(name(carpet)));
+        dyeable(i, carpet, "white_carpet");
+
+        Block bed = MDBlock.bedArray[i];
+        ShapedRecipeBuilder.shapedRecipe(bed).key('W', wool).key('P', ItemTags.PLANKS).patternLine("WWW").patternLine("PPP")
+                .addCriterion("has_wool", hasItem(wool)).build(out, id(name(bed)));
+        ShapelessRecipeBuilder.shapelessRecipe(bed).addIngredient(Items.WHITE_BED).addIngredient(MDItem.dye[i])
+                .addCriterion("has_dye", hasItem(MDItem.dye[i])).build(out, id("dyeing/" + name(bed)));
+        washable(bed, "white_bed");
+
+        // Banners and shulker boxes keep their patterns and contents when they are dyed.
+        Block banner = MDBlock.bannerArray[i];
+        ShapedRecipeBuilder.shapedRecipe(banner).key('W', wool).key('S', Items.STICK).patternLine("WWW").patternLine("WWW").patternLine(" S ")
+                .addCriterion("has_wool", hasItem(wool)).build(out, id(name(banner)));
+        keepNbt(ShapelessRecipeBuilder.shapelessRecipe(banner).addIngredient(Items.WHITE_BANNER).addIngredient(MDItem.dye[i])
+                .addCriterion("has_dye", hasItem(MDItem.dye[i])), id("dyeing/" + name(banner)));
+        washable(banner, "white_banner");
+
+        Block box = MDBlock.shulkerBoxArray[i];
+        keepNbt(ShapelessRecipeBuilder.shapelessRecipe(box).addIngredient(ModItemTagsProvider.SHULKER_BOXES).addIngredient(MDItem.dye[i])
+                .addCriterion("has_dye", hasItem(MDItem.dye[i])), id("dyeing/" + name(box)));
+        if (i == 0)
+        {
+            keepNbt(ShapelessRecipeBuilder.shapelessRecipe(Items.SHULKER_BOX).addIngredient(Ingredient.fromItems(MDBlock.shulkerBoxArray))
+                    .addIngredient(Items.WATER_BUCKET).addCriterion("has_block", hasItem(box)), id("washing/shulkerbox"));
+        }
+    }
+
+    /** Saves a shapeless recipe as moredyes:crafting_shapeless_keep_nbt, so its result keeps its first ingredient's NBT. */
+    private void keepNbt(ShapelessRecipeBuilder builder, ResourceLocation id)
+    {
+        builder.build(recipe -> out.accept(new IFinishedRecipe()
+        {
+            @Override
+            public void serialize(JsonObject json)
+            {
+                recipe.serialize(json);
+            }
+
+            @Override
+            public ResourceLocation getID()
+            {
+                return recipe.getID();
+            }
+
+            @Override
+            public IRecipeSerializer<?> getSerializer()
+            {
+                return KeepNbtShapelessRecipe.SERIALIZER;
+            }
+
+            @Override
+            public JsonObject getAdvancementJson()
+            {
+                return recipe.getAdvancementJson();
+            }
+
+            @Override
+            public ResourceLocation getAdvancementID()
+            {
+                return recipe.getAdvancementID();
+            }
+        }), id);
     }
 
     private void dyeable(int i, Block dyed, String vanilla)

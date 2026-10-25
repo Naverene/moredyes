@@ -303,6 +303,7 @@ def texture_file():
                      f"patch1={t('glass/pane', TINTED_GLASS)},transparency=TRANSPARENT,{TINT}")
     lines.append(f"block:{ids(names('Chest'))},data=*,patch0-1={t('chest/top')},patch2-5={t('chest/side')},"
                  f"transparency=TRANSPARENT,{TINT}")
+    lines.append(f"block:{ids(names('Carpet'))},data=*,patch0-5={t('wool')},transparency=TRANSPARENT,{TINT}")
 
     lines.append("")
     lines.append("# Plants: the untinted stem or trunk, with the tinted petals or leaves where it is see-through")
@@ -322,6 +323,8 @@ def texture_file():
         lines.append(f"block:id=%{name},data=*,patch0={t(bottom)},patch1={t(top)},patch2-5={t(side)},"
                      f"transparency=SEMITRANSPARENT,{TINT}")
     lines.append(f"block:id=%ironTrapdoor,data=*,patch0-5={t('ironTrapdoor')},transparency=TRANSPARENT,{TINT}")
+    # Beds are drawn as a box of their tinted wool.
+    lines.append(f"block:id=%bed,data=*,patch0-5={t('wool')},transparency=TRANSPARENT,{TINT}")
 
     lines.append("")
     lines.append("# Dyed Iron Chests and Storage Drawers, the color in a tile entity")
@@ -380,10 +383,12 @@ def models_file():
         "",
         "patch:id=VertX1Z0ToX0Z1,Ox=1.0,Oy=0.0,Oz=0.0,Ux=0.0,Uy=0.0,Uz=1.0,Vx=1.0,Vy=1.0,Vz=0.0,visibility=flip",
         "",
-        "# Glass panes and chests",
+        "# Glass panes, chests, carpets and beds",
         f"customblock:{ids(names('GlassClearPane') + names('GlassFoggyPane'))},data=*,"
         "class=org.dynmap.hdmap.renderer.PaneRenderer",
         f"customblock:{ids(names('Chest'))},data=*,{renderer},{box(0.0625, 0.9375, 0.0, 0.875, 0.0625, 0.9375)}",
+        f"customblock:{ids(names('Carpet'))},data=*,{renderer},{box(ymax=0.0625)}",
+        f"customblock:id=%bed,data=*,{renderer},{box(ymax=0.5625)}",
         "",
         "# Plants and chains are two crossed squares",
         f"patchblock:{ids(sum((names(s) for s in list(PLANTS) + ['Chain']), []))},data=*,"
