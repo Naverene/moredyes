@@ -22,6 +22,9 @@ import net.neverandy.moredyes.block.BlockPistonHead;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.DyedWallBlock;
 import net.neverandy.moredyes.block.DyedWallSignBlock;
+import net.minecraft.block.BedBlock;
+import net.minecraft.block.WallBannerBlock;
+import net.minecraft.state.properties.BedPart;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.world.DyeTrees;
@@ -73,6 +76,9 @@ public class ModLootTableProvider extends LootTableProvider
                 registerLootTable(MDBlock.glassPaneArray[i], BlockLootTables::onlyWithSilkTouch);
                 registerLootTable(MDBlock.bookshelfArray[i], shelf -> droppingWithSilkTouchOrRandomly(shelf, Items.BOOK, ConstantRange.of(3)));
                 registerLootTable(MDBlock.glassFoggyPaneArray[i], BlockLootTables::onlyWithSilkTouch);
+                registerLootTable(MDBlock.bedArray[i], bed -> droppingWhen(bed, BedBlock.PART, BedPart.HEAD));
+                registerLootTable(MDBlock.bannerArray[i], BlockLootTables::droppingWithPatterns);
+                registerLootTable(MDBlock.shulkerBoxArray[i], BlockLootTables::droppingWithContents);
                 registerLootTable(MDBlock.iceArray[i], BlockLootTables::onlyWithSilkTouch);
                 registerLootTable(MDBlock.packedIceArray[i], BlockLootTables::onlyWithSilkTouch);
                 for (TallFlowerBlock[] flowers : MDBlock.tallFlowerArrays)
@@ -100,9 +106,9 @@ public class ModLootTableProvider extends LootTableProvider
         protected Iterable<Block> getKnownBlocks()
         {
             // Piston heads drop nothing, like the vanilla head, walls drop themselves in code (DyedWallBlock), and wall
-            // signs use their sign's loot table.
+            // signs and wall banners use the loot table of their standing block.
             return MDBlock.BLOCKS.getEntries().stream().map(RegistryObject::get).filter(block -> !(block instanceof BlockPistonHead)
-                    && !(block instanceof DyedWallBlock) && !(block instanceof DyedWallSignBlock)).collect(Collectors.toList());
+                    && !(block instanceof DyedWallBlock) && !(block instanceof DyedWallSignBlock) && !(block instanceof WallBannerBlock)).collect(Collectors.toList());
         }
     }
 }

@@ -1,0 +1,14 @@
+{
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "ingredients": [
+    {
+      "tag": "moredyes:shulker_boxes"
+    },
+    {
+      "item": "moredyes:cc9999_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:shulkerbox_cc9999"
+  }
+}

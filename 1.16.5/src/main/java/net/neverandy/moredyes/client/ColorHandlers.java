@@ -8,6 +8,7 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.neverandy.moredyes.api.MoreDyesAPI;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
@@ -35,6 +36,13 @@ public final class ColorHandlers
     {
         Matcher matcher = HEX.matcher(name.getPath());
         return matcher.find() ? vivid(Integer.parseInt(matcher.group(1), 16)) : WHITE;
+    }
+
+    /** The color a More Dyes block is drawn in, or -1 for any other block (such as a vanilla bed sharing a renderer). */
+    public static int tintOf(Block block)
+    {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(block);
+        return name == null || !Reference.MOD_ID.equals(name.getNamespace()) ? -1 : colorOf(name);
     }
 
     /**

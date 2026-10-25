@@ -1,7 +1,12 @@
 package net.neverandy.moredyes.block;
 
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.BannerBlock;
+import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.WallBannerBlock;
+import net.minecraft.item.DyeColor;
+import net.neverandy.moredyes.item.DyedEntityItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ChainBlock;
 import net.minecraft.block.CryingObsidianBlock;
@@ -177,6 +182,11 @@ public class MDBlock
     public static BlockChest[] chestArray = new BlockChest[totalColorCount];
     public static DyedStandingSignBlock[] signArray = new DyedStandingSignBlock[totalColorCount];
     public static DyedWallSignBlock[] wallSignArray = new DyedWallSignBlock[totalColorCount];
+    public static Block[] carpetArray = new Block[totalColorCount];
+    public static BedBlock[] bedArray = new BedBlock[totalColorCount];
+    public static BannerBlock[] bannerArray = new BannerBlock[totalColorCount];
+    public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[totalColorCount];
+    public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[totalColorCount];
 
     // Full blocks from the sheet's second batch; each copies its vanilla block's properties.
     public static Block[] graniteArray = new Block[totalColorCount];
@@ -337,6 +347,7 @@ public class MDBlock
         //registerLadder();
         registerPistons();
         registerSigns();
+        registerFurnishings();
 
         registerMoreBlocks();
         registerNewerBlocks();
@@ -617,6 +628,53 @@ public class MDBlock
             BLOCKS.register("sign_" + color, () -> sign);
             BLOCKS.register("wallsign_" + color, () -> wallSign);
             ITEMS.register("sign_" + color, () -> new SignItem(new Item.Properties().maxStackSize(16).group(MoreDyes.tabBlocks), sign, wallSign));
+        }
+    }
+
+    /** Carpets, beds, banners and shulker boxes in each color; see Furnishings for how they work like vanilla's. */
+    private static void registerFurnishings()
+    {
+        registerColors("carpet", carpetArray, () -> new DyedCarpetBlock(AbstractBlock.Properties.from(Blocks.WHITE_CARPET)));
+        if (!leaveOut("bed"))
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                final BedBlock bed = new BedBlock(DyeColor.WHITE, AbstractBlock.Properties.from(Blocks.WHITE_BED));
+                bedArray[i] = bed;
+                BLOCKS.register("bed_" + ColorStrings.ALL[i], () -> bed);
+                ITEMS.register("bed_" + ColorStrings.ALL[i], () -> DyedEntityItems.bed(bed, new Item.Properties().group(MoreDyes.tabBlocks)));
+            }
+        }
+        // A banner needs its wall banner, so leaving out either leaves out both.
+        if (leaveOut("banner") | leaveOut("wallbanner"))
+        {
+            leaveOutAll("banner", "wallbanner");
+        }
+        else
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                String color = ColorStrings.ALL[i];
+                final BannerBlock banner = new BannerBlock(DyeColor.WHITE, AbstractBlock.Properties.from(Blocks.WHITE_BANNER));
+                final WallBannerBlock wallBanner = new WallBannerBlock(DyeColor.WHITE,
+                        AbstractBlock.Properties.from(Blocks.WHITE_WALL_BANNER).lootFrom(() -> banner));
+                bannerArray[i] = banner;
+                wallBannerArray[i] = wallBanner;
+                BLOCKS.register("banner_" + color, () -> banner);
+                BLOCKS.register("wallbanner_" + color, () -> wallBanner);
+                ITEMS.register("banner_" + color, () -> DyedEntityItems.banner(banner, wallBanner, new Item.Properties().group(MoreDyes.tabBlocks)));
+            }
+        }
+        if (!leaveOut("shulkerbox"))
+        {
+            for (int i = 0; i < ColorStrings.ALL.length; i++)
+            {
+                final DyedShulkerBoxBlock box = new DyedShulkerBoxBlock(
+                        DyedShulkerBoxBlock.properties(AbstractBlock.Properties.from(Blocks.WHITE_SHULKER_BOX)));
+                shulkerBoxArray[i] = box;
+                BLOCKS.register("shulkerbox_" + ColorStrings.ALL[i], () -> box);
+                ITEMS.register("shulkerbox_" + ColorStrings.ALL[i], () -> DyedEntityItems.shulkerBox(box, new Item.Properties().group(MoreDyes.tabBlocks)));
+            }
         }
     }
 
