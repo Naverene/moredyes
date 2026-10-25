@@ -35,6 +35,7 @@ public class ConfigHandler
     private static ForgeConfigSpec.BooleanValue paneBlocks;
     private static ForgeConfigSpec.ConfigValue<List<? extends String>> disabledBlocks;
     private static ForgeConfigSpec.BooleanValue ironChests;
+    private static ForgeConfigSpec.BooleanValue ironShulkerBoxes;
     private static ForgeConfigSpec.BooleanValue storageDrawers;
 
     static
@@ -61,6 +62,7 @@ public class ConfigHandler
                 .defineList("disabled_blocks", Collections.emptyList(), name -> name instanceof String);
         CLIENT_BUILDER.comment("Blocks for other mods, added only when that mod is installed").push("compat");
         ironChests = CLIENT_BUILDER.comment("Add dyed Iron Chests").define("iron_chests", true);
+        ironShulkerBoxes = CLIENT_BUILDER.comment("Add dyed Iron Shulker Boxes").define("iron_shulker_boxes", true);
         storageDrawers = CLIENT_BUILDER.comment("Add dyed Storage Drawers").define("storage_drawers", true);
         CLIENT_BUILDER.pop();
 
@@ -94,6 +96,7 @@ public class ConfigHandler
         Toggles.panes = paneBlocks.get();
         Toggles.setDisabledTypes(disabledBlocks.get());
         Toggles.ironChests = ironChests.get();
+        Toggles.ironShulkerBoxes = ironShulkerBoxes.get();
         Toggles.storageDrawers = storageDrawers.get();
     }
 

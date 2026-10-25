@@ -1,0 +1,76 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironshulkerbox"
+    }
+  ],
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "group": "moredyes:dyed_diamond_shulker_box",
+  "ingredients": [
+    [
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_white"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_orange"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_magenta"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_light_blue"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_yellow"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_lime"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_pink"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_gray"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_light_gray"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_cyan"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_purple"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_blue"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_brown"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_green"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_red"
+      },
+      {
+        "item": "ironshulkerbox:diamond_shulker_box_black"
+      },
+      {
+        "item": "moredyes:dyed_diamond_shulker_box"
+      }
+    ],
+    {
+      "item": "moredyes:a672b9_dye"
+    }
+  ],
+  "result": {
+    "item": "moredyes:dyed_diamond_shulker_box",
+    "nbt": {
+      "BlockStateTag": {
+        "color": "32"
+      }
+    }
+  }
+}
