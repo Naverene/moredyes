@@ -1,10 +1,13 @@
 package net.neverandy.moredyes.handler;
 
+import net.minecraft.core.cauldron.CauldronInteractions;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.neoforged.neoforge.event.RegisterCauldronInteractionEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -33,7 +36,17 @@ public final class CauldronWashing {
             Item washed = kind.washed().get();
             for (MixColor color : MixColors.ALL) {
                 DeferredItem<?> dyed = ModItems.get(kind, color);
+                if (kind == Kind.SHULKER_BOX) {
+                    // A shulker box keeps its contents and loses its color, as vanilla's dyed ones do.
+                    event.register(WATER, dyed.get(), CauldronInteractions::shulkerBoxInteraction);
+                    continue;
+                }
                 event.register(WATER, dyed.get(), (state, level, pos, player, hand, held) -> {
+                    // A banner with patterns loses its top pattern, as vanilla's do; one with none washes white.
+                    if (kind == Kind.BANNER && !held.getOrDefault(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+                        .layers().isEmpty()) {
+                        return CauldronInteractions.bannerInteraction(state, level, pos, player, hand, held);
+                    }
                     if (!level.isClientSide()) {
                         player.setItemInHand(hand, new ItemStack(washed, held.getCount()));
                         player.awardStat(Stats.USE_CAULDRON);

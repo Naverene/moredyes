@@ -66,12 +66,20 @@ public class MoreDyesClient {
     private static void specialRenderers(RegisterSpecialModelRendererEvent event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_chest"),
             DyedChestSpecialRenderer.Unbaked.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_banner"),
+            DyedBannerSpecialRenderer.Unbaked.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_shulker_box"),
+            DyedShulkerBoxSpecialRenderer.Unbaked.MAP_CODEC);
     }
 
     private static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.CHEST.get(), DyedChestRenderer::new);
         // Replaces vanilla's renderer for moving pistons, so dyed pistons draw their own head while retracting.
         event.registerBlockEntityRenderer(BlockEntityTypes.PISTON, context -> new DyedPistonRenderer());
+        // Replaces vanilla's renderers for banners and shulker boxes, which dyed ones share, so they are drawn in
+        // their colors.
+        event.registerBlockEntityRenderer(BlockEntityTypes.BANNER, DyedBannerRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityTypes.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
 
     private static void renderStateModifiers(RegisterRenderStateModifiersEvent event) {
