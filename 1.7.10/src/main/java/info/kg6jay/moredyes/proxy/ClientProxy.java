@@ -18,9 +18,11 @@ import info.kg6jay.moredyes.client.RenderColoredSheep;
 import info.kg6jay.moredyes.client.RenderColoredWolf;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.compat.ironchest.client.IronChestClient;
+import info.kg6jay.moredyes.compat.notenoughpets.NotEnoughPetsCompat;
+import info.kg6jay.moredyes.compat.notenoughpets.client.NotEnoughPetsClient;
 import info.kg6jay.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import info.kg6jay.moredyes.entity.SheepColor;
-import info.kg6jay.moredyes.entity.WolfCollar;
+import info.kg6jay.moredyes.entity.PetCollar;
 import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
 import info.kg6jay.moredyes.render.TileEntityMDPistonRenderer;
@@ -61,6 +63,9 @@ public class ClientProxy extends CommonProxy {
         if (ConfigHandler.storageDrawers()) {
             StorageDrawersClient.register();
         }
+        if (NotEnoughPetsCompat.LOADED) {
+            NotEnoughPetsClient.register();
+        }
 
         // Draws sheep dyed with More Dyes in their shade; sheep without one look the same as in vanilla.
         RenderingRegistry.registerEntityRenderingHandler(EntitySheep.class, new RenderColoredSheep());
@@ -75,8 +80,8 @@ public class ClientProxy extends CommonProxy {
         SheepColor sheepColor = SheepColor.of(entity);
         if (sheepColor != null) {
             sheepColor.put(color);
-        } else if (entity instanceof EntityWolf) {
-            WolfCollar.put((EntityWolf) entity, color);
+        } else if (PetCollar.hasCollar(entity)) {
+            PetCollar.put(entity, color);
         }
     }
 }

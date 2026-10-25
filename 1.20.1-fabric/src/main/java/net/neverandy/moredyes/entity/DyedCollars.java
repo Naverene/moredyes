@@ -19,7 +19,7 @@ import net.neverandy.moredyes.network.SheepColorPacket;
  * Lets tamed wolves and cats wear a collar in any MoreDyes color. Vanilla collars only know the 16 vanilla colors, so
  * the MoreDyes color is kept in a field the mixin adds to the pet (saved with it, see mixin/TamableAnimalMixin) and
  * sent to the players who can see it, the same way as for sheep (see DyedSheep). The client draws the collar in that
- * color (client/DyedCollarRenderers).
+ * color (mixin/WolfCollarLayerMixin and mixin/CatCollarLayerMixin).
  */
 public final class DyedCollars
 {

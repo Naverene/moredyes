@@ -72,7 +72,9 @@ colors from now on.
 
 Any More Dyes dye can recolor the collar of a tamed wolf or cat you own: right-click the pet with the dye, the same as
 with a vanilla dye. The collar keeps the exact More Dyes color, and a vanilla dye turns it back to a vanilla color.
-Cats have collars from Minecraft 1.14 on, so 1.4.7, 1.7.10 and 1.12.2 only dye wolf collars.
+Cats have collars from Minecraft 1.14 on, so 1.4.7 and 1.12.2 only dye wolf collars. On 1.7.10, cats tamed with
+[Not Enough Pets](https://www.curseforge.com/minecraft/mc-mods/not-enough-pets) installed have collars too, and More
+Dyes dyes color them (and Not Enough Pets' own wolves).
 
 ## For other mods
 

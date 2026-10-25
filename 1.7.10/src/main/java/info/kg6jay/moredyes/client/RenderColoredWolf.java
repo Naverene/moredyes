@@ -8,10 +8,10 @@ import org.lwjgl.opengl.GL11;
 
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.entity.SheepColor;
-import info.kg6jay.moredyes.entity.WolfCollar;
+import info.kg6jay.moredyes.entity.PetCollar;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
-/** The vanilla wolf renderer, drawing a collar with a More Dyes shade (see {@link WolfCollar}) in that shade. */
+/** The vanilla wolf renderer, drawing a collar with a More Dyes shade (see {@link PetCollar}) in that shade. */
 public class RenderColoredWolf extends RenderWolf {
 
     public RenderColoredWolf() {
@@ -21,7 +21,7 @@ public class RenderColoredWolf extends RenderWolf {
     @Override
     protected int shouldRenderPass(EntityWolf wolf, int pass, float partialTicks) {
         int result = super.shouldRenderPass(wolf, pass, partialTicks);
-        int color = WolfCollar.get(wolf);
+        int color = PetCollar.get(wolf);
         // Pass 1 is the collar of a tamed wolf.
         if (pass == 1 && result == 1 && color != SheepColor.NONE) {
             int set = SheepColor.setOf(color);

@@ -6,6 +6,10 @@
   "mixins": [
     "MultiPackResourceManagerMixin"
   ],
+  "client": [
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

@@ -56,5 +56,9 @@ dependencies {
     if (project.findProperty("compat_mods") == "true") {
         runtimeOnlyNonPublishable(rfg.deobf("curse.maven:iron-chests-228756:${ironChestsFile}"))
         runtimeOnlyNonPublishable(rfg.deobf("curse.maven:storage-drawers-223852:${storageDrawersFile}"))
+        runtimeOnlyNonPublishable(rfg.deobf("curse.maven:not-enough-pets-322159:${notEnoughPetsFile}"))
     }
+
+    // Not Enough Pets 2.4.1 (AstroTibs) gives cats a dyeable collar; compat/notenoughpets lets More Dyes dyes color it.
+    compileOnly(rfg.deobf("curse.maven:not-enough-pets-322159:${notEnoughPetsFile}"))
 }

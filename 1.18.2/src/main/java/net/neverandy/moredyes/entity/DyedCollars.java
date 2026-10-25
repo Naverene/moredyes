@@ -24,7 +24,7 @@ import net.neverandy.moredyes.reference.Reference;
 /**
  * Lets tamed wolves and cats wear a collar in any MoreDyes color. Vanilla collars only know the 16 vanilla colors, so
  * the MoreDyes color is kept in the pet's Forge data (saved with the pet) and sent to the players who can see it, the
- * same way as for sheep (see DyedSheep). The client draws the collar in that color (client/DyedCollarRenderers).
+ * same way as for sheep (see DyedSheep). The client draws the collar in that color (client/DyedCollarLayers).
  */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public final class DyedCollars

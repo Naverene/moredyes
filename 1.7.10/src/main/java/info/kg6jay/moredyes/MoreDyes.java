@@ -26,7 +26,7 @@ import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
-import info.kg6jay.moredyes.handler.WolfCollarHandler;
+import info.kg6jay.moredyes.handler.PetCollarHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
 import info.kg6jay.moredyes.network.PacketHandler;
@@ -39,7 +39,7 @@ import info.kg6jay.moredyes.utility.LogHelper;
     modid = Reference.MOD_ID,
     name = Reference.MOD_NAME,
     version = Reference.MOD_VERSION,
-    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech;after:IronChest;after:StorageDrawers")
+    dependencies = "after:ThermalExpansion;after:chisel;after:gregtech;after:IronChest;after:StorageDrawers;after:notenoughpets")
 public class MoreDyes {
 
     @Mod.Instance(Reference.MOD_ID)
@@ -99,7 +99,7 @@ public class MoreDyes {
         MDBlock.registerWashing();
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
-        MinecraftForge.EVENT_BUS.register(new WolfCollarHandler());
+        MinecraftForge.EVENT_BUS.register(new PetCollarHandler());
         GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();
