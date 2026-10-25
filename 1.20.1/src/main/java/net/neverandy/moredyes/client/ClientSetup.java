@@ -92,7 +92,6 @@ public final class ClientSetup
         event.registerBlockEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
-        event.registerEntityRenderer(EntityType.SHEEP, DyedSheepRenderer::new);
         // Dyed beds, banners and shulker boxes share vanilla's block entities, so these replace vanilla's renderers.
         event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);

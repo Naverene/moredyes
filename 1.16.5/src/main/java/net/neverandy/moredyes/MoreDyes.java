@@ -1,11 +1,8 @@
 package net.neverandy.moredyes;
 
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraft.entity.EntityType;
 import net.neverandy.moredyes.api.MoreDyesAPI;
 import net.neverandy.moredyes.client.DyedPistonRenderer;
-import net.neverandy.moredyes.client.DyedSheepRenderer;
 import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.client.ChestRenderer;
 import net.neverandy.moredyes.client.DyedSignRenderer;
@@ -224,7 +221,6 @@ public class MoreDyes
     {
         ClientRegistry.bindTileEntityRenderer(ModTileEntities.CHEST.get(), ChestRenderer::new);
         ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityType.SHEEP, DyedSheepRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         ClientRegistry.bindTileEntityRenderer(TileEntityType.PISTON, DyedPistonRenderer::new);
         // do something that can only be done on the client

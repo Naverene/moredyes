@@ -41,7 +41,7 @@ import net.neverandy.moredyes.registry.ModItems;
 /**
  * Lets vanilla sheep wear any More Dyes color. Vanilla sheep only know the 16 vanilla colors, so the More Dyes color
  * is kept in an attachment on the sheep, which is saved with it and synced to the players who can see it. The client
- * draws the wool in that color (see {@code client/DyedSheepRenderer}), and the {@link Wool} loot modifier swaps the
+ * draws the wool in that color (see {@code mixin/SheepFurLayerMixin}), and the {@link Wool} loot modifier swaps the
  * vanilla wool the sheep drops, when shorn or killed, for the dyed wool.
  */
 public final class DyedSheep {
@@ -101,11 +101,13 @@ public final class DyedSheep {
         event.setCanceled(true);
     }
 
-    /** Some sheep spawn in the world with a More Dyes color, as set in the server config (see WildSheepColors). */
+    /**
+     * Some sheep spawn in the world with a More Dyes color, as set in the server config (see WildSheepColors): wild ones,
+     * and like vanilla's random colors also those from spawn eggs, spawners and /summon.
+     */
     private static void onSpawn(FinalizeSpawnEvent event) {
         if (!(event.getEntity() instanceof Sheep sheep) || event.isSpawnCancelled()
-            || (event.getSpawnType() != MobSpawnType.NATURAL
-                && event.getSpawnType() != MobSpawnType.CHUNK_GENERATION)) {
+            || event.getSpawnType() == MobSpawnType.BREEDING || event.getSpawnType() == MobSpawnType.CONVERSION) {
             return;
         }
         String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, ALL_HEX,

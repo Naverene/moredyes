@@ -15,7 +15,8 @@
   ],
   "client": [
     "WolfCollarLayerMixin",
-    "CatCollarLayerMixin"
+    "CatCollarLayerMixin",
+    "SheepFurLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

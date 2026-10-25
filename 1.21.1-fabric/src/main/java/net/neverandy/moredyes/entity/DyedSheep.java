@@ -82,9 +82,12 @@ public final class DyedSheep {
         return InteractionResult.SUCCESS;
     }
 
-    /** Some sheep spawn in the world with a More Dyes color, as set in the config (see WildSheepColors). Called by SheepMixin. */
+    /**
+     * Some sheep spawn in the world with a More Dyes color, as set in the config (see WildSheepColors): wild ones, and like
+     * vanilla's random colors also those from spawn eggs, spawners and /summon. Called by SheepMixin.
+     */
     public static void onSpawn(Sheep sheep, MobSpawnType reason) {
-        if (reason != MobSpawnType.NATURAL && reason != MobSpawnType.CHUNK_GENERATION) {
+        if (reason == MobSpawnType.BREEDING || reason == MobSpawnType.CONVERSION) {
             return;
         }
         String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, ALL_HEX,

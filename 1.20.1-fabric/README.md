@@ -18,6 +18,8 @@ events and config are replaced with Fabric API and a few mixins:
 - `mixin/SheepMixin` keeps a sheep's MoreDyes color, saves it, and colors spawned and bred sheep.
 - `mixin/EntityMixin` turns the vanilla wool a dyed sheep drops (sheared or killed) into its dyed wool.
 - `mixin/ServerEntityMixin` tells players a sheep's color once they can see it.
+- `mixin/SheepFurLayerMixin` tints the vanilla wool layer in a sheep's MoreDyes color (so resource packs that
+  replace the sheep model still show it).
 - `mixin/PistonBaseBlockMixin` keeps extended dyed pistons from being pushed.
 - `mixin/LlamaMixin` keeps which dyed carpet a llama wears and tells nearby players (see `entity/LlamaCarpets`).
 - `mixin/compat/StorageDrawersMixin` registers the dyed drawers in time for Storage Drawers (see below).

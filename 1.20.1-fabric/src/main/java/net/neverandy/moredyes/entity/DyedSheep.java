@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Lets vanilla sheep wear any MoreDyes color. Vanilla sheep only know the 16 vanilla colors, so the MoreDyes color is
  * kept in a field the mixin adds to the sheep (saved with it, see mixin/SheepMixin) and sent to the players who can
- * see it. The client draws the wool in that color (client/DyedSheepRenderer), and vanilla wool the sheep drops,
+ * see it. The client draws the wool in that color (client/DyedSheepWool), and vanilla wool the sheep drops,
  * sheared or killed, is swapped for the dyed wool (mixin/EntityMixin).
  */
 public final class DyedSheep
@@ -113,12 +113,12 @@ public final class DyedSheep
     }
 
     /**
-     * Some sheep spawn in the world with a MoreDyes color (see WildSheepColors), both when a chunk is generated and
-     * later.
+     * Some sheep spawn in the world with a MoreDyes color (see WildSheepColors): wild ones, and like vanilla's random
+     * colors also those from spawn eggs, spawners and /summon.
      */
     public static void spawned(Sheep sheep, MobSpawnType reason)
     {
-        if (reason != MobSpawnType.NATURAL && reason != MobSpawnType.CHUNK_GENERATION)
+        if (reason == MobSpawnType.BREEDING || reason == MobSpawnType.CONVERSION)
         {
             return;
         }
