@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
@@ -463,6 +464,7 @@ public class CraftManager {
 
         addNewerBlockRecipes();
         addMissingBlockRecipes();
+        addFurnishingRecipes();
         addShapeRecipes();
     }
 
@@ -693,6 +695,33 @@ public class CraftManager {
                             'S',
                             "stickWood"));
                 }
+            }
+        }
+    }
+
+    /**
+     * Dyed carpets and beds. Two dyed wool make three carpets, and eight carpets of any color around a dye dye them;
+     * three dyed wool of one shade over three planks make a bed, and a vanilla bed with a dye makes a dyed one.
+     */
+    private static void addFurnishingRecipes() {
+        ItemStack anyCarpet = new ItemStack(Blocks.carpet, 1, OreDictionary.WILDCARD_VALUE);
+        for (int a = 0; a < MDBlock.colors.length; a++) {
+            for (int i = 0; i <= ((IBlockColored) MDBlock.wool[a]).getMaxMeta(); i++) {
+                ItemStack dye = new ItemStack(MDItem.dye[a], 1, i);
+                ItemStack wool = new ItemStack(MDBlock.wool[a], 1, i);
+                int color = ColorIndex.of(a, i);
+                GameRegistry.addShapedRecipe(new ItemStack(MDBlock.carpet[a], 3, i), "WW", 'W', wool);
+                addSurroundRecipe(MDBlock.carpet[a], i, anyCarpet, dye);
+                GameRegistry.addRecipe(
+                    new ShapedOreRecipe(
+                        new ItemStack(MDItem.bed, 1, color),
+                        "WWW",
+                        "PPP",
+                        'W',
+                        wool,
+                        'P',
+                        "plankWood"));
+                GameRegistry.addShapelessRecipe(new ItemStack(MDItem.bed, 1, color), Items.bed, dye);
             }
         }
     }

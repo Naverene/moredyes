@@ -65,6 +65,11 @@ public final class TintSources {
     /** Unchanged where the pixel is not green, transparent elsewhere (the trunk of a sapling). */
     public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> TintPixels.isGreen(argb) ? 0 : argb;
 
+    /** The red sheet of a bed as grey, transparent elsewhere. */
+    public static final PixelTransform BEDDING = argb -> TintPixels.isBedding(argb) ? TintPixels.beddingGrey(argb) : 0;
+    /** Everything of a bed but its sheet, unchanged: the pillow and the wooden frame. */
+    public static final PixelTransform BED_FRAME = argb -> TintPixels.isBedding(argb) ? 0 : argb;
+
     /**
      * Unchanged where the pixel is not cobblestone or is one of its darkest greys, transparent elsewhere: the wood,
      * iron and cracks of a piston texture, drawn untinted over the dyed piston. The side has a wooden strip along the
@@ -267,6 +272,14 @@ public final class TintSources {
         // Signs: the item, and the model the sign renderer draws
         add("sign", new ResourceLocation("minecraft", "textures/items/sign.png"), GREY, false);
         add("sign/model", new ResourceLocation("minecraft", "textures/entity/sign.png"), GREY, true);
+
+        // Beds: the sheet takes the dye; the pillow and the wooden frame are drawn over it as they are.
+        for (String part : new String[] { "feet_top", "feet_end", "feet_side", "head_top", "head_end", "head_side" }) {
+            add("bed/" + part, vanillaBlock("bed_" + part), BEDDING, false);
+            add("bed/" + part + "_frame", vanillaBlock("bed_" + part), BED_FRAME, false);
+        }
+        add("bed/item", new ResourceLocation("minecraft", "textures/items/bed.png"), BEDDING, false);
+        add("bed/item_frame", new ResourceLocation("minecraft", "textures/items/bed.png"), BED_FRAME, false);
 
         add("tulip/petals", vanillaBlock("flower_tulip_white"), GREY_IF_NOT_GREEN, false);
         add("tulip/stem", vanillaBlock("flower_tulip_white"), KEEP_IF_GREEN, false);
