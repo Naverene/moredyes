@@ -99,11 +99,13 @@ public final class DyedSheep {
         event.setCanceled(true);
     }
 
-    /** Some sheep spawn in the world with a More Dyes color, as set in the server config (see WildSheepColors). */
+    /**
+     * Some sheep spawn in the world with a More Dyes color, as set in the server config (see WildSheepColors): wild ones,
+     * and like vanilla's random colors also those from spawn eggs, spawners and /summon.
+     */
     private static void onSpawn(FinalizeSpawnEvent event) {
         if (!(event.getEntity() instanceof Sheep sheep) || event.isSpawnCancelled()
-            || (event.getSpawnType() != EntitySpawnReason.NATURAL
-                && event.getSpawnType() != EntitySpawnReason.CHUNK_GENERATION)) {
+            || event.getSpawnType() == EntitySpawnReason.BREEDING || event.getSpawnType() == EntitySpawnReason.CONVERSION) {
             return;
         }
         String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, ALL_HEX,

@@ -6,6 +6,9 @@
   "mixins": [
     "SimpleReloadableResourceManagerMixin"
   ],
+  "client": [
+    "SheepWoolLayerMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

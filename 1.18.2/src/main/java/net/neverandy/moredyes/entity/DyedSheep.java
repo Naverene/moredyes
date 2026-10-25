@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * Lets vanilla sheep wear any MoreDyes color. Vanilla sheep only know the 16 vanilla colors, so the MoreDyes color is
  * kept in the sheep's Forge data (saved with the sheep) and sent to the players who can see it. The client draws the
- * wool in that color (client/DyedSheepRenderer), and vanilla wool the sheep drops is swapped for the dyed wool.
+ * wool in that color (client/DyedSheepWool), and vanilla wool the sheep drops is swapped for the dyed wool.
  */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public final class DyedSheep
@@ -191,7 +191,27 @@ public final class DyedSheep
         {
             return;
         }
-        Sheep sheep = (Sheep) event.getEntity();
+        giveSpawnColor((Sheep) event.getEntity());
+    }
+
+    /**
+     * Sheep from spawn eggs, spawners and /summon get the same chance, like vanilla gives them a random vanilla color.
+     * SpecialSpawn fires for those (and for some natural spawns, which onSpawn already handled).
+     */
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onSpecialSpawn(LivingSpawnEvent.SpecialSpawn event)
+    {
+        if (!(event.getEntity() instanceof Sheep) || event.getSpawnReason() == MobSpawnType.NATURAL
+                || event.getSpawnReason() == MobSpawnType.CHUNK_GENERATION || event.getSpawnReason() == MobSpawnType.BREEDING
+                || event.getSpawnReason() == MobSpawnType.CONVERSION)
+        {
+            return;
+        }
+        giveSpawnColor((Sheep) event.getEntity());
+    }
+
+    private static void giveSpawnColor(Sheep sheep)
+    {
         List<String> all = Arrays.asList(ColorStrings.ALL);
         String hex = WildSheepColors.pick(sheep.getRandom().nextDouble(), sheep.getRandom()::nextInt, all,
                 ConfigHandler.sheepSpawnChance.get(), ConfigHandler.sheepSpawnColors.get(),

@@ -6,6 +6,9 @@
   "mixins": [
     "MultiPackResourceManagerMixin"
   ],
+  "client": [
+    "SheepFurLayerMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

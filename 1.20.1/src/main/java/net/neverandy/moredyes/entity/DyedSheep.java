@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * Lets vanilla sheep wear any MoreDyes color. Vanilla sheep only know the 16 vanilla colors, so the MoreDyes color is
  * kept in the sheep's Forge data (saved with the sheep) and sent to the players who can see it. The client draws the
- * wool in that color (client/DyedSheepRenderer), and vanilla wool the sheep drops is swapped for the dyed wool.
+ * wool in that color (client/DyedSheepWool), and vanilla wool the sheep drops is swapped for the dyed wool.
  */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public final class DyedSheep
@@ -177,14 +177,15 @@ public final class DyedSheep
     }
 
     /**
-     * Some sheep spawn in the world with a MoreDyes color (see WildSheepColors). FinalizeSpawn fires both for sheep placed when a
-     * chunk is generated and for sheep that spawn later; it runs last so it sees whether another mod cancelled it.
+     * Some sheep spawn in the world with a MoreDyes color (see WildSheepColors): wild ones, and like vanilla's random colors
+     * also those from spawn eggs, spawners and /summon. FinalizeSpawn fires for all of them; it runs last so it sees
+     * whether another mod cancelled it.
      */
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onSpawn(MobSpawnEvent.FinalizeSpawn event)
     {
         if (!(event.getEntity() instanceof Sheep sheep) || event.isCanceled()
-                || (event.getSpawnType() != MobSpawnType.NATURAL && event.getSpawnType() != MobSpawnType.CHUNK_GENERATION))
+                || event.getSpawnType() == MobSpawnType.BREEDING || event.getSpawnType() == MobSpawnType.CONVERSION)
         {
             return;
         }

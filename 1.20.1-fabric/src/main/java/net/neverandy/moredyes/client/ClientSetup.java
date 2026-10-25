@@ -4,10 +4,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neverandy.moredyes.block.DyedShapes;
@@ -97,7 +95,6 @@ public final class ClientSetup implements ClientModInitializer
         BlockEntityRenderers.register(ModTileEntities.SIGN, DyedSignRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         BlockEntityRenderers.register(BlockEntityType.PISTON, DyedPistonRenderer::new);
-        EntityRendererRegistry.register(EntityType.SHEEP, DyedSheepRenderer::new);
         for (Block chest : MDBlock.chestArray)
         {
             if (chest == null)

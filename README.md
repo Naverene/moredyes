@@ -48,6 +48,7 @@ Where the settings live:
 
 Some sheep spawn in the wild with a More Dyes color, next to the white, greys, black, brown and pink vanilla sheep
 spawn with. By default 20% get one of the natural browns, beiges and greys, and 2% get a rare burgundy (`592626`).
+The same chances apply to sheep from spawn eggs, spawners and `/summon` (lambs still take after their parents).
 These are server settings, so a server's own config decides them for everyone who plays on it.
 
 | Setting | What it does |

@@ -2,7 +2,6 @@ package net.neverandy.moredyes.client;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -87,6 +86,5 @@ public final class ClientSetup
         event.registerBlockEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
-        event.registerEntityRenderer(EntityType.SHEEP, DyedSheepRenderer::new);
     }
 }
