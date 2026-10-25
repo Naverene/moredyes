@@ -468,7 +468,7 @@ public class CraftManager
 			Block dyed=entry.getKey();
 			String name="washing/"+dyed.getRegistryName().getResourcePath();
 			ItemStack anyShade=new ItemStack(dyed,1,OreDictionary.WILDCARD_VALUE);
-			if(dyed instanceof BlockShulkerBox)
+			if(dyed instanceof BlockShulkerBox||MDBlock.WASH_KEEPS_NBT.contains(dyed))
 			{
 				// The box keeps its contents.
 				keepNbt(name,"washing",entry.getValue().copy(),anyShade,Items.WATER_BUCKET);

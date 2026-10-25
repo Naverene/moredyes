@@ -35,7 +35,7 @@ public class CauldronWashHandler
 		}
 		Block block=Block.getBlockFromItem(held.getItem());
 		ItemStack washed=MDBlock.WASHED.get(block);
-		if(washed!=null&&block instanceof BlockShulkerBox&&held.hasTagCompound())
+		if(washed!=null&&(block instanceof BlockShulkerBox||MDBlock.WASH_KEEPS_NBT.contains(block))&&held.hasTagCompound())
 		{
 			// The box keeps its contents.
 			washed=washed.copy();

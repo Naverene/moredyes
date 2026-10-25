@@ -19,11 +19,13 @@ Dyed blocks behave like the vanilla blocks they are made from: dyed stone drops 
 
 If Thermal Foundation is installed, rockwool can be dyed too: eight rockwool of any color around a dye. Washing it gives back light gray rockwool, the color it is made in.
 
-If GregTech CEu is installed, a mixer dyes a stack of 64 vanilla blocks with one dye (30 EU/t, 64 seconds) and mixes the mod's dyes from vanilla dyes with twice the crafting table's output, so two dyes make four (30 EU/t, 5 seconds), and a chemical bath bleaches a dyed block back to its vanilla block with 50 L of chlorine, the way GregTech bleaches wool. The `gregtechRecipes` config option turns these off, and `ironChests` and `storageDrawers` leave out the dyed Iron Chests and Storage Drawers.
+If GregTech CEu is installed, a mixer dyes a stack of 64 vanilla blocks with one dye (30 EU/t, 64 seconds) and mixes the mod's dyes from vanilla dyes with twice the crafting table's output, so two dyes make four (30 EU/t, 5 seconds), and a chemical bath bleaches a dyed block back to its vanilla block with 50 L of chlorine, the way GregTech bleaches wool. The `gregtechRecipes` config option turns these off, and `ironChests`, `ironShulkerBoxes` and `storageDrawers` leave out the dyed Iron Chests, Iron Shulker Boxes and Storage Drawers.
 
 If Chisel or Rechiseled is installed, every dyed shade can be chiseled to and from its vanilla block (stone, wool, planks, chests and the rest). Where the chisel mod already has a group for the vanilla block, the shades join it. Neither mod is needed.
 
 If Iron Chests is installed, its iron, gold, diamond, copper, silver, crystal and obsidian chests come in every color: craft one with a dye (a dyed one can be dyed again). The panels of each side take the color and the edges, latch and inside keep the metal's; on the crystal chest, whose sides are clear glass, the edges take the color. Iron Chests' upgrades keep the color, and also turn a dyed wooden chest into a dyed iron or copper chest.
+
+Iron Chests 1.12.2 also has Iron Shulker Boxes, and those come in every color too: craft one (of any color, or already dyed) with a dye, and it keeps its contents. The shell takes the color and the metal trim keeps its own. Iron Chests' shulker box upgrades keep the color and the contents, and also turn a dyed vanilla shulker box into a dyed iron or copper one. A dyed box washes back to the purple box of its kind in a water cauldron, as vanilla shulker boxes do.
 
 If Storage Drawers is installed, its drawers come in every color in all five sizes: craft any wooden drawer of a size with a dye. They work with hoppers, keys, upgrades and drawer controllers like Storage Drawers' own. Their textures are made from Storage Drawers' oak drawers (MIT licensed, by jaquadro and Texelsaur).
 

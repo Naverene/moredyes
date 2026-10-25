@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
+import net.neverandy.moredyes.compat.ironchest.IronShulkerBoxCompat;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.item.MDItem;
@@ -53,6 +54,13 @@ final class HEIGroups
 		if(ConfigHandler.ironChestsAdded())
 		{
 			for(IronChestCompat.Tier tier:IronChestCompat.Tier.values())
+			{
+				add(kinds,tier.item);
+			}
+		}
+		if(ConfigHandler.ironShulkerBoxesAdded())
+		{
+			for(IronShulkerBoxCompat.Tier tier:IronShulkerBoxCompat.Tier.values())
 			{
 				add(kinds,tier.item);
 			}
