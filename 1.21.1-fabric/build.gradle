@@ -270,6 +270,7 @@ loom {
             inherit client
             name 'Screenshots'
             source sourceSets.screenshots
+            vmArg '-Xmx6g'
         }
     }
 }
