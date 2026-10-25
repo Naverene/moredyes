@@ -1,0 +1,368 @@
+{
+  "type": "moredyes:crafting_shapeless_keep_nbt",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:shulkerbox_ecbf99"
+      },
+      {
+        "item": "moredyes:shulkerbox_d9a6ec"
+      },
+      {
+        "item": "moredyes:shulkerbox_b3ccec"
+      },
+      {
+        "item": "moredyes:shulkerbox_f2f299"
+      },
+      {
+        "item": "moredyes:shulkerbox_bfe68c"
+      },
+      {
+        "item": "moredyes:shulkerbox_f9bfd2"
+      },
+      {
+        "item": "moredyes:shulkerbox_cccccc"
+      },
+      {
+        "item": "moredyes:shulkerbox_a6bfcc"
+      },
+      {
+        "item": "moredyes:shulkerbox_bf9fd9"
+      },
+      {
+        "item": "moredyes:shulkerbox_99a6d9"
+      },
+      {
+        "item": "moredyes:shulkerbox_b3a699"
+      },
+      {
+        "item": "moredyes:shulkerbox_b3bf99"
+      },
+      {
+        "item": "moredyes:shulkerbox_cc9999"
+      },
+      {
+        "item": "moredyes:shulkerbox_c56685"
+      },
+      {
+        "item": "moredyes:shulkerbox_9f8c85"
+      },
+      {
+        "item": "moredyes:shulkerbox_deb233"
+      },
+      {
+        "item": "moredyes:shulkerbox_aca526"
+      },
+      {
+        "item": "moredyes:shulkerbox_e57f6c"
+      },
+      {
+        "item": "moredyes:shulkerbox_92663f"
+      },
+      {
+        "item": "moredyes:shulkerbox_b98c66"
+      },
+      {
+        "item": "moredyes:shulkerbox_927f66"
+      },
+      {
+        "item": "moredyes:shulkerbox_ac5f72"
+      },
+      {
+        "item": "moredyes:shulkerbox_866672"
+      },
+      {
+        "item": "moredyes:shulkerbox_9f6633"
+      },
+      {
+        "item": "moredyes:shulkerbox_9f7f33"
+      },
+      {
+        "item": "moredyes:shulkerbox_b95933"
+      },
+      {
+        "item": "moredyes:shulkerbox_794c26"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c72d8"
+      },
+      {
+        "item": "moredyes:shulkerbox_cb9886"
+      },
+      {
+        "item": "moredyes:shulkerbox_998c79"
+      },
+      {
+        "item": "moredyes:shulkerbox_d265bf"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f4c92"
+      },
+      {
+        "item": "moredyes:shulkerbox_a672b9"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f65b9"
+      },
+      {
+        "item": "moredyes:shulkerbox_9946c5"
+      },
+      {
+        "item": "moredyes:shulkerbox_734cc5"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c4c86"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c6586"
+      },
+      {
+        "item": "moredyes:shulkerbox_a64086"
+      },
+      {
+        "item": "moredyes:shulkerbox_663379"
+      },
+      {
+        "item": "moredyes:shulkerbox_a5bf86"
+      },
+      {
+        "item": "moredyes:shulkerbox_72b279"
+      },
+      {
+        "item": "moredyes:shulkerbox_ac8cbf"
+      },
+      {
+        "item": "moredyes:shulkerbox_597392"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f99b9"
+      },
+      {
+        "item": "moredyes:shulkerbox_598cb9"
+      },
+      {
+        "item": "moredyes:shulkerbox_726cc5"
+      },
+      {
+        "item": "moredyes:shulkerbox_4d73c5"
+      },
+      {
+        "item": "moredyes:shulkerbox_667386"
+      },
+      {
+        "item": "moredyes:shulkerbox_668c86"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f6686"
+      },
+      {
+        "item": "moredyes:shulkerbox_405979"
+      },
+      {
+        "item": "moredyes:shulkerbox_b2d926"
+      },
+      {
+        "item": "moredyes:shulkerbox_ebb26c"
+      },
+      {
+        "item": "moredyes:shulkerbox_99993f"
+      },
+      {
+        "item": "moredyes:shulkerbox_bfbf66"
+      },
+      {
+        "item": "moredyes:shulkerbox_99b266"
+      },
+      {
+        "item": "moredyes:shulkerbox_b29272"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c9972"
+      },
+      {
+        "item": "moredyes:shulkerbox_a69933"
+      },
+      {
+        "item": "moredyes:shulkerbox_a6b233"
+      },
+      {
+        "item": "moredyes:shulkerbox_bf8c33"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f7f26"
+      },
+      {
+        "item": "moredyes:shulkerbox_b8a65f"
+      },
+      {
+        "item": "moredyes:shulkerbox_668c32"
+      },
+      {
+        "item": "moredyes:shulkerbox_8cb359"
+      },
+      {
+        "item": "moredyes:shulkerbox_66a659"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f5665"
+      },
+      {
+        "item": "moredyes:shulkerbox_598c65"
+      },
+      {
+        "item": "moredyes:shulkerbox_738c26"
+      },
+      {
+        "item": "moredyes:shulkerbox_73a626"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c8026"
+      },
+      {
+        "item": "moredyes:shulkerbox_4c7319"
+      },
+      {
+        "item": "moredyes:shulkerbox_864c5f"
+      },
+      {
+        "item": "moredyes:shulkerbox_c6596c"
+      },
+      {
+        "item": "moredyes:shulkerbox_ac7f6c"
+      },
+      {
+        "item": "moredyes:shulkerbox_ac666c"
+      },
+      {
+        "item": "moredyes:shulkerbox_9366ab"
+      },
+      {
+        "item": "moredyes:shulkerbox_b95fab"
+      },
+      {
+        "item": "moredyes:shulkerbox_9f7f9f"
+      },
+      {
+        "item": "moredyes:shulkerbox_c68c9f"
+      },
+      {
+        "item": "moredyes:shulkerbox_9f6679"
+      },
+      {
+        "item": "moredyes:shulkerbox_727272"
+      },
+      {
+        "item": "moredyes:shulkerbox_4c6572"
+      },
+      {
+        "item": "moredyes:shulkerbox_65467f"
+      },
+      {
+        "item": "moredyes:shulkerbox_404c7f"
+      },
+      {
+        "item": "moredyes:shulkerbox_594c40"
+      },
+      {
+        "item": "moredyes:shulkerbox_596540"
+      },
+      {
+        "item": "moredyes:shulkerbox_724040"
+      },
+      {
+        "item": "moredyes:shulkerbox_333333"
+      },
+      {
+        "item": "moredyes:shulkerbox_738c99"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c6ca5"
+      },
+      {
+        "item": "moredyes:shulkerbox_6673a5"
+      },
+      {
+        "item": "moredyes:shulkerbox_807366"
+      },
+      {
+        "item": "moredyes:shulkerbox_808c66"
+      },
+      {
+        "item": "moredyes:shulkerbox_996666"
+      },
+      {
+        "item": "moredyes:shulkerbox_595959"
+      },
+      {
+        "item": "moredyes:shulkerbox_655fa5"
+      },
+      {
+        "item": "moredyes:shulkerbox_4066a5"
+      },
+      {
+        "item": "moredyes:shulkerbox_596666"
+      },
+      {
+        "item": "moredyes:shulkerbox_597f66"
+      },
+      {
+        "item": "moredyes:shulkerbox_725966"
+      },
+      {
+        "item": "moredyes:shulkerbox_334c59"
+      },
+      {
+        "item": "moredyes:shulkerbox_5945b2"
+      },
+      {
+        "item": "moredyes:shulkerbox_734573"
+      },
+      {
+        "item": "moredyes:shulkerbox_735f73"
+      },
+      {
+        "item": "moredyes:shulkerbox_8c3973"
+      },
+      {
+        "item": "moredyes:shulkerbox_4c2c66"
+      },
+      {
+        "item": "moredyes:shulkerbox_4c4c73"
+      },
+      {
+        "item": "moredyes:shulkerbox_4c6573"
+      },
+      {
+        "item": "moredyes:shulkerbox_664073"
+      },
+      {
+        "item": "moredyes:shulkerbox_263366"
+      },
+      {
+        "item": "moredyes:shulkerbox_403326"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f4033"
+      },
+      {
+        "item": "moredyes:shulkerbox_666533"
+      },
+      {
+        "item": "moredyes:shulkerbox_7f5933"
+      },
+      {
+        "item": "moredyes:shulkerbox_404c26"
+      },
+      {
+        "item": "moredyes:shulkerbox_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:shulker_box"
+  }
+}

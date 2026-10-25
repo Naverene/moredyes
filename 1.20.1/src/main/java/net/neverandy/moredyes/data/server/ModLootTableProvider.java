@@ -5,6 +5,9 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -57,6 +60,9 @@ public class ModLootTableProvider
                 dropWhenSilkTouch(MDBlock.glassPaneArray[i]);
                 dropWhenSilkTouch(MDBlock.glassFoggyPaneArray[i]);
                 add(MDBlock.bookshelfArray[i], shelf -> createSingleItemTableWithSilkTouch(shelf, Items.BOOK, ConstantValue.exactly(3)));
+                add(MDBlock.bedArray[i], bed -> createSinglePropConditionTable(bed, BedBlock.PART, BedPart.HEAD));
+                add(MDBlock.bannerArray[i], this::createBannerDrop);
+                add(MDBlock.shulkerBoxArray[i], this::createShulkerBoxDrop);
                 dropWhenSilkTouch(MDBlock.iceArray[i]);
                 dropWhenSilkTouch(MDBlock.packedIceArray[i]);
                 for (TallFlowerBlock[] flowers : MDBlock.tallFlowerArrays)
@@ -84,9 +90,9 @@ public class ModLootTableProvider
         protected Iterable<Block> getKnownBlocks()
         {
             // Piston heads drop nothing, like the vanilla head, walls drop themselves in code (DyedWallBlock), and wall
-            // signs use their sign's loot table.
+            // signs and wall banners use the loot table of their standing block.
             return MDBlock.all().stream().filter(block -> !(block instanceof BlockPistonHead) && !(block instanceof DyedWallBlock)
-                    && !(block instanceof DyedWallSignBlock)).collect(Collectors.toList());
+                    && !(block instanceof DyedWallSignBlock) && !(block instanceof WallBannerBlock)).collect(Collectors.toList());
         }
     }
 }

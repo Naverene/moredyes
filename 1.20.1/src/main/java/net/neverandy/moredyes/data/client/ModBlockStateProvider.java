@@ -139,6 +139,15 @@ public class ModBlockStateProvider extends BlockStateProvider
             simpleBlock(MDBlock.signArray[i], sign);
             simpleBlock(MDBlock.wallSignArray[i], sign);
 
+            Block carpet = MDBlock.carpetArray[i];
+            simpleBlock(carpet, tinted(carpet, "carpet").texture("wool", tex("wool")));
+            // Beds, banners and shulker boxes are drawn by their renderers in client/; their block models only give
+            // the breaking particles.
+            simpleBlock(MDBlock.bedArray[i], models().getBuilder("bed").texture("particle", tex("wool")));
+            simpleBlock(MDBlock.bannerArray[i], models().getExistingFile(mcLoc("block/banner")));
+            simpleBlock(MDBlock.wallBannerArray[i], models().getExistingFile(mcLoc("block/banner")));
+            simpleBlock(MDBlock.shulkerBoxArray[i], models().getBuilder("shulkerbox").texture("particle", tex("shulker_box")));
+
             Block shelf = MDBlock.bookshelfArray[i];
             simpleBlock(shelf, tinted(shelf, "cube_column")
                     .texture("side", tex("bookshelf"))

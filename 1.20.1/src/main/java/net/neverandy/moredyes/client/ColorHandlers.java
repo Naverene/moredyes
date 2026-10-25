@@ -38,6 +38,20 @@ public final class ColorHandlers
         return matcher.find() ? vivid(Integer.parseInt(matcher.group(1), 16)) : WHITE;
     }
 
+    /** The color a More Dyes block is drawn in, or -1 for any other block (such as a vanilla one). */
+    public static int tintOf(Block block)
+    {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(block);
+        return name == null || !Reference.MOD_ID.equals(name.getNamespace()) ? -1 : colorOf(name);
+    }
+
+    /** The color a More Dyes block item is drawn in, or -1 for any other item. */
+    public static int tintOf(Item item)
+    {
+        ResourceLocation name = ForgeRegistries.ITEMS.getKey(item);
+        return name == null || !Reference.MOD_ID.equals(name.getNamespace()) ? -1 : colorOf(name);
+    }
+
     /**
      * The palette comes from the muted 1.7 colors, so it is drawn more saturated and brighter, closer to the modern dyes.
      * The registry names keep the original hex, so worlds are unaffected.
