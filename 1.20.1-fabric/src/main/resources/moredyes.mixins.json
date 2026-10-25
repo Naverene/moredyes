@@ -9,7 +9,12 @@
     "MultiPackResourceManagerMixin",
     "PistonBaseBlockMixin",
     "ServerEntityMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "TamableAnimalMixin"
+  ],
+  "client": [
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

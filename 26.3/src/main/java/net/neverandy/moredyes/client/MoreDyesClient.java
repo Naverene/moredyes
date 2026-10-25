@@ -4,11 +4,17 @@ import java.util.List;
 
 import com.google.common.reflect.TypeToken;
 
+import net.minecraft.client.renderer.entity.CatRenderer;
 import net.minecraft.client.renderer.entity.SheepRenderer;
+import net.minecraft.client.renderer.entity.WolfRenderer;
+import net.minecraft.client.renderer.entity.state.CatRenderState;
 import net.minecraft.client.renderer.entity.state.SheepRenderState;
+import net.minecraft.client.renderer.entity.state.WolfRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.context.ContextKey;
+import net.minecraft.world.entity.animal.feline.Cat;
 import net.minecraft.world.entity.animal.sheep.Sheep;
+import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.client.color.block.BlockTintSources;
@@ -25,6 +31,7 @@ import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.registry.ModBlockEntities;
 import net.neverandy.moredyes.registry.ModBlocks;
@@ -35,6 +42,10 @@ public class MoreDyesClient {
     /** The More Dyes color of a sheep being drawn, if it has one. Read by SheepRenderStateMixin. */
     public static final ContextKey<MixColor> SHEEP_COLOR = new ContextKey<>(
         Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "sheep_color"));
+
+    /** The More Dyes collar color of a wolf or cat being drawn, if it has one. Read by Wolf/CatCollarLayerMixin. */
+    public static final ContextKey<MixColor> COLLAR_COLOR = new ContextKey<>(
+        Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "collar_color"));
 
     public MoreDyesClient(IEventBus modBus) {
         modBus.addListener(MoreDyesClient::blockTints);
@@ -77,5 +88,9 @@ public class MoreDyesClient {
     private static void renderStateModifiers(RegisterRenderStateModifiersEvent event) {
         event.registerEntityModifier(new TypeToken<SheepRenderer>() {}, (Sheep sheep, SheepRenderState state) ->
             state.setRenderData(SHEEP_COLOR, DyedSheep.getColor(sheep).orElse(null)));
+        event.registerEntityModifier(new TypeToken<WolfRenderer>() {}, (Wolf wolf, WolfRenderState state) ->
+            state.setRenderData(COLLAR_COLOR, DyedCollars.getColor(wolf).orElse(null)));
+        event.registerEntityModifier(new TypeToken<CatRenderer>() {}, (Cat cat, CatRenderState state) ->
+            state.setRenderData(COLLAR_COLOR, DyedCollars.getColor(cat).orElse(null)));
     }
 }

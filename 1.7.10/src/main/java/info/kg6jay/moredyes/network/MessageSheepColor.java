@@ -6,7 +6,10 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import info.kg6jay.moredyes.MoreDyes;
 import io.netty.buffer.ByteBuf;
 
-/** Tells a player's game which More Dyes shade a sheep has, so it can draw the fleece in it. */
+/**
+ * Tells a player's game which More Dyes shade a sheep, or a wolf's collar, has, so it can draw the fleece or collar in
+ * it.
+ */
 public class MessageSheepColor implements IMessage {
 
     private int entityId;

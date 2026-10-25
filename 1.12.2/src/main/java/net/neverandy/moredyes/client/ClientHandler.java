@@ -16,10 +16,13 @@ import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderSheep;
+import net.minecraft.client.renderer.entity.RenderWolf;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerSheepWool;
+import net.minecraft.client.renderer.entity.layers.LayerWolfCollar;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -33,6 +36,7 @@ import net.neverandy.moredyes.block.BlockColored;
 import net.neverandy.moredyes.block.IColoredBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.block.TileColor;
+import net.neverandy.moredyes.handler.DyedCollarHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDItemDye;
@@ -180,7 +184,25 @@ public class ClientHandler
 			}
 		}
 	}
-	/** Records the color the server sent for a sheep; the wool layer reads it from there. */
+	/** Swaps the collar layer of the vanilla wolf renderer for one that knows the mod's colors. */
+	public static void registerWolfLayer()
+	{
+		Render<?> render=Minecraft.getMinecraft().getRenderManager().entityRenderMap.get(EntityWolf.class);
+		if(!(render instanceof RenderWolf))
+		{
+			LogHelper.warn("Another mod replaced the wolf renderer; collars dyed with More Dyes keep their vanilla look");
+			return;
+		}
+		List<LayerRenderer<EntityWolf>> layers=ObfuscationReflectionHelper.getPrivateValue(RenderLivingBase.class,(RenderLivingBase<?>)render,"field_177097_h");
+		for(int i=0;i<layers.size();i++)
+		{
+			if(layers.get(i) instanceof LayerWolfCollar)
+			{
+				layers.set(i,new LayerDyedWolfCollar((RenderWolf)render));
+			}
+		}
+	}
+	/** Records the color the server sent for a sheep or a wolf's collar; the wool and collar layers read it from there. */
 	public static void setSheepColor(final int entityId,final int color)
 	{
 		final Minecraft mc=Minecraft.getMinecraft();
@@ -192,6 +214,10 @@ public class ClientHandler
 				if(entity instanceof EntitySheep)
 				{
 					DyedSheepHandler.storeColor((EntitySheep)entity,color);
+				}
+				else if(entity instanceof EntityWolf)
+				{
+					DyedCollarHandler.storeColor((EntityWolf)entity,color);
 				}
 			}
 		});

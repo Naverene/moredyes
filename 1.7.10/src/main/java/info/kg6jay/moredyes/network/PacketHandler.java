@@ -21,15 +21,25 @@ public class PacketHandler {
 
     /** Sends a sheep's shade to every player who can see the sheep. */
     public static void sendSheepColor(Entity sheep, SheepColor color) {
-        if (sheep.worldObj instanceof WorldServer) {
-            MessageSheepColor message = new MessageSheepColor(sheep.getEntityId(), color.get());
-            ((WorldServer) sheep.worldObj).getEntityTracker()
-                .func_151247_a(sheep, channel.getPacketFrom(message));
-        }
+        sendColor(sheep, color.get());
     }
 
     /** Sends a sheep's shade to one player who has just started seeing the sheep. */
     public static void sendSheepColor(Entity sheep, SheepColor color, EntityPlayerMP player) {
-        channel.sendTo(new MessageSheepColor(sheep.getEntityId(), color.get()), player);
+        sendColor(sheep, color.get(), player);
+    }
+
+    /** Sends the packed shade of a sheep's fleece or a wolf's collar to every player who can see it. */
+    public static void sendColor(Entity entity, int color) {
+        if (entity.worldObj instanceof WorldServer) {
+            MessageSheepColor message = new MessageSheepColor(entity.getEntityId(), color);
+            ((WorldServer) entity.worldObj).getEntityTracker()
+                .func_151247_a(entity, channel.getPacketFrom(message));
+        }
+    }
+
+    /** Sends the packed shade of a sheep's fleece or a wolf's collar to one player who has just started seeing it. */
+    public static void sendColor(Entity entity, int color, EntityPlayerMP player) {
+        channel.sendTo(new MessageSheepColor(entity.getEntityId(), color), player);
     }
 }

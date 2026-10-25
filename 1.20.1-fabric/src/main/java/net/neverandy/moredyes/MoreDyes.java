@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.item.MDItem;
@@ -43,6 +44,7 @@ public class MoreDyes implements ModInitializer
         ModWorldGen.register();
         ModRecipes.register();
         DyedSheep.register();
+        DyedCollars.register();
         CauldronWashing.register();
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.

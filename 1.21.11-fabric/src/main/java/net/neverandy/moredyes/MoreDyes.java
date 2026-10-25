@@ -14,6 +14,7 @@ import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColors;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.registry.DataMaps;
@@ -41,6 +42,7 @@ public class MoreDyes implements ModInitializer {
         ModBlockEntities.register();
         ModCreativeTabs.register();
         DyedSheep.register();
+        DyedCollars.register();
         ModWorldGen.register();
         DataMaps.register();
         CauldronWashing.register();

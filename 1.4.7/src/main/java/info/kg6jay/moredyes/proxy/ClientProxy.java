@@ -3,6 +3,7 @@ package info.kg6jay.moredyes.proxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -19,9 +20,11 @@ import info.kg6jay.moredyes.client.DyedSignRenderer;
 import info.kg6jay.moredyes.client.FlowerPotRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderDyedSheep;
+import info.kg6jay.moredyes.client.RenderDyedWolf;
 import info.kg6jay.moredyes.client.RenderFallingDyed;
 import info.kg6jay.moredyes.entity.EntityFallingDyed;
 import info.kg6jay.moredyes.entity.SheepColors;
+import info.kg6jay.moredyes.entity.WolfCollars;
 
 public class ClientProxy extends CommonProxy {
 
@@ -48,6 +51,7 @@ public class ClientProxy extends CommonProxy {
 
         RenderingRegistry.registerEntityRenderingHandler(EntityFallingDyed.class, new RenderFallingDyed());
         RenderingRegistry.registerEntityRenderingHandler(EntitySheep.class, new RenderDyedSheep());
+        RenderingRegistry.registerEntityRenderingHandler(EntityWolf.class, new RenderDyedWolf());
     }
 
     @Override
@@ -56,6 +60,8 @@ public class ClientProxy extends CommonProxy {
         Entity entity = mc.theWorld == null ? null : mc.theWorld.getEntityByID(entityId);
         if (entity instanceof EntitySheep) {
             SheepColors.store((EntitySheep) entity, color);
+        } else if (entity instanceof EntityWolf) {
+            WolfCollars.store((EntityWolf) entity, color);
         }
     }
 }
