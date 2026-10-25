@@ -26,6 +26,7 @@ public class ConfigHandler {
     public static String[] rareSheepSpawnColors = WildSheepColors.RARE;
     public static boolean iron_chests = true;
     public static boolean storage_drawers = true;
+    public static boolean et_futurum = true;
     public static boolean gregtech_recipes = true;
 
     public static void init(File configFile) {
@@ -50,6 +51,14 @@ public class ConfigHandler {
     /** Whether the dyed Storage Drawers are added: Storage Drawers is installed and the config keeps them. */
     public static boolean storageDrawers() {
         return storage_drawers && Loader.isModLoaded(Reference.STORAGE_DRAWERS);
+    }
+
+    /**
+     * Whether the dyed Et Futurum Requiem shulker boxes may be added: the mod is installed and the config keeps them.
+     * EtFuturumCompat also checks that Et Futurum's own shulker boxes are turned on.
+     */
+    public static boolean etFuturum() {
+        return et_futurum && Loader.isModLoaded(Reference.ET_FUTURUM);
     }
 
     private static void loadConfiguration() {
@@ -130,6 +139,11 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "Set to false to leave out the dyed Storage Drawers. Only matters when Storage Drawers is installed; restart the game after changing it.");
+        et_futurum = config.getBoolean(
+            "Compat_EtFuturum",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Set to false to leave out the dyed Et Futurum Requiem shulker boxes. Only matters when Et Futurum Requiem is installed; restart the game after changing it.");
         gregtech_recipes = config.getBoolean(
             "Compat_GregTechRecipes",
             Configuration.CATEGORY_GENERAL,

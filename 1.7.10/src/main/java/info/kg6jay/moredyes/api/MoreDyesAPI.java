@@ -18,6 +18,8 @@ import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDSign;
+import info.kg6jay.moredyes.compat.etfuturum.DyedShulkerBoxItem;
+import info.kg6jay.moredyes.compat.etfuturum.DyedShulkerBoxTile;
 import info.kg6jay.moredyes.compat.ironchest.DyedIronChestItem;
 import info.kg6jay.moredyes.compat.ironchest.DyedIronChestTile;
 import info.kg6jay.moredyes.compat.storagedrawers.DyedDrawersItem;
@@ -91,7 +93,8 @@ public final class MoreDyesAPI {
 
     /**
      * The More Dyes color of a dye or of any dyed More Dyes item, such as dyed wool, planks, chests, stairs, pistons or
-     * (with Iron Chests or Storage Drawers) dyed iron chests and drawers. Empty if the stack has no More Dyes color.
+     * (with Iron Chests, Storage Drawers or Et Futurum Requiem) dyed iron chests, drawers and shulker boxes. Empty if
+     * the stack has no More Dyes color.
      */
     public static OptionalInt getColor(ItemStack stack) {
         if (stack == null) {
@@ -106,7 +109,8 @@ public final class MoreDyesAPI {
         // color, numbered as in ColorIndex.
         if (item instanceof MDItemBlockTileColored || item instanceof MDItemDyedSign
             || Loader.isModLoaded(Reference.IRON_CHESTS) && item instanceof DyedIronChestItem
-            || Loader.isModLoaded(Reference.STORAGE_DRAWERS) && item instanceof DyedDrawersItem) {
+            || Loader.isModLoaded(Reference.STORAGE_DRAWERS) && item instanceof DyedDrawersItem
+            || Loader.isModLoaded(Reference.ET_FUTURUM) && item instanceof DyedShulkerBoxItem) {
             return index(damage);
         }
         Block block = Block.getBlockFromItem(item);
@@ -134,6 +138,9 @@ public final class MoreDyesAPI {
         }
         if (Loader.isModLoaded(Reference.STORAGE_DRAWERS) && tile instanceof DyedDrawersTile drawers) {
             return index(drawers.getColor());
+        }
+        if (Loader.isModLoaded(Reference.ET_FUTURUM) && tile instanceof DyedShulkerBoxTile box) {
+            return index(box.getDye());
         }
         return OptionalInt.empty();
     }
