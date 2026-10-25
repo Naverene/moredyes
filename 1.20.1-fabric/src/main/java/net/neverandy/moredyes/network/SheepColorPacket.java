@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neverandy.moredyes.reference.Reference;
 
-/** Tells a client the MoreDyes color of a sheep (-1 for a vanilla color). The client reads it in client/ClientPackets. */
+/** Tells a client the MoreDyes color of a sheep's wool or a wolf's or cat's collar (-1 for a vanilla color). The client reads it in client/ClientPackets. */
 public class SheepColorPacket
 {
     public static final ResourceLocation ID = new ResourceLocation(Reference.MOD_ID, "sheep_color");

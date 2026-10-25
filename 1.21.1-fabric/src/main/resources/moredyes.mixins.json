@@ -12,10 +12,14 @@
     "PistonHeadBlockMixin",
     "PortalShapeMixin",
     "RecipeManagerMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "WolfAccessor",
+    "CatAccessor"
   ],
   "client": [
-    "SheepFurLayerMixin"
+    "SheepFurLayerMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -5,6 +5,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraft.entity.EntityType;
 import net.neverandy.moredyes.api.MoreDyesAPI;
 import net.neverandy.moredyes.client.DyedPistonRenderer;
+import net.neverandy.moredyes.client.DyedCollarRenderers;
 import net.neverandy.moredyes.client.DyedSheepRenderer;
 import net.neverandy.moredyes.network.ModNetwork;
 import net.neverandy.moredyes.client.ChestRenderer;
@@ -211,6 +212,8 @@ public class MoreDyes
         ClientRegistry.bindTileEntityRenderer(ModTileEntities.CHEST.get(), ChestRenderer::new);
         ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityType.SHEEP, DyedSheepRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, DyedCollarRenderers.Wolves::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityType.CAT, DyedCollarRenderers.Cats::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         ClientRegistry.bindTileEntityRenderer(TileEntityType.PISTON, DyedPistonRenderer::new);
         // do something that can only be done on the client

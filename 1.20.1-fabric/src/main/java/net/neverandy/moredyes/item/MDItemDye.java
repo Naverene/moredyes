@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neverandy.moredyes.entity.DyedSheep;
 
-/** A MoreDyes dye. It dyes sheep (see entity/DyedSheep) and is a crafting ingredient for the dyed blocks. */
+/** A MoreDyes dye. It dyes sheep (see entity/DyedSheep), wolf and cat collars (entity/DyedCollars), and is a crafting ingredient for the dyed blocks. */
 public class MDItemDye extends Item
 {
     private final int color;

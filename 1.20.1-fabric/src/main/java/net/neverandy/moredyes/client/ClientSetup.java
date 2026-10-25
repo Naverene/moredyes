@@ -98,6 +98,8 @@ public final class ClientSetup implements ClientModInitializer
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         BlockEntityRenderers.register(BlockEntityType.PISTON, DyedPistonRenderer::new);
         EntityRendererRegistry.register(EntityType.SHEEP, DyedSheepRenderer::new);
+        EntityRendererRegistry.register(EntityType.WOLF, DyedCollarRenderers.Wolves::new);
+        EntityRendererRegistry.register(EntityType.CAT, DyedCollarRenderers.Cats::new);
         for (Block chest : MDBlock.chestArray)
         {
             if (chest == null)

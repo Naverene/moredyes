@@ -5,6 +5,6 @@ public class CommonProxy {
 
     public void registerRenderers() {}
 
-    /** The server sent the color of a sheep. */
+    /** The server sent the color of a sheep, or of a wolf's collar. */
     public void onSheepColor(int entityId, int color) {}
 }

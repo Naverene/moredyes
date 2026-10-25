@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
-/** Hooks up the renderers for dyed chests, dyed signs, dyed sheep and moving dyed pistons. */
+/** Hooks up the renderers for dyed chests, dyed signs, dyed sheep, dyed pet collars and moving dyed pistons. */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientRenderers
 {
@@ -21,6 +21,8 @@ public final class ClientRenderers
         event.registerBlockEntityRenderer(ModTileEntities.CHEST.get(), ChestRenderer::new);
         event.registerBlockEntityRenderer(ModTileEntities.SIGN.get(), DyedSignRenderer::new);
         event.registerEntityRenderer(EntityType.SHEEP, DyedSheepRenderer::new);
+        event.registerEntityRenderer(EntityType.WOLF, DyedCollarRenderers.Wolves::new);
+        event.registerEntityRenderer(EntityType.CAT, DyedCollarRenderers.Cats::new);
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
     }

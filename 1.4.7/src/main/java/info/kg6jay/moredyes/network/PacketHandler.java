@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
@@ -17,6 +18,7 @@ import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
 import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.entity.SheepColors;
+import info.kg6jay.moredyes.entity.WolfCollars;
 
 /**
  * Sends sheep colors to the players who see the sheep. Minecraft 1.4.7 cannot tell mods when a player starts seeing an
@@ -38,11 +40,14 @@ public class PacketHandler implements IPacketHandler {
             if (type == ASK_SHEEP && player instanceof EntityPlayerMP) {
                 EntityPlayerMP playerMP = (EntityPlayerMP) player;
                 Entity entity = playerMP.worldObj.getEntityByID(entityId);
+                int color = SheepColors.NONE;
                 if (entity instanceof EntitySheep) {
-                    int color = SheepColors.get((EntitySheep) entity);
-                    if (color != SheepColors.NONE) {
-                        PacketDispatcher.sendPacketToPlayer(sheepColor(entityId, color), player);
-                    }
+                    color = SheepColors.get((EntitySheep) entity);
+                } else if (entity instanceof EntityWolf) {
+                    color = WolfCollars.get((EntityWolf) entity);
+                }
+                if (color != SheepColors.NONE) {
+                    PacketDispatcher.sendPacketToPlayer(sheepColor(entityId, color), player);
                 }
             } else if (type == SHEEP_COLOR) {
                 MoreDyes.proxy.onSheepColor(entityId, in.readShort());

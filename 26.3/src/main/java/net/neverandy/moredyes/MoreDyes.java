@@ -16,6 +16,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColors;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.registry.ModBlockEntities;
@@ -43,6 +44,7 @@ public class MoreDyes {
         ModBlockEntities.register(modBus);
         ModCreativeTabs.register(modBus);
         DyedSheep.register(modBus);
+        DyedCollars.register(modBus);
         modBus.addListener(CauldronWashing::register);
         modBus.addListener(MoreDyes::commonSetup);
         container.registerConfig(ModConfig.Type.SERVER, Config.SPEC);

@@ -7,7 +7,7 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-/** Tells a client the MoreDyes color of a sheep (-1 for a vanilla color). */
+/** Tells a client the MoreDyes color of a sheep's wool or a wolf's or cat's collar (-1 for a vanilla color). */
 public class SheepColorPacket
 {
     public final int entityId;

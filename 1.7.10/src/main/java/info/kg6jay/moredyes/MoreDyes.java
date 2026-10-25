@@ -26,6 +26,7 @@ import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
+import info.kg6jay.moredyes.handler.WolfCollarHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
 import info.kg6jay.moredyes.network.PacketHandler;
@@ -98,6 +99,7 @@ public class MoreDyes {
         MDBlock.registerWashing();
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
+        MinecraftForge.EVENT_BUS.register(new WolfCollarHandler());
         GameRegistry.registerFuelHandler(new FuelHandler());
         CraftManager.addCraftingRecipes();
         CraftManager.addSmeltingRecipes();

@@ -13,7 +13,10 @@ import net.minecraft.world.item.ItemStack;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.entity.DyedSheep;
 
-/** One of the mixed dyes. Like a vanilla dye, it can be used on a sheep to dye its wool. */
+/**
+ * One of the mixed dyes. Like a vanilla dye, it can be used on a sheep to dye its wool, or on a tamed wolf or cat to
+ * dye its collar (see {@code entity/DyedCollars}).
+ */
 public class MixDyeItem extends Item {
 
     private final MixColor color;

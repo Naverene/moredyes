@@ -8,10 +8,14 @@
     "EndCrystalItemMixin",
     "PistonBaseBlockMixin",
     "PistonHeadBlockMixin",
-    "DiodeBlockMixin"
+    "DiodeBlockMixin",
+    "WolfAccessor",
+    "CatAccessor"
   ],
   "client": [
-    "SheepRenderStateMixin"
+    "SheepRenderStateMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -15,7 +15,7 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.Reference;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
-/** Client-only setup: which blocks are see-through, and the renderers for chests, signs, pistons and sheep. */
+/** Client-only setup: which blocks are see-through, and the renderers for chests, signs, pistons, sheep and pet collars. */
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientSetup
 {
@@ -88,5 +88,7 @@ public final class ClientSetup
         // Replaces the vanilla renderer for blocks being moved by pistons, so dyed pistons move their own heads.
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
         event.registerEntityRenderer(EntityType.SHEEP, DyedSheepRenderer::new);
+        event.registerEntityRenderer(EntityType.WOLF, DyedCollarRenderers.Wolves::new);
+        event.registerEntityRenderer(EntityType.CAT, DyedCollarRenderers.Cats::new);
     }
 }

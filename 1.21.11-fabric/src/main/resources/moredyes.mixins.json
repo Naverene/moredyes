@@ -11,11 +11,18 @@
     "PistonHeadBlockMixin",
     "PortalShapeMixin",
     "RecipeManagerMixin",
-    "SheepMixin"
+    "SheepMixin",
+    "WolfAccessor",
+    "CatAccessor"
   ],
   "client": [
     "SheepRendererMixin",
-    "SheepRenderStateMixin"
+    "SheepRenderStateMixin",
+    "CollarRenderStateMixin",
+    "WolfRendererMixin",
+    "CatRendererMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

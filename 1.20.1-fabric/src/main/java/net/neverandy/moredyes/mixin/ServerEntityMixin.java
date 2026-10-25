@@ -3,7 +3,9 @@ package net.neverandy.moredyes.mixin;
 import net.minecraft.server.level.ServerEntity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.Sheep;
+import net.neverandy.moredyes.entity.DyedCollars;
 import net.neverandy.moredyes.entity.DyedSheep;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/** Once a player has been sent a sheep, also send its MoreDyes color. */
+/** Once a player has been sent a sheep, or a wolf or cat, also send its MoreDyes wool or collar color. */
 @Mixin(ServerEntity.class)
 public abstract class ServerEntityMixin
 {
@@ -26,6 +28,10 @@ public abstract class ServerEntityMixin
         if (entity instanceof Sheep sheep)
         {
             DyedSheep.startedSeeing(sheep, player);
+        }
+        else if (entity instanceof TamableAnimal pet && DyedCollars.hasCollar(pet))
+        {
+            DyedCollars.startedSeeing(pet, player);
         }
     }
 }

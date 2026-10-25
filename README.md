@@ -1,6 +1,6 @@
 # More Dyes
 
-More Dyes adds more than 100 new dye colors to Minecraft, with stone, wood, wool, glass, chests, sheep and more in every color. Download it from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/moredyes) or from this repository's releases.
+More Dyes adds more than 100 new dye colors to Minecraft, with stone, wood, wool, glass, chests, sheep, pet collars and more in every color. Download it from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/moredyes) or from this repository's releases.
 
 This repository holds every version of the mod, one folder per Minecraft version:
 
@@ -67,6 +67,12 @@ Where the settings live:
 
 Worlds that already have a config file keep the `sheep_spawn_chance` saved in it (it was 0.05), but use the natural
 colors from now on.
+
+## Dyed collars
+
+Any More Dyes dye can recolor the collar of a tamed wolf or cat you own: right-click the pet with the dye, the same as
+with a vanilla dye. The collar keeps the exact More Dyes color, and a vanilla dye turns it back to a vanilla color.
+Cats have collars from Minecraft 1.14 on, so 1.4.7, 1.7.10 and 1.12.2 only dye wolf collars.
 
 ## For other mods
 
