@@ -61,6 +61,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider
             tag(wood ? BlockTags.WOODEN_STAIRS : BlockTags.STAIRS).add(shapes.stairs);
         }
         tag(BlockTags.WOOL).add(MDBlock.woolArray);
+        tag(BlockTags.WOOL_CARPETS).add(MDBlock.carpetArray);
+        tag(BlockTags.BEDS).add(MDBlock.bedArray);
+        tag(BlockTags.BANNERS).add(concat(MDBlock.bannerArray, MDBlock.wallBannerArray));
+        tag(BlockTags.SHULKER_BOXES).add(MDBlock.shulkerBoxArray);
         tag(BlockTags.GUARDED_BY_PIGLINS).add(MDBlock.chestArray);
         tag(Tags.Blocks.CHESTS_WOODEN).add(MDBlock.chestArray);
         tag(BlockTags.STANDING_SIGNS).add(MDBlock.signArray);

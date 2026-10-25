@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neverandy.moredyes.block.Furnishings;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
@@ -85,5 +86,6 @@ public class MoreDyes
     {
         ModNetwork.register();
         event.enqueueWork(MDBlock::registerPottedPlants);
+        event.enqueueWork(Furnishings::setup);
     }
 }

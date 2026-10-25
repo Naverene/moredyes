@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "W": {
+      "item": "moredyes:wool_ac7f6c"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "PPP"
+  ],
+  "result": {
+    "item": "moredyes:bed_ac7f6c"
+  }
+}

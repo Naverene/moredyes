@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "moredyes:7f4033_dye"
+    },
+    "S": {
+      "item": "minecraft:white_carpet"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moredyes:carpet_7f4033"
+  }
+}
