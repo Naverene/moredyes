@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
+import net.minecraft.client.renderer.entity.LlamaRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.EntityType;
@@ -16,7 +18,7 @@ import net.neverandy.moredyes.compat.ironchest.client.IronChestClient;
 import net.neverandy.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import net.neverandy.moredyes.tileentity.ModTileEntities;
 
-/** Client-only setup: which blocks are see-through, the colors, and the renderers for chests, signs, pistons and sheep. */
+/** Client-only setup: which blocks are see-through, the colors, and the renderers for chests, signs, pistons, beds, banners, shulker boxes, sheep and llamas. */
 public final class ClientSetup implements ClientModInitializer
 {
     @Override
@@ -60,6 +62,7 @@ public final class ClientSetup implements ClientModInitializer
                     layer(RenderType.cutout(), flowers[i]);
                 }
                 layer(RenderType.cutout(), MDBlock.chainArray[i]);
+                layer(RenderType.cutout(), MDBlock.carpetArray[i]);
                 for (MDBlock.PottedPlants potted : MDBlock.POTTED)
                 {
                     layer(RenderType.cutout(), potted.pots[i]);
@@ -106,5 +109,27 @@ public final class ClientSetup implements ClientModInitializer
             }
             BuiltinItemRendererRegistry.INSTANCE.register(chest, ChestItemRenderer.get());
         }
+        // Dyed beds, banners and shulker boxes share vanilla's block entities, so these replace vanilla's renderers.
+        BlockEntityRenderers.register(BlockEntityType.BED, DyedBedRenderer::new);
+        BlockEntityRenderers.register(BlockEntityType.BANNER, DyedBannerRenderer::new);
+        BlockEntityRenderers.register(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
+        for (Block[] blocks : new Block[][] {MDBlock.bedArray, MDBlock.bannerArray, MDBlock.shulkerBoxArray})
+        {
+            for (Block block : blocks)
+            {
+                if (block != null)
+                {
+                    BuiltinItemRendererRegistry.INSTANCE.register(block, DyedItemRenderer.get());
+                }
+            }
+        }
+        // Llamas wear dyed carpets.
+        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((type, renderer, helper, context) ->
+        {
+            if (renderer instanceof LlamaRenderer llama)
+            {
+                helper.register(new DyedLlamaDecorLayer(llama, context.getModelSet()));
+            }
+        });
     }
 }

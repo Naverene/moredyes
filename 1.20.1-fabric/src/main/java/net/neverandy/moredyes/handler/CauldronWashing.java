@@ -8,11 +8,15 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neverandy.moredyes.reference.Reference;
 
@@ -36,6 +40,13 @@ public final class CauldronWashing
         BlockState state = level.getBlockState(pos);
         ItemStack held = player.getItemInHand(hand);
         if (player.isSpectator() || !state.is(Blocks.WATER_CAULDRON) || held.isEmpty())
+        {
+            return InteractionResult.PASS;
+        }
+        // Dyed shulker boxes and patterned banners are washed by vanilla's cauldron code (see block/Furnishings), which
+        // keeps their contents and patterns.
+        if (Block.byItem(held.getItem()) instanceof ShulkerBoxBlock
+                || held.getItem() instanceof BannerItem && BannerBlockEntity.getPatternCount(held) > 0)
         {
             return InteractionResult.PASS;
         }
@@ -66,7 +77,11 @@ public final class CauldronWashing
         {
             return ItemStack.EMPTY;
         }
-        return level.getRecipeManager().byKey(new ResourceLocation(Reference.MOD_ID, "washing/" + item.getPath()))
+        // One recipe per type, such as "washing/wool" for "wool_334c59".
+        String path = item.getPath();
+        int color = path.lastIndexOf('_');
+        String type = color < 0 ? path : path.substring(0, color);
+        return level.getRecipeManager().byKey(new ResourceLocation(Reference.MOD_ID, "washing/" + type))
                 .map((Recipe<?> recipe) -> recipe.getResultItem(level.registryAccess())).orElse(ItemStack.EMPTY);
     }
 }

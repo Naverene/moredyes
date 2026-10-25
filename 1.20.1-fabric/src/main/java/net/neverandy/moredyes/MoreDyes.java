@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.resources.ResourceLocation;
+import net.neverandy.moredyes.block.Furnishings;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
@@ -44,6 +45,7 @@ public class MoreDyes implements ModInitializer
         ModRecipes.register();
         DyedSheep.register();
         CauldronWashing.register();
+        Furnishings.setup();
 
         // Optional compat. The compat classes refer to the other mod's classes, so they are only touched when it's installed.
         if (FabricLoader.getInstance().isModLoaded(StorageDrawersCompat.MOD_ID) && Toggles.storageDrawers)

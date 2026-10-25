@@ -95,6 +95,7 @@ dependencies {
 }
 
 loom {
+    accessWidenerPath = file('src/main/resources/moredyes.accesswidener')
     runs {
         configureEach {
             runDir = 'run'

@@ -9,6 +9,7 @@ import net.neverandy.moredyes.api.MoreDyesAPI;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.item.MDItemDye;
+import net.neverandy.moredyes.reference.Reference;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +31,13 @@ public final class ColorHandlers
     {
         Matcher matcher = HEX.matcher(name.getPath());
         return matcher.find() ? vivid(Integer.parseInt(matcher.group(1), 16)) : WHITE;
+    }
+
+    /** The color a More Dyes block is drawn in, or -1 for any other block (such as a vanilla one). */
+    public static int tintOf(Block block)
+    {
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block);
+        return !Reference.MOD_ID.equals(name.getNamespace()) ? -1 : colorOf(name);
     }
 
     /**
