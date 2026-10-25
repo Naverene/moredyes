@@ -145,7 +145,24 @@ TEXTURES = {
     'blocks/tinted/lily_of_the_valley_stem': ('base:lily_of_the_valley_stem', KEEP),
     'items/sign': ('items/sign', GREY),
     'entity/sign': ('entity/sign', GREY),
+    'blocks/tinted/shulker_box': ('blocks/shulker_top_white', GREY),
+    'entity/shulker/dyed': ('entity/shulker/shulker_white', GREY),
 }
+
+# Textures split in two, for the renderers that draw them twice: the grey part tinted with the dye color, and the
+# part with a color of its own (a bed's wooden frame, the stripes on a llama's carpet) drawn over it as it is.
+# vanilla texture under textures/ -> (grey part, kept part)
+SPLIT = {
+    'entity/bed/white': ('entity/bed/dyed', 'entity/bed/dyed_frame'),
+    'entity/llama/decor/decor_white': ('entity/llama/decor/dyed', 'entity/llama/decor/dyed_stripes'),
+}
+
+
+def is_colorful(p):
+    r, g, b, a = p
+    if a == 0:
+        return False
+    return colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)[1] > 0.25
 
 # Flowers whose petals take the dye and whose stem keeps its green: block type -> vanilla texture under blocks/.
 FLOWERS = {
@@ -384,7 +401,17 @@ def make_textures(jar):
         path = os.path.join(ASSETS, 'textures/entity/chest', name + '.png')
         os.makedirs(os.path.dirname(path), exist_ok=True)
         image.save(path)
-    print('wrote %d textures' % (len(TEXTURES) + len(PISTON_OVERLAYS) + len(CHESTS)))
+    for src, (tinted, kept) in sorted(SPLIT.items()):
+        image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % src))).convert('RGBA')
+        pixels = list(image.getdata())
+        for name, data in [(tinted, [CLEAR if is_colorful(p) else grey(p) for p in pixels]),
+                           (kept, [p if is_colorful(p) else CLEAR for p in pixels])]:
+            layer = Image.new('RGBA', image.size)
+            layer.putdata(data)
+            path = os.path.join(ASSETS, 'textures', name + '.png')
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            layer.save(path)
+    print('wrote %d textures' % (len(TEXTURES) + len(PISTON_OVERLAYS) + len(CHESTS) + 2 * len(SPLIT)))
 
 
 def make_models(jar):
@@ -456,6 +483,21 @@ def make_models(jar):
     write_json('models/block/chest.json', {'textures': {'particle': T + 'plank'}})
     write_json('blockstates/chest.json', {'variants': {'normal': {'model': 'moredyes:chest'}}})
     write_json('models/item/chest.json', {'parent': 'minecraft:item/chest'})
+
+    # Carpet: the vanilla carpet model, tinted.
+    carpet = json.loads(jar.read('assets/minecraft/models/block/carpet.json').decode('utf-8'))
+    for element in carpet['elements']:
+        for face in element['faces'].values():
+            face['tintindex'] = 0
+    carpet['textures'] = {'particle': T + 'wool', 'wool': T + 'wool'}
+    block_and_item('carpet', carpet)
+
+    # Beds, banners and shulker boxes are drawn by their renderers, items too, like the vanilla ones; the block model
+    # only gives the breaking particles, which take the dye color.
+    for name, particle in [('bed', T + 'wool'), ('banner', T + 'wool'), ('shulker_box', T + 'shulker_box')]:
+        write_json('models/block/%s.json' % name, {'textures': {'particle': particle}})
+        write_json('blockstates/%s.json' % name, {'variants': {'normal': {'model': 'moredyes:' + name}}})
+        write_json('models/item/%s.json' % name, {'parent': 'minecraft:item/' + name})
 
     # Chain: two crossed planes, all tinted.
     write_json('models/block/chain.json', {

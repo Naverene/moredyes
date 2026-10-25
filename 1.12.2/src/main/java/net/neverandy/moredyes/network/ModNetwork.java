@@ -12,5 +12,6 @@ public class ModNetwork
 	public static void register()
 	{
 		CHANNEL.registerMessage(SheepColorMessage.Handler.class,SheepColorMessage.class,0,Side.CLIENT);
+		CHANNEL.registerMessage(LlamaCarpetMessage.Handler.class,LlamaCarpetMessage.class,1,Side.CLIENT);
 	}
 }

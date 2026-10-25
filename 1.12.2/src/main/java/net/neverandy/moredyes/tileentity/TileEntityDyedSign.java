@@ -8,7 +8,7 @@ import net.neverandy.moredyes.block.TileColor;
  * A dyed sign: the vanilla sign's text, and its color. It stays a TileEntitySign, so the vanilla sign editor and the
  * server's checks of an edited sign work with it as they are.
  */
-public class TileEntityDyedSign extends TileEntitySign
+public class TileEntityDyedSign extends TileEntitySign implements IDyedTile
 {
 	private static final String COLOR_TAG="color";
 
@@ -23,6 +23,16 @@ public class TileEntityDyedSign extends TileEntitySign
 	{
 		this.color=TileColor.clamp(color);
 		this.markDirty();
+	}
+	@Override
+	public int getColorIndex()
+	{
+		return this.color;
+	}
+	@Override
+	public void setColorIndex(int color)
+	{
+		this.setColor(color);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound)

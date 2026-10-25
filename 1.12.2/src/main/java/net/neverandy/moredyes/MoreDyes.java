@@ -15,6 +15,7 @@ import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.compat.ChiselCompat;
 import net.neverandy.moredyes.compat.ironchest.IronChestCompat;
 import net.neverandy.moredyes.compat.storagedrawers.StorageDrawersCompat;
+import net.neverandy.moredyes.entity.LlamaCarpets;
 import net.neverandy.moredyes.handler.CauldronWashHandler;
 import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.handler.DyedSheepHandler;
@@ -77,6 +78,7 @@ public class MoreDyes
 		MinecraftForge.EVENT_BUS.register(new FuelHandler());
 		MinecraftForge.EVENT_BUS.register(new DyedSheepHandler());
 		MinecraftForge.EVENT_BUS.register(new FlowerPotHandler());
+		MinecraftForge.EVENT_BUS.register(new LlamaCarpets());
 		proxy.init();
 		((Tab)tabDyes).setTabIcon(new ItemStack(MDItem.dye[0]));
 		((Tab)tabBlocks).setTabIcon(new ItemStack(MDBlock.wool[0]));

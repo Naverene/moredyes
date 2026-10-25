@@ -46,6 +46,9 @@ final class HEIGroups
 			add(kinds,Item.getItemFromBlock(block));
 		}
 		add(kinds,MDItem.sign);
+		add(kinds,MDItem.bed);
+		add(kinds,MDItem.banner);
+		add(kinds,Item.getItemFromBlock(MDBlock.shulkerBox));
 		// The compat items exist only with their mod, and their classes are only touched then.
 		if(ConfigHandler.ironChestsAdded())
 		{
