@@ -21,7 +21,7 @@ public final class CauldronWashing {
 
     private CauldronWashing() {}
 
-    /** Adds the washing to vanilla's water cauldron interactions. Called once, on the main thread, at common setup. */
+    /** Adds the washing to vanilla's water cauldron interactions. Call after the items are registered. */
     public static void register() {
         for (Kind kind : Kind.values()) {
             if (!kind.hasItem() || !kind.enabled() || kind.washed().isEmpty()) {
@@ -36,6 +36,18 @@ public final class CauldronWashing {
                 }
                 return ItemInteractionResult.sidedSuccess(level.isClientSide());
             };
+            if (kind == Kind.SHULKER_BOX) {
+                // A shulker box keeps its contents and loses its color, as vanilla's dyed ones do.
+                wash = CauldronInteraction.SHULKER_BOX;
+            } else if (kind == Kind.BANNER) {
+                // A banner with patterns loses its top pattern, as vanilla's do; one with none washes white.
+                CauldronInteraction plain = wash;
+                wash = (state, level, pos, player, hand, held) -> {
+                    ItemInteractionResult result = CauldronInteraction.BANNER.interact(state, level, pos, player, hand, held);
+                    return result == ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION
+                        ? plain.interact(state, level, pos, player, hand, held) : result;
+                };
+            }
             for (MixColor color : MixColors.ALL) {
                 CauldronInteraction.WATER.map().put(ModItems.get(kind, color), wash);
             }
