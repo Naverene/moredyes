@@ -39,6 +39,12 @@ public class MoreDyesClient implements ClientModInitializer {
         ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
         SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_chest"),
             DyedChestSpecialRenderer.Unbaked.MAP_CODEC);
+        SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_bed"),
+            DyedBedSpecialRenderer.Unbaked.MAP_CODEC);
+        SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_banner"),
+            DyedBannerSpecialRenderer.Unbaked.MAP_CODEC);
+        SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_shulker_box"),
+            DyedShulkerBoxSpecialRenderer.Unbaked.MAP_CODEC);
         renderers();
         // Optional compat, only touched when the other mod is installed.
         if (FabricLoader.getInstance().isModLoaded(StorageDrawersCompat.MOD_ID)) {
@@ -79,5 +85,9 @@ public class MoreDyesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(BlockEntityType.PISTON, context -> new DyedPistonRenderer());
         // Replaces vanilla's sign renderer, which dyed signs share, so they are drawn in their color.
         BlockEntityRendererRegistry.register(BlockEntityType.SIGN, DyedSignRenderer::new);
+        // Likewise for beds, banners and shulker boxes.
+        BlockEntityRendererRegistry.register(BlockEntityType.BED, DyedBedRenderer::new);
+        BlockEntityRendererRegistry.register(BlockEntityType.BANNER, DyedBannerRenderer::new);
+        BlockEntityRendererRegistry.register(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
 }
