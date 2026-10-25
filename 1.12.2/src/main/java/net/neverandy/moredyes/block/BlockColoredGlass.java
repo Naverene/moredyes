@@ -7,9 +7,11 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.neverandy.moredyes.utility.BlockInfo;
+import net.neverandy.moredyes.utility.ColorUtil;
 
 /** Dyed glass, clear or foggy. Like vanilla glass it drops nothing unless broken with silk touch. */
 public class BlockColoredGlass extends BlockColored
@@ -53,5 +55,11 @@ public class BlockColoredGlass extends BlockColored
 	public boolean shouldSideBeRendered(IBlockState blockState,IBlockAccess blockAccess,BlockPos pos,EnumFacing side)
 	{
 		return blockAccess.getBlockState(pos.offset(side))!=blockState&&super.shouldSideBeRendered(blockState,blockAccess,pos,side);
+	}
+	/** Tints a beacon beam passing through it in its own color, like vanilla stained glass. */
+	@Override
+	public float[] getBeaconColorMultiplier(IBlockState state,World world,BlockPos pos,BlockPos beaconPos)
+	{
+		return ColorUtil.beaconColor(this.getColor(this.getMetaFromState(state)));
 	}
 }

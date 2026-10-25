@@ -11,6 +11,11 @@ public final class ColorUtil
 	{
 		return Integer.parseInt(hex,16)&0xFFFFFF;
 	}
+	/** A 0xRRGGBB color as the red, green and blue fractions a beacon beam is tinted with. */
+	public static float[] beaconColor(int rgb)
+	{
+		return new float[]{(rgb>>16&0xFF)/255.0F,(rgb>>8&0xFF)/255.0F,(rgb&0xFF)/255.0F};
+	}
 	/** Keeps a metadata value inside a group's shades, falling back to the first shade. */
 	public static int clampShade(String[] colors,int meta)
 	{

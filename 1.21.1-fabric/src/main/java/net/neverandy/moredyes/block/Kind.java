@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.GlazedTerracottaBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.IceBlock;
-import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PoweredBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -30,7 +29,6 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoulSandBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
-import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
@@ -81,10 +79,10 @@ public enum Kind {
     LAPIS_BLOCK("lapis_block", "lapis_block", Tab.BLOCKS, simple()),
     REDSTONE_BLOCK("redstone_block", "redstone_block", Tab.BLOCKS, (color, p) -> new PoweredBlock(p)),
     QUARTZ_BLOCK("quartz_block", "quartz_block", Tab.BLOCKS, simple()),
-    GLASS("glass", "glass", Tab.BLOCKS, (color, p) -> new TransparentBlock(p)),
-    FOGGY_GLASS("foggy_glass", "glass", Tab.BLOCKS, (color, p) -> new TransparentBlock(p)),
-    GLASS_PANE("glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new IronBarsBlock(p)),
-    FOGGY_GLASS_PANE("foggy_glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new IronBarsBlock(p)),
+    GLASS("glass", "glass", Tab.BLOCKS, (color, p) -> new DyedGlassBlock(p, color)),
+    FOGGY_GLASS("foggy_glass", "glass", Tab.BLOCKS, (color, p) -> new DyedGlassBlock(p, color)),
+    GLASS_PANE("glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new DyedGlassPaneBlock(p, color)),
+    FOGGY_GLASS_PANE("foggy_glass_pane", "glass_pane", Tab.BLOCKS, (color, p) -> new DyedGlassPaneBlock(p, color)),
     BOOKSHELF("bookshelf", "bookshelf", Tab.BLOCKS, simple()),
     CRAFTING_TABLE("crafting_table", "crafting_table", Tab.BLOCKS, (color, p) -> new DyedCraftingTableBlock(p)),
     CHEST("chest", "chest", Tab.BLOCKS, (color, p) -> new DyedChestBlock(p)),
