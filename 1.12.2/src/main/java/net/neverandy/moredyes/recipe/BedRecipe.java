@@ -18,14 +18,15 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.neverandy.moredyes.block.MDBlock;
+import net.neverandy.moredyes.handler.ConfigHandler;
 import net.neverandy.moredyes.item.MDItem;
 import net.neverandy.moredyes.reference.ColorStrings;
 import net.neverandy.moredyes.tileentity.TileEntityDyedBed;
 
 /**
  * A bed recipe that remembers the planks the bed was made from (see TileEntityDyedBed): the planks used the most in the
- * grid, or the wood of the bed being dyed. It wraps the vanilla bed recipes, which then give a More Dyes bed in the
- * vanilla color when the planks are not oak, and the mod's own bed recipes.
+ * grid (unless the woodBedFrames config is off), or the wood of the bed being dyed. It wraps the vanilla bed recipes,
+ * which then give a More Dyes bed in the vanilla color when the planks are not oak, and the mod's own bed recipes.
  */
 public class BedRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
 {
@@ -79,7 +80,8 @@ public class BedRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRec
 				best=entry.getKey();
 			}
 		}
-		return best;
+		// With wooden frames turned off, new beds get the plain oak frame.
+		return ConfigHandler.woodBedFrames?best:null;
 	}
 	@Override
 	public boolean matches(InventoryCrafting inv,World world)
