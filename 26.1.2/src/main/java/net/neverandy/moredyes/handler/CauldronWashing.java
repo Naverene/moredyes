@@ -5,16 +5,20 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.neoforged.neoforge.event.RegisterCauldronInteractionEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 
+import net.neverandy.moredyes.block.DyedBedBlockEntity;
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.registry.ModBlocks;
 import net.neverandy.moredyes.registry.ModItems;
 
 /**
@@ -48,7 +52,15 @@ public final class CauldronWashing {
                         return CauldronInteractions.bannerInteraction(state, level, pos, player, hand, held);
                     }
                     if (!level.isClientSide()) {
-                        player.setItemInHand(hand, new ItemStack(washed, held.getCount()));
+                        ItemStack clean = new ItemStack(washed, held.getCount());
+                        Identifier wood = kind == Kind.BED ? DyedBedBlockEntity.woodOf(held) : null;
+                        Block white = ModBlocks.vanillaColorBed(DyeColor.WHITE);
+                        if (wood != null && white != null) {
+                            // A bed keeps its wood, so it becomes the More Dyes white bed, which remembers it.
+                            clean = new ItemStack(white, held.getCount());
+                            DyedBedBlockEntity.setWood(clean, wood);
+                        }
+                        player.setItemInHand(hand, clean);
                         player.awardStat(Stats.USE_CAULDRON);
                         LayeredCauldronBlock.lowerFillLevel(state, level, pos);
                     }
