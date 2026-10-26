@@ -13,5 +13,6 @@ public final class ModRecipes
     public static void register()
     {
         Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, new ResourceLocation(Reference.MOD_ID, KeepNbtShapelessRecipe.ID), KeepNbtShapelessRecipe.SERIALIZER);
+        Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, new ResourceLocation(Reference.MOD_ID, BedRecipe.ID), BedRecipe.SERIALIZER);
     }
 }

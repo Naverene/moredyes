@@ -19,6 +19,9 @@ public final class ModTileEntities
     /** One block entity type shared by every dyed sign, standing or on a wall. */
     public static BlockEntityType<DyedSignBlockEntity> SIGN;
 
+    /** One block entity type shared by every dyed bed, which remembers the planks the bed was made from. */
+    public static BlockEntityType<DyedBedBlockEntity> BED;
+
     private ModTileEntities() {}
 
     /** The blocks the config didn't turn off. */
@@ -33,5 +36,7 @@ public final class ModTileEntities
                 FabricBlockEntityTypeBuilder.create(MDChestTileEntity::new, present(MDBlock.chestArray)).build());
         SIGN = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Reference.MOD_ID, "sign"),
                 FabricBlockEntityTypeBuilder.create(DyedSignBlockEntity::new, present(MDBlock.signs())).build());
+        BED = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Reference.MOD_ID, "bed"),
+                FabricBlockEntityTypeBuilder.create(DyedBedBlockEntity::new, present(MDBlock.beds())).build());
     }
 }
