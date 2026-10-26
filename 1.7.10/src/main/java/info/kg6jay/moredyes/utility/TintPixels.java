@@ -25,6 +25,11 @@ public final class TintPixels {
         return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
     }
 
+    /** The brightness of a pixel, 0 to 255. */
+    public static int luminance(int argb) {
+        return grey(argb) & 255;
+    }
+
     /** The pixel in grey and this many times brighter. */
     public static int greyBrighter(int argb, float factor) {
         int lum = Math.min(255, Math.round((grey(argb) & 255) * factor));
@@ -39,6 +44,15 @@ public final class TintPixels {
     public static boolean isBedding(int argb) {
         int r = argb >> 16 & 255, g = argb >> 8 & 255, b = argb & 255;
         return (argb >>> 24) != 0 && r >= 0x40 && g < r * 0.53F && b < r * 0.53F;
+    }
+
+    /** True for the wooden frame of a vanilla bed: a visible brown, which neither the sheet nor the white pillow is. */
+    public static boolean isBedWood(int argb) {
+        if ((argb >>> 24) == 0 || isBedding(argb)) {
+            return false;
+        }
+        float[] hsb = Color.RGBtoHSB(argb >> 16 & 255, argb >> 8 & 255, argb & 255, null);
+        return hsb[1] > 0.25F;
     }
 
     /**

@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDBed;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDBlockColoredChest;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDFlowerPot;
@@ -791,6 +792,7 @@ public class MDBlock {
     public static void registerTileEntities() {
         GameRegistry.registerTileEntity(TileEntityMDBlockColoredChest.class, "MDBlockColoredChest");
         GameRegistry.registerTileEntity(TileEntityMDColor.class, "MDColor");
+        GameRegistry.registerTileEntity(TileEntityMDBed.class, "MDBed");
         GameRegistry.registerTileEntity(TileEntityMDPiston.class, "MDPiston");
         GameRegistry.registerTileEntity(TileEntityMDSign.class, "MDSign");
         GameRegistry.registerTileEntity(TileEntityMDFlowerPot.class, "MDFlowerPot");

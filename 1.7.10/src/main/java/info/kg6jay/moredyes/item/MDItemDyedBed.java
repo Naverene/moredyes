@@ -14,20 +14,25 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.MoreDyes;
+import info.kg6jay.moredyes.block.BedWood;
 import info.kg6jay.moredyes.block.MDBlock;
-import info.kg6jay.moredyes.block.TileColor;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDBed;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.ColorIndex;
 
 /**
- * A dyed bed in every color; the damage is the color's number (see ColorIndex). Placed like the vanilla bed, with the
- * color given to both halves. The icon is the vanilla one: its sheet tinted, then the pillow and frame over it.
+ * A dyed bed in every color; the damage is the color's number (see ColorIndex), and its tags keep the planks it was
+ * made from and whether it has the vanilla bedding (see BedWood). Placed like the vanilla bed, with all that given to
+ * both halves. The icon is the vanilla one: its sheet tinted, then the pillow and the frame in its wood over it.
  */
 public class MDItemDyedBed extends Item {
 
     @SideOnly(Side.CLIENT)
-    private IIcon sheet, frame;
+    private IIcon sheet, vanillaSheet, pillow;
+    /** By wood: BedWood.WOODS, then dyed planks. */
+    @SideOnly(Side.CLIENT)
+    private IIcon[] frames;
 
     public MDItemDyedBed() {
         this.setHasSubtypes(true);
@@ -39,7 +44,8 @@ public class MDItemDyedBed extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + stack.getItemDamage();
+        // A bed with the vanilla bedding has vanilla's name.
+        return BedWood.isVanilla(stack) ? "item.bed" : super.getUnlocalizedName(stack) + "_" + stack.getItemDamage();
     }
 
     /** The vanilla ItemBed's placement, with the dyed bed block. */
@@ -64,12 +70,11 @@ public class MDItemDyedBed extends Item {
             || !World.doesBlockHaveSolidTopSurface(world, x + dx, y - 1, z + dz)) {
             return false;
         }
-        int color = stack.getItemDamage();
         world.setBlock(x, y, z, MDBlock.bed, direction, 3);
-        TileColor.set(world, x, y, z, color);
+        setValues(world, x, y, z, stack);
         if (world.getBlock(x, y, z) == MDBlock.bed) {
             world.setBlock(x + dx, y, z + dz, MDBlock.bed, direction + 8, 3);
-            TileColor.set(world, x + dx, y, z + dz, color);
+            setValues(world, x + dx, y, z + dz, stack);
         }
         --stack.stackSize;
         return true;
@@ -91,19 +96,42 @@ public class MDItemDyedBed extends Item {
 
     @Override
     public int getRenderPasses(int meta) {
-        return 2;
+        return 3;
+    }
+
+    /** The wood the frame is drawn in, or null for oak. */
+    private static String frameWood(ItemStack stack) {
+        return BedWood.woodOf(stack);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int pass) {
-        return pass == 0 ? ColorIndex.rgb(stack.getItemDamage()) : 0xFFFFFF;
+        if (pass == 0) {
+            return BedWood.isVanilla(stack) ? 0xFFFFFF : ColorIndex.rgb(stack.getItemDamage());
+        }
+        int dyed = pass == 2 ? BedWood.dyed(frameWood(stack)) : -1;
+        return dyed < 0 ? 0xFFFFFF : ColorIndex.rgb(dyed);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(ItemStack stack, int pass) {
+        if (pass == 0) {
+            return BedWood.isVanilla(stack) ? this.vanillaSheet : this.sheet;
+        }
+        if (pass == 1) {
+            return this.pillow;
+        }
+        String wood = frameWood(stack);
+        int vanilla = BedWood.vanilla(wood);
+        return this.frames[vanilla >= 0 ? vanilla : BedWood.dyed(wood) >= 0 ? BedWood.WOODS.length : 0];
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamageForRenderPass(int damage, int pass) {
-        return pass == 0 ? this.sheet : this.frame;
+        return pass == 0 ? this.sheet : pass == 1 ? this.pillow : this.frames[0];
     }
 
     @Override
@@ -116,6 +144,20 @@ public class MDItemDyedBed extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister register) {
         this.sheet = TintedTextures.register(register, "bed/item");
-        this.frame = TintedTextures.register(register, "bed/item_frame");
+        this.vanillaSheet = TintedTextures.register(register, "bed/item_vanilla");
+        this.pillow = TintedTextures.register(register, "bed/item_pillow");
+        this.frames = new IIcon[BedWood.WOODS.length + 1];
+        for (int wood = 0; wood <= BedWood.WOODS.length; wood++) {
+            this.frames[wood] = TintedTextures
+                .register(register, "bed/item_frame_" + (wood < BedWood.WOODS.length ? BedWood.WOODS[wood] : "dyed"));
+        }
+    }
+
+    /** Gives a half of the bed the item's color, wood and bedding, and sends them to the players who can see it. */
+    private static void setValues(World world, int x, int y, int z, ItemStack stack) {
+        if (world.getTileEntity(x, y, z) instanceof TileEntityMDBed bed) {
+            bed.setItemValues(stack);
+            world.markBlockForUpdate(x, y, z);
+        }
     }
 }
