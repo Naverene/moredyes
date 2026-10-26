@@ -14,7 +14,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.BannerBlock;
-import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.ChainBlock;
@@ -168,8 +167,11 @@ public enum Kind {
     CHAIN("chain", "chain", Tab.BLOCKS, (color, p) -> new ChainBlock(p)),
     /** A carpet. A llama wears it in the carpet's color (see client/DyedLlamaDecorLayer). */
     CARPET("carpet", "white_carpet", Tab.BLOCKS, (color, p) -> new CarpetBlock(p)),
-    /** A bed, drawn tinted by client/DyedBedRenderer. Vanilla's bed code only needs a color for the bed's map icon. */
-    BED("bed", "white_bed", Tab.BLOCKS, (color, p) -> new BedBlock(DyeColor.WHITE, p)),
+    /**
+     * A bed, drawn tinted by client/DyedBedRenderer, with its frame in the planks it was made from. Vanilla's bed code
+     * only needs a color for the bed's map icon.
+     */
+    BED("bed", "white_bed", Tab.BLOCKS, (color, p) -> new DyedBedBlock(DyeColor.WHITE, p)),
     /**
      * A banner, drawn by client/DyedBannerRenderer with its base in its own color. It takes patterns on a loom like
      * a vanilla banner, which sees it as a white one.
