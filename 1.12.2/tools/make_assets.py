@@ -169,7 +169,6 @@ TEXTURES = {
 # as it is.
 # vanilla texture under textures/ -> (grey part, kept part)
 SPLIT = {
-    'entity/bed/white': ('entity/bed/dyed', 'entity/bed/dyed_frame'),
     'entity/llama/decor/decor_white': ('entity/llama/decor/dyed', 'entity/llama/decor/dyed_stripes'),
 }
 
@@ -189,6 +188,50 @@ def bed_split(jar, white):
                  for c in ('red', 'blue')]
     keep = [is_colorful(w) or (r[3] > 0 and not is_colorful(r) and not is_colorful(b)) for w, r, b in zip(white, red, blue)]
     return keep, red
+
+
+# The vanilla planks a bed can be made from (wood name in the bed's "Wood" tag -> planks texture under blocks/). Each
+# gets its own bed frame texture (textures/entity/bed/frame/<wood>).
+BED_WOODS = {'oak': 'planks_oak', 'spruce': 'planks_spruce', 'birch': 'planks_birch', 'jungle': 'planks_jungle',
+             'acacia': 'planks_acacia', 'dark_oak': 'planks_big_oak'}
+
+
+def bed_frames(jar, white, wood):
+    """The bed's wooden frame (the pixels where wood is True) redrawn in each kind of planks, plus a grey one that
+    client/DyedBedRenderer tints for dyed planks. Each frame pixel takes the planks' pixel at the same rank of
+    brightness, so the frame keeps its shading, and oak comes out like vanilla's frame."""
+    lum = lambda p: 0.299 * p[0] + 0.587 * p[1] + 0.114 * p[2]
+    frame = sorted((i for i, w in enumerate(wood) if w), key=lambda i: lum(white[i]))
+    frames = {}
+    for name, texture in BED_WOODS.items():
+        planks = sorted(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/blocks/%s.png' % texture)))
+                        .convert('RGBA').getdata(), key=lum)
+        pixels = [CLEAR] * len(white)
+        for rank, i in enumerate(frame):
+            pixels[i] = planks[round(rank * (len(planks) - 1) / max(1, len(frame) - 1))]
+        frames[name] = pixels
+    frames['dyed'] = [grey(p) if w else CLEAR for p, w in zip(white, wood)]
+    return frames
+
+
+def make_bed_textures(jar):
+    """The bed's layers for client/DyedBedRenderer: the grey bedding (tinted), the white pillow, and the frame in each
+    wood. A bed in a vanilla color draws vanilla's texture with the frame over it."""
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/bed/white.png'))).convert('RGBA')
+    pixels = list(image.getdata())
+    keep, shown = bed_split(jar, pixels)
+    wood = [is_colorful(p) for p in pixels]
+    layers = {'dyed': [CLEAR if k else grey(p) for p, k in zip(pixels, keep)],
+              'pillow': [p if k and not w else CLEAR for p, k, w in zip(shown, keep, wood)]}
+    for name, data in bed_frames(jar, pixels, wood).items():
+        layers['frame/' + name] = data
+    for name, data in layers.items():
+        layer = Image.new('RGBA', image.size)
+        layer.putdata(data)
+        path = os.path.join(ASSETS, 'textures/entity/bed', name + '.png')
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        layer.save(path)
+    return len(layers)
 
 # Flowers whose petals take the dye and whose stem keeps its green: block type -> vanilla texture under blocks/.
 FLOWERS = {
@@ -438,7 +481,8 @@ def make_textures(jar):
             path = os.path.join(ASSETS, 'textures', name + '.png')
             os.makedirs(os.path.dirname(path), exist_ok=True)
             layer.save(path)
-    print('wrote %d textures' % (len(TEXTURES) + len(PISTON_OVERLAYS) + len(CHESTS) + 2 * len(SPLIT)))
+    beds = make_bed_textures(jar)
+    print('wrote %d textures' % (len(TEXTURES) + len(PISTON_OVERLAYS) + len(CHESTS) + 2 * len(SPLIT) + beds))
 
 
 def make_models(jar):

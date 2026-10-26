@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityBanner;
 import net.minecraft.util.EnumActionResult;
@@ -15,6 +16,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.item.MDItem;
+import net.neverandy.moredyes.tileentity.TileEntityDyedBed;
 
 /**
  * Right-clicking a cauldron holding water with dyed blocks washes the whole stack for one level of water. A dyed banner
@@ -27,7 +29,15 @@ public class CauldronWashHandler
 	{
 		if(held.getItem()==MDItem.bed)
 		{
-			return new ItemStack(Items.BED,1,0);
+			// A bed of planks other than oak keeps them, as a white bed.
+			String wood=TileEntityDyedBed.woodOf(held);
+			if(wood==null)
+			{
+				return new ItemStack(Items.BED,1,0);
+			}
+			ItemStack white=TileEntityDyedBed.vanillaColorBed(EnumDyeColor.WHITE);
+			TileEntityDyedBed.setWood(white,wood);
+			return white;
 		}
 		if(held.getItem()==MDItem.banner)
 		{

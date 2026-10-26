@@ -27,7 +27,7 @@ public class DyedFurnishingItemRenderer extends TileEntityItemStackRenderer
 		TileEntity tile;
 		if(item==MDItem.bed)
 		{
-			this.bed.setColorIndex(stack.getMetadata());
+			this.bed.setItemValues(stack);
 			tile=this.bed;
 		}
 		else if(item==MDItem.banner)
