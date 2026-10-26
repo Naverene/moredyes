@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.data.client;
 
+import net.minecraft.item.DyeColor;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ChainBlock;
@@ -146,14 +147,21 @@ public class ModBlockStateProvider extends BlockStateProvider
             // Beds, banners and shulker boxes are drawn by their renderers in client/; their block models only give
             // the breaking particles.
             simpleBlock(MDBlock.bedArray[i], models().getBuilder("bed").texture("particle", tex("wool")));
+            if (i < MDBlock.vanillaColorBedArray.length)
+            {
+                String color = DyeColor.byId(i).getTranslationKey();
+                simpleBlock(MDBlock.vanillaColorBedArray[i], models().getBuilder("bed_" + color).texture("particle", mcLoc("block/" + color + "_wool")));
+            }
             simpleBlock(MDBlock.bannerArray[i], models().getExistingFile(mcLoc("block/banner")));
             simpleBlock(MDBlock.wallBannerArray[i], models().getExistingFile(mcLoc("block/banner")));
             simpleBlock(MDBlock.shulkerBoxArray[i], models().getBuilder("shulkerbox").texture("particle", tex("shulker_box")));
 
             Block shelf = MDBlock.bookshelfArray[i];
-            simpleBlock(shelf, tinted(shelf, "cube_column")
+            // Only the wood takes the dye: the books are drawn over it in their own colors.
+            simpleBlock(shelf, tinted(shelf, "bookshelf")
                     .texture("side", tex("bookshelf"))
-                    .texture("end", tex("oak_planks")));
+                    .texture("end", tex("oak_planks"))
+                    .texture("books", tex("bookshelf_books")));
 
             piston(MDBlock.pistonArray[i], "piston");
             piston(MDBlock.stickyPistonArray[i], "sticky_piston");

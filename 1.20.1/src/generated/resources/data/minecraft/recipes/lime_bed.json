@@ -1,0 +1,21 @@
+{
+  "type": "moredyes:crafting_bed",
+  "category": "misc",
+  "group": "bed",
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "W": {
+      "item": "minecraft:lime_wool"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "PPP"
+  ],
+  "result": {
+    "item": "minecraft:lime_bed"
+  },
+  "show_notification": true
+}

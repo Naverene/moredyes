@@ -26,6 +26,7 @@ public class ConfigHandler
     public static ForgeConfigSpec.DoubleValue sheepSpawnChance;
     public static ForgeConfigSpec.ConfigValue<List<? extends String>> sheepSpawnColors;
     public static ForgeConfigSpec.DoubleValue rareSheepSpawnChance;
+    public static ForgeConfigSpec.BooleanValue woodBedFrames;
     public static ForgeConfigSpec.ConfigValue<List<? extends String>> rareSheepSpawnColors;
     public static ForgeConfigSpec.BooleanValue wallBlocks;
     private static ForgeConfigSpec.BooleanValue stairBlocks;
@@ -116,5 +117,21 @@ public class ConfigHandler
         rareSheepSpawnColors = server.comment("The rare colors wild sheep can spawn with. The default is burgundy (592626).",
                 "Leave it empty ([]) for any MoreDyes color.")
                 .defineListAllowEmpty(List.of("rare_sheep_spawn_colors"), () -> WildSheepColors.RARE, name -> name instanceof String);
+        woodBedFrames = server.comment("Beds remember the planks they are crafted from and draw their frame in that wood.",
+                "Set to false to craft every bed with the plain oak frame, as in vanilla. Beds crafted before keep their wood.")
+                .define("wood_bed_frames", true);
+    }
+
+    /** Whether crafted beds remember their planks; on until the server config is loaded. */
+    public static boolean woodBedFrames()
+    {
+        try
+        {
+            return woodBedFrames.get();
+        }
+        catch (RuntimeException e)
+        {
+            return true;
+        }
     }
 }

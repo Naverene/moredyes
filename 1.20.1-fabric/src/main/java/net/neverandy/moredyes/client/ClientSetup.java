@@ -60,6 +60,8 @@ public final class ClientSetup implements ClientModInitializer
                     layer(RenderType.cutout(), flowers[i]);
                 }
                 layer(RenderType.cutout(), MDBlock.chainArray[i]);
+                // The books on a dyed bookshelf are an untinted layer drawn over the tinted wood.
+                layer(RenderType.cutout(), MDBlock.bookshelfArray[i]);
                 layer(RenderType.cutout(), MDBlock.carpetArray[i]);
                 for (MDBlock.PottedPlants potted : MDBlock.POTTED)
                 {
@@ -108,9 +110,10 @@ public final class ClientSetup implements ClientModInitializer
         }
         // Dyed beds, banners and shulker boxes share vanilla's block entities, so these replace vanilla's renderers.
         BlockEntityRenderers.register(BlockEntityType.BED, DyedBedRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.BED, DyedBedRenderer::new);
         BlockEntityRenderers.register(BlockEntityType.BANNER, DyedBannerRenderer::new);
         BlockEntityRenderers.register(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
-        for (Block[] blocks : new Block[][] {MDBlock.bedArray, MDBlock.bannerArray, MDBlock.shulkerBoxArray})
+        for (Block[] blocks : new Block[][] {MDBlock.beds(), MDBlock.bannerArray, MDBlock.shulkerBoxArray})
         {
             for (Block block : blocks)
             {

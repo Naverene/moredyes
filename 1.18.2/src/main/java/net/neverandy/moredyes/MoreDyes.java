@@ -249,6 +249,8 @@ public class MoreDyes
                     layer(flowers[i], RenderType.cutout());
                 }
                 layer(MDBlock.chainArray[i], RenderType.cutout());
+                // The books on a dyed bookshelf are an untinted layer drawn over the tinted wood.
+                layer(MDBlock.bookshelfArray[i], RenderType.cutout());
                 for (MDBlock.PottedPlants potted : MDBlock.POTTED)
                 {
                     layer(potted.pots[i], RenderType.cutout());

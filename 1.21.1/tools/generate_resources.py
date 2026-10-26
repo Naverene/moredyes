@@ -543,9 +543,26 @@ def main():
             if loot:
                 table = remap_ids(loot, ids)
                 table['random_sequence'] = '%s:blocks/%s' % (MOD, name)
+                if kind == 'bed':
+                    keep_wood(table)
                 w.write('data/%s/loot_table/blocks/%s.json' % (MOD, name), table)
 
     shapes(jars, w, models, kinds, colors, lang, names)
+
+    # The beds in the vanilla colors (bed_<color>), which a vanilla bed made from planks other than oak turns into, so
+    # it can remember them. They look like vanilla's, apart from the frame.
+    for dye in VANILLA_DYES:
+        vanilla = dye + '_bed'
+        name = 'bed_' + dye
+        w.write('assets/%s/blockstates/%s.json' % (MOD, name),
+                jars.json('assets/minecraft/blockstates/%s.json' % vanilla))
+        w.write('assets/%s/models/item/%s.json' % (MOD, name), {'parent': 'minecraft:item/' + vanilla})
+        table = remap_ids(jars.json('data/minecraft/loot_table/blocks/%s.json' % vanilla),
+                          {'minecraft:' + vanilla: '%s:%s' % (MOD, name)})
+        table['random_sequence'] = '%s:blocks/%s' % (MOD, name)
+        keep_wood(table)
+        w.write('data/%s/loot_table/blocks/%s.json' % (MOD, name), table)
+        names['block.%s.%s' % (MOD, name)] = lang['block.minecraft.' + vanilla]
 
     # Flower pots holding the dyed plants
     for kind in POTTABLE:
@@ -584,6 +601,14 @@ def main():
     w.write('data/neoforge/loot_modifiers/global_loot_modifiers.json',
             {'replace': False, 'entries': [MOD + ':dyed_sheep_wool']})
     print('wrote %d files to %s' % (w.count, os.path.relpath(OUT, ROOT)))
+
+
+def keep_wood(table):
+    """A bed drops itself with the planks it was made from (the moredyes:wood component, see DyedBedBlockEntity)."""
+    for pool in table['pools']:
+        for entry in pool['entries']:
+            entry.setdefault('functions', []).append({
+                'function': 'minecraft:copy_components', 'source': 'block_entity', 'include': [MOD + ':wood']})
 
 
 def shape_template(shape, base):
@@ -763,6 +788,9 @@ def tags(jars, w, kinds, colors):
             tag = '%s:%s' % m.groups()
             for entry in json.loads(jar.read(path)).get('values', []):
                 entry = entry['id'] if isinstance(entry, dict) else entry
+                m_bed = re.match(r'minecraft:([a-z_]+)_bed$', entry)
+                if m_bed and m_bed.group(1) in VANILLA_DYES:
+                    add(registry, tag, ['%s:bed_%s' % (MOD, m_bed.group(1))])
                 for kind, tab in by_vanilla.get(entry, []):
                     if registry == 'item' and tab == 'NONE':
                         continue
@@ -948,22 +976,30 @@ def recipes(jars, w, kinds, colors):
             return [ingredient(v) for v in value]
         return {'tag': value[1:]} if value.startswith('#') else {'item': value}
 
-    def shaped(path, result, count, pattern, key, priority=False):
+    def shaped(path, result, count, pattern, key, priority=False, type='minecraft:crafting_shaped', group=None):
         # Priority is kept for the record: every More Dyes recipe is tried before other mods' and vanilla's
         # (mixin/RecipeManagerMixin), so dyed planks make dyed chests rather than vanilla ones.
-        w.write('data/%s/recipe/%s.json' % (MOD, path), {
-            'type': 'minecraft:crafting_shaped', 'category': 'building',
-            'key': {k: ingredient(v) for k, v in key.items()}, 'pattern': pattern, 'result': item(result, count)})
+        recipe = {'type': type, 'category': 'building'}
+        if group:
+            recipe['group'] = group
+        recipe.update({'key': {k: ingredient(v) for k, v in key.items()}, 'pattern': pattern,
+                       'result': item(result, count)})
+        w.write('data/%s/recipe/%s.json' % (MOD, path), recipe)
+
+    def bed(path, result, wool):
+        """A bed that remembers the planks it is made from, which its frame is drawn in (item/crafting/BedRecipe)."""
+        shaped(path, result, 1, ['WWW', 'PPP'], {'W': wool, 'P': '#minecraft:planks'}, True, MOD + ':crafting_bed',
+               'bed')
 
     def shapeless(path, result, count, ingredients, category='building'):
         w.write('data/%s/recipe/%s.json' % (MOD, path), {
             'type': 'minecraft:crafting_shapeless', 'category': category,
             'ingredients': [ingredient(i) for i in ingredients], 'result': item(result, count)})
 
-    def keep_components(path, result, ingredients):
+    def keep_components(path, result, ingredients, group='shulker_box_dye'):
         """Like vanilla's shulker box dyeing: the result keeps the components (contents, name) of the first ingredient."""
         w.write('data/%s/recipe/%s.json' % (MOD, path), {
-            'type': MOD + ':crafting_shapeless_keep_components', 'category': 'misc', 'group': 'shulker_box_dye',
+            'type': MOD + ':crafting_shapeless_keep_components', 'category': 'misc', 'group': group,
             'ingredients': [ingredient(i) for i in ingredients], 'result': item(result)})
 
     # 1.21.1 has no item tag of shulker boxes; this one holds vanilla's and the dyed ones, for dyeing them.
@@ -990,6 +1026,11 @@ def recipes(jars, w, kinds, colors):
             print('  dye %s takes two each of %s, as one each makes a vanilla dye' % (color, ' and '.join(dyes)))
         shapeless('dye/%s' % color, '%s:dye_%s' % (MOD, color), count, ingredients, 'misc')
 
+    # Vanilla beds from colored wool, tried before vanilla's own recipes: made from planks other than oak, the bed is
+    # the More Dyes bed of that color, which remembers them.
+    for d in VANILLA_DYES:
+        bed('bed_from_%s_wool' % d, 'minecraft:%s_bed' % d, 'minecraft:%s_wool' % d)
+
     for c in colors:
         dye = '%s:dye_%s' % (MOD, c)
 
@@ -1012,10 +1053,11 @@ def recipes(jars, w, kinds, colors):
             wash(kind)
         # Beds, banners and carpets are made from dyed wool like vanilla's from colored wool. Any bed and a dye
         # make a dyed bed. A shulker box of any color and a dye make a dyed one, keeping its contents, like vanilla.
-        shapeless('dyeing/bed_%s' % c, b('bed'), 1, ['#minecraft:beds', dye])
+        # Dyeing a bed keeps the planks it was made from.
+        keep_components('dyeing/bed_%s' % c, b('bed'), ['#minecraft:beds', dye], 'bed_dye')
         wash('bed')
         wash('banner')
-        shaped('bed_%s' % c, b('bed'), 1, ['WWW', 'PPP'], {'W': b('wool'), 'P': '#minecraft:planks'}, True)
+        bed('bed_%s' % c, b('bed'), b('wool'))
         shaped('banner_%s' % c, b('banner'), 1, ['WWW', 'WWW', ' S '], {'W': b('wool'), 'S': 'minecraft:stick'}, True)
         shaped('carpet_%s' % c, b('carpet'), 3, ['WW'], {'W': b('wool')}, True)
         keep_components('dyeing/shulker_box_%s' % c, b('shulker_box'), ['#%s:shulker_boxes' % MOD, dye])

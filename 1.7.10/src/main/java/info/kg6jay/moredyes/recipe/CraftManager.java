@@ -705,6 +705,8 @@ public class CraftManager {
      */
     private static void addFurnishingRecipes() {
         ItemStack anyCarpet = new ItemStack(Blocks.carpet, 1, OreDictionary.WILDCARD_VALUE);
+        ItemStack[] anyBed = { new ItemStack(Items.bed), new ItemStack(MDItem.bed, 1, OreDictionary.WILDCARD_VALUE) };
+        BedRecipe.wrapVanilla();
         for (int a = 0; a < MDBlock.colors.length; a++) {
             for (int i = 0; i <= ((IBlockColored) MDBlock.wool[a]).getMaxMeta(); i++) {
                 ItemStack dye = new ItemStack(MDItem.dye[a], 1, i);
@@ -712,16 +714,21 @@ public class CraftManager {
                 int color = ColorIndex.of(a, i);
                 GameRegistry.addShapedRecipe(new ItemStack(MDBlock.carpet[a], 3, i), "WW", 'W', wool);
                 addSurroundRecipe(MDBlock.carpet[a], i, anyCarpet, dye);
+                // Beds remember their planks (see BedRecipe); a dyed bed can be dyed again, keeping them.
                 GameRegistry.addRecipe(
-                    new ShapedOreRecipe(
-                        new ItemStack(MDItem.bed, 1, color),
-                        "WWW",
-                        "PPP",
-                        'W',
-                        wool,
-                        'P',
-                        "plankWood"));
-                GameRegistry.addShapelessRecipe(new ItemStack(MDItem.bed, 1, color), Items.bed, dye);
+                    new BedRecipe(
+                        new ShapedOreRecipe(
+                            new ItemStack(MDItem.bed, 1, color),
+                            "WWW",
+                            "PPP",
+                            'W',
+                            wool,
+                            'P',
+                            "plankWood")));
+                for (ItemStack bed : anyBed) {
+                    GameRegistry.addRecipe(
+                        new BedRecipe(new ShapelessOreRecipe(new ItemStack(MDItem.bed, 1, color), bed, dye)));
+                }
             }
         }
     }

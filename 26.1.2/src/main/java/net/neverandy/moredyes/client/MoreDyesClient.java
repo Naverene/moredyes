@@ -98,6 +98,7 @@ public class MoreDyesClient {
         event.registerBlockEntityRenderer(BlockEntityType.SIGN, DyedSignRenderer::new);
         // Likewise for beds, banners and shulker boxes.
         event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.BED.get(), DyedBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }

@@ -3,6 +3,7 @@
   "textures": {
     "t0": "moredyes:block/oak_planks",
     "t1": "moredyes:block/bookshelf",
+    "t2": "moredyes:block/bookshelf_books",
     "particle": "moredyes:block/bookshelf"
   },
   "elements": [
@@ -47,6 +48,36 @@
           "texture": "#t1",
           "cullface": "east",
           "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#t2",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#t2",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#t2",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#t2",
+          "cullface": "east"
         }
       }
     }

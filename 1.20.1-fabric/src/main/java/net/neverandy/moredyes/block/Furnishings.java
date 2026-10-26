@@ -26,6 +26,7 @@ public final class Furnishings
     /** Must run after the blocks are registered. */
     public static void setup()
     {
+        // Dyed beds have their own block entity type (DyedBedBlockEntity); beds placed before it came keep vanilla's.
         addValidBlocks(BlockEntityType.BED, MDBlock.bedArray);
         addValidBlocks(BlockEntityType.BANNER, MDBlock.bannerArray);
         addValidBlocks(BlockEntityType.BANNER, MDBlock.wallBannerArray);
@@ -70,7 +71,7 @@ public final class Furnishings
     private static void addHomes()
     {
         Set<BlockState> heads = new HashSet<>();
-        for (Block bed : MDBlock.bedArray)
+        for (Block bed : MDBlock.beds())
         {
             if (bed == null)
             {

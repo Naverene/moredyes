@@ -25,6 +25,11 @@ public final class TintPixels {
         return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
     }
 
+    /** The brightness of a pixel, 0 to 255. */
+    public static int luminance(int argb) {
+        return grey(argb) & 255;
+    }
+
     /** The pixel in grey and this many times brighter. */
     public static int greyBrighter(int argb, float factor) {
         int lum = Math.min(255, Math.round((grey(argb) & 255) * factor));
@@ -41,6 +46,15 @@ public final class TintPixels {
         return (argb >>> 24) != 0 && r >= 0x40 && g < r * 0.53F && b < r * 0.53F;
     }
 
+    /** True for the wooden frame of a vanilla bed: a visible brown, which neither the sheet nor the white pillow is. */
+    public static boolean isBedWood(int argb) {
+        if ((argb >>> 24) == 0 || isBedding(argb)) {
+            return false;
+        }
+        float[] hsb = Color.RGBtoHSB(argb >> 16 & 255, argb >> 8 & 255, argb & 255, null);
+        return hsb[1] > 0.25F;
+    }
+
     /**
      * The red sheet of a bed as grey, from its red channel made about as bright as white wool, so the dye shows as
      * strongly as on dyed wool.
@@ -48,6 +62,19 @@ public final class TintPixels {
     public static int beddingGrey(int argb) {
         int lum = Math.min(255, Math.round((argb >> 16 & 255) * 1.45F));
         return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
+    }
+
+    /**
+     * True where the vanilla bookshelf shows a book rather than wood: the frame, the shelves and the dark wall behind
+     * the books are all dull browns.
+     */
+    public static boolean isBook(int argb) {
+        if ((argb >>> 24) == 0) {
+            return false;
+        }
+        float[] hsb = Color.RGBtoHSB(argb >> 16 & 255, argb >> 8 & 255, argb & 255, null);
+        float hue = hsb[0] * 360.0F;
+        return !(hue >= 25.0F && hue <= 50.0F && hsb[1] <= 0.7F);
     }
 
     public static boolean isGreen(int argb) {

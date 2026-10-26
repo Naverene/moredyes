@@ -10,10 +10,12 @@ import net.minecraft.world.IBlockAccess;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
+import info.kg6jay.moredyes.block.MDBlockDyedBed;
 
 /**
  * Draws a dyed bed (MDBlockDyedBed) like the vanilla bed renderer, once per layer: the sheet in the bed's color, then
- * the pillow and wooden frame over it. The vanilla renderer sets its own shading colors, so it cannot be tinted and is
+ * the pillow and the wooden frame over it. The vanilla renderer sets its own shading colors, so it cannot be tinted and
+ * is
  * copied here with the tint multiplied in.
  */
 public class DyedBedRenderer implements ISimpleBlockRenderingHandler {
@@ -28,7 +30,7 @@ public class DyedBedRenderer implements ISimpleBlockRenderingHandler {
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId,
         RenderBlocks renderer) {
         try {
-            for (int layer = 0; layer < 2; layer++) {
+            for (int layer = 0; layer < MDBlockDyedBed.LAYERS; layer++) {
                 RenderLayer.current = layer;
                 renderLayer(world, x, y, z, block, renderer);
             }
@@ -144,7 +146,7 @@ public class DyedBedRenderer implements ISimpleBlockRenderingHandler {
         IIcon icon = block.getIcon(world, x, y, z, side);
         if (renderer.hasOverrideBlockTexture()) {
             // Breaking cracks are drawn once, over the frame layer.
-            return RenderLayer.current == 1 ? renderer.overrideBlockTexture : null;
+            return RenderLayer.current == MDBlockDyedBed.FRAME ? renderer.overrideBlockTexture : null;
         }
         return icon;
     }

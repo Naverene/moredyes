@@ -16,6 +16,7 @@ public final class ModRecipes
     public static void register(IEventBus modBus)
     {
         SERIALIZERS.register(KeepNbtShapelessRecipe.ID, () -> KeepNbtShapelessRecipe.SERIALIZER);
+        SERIALIZERS.register(BedRecipe.ID, () -> BedRecipe.SERIALIZER);
         SERIALIZERS.register(modBus);
     }
 }

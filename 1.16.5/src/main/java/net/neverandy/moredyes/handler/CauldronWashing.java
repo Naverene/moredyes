@@ -1,5 +1,9 @@
 package net.neverandy.moredyes.handler;
 
+import net.neverandy.moredyes.tileentity.DyedBedTileEntity;
+import net.neverandy.moredyes.block.MDBlock;
+import net.minecraft.item.Items;
+import net.minecraft.item.DyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShulkerBoxBlock;
@@ -65,6 +69,13 @@ public final class CauldronWashing
         }
         PlayerEntity player = event.getPlayer();
         ItemStack result = washed.copy();
+        ResourceLocation wood = DyedBedTileEntity.woodOf(held);
+        if (wood != null && result.getItem() == Items.WHITE_BED && MDBlock.vanillaColorBed(DyeColor.WHITE) != null)
+        {
+            // A bed keeps the planks it was made from, so it washes to the More Dyes white bed that remembers them.
+            result = new ItemStack(MDBlock.vanillaColorBed(DyeColor.WHITE));
+            DyedBedTileEntity.setWood(result, wood);
+        }
         result.setCount(held.getCount());
         player.setHeldItem(event.getHand(), result);
         ((CauldronBlock) Blocks.CAULDRON).setWaterLevel(world, event.getPos(), state, water - 1);

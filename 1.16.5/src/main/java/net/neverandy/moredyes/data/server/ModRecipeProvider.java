@@ -1,5 +1,7 @@
 package net.neverandy.moredyes.data.server;
 
+import net.neverandy.moredyes.item.crafting.BedRecipe;
+import net.minecraft.item.DyeColor;
 import com.google.gson.JsonObject;
 import net.minecraft.block.Block;
 import net.minecraft.data.CookingRecipeBuilder;
@@ -491,11 +493,23 @@ public class ModRecipeProvider extends RecipeProvider
         dyeable(i, carpet, "white_carpet");
 
         Block bed = MDBlock.bedArray[i];
-        ShapedRecipeBuilder.shapedRecipe(bed).key('W', wool).key('P', ItemTags.PLANKS).patternLine("WWW").patternLine("PPP")
-                .addCriterion("has_wool", hasItem(wool)).build(out, id(name(bed)));
-        ShapelessRecipeBuilder.shapelessRecipe(bed).addIngredient(Items.WHITE_BED).addIngredient(MDItem.dye[i])
-                .addCriterion("has_dye", hasItem(MDItem.dye[i])).build(out, id("dyeing/" + name(bed)));
+        // Beds remember their planks (see BedRecipe), also when they are dyed.
+        bed(ShapedRecipeBuilder.shapedRecipe(bed).key('W', wool).key('P', ItemTags.PLANKS).patternLine("WWW").patternLine("PPP")
+                .addCriterion("has_wool", hasItem(wool)), id(name(bed)));
+        keepNbt(ShapelessRecipeBuilder.shapelessRecipe(bed).addIngredient(Ingredient.fromItems(Items.WHITE_BED, MDBlock.vanillaColorBed(DyeColor.WHITE)))
+                .addIngredient(MDItem.dye[i]).addCriterion("has_dye", hasItem(MDItem.dye[i])), id("dyeing/" + name(bed)));
         washable(bed, "white_bed");
+        if (i == 0)
+        {
+            // Vanilla's bed recipes, which give the More Dyes bed in the same color for planks other than oak.
+            for (DyeColor color : DyeColor.values())
+            {
+                Item vanilla = mc(color.getTranslationKey() + "_bed");
+                Item vanillaWool = mc(color.getTranslationKey() + "_wool");
+                bed(ShapedRecipeBuilder.shapedRecipe(vanilla).key('W', vanillaWool).key('P', ItemTags.PLANKS).patternLine("WWW").patternLine("PPP")
+                        .setGroup("bed").addCriterion("has_wool", hasItem(vanillaWool)), new ResourceLocation(color.getTranslationKey() + "_bed"));
+            }
+        }
 
         // Banners and shulker boxes keep their patterns and contents when they are dyed.
         Block banner = MDBlock.bannerArray[i];
@@ -518,7 +532,19 @@ public class ModRecipeProvider extends RecipeProvider
     /** Saves a shapeless recipe as moredyes:crafting_shapeless_keep_nbt, so its result keeps its first ingredient's NBT. */
     private void keepNbt(ShapelessRecipeBuilder builder, ResourceLocation id)
     {
-        builder.build(recipe -> out.accept(new IFinishedRecipe()
+        builder.build(recipe -> out.accept(as(recipe, KeepNbtShapelessRecipe.SERIALIZER)), id);
+    }
+
+    /** Saves a bed recipe as moredyes:crafting_bed, so the bed remembers its planks. */
+    private void bed(ShapedRecipeBuilder builder, ResourceLocation id)
+    {
+        builder.build(recipe -> out.accept(as(recipe, BedRecipe.SERIALIZER)), id);
+    }
+
+    /** The recipe, saved with another recipe type that reads the same JSON. */
+    private static IFinishedRecipe as(IFinishedRecipe recipe, IRecipeSerializer<?> type)
+    {
+        return new IFinishedRecipe()
         {
             @Override
             public void serialize(JsonObject json)
@@ -535,7 +561,7 @@ public class ModRecipeProvider extends RecipeProvider
             @Override
             public IRecipeSerializer<?> getSerializer()
             {
-                return KeepNbtShapelessRecipe.SERIALIZER;
+                return type;
             }
 
             @Override
@@ -549,7 +575,7 @@ public class ModRecipeProvider extends RecipeProvider
             {
                 return recipe.getAdvancementID();
             }
-        }), id);
+        };
     }
 
     private void dyeable(int i, Block dyed, String vanilla)

@@ -3,7 +3,11 @@ package info.kg6jay.moredyes.client;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
@@ -13,6 +17,7 @@ import net.minecraft.util.ResourceLocation;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import info.kg6jay.moredyes.block.BedWood;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.TintPixels;
 
@@ -70,10 +75,84 @@ public final class TintSources {
     /** Unchanged where the pixel is not green, transparent elsewhere (the trunk of a sapling). */
     public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> TintPixels.isGreen(argb) ? 0 : argb;
 
+    /** Unchanged where the pixel is a book, transparent elsewhere (the books on a bookshelf, drawn over its wood). */
+    public static final PixelTransform KEEP_BOOKS = argb -> TintPixels.isBook(argb) ? argb : 0;
+
     /** The red sheet of a bed as grey, transparent elsewhere. */
     public static final PixelTransform BEDDING = argb -> TintPixels.isBedding(argb) ? TintPixels.beddingGrey(argb) : 0;
-    /** Everything of a bed but its sheet, unchanged: the pillow and the wooden frame. */
-    public static final PixelTransform BED_FRAME = argb -> TintPixels.isBedding(argb) ? 0 : argb;
+    /** The red sheet of a bed, unchanged (a dyed bed with the vanilla bedding). */
+    public static final PixelTransform VANILLA_BEDDING = argb -> TintPixels.isBedding(argb) ? argb : 0;
+    /** The white pillow of a bed, unchanged. */
+    public static final PixelTransform BED_PILLOW = argb -> TintPixels.isBedding(argb) || TintPixels.isBedWood(argb) ? 0
+        : argb;
+    /** The wooden frame of a bed as grey, for a frame of dyed planks. */
+    public static final PixelTransform BED_FRAME_GREY = argb -> TintPixels.isBedWood(argb) ? TintPixels.grey(argb) : 0;
+
+    /**
+     * The wooden frame of a bed redrawn in other planks (a vanilla planks texture). Each frame pixel takes the planks'
+     * pixel at the same rank of brightness, so the frame keeps its shading. Oak planks keep vanilla's frame as it is.
+     */
+    public static PixelTransform bedFrame(String planks) {
+        PixelTransform oak = argb -> TintPixels.isBedWood(argb) ? argb : 0;
+        if (planks.equals("planks_oak")) {
+            return oak;
+        }
+        return new PixelTransform() {
+
+            @Override
+            public int apply(int argb) {
+                return oak.apply(argb);
+            }
+
+            @Override
+            public PixelTransform forImage(BufferedImage image) {
+                BufferedImage wood;
+                try (InputStream in = Minecraft.getMinecraft()
+                    .getResourceManager()
+                    .getResource(vanillaBlock(planks))
+                    .getInputStream()) {
+                    wood = ImageIO.read(in);
+                } catch (IOException e) {
+                    wood = null;
+                }
+                if (wood == null) {
+                    return this;
+                }
+                int width = image.getWidth(), height = Math.min(image.getHeight(), width);
+                int[] pixels = image.getRGB(0, 0, width, height, null, 0, width);
+                int pw = wood.getWidth(), ph = Math.min(wood.getHeight(), pw);
+                Integer[] woodPixels = new Integer[pw * ph];
+                for (int i = 0; i < woodPixels.length; i++) {
+                    woodPixels[i] = wood.getRGB(i % pw, i / pw);
+                }
+                Arrays.sort(woodPixels, Comparator.comparingInt(TintPixels::luminance));
+                List<Integer> frame = new ArrayList<>();
+                for (int i = 0; i < pixels.length; i++) {
+                    if (TintPixels.isBedWood(pixels[i])) {
+                        frame.add(i);
+                    }
+                }
+                frame.sort(Comparator.comparingInt(i -> TintPixels.luminance(pixels[i])));
+                int[] mapped = new int[pixels.length];
+                for (int rank = 0; rank < frame.size(); rank++) {
+                    int pick = Math.round(rank * (woodPixels.length - 1) / (float) Math.max(1, frame.size() - 1));
+                    mapped[frame.get(rank)] = woodPixels[pick] | 0xFF000000;
+                }
+                return new PixelTransform() {
+
+                    @Override
+                    public int apply(int argb) {
+                        return argb;
+                    }
+
+                    @Override
+                    public int apply(int argb, int x, int y, int size) {
+                        return y * width + x < mapped.length ? mapped[y * width + x] : 0;
+                    }
+                };
+            }
+        };
+    }
 
     /**
      * Unchanged where the pixel is not cobblestone or is one of its darkest greys, transparent elsewhere: the wood,
@@ -233,6 +312,7 @@ public final class TintSources {
         block("sandstone/side", "sandstone_normal");
         block("sandstone/bottom", "sandstone_bottom");
         block("bookshelf", "bookshelf");
+        add("bookshelf/books", vanillaBlock("bookshelf"), KEEP_BOOKS, false);
         block("workbench/top", "crafting_table_top");
         block("workbench/side", "crafting_table_side");
         block("workbench/front", "crafting_table_front");
@@ -335,13 +415,22 @@ public final class TintSources {
         add("sign", new ResourceLocation("minecraft", "textures/items/sign.png"), GREY, false);
         add("sign/model", new ResourceLocation("minecraft", "textures/entity/sign.png"), GREY, true);
 
-        // Beds: the sheet takes the dye; the pillow and the wooden frame are drawn over it as they are.
-        for (String part : new String[] { "feet_top", "feet_end", "feet_side", "head_top", "head_end", "head_side" }) {
-            add("bed/" + part, vanillaBlock("bed_" + part), BEDDING, false);
-            add("bed/" + part + "_frame", vanillaBlock("bed_" + part), BED_FRAME, false);
+        // Beds: the sheet takes the dye (or stays vanilla's red); the white pillow and the wooden frame, in the planks
+        // the bed was made from, are drawn over it (see MDBlockDyedBed).
+        String[] planks = { "planks_oak", "planks_spruce", "planks_birch", "planks_jungle", "planks_acacia",
+            "planks_big_oak" };
+        for (String part : new String[] { "feet_top", "feet_end", "feet_side", "head_top", "head_end", "head_side",
+            "item" }) {
+            ResourceLocation vanilla = part.equals("item") ? new ResourceLocation("minecraft", "textures/items/bed.png")
+                : vanillaBlock("bed_" + part);
+            add("bed/" + part, vanilla, BEDDING, false);
+            add("bed/" + part + "_vanilla", vanilla, VANILLA_BEDDING, false);
+            add("bed/" + part + "_pillow", vanilla, BED_PILLOW, false);
+            for (int wood = 0; wood < BedWood.WOODS.length; wood++) {
+                add("bed/" + part + "_frame_" + BedWood.WOODS[wood], vanilla, bedFrame(planks[wood]), false);
+            }
+            add("bed/" + part + "_frame_dyed", vanilla, BED_FRAME_GREY, false);
         }
-        add("bed/item", new ResourceLocation("minecraft", "textures/items/bed.png"), BEDDING, false);
-        add("bed/item_frame", new ResourceLocation("minecraft", "textures/items/bed.png"), BED_FRAME, false);
 
         add("tulip/petals", vanillaBlock("flower_tulip_white"), GREY_IF_NOT_GREEN, false);
         add("tulip/stem", vanillaBlock("flower_tulip_white"), KEEP_IF_GREEN, false);

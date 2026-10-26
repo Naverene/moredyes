@@ -1,9 +1,9 @@
-// 1.20.1	2026-10-25T05:58:11.747989596	Tags for minecraft:item mod id moredyes
+// 1.20.1	2026-10-26T17:08:49.401141917	Tags for minecraft:item mod id moredyes
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/items/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/items/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/items/glass_panes.json
 c9d91b583bb6554cb9243b0c61f233b2a33cb9e2 data/minecraft/tags/items/banners.json
-24cb03be299ccecb609643f48953161439b5dce6 data/minecraft/tags/items/beds.json
+634f6dd2cd5c30ea2278edc3917212c075b182e9 data/minecraft/tags/items/beds.json
 cc6c18a7810ef5f3b7fc7c85ec6c77af4946fca8 data/minecraft/tags/items/leaves.json
 80e0efbc572d896b8958609c7751161bd1f7ed23 data/minecraft/tags/items/logs_that_burn.json
 12d52c39421d6790f33f190c5d80a00cc73798c1 data/minecraft/tags/items/planks.json

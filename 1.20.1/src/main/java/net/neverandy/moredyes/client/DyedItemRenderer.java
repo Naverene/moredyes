@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import net.minecraft.world.level.block.entity.BedBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
+import net.neverandy.moredyes.block.DyedBedBlock;
+import net.neverandy.moredyes.tileentity.DyedBedBlockEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,7 +63,11 @@ public class DyedItemRenderer extends BlockEntityWithoutLevelRenderer
         }
         BlockEntity entity = entities.computeIfAbsent(item.getBlock(), block ->
         {
-            if (block instanceof BedBlock)
+            if (block instanceof DyedBedBlock)
+            {
+                return new DyedBedBlockEntity(BlockPos.ZERO, block.defaultBlockState());
+            }
+            else if (block instanceof BedBlock)
             {
                 return new BedBlockEntity(BlockPos.ZERO, block.defaultBlockState());
             }
@@ -75,6 +81,10 @@ public class DyedItemRenderer extends BlockEntityWithoutLevelRenderer
             }
             return null;
         });
+        if (entity instanceof DyedBedBlockEntity bed)
+        {
+            bed.setWood(DyedBedBlockEntity.woodOf(stack));
+        }
         if (entity instanceof BannerBlockEntity banner)
         {
             banner.fromItem(stack, DyeColor.WHITE);

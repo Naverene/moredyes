@@ -21,23 +21,31 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
-import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
+import info.kg6jay.moredyes.block.tileentity.TileEntityMDBed;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.item.MDItem;
 import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.utility.ColorIndex;
 
 /**
- * A dyed bed in every color: a vanilla bed (same halves, metadata and sleeping) with its color in a TileEntityMDColor
- * on both halves, placed by MDItem.bed. DyedBedRenderer draws it twice: the sheet tinted (layer 0), then the pillow and
- * wooden frame over it as they are (layer 1).
+ * A dyed bed in every color: a vanilla bed (same halves, metadata and sleeping) with its color, wood and bedding in a
+ * TileEntityMDBed on both halves, placed by MDItem.bed. DyedBedRenderer draws it in three layers: the sheet tinted (or
+ * vanilla's red one), the white pillow, and the wooden frame in the planks the bed was made from (see BedWood), tinted
+ * for dyed planks.
  */
 public class MDBlockDyedBed extends BlockBed {
 
     private static final String[] PARTS = { "top", "end", "side" };
 
-    /** By layer (sheet, frame), half (feet, head) and part (top, end, side). */
+    /** The layers DyedBedRenderer draws. */
+    public static final int SHEET = 0, PILLOW = 1, FRAME = 2, LAYERS = 3;
+
+    /** By half (feet, head) and part (top, end, side). */
     @SideOnly(Side.CLIENT)
-    private IIcon[][][] icons;
+    private IIcon[][] sheet, vanillaSheet, pillow;
+    /** By wood (BedWood.WOODS, then dyed planks), half and part. */
+    @SideOnly(Side.CLIENT)
+    private IIcon[][][] frames;
 
     public MDBlockDyedBed() {
         this.setHardness(0.2F);
@@ -57,7 +65,24 @@ public class MDBlockDyedBed extends BlockBed {
 
     @Override
     public TileEntity createTileEntity(World world, int meta) {
-        return new TileEntityMDColor();
+        return new TileEntityMDBed();
+    }
+
+    /** The bed's half at this position, or null for a bed placed before beds kept their wood. */
+    private static TileEntityMDBed bed(IBlockAccess world, int x, int y, int z) {
+        TileEntity te = world.getTileEntity(x, y, z);
+        return te instanceof TileEntityMDBed bed ? bed : null;
+    }
+
+    /** The wood the frame is drawn in: the bed's planks, or null for oak. */
+    private static String frameWood(TileEntityMDBed bed) {
+        return bed == null ? null : bed.getWood();
+    }
+
+    /** The bed item the bed at this position drops. */
+    private static ItemStack stack(IBlockAccess world, int x, int y, int z) {
+        TileEntityMDBed bed = bed(world, x, y, z);
+        return bed != null ? bed.getItemStack() : new ItemStack(MDItem.bed, 1, TileColor.get(world, x, y, z));
     }
 
     @Override
@@ -68,7 +93,16 @@ public class MDBlockDyedBed extends BlockBed {
     @Override
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
-        return RenderLayer.current == 1 ? 0xFFFFFF : TileColor.rgb(world, x, y, z);
+        TileEntityMDBed bed = bed(world, x, y, z);
+        switch (RenderLayer.current) {
+            case PILLOW:
+                return 0xFFFFFF;
+            case FRAME:
+                int dyed = BedWood.dyed(frameWood(bed));
+                return dyed < 0 ? 0xFFFFFF : ColorIndex.rgb(dyed);
+            default:
+                return bed != null && bed.isVanilla() ? 0xFFFFFF : TileColor.rgb(world, x, y, z);
+        }
     }
 
     @Override
@@ -78,18 +112,36 @@ public class MDBlockDyedBed extends BlockBed {
     }
 
     /**
-     * The icon of this side for the layer being drawn, or null where the layer has nothing (the sheet has no bottom).
-     * Outside the renderer (breaking particles, which are tinted) it is the sheet, also on the bottom.
+     * The icon of this side for the layer being drawn, or null where the layer has nothing (the sheet and pillow have
+     * no
+     * bottom). Outside the renderer (breaking particles, which are tinted) it is the sheet, also on the bottom.
      */
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
+        return this.icon(side, meta, null);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+        return this.icon(side, world.getBlockMetadata(x, y, z), bed(world, x, y, z));
+    }
+
+    @SideOnly(Side.CLIENT)
+    private IIcon icon(int side, int meta, TileEntityMDBed bed) {
         int layer = RenderLayer.current;
+        String wood = frameWood(bed);
+        int vanillaWood = BedWood.vanilla(wood);
         if (side == 0) {
-            if (layer == 1) {
-                return Blocks.planks.getBlockTextureFromSide(0);
+            if (layer == FRAME) {
+                int dyed = BedWood.dyed(wood);
+                if (dyed >= 0 && MDBlock.plank[ColorIndex.set(dyed)] != null) {
+                    return MDBlock.plank[ColorIndex.set(dyed)].getIcon(0, ColorIndex.shade(dyed));
+                }
+                return Blocks.planks.getIcon(0, Math.max(0, vanillaWood));
             }
-            if (layer == 0) {
+            if (layer >= 0) {
                 return null;
             }
             side = 1;
@@ -104,18 +156,35 @@ public class MDBlockDyedBed extends BlockBed {
         } else {
             part = 0;
         }
-        return this.icons[layer == 1 ? 1 : 0][head][part];
+        switch (layer) {
+            case PILLOW:
+                return this.pillow[head][part];
+            case FRAME:
+                return this.frames[vanillaWood >= 0 ? vanillaWood
+                    : BedWood.dyed(wood) >= 0 ? BedWood.WOODS.length : 0][head][part];
+            default:
+                return (bed != null && bed.isVanilla() ? this.vanillaSheet : this.sheet)[head][part];
+        }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
-        this.icons = new IIcon[2][2][PARTS.length];
+        this.sheet = new IIcon[2][PARTS.length];
+        this.vanillaSheet = new IIcon[2][PARTS.length];
+        this.pillow = new IIcon[2][PARTS.length];
+        this.frames = new IIcon[BedWood.WOODS.length + 1][2][PARTS.length];
         for (int half = 0; half < 2; half++) {
             for (int part = 0; part < PARTS.length; part++) {
                 String key = "bed/" + (half == 1 ? "head_" : "feet_") + PARTS[part];
-                this.icons[0][half][part] = TintedTextures.register(register, key);
-                this.icons[1][half][part] = TintedTextures.register(register, key + "_frame");
+                this.sheet[half][part] = TintedTextures.register(register, key);
+                this.vanillaSheet[half][part] = TintedTextures.register(register, key + "_vanilla");
+                this.pillow[half][part] = TintedTextures.register(register, key + "_pillow");
+                for (int wood = 0; wood <= BedWood.WOODS.length; wood++) {
+                    this.frames[wood][half][part] = TintedTextures.register(
+                        register,
+                        key + "_frame_" + (wood < BedWood.WOODS.length ? BedWood.WOODS[wood] : "dyed"));
+                }
             }
         }
     }
@@ -125,7 +194,7 @@ public class MDBlockDyedBed extends BlockBed {
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune) {
         ArrayList<ItemStack> drops = new ArrayList<>();
         if (!isBlockHeadOfBed(meta)) {
-            drops.add(new ItemStack(MDItem.bed, 1, TileColor.get(world, x, y, z)));
+            drops.add(stack(world, x, y, z));
         }
         return drops;
     }
@@ -143,16 +212,11 @@ public class MDBlockDyedBed extends BlockBed {
                 world.setBlockToAir(x, y, z);
             }
         } else if (world.getBlock(x + field_149981_a[direction][0], y, z + field_149981_a[direction][1]) != this) {
-            int color = TileColor.get(world, x, y, z);
+            ItemStack dropped = stack(world, x, y, z);
             world.setBlockToAir(x, y, z);
             if (!world.isRemote && world.getGameRules()
                 .getGameRuleBooleanValue("doTileDrops")) {
-                EntityItem item = new EntityItem(
-                    world,
-                    x + 0.5D,
-                    y + 0.5D,
-                    z + 0.5D,
-                    new ItemStack(MDItem.bed, 1, color));
+                EntityItem item = new EntityItem(world, x + 0.5D, y + 0.5D, z + 0.5D, dropped);
                 item.delayBeforeCanPickup = 10;
                 world.spawnEntityInWorld(item);
             }
@@ -179,6 +243,6 @@ public class MDBlockDyedBed extends BlockBed {
 
     @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
-        return new ItemStack(MDItem.bed, 1, TileColor.get(world, x, y, z));
+        return stack(world, x, y, z);
     }
 }

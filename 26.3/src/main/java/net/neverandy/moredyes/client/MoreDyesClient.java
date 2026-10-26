@@ -1,6 +1,8 @@
 package net.neverandy.moredyes.client;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.google.common.reflect.TypeToken;
 
@@ -26,6 +28,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterSpecialModelRendererEvent;
 import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import net.neverandy.moredyes.MoreDyes;
 import net.neverandy.moredyes.color.MixColor;
@@ -60,10 +63,14 @@ public class MoreDyesClient {
     }
 
     private static void blockTints(RegisterColorHandlersEvent.BlockTintSources event) {
+        Set<Block> beds = ModBlocks.beds().stream().map(DeferredBlock::get).collect(Collectors.toSet());
         for (var entry : ModBlocks.BLOCKS.getEntries()) {
             Block block = entry.get();
             int tint = Tints.blockTint(block);
-            if (tint != -1) {
+            if (beds.contains(block)) {
+                // Index 0 is the bedding, index 1 a frame made of dyed planks.
+                event.register(List.of(BlockTintSources.constant(tint), new Tints.BedWood()), block);
+            } else if (tint != -1) {
                 event.register(List.of(BlockTintSources.constant(tint)), block);
             }
         }
@@ -72,6 +79,7 @@ public class MoreDyesClient {
     private static void itemTints(RegisterColorHandlersEvent.ItemTintSources event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_color"), Tints.DyeColor.MAP_CODEC);
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "wood"), Tints.Wood.MAP_CODEC);
     }
 
     private static void specialRenderers(RegisterSpecialModelRendererEvent event) {

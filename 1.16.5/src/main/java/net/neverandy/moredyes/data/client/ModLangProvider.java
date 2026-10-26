@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.data.client;
 
+import net.minecraft.item.DyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -85,6 +86,16 @@ public class ModLangProvider extends LanguageProvider
             add(MDBlock.signArray[i], c + "Sign");
             add(MDBlock.carpetArray[i], c + "Carpet");
             add(MDBlock.bedArray[i], c + "Bed");
+            if (i < MDBlock.vanillaColorBedArray.length)
+            {
+                // The More Dyes beds in vanilla colors are named like vanilla's: "light_gray" -> "Light Gray Bed".
+                StringBuilder name = new StringBuilder();
+                for (String word : DyeColor.byId(i).getTranslationKey().split("_"))
+                {
+                    name.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1)).append(' ');
+                }
+                add(MDBlock.vanillaColorBedArray[i], name + "Bed");
+            }
             add(MDBlock.bannerArray[i], c + "Banner");
             add(MDBlock.shulkerBoxArray[i], c + "Shulker Box");
             add(MDBlock.bookshelfArray[i], c + "Bookshelf");

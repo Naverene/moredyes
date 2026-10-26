@@ -4,7 +4,15 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.properties.BedPart;
@@ -19,6 +27,7 @@ import net.neverandy.moredyes.block.DyedWallBlock;
 import net.neverandy.moredyes.block.DyedWallSignBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.tileentity.DyedBedBlockEntity;
 import net.neverandy.moredyes.world.DyeTrees;
 
 import java.util.List;
@@ -51,6 +60,10 @@ public class ModLootTableProvider
             {
                 dropSelf(block);
             }
+            for (Block bed : MDBlock.vanillaColorBedArray)
+            {
+                add(bed, this::bedDrop);
+            }
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
                 Block cobble = MDBlock.cobbleArray[i];
@@ -60,7 +73,7 @@ public class ModLootTableProvider
                 dropWhenSilkTouch(MDBlock.glassPaneArray[i]);
                 dropWhenSilkTouch(MDBlock.glassFoggyPaneArray[i]);
                 add(MDBlock.bookshelfArray[i], shelf -> createSingleItemTableWithSilkTouch(shelf, Items.BOOK, ConstantValue.exactly(3)));
-                add(MDBlock.bedArray[i], bed -> createSinglePropConditionTable(bed, BedBlock.PART, BedPart.HEAD));
+                add(MDBlock.bedArray[i], this::bedDrop);
                 add(MDBlock.bannerArray[i], this::createBannerDrop);
                 add(MDBlock.shulkerBoxArray[i], this::createShulkerBoxDrop);
                 dropWhenSilkTouch(MDBlock.iceArray[i]);
@@ -84,6 +97,17 @@ public class ModLootTableProvider
                     add(DyeTrees.leaves(wood)[i], leaves -> createLeavesDrops(leaves, sapling, SAPLING_CHANCES));
                 }
             }
+        }
+
+        /** The head drops the bed, which keeps the planks it was made from (see DyedBedBlockEntity). */
+        private LootTable.Builder bedDrop(Block bed)
+        {
+            return LootTable.lootTable().withPool(applyExplosionCondition(bed, LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                    .add(LootItem.lootTableItem(bed)
+                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(bed)
+                                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BedBlock.PART, BedPart.HEAD)))
+                            .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
+                                    .copy(DyedBedBlockEntity.WOOD, "BlockEntityTag." + DyedBedBlockEntity.WOOD)))));
         }
 
         @Override

@@ -1,12 +1,85 @@
 {
-  "parent": "moredyes:block/tinted_cube",
+  "parent": "block/block",
   "textures": {
     "particle": "moredyes:blocks/tinted/bookshelf",
-    "down": "moredyes:blocks/tinted/plank",
-    "up": "moredyes:blocks/tinted/plank",
-    "north": "moredyes:blocks/tinted/bookshelf",
-    "south": "moredyes:blocks/tinted/bookshelf",
-    "west": "moredyes:blocks/tinted/bookshelf",
-    "east": "moredyes:blocks/tinted/bookshelf"
-  }
+    "end": "moredyes:blocks/tinted/plank",
+    "side": "moredyes:blocks/tinted/bookshelf",
+    "books": "moredyes:blocks/tinted/bookshelf_books"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#end",
+          "cullface": "down",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#end",
+          "cullface": "up",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#side",
+          "cullface": "north",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#side",
+          "cullface": "south",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#side",
+          "cullface": "west",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#side",
+          "cullface": "east",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#books",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#books",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#books",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#books",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
 }

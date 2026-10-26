@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BannerItem;
 import net.minecraft.world.item.BedItem;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SignItem;
@@ -58,6 +59,13 @@ public final class ModItems {
                 }
             }
             BLOCK_ITEMS.put(kind, Collections.unmodifiableMap(byColor));
+        }
+        // The beds in the vanilla colors; not in a creative tab, since they only differ from vanilla's by their wood.
+        for (DyeColor color : DyeColor.values()) {
+            if (Kind.BED.enabled()) {
+                register("bed_" + color.getName(), p -> new BedItem(ModBlocks.vanillaColorBed(color), p),
+                    properties(Kind.BED, new Item.Properties()));
+            }
         }
     }
 

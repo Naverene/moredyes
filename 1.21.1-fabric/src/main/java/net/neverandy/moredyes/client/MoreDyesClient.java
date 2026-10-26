@@ -1,5 +1,8 @@
 package net.neverandy.moredyes.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
@@ -8,11 +11,13 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.LlamaRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BedBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import net.neverandy.moredyes.MoreDyes;
@@ -57,8 +62,9 @@ public class MoreDyesClient implements ClientModInitializer {
     }
 
     /**
-     * The layer a kind of block is drawn in, as vanilla draws its vanilla block, or null for solid blocks. Pistons are
-     * cut out too: their wood and iron are an untinted layer over the tinted cobblestone, with see-through gaps.
+     * The layer a kind of block is drawn in, as vanilla draws its vanilla block, or null for solid blocks. Pistons and
+     * bookshelves are cut out too: their wood and iron (or books) are an untinted layer with see-through gaps over the
+     * tinted cobblestone (or wood).
      */
     private static RenderType layer(Kind kind) {
         if (kind.base() != null) {
@@ -66,7 +72,7 @@ public class MoreDyesClient implements ClientModInitializer {
         }
         String id = kind.id();
         if (kind.tab() == Kind.Tab.PLANTS || id.endsWith("_sapling") || id.equals("glass") || id.contains("piston")
-            || id.equals("chain")) {
+            || id.equals("chain") || id.equals("bookshelf")) {
             return RenderType.cutout();
         }
         if (id.endsWith("_leaves") || id.equals("glass_pane")) {
@@ -109,6 +115,8 @@ public class MoreDyesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(BlockEntityType.SIGN, DyedSignRenderer::new);
         // Likewise for beds, banners and shulker boxes.
         BlockEntityRendererRegistry.register(BlockEntityType.BED, DyedBedRenderer::new);
+        BlockEntityRendererRegistry.register(ModBlockEntities.BED,
+            (BlockEntityRendererProvider<BedBlockEntity>) DyedBedRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityType.BANNER, DyedBannerRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
         // Llamas wear dyed carpets.
@@ -128,11 +136,13 @@ public class MoreDyesClient implements ClientModInitializer {
         }
         // Dyed beds, banners and shulker boxes, drawn like their vanilla items.
         DyedItemRenderer others = new DyedItemRenderer();
+        List<Block> blocks = new ArrayList<>(ModBlocks.vanillaColorBeds());
         for (Kind kind : new Kind[]{Kind.BED, Kind.BANNER, Kind.SHULKER_BOX}) {
-            for (Block block : ModBlocks.all(kind)) {
-                BuiltinItemRendererRegistry.INSTANCE.register(block.asItem(),
-                    (stack, context, pose, buffer, light, overlay) -> others.render(stack, pose, buffer, light, overlay));
-            }
+            blocks.addAll(ModBlocks.all(kind));
+        }
+        for (Block block : blocks) {
+            BuiltinItemRendererRegistry.INSTANCE.register(block.asItem(),
+                (stack, context, pose, buffer, light, overlay) -> others.render(stack, pose, buffer, light, overlay));
         }
     }
 }

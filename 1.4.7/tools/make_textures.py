@@ -71,6 +71,16 @@ def keep_if_not_green(p):
     return (0, 0, 0, 0) if is_green(p) else p
 
 
+def keep_books(p):
+    """The books of the vanilla bookshelf; its frame, shelves and the dark wall behind the books (all dull browns) are
+    left transparent."""
+    r, g, b, a = p
+    if a == 0:
+        return (0, 0, 0, 0)
+    h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    return (0, 0, 0, 0) if 25 <= h * 360 <= 50 and s <= 0.7 else p
+
+
 def keep(p):
     return p
 
@@ -214,6 +224,8 @@ SOURCES = [
     # GregTech's red granite textures (in the 1.7.10 version's base textures; LGPL-3.0, see THIRD_PARTY_NOTICES.md).
     ("speckledGranite", "base/speckledGranite", grey),
     ("smoothSpeckledGranite", "base/smoothSpeckledGranite", grey),
+    # Untinted: the books on a bookshelf, drawn over its tinted wood.
+    ("bookshelf/books", "blocks/bookshelf", keep_books),
 ]
 
 MODELS = [

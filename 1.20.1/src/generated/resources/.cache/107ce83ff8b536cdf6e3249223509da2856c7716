@@ -1,10 +1,10 @@
-// 1.20.1	2026-10-25T06:10:34.133830292	Tags for minecraft:block mod id moredyes
+// 1.20.1	2026-10-26T17:08:50.028236876	Tags for minecraft:block mod id moredyes
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/blocks/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/blocks/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/blocks/glass_panes.json
 19f175ed2332d5f7f0d19b4441fa3a8aa8710d26 data/minecraft/tags/blocks/banners.json
 b33a462276d5f73b85a7cc6953edb3cd858e7df9 data/minecraft/tags/blocks/beacon_base_blocks.json
-24cb03be299ccecb609643f48953161439b5dce6 data/minecraft/tags/blocks/beds.json
+634f6dd2cd5c30ea2278edc3917212c075b182e9 data/minecraft/tags/blocks/beds.json
 2f1abdd54a8f173e5b22123848ea1ec54dfdde16 data/minecraft/tags/blocks/enchantment_power_provider.json
 36f939bf8f6f77fd333893553e29da001daa38a0 data/minecraft/tags/blocks/flower_pots.json
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/minecraft/tags/blocks/guarded_by_piglins.json
@@ -13,7 +13,7 @@ cc6c18a7810ef5f3b7fc7c85ec6c77af4946fca8 data/minecraft/tags/blocks/leaves.json
 80e0efbc572d896b8958609c7751161bd1f7ed23 data/minecraft/tags/blocks/logs_that_burn.json
 abeab58b4b6e54cdc116840fea0909106741884d data/minecraft/tags/blocks/mineable/axe.json
 dc06eba04bcf783efef91dec27599f47f2223225 data/minecraft/tags/blocks/mineable/hoe.json
-487308287b1d16677f9b2e19a9a20f3aa33ef7a4 data/minecraft/tags/blocks/mineable/pickaxe.json
+9d89633d8e4bbfa061026f8d51437fad3416b257 data/minecraft/tags/blocks/mineable/pickaxe.json
 32cf5bd766b0367342210e3fb89f801156f19ab1 data/minecraft/tags/blocks/mineable/shovel.json
 205350c8afdfd8acaa0f280ad4b78f41d80e13e5 data/minecraft/tags/blocks/needs_diamond_tool.json
 66d9aeb35eb800551ca29cbe49ca8d75de8a354c data/minecraft/tags/blocks/needs_stone_tool.json

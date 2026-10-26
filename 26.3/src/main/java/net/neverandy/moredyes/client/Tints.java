@@ -4,15 +4,21 @@ import com.mojang.serialization.MapCodec;
 
 import org.jspecify.annotations.Nullable;
 
+import net.minecraft.client.color.block.BlockTintSource;
 import net.minecraft.client.color.item.ItemTintSource;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
+import net.minecraft.core.BlockPos;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
+import net.neverandy.moredyes.block.DyedBedBlockEntity;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
 
@@ -73,6 +79,41 @@ public final class Tints {
 
         @Override
         public MapCodec<StateColor> type() {
+            return MAP_CODEC;
+        }
+    }
+
+    /** The tint of the planks a bed was made from: the dyed planks' color, or white for any other wood. */
+    public static int woodTint(@Nullable Identifier wood) {
+        return wood == null ? -1 : BuiltInRegistries.BLOCK.getOptional(wood).map(Tints::blockTint).orElse(-1);
+    }
+
+    /** The block tint of a bed's frame (tint index 1), read from the planks its block entity remembers. */
+    public static final class BedWood implements BlockTintSource {
+
+        @Override
+        public int color(BlockState state) {
+            return -1;
+        }
+
+        @Override
+        public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
+            return level.getBlockEntity(pos) instanceof DyedBedBlockEntity bed ? woodTint(bed.getWood()) : -1;
+        }
+    }
+
+    /** The item tint {@code moredyes:wood}: the color of the planks in the bed item's {@code moredyes:wood}. */
+    public record Wood() implements ItemTintSource {
+
+        public static final MapCodec<Wood> MAP_CODEC = MapCodec.unit(new Wood());
+
+        @Override
+        public int calculate(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity owner) {
+            return woodTint(DyedBedBlockEntity.woodOf(stack));
+        }
+
+        @Override
+        public MapCodec<Wood> type() {
             return MAP_CODEC;
         }
     }

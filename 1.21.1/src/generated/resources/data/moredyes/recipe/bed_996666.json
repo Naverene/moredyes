@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","category":"building","key":{"W":{"item":"moredyes:wool_996666"},"P":{"tag":"minecraft:planks"}},"pattern":["WWW","PPP"],"result":{"count":1,"id":"moredyes:bed_996666"}}
+{"type":"moredyes:crafting_bed","category":"building","group":"bed","key":{"W":{"item":"moredyes:wool_996666"},"P":{"tag":"minecraft:planks"}},"pattern":["WWW","PPP"],"result":{"count":1,"id":"moredyes:bed_996666"}}

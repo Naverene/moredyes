@@ -38,6 +38,7 @@ import net.neverandy.moredyes.toggle.Toggles;
 import net.neverandy.moredyes.world.DyeTrees;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -147,6 +148,9 @@ public class MDBlock
     // color (no color for shulker boxes) that share vanilla's block entities; the client draws them in their own color.
     public static CarpetBlock[] carpetArray = new CarpetBlock[COLORS];
     public static BedBlock[] bedArray = new BedBlock[COLORS];
+    // Beds in the vanilla colors, made from vanilla wool and planks other than oak, so they can remember their planks.
+    // They have no place in the creative tabs.
+    public static BedBlock[] vanillaColorBedArray = new BedBlock[DyeColor.values().length];
     public static BannerBlock[] bannerArray = new BannerBlock[COLORS];
     public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[COLORS];
     public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[COLORS];
@@ -490,8 +494,20 @@ public class MDBlock
         colors("carpet", carpetArray, () -> new CarpetBlock(copy(Blocks.WHITE_CARPET)), MDTabs.BLOCKS, null);
         for (int i = 0; i < COLORS; i++)
         {
-            register("bed_" + ColorStrings.ALL[i], bedArray, i, () -> new BedBlock(DyeColor.WHITE, copy(Blocks.WHITE_BED)),
+            register("bed_" + ColorStrings.ALL[i], bedArray, i, () -> new DyedBedBlock(DyeColor.WHITE, copy(Blocks.WHITE_BED)),
                     MDTabs.BLOCKS, DyedEntityItems.Bed::new);
+        }
+        if (!isDisabled(bedArray))
+        {
+            for (DyeColor color : DyeColor.values())
+            {
+                int i = color.getId();
+                ResourceLocation id = new ResourceLocation(Reference.MOD_ID, "bed_" + color.getName());
+                vanillaColorBedArray[i] = Registry.register(BuiltInRegistries.BLOCK, id,
+                        new DyedBedBlock(color, copy(BuiltInRegistries.BLOCK.get(new ResourceLocation(color.getName() + "_bed")))));
+                BLOCKS.add(vanillaColorBedArray[i]);
+                ITEMS.add(Registry.register(BuiltInRegistries.ITEM, id, new DyedEntityItems.Bed(vanillaColorBedArray[i], new Item.Properties())));
+            }
         }
         MINEABLE.put(bannerArray, AXE);
         MINEABLE.put(wallBannerArray, AXE);
@@ -517,6 +533,20 @@ public class MDBlock
         }
         colors("shulkerbox", shulkerBoxArray, () -> new DyedShulkerBoxBlock(DyedShulkerBoxBlock.properties(copy(Blocks.WHITE_SHULKER_BOX))),
                 MDTabs.BLOCKS, PICKAXE, DyedEntityItems.ShulkerBox::new);
+    }
+
+    /** Every More Dyes bed: the dyed ones and the ones in the vanilla colors. */
+    public static Block[] beds()
+    {
+        List<Block> beds = new ArrayList<>(Arrays.asList(bedArray));
+        beds.addAll(Arrays.asList(vanillaColorBedArray));
+        return beds.toArray(new Block[0]);
+    }
+
+    /** The More Dyes bed in a vanilla color, or null if the config turned beds off. */
+    public static BedBlock vanillaColorBed(DyeColor color)
+    {
+        return vanillaColorBedArray[color.getId()];
     }
 
     /** Every dyed sign block, standing and on a wall. */

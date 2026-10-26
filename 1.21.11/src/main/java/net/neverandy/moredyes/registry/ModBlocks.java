@@ -9,6 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import org.jspecify.annotations.Nullable;
+
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -19,6 +24,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.block.DyedBedBlock;
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
@@ -40,6 +46,11 @@ public final class ModBlocks {
     private static final Map<Kind, Map<MixColor, DeferredBlock<Block>>> BY_KIND = new EnumMap<>(Kind.class);
     private static final List<DeferredBlock<FlowerPotBlock>> POTTED = new ArrayList<>();
     private static volatile Map<Block, Kind> KINDS;
+    /**
+     * A More Dyes bed in each vanilla color, {@code bed_<color>}. Crafting a vanilla bed from planks other than oak
+     * gives one of these, which can remember the planks (see item/crafting/BedRecipe).
+     */
+    private static final Map<DyeColor, DeferredBlock<Block>> VANILLA_COLOR_BEDS = new EnumMap<>(DyeColor.class);
 
     static {
         for (Kind kind : Kind.values()) {
@@ -58,6 +69,16 @@ public final class ModBlocks {
                 byColor.put(color, BLOCKS.registerBlock(color.id(kind.id()), p -> kind.create(color, p), properties));
             }
             BY_KIND.put(kind, Collections.unmodifiableMap(byColor));
+        }
+        for (DyeColor color : DyeColor.values()) {
+            String id = "bed_" + color.getName();
+            if (!Kind.BED.enabled()) {
+                Toggles.leftOut(id);
+                continue;
+            }
+            VANILLA_COLOR_BEDS.put(color, BLOCKS.registerBlock(id, p -> new DyedBedBlock(color, p),
+                () -> BlockBehaviour.Properties.ofFullCopy(
+                    BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(color.getName() + "_bed")))));
         }
         // Vanilla's empty pot finds these when a plant is used on it, because they name it as their empty pot.
         for (Kind kind : POTTABLE) {
@@ -112,5 +133,23 @@ public final class ModBlocks {
 
     public static List<DeferredBlock<FlowerPotBlock>> potted() {
         return Collections.unmodifiableList(POTTED);
+    }
+
+    /** The More Dyes bed in a vanilla color, or null when the config leaves beds out. */
+    public static @Nullable Block vanillaColorBed(DyeColor color) {
+        DeferredBlock<Block> bed = VANILLA_COLOR_BEDS.get(color);
+        return bed == null ? null : bed.get();
+    }
+
+    /** The More Dyes beds in the vanilla colors. */
+    public static List<DeferredBlock<Block>> vanillaColorBeds() {
+        return List.copyOf(VANILLA_COLOR_BEDS.values());
+    }
+
+    /** Every More Dyes bed: the dyed ones and those in the vanilla colors. */
+    public static List<DeferredBlock<Block>> beds() {
+        List<DeferredBlock<Block>> beds = new ArrayList<>(all(Kind.BED));
+        beds.addAll(VANILLA_COLOR_BEDS.values());
+        return beds;
     }
 }

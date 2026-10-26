@@ -22,6 +22,9 @@ import net.minecraft.world.level.block.entity.BedBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 
+import net.neverandy.moredyes.block.DyedBedBlock;
+import net.neverandy.moredyes.block.DyedBedBlockEntity;
+
 /**
  * Draws the dyed bed, banner and shulker box items. Their item models are vanilla's ({@code builtin/entity}), which
  * hand the drawing to this. Like vanilla's item renderer, it draws a block entity of the item's block, so the
@@ -43,7 +46,9 @@ public class DyedItemRenderer extends BlockEntityWithoutLevelRenderer {
         }
         Block block = item.getBlock();
         BlockEntity entity = entities.computeIfAbsent(block, b -> {
-            if (b instanceof BedBlock) {
+            if (b instanceof DyedBedBlock) {
+                return new DyedBedBlockEntity(BlockPos.ZERO, b.defaultBlockState());
+            } else if (b instanceof BedBlock) {
                 return new BedBlockEntity(BlockPos.ZERO, b.defaultBlockState());
             } else if (b instanceof BannerBlock) {
                 return new BannerBlockEntity(BlockPos.ZERO, b.defaultBlockState());
@@ -52,6 +57,9 @@ public class DyedItemRenderer extends BlockEntityWithoutLevelRenderer {
             }
             return null;
         });
+        if (entity instanceof DyedBedBlockEntity bed) {
+            bed.setWood(DyedBedBlockEntity.woodOf(stack));
+        }
         if (entity instanceof BannerBlockEntity banner) {
             banner.fromItem(stack, DyeColor.WHITE);
         }

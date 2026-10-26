@@ -1,15 +1,20 @@
 package net.neverandy.moredyes.handler;
 
 import net.minecraft.core.cauldron.CauldronInteraction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 
+import net.neverandy.moredyes.block.DyedBedBlockEntity;
 import net.neverandy.moredyes.block.Kind;
 import net.neverandy.moredyes.color.MixColor;
 import net.neverandy.moredyes.color.MixColors;
+import net.neverandy.moredyes.registry.ModBlocks;
 import net.neverandy.moredyes.registry.ModItems;
 
 /**
@@ -30,7 +35,15 @@ public final class CauldronWashing {
             Item washed = kind.washed().get();
             CauldronInteraction wash = (state, level, pos, player, hand, held) -> {
                 if (!level.isClientSide()) {
-                    player.setItemInHand(hand, new ItemStack(washed, held.getCount()));
+                    ItemStack clean = new ItemStack(washed, held.getCount());
+                    ResourceLocation wood = kind == Kind.BED ? DyedBedBlockEntity.woodOf(held) : null;
+                    Block white = ModBlocks.vanillaColorBed(DyeColor.WHITE);
+                    if (wood != null && white != null) {
+                        // A bed keeps its wood, so it becomes the More Dyes white bed, which remembers it.
+                        clean = new ItemStack(white, held.getCount());
+                        DyedBedBlockEntity.setWood(clean, wood);
+                    }
+                    player.setItemInHand(hand, clean);
                     player.awardStat(Stats.USE_CAULDRON);
                     LayeredCauldronBlock.lowerFillLevel(state, level, pos);
                 }

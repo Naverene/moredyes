@@ -26,6 +26,7 @@ public final class Config {
     private static List<String> sheepSpawnColors = WildSheepColors.NATURAL;
     private static double rareSheepSpawnChance = WildSheepColors.RARE_CHANCE;
     private static List<String> rareSheepSpawnColors = WildSheepColors.RARE;
+    private static boolean woodBedFrames = true;
 
     private Config() {}
 
@@ -51,6 +52,7 @@ public final class Config {
         sheepSpawnColors = colors(properties, "sheep_spawn_colors", WildSheepColors.NATURAL);
         rareSheepSpawnChance = chance(properties, "rare_sheep_spawn_chance", WildSheepColors.RARE_CHANCE);
         rareSheepSpawnColors = colors(properties, "rare_sheep_spawn_colors", WildSheepColors.RARE);
+        woodBedFrames = flag(properties, "wood_bed_frames");
         Toggles.stairs = flag(properties, "stair_blocks");
         Toggles.slabs = flag(properties, "slab_blocks");
         Toggles.walls = flag(properties, "wall_blocks");
@@ -86,6 +88,9 @@ public final class Config {
             writer.write("rare_sheep_spawn_chance=" + rareSheepSpawnChance + "\n\n");
             writer.write("# The rare colors wild sheep can spawn with. The default is burgundy (592626). Leave it empty for any More Dyes color.\n");
             writer.write("rare_sheep_spawn_colors=" + String.join(",", rareSheepSpawnColors) + "\n\n");
+            writer.write("# Beds remember the planks they are crafted from and draw their frame in that wood.\n");
+            writer.write("# Set to false to craft every bed with the plain oak frame, as in vanilla. Beds crafted before keep their wood.\n");
+            writer.write("wood_bed_frames=" + woodBedFrames + "\n\n");
             writer.write("# Add dyed stairs.\n");
             writer.write("# This and the settings below choose which blocks the mod adds; turning blocks off saves memory and loading time.\n");
             writer.write("# A server and its players must use the same settings, and blocks that are turned off disappear from worlds that have them.\n");
@@ -114,6 +119,11 @@ public final class Config {
         } catch (IOException e) {
             MoreDyes.LOGGER.warn("Could not write {}", path, e);
         }
+    }
+
+    /** Whether crafted beds remember their planks and draw their frame in that wood. */
+    public static boolean woodBedFrames() {
+        return woodBedFrames;
     }
 
     /** A true/false setting, on unless the file says otherwise. */

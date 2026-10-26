@@ -130,6 +130,7 @@ public final class Textures {
     public static final int FLOWER_POT_DIRT = 120;
     public static final int SPECKLED_GRANITE = 121;
     public static final int SMOOTH_SPECKLED_GRANITE = 122;
+    public static final int BOOKSHELF_BOOKS = 123;
 
     private Textures() {}
 }

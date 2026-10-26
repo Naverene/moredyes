@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import info.kg6jay.moredyes.block.BedWood;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.item.MDItem;
 
@@ -36,7 +37,7 @@ public class CauldronWashHandler {
         if (water <= 0 || held == null) {
             return;
         }
-        ItemStack washed = held.getItem() == MDItem.bed ? new ItemStack(Items.bed)
+        ItemStack washed = held.getItem() == MDItem.bed ? washedBed(held)
             : MDBlock.WASHED.get(Block.getBlockFromItem(held.getItem()));
         if (washed == null) {
             return;
@@ -51,8 +52,25 @@ public class CauldronWashHandler {
                 (NBTTagCompound) held.getTagCompound()
                     .copy());
         }
+        if (held.getItem() == MDItem.bed) {
+            // The washed bed keeps only its wood, which washedBed already gave it.
+            result.setTagCompound(
+                washed.hasTagCompound() ? (NBTTagCompound) washed.getTagCompound()
+                    .copy() : null);
+        }
         player.inventory.setInventorySlotContents(player.inventory.currentItem, result);
         Blocks.cauldron.func_150024_a(world, event.x, event.y, event.z, water - 1);
         player.inventoryContainer.detectAndSendChanges();
+    }
+
+    /** A dyed bed washes into the vanilla bed, or into a dyed bed with the vanilla bedding if it keeps other planks. */
+    private static ItemStack washedBed(ItemStack bed) {
+        String wood = BedWood.woodOf(bed);
+        if (wood == null) {
+            return new ItemStack(Items.bed);
+        }
+        ItemStack washed = BedWood.vanillaBed();
+        BedWood.setWood(washed, wood);
+        return washed;
     }
 }

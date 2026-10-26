@@ -20,6 +20,19 @@
               }
             }
           ],
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "ops": [
+                {
+                  "op": "replace",
+                  "source": "Wood",
+                  "target": "BlockEntityTag.Wood"
+                }
+              ],
+              "source": "block_entity"
+            }
+          ],
           "name": "moredyes:bed_65467f"
         }
       ],

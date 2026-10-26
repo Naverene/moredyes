@@ -28,6 +28,7 @@ public class ConfigHandler {
     public static boolean storage_drawers = true;
     public static boolean et_futurum = true;
     public static boolean gregtech_recipes = true;
+    public static boolean wood_bed_frames = true;
 
     public static void init(File configFile) {
         if (config == null) {
@@ -149,6 +150,11 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "Set to false to leave out the GregTech mixer and chemical bath recipes. Only matters when GregTech is installed; restart the game after changing it.");
+        wood_bed_frames = config.getBoolean(
+            "WoodBedFrames",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Beds remember the planks they are crafted from and draw their frame in that wood. Set to false to craft every bed with the plain oak frame, as in vanilla. Beds crafted before keep their wood.");
         // Replaced by preventMobSpawning.
         config.getCategory(Configuration.CATEGORY_GENERAL)
             .remove("mobSpawnOnBlock");

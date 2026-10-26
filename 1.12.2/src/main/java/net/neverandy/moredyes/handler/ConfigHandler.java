@@ -24,6 +24,7 @@ public class ConfigHandler
 	public static float rareSheepSpawnChance=(float)WildSheepColors.RARE_CHANCE;
 	public static List<String> rareSheepSpawnColors=WildSheepColors.RARE;
 	public static boolean gregtechRecipes=true;
+	public static boolean woodBedFrames=true;
 	public static boolean ironChests=true;
 	public static boolean storageDrawers=true;
 	public static boolean ironShulkerBoxes=true;
@@ -68,6 +69,7 @@ public class ConfigHandler
 		sheepSpawnColors=Arrays.asList(config.getStringList("sheepSpawnColors",Configuration.CATEGORY_GENERAL,WildSheepColors.NATURAL.toArray(new String[0]),"The More Dyes colors (hex, like 7f5933) a sheep can get when it first appears in the world. The default is the natural browns, beiges and greys. Leave it empty for any More Dyes color."));
 		rareSheepSpawnChance=config.getFloat("rareSheepSpawnChance",Configuration.CATEGORY_GENERAL,(float)WildSheepColors.RARE_CHANCE,0.0f,1.0f,"The chance that a sheep gets one of the rareSheepSpawnColors instead when it first appears in the world. 0 turns it off.");
 		rareSheepSpawnColors=Arrays.asList(config.getStringList("rareSheepSpawnColors",Configuration.CATEGORY_GENERAL,WildSheepColors.RARE.toArray(new String[0]),"The rare colors a sheep can get when it first appears in the world. The default is burgundy (592626). Leave it empty for any More Dyes color."));
+		woodBedFrames=config.getBoolean("woodBedFrames",Configuration.CATEGORY_GENERAL,true,"Beds remember the planks they are crafted from and draw their frame in that wood. Set to false to craft every bed with the plain oak frame, as in vanilla. Beds crafted before keep their wood.");
 		gregtechRecipes=config.getBoolean("gregtechRecipes",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the GregTech mixer and chemical bath recipes. Only matters when GregTech is installed, and takes effect after a restart.");
 		ironChests=config.getBoolean("ironChests",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the dyed Iron Chests. Only matters when Iron Chests is installed, and takes effect after a restart.");
 		ironShulkerBoxes=config.getBoolean("ironShulkerBoxes",Configuration.CATEGORY_GENERAL,true,"Set to false to leave out the dyed Iron Shulker Boxes (from Iron Chests). Only matters when Iron Chests is installed, and takes effect after a restart.");

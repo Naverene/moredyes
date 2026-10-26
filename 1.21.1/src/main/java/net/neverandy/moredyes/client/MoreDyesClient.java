@@ -67,8 +67,9 @@ public class MoreDyesClient {
     }
 
     /**
-     * The layer a kind of block is drawn in, as vanilla draws its vanilla block, or null for solid blocks. Pistons are
-     * cut out too: their wood and iron are an untinted layer over the tinted cobblestone, with see-through gaps.
+     * The layer a kind of block is drawn in, as vanilla draws its vanilla block, or null for solid blocks. Pistons and
+     * bookshelves are cut out too: their wood and iron (or books) are an untinted layer with see-through gaps over the
+     * tinted cobblestone (or wood).
      */
     private static RenderType layer(Kind kind) {
         if (kind.base() != null) {
@@ -76,7 +77,7 @@ public class MoreDyesClient {
         }
         String id = kind.id();
         if (kind.tab() == Kind.Tab.PLANTS || id.endsWith("_sapling") || id.equals("glass") || id.contains("piston")
-            || id.equals("chain")) {
+            || id.equals("chain") || id.equals("bookshelf")) {
             return RenderType.cutout();
         }
         if (id.endsWith("_leaves") || id.equals("glass_pane")) {
@@ -118,6 +119,7 @@ public class MoreDyesClient {
         event.registerBlockEntityRenderer(BlockEntityType.SIGN, DyedSignRenderer::new);
         // Likewise for beds, banners and shulker boxes.
         event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.BED.get(), DyedBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
@@ -136,14 +138,18 @@ public class MoreDyesClient {
      * like their vanilla items.
      */
     private static void clientExtensions(RegisterClientExtensionsEvent event) {
-        register(event, DyedChestItemRenderer::new, Kind.CHEST);
-        register(event, DyedItemRenderer::new, Kind.BED, Kind.BANNER, Kind.SHULKER_BOX);
+        register(event, DyedChestItemRenderer::new, blocks(Kind.CHEST));
+        register(event, DyedItemRenderer::new, Stream.concat(blocks(Kind.BED, Kind.BANNER, Kind.SHULKER_BOX),
+            ModBlocks.vanillaColorBeds().stream()));
+    }
+
+    private static Stream<DeferredBlock<Block>> blocks(Kind... kinds) {
+        return Stream.of(kinds).flatMap(kind -> ModBlocks.all(kind).stream());
     }
 
     private static void register(RegisterClientExtensionsEvent event,
-        Supplier<BlockEntityWithoutLevelRenderer> factory, Kind... kinds) {
-        Item[] items = Stream.of(kinds).flatMap(kind -> ModBlocks.all(kind).stream()).map(DeferredBlock::get)
-            .map(Block::asItem).toArray(Item[]::new);
+        Supplier<BlockEntityWithoutLevelRenderer> factory, Stream<DeferredBlock<Block>> blocks) {
+        Item[] items = blocks.map(DeferredBlock::get).map(Block::asItem).toArray(Item[]::new);
         // With the kinds turned off in the config there are none, and NeoForge refuses an empty list.
         if (items.length == 0) {
             return;

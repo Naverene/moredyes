@@ -15,6 +15,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.block.DyedBedBlockEntity;
 import net.neverandy.moredyes.block.DyedChestBlockEntity;
 import net.neverandy.moredyes.block.Kind;
 
@@ -26,6 +27,14 @@ public final class ModBlockEntities {
     /** One type for the dyed chests of every color. */
     public static final Supplier<BlockEntityType<DyedChestBlockEntity>> CHEST = BLOCK_ENTITIES.register("chest",
         () -> new BlockEntityType<>(DyedChestBlockEntity::new, blocks(Kind.CHEST)));
+
+    /**
+     * The More Dyes beds, which remember the planks they were made from. Vanilla beds have no block entity here; More
+     * Dyes beds placed before this have none either, and an oak frame.
+     */
+    public static final Supplier<BlockEntityType<DyedBedBlockEntity>> BED = BLOCK_ENTITIES.register("bed",
+        () -> new BlockEntityType<>(DyedBedBlockEntity::new,
+            ModBlocks.beds().stream().map(DeferredBlock::get).collect(Collectors.toUnmodifiableSet())));
 
     private ModBlockEntities() {}
 

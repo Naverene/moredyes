@@ -35,6 +35,7 @@ public final class Furnishings
     /** Must run after registration, in common setup's main-thread work. */
     public static void setup()
     {
+        // Dyed beds have their own block entity type (DyedBedBlockEntity); beds placed before it came keep vanilla's.
         addValidBlocks(BlockEntityType.BED, MDBlock.bedArray);
         addValidBlocks(BlockEntityType.BANNER, MDBlock.bannerArray);
         addValidBlocks(BlockEntityType.BANNER, MDBlock.wallBannerArray);
@@ -97,7 +98,7 @@ public final class Furnishings
             return;
         }
         Map<BlockState, PoiType> map = GameData.getBlockStatePointOfInterestTypeMap();
-        for (Block bed : MDBlock.bedArray)
+        for (Block bed : MDBlock.beds())
         {
             if (bed == null)
             {

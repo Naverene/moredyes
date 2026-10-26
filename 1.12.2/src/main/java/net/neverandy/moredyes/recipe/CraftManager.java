@@ -91,6 +91,7 @@ public class CraftManager
 			registerMissingBlocks(i,chests,workbenches,bookshelves,signs);
 		}
 		registerWashing();
+		registerVanillaBeds();
 		guard("chest",chests);
 		guard("crafting_table",workbenches);
 		guard("bookshelf",bookshelves);
@@ -387,8 +388,11 @@ public class CraftManager
 		ItemStack wool=new ItemStack(MDBlock.wool[g],1,s);
 		shaped("carpet/"+color,"carpet",new ItemStack(MDBlock.carpet[g],3,s),"WW",'W',wool);
 		dyeing(MDBlock.carpet,g,s,anyOf(new ItemStack(Blocks.CARPET,1,OreDictionary.WILDCARD_VALUE),MDBlock.carpet));
-		shaped("bed/"+color,"bed",new ItemStack(MDItem.bed,1,index),"WWW","PPP",'W',wool,'P',"plankWood");
-		shapeless("dyeing/bed_"+color,"bed",new ItemStack(MDItem.bed,1,index),new ItemStack(Items.BED,1,0),dye);
+		// Beds remember their planks (see BedRecipe); a dyed bed can be dyed again, keeping them.
+		bed(new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID,"bed"),new ItemStack(MDItem.bed,1,index),"WWW","PPP",
+				'W',wool,'P',"plankWood"),"bed/"+color);
+		bed(new ShapelessOreRecipe(new ResourceLocation(Reference.MOD_ID,"bed"),new ItemStack(MDItem.bed,1,index),
+				Ingredient.fromStacks(new ItemStack(Items.BED,1,0),new ItemStack(MDItem.bed,1,OreDictionary.WILDCARD_VALUE)),dye),"dyeing/bed_"+color);
 		shaped("banner/"+color,"banner",new ItemStack(MDItem.banner,1,index),"WWW","WWW"," S ",'W',wool,'S',"stickWood");
 		keepNbt("dyeing/banner_"+color,"banner",new ItemStack(MDItem.banner,1,index),new ItemStack(Items.BANNER,1,15),dye);
 		keepNbt("dyeing/shulker_box_"+color,"shulker_box",new ItemStack(MDBlock.shulkerBox,1,index),shulkerBoxes(),dye);
@@ -479,11 +483,30 @@ public class CraftManager
 			}
 		}
 		shapeless("washing/sign","washing",new ItemStack(Items.SIGN),new ItemStack(MDItem.sign,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
-		shapeless("washing/bed","washing",new ItemStack(Items.BED,1,0),new ItemStack(MDItem.bed,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
+		// A bed of planks other than oak washes into a white bed that keeps them.
+		bed(new ShapelessOreRecipe(new ResourceLocation(Reference.MOD_ID,"washing"),new ItemStack(Items.BED,1,0),
+				new ItemStack(MDItem.bed,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET),"washing/bed");
 		keepNbt("washing/banner","washing",new ItemStack(Items.BANNER,1,15),new ItemStack(MDItem.banner,1,OreDictionary.WILDCARD_VALUE),Items.WATER_BUCKET);
 		// The vanilla banner recipes (adding a pattern, copying one) for dyed banners.
 		registry.register(new DyedBannerRecipe(new RecipesBanners.RecipeAddPattern()).setRegistryName(Reference.MOD_ID,"banner_add_pattern"));
 		registry.register(new DyedBannerRecipe(new RecipesBanners.RecipeDuplicatePattern()).setRegistryName(Reference.MOD_ID,"banner_duplicate"));
+	}
+	private static void bed(IRecipe recipe,String name)
+	{
+		registry.register(new BedRecipe(recipe).setRegistryName(Reference.MOD_ID,name));
+	}
+	/** Swaps the vanilla bed recipes for ones that remember the planks (see BedRecipe). */
+	private static void registerVanillaBeds()
+	{
+		for(EnumDyeColor color:EnumDyeColor.values())
+		{
+			String name=(color==EnumDyeColor.SILVER?"light_gray":color.getName())+"_bed";
+			IRecipe original=registry.getValue(new ResourceLocation("minecraft",name));
+			if(original!=null&&!(original instanceof BedRecipe))
+			{
+				registry.register(new BedRecipe(original).setRegistryName("minecraft",name));
+			}
+		}
 	}
 	/** Makes a vanilla recipe step aside for the mod's recipes that use the same shape. */
 	private static void guard(String vanillaName,List<IRecipe> preferred)

@@ -1,5 +1,11 @@
 package net.neverandy.moredyes.data.server;
 
+import net.neverandy.moredyes.tileentity.DyedBedTileEntity;
+import net.minecraft.loot.functions.CopyNbt;
+import net.minecraft.loot.conditions.BlockStateProperty;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.ItemLootEntry;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.Block;
@@ -67,6 +73,10 @@ public class ModLootTableProvider extends LootTableProvider
             {
                 registerDropSelfLootTable(block);
             }
+            for (Block bed : MDBlock.vanillaColorBedArray)
+            {
+                registerLootTable(bed, ModBlockLootTables::bedDrop);
+            }
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
                 Block cobble = MDBlock.cobbleArray[i];
@@ -76,7 +86,7 @@ public class ModLootTableProvider extends LootTableProvider
                 registerLootTable(MDBlock.glassPaneArray[i], BlockLootTables::onlyWithSilkTouch);
                 registerLootTable(MDBlock.bookshelfArray[i], shelf -> droppingWithSilkTouchOrRandomly(shelf, Items.BOOK, ConstantRange.of(3)));
                 registerLootTable(MDBlock.glassFoggyPaneArray[i], BlockLootTables::onlyWithSilkTouch);
-                registerLootTable(MDBlock.bedArray[i], bed -> droppingWhen(bed, BedBlock.PART, BedPart.HEAD));
+                registerLootTable(MDBlock.bedArray[i], ModBlockLootTables::bedDrop);
                 registerLootTable(MDBlock.bannerArray[i], BlockLootTables::droppingWithPatterns);
                 registerLootTable(MDBlock.shulkerBoxArray[i], BlockLootTables::droppingWithContents);
                 registerLootTable(MDBlock.iceArray[i], BlockLootTables::onlyWithSilkTouch);
@@ -100,6 +110,17 @@ public class ModLootTableProvider extends LootTableProvider
                     registerLootTable(DyeTrees.leaves(wood)[i], leaves -> droppingWithChancesAndSticks(leaves, sapling, SAPLING_CHANCES));
                 }
             }
+        }
+
+        /** The head drops the bed, which keeps the planks it was made from (see DyedBedTileEntity). */
+        private static LootTable.Builder bedDrop(Block bed)
+        {
+            return LootTable.builder().addLootPool(withSurvivesExplosion(bed, LootPool.builder().rolls(ConstantRange.of(1))
+                    .addEntry(ItemLootEntry.builder(bed)
+                            .acceptCondition(BlockStateProperty.builder(bed)
+                                    .fromProperties(StatePropertiesPredicate.Builder.newBuilder().withProp(BedBlock.PART, BedPart.HEAD)))
+                            .acceptFunction(CopyNbt.builder(CopyNbt.Source.BLOCK_ENTITY)
+                                    .replaceOperation(DyedBedTileEntity.WOOD, "BlockEntityTag." + DyedBedTileEntity.WOOD)))));
         }
 
         @Override

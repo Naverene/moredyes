@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "moredyes:crafting_bed",
   "pattern": [
     "WWW",
     "PPP"
