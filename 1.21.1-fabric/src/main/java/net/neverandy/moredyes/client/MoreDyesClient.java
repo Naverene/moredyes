@@ -57,8 +57,9 @@ public class MoreDyesClient implements ClientModInitializer {
     }
 
     /**
-     * The layer a kind of block is drawn in, as vanilla draws its vanilla block, or null for solid blocks. Pistons are
-     * cut out too: their wood and iron are an untinted layer over the tinted cobblestone, with see-through gaps.
+     * The layer a kind of block is drawn in, as vanilla draws its vanilla block, or null for solid blocks. Pistons and
+     * bookshelves are cut out too: their wood and iron (or books) are an untinted layer with see-through gaps over the
+     * tinted cobblestone (or wood).
      */
     private static RenderType layer(Kind kind) {
         if (kind.base() != null) {
@@ -66,7 +67,7 @@ public class MoreDyesClient implements ClientModInitializer {
         }
         String id = kind.id();
         if (kind.tab() == Kind.Tab.PLANTS || id.endsWith("_sapling") || id.equals("glass") || id.contains("piston")
-            || id.equals("chain")) {
+            || id.equals("chain") || id.equals("bookshelf")) {
             return RenderType.cutout();
         }
         if (id.endsWith("_leaves") || id.equals("glass_pane")) {

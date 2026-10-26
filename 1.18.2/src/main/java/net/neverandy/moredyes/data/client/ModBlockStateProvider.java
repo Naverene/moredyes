@@ -151,9 +151,11 @@ public class ModBlockStateProvider extends BlockStateProvider
             simpleBlock(MDBlock.shulkerBoxArray[i], models().getBuilder("shulkerbox").texture("particle", tex("shulker_box")));
 
             Block shelf = MDBlock.bookshelfArray[i];
-            simpleBlock(shelf, tinted(shelf, "cube_column")
+            // Only the wood takes the dye: the books are drawn over it in their own colors.
+            simpleBlock(shelf, tinted(shelf, "bookshelf")
                     .texture("side", tex("bookshelf"))
-                    .texture("end", tex("oak_planks")));
+                    .texture("end", tex("oak_planks"))
+                    .texture("books", tex("bookshelf_books")));
 
             piston(MDBlock.pistonArray[i], "piston");
             piston(MDBlock.stickyPistonArray[i], "sticky_piston");

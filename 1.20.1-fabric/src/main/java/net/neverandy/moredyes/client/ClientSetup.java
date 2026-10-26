@@ -60,6 +60,8 @@ public final class ClientSetup implements ClientModInitializer
                     layer(RenderType.cutout(), flowers[i]);
                 }
                 layer(RenderType.cutout(), MDBlock.chainArray[i]);
+                // The books on a dyed bookshelf are an untinted layer drawn over the tinted wood.
+                layer(RenderType.cutout(), MDBlock.bookshelfArray[i]);
                 layer(RenderType.cutout(), MDBlock.carpetArray[i]);
                 for (MDBlock.PottedPlants potted : MDBlock.POTTED)
                 {

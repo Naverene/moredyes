@@ -50,6 +50,19 @@ public final class TintPixels {
         return argb & 0xFF000000 | lum << 16 | lum << 8 | lum;
     }
 
+    /**
+     * True where the vanilla bookshelf shows a book rather than wood: the frame, the shelves and the dark wall behind
+     * the books are all dull browns.
+     */
+    public static boolean isBook(int argb) {
+        if ((argb >>> 24) == 0) {
+            return false;
+        }
+        float[] hsb = Color.RGBtoHSB(argb >> 16 & 255, argb >> 8 & 255, argb & 255, null);
+        float hue = hsb[0] * 360.0F;
+        return !(hue >= 25.0F && hue <= 50.0F && hsb[1] <= 0.7F);
+    }
+
     public static boolean isGreen(int argb) {
         if ((argb >>> 24) == 0) {
             return false;

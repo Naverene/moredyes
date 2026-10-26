@@ -70,6 +70,9 @@ public final class TintSources {
     /** Unchanged where the pixel is not green, transparent elsewhere (the trunk of a sapling). */
     public static final PixelTransform KEEP_IF_NOT_GREEN = argb -> TintPixels.isGreen(argb) ? 0 : argb;
 
+    /** Unchanged where the pixel is a book, transparent elsewhere (the books on a bookshelf, drawn over its wood). */
+    public static final PixelTransform KEEP_BOOKS = argb -> TintPixels.isBook(argb) ? argb : 0;
+
     /** The red sheet of a bed as grey, transparent elsewhere. */
     public static final PixelTransform BEDDING = argb -> TintPixels.isBedding(argb) ? TintPixels.beddingGrey(argb) : 0;
     /** Everything of a bed but its sheet, unchanged: the pillow and the wooden frame. */
@@ -233,6 +236,7 @@ public final class TintSources {
         block("sandstone/side", "sandstone_normal");
         block("sandstone/bottom", "sandstone_bottom");
         block("bookshelf", "bookshelf");
+        add("bookshelf/books", vanillaBlock("bookshelf"), KEEP_BOOKS, false);
         block("workbench/top", "crafting_table_top");
         block("workbench/side", "crafting_table_side");
         block("workbench/front", "crafting_table_front");
