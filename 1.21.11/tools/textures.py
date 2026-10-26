@@ -146,6 +146,42 @@ def bed_split(jar, white):
     return keep, red
 
 
+# The vanilla planks a bed can be made from. Each gets its own bed frame texture (textures/entity/bed/frame/<wood>).
+BED_WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry', 'pale_oak', 'bamboo', 'crimson', 'warped']
+
+
+def bed_layers(jar):
+    """The bed's layers, by texture name: the grey bedding that client/DyedBedRenderer tints, the white pillow, and the
+    wooden frame redrawn in each kind of planks, plus a grey frame tinted for More Dyes planks. Each frame pixel takes
+    the planks' pixel at the same rank of brightness, so the frame keeps its shading, and oak comes out like vanilla's."""
+    white = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/bed/white.png'))).convert('RGBA')
+    pixels = list(white.get_flattened_data())
+    keep, shown = bed_split(jar, white)
+    wood = [is_colorful(p) for p in pixels]
+    clear = (0, 0, 0, 0)
+    layers = {'entity/bed/dyed': brighten([clear if k else grey(p) for p, k in zip(pixels, keep)]),
+              'entity/bed/pillow': [p if k and not w else clear for p, k, w in zip(shown, keep, wood)]}
+    lum = lambda p: 0.299 * p[0] + 0.587 * p[1] + 0.114 * p[2]
+    frame = sorted((i for i, w in enumerate(wood) if w), key=lambda i: lum(pixels[i]))
+    for name in BED_WOODS:
+        planks = sorted(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/block/%s_planks.png' % name)))
+                        .convert('RGBA').get_flattened_data(), key=lum)
+        layer = [clear] * len(pixels)
+        for rank, i in enumerate(frame):
+            layer[i] = planks[round(rank * (len(planks) - 1) / max(1, len(frame) - 1))]
+        layers['entity/bed/frame/' + name] = layer
+    layer = [clear] * len(pixels)
+    for i, p in zip(frame, brighten([grey(pixels[i]) for i in frame])):
+        layer[i] = p
+    layers['entity/bed/frame/dyed'] = layer
+    out = {}
+    for name, data in layers.items():
+        image = Image.new('RGBA', white.size)
+        image.putdata(data)
+        out[name] = image
+    return out
+
+
 def split_colorful(image, keep=None, shown=None):
     """(the grey part to tint, brightened; the colorful part, kept as it is) of an RGBA image. keep can say which pixels
     are kept instead, and shown what to draw for them."""
@@ -301,16 +337,18 @@ def main():
     save(sign, 'entity/signs/dyed')
     count += 1
 
-    # Beds are drawn from the bed atlas (textures/entity/bed) by client/DyedBedRenderer: the grey bedding tinted, and
-    # the wooden frame and white pillow over it in their own colors. A llama's carpet (textures/entity/equipment/llama_body) is drawn
-    # likewise, from the layers its equipment asset names: the grey carpet tinted, and its red and green stripes.
-    for source, name in [('entity/bed/white', 'entity/bed/dyed'),
-                         ('entity/equipment/llama_body/white', 'entity/equipment/llama_body/carpet')]:
-        image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % source))).convert('RGBA')
-        tinted, kept = split_colorful(image, *(bed_split(jar, image) if 'bed' in name else ()))
-        save(tinted, name)
-        save(kept, name + ('_frame' if 'bed' in name else '_stripes'))
-        count += 2
+    # Beds are drawn from the bed atlas (textures/entity/bed) by client/DyedBedRenderer: the grey bedding tinted, the
+    # white pillow over it, and the wooden frame in the planks the bed was made from. A llama's carpet
+    # (textures/entity/equipment/llama_body) is drawn from the layers its equipment asset names: the grey carpet
+    # tinted, and its red and green stripes.
+    for name, image in bed_layers(jar).items():
+        save(image, name)
+        count += 1
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/equipment/llama_body/white.png'))).convert('RGBA')
+    tinted, kept = split_colorful(image)
+    save(tinted, 'entity/equipment/llama_body/carpet')
+    save(kept, 'entity/equipment/llama_body/carpet_stripes')
+    count += 2
     # Shulker boxes are drawn from the shulker atlas (textures/entity/shulker) by client/DyedShulkerBoxRenderer.
     shulker = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/shulker/shulker_white.png'))).convert('RGBA')
     shulker.putdata(brighten([grey(p) for p in shulker.get_flattened_data()]))

@@ -14,6 +14,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.block.DyedBedBlockEntity;
 import net.neverandy.moredyes.block.DyedChestBlockEntity;
 import net.neverandy.moredyes.block.Kind;
 
@@ -25,6 +26,14 @@ public final class ModBlockEntities {
     /** One type for the dyed chests of every color. */
     public static final Supplier<BlockEntityType<DyedChestBlockEntity>> CHEST = BLOCK_ENTITIES.register("chest",
         () -> new BlockEntityType<>(DyedChestBlockEntity::new, blocks(Kind.CHEST)));
+
+    /**
+     * The More Dyes beds, which remember the planks they were made from. Beds placed before that keep vanilla's bed
+     * block entity (see addSigns) and an oak frame.
+     */
+    public static final Supplier<BlockEntityType<DyedBedBlockEntity>> BED = BLOCK_ENTITIES.register("bed",
+        () -> new BlockEntityType<>(DyedBedBlockEntity::new,
+            ModBlocks.beds().stream().map(DeferredBlock::get).collect(Collectors.toUnmodifiableSet())));
 
     private ModBlockEntities() {}
 
@@ -39,7 +48,8 @@ public final class ModBlockEntities {
      */
     private static void addSigns(BlockEntityTypeAddBlocksEvent event) {
         event.modify(BlockEntityType.SIGN, array(Kind.SIGN, Kind.WALL_SIGN));
-        event.modify(BlockEntityType.BED, array(Kind.BED));
+        // The beds in the vanilla colors too: a bed block entity checks its block against vanilla's type when made.
+        event.modify(BlockEntityType.BED, ModBlocks.beds().stream().map(DeferredBlock::get).toArray(Block[]::new));
         event.modify(BlockEntityType.BANNER, array(Kind.BANNER, Kind.WALL_BANNER));
         event.modify(BlockEntityType.SHULKER_BOX, array(Kind.SHULKER_BOX));
     }

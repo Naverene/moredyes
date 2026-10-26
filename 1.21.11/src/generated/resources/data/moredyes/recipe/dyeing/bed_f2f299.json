@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shapeless","category":"building","ingredients":["#minecraft:beds","moredyes:dye_f2f299"],"result":{"id":"moredyes:bed_f2f299"}}
+{"type":"minecraft:crafting_transmute","category":"misc","group":"bed_dye","input":"#minecraft:beds","material":"moredyes:dye_f2f299","result":{"id":"moredyes:bed_f2f299"}}
