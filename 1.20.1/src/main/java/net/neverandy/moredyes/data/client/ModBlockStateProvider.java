@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.data.client;
 
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -144,6 +145,11 @@ public class ModBlockStateProvider extends BlockStateProvider
             // Beds, banners and shulker boxes are drawn by their renderers in client/; their block models only give
             // the breaking particles.
             simpleBlock(MDBlock.bedArray[i], models().getBuilder("bed").texture("particle", tex("wool")));
+            if (i < MDBlock.vanillaColorBedArray.length)
+            {
+                String color = DyeColor.byId(i).getName();
+                simpleBlock(MDBlock.vanillaColorBedArray[i], models().getBuilder("bed_" + color).texture("particle", mcLoc("block/" + color + "_wool")));
+            }
             simpleBlock(MDBlock.bannerArray[i], models().getExistingFile(mcLoc("block/banner")));
             simpleBlock(MDBlock.wallBannerArray[i], models().getExistingFile(mcLoc("block/banner")));
             simpleBlock(MDBlock.shulkerBoxArray[i], models().getBuilder("shulkerbox").texture("particle", tex("shulker_box")));

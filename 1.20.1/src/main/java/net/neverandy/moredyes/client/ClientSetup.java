@@ -96,6 +96,7 @@ public final class ClientSetup
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
         // Dyed beds, banners and shulker boxes share vanilla's block entities, so these replace vanilla's renderers.
         event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(ModTileEntities.BED.get(), DyedBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
