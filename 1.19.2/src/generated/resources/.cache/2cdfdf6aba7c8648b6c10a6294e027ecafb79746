@@ -1,4 +1,4 @@
-// 1.19.2	2026-10-25T06:29:23.981585903	Item Models: moredyes
+// 1.19.2	2026-10-26T16:36:13.388156616	Item Models: moredyes
 9eed7024f1c1abc87c9b6dea0a675ac5dfe5001e assets/moredyes/models/item/263366_dye.json
 9eed7024f1c1abc87c9b6dea0a675ac5dfe5001e assets/moredyes/models/item/333333_dye.json
 9eed7024f1c1abc87c9b6dea0a675ac5dfe5001e assets/moredyes/models/item/334c59_dye.json
@@ -2091,12 +2091,16 @@ b8e750125bb8773ef812e2ddb1ab2c63451cd5e5 assets/moredyes/models/item/basaltstair
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_bf9fd9.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_bfbf66.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_bfe68c.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_black.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_blue.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_brown.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_c56685.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_c6596c.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_c68c9f.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_cb9886.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_cc9999.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_cccccc.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_cyan.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_d265bf.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_d9a6ec.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_deb233.json
@@ -2105,6 +2109,18 @@ b8e750125bb8773ef812e2ddb1ab2c63451cd5e5 assets/moredyes/models/item/basaltstair
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_ecbf99.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_f2f299.json
 625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_f9bfd2.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_gray.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_green.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_light_blue.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_light_gray.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_lime.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_magenta.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_orange.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_pink.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_purple.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_red.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_white.json
+625eef14b28d20605fe24bc376d94d2ad0cfe2c4 assets/moredyes/models/item/bed_yellow.json
 9eed7024f1c1abc87c9b6dea0a675ac5dfe5001e assets/moredyes/models/item/bf8c33_dye.json
 9eed7024f1c1abc87c9b6dea0a675ac5dfe5001e assets/moredyes/models/item/bf9fd9_dye.json
 9eed7024f1c1abc87c9b6dea0a675ac5dfe5001e assets/moredyes/models/item/bfbf66_dye.json

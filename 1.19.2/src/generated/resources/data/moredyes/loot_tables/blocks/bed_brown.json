@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "moredyes:bed_brown",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "part": "head"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "ops": [
+                {
+                  "op": "replace",
+                  "source": "Wood",
+                  "target": "BlockEntityTag.Wood"
+                }
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "moredyes:bed_brown"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

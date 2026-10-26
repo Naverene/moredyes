@@ -48,6 +48,31 @@ def bed_split(jar, white):
     return keep, red
 
 
+# The vanilla planks a bed can be made from. Each gets its own bed frame texture (textures/entity/bed/frame/<wood>).
+BED_WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'crimson', 'warped']
+
+
+def bed_frames(jar, white, wood):
+    """The bed's wooden frame (the pixels where wood is True) redrawn in each kind of planks, plus a grey one that
+    client/DyedBedRenderer tints for More Dyes planks. Each frame pixel takes the planks' pixel at the same rank of
+    brightness, so the frame keeps its shading, and oak comes out like vanilla's frame."""
+    lum = lambda p: 0.299 * p[0] + 0.587 * p[1] + 0.114 * p[2]
+    frame = sorted((i for i, w in enumerate(wood) if w), key=lambda i: lum(white[i]))
+    frames = {}
+    for name in BED_WOODS:
+        planks = sorted(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/block/%s_planks.png' % name)))
+                        .convert('RGBA').getdata(), key=lum)
+        pixels = [(0, 0, 0, 0)] * len(white)
+        for rank, i in enumerate(frame):
+            pixels[i] = planks[round(rank * (len(planks) - 1) / max(1, len(frame) - 1))]
+        frames[name] = pixels
+    greys = brighten([grey(white[i]) for i in frame])
+    frames['dyed'] = [(0, 0, 0, 0)] * len(white)
+    for i, p in zip(frame, greys):
+        frames['dyed'][i] = p
+    return frames
+
+
 def is_book(p):
     """Whether a pixel of the vanilla bookshelf is a book, not its wood: the frame, shelves and the dark wall behind the
     books are all dull browns."""
@@ -279,23 +304,32 @@ def main():
     image.save(os.path.join(SIGN_OUT, 'dyed.png'))
     print('wrote the sign texture to %s' % os.path.relpath(SIGN_OUT, ROOT))
 
-    # Beds go on the bed atlas (textures/entity/bed): the grey bedding, tinted by client/DyedBedRenderer, and the
-    # wooden frame and white pillow drawn over it as they are. A llama's carpet (textures/entity/llama/decor) is split the same way by
-    # client/DyedLlamaDecorLayer, keeping its red and green stripes. Shulker boxes go on the shulker atlas.
+    # Beds go on the bed atlas (textures/entity/bed): the grey bedding, tinted by client/DyedBedRenderer, the white
+    # pillow drawn over it as it is, and the wooden frame in the planks the bed was made from. A llama's carpet
+    # (textures/entity/llama/decor) is split like the bedding by client/DyedLlamaDecorLayer, keeping its red and green
+    # stripes. Shulker boxes go on the shulker atlas.
     entity = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures/entity')
-    for source, name, kept in [('entity/bed/white', 'bed/dyed', 'bed/dyed_frame'),
-                               ('entity/llama/decor/white', 'llama/decor/dyed', 'llama/decor/dyed_stripes')]:
-        image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % source))).convert('RGBA')
-        pixels = list(image.getdata())
-        keep, shown = [is_colorful(p) for p in pixels], pixels
-        if 'bed' in source:
-            keep, shown = bed_split(jar, pixels)
-        for out, data in [(name, brighten([(0, 0, 0, 0) if k else grey(p) for p, k in zip(pixels, keep)])),
-                          (kept, [p if k else (0, 0, 0, 0) for p, k in zip(shown, keep)])]:
-            layer = Image.new('RGBA', image.size)
-            layer.putdata(data)
-            os.makedirs(os.path.dirname(os.path.join(entity, out)), exist_ok=True)
-            layer.save(os.path.join(entity, out + '.png'))
+
+    def save(out, data, size):
+        layer = Image.new('RGBA', size)
+        layer.putdata(data)
+        os.makedirs(os.path.dirname(os.path.join(entity, out)), exist_ok=True)
+        layer.save(os.path.join(entity, out + '.png'))
+
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/bed/white.png'))).convert('RGBA')
+    pixels = list(image.getdata())
+    keep, shown = bed_split(jar, pixels)
+    wood = [is_colorful(p) for p in pixels]
+    save('bed/dyed', brighten([(0, 0, 0, 0) if k else grey(p) for p, k in zip(pixels, keep)]), image.size)
+    save('bed/pillow', [p if k and not w else (0, 0, 0, 0) for p, k, w in zip(shown, keep, wood)], image.size)
+    for name, data in bed_frames(jar, pixels, wood).items():
+        save('bed/frame/' + name, data, image.size)
+
+    image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/llama/decor/white.png'))).convert('RGBA')
+    pixels = list(image.getdata())
+    keep = [is_colorful(p) for p in pixels]
+    save('llama/decor/dyed', brighten([(0, 0, 0, 0) if k else grey(p) for p, k in zip(pixels, keep)]), image.size)
+    save('llama/decor/dyed_stripes', [p if k else (0, 0, 0, 0) for p, k in zip(pixels, keep)], image.size)
     image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/shulker/shulker_white.png'))).convert('RGBA')
     image.putdata(brighten([grey(p) for p in image.getdata()]))
     os.makedirs(os.path.join(entity, 'shulker'), exist_ok=True)

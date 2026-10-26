@@ -1,0 +1,19 @@
+{
+  "type": "moredyes:crafting_bed",
+  "group": "bed",
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "W": {
+      "item": "minecraft:magenta_wool"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "PPP"
+  ],
+  "result": {
+    "item": "minecraft:magenta_bed"
+  }
+}

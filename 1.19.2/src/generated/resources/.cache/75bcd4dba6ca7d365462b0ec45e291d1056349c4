@@ -1,10 +1,10 @@
-// 1.19.2	2026-10-25T06:29:23.489996885	Tags for minecraft:block
+// 1.19.2	2026-10-26T16:36:13.838856471	Tags for minecraft:block
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/forge/tags/blocks/chests/wooden.json
 800f226419fec3480e88dab2a80eb4ade90ce7c3 data/forge/tags/blocks/glass.json
 013f4259fb10fdf4d9531637238969a4699f2023 data/forge/tags/blocks/glass_panes.json
 19f175ed2332d5f7f0d19b4441fa3a8aa8710d26 data/minecraft/tags/blocks/banners.json
 b33a462276d5f73b85a7cc6953edb3cd858e7df9 data/minecraft/tags/blocks/beacon_base_blocks.json
-24cb03be299ccecb609643f48953161439b5dce6 data/minecraft/tags/blocks/beds.json
+634f6dd2cd5c30ea2278edc3917212c075b182e9 data/minecraft/tags/blocks/beds.json
 36f939bf8f6f77fd333893553e29da001daa38a0 data/minecraft/tags/blocks/flower_pots.json
 9b98ec306699a99d65617ed2369d84f8ad9f0412 data/minecraft/tags/blocks/guarded_by_piglins.json
 ca4da529306cedbfcd777445a32fbda24aa8002a data/minecraft/tags/blocks/ice.json
