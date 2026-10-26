@@ -25,6 +25,11 @@ public final class ModTileEntities
     public static final RegistryObject<TileEntityType<DyedSignTileEntity>> SIGN = TILE_ENTITIES.register("sign",
             () -> TileEntityType.Builder.create(DyedSignTileEntity::new, present(MDBlock.signs())).build(null));
 
+    /** One tile entity type shared by every dyed bed, which remembers the planks the bed was made from. */
+    @SuppressWarnings("ConstantConditions")
+    public static final RegistryObject<TileEntityType<DyedBedTileEntity>> BED = TILE_ENTITIES.register("bed",
+            () -> TileEntityType.Builder.create(DyedBedTileEntity::new, present(MDBlock.beds())).build(null));
+
     private ModTileEntities() {}
 
     /** The blocks the config didn't turn off. */

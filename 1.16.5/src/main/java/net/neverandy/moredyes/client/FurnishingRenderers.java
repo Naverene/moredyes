@@ -1,5 +1,6 @@
 package net.neverandy.moredyes.client;
 
+import net.neverandy.moredyes.tileentity.ModTileEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -25,6 +26,7 @@ public final class FurnishingRenderers
     {
         // These replace vanilla's renderers, which the dyed blocks share; they draw vanilla's blocks as before.
         ClientRegistry.bindTileEntityRenderer(TileEntityType.BED, DyedBedRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(ModTileEntities.BED.get(), DyedBedRenderer::new);
         ClientRegistry.bindTileEntityRenderer(TileEntityType.BANNER, DyedBannerRenderer::new);
         ClientRegistry.bindTileEntityRenderer(TileEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
         event.enqueueWork(() ->
@@ -47,8 +49,7 @@ public final class FurnishingRenderers
     {
         if (event.getMap().getTextureLocation().equals(Atlases.BED_ATLAS))
         {
-            event.addSprite(DyedBedRenderer.BEDDING.getTextureLocation());
-            event.addSprite(DyedBedRenderer.FRAME.getTextureLocation());
+            DyedBedRenderer.materials().forEach(material -> event.addSprite(material.getTextureLocation()));
         }
         else if (event.getMap().getTextureLocation().equals(Atlases.SHULKER_BOX_ATLAS))
         {

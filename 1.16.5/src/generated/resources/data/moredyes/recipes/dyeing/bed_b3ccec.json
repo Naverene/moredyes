@@ -1,9 +1,14 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "moredyes:crafting_shapeless_keep_nbt",
   "ingredients": [
-    {
-      "item": "minecraft:white_bed"
-    },
+    [
+      {
+        "item": "minecraft:white_bed"
+      },
+      {
+        "item": "moredyes:bed_white"
+      }
+    ],
     {
       "item": "moredyes:b3ccec_dye"
     }

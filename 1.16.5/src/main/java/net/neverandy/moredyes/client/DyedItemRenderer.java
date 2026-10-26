@@ -44,7 +44,7 @@ public class DyedItemRenderer extends ItemStackTileEntityRenderer
             TileEntityRenderer<?> renderer = dispatcher.getRenderer(bed);
             if (renderer instanceof DyedBedRenderer)
             {
-                ((DyedBedRenderer) renderer).renderItem(tint, pose, buffer, light, overlay);
+                ((DyedBedRenderer) renderer).renderItem(stack, pose, buffer, light, overlay);
             }
         }
         else if (block instanceof BannerBlock)
