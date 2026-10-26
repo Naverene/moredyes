@@ -12,9 +12,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.item.crafting.BedRecipe;
 import net.neverandy.moredyes.item.crafting.KeepComponentsShapelessRecipe;
 
-/** The mod's own recipe type, {@code moredyes:crafting_shapeless_keep_components}. */
+/** The mod's own recipe types, {@code moredyes:crafting_shapeless_keep_components} and {@code moredyes:crafting_bed}. */
 public final class ModRecipes {
 
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister
@@ -30,6 +31,19 @@ public final class ModRecipes {
             @Override
             public StreamCodec<RegistryFriendlyByteBuf, KeepComponentsShapelessRecipe> streamCodec() {
                 return KeepComponentsShapelessRecipe.STREAM_CODEC;
+            }
+        });
+
+    public static final Supplier<RecipeSerializer<BedRecipe>> BED = SERIALIZERS.register("crafting_bed",
+        () -> new RecipeSerializer<>() {
+            @Override
+            public MapCodec<BedRecipe> codec() {
+                return BedRecipe.CODEC;
+            }
+
+            @Override
+            public StreamCodec<RegistryFriendlyByteBuf, BedRecipe> streamCodec() {
+                return BedRecipe.STREAM_CODEC;
             }
         });
 

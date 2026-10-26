@@ -119,6 +119,7 @@ public class MoreDyesClient {
         event.registerBlockEntityRenderer(BlockEntityType.SIGN, DyedSignRenderer::new);
         // Likewise for beds, banners and shulker boxes.
         event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.BED.get(), DyedBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
@@ -137,14 +138,18 @@ public class MoreDyesClient {
      * like their vanilla items.
      */
     private static void clientExtensions(RegisterClientExtensionsEvent event) {
-        register(event, DyedChestItemRenderer::new, Kind.CHEST);
-        register(event, DyedItemRenderer::new, Kind.BED, Kind.BANNER, Kind.SHULKER_BOX);
+        register(event, DyedChestItemRenderer::new, blocks(Kind.CHEST));
+        register(event, DyedItemRenderer::new, Stream.concat(blocks(Kind.BED, Kind.BANNER, Kind.SHULKER_BOX),
+            ModBlocks.vanillaColorBeds().stream()));
+    }
+
+    private static Stream<DeferredBlock<Block>> blocks(Kind... kinds) {
+        return Stream.of(kinds).flatMap(kind -> ModBlocks.all(kind).stream());
     }
 
     private static void register(RegisterClientExtensionsEvent event,
-        Supplier<BlockEntityWithoutLevelRenderer> factory, Kind... kinds) {
-        Item[] items = Stream.of(kinds).flatMap(kind -> ModBlocks.all(kind).stream()).map(DeferredBlock::get)
-            .map(Block::asItem).toArray(Item[]::new);
+        Supplier<BlockEntityWithoutLevelRenderer> factory, Stream<DeferredBlock<Block>> blocks) {
+        Item[] items = blocks.map(DeferredBlock::get).map(Block::asItem).toArray(Item[]::new);
         // With the kinds turned off in the config there are none, and NeoForge refuses an empty list.
         if (items.length == 0) {
             return;
