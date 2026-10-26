@@ -48,6 +48,19 @@ KEEP_IF_GREEN = lambda p: p if is_green(p) else CLEAR
 KEEP_IF_NOT_GREEN = lambda p: CLEAR if is_green(p) else p
 KEEP = lambda p: p
 
+
+def is_book(p):
+    """Whether a pixel of the vanilla bookshelf is a book, not its wood: the frame, shelves and the dark wall behind the
+    books are all dull browns."""
+    r, g, b, a = p
+    if a == 0:
+        return False
+    h, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    return not (25 <= h * 360 <= 50 and s <= 0.7)
+
+
+KEEP_BOOKS = lambda p: p if is_book(p) else CLEAR
+
 # output texture -> (vanilla texture under textures/, or base: file in tools/base, transform)
 TEXTURES = {
     'blocks/tinted/wool': ('blocks/wool_colored_white', GREY),
@@ -75,6 +88,8 @@ TEXTURES = {
     'blocks/tinted/sandstone_bottom': ('blocks/sandstone_bottom', GREY),
     'blocks/tinted/diorite': ('blocks/stone_diorite', GREY),
     'blocks/tinted/bookshelf': ('blocks/bookshelf', GREY),
+    # The books, drawn over the tinted bookshelf in their own colors.
+    'blocks/tinted/bookshelf_books': ('blocks/bookshelf', KEEP_BOOKS),
     'blocks/tinted/workbench_top': ('blocks/crafting_table_top', GREY),
     'blocks/tinted/workbench_side': ('blocks/crafting_table_side', GREY),
     'blocks/tinted/workbench_front': ('blocks/crafting_table_front', GREY),
@@ -150,7 +165,8 @@ TEXTURES = {
 }
 
 # Textures split in two, for the renderers that draw them twice: the grey part tinted with the dye color, and the
-# part with a color of its own (a bed's wooden frame, the stripes on a llama's carpet) drawn over it as it is.
+# part with a color of its own (a bed's wooden frame and white pillow, the stripes on a llama's carpet) drawn over it
+# as it is.
 # vanilla texture under textures/ -> (grey part, kept part)
 SPLIT = {
     'entity/bed/white': ('entity/bed/dyed', 'entity/bed/dyed_frame'),
@@ -163,6 +179,16 @@ def is_colorful(p):
     if a == 0:
         return False
     return colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)[1] > 0.25
+
+
+def bed_split(jar, white):
+    """Which pixels of the white bed are drawn as they are: the wooden frame and the pillow, which stays white on every
+    vanilla bed. Those are the pixels with a color of their own on the white bed, or with none on the red and blue beds.
+    Returns that, and the pixels to draw for them (the red bed's, whose pillow is vanilla's)."""
+    red, blue = [list(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/bed/%s.png' % c))).convert('RGBA').getdata())
+                 for c in ('red', 'blue')]
+    keep = [is_colorful(w) or (r[3] > 0 and not is_colorful(r) and not is_colorful(b)) for w, r, b in zip(white, red, blue)]
+    return keep, red
 
 # Flowers whose petals take the dye and whose stem keeps its green: block type -> vanilla texture under blocks/.
 FLOWERS = {
@@ -289,8 +315,6 @@ CUBE = {
     'sandstone': dict(particle=T + 'sandstone_side', down=T + 'sandstone_bottom', up=T + 'sandstone_top',
                       north=T + 'sandstone_side', south=T + 'sandstone_side', west=T + 'sandstone_side',
                       east=T + 'sandstone_side'),
-    'bookshelf': dict(particle=T + 'bookshelf', down=T + 'plank', up=T + 'plank',
-                      north=T + 'bookshelf', south=T + 'bookshelf', west=T + 'bookshelf', east=T + 'bookshelf'),
     'workbench': dict(particle=T + 'workbench_front', down=T + 'plank', up=T + 'workbench_top',
                       north=T + 'workbench_front', south=T + 'workbench_side', west=T + 'workbench_front',
                       east=T + 'workbench_side'),
@@ -404,8 +428,11 @@ def make_textures(jar):
     for src, (tinted, kept) in sorted(SPLIT.items()):
         image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % src))).convert('RGBA')
         pixels = list(image.getdata())
-        for name, data in [(tinted, [CLEAR if is_colorful(p) else grey(p) for p in pixels]),
-                           (kept, [p if is_colorful(p) else CLEAR for p in pixels])]:
+        keep, shown = [is_colorful(p) for p in pixels], pixels
+        if 'bed' in src:
+            keep, shown = bed_split(jar, pixels)
+        for name, data in [(tinted, [CLEAR if k else grey(p) for p, k in zip(pixels, keep)]),
+                           (kept, [p if k else CLEAR for p, k in zip(shown, keep)])]:
             layer = Image.new('RGBA', image.size)
             layer.putdata(data)
             path = os.path.join(ASSETS, 'textures', name + '.png')
@@ -432,6 +459,19 @@ def make_models(jar):
         block_and_item(name, {'parent': 'moredyes:block/tinted_cube_all', 'textures': {'all': texture}})
     for name, textures in sorted(CUBE.items()):
         block_and_item(name, {'parent': 'moredyes:block/tinted_cube', 'textures': textures})
+    # Only the wood of a bookshelf takes the dye: its books are drawn over it in their own colors.
+    walls = ['north', 'south', 'west', 'east']
+    block_and_item('bookshelf', {
+        'parent': 'block/block',
+        'textures': {'particle': T + 'bookshelf', 'end': T + 'plank', 'side': T + 'bookshelf', 'books': T + 'bookshelf_books'},
+        'elements': [
+            {'from': [0, 0, 0], 'to': [16, 16, 16],
+             'faces': {side: {'texture': '#side' if side in walls else '#end', 'cullface': side, 'tintindex': 0}
+                       for side in SIDES}},
+            {'from': [0, 0, 0], 'to': [16, 16, 16],
+             'faces': {side: {'texture': '#books', 'cullface': side} for side in walls}},
+        ],
+    })
 
     # Logs: the cut ends take the dye color, the bark stays oak.
     bark = 'minecraft:blocks/log_oak'

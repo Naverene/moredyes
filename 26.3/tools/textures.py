@@ -40,6 +40,10 @@ STAY_DARK = {'block/obsidian', 'block/coal_block', 'block/crying_obsidian'}
 GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_IF_NOT_COBBLESTONE = (
     'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'keep_if_not_cobblestone')
 GREY_IF_NOT_COLORFUL, KEEP_IF_COLORFUL = 'grey_if_not_colorful', 'keep_if_colorful'
+# A bed's bedding, and its wooden frame and pillow, which stays white on every vanilla bed (see bed_keep).
+GREY_BEDDING, KEEP_BED_FRAME = 'grey_bedding', 'keep_bed_frame'
+# The books on a bookshelf (see is_book).
+KEEP_BOOKS = 'keep_books'
 
 # Vanilla texture -> the layers it becomes, as (texture in this mod, how it is made, whether it takes the dye color).
 # The first layer replaces the vanilla texture in the models; a second layer is drawn over it, untinted.
@@ -78,7 +82,8 @@ TEXTURES = {
     'block/crafting_table_top': [('block/crafting_table_top', GREY, True)],
     'block/crafting_table_side': [('block/crafting_table_side', GREY, True)],
     'block/crafting_table_front': [('block/crafting_table_front', GREY, True)],
-    'block/bookshelf': [('block/bookshelf', GREY, True)],
+    # Only the wood of a bookshelf takes the dye: its books are drawn over it in their own colors.
+    'block/bookshelf': [('block/bookshelf', GREY, True), ('block/bookshelf_books', KEEP_BOOKS, False)],
     # Only the cobblestone on a piston takes the dye: its wood, iron and darkest greys (see PISTON_DARK) are drawn over
     # it in their own colors, and the face (piston_top and piston_top_sticky) is not listed, so it stays vanilla.
     'block/piston_side': [('block/piston_side', GREY, True),
@@ -95,9 +100,6 @@ TEXTURES = {
     'block/oak_sign': [('block/sign', GREY, True)],
     'item/oak_sign': [('item/sign', GREY, True)],
     'block/white_shulker_box': [('block/shulker_box', GREY, True)],
-    # Beds are block models: the bedding takes the dye color, and the wooden legs are drawn over it as they are.
-    'block/white_bed_head_up': [('block/bed_head_up', GREY, True)],
-    'block/white_bed_foot_up': [('block/bed_foot_up', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
@@ -120,9 +122,12 @@ for _wood in WOODS:
 FOGGY_GLASS = 'block/foggy_glass'
 # Speckled granite (GregTech's red granite textures, LGPL-3.0, see THIRD_PARTY_NOTICES.md) replaces the vanilla granite textures of its kinds with its own, made
 # from tools/base/<kind>.png: kind -> (vanilla texture it replaces, texture in this mod).
-for _side in ('head_east', 'head_west', 'foot_east', 'foot_west', 'foot_south'):
-    TEXTURES['block/white_bed_' + _side] = [('block/bed_' + _side, GREY_IF_NOT_COLORFUL, True),
-                                            ('block/bed_%s_frame' % _side, KEEP_IF_COLORFUL, False)]
+# Beds are block models: the bedding takes the dye color, and the wooden legs and the white pillow are drawn over it as
+# they are.
+TEXTURES['block/white_bed_foot_up'] = [('block/bed_foot_up', GREY, True)]
+for _side in ('head_up', 'head_east', 'head_west', 'foot_east', 'foot_west', 'foot_south'):
+    TEXTURES['block/white_bed_' + _side] = [('block/bed_' + _side, GREY_BEDDING, True),
+                                            ('block/bed_%s_frame' % _side, KEEP_BED_FRAME, False)]
 
 OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
                 'smooth_speckled_granite': ('block/polished_granite', 'block/smooth_speckled_granite')}
@@ -139,6 +144,15 @@ def is_colorful(p):
         return False
     _, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
     return s > 0.25
+
+
+def bed_keep(vanilla, source):
+    """Which pixels of a white bed texture are drawn as they are: the wooden frame and the pillow, which stays white on
+    every vanilla bed. Those are the pixels with a color of their own on the white bed, or with none on the red and blue
+    beds. Returns that, and the pixels to draw for them (the red bed's, whose pillow is vanilla's)."""
+    white, red, blue = [list(vanilla(source.replace('white', c)).get_flattened_data()) for c in ('white', 'red', 'blue')]
+    keep = [is_colorful(w) or (r[3] > 0 and not is_colorful(r) and not is_colorful(b)) for w, r, b in zip(white, red, blue)]
+    return keep, red
 
 
 def split_colorful(image):
@@ -158,6 +172,16 @@ def grey(p):
     r, g, b, a = p
     lum = min(255, round(0.299 * r + 0.587 * g + 0.114 * b))
     return (lum, lum, lum, a)
+
+
+def is_book(p):
+    """Whether a pixel of the vanilla bookshelf is a book, not its wood: the frame, shelves and the dark wall behind the
+    books are all dull browns."""
+    r, g, b, a = p
+    if a == 0:
+        return False
+    h, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    return not (25 <= h * 360 <= 50 and s <= 0.7)
 
 
 def is_green(p):
@@ -246,6 +270,14 @@ def main():
                 pixels = [(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels]
             elif how == KEEP_IF_COLORFUL:
                 pixels = [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels]
+            elif how in (GREY_BEDDING, KEEP_BED_FRAME):
+                keep, shown = bed_keep(vanilla, source)
+                if how == GREY_BEDDING:
+                    pixels = [(0, 0, 0, 0) if k else grey(p) for p, k in zip(pixels, keep)]
+                else:
+                    pixels = [p if k else (0, 0, 0, 0) for p, k in zip(shown, keep)]
+            elif how == KEEP_BOOKS:
+                pixels = [p if is_book(p) else (0, 0, 0, 0) for p in pixels]
             elif how == KEEP_IF_NOT_COBBLESTONE:
                 w, h = image.size
                 pixels = [(0, 0, 0, 0) if grey(p)[0] >= PISTON_DARK

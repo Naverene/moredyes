@@ -38,6 +38,26 @@ def is_colorful(p):
     return colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)[1] > 0.25
 
 
+def bed_split(jar, white):
+    """Which pixels of the white bed are drawn as they are: the wooden frame and the pillow, which stays white on every
+    vanilla bed. Those are the pixels with a color of their own on the white bed, or with none on the red and blue beds.
+    Returns that, and the pixels to draw for them (the red bed's, whose pillow is vanilla's)."""
+    red, blue = [list(Image.open(io.BytesIO(jar.read('assets/minecraft/textures/entity/bed/%s.png' % c))).convert('RGBA').getdata())
+                 for c in ('red', 'blue')]
+    keep = [is_colorful(w) or (r[3] > 0 and not is_colorful(r) and not is_colorful(b)) for w, r, b in zip(white, red, blue)]
+    return keep, red
+
+
+def is_book(p):
+    """Whether a pixel of the vanilla bookshelf is a book, not its wood: the frame, shelves and the dark wall behind the
+    books are all dull browns."""
+    r, g, b, a = p
+    if a == 0:
+        return False
+    h, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    return not (25 <= h * 360 <= 50 and s <= 0.7)
+
+
 def is_green(p):
     r, g, b, a = p
     if a == 0:
@@ -77,6 +97,7 @@ GREY_IF_GREEN = lambda p: grey(p) if is_green(p) else (0, 0, 0, 0)
 GREY_IF_NOT_GREEN = lambda p: (0, 0, 0, 0) if is_green(p) else grey(p)
 KEEP_IF_GREEN = lambda p: p if is_green(p) else (0, 0, 0, 0)
 KEEP_IF_NOT_GREEN = lambda p: (0, 0, 0, 0) if is_green(p) else p
+KEEP_BOOKS = lambda p: p if is_book(p) else (0, 0, 0, 0)
 
 # output name -> (vanilla texture under textures/, or base: file in tools/base, transform)
 SOURCES = {
@@ -118,6 +139,8 @@ SOURCES = {
     'shulker_box': ('block/white_shulker_box', GREY),
     'glass_pane_top': ('block/glass_pane_top', GREY),
     'bookshelf': ('block/bookshelf', GREY),
+    # The books, drawn over the tinted bookshelf in their own colors.
+    'bookshelf_books': ('block/bookshelf', KEEP_BOOKS),
     'piston_side': ('block/piston_side', GREY),
     'piston_bottom': ('block/piston_bottom', GREY),
     'piston_inner': ('block/piston_inner', GREY),
@@ -221,7 +244,7 @@ def main():
         size = image.width
         image = image.crop((0, 0, size, min(size, image.height)))
         pixels = [transform(p) for p in image.getdata()]
-        if transform not in (KEEP_IF_GREEN, KEEP_IF_NOT_GREEN) and name not in STAY_DARK:
+        if transform not in (KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_BOOKS) and name not in STAY_DARK:
             pixels = brighten(pixels)
         image.putdata(pixels)
         image.save(os.path.join(OUT, name + '.png'))
@@ -257,15 +280,18 @@ def main():
     print('wrote the sign texture to %s' % os.path.relpath(SIGN_OUT, ROOT))
 
     # Beds go on the bed atlas (textures/entity/bed): the grey bedding, tinted by client/DyedBedRenderer, and the
-    # wooden frame drawn over it as it is. A llama's carpet (textures/entity/llama/decor) is split the same way by
+    # wooden frame and white pillow drawn over it as they are. A llama's carpet (textures/entity/llama/decor) is split the same way by
     # client/DyedLlamaDecorLayer, keeping its red and green stripes. Shulker boxes go on the shulker atlas.
     entity = os.path.join(ROOT, 'src/main/resources/assets/moredyes/textures/entity')
     for source, name, kept in [('entity/bed/white', 'bed/dyed', 'bed/dyed_frame'),
                                ('entity/llama/decor/white', 'llama/decor/dyed', 'llama/decor/dyed_stripes')]:
         image = Image.open(io.BytesIO(jar.read('assets/minecraft/textures/%s.png' % source))).convert('RGBA')
         pixels = list(image.getdata())
-        for out, data in [(name, brighten([(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels])),
-                          (kept, [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels])]:
+        keep, shown = [is_colorful(p) for p in pixels], pixels
+        if 'bed' in source:
+            keep, shown = bed_split(jar, pixels)
+        for out, data in [(name, brighten([(0, 0, 0, 0) if k else grey(p) for p, k in zip(pixels, keep)])),
+                          (kept, [p if k else (0, 0, 0, 0) for p, k in zip(shown, keep)])]:
             layer = Image.new('RGBA', image.size)
             layer.putdata(data)
             os.makedirs(os.path.dirname(os.path.join(entity, out)), exist_ok=True)

@@ -3,11 +3,12 @@
   "textures": {
     "t0": "minecraft:block/bed_down",
     "t1": "moredyes:block/bed_head_up",
-    "t2": "minecraft:block/bed_head_north",
-    "t3": "moredyes:block/bed_head_west",
-    "t4": "moredyes:block/bed_head_west_frame",
-    "t5": "moredyes:block/bed_head_east",
-    "t6": "moredyes:block/bed_head_east_frame",
+    "t2": "moredyes:block/bed_head_up_frame",
+    "t3": "minecraft:block/bed_head_north",
+    "t4": "moredyes:block/bed_head_west",
+    "t5": "moredyes:block/bed_head_west_frame",
+    "t6": "moredyes:block/bed_head_east",
+    "t7": "moredyes:block/bed_head_east_frame",
     "particle": "minecraft:block/oak_planks"
   },
   "elements": [
@@ -49,7 +50,7 @@
             16,
             13
           ],
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "north"
         },
         "west": {
@@ -59,7 +60,7 @@
             16,
             13
           ],
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "west",
           "tintindex": 0
         },
@@ -70,7 +71,7 @@
             16,
             13
           ],
-          "texture": "#t5",
+          "texture": "#t6",
           "cullface": "east",
           "tintindex": 0
         }
@@ -88,6 +89,15 @@
         16
       ],
       "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t2"
+        },
         "west": {
           "uv": [
             0,
@@ -95,7 +105,7 @@
             16,
             13
           ],
-          "texture": "#t4",
+          "texture": "#t5",
           "cullface": "west"
         },
         "east": {
@@ -105,7 +115,7 @@
             16,
             13
           ],
-          "texture": "#t6",
+          "texture": "#t7",
           "cullface": "east"
         }
       }
@@ -129,7 +139,7 @@
             9,
             16
           ],
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "down",
           "tintindex": 0
         },
@@ -140,7 +150,7 @@
             16,
             16
           ],
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "north"
         },
         "south": {
@@ -150,7 +160,7 @@
             6,
             16
           ],
-          "texture": "#t3",
+          "texture": "#t4",
           "tintindex": 0
         },
         "west": {
@@ -160,7 +170,7 @@
             3,
             16
           ],
-          "texture": "#t3",
+          "texture": "#t4",
           "cullface": "west",
           "tintindex": 0
         },
@@ -171,7 +181,7 @@
             13,
             16
           ],
-          "texture": "#t2"
+          "texture": "#t3"
         }
       }
     },
@@ -194,7 +204,7 @@
             9,
             16
           ],
-          "texture": "#t4",
+          "texture": "#t5",
           "cullface": "down"
         },
         "south": {
@@ -204,7 +214,7 @@
             6,
             16
           ],
-          "texture": "#t4"
+          "texture": "#t5"
         },
         "west": {
           "uv": [
@@ -213,7 +223,7 @@
             3,
             16
           ],
-          "texture": "#t4",
+          "texture": "#t5",
           "cullface": "west"
         }
       }
@@ -237,7 +247,7 @@
             10,
             16
           ],
-          "texture": "#t5",
+          "texture": "#t6",
           "cullface": "down",
           "tintindex": 0
         },
@@ -248,7 +258,7 @@
             3,
             16
           ],
-          "texture": "#t2",
+          "texture": "#t3",
           "cullface": "north"
         },
         "south": {
@@ -258,7 +268,7 @@
             13,
             16
           ],
-          "texture": "#t5",
+          "texture": "#t6",
           "tintindex": 0
         },
         "west": {
@@ -268,7 +278,7 @@
             6,
             16
           ],
-          "texture": "#t2"
+          "texture": "#t3"
         },
         "east": {
           "uv": [
@@ -277,7 +287,7 @@
             16,
             16
           ],
-          "texture": "#t5",
+          "texture": "#t6",
           "cullface": "east",
           "tintindex": 0
         }
@@ -302,7 +312,7 @@
             10,
             16
           ],
-          "texture": "#t6",
+          "texture": "#t7",
           "cullface": "down"
         },
         "south": {
@@ -312,7 +322,7 @@
             13,
             16
           ],
-          "texture": "#t6"
+          "texture": "#t7"
         },
         "east": {
           "uv": [
@@ -321,7 +331,7 @@
             16,
             16
           ],
-          "texture": "#t6",
+          "texture": "#t7",
           "cullface": "east"
         }
       }
