@@ -1,6 +1,10 @@
 package net.neverandy.moredyes.data.client;
 
 
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.core.Direction;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -14,9 +18,6 @@ import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.PistonType;
-import net.minecraft.core.Direction;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -146,6 +147,11 @@ public class ModBlockStateProvider extends BlockStateProvider
             // Beds, banners and shulker boxes are drawn by their renderers in client/; their block models only give
             // the breaking particles.
             simpleBlock(MDBlock.bedArray[i], models().getBuilder("bed").texture("particle", tex("wool")));
+            if (i < MDBlock.vanillaColorBedArray.length)
+            {
+                String color = DyeColor.byId(i).getName();
+                simpleBlock(MDBlock.vanillaColorBedArray[i], models().getBuilder("bed_" + color).texture("particle", mcLoc("block/" + color + "_wool")));
+            }
             simpleBlock(MDBlock.bannerArray[i], models().getExistingFile(mcLoc("block/banner")));
             simpleBlock(MDBlock.wallBannerArray[i], models().getExistingFile(mcLoc("block/banner")));
             simpleBlock(MDBlock.shulkerBoxArray[i], models().getBuilder("shulkerbox").texture("particle", tex("shulker_box")));

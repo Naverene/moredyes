@@ -33,6 +33,7 @@ public final class ClientRenderers
         event.registerBlockEntityRenderer(BlockEntityType.PISTON, DyedPistonRenderer::new);
         // Dyed beds, banners and shulker boxes share vanilla's block entities, so these replace vanilla's renderers.
         event.registerBlockEntityRenderer(BlockEntityType.BED, DyedBedRenderer::new);
+        event.registerBlockEntityRenderer(ModTileEntities.BED.get(), DyedBedRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.BANNER, DyedBannerRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
@@ -43,8 +44,7 @@ public final class ClientRenderers
     {
         if (event.getAtlas().location().equals(Sheets.BED_SHEET))
         {
-            event.addSprite(DyedBedRenderer.BEDDING.texture());
-            event.addSprite(DyedBedRenderer.FRAME.texture());
+            DyedBedRenderer.materials().forEach(material -> event.addSprite(material.texture()));
         }
         else if (event.getAtlas().location().equals(Sheets.SHULKER_SHEET))
         {

@@ -10,13 +10,19 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
@@ -27,6 +33,7 @@ import net.neverandy.moredyes.block.DyedWallBlock;
 import net.neverandy.moredyes.block.DyedWallSignBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
+import net.neverandy.moredyes.tileentity.DyedBedBlockEntity;
 import net.neverandy.moredyes.world.DyeTrees;
 
 import java.util.List;
@@ -67,6 +74,10 @@ public class ModLootTableProvider extends LootTableProvider
             {
                 dropSelf(block);
             }
+            for (Block bed : MDBlock.vanillaColorBedArray)
+            {
+                add(bed, ModBlockLootTables::bedDrop);
+            }
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
                 Block cobble = MDBlock.cobbleArray[i];
@@ -75,7 +86,7 @@ public class ModLootTableProvider extends LootTableProvider
                 add(MDBlock.glassFoggyArray[i], BlockLoot::createSilkTouchOnlyTable);
                 add(MDBlock.glassPaneArray[i], BlockLoot::createSilkTouchOnlyTable);
                 add(MDBlock.bookshelfArray[i], shelf -> createSingleItemTableWithSilkTouch(shelf, Items.BOOK, ConstantValue.exactly(3)));
-                add(MDBlock.bedArray[i], bed -> createSinglePropConditionTable(bed, BedBlock.PART, BedPart.HEAD));
+                add(MDBlock.bedArray[i], ModBlockLootTables::bedDrop);
                 add(MDBlock.bannerArray[i], BlockLoot::createBannerDrop);
                 add(MDBlock.shulkerBoxArray[i], BlockLoot::createShulkerBoxDrop);
                 add(MDBlock.glassFoggyPaneArray[i], BlockLoot::createSilkTouchOnlyTable);
@@ -100,6 +111,17 @@ public class ModLootTableProvider extends LootTableProvider
                     add(DyeTrees.leaves(wood)[i], leaves -> createLeavesDrops(leaves, sapling, SAPLING_CHANCES));
                 }
             }
+        }
+
+        /** The head drops the bed, which keeps the planks it was made from (see DyedBedBlockEntity). */
+        private static LootTable.Builder bedDrop(Block bed)
+        {
+            return LootTable.lootTable().withPool(applyExplosionCondition(bed, LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                    .add(LootItem.lootTableItem(bed)
+                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(bed)
+                                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BedBlock.PART, BedPart.HEAD)))
+                            .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
+                                    .copy(DyedBedBlockEntity.WOOD, "BlockEntityTag." + DyedBedBlockEntity.WOOD)))));
         }
 
         @Override

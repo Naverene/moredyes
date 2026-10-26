@@ -25,6 +25,11 @@ public final class ModTileEntities
     public static final RegistryObject<BlockEntityType<DyedSignBlockEntity>> SIGN = TILE_ENTITIES.register("sign",
             () -> BlockEntityType.Builder.of(DyedSignBlockEntity::new, present(MDBlock.signs())).build(null));
 
+    /** One block entity type shared by every dyed bed, which remembers the planks the bed was made from. */
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<DyedBedBlockEntity>> BED = TILE_ENTITIES.register("bed",
+            () -> BlockEntityType.Builder.of(DyedBedBlockEntity::new, present(MDBlock.beds())).build(null));
+
     private ModTileEntities() {}
 
     /** The blocks the config didn't turn off. */

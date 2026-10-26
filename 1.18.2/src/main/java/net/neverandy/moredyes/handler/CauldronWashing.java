@@ -5,7 +5,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BannerItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
@@ -17,7 +19,10 @@ import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.Reference;
+import net.neverandy.moredyes.tileentity.DyedBedBlockEntity;
 
 import java.util.Optional;
 
@@ -65,6 +70,13 @@ public final class CauldronWashing
         }
         Player player = event.getPlayer();
         ItemStack result = washed.copy();
+        ResourceLocation wood = DyedBedBlockEntity.woodOf(held);
+        if (wood != null && result.is(Items.WHITE_BED) && MDBlock.vanillaColorBed(DyeColor.WHITE) != null)
+        {
+            // A bed keeps the planks it was made from, so it washes to the More Dyes white bed that remembers them.
+            result = new ItemStack(MDBlock.vanillaColorBed(DyeColor.WHITE));
+            DyedBedBlockEntity.setWood(result, wood);
+        }
         result.setCount(held.getCount());
         player.setItemInHand(event.getHand(), result);
         LayeredCauldronBlock.lowerFillLevel(state, world, event.getPos());

@@ -1,6 +1,7 @@
 package net.neverandy.moredyes.block;
 
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.BannerBlock;
 import net.minecraft.world.level.block.BedBlock;
@@ -37,6 +38,7 @@ import net.neverandy.moredyes.toggle.Toggles;
 import net.neverandy.moredyes.utility.BlockInfo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -189,6 +191,9 @@ public class MDBlock
     // color (no color for shulker boxes) that share vanilla's block entities; the client draws them in their own color.
     public static CarpetBlock[] carpetArray = new CarpetBlock[totalColorCount];
     public static BedBlock[] bedArray = new BedBlock[totalColorCount];
+    // Beds in the vanilla colors, made from vanilla wool and planks other than oak, so they can remember their planks.
+    // They have no place in the creative tabs.
+    public static BedBlock[] vanillaColorBedArray = new BedBlock[DyeColor.values().length];
     public static BannerBlock[] bannerArray = new BannerBlock[totalColorCount];
     public static WallBannerBlock[] wallBannerArray = new WallBannerBlock[totalColorCount];
     public static DyedShulkerBoxBlock[] shulkerBoxArray = new DyedShulkerBoxBlock[totalColorCount];
@@ -651,10 +656,18 @@ public class MDBlock
         {
             for (int i = 0; i < ColorStrings.ALL.length; i++)
             {
-                final BedBlock bed = new BedBlock(DyeColor.WHITE, BlockBehaviour.Properties.copy(Blocks.WHITE_BED));
+                final BedBlock bed = new DyedBedBlock(DyeColor.WHITE, BlockBehaviour.Properties.copy(Blocks.WHITE_BED));
                 bedArray[i] = bed;
                 BLOCKS.register("bed_" + ColorStrings.ALL[i], () -> bed);
                 ITEMS.register("bed_" + ColorStrings.ALL[i], () -> new DyedEntityItems.Bed(bed, new Item.Properties().tab(MoreDyes.tabBlocks)));
+            }
+            for (DyeColor color : DyeColor.values())
+            {
+                Block vanilla = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(color.getName() + "_bed"));
+                final BedBlock bed = new DyedBedBlock(color, BlockBehaviour.Properties.copy(vanilla));
+                vanillaColorBedArray[color.getId()] = bed;
+                BLOCKS.register("bed_" + color.getName(), () -> bed);
+                ITEMS.register("bed_" + color.getName(), () -> new DyedEntityItems.Bed(bed, new Item.Properties()));
             }
         }
         // A banner needs its wall banner, so leaving out either leaves out both.
@@ -705,6 +718,20 @@ public class MDBlock
             }
         }
         return blocks;
+    }
+
+    /** Every More Dyes bed: the dyed ones and the ones in the vanilla colors. */
+    public static Block[] beds()
+    {
+        List<Block> beds = new ArrayList<>(Arrays.asList(bedArray));
+        beds.addAll(Arrays.asList(vanillaColorBedArray));
+        return beds.toArray(new Block[0]);
+    }
+
+    /** The More Dyes bed in a vanilla color, or null if the config turned beds off. */
+    public static BedBlock vanillaColorBed(DyeColor color)
+    {
+        return vanillaColorBedArray[color.getId()];
     }
 
     /** Every dyed sign block, standing and on a wall. */
