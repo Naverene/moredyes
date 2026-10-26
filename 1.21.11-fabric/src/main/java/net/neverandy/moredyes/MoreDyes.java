@@ -28,6 +28,8 @@ import net.neverandy.moredyes.entity.DyedSheep;
 import net.neverandy.moredyes.handler.CauldronWashing;
 import net.neverandy.moredyes.registry.DataMaps;
 import net.neverandy.moredyes.registry.ModBlockEntities;
+import net.neverandy.moredyes.registry.ModComponents;
+import net.neverandy.moredyes.registry.ModRecipes;
 import net.neverandy.moredyes.registry.ModBlocks;
 import net.neverandy.moredyes.registry.ModCreativeTabs;
 import net.neverandy.moredyes.registry.ModItems;
@@ -48,7 +50,9 @@ public class MoreDyes implements ModInitializer {
                 Toggles.unknownTypes(), Toggles.knownTypes());
         }
         ModItems.register();
+        ModComponents.register();
         ModBlockEntities.register();
+        ModRecipes.register();
         ModCreativeTabs.register();
         DyedSheep.register();
         DyedCollars.register();
@@ -57,7 +61,7 @@ public class MoreDyes implements ModInitializer {
         CauldronWashing.register();
         // Villagers claim the head of a dyed bed as their home, like a vanilla bed.
         var home = BuiltInRegistries.POINT_OF_INTEREST_TYPE.getOrThrow(PoiTypes.HOME);
-        for (Block bed : ModBlocks.all(Kind.BED)) {
+        for (Block bed : ModBlocks.beds()) {
             PoiTypes.registerBlockStates(home, bed.getStateDefinition().getPossibleStates().stream()
                 .filter(state -> state.getValue(BedBlock.PART) == BedPart.HEAD).collect(Collectors.toUnmodifiableSet()));
         }

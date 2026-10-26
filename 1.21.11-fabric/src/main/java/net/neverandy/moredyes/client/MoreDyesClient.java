@@ -5,6 +5,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.world.level.block.entity.BedBlockEntity;
+import net.minecraft.client.renderer.blockentity.state.BedRenderState;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
@@ -88,6 +91,8 @@ public class MoreDyesClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(BlockEntityType.SIGN, DyedSignRenderer::new);
         // Likewise for beds, banners and shulker boxes.
         BlockEntityRendererRegistry.register(BlockEntityType.BED, DyedBedRenderer::new);
+        BlockEntityRendererRegistry.register(ModBlockEntities.BED,
+            (BlockEntityRendererProvider<BedBlockEntity, BedRenderState>) DyedBedRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityType.BANNER, DyedBannerRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityType.SHULKER_BOX, DyedShulkerBoxRenderer::new);
     }
