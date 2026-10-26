@@ -40,8 +40,9 @@ STAY_DARK = {'block/obsidian', 'block/coal_block', 'block/crying_obsidian'}
 GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_IF_NOT_COBBLESTONE = (
     'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'keep_if_not_cobblestone')
 GREY_IF_NOT_COLORFUL, KEEP_IF_COLORFUL = 'grey_if_not_colorful', 'keep_if_colorful'
-# A bed's bedding, and its wooden frame and pillow, which stays white on every vanilla bed (see bed_keep).
-GREY_BEDDING, KEEP_BED_FRAME = 'grey_bedding', 'keep_bed_frame'
+# A bed's bedding, and its pillow, which stays white on every vanilla bed (see bed_keep). The wooden frame is drawn
+# separately, in the planks the bed was made from (see bed_textures).
+GREY_BEDDING, KEEP_BED_PILLOW = 'grey_bedding', 'keep_bed_pillow'
 # The books on a bookshelf (see is_book).
 KEEP_BOOKS = 'keep_books'
 
@@ -122,12 +123,20 @@ for _wood in WOODS:
 FOGGY_GLASS = 'block/foggy_glass'
 # Speckled granite (GregTech's red granite textures, LGPL-3.0, see THIRD_PARTY_NOTICES.md) replaces the vanilla granite textures of its kinds with its own, made
 # from tools/base/<kind>.png: kind -> (vanilla texture it replaces, texture in this mod).
-# Beds are block models: the bedding takes the dye color, and the wooden legs and the white pillow are drawn over it as
-# they are.
+# Beds are block models: the bedding takes the dye color, and the white pillow is drawn over it as it is. The wooden
+# frame and legs are drawn by a model of their own (see bed_textures).
 TEXTURES['block/white_bed_foot_up'] = [('block/bed_foot_up', GREY, True)]
-for _side in ('head_up', 'head_east', 'head_west', 'foot_east', 'foot_west', 'foot_south'):
-    TEXTURES['block/white_bed_' + _side] = [('block/bed_' + _side, GREY_BEDDING, True),
-                                            ('block/bed_%s_frame' % _side, KEEP_BED_FRAME, False)]
+BED_SIDES = ('head_up', 'head_east', 'head_west', 'foot_up', 'foot_east', 'foot_west', 'foot_south')
+for _side in BED_SIDES[:3] + BED_SIDES[4:]:
+    TEXTURES['block/white_bed_' + _side] = [('block/bed_' + _side, GREY_BEDDING, True)]
+    if _side.startswith('head'):
+        TEXTURES['block/white_bed_' + _side].append(('block/bed_%s_pillow' % _side, KEEP_BED_PILLOW, False))
+# The vanilla planks a bed can be made from. Each gets its own frame textures (block/bed/frame/<wood>_<side>), and
+# "dyed" a grey frame tinted with the color of More Dyes planks.
+BED_WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry', 'pale_oak', 'bamboo',
+             'crimson', 'warped']
+BED_COLORS = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan',
+              'purple', 'blue', 'brown', 'green', 'red', 'black']
 
 OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
                 'smooth_speckled_granite': ('block/polished_granite', 'block/smooth_speckled_granite')}
@@ -153,6 +162,50 @@ def bed_keep(vanilla, source):
     white, red, blue = [list(vanilla(source.replace('white', c)).get_flattened_data()) for c in ('white', 'red', 'blue')]
     keep = [is_colorful(w) or (r[3] > 0 and not is_colorful(r) and not is_colorful(b)) for w, r, b in zip(white, red, blue)]
     return keep, red
+
+
+def bed_textures(vanilla):
+    """The textures of a bed's frame and legs, the pixels with a color of their own on the white bed, in each kind of
+    planks: block/bed/frame/<wood>_<side>. Each frame pixel takes the planks' pixel at the same rank of brightness, so
+    the frame keeps its shading, and oak comes out like vanilla's. Also the vanilla colors' bedding without the frame
+    (block/bed/<color>_<side>), for the More Dyes beds in those colors, and the part of the head's back that is not
+    wood (block/bed/head_north). Returns how many textures it wrote."""
+    lum = lambda p: 0.299 * p[0] + 0.587 * p[1] + 0.114 * p[2]
+    clear = (0, 0, 0, 0)
+    count = 0
+
+    def write(pixels, size, name):
+        image = Image.new('RGBA', size)
+        image.putdata(pixels)
+        save(image, name)
+
+    for side in BED_SIDES + ('head_north', 'down'):
+        source = 'block/bed_' + side if side in ('head_north', 'down') else 'block/white_bed_' + side
+        white = vanilla(source)
+        pixels = list(white.get_flattened_data())
+        wood = [is_colorful(p) for p in pixels]
+        frame = sorted((i for i, w in enumerate(wood) if w), key=lambda i: lum(pixels[i]))
+        for name in BED_WOODS:
+            planks = sorted(vanilla('block/%s_planks' % name).get_flattened_data(), key=lum)
+            layer = [clear] * len(pixels)
+            for rank, i in enumerate(frame):
+                layer[i] = planks[round(rank * (len(planks) - 1) / max(1, len(frame) - 1))]
+            write(layer, white.size, 'block/bed/frame/%s_%s' % (name, side))
+        layer = [clear] * len(pixels)
+        for i, p in zip(frame, brighten([grey(pixels[i]) for i in frame])):
+            layer[i] = p
+        write(layer, white.size, 'block/bed/frame/dyed_' + side)
+        count += len(BED_WOODS) + 1
+        if side == 'head_north':
+            write([clear if w else p for p, w in zip(pixels, wood)], white.size, 'block/bed/head_north')
+            count += 1
+        elif side != 'down':
+            for color in BED_COLORS:
+                colored = vanilla(source.replace('white', color))
+                write([clear if w else p for p, w in zip(colored.get_flattened_data(), wood)], colored.size,
+                      'block/bed/%s_%s' % (color, side))
+                count += 1
+    return count
 
 
 def split_colorful(image):
@@ -270,12 +323,12 @@ def main():
                 pixels = [(0, 0, 0, 0) if is_colorful(p) else grey(p) for p in pixels]
             elif how == KEEP_IF_COLORFUL:
                 pixels = [p if is_colorful(p) else (0, 0, 0, 0) for p in pixels]
-            elif how in (GREY_BEDDING, KEEP_BED_FRAME):
+            elif how in (GREY_BEDDING, KEEP_BED_PILLOW):
                 keep, shown = bed_keep(vanilla, source)
                 if how == GREY_BEDDING:
                     pixels = [(0, 0, 0, 0) if k else grey(p) for p, k in zip(pixels, keep)]
                 else:
-                    pixels = [p if k else (0, 0, 0, 0) for p, k in zip(shown, keep)]
+                    pixels = [p if k and not is_colorful(w) else (0, 0, 0, 0) for p, k, w in zip(shown, keep, pixels)]
             elif how == KEEP_BOOKS:
                 pixels = [p if is_book(p) else (0, 0, 0, 0) for p in pixels]
             elif how == KEEP_IF_NOT_COBBLESTONE:
@@ -292,6 +345,7 @@ def main():
             save(out, name)
             count += 1
 
+    count += bed_textures(vanilla)
     foggy = first_frame(Image.open(os.path.join(BASE, 'foggy_glass.png')).convert('RGBA'))
     foggy.putdata(brighten([grey(p) for p in foggy.get_flattened_data()]))
     save(foggy, FOGGY_GLASS)

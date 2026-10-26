@@ -528,8 +528,8 @@ def main():
     groups = {'dye': 'Mixed Dyes'}  # recipe viewer groups (compat/rei), by kind
     for kind, vanilla, tab in kinds:
         convert = lambda m, kind=kind, vanilla=vanilla: models.convert(m, kind, vanilla)
-        if kind in VANILLA_MODELS:
-            convert = lambda m: (full(m), None)
+        if kind in VANILLA_MODELS or kind == 'bed':
+            convert = lambda m: (full(m), None)  # a bed's models are written by beds()
         state = remap_models(jars.json('assets/minecraft/blockstates/%s.json' % vanilla), convert)
         # A wall banner has no name of its own: it is called after its banner.
         base_name = lang['block.minecraft.' + vanilla.replace('_wall_', '_')].replace('White ', '')
@@ -566,9 +566,25 @@ def main():
             if loot:
                 table = remap_ids(loot, ids)
                 table['random_sequence'] = '%s:blocks/%s' % (MOD, name)
+                if kind == 'bed':
+                    keep_wood(table)
                 w.write('data/%s/loot_table/blocks/%s.json' % (MOD, name), table)
 
     shapes(jars, w, models, kinds, colors, lang, names, groups)
+
+    # The beds in the vanilla colors (bed_<color>), which a vanilla bed made from planks other than oak turns into, so
+    # it can remember them. They look like vanilla's, apart from the frame.
+    for dye in VANILLA_DYES:
+        vanilla = dye + '_bed'
+        name = 'bed_' + dye
+        table = remap_ids(jars.json('data/minecraft/loot_table/blocks/%s.json' % vanilla),
+                          {'minecraft:' + vanilla: '%s:%s' % (MOD, name)})
+        table['random_sequence'] = '%s:blocks/%s' % (MOD, name)
+        keep_wood(table)
+        w.write('data/%s/loot_table/blocks/%s.json' % (MOD, name), table)
+        names['block.%s.%s' % (MOD, name)] = lang['block.minecraft.' + vanilla]
+
+    beds(jars, w, colors)
 
     # Flower pots holding the dyed plants
     for kind in POTTABLE:
@@ -626,6 +642,117 @@ def dyed_item(node, convert):
     if tints:
         out['tints'] = [DYE_COLOR if t else {'type': 'minecraft:constant', 'value': -1} for t in tints]
     return out
+# The vanilla planks a bed can be made from, which have frame textures of their own (tools/textures.py); "dyed" is the
+# grey frame, tinted with the color of More Dyes planks (tint index 1, see client/MoreDyesClient).
+BED_WOODS = ['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry', 'pale_oak', 'bamboo',
+             'crimson', 'warped']
+# Bed faces with a white pillow on them, drawn over the dyed bedding.
+BED_PILLOWS = {'head_up', 'head_east', 'head_west'}
+
+
+def beds(jars, w, colors):
+    """The models, blockstates and items of the More Dyes beds: the dyed ones (bed_<hex>) and those in the vanilla
+    colors (bed_<color>). A bed is drawn from two models, like vanilla's split in two: the bedding
+    (models/block/bed/<dyed or color>_<part>) and the wooden frame and legs (models/block/bed/frame/<wood>_<part>),
+    which the blockstate picks by the bed's wood property (see block/DyedBedBlock). The item picks the frame by its
+    moredyes:wood component."""
+    vanilla_item = jars.json('assets/minecraft/items/white_bed.json')['model']
+    foot_transform = vanilla_item['models'][1]['transformation']
+    templates = {part: jars.json('assets/minecraft/models/block/template_bed_%s.json' % part)['elements']
+                 for part in ('head', 'foot')}
+
+    def model(name, part, layers):
+        """A bed model from layers of (texture of a side or None, its tint index or None): each layer copies the template
+        bed's elements with the faces it has a texture for. A side is where a face's texture comes from, such as
+        "head_east" (or "head_north" and "down", the head's back and the underside)."""
+        textures = {'particle': 'minecraft:block/oak_planks'}
+        elements = []
+        for index, (texture_of, tint) in enumerate(layers):
+            for element in templates[part]:
+                out = {}
+                for face, data in element['faces'].items():
+                    var = data['texture'].lstrip('#')
+                    side = {'north': 'head_north', 'down': 'down'}.get(var, '%s_%s' % (part, var))
+                    texture = texture_of(side)
+                    if texture is None:
+                        continue
+                    key = 't%d_%s' % (index, side)
+                    textures[key] = texture
+                    data = {k: v for k, v in data.items() if k != 'tintindex'}
+                    data['texture'] = '#' + key
+                    if tint(side) is not None:
+                        data['tintindex'] = tint(side)
+                    out[face] = data
+                if out:
+                    elements.append(dict(element, faces=out))
+        w.write('assets/%s/models/block/bed/%s_%s.json' % (MOD, name, part),
+                {'parent': 'minecraft:block/template_bed', 'textures': textures, 'elements': elements})
+        return '%s:block/bed/%s_%s' % (MOD, name, part)
+
+    def bedding(side, color):
+        if side == 'down':
+            return None  # all wood
+        if side == 'head_north':
+            return MOD + ':block/bed/head_north'
+        return '%s:block/bed_%s' % (MOD, side) if color is None else '%s:block/bed/%s_%s' % (MOD, color, side)
+
+    for part in ('head', 'foot'):
+        none = lambda side: None
+        # The dyed bedding takes the dye color (tint index 0), but not the head's back or the pillow over it.
+        model('dyed', part, [(lambda side: bedding(side, None), lambda side: None if side == 'head_north' else 0),
+                             (lambda side: '%s:block/bed_%s_pillow' % (MOD, side) if side in BED_PILLOWS else None,
+                              none)])
+        for color in VANILLA_DYES:
+            model(color, part, [(lambda side, color=color: bedding(side, color), none)])
+        for wood in BED_WOODS + ['dyed']:
+            model('frame/' + wood, part, [(lambda side, wood=wood: '%s:block/bed/frame/%s_%s' % (MOD, wood, side),
+                                           lambda side, wood=wood: 1 if wood == 'dyed' else None)])
+
+    rotations = {'north': 0, 'east': 90, 'south': 180, 'west': 270}
+
+    def blockstate(bedding_name):
+        parts = []
+        for facing, y in rotations.items():
+            for part in ('head', 'foot'):
+                apply = lambda m: dict({'model': m}, **({'y': y} if y else {}))
+                parts.append({'when': {'facing': facing, 'part': part},
+                              'apply': apply('%s:block/bed/%s_%s' % (MOD, bedding_name, part))})
+                for wood in BED_WOODS + ['dyed']:
+                    parts.append({'when': {'facing': facing, 'part': part, 'wood': wood},
+                                  'apply': apply('%s:block/bed/frame/%s_%s' % (MOD, wood, part))})
+        return {'multipart': parts}
+
+    def halves(name, tints):
+        head = {'type': 'minecraft:model', 'model': '%s:block/bed/%s_head' % (MOD, name)}
+        foot = {'type': 'minecraft:model', 'model': '%s:block/bed/%s_foot' % (MOD, name),
+                'transformation': foot_transform}
+        if tints:
+            head['tints'] = foot['tints'] = tints
+        return [head, foot]
+
+    def frame(wood):
+        tints = [{'type': 'minecraft:constant', 'value': -1}, {'type': MOD + ':wood'}] if wood == 'dyed' else None
+        return {'type': 'minecraft:composite', 'models': halves('frame/' + wood, tints)}
+
+    frames = {'type': 'minecraft:condition', 'property': 'minecraft:has_component', 'component': MOD + ':wood',
+              'on_true': {'type': 'minecraft:select', 'property': 'minecraft:component', 'component': MOD + ':wood',
+                          'cases': [{'when': 'minecraft:%s_planks' % wood, 'model': frame(wood)}
+                                    for wood in BED_WOODS],
+                          'fallback': frame('dyed')},
+              'on_false': frame('oak')}
+    for name, bedding_name, tints in ([('bed_' + c, 'dyed', [DYE_COLOR]) for c in colors]
+                                      + [('bed_' + d, d, None) for d in VANILLA_DYES]):
+        w.write('assets/%s/blockstates/%s.json' % (MOD, name), blockstate(bedding_name))
+        w.write('assets/%s/items/%s.json' % (MOD, name),
+                {'model': {'type': 'minecraft:composite', 'models': halves(bedding_name, tints) + [frames]}})
+
+
+def keep_wood(table):
+    """A bed drops itself with the planks it was made from (the moredyes:wood component, see DyedBedBlockEntity)."""
+    for pool in table['pools']:
+        for entry in pool['entries']:
+            entry.setdefault('functions', []).append({
+                'function': 'minecraft:copy_components', 'source': 'block_entity', 'include': [MOD + ':wood']})
 
 
 def special_item(node, vanilla_type, ours, color):
@@ -843,6 +970,9 @@ def tags(jars, w, kinds, colors):
             tag = '%s:%s' % m.groups()
             for entry in json.loads(jar.read(path)).get('values', []):
                 entry = entry['id'] if isinstance(entry, dict) else entry
+                m_bed = re.match(r'minecraft:([a-z_]+)_bed$', entry)
+                if m_bed and m_bed.group(1) in VANILLA_DYES:
+                    add(registry, tag, ['%s:bed_%s' % (MOD, m_bed.group(1))])
                 for kind, tab in by_vanilla.get(entry, []):
                     if registry == 'item' and tab == 'NONE':
                         continue
@@ -923,22 +1053,29 @@ def recipes(jars, w, kinds, colors):
     def item(i, count=1):
         return {'count': count, 'id': i} if count > 1 else {'id': i}
 
-    def shaped(path, result, count, pattern, key, priority=False):
-        w.write('data/%s/recipe/%s.json' % (MOD, path), {
-            'type': 'minecraft:crafting_shaped', 'category': 'building', 'key': key, 'pattern': pattern,
-            'result': item(result, count)})
+    def shaped(path, result, count, pattern, key, priority=False, type='minecraft:crafting_shaped', group=None):
+        recipe = {'type': type, 'category': 'building'}
+        if group:
+            recipe['group'] = group
+        recipe.update({'key': key, 'pattern': pattern, 'result': item(result, count)})
+        w.write('data/%s/recipe/%s.json' % (MOD, path), recipe)
         if priority:
             priorities['%s:%s' % (MOD, path)] = 1
+
+    def bed(path, result, wool):
+        """A bed that remembers the planks it is made from, which its frame is drawn in (item/crafting/BedRecipe)."""
+        shaped(path, result, 1, ['WWW', 'PPP'], {'W': wool, 'P': '#minecraft:planks'}, True, MOD + ':crafting_bed',
+               'bed')
 
     def shapeless(path, result, count, ingredients, category='building'):
         w.write('data/%s/recipe/%s.json' % (MOD, path), {
             'type': 'minecraft:crafting_shapeless', 'category': category, 'ingredients': ingredients,
             'result': item(result, count)})
 
-    def transmute(path, ingredient, material, result):
+    def transmute(path, ingredient, material, result, group='shulker_box_dye'):
         """Like vanilla's shulker box dyeing: the result keeps the components (contents, name) of the ingredient."""
         w.write('data/%s/recipe/%s.json' % (MOD, path), {
-            'type': 'minecraft:crafting_transmute', 'category': 'misc', 'group': 'shulker_box_dye',
+            'type': 'minecraft:crafting_transmute', 'category': 'misc', 'group': group,
             'input': ingredient, 'material': material, 'result': {'id': result}})
 
     def smelt(path, ingredient, result, xp):
@@ -960,6 +1097,11 @@ def recipes(jars, w, kinds, colors):
             ingredients, count = ingredients * 2, count * 2
             print('  dye %s takes two each of %s, as one each makes a vanilla dye' % (color, ' and '.join(dyes)))
         shapeless('dye/%s' % color, '%s:dye_%s' % (MOD, color), count, ingredients, 'misc')
+
+    # Vanilla beds from colored wool, tried before vanilla's own recipes: made from planks other than oak, the bed is
+    # the More Dyes bed of that color, which remembers them.
+    for d in VANILLA_DYES:
+        bed('bed_from_%s_wool' % d, 'minecraft:%s_bed' % d, 'minecraft:%s_wool' % d)
 
     for c in colors:
         dye = '%s:dye_%s' % (MOD, c)
@@ -983,10 +1125,11 @@ def recipes(jars, w, kinds, colors):
             wash(kind)
         # Beds, banners and carpets are made from dyed wool like vanilla's from colored wool. Any bed and a dye
         # make a dyed bed. A shulker box of any color and a dye make a dyed one, keeping its contents, like vanilla.
-        shapeless('dyeing/bed_%s' % c, b('bed'), 1, ['#minecraft:beds', dye])
+        # Dyeing a bed keeps the planks it was made from.
+        transmute('dyeing/bed_%s' % c, '#minecraft:beds', dye, b('bed'), 'bed_dye')
         wash('bed')
         wash('banner')
-        shaped('bed_%s' % c, b('bed'), 1, ['WWW', 'PPP'], {'W': b('wool'), 'P': '#minecraft:planks'}, True)
+        bed('bed_%s' % c, b('bed'), b('wool'))
         shaped('banner_%s' % c, b('banner'), 1, ['WWW', 'WWW', ' S '], {'W': b('wool'), 'S': 'minecraft:stick'}, True)
         shaped('carpet_%s' % c, b('carpet'), 3, ['WW'], {'W': b('wool')}, True)
         transmute('dyeing/shulker_box_%s' % c, '#minecraft:shulker_boxes', dye, b('shulker_box'))
