@@ -21,6 +21,7 @@ import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 
+import net.neverandy.moredyes.Config;
 import net.neverandy.moredyes.block.DyedBedBlock;
 import net.neverandy.moredyes.block.DyedBedBlockEntity;
 import net.neverandy.moredyes.registry.ModBlocks;
@@ -49,7 +50,7 @@ public class BedRecipe extends ShapedRecipe {
     public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
         ItemStack result = super.assemble(input, registries);
         ResourceLocation wood = planks(input);
-        if (wood == null || DyedBedBlockEntity.OAK.equals(wood)) {
+        if (wood == null || !Config.woodBedFrames() || DyedBedBlockEntity.OAK.equals(wood)) {
             return result;
         }
         if (result.getItem() instanceof BedItem item && !(item.getBlock() instanceof DyedBedBlock)) {

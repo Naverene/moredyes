@@ -29,6 +29,10 @@ public final class Config {
         .comment("The rare colors wild sheep can spawn with. The default is burgundy (592626).",
             "Leave it empty ([]) for any More Dyes color.")
         .defineListAllowEmpty("rare_sheep_spawn_colors", WildSheepColors.RARE, () -> "", name -> name instanceof String);
+    public static final ModConfigSpec.BooleanValue WOOD_BED_FRAMES = BUILDER
+        .comment("Beds remember the planks they are crafted from and draw their frame in that wood.",
+            "Set to false to craft every bed with the plain oak frame, as in vanilla. Beds crafted before keep their wood.")
+        .define("wood_bed_frames", true);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 
@@ -64,6 +68,15 @@ public final class Config {
     static final ModConfigSpec STARTUP_SPEC = STARTUP.build();
 
     private Config() {}
+
+    /** Whether crafted beds remember their planks; on until the server config is loaded. */
+    public static boolean woodBedFrames() {
+        try {
+            return WOOD_BED_FRAMES.get();
+        } catch (RuntimeException e) {
+            return true;
+        }
+    }
 
     /** Hands the startup settings to Toggles. Call once the startup config is loaded, before the blocks are registered. */
     static void applyStartup() {

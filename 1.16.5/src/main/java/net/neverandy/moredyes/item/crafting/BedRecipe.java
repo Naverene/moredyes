@@ -12,6 +12,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
+import net.neverandy.moredyes.ConfigHandler;
 import net.neverandy.moredyes.block.DyedBedBlock;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.tileentity.DyedBedTileEntity;
@@ -39,7 +40,7 @@ public class BedRecipe extends ShapedRecipe
     {
         ItemStack result = super.getCraftingResult(container);
         ResourceLocation wood = planks(container);
-        if (wood == null || DyedBedTileEntity.OAK.equals(wood))
+        if (wood == null || !ConfigHandler.woodBedFrames() || DyedBedTileEntity.OAK.equals(wood))
         {
             return result;
         }

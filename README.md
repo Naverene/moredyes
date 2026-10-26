@@ -79,6 +79,16 @@ Cats have collars from Minecraft 1.14 on, so 1.4.7 and 1.12.2 only dye wolf coll
 [Not Enough Pets](https://www.curseforge.com/minecraft/mc-mods/not-enough-pets) installed have collars too, and More
 Dyes dyes color them (and Not Enough Pets' own wolves).
 
+## Bed frames
+
+A bed's wooden frame is made of the planks it was crafted with, on 1.7.10 and newer. Vanilla planks give a frame in
+that wood, and dyed planks give a frame in their color. A bed of vanilla wool and planks other than oak becomes a More
+Dyes bed in the vanilla color, so it can keep its wood. Dyeing a bed or washing it in a cauldron keeps the frame.
+
+To turn this off, set `wood_bed_frames` to `false` (`woodBedFrames` in the 1.12.2 config, `WoodBedFrames` in the
+1.7.10 one). New beds then get the plain oak frame, as in vanilla, and beds crafted before keep their wood. It lives
+in the same file as the wild sheep settings above.
+
 ## For other mods
 
 Other mods can read and use More Dyes colors through tags and the `MoreDyesAPI` class in every version; see [API.md](API.md).
