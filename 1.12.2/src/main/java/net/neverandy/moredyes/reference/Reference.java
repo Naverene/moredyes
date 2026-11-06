@@ -79,6 +79,16 @@ public class Reference
 	public static final BlockInfo BLOCK_INFO_NETHERITE_BLOCK=new BlockInfo("netherite_block",Material.IRON,50.0f,SoundType.METAL).tool("pickaxe",3).resistance(1200.0f);
 	public static final BlockInfo BLOCK_INFO_CRYING_OBSIDIAN=new BlockInfo("crying_obsidian",Material.ROCK,50.0f,SoundType.STONE).tool("pickaxe",3).resistance(2000.0f);
 	public static final BlockInfo BLOCK_INFO_CHAIN=new BlockInfo("chain",Material.IRON,5.0f,SoundType.METAL).tool("pickaxe",0).resistance(6.0f);
+	// Redstone lamps: the block with an item (dark for the normal lamp, lit for the inverted one) and its other state.
+	public static final BlockInfo BLOCK_INFO_LAMP=new BlockInfo("lamp",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	public static final BlockInfo BLOCK_INFO_LAMP_LIT=new BlockInfo("lamp_lit",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	public static final BlockInfo BLOCK_INFO_INVERTED_LAMP=new BlockInfo("inverted_lamp",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	public static final BlockInfo BLOCK_INFO_INVERTED_LAMP_OFF=new BlockInfo("inverted_lamp_off",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	// Solid lamps, in one color on every side like Project Red's.
+	public static final BlockInfo BLOCK_INFO_SOLID_LAMP=new BlockInfo("solid_lamp",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	public static final BlockInfo BLOCK_INFO_SOLID_LAMP_LIT=new BlockInfo("solid_lamp_lit",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	public static final BlockInfo BLOCK_INFO_INVERTED_SOLID_LAMP=new BlockInfo("inverted_solid_lamp",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
+	public static final BlockInfo BLOCK_INFO_INVERTED_SOLID_LAMP_OFF=new BlockInfo("inverted_solid_lamp_off",Material.REDSTONE_LIGHT,0.3f,SoundType.GLASS);
 	public static final BlockInfo BLOCK_INFO_CORNFLOWER=new BlockInfo("cornflower",Material.PLANTS,0.0f,SoundType.PLANT).tab(MoreDyes.tabPlants);
 
 	// The rest of the blocks the newer versions have (as in 1.16.5). Quartz bricks and lily of the valley are not in 1.12.

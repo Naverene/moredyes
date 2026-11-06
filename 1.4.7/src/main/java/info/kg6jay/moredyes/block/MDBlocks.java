@@ -52,6 +52,9 @@ public final class MDBlocks {
     /** Granite with GregTech's red granite textures (LGPL-3.0, see THIRD_PARTY_NOTICES.md), greyed and tinted. Made last of all. */
     public static Block speckledGranite, smoothSpeckledGranite;
 
+    /** Redstone lamps in the vanilla look and in a solid color, each also inverted (lit unless powered). */
+    public static Block lamp, invertedLamp, solidLamp, invertedSolidLamp;
+
     /** Slabs that recipes for other blocks take. */
     public static Block quartzSlab, sandstoneSlab;
 
@@ -365,6 +368,19 @@ public final class MDBlocks {
             Textures.SMOOTH_SPECKLED_GRANITE));
         stairsAndSlab(speckledGranite, "speckledGranite", shapes);
         stairsAndSlab(smoothSpeckledGranite, "smoothSpeckledGranite", shapes);
+
+        // Added after speckled granite, so it keeps its IDs.
+        lamp = lamp("lamp", "Redstone Lamp", Textures.LAMP, Textures.LAMP_ON, false, blocks);
+        invertedLamp = lamp("invertedLamp", "Inverted Redstone Lamp", Textures.LAMP, Textures.LAMP_ON, true, blocks);
+        solidLamp = lamp("solidLamp", "Solid Lamp", Textures.LAMP_SOLID, Textures.LAMP_SOLID_ON, false, blocks);
+        invertedSolidLamp = lamp("invertedSolidLamp", "Inverted Solid Lamp", Textures.LAMP_SOLID,
+            Textures.LAMP_SOLID_ON, true, blocks);
+    }
+
+    private static Block lamp(String name, String displayName, int off, int on, boolean inverted,
+        CreativeTabs tab) {
+        return dyed(new BlockDyedLamp(id(name), info(name, displayName, Material.redstoneLight, 0.3F, GLASS, null, 0,
+            1.5F, tab), off, on, inverted));
     }
 
     public static void register() {

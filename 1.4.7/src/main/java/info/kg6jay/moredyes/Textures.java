@@ -131,6 +131,10 @@ public final class Textures {
     public static final int SPECKLED_GRANITE = 121;
     public static final int SMOOTH_SPECKLED_GRANITE = 122;
     public static final int BOOKSHELF_BOOKS = 123;
+    public static final int LAMP = 124;
+    public static final int LAMP_ON = 125;
+    public static final int LAMP_SOLID = 126;
+    public static final int LAMP_SOLID_ON = 127;
 
     private Textures() {}
 }

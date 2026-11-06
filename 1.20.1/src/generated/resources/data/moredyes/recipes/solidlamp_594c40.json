@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "moredyes:lamp_594c40"
+    }
+  ],
+  "result": {
+    "item": "moredyes:solidlamp_594c40"
+  }
+}

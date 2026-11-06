@@ -1217,6 +1217,80 @@ public class Reference {
         1,
         10.0f,
         MoreDyes.tabBlocks);
+    // Redstone lamps: the block with an item (dark for the normal lamp, lit for the inverted one) and its other state.
+    public static final BlockInfo BLOCK_INFO_LAMP = new BlockInfo(
+        "lamp",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_LAMP_LIT = new BlockInfo(
+        "lampLit",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_INVERTED_LAMP = new BlockInfo(
+        "invertedLamp",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_INVERTED_LAMP_OFF = new BlockInfo(
+        "invertedLampOff",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    // Solid lamps, in one color on every side like Project Red's.
+    public static final BlockInfo BLOCK_INFO_SOLID_LAMP = new BlockInfo(
+        "solidLamp",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_SOLID_LAMP_LIT = new BlockInfo(
+        "solidLampLit",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_INVERTED_SOLID_LAMP = new BlockInfo(
+        "invertedSolidLamp",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
+    public static final BlockInfo BLOCK_INFO_INVERTED_SOLID_LAMP_OFF = new BlockInfo(
+        "invertedSolidLampOff",
+        Material.redstoneLight,
+        0.3F,
+        Block.soundTypeGlass,
+        null,
+        0,
+        1.5F,
+        MoreDyes.tabBlocks);
     public static final BlockInfo BLOCK_INFO_GLASS_PANE = new BlockInfo(
         "glass_pane",
         Material.glass,

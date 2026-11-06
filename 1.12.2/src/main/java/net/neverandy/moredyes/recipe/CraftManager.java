@@ -176,6 +176,13 @@ public class CraftManager
 		dyeing(MDBlock.hardenedClay,g,s,"hardenedClay");
 		dyeing(MDBlock.coal,g,s,"blockCoal");
 		dyeing(MDBlock.glowstone,g,s,"glowstone");
+		// Redstone lamps: eight vanilla lamps around a dye. A dyed lamp turns into a solid lamp and back on its own, and a
+		// lamp of either style and a redstone torch make the inverted lamp, which turns back into a normal one on its own.
+		dyeing(MDBlock.lamp,g,s,new ItemStack(Blocks.REDSTONE_LAMP));
+		shapeless("solid_lamp/"+color,"solid_lamp",new ItemStack(MDBlock.solidLamp[g],1,s),new ItemStack(MDBlock.lamp[g],1,s));
+		shapeless("lamp_from_solid/"+color,"lamp_from_solid",new ItemStack(MDBlock.lamp[g],1,s),new ItemStack(MDBlock.solidLamp[g],1,s));
+		invertedLamp(MDBlock.lamp[g],MDBlock.invertedLamp[g],s,color);
+		invertedLamp(MDBlock.solidLamp[g],MDBlock.invertedSolidLamp[g],s,color);
 		dyeing(MDBlock.lapis,g,s,"blockLapis");
 		dyeing(MDBlock.redstone,g,s,"blockRedstone");
 		dyeing(MDBlock.brick,g,s,"blockBrick");
@@ -458,6 +465,13 @@ public class CraftManager
 		shaped(name,name.substring(0,name.indexOf('/')),new ItemStack(output[group],4,shade),"SS","SS",'S',new ItemStack(input[group],1,shade));
 	}
 	/** Eight of the given blocks (an ore name or a stack) around a dye make eight dyed blocks of its shade. */
+	private static void invertedLamp(Block lamp,Block inverted,int shade,String color)
+	{
+		String type=((IColoredBlock)inverted).getTypeName();
+		shapeless(type+"/"+color,type,new ItemStack(inverted,1,shade),new ItemStack(lamp,1,shade),new ItemStack(Blocks.REDSTONE_TORCH));
+		String back=((IColoredBlock)lamp).getTypeName()+"_from_inverted";
+		shapeless(back+"/"+color,back,new ItemStack(lamp,1,shade),new ItemStack(inverted,1,shade));
+	}
 	private static void dyeing(Block[] dyed,int group,int shade,Object ore)
 	{
 		String type=((IColoredBlock)dyed[group]).getTypeName();

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moredyes:invertedsolidlamp_8c72d8"
+    }
+  ],
+  "result": {
+    "item": "moredyes:solidlamp_8c72d8"
+  }
+}

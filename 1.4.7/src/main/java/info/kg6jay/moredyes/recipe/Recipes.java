@@ -138,6 +138,14 @@ public final class Recipes {
             Item.ingotIron, Item.ingotIron, dye);
         GameRegistry.addRecipe(stack(MDBlocks.chain, 4, color), "I", "D", "I", 'I', Item.ingotIron, 'D', dye);
 
+        // Redstone lamps: eight around a dye. A dyed lamp crafts into the solid-color one and back, and with a
+        // redstone torch into the inverted one (which crafts back on its own).
+        surround(MDBlocks.lamp, color, new ItemStack(Block.redstoneLampIdle), dye);
+        GameRegistry.addShapelessRecipe(stack(MDBlocks.solidLamp, 1, color), stack(MDBlocks.lamp, 1, color));
+        GameRegistry.addShapelessRecipe(stack(MDBlocks.lamp, 1, color), stack(MDBlocks.solidLamp, 1, color));
+        invertedLamp(MDBlocks.lamp, MDBlocks.invertedLamp, color);
+        invertedLamp(MDBlocks.solidLamp, MDBlocks.invertedSolidLamp, color);
+
         addNewerBlockRecipes(color, dye);
     }
 
@@ -283,6 +291,12 @@ public final class Recipes {
 
     private static ItemStack stack(Block block, int count, int color) {
         return new ItemStack(block, count, color);
+    }
+
+    private static void invertedLamp(Block lamp, Block inverted, int color) {
+        GameRegistry.addShapelessRecipe(stack(inverted, 1, color), stack(lamp, 1, color),
+            Block.torchRedstoneActive);
+        GameRegistry.addShapelessRecipe(stack(lamp, 1, color), stack(inverted, 1, color));
     }
 
     private static void surround(Block output, int color, ItemStack surround, ItemStack dye) {

@@ -36,6 +36,9 @@ WOODS = ['oak', 'birch', 'spruce', 'jungle', 'acacia', 'dark_oak']
 BRIGHTNESS = 200
 # Materials that are meant to stay dark whatever their dye.
 STAY_DARK = {'block/obsidian', 'block/coal_block', 'block/crying_obsidian'}
+# An unlit dyed lamp is only this bright on average, where a lit one is BRIGHTNESS, so it looks dark next to it.
+LAMP_OFF = 'block/redstone_lamp'
+LAMP_OFF_BRIGHTNESS = 70
 
 GREY, GREY_IF_GREEN, GREY_IF_NOT_GREEN, KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_IF_NOT_COBBLESTONE = (
     'grey', 'grey_if_green', 'grey_if_not_green', 'keep_if_green', 'keep_if_not_green', 'keep_if_not_cobblestone')
@@ -101,6 +104,9 @@ TEXTURES = {
     'block/oak_sign': [('block/sign', GREY, True)],
     'item/oak_sign': [('item/sign', GREY, True)],
     'block/white_shulker_box': [('block/shulker_box', GREY, True)],
+    # Dyed redstone lamps (see LAMP_OFF_BRIGHTNESS).
+    'block/redstone_lamp': [('block/lamp', GREY, True)],
+    'block/redstone_lamp_on': [('block/lamp_on', GREY, True)],
 }
 for _name in ['granite', 'polished_andesite', 'polished_diorite', 'polished_granite', 'end_stone', 'mossy_cobblestone',
               'mossy_stone_bricks', 'quartz_bricks', 'chiseled_quartz_block', 'chiseled_quartz_block_top',
@@ -140,6 +146,9 @@ BED_COLORS = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pin
 
 OWN_TEXTURES = {'speckled_granite': ('block/granite', 'block/speckled_granite'),
                 'smooth_speckled_granite': ('block/polished_granite', 'block/smooth_speckled_granite')}
+# Solid lamps (like Project Red's) replace both vanilla lamp textures with tools/base/lamp_solid.png: one flat color with
+# a thin darker edge, lit as it is and unlit darkened like LAMP_OFF.
+SOLID_LAMP_TEXTURES = {'block/redstone_lamp': 'block/lamp_solid', 'block/redstone_lamp_on': 'block/lamp_solid_on'}
 
 # Chest textures go on the chest atlas (textures/entity/chest). The latch keeps its natural color: its pixels sit in the
 # top-left corner of the texture, (width, height) given here.
@@ -265,6 +274,13 @@ def stats_of(pixels):
     return (sum(lums) / len(lums), max(lums)) if lums else (BRIGHTNESS, BRIGHTNESS)
 
 
+def scale(pixels, target):
+    """Scales grey pixels so their average is target, keeping their contrast."""
+    lums = [p[0] for p in pixels if p[3] > 0]
+    factor = target / max(1.0, sum(lums) / len(lums))
+    return [(min(255, round(r * factor)),) * 3 + (a,) for r, g, b, a in pixels]
+
+
 def brighten(pixels, stats=None):
     """Shifts grey pixels so their average is BRIGHTNESS. Highlights are compressed rather than clipped to white.
     stats is the (mean, max) to shift by, so a texture can match another one; by default it is the pixels' own."""
@@ -336,7 +352,9 @@ def main():
                 pixels = [(0, 0, 0, 0) if grey(p)[0] >= PISTON_DARK
                           and is_piston_cobblestone(source, i % w * 16 // w, i // w * 16 // h) else p
                           for i, p in enumerate(pixels)]
-            if tinted and source not in STAY_DARK:
+            if source == LAMP_OFF:
+                pixels = scale(pixels, LAMP_OFF_BRIGHTNESS)
+            elif tinted and source not in STAY_DARK:
                 pixels = brighten(pixels)
             layer_pixels.append(pixels)
         for (name, _, _), pixels in zip(layers, layer_pixels):
@@ -354,6 +372,13 @@ def main():
         own = first_frame(Image.open(os.path.join(BASE, kind + '.png')).convert('RGBA'))
         own.putdata(brighten([grey(p) for p in own.get_flattened_data()]))
         save(own, name)
+        count += 1
+    solid = first_frame(Image.open(os.path.join(BASE, 'lamp_solid.png')).convert('RGBA'))
+    solid_pixels = [grey(p) for p in solid.get_flattened_data()]
+    for vanilla_lamp, name in sorted(SOLID_LAMP_TEXTURES.items()):
+        out = Image.new('RGBA', solid.size)
+        out.putdata(scale(solid_pixels, LAMP_OFF_BRIGHTNESS) if vanilla_lamp == LAMP_OFF else brighten(solid_pixels))
+        save(out, name)
         count += 1
 
     # A llama's carpet (textures/entity/equipment/llama_body) is drawn from the layers its equipment asset names: the

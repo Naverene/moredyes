@@ -226,6 +226,12 @@ SOURCES = [
     ("smoothSpeckledGranite", "base/smoothSpeckledGranite", grey),
     # Untinted: the books on a bookshelf, drawn over its tinted wood.
     ("bookshelf/books", "blocks/bookshelf", keep_books),
+    # Redstone lamps, off and on, in the vanilla look and a solid color, from the 1.16.5 textures (the off ones
+    # already darkened).
+    ("lamp", "tinted/lamp", grey),
+    ("lampOn", "tinted/lamp_on", grey),
+    ("lampSolid", "tinted/lamp_solid", grey),
+    ("lampSolidOn", "tinted/lamp_solid_on", grey),
 ]
 
 MODELS = [

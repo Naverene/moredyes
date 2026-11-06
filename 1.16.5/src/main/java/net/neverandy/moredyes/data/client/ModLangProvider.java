@@ -97,6 +97,10 @@ public class ModLangProvider extends LanguageProvider
                 add(MDBlock.vanillaColorBedArray[i], name + "Bed");
             }
             add(MDBlock.bannerArray[i], c + "Banner");
+            add(MDBlock.lampArray[i], c + "Redstone Lamp");
+            add(MDBlock.invertedLampArray[i], c + "Inverted Redstone Lamp");
+            add(MDBlock.solidLampArray[i], c + "Solid Lamp");
+            add(MDBlock.invertedSolidLampArray[i], c + "Inverted Solid Lamp");
             add(MDBlock.shulkerBoxArray[i], c + "Shulker Box");
             add(MDBlock.bookshelfArray[i], c + "Bookshelf");
             add(MDBlock.pistonArray[i], c + "Piston");

@@ -47,6 +47,8 @@ GREY_IF_NOT_GREEN = lambda p: CLEAR if is_green(p) else grey(p)
 KEEP_IF_GREEN = lambda p: p if is_green(p) else CLEAR
 KEEP_IF_NOT_GREEN = lambda p: CLEAR if is_green(p) else p
 KEEP = lambda p: p
+# An unlit solid lamp: its grey at a third of the brightness.
+DARKEN = lambda p: tuple(round(c * 0.35) for c in grey(p)[:3]) + (p[3],)
 
 
 def is_book(p):
@@ -80,6 +82,11 @@ TEXTURES = {
     'blocks/tinted/glowstone': ('blocks/glowstone', GREY),
     'blocks/tinted/lapis': ('blocks/lapis_block', GREY),
     'blocks/tinted/redstone': ('blocks/redstone_block', GREY),
+    'blocks/tinted/lamp': ('blocks/redstone_lamp_off', GREY),
+    'blocks/tinted/lamp_on': ('blocks/redstone_lamp_on', GREY),
+    # Solid lamps, like Project Red's: one flat color with a thin darker edge, lit or dark.
+    'blocks/tinted/lamp_solid': ('base:lamp_solid', DARKEN),
+    'blocks/tinted/lamp_solid_on': ('base:lamp_solid', GREY),
     'blocks/tinted/plank': ('blocks/planks_oak', GREY),
     'blocks/tinted/brick': ('blocks/brick', GREY),
     'blocks/tinted/sand': ('blocks/sand', GREY),
@@ -325,6 +332,15 @@ CUBE_ALL = {
     'glazed_terracotta': T + 'glazed_terracotta',
     'netherite_block': T + 'netherite_block',
     'crying_obsidian': T + 'crying_obsidian',
+    # Redstone lamps, two blocks each like vanilla's: lamp_lit and inverted_lamp_off are the states without an item.
+    'lamp': T + 'lamp',
+    'lamp_lit': T + 'lamp_on',
+    'inverted_lamp': T + 'lamp_on',
+    'inverted_lamp_off': T + 'lamp',
+    'solid_lamp': T + 'lamp_solid',
+    'solid_lamp_lit': T + 'lamp_solid_on',
+    'inverted_solid_lamp': T + 'lamp_solid_on',
+    'inverted_solid_lamp_off': T + 'lamp_solid',
     'end_stone': T + 'end_stone',
     'quartz_bricks': T + 'quartz_bricks',
     'gravel': T + 'gravel',

@@ -94,6 +94,14 @@ public class MDBlock
 	public static Block[] netheriteBlock;
 	public static Block[] cryingObsidian;
 	public static Block[] chain;
+	public static Block[] lamp;
+	public static Block[] litLamp;
+	public static Block[] invertedLamp;
+	public static Block[] invertedLampOff;
+	public static Block[] solidLamp;
+	public static Block[] litSolidLamp;
+	public static Block[] invertedSolidLamp;
+	public static Block[] invertedSolidLampOff;
 	public static Block[] cornflower;
 	// The rest of the blocks of the newer versions (as in 1.16.5).
 	public static Block[] endStone;
@@ -206,6 +214,14 @@ public class MDBlock
 		netheriteBlock=new Block[groups];
 		cryingObsidian=new Block[groups];
 		chain=new Block[groups];
+		lamp=new Block[groups];
+		litLamp=new Block[groups];
+		invertedLamp=new Block[groups];
+		invertedLampOff=new Block[groups];
+		solidLamp=new Block[groups];
+		litSolidLamp=new Block[groups];
+		invertedSolidLamp=new Block[groups];
+		invertedSolidLampOff=new Block[groups];
 		cornflower=new Block[groups];
 		endStone=new Block[groups];
 		chiseledSandstone=new Block[groups];
@@ -295,6 +311,10 @@ public class MDBlock
 			netheriteBlock[g]=new BlockColored(Reference.BLOCK_INFO_NETHERITE_BLOCK,g);
 			cryingObsidian[g]=new BlockColoredObsidian(Reference.BLOCK_INFO_CRYING_OBSIDIAN,g).setLightLevel(10.0f/15.0f);
 			chain[g]=new BlockColoredChain(Reference.BLOCK_INFO_CHAIN,g);
+			lamps(g,lamp,litLamp,Reference.BLOCK_INFO_LAMP,Reference.BLOCK_INFO_LAMP_LIT,false);
+			lamps(g,invertedLampOff,invertedLamp,Reference.BLOCK_INFO_INVERTED_LAMP_OFF,Reference.BLOCK_INFO_INVERTED_LAMP,true);
+			lamps(g,solidLamp,litSolidLamp,Reference.BLOCK_INFO_SOLID_LAMP,Reference.BLOCK_INFO_SOLID_LAMP_LIT,false);
+			lamps(g,invertedSolidLampOff,invertedSolidLamp,Reference.BLOCK_INFO_INVERTED_SOLID_LAMP_OFF,Reference.BLOCK_INFO_INVERTED_SOLID_LAMP,true);
 			cornflower[g]=new BlockColoredFlower(Reference.BLOCK_INFO_CORNFLOWER,g);
 			endStone[g]=new BlockColored(Reference.BLOCK_INFO_END_STONE,g);
 			chiseledSandstone[g]=new BlockColored(Reference.BLOCK_INFO_CHISELED_SANDSTONE,g);
@@ -331,7 +351,7 @@ public class MDBlock
 				granite,polishedGranite,speckledGranite,smoothSpeckledGranite,polishedDiorite,andesite,polishedAndesite,smoothStone,mossyCobble,mossyStonebrick,
 				smoothSandstone,cutSandstone,smoothQuartz,concrete,concretePowder,glazedTerracotta,netherBrick,
 				crackedNetherBrick,chiseledNetherBrick,soulSoil,basalt,polishedBasalt,endStoneBrick,boneBlock,netheriteBlock,
-				cryingObsidian,chain,cornflower,
+				cryingObsidian,chain,lamp,litLamp,invertedLamp,invertedLampOff,solidLamp,litSolidLamp,invertedSolidLamp,invertedSolidLampOff,cornflower,
 				endStone,chiseledSandstone,quartzBricks,chiseledQuartz,quartzPillar,gravel,ice,packedIce,snow,
 				birchPlank,sprucePlank,junglePlank,acaciaPlank,darkOakPlank,
 				allium,azureBluet,blueOrchid,dandelion,lilyOfTheValley,oxeyeDaisy,poppy);
@@ -514,6 +534,15 @@ public class MDBlock
 		return shape(new BlockDyedWall(info,info.blockName+"_wall"),base,Shape.Kind.WALL);
 	}
 
+	/** The dark and lit blocks of one lamp in a color group (see BlockColoredLamp). */
+	private static void lamps(int g,Block[] darkBlocks,Block[] litBlocks,BlockInfo darkInfo,BlockInfo litInfo,boolean inverted)
+	{
+		BlockColoredLamp dark=new BlockColoredLamp(darkInfo,g,inverted,false);
+		BlockColoredLamp lit=new BlockColoredLamp(litInfo,g,inverted,true);
+		BlockColoredLamp.pair(dark,lit);
+		darkBlocks[g]=dark;
+		litBlocks[g]=lit;
+	}
 	private static void add(Block[]... kinds)
 	{
 		for(Block[] kind:kinds)
@@ -572,6 +601,10 @@ public class MDBlock
 		washed(hardenedClay,new ItemStack(Blocks.HARDENED_CLAY));
 		washed(coal,new ItemStack(Blocks.COAL_BLOCK));
 		washed(glowstone,new ItemStack(Blocks.GLOWSTONE));
+		washed(lamp,new ItemStack(Blocks.REDSTONE_LAMP));
+		washed(invertedLamp,new ItemStack(Blocks.REDSTONE_LAMP));
+		washed(solidLamp,new ItemStack(Blocks.REDSTONE_LAMP));
+		washed(invertedSolidLamp,new ItemStack(Blocks.REDSTONE_LAMP));
 		washed(lapis,new ItemStack(Blocks.LAPIS_BLOCK));
 		washed(redstone,new ItemStack(Blocks.REDSTONE_BLOCK));
 		washed(brick,new ItemStack(Blocks.BRICK_BLOCK));

@@ -31,7 +31,7 @@ import sys
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from textures import TEXTURES, FOGGY_GLASS, OWN_TEXTURES, WOODS, client_jar, gradle_property  # noqa: E402
+from textures import TEXTURES, FOGGY_GLASS, OWN_TEXTURES, SOLID_LAMP_TEXTURES, WOODS, client_jar, gradle_property  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'src/generated/resources')
@@ -165,8 +165,10 @@ DYE_MIXES = [
 
 # Kinds that are dyed by putting eight vanilla blocks around a dye. The others are made another way (see recipes()).
 # The English names of the kinds whose vanilla block has another name.
-OWN_NAMES = {'speckled_granite': 'Speckled Granite', 'smooth_speckled_granite': 'Smooth Speckled Granite'}
-NOT_DYED_IN_A_RING = {'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip',
+OWN_NAMES = {'speckled_granite': 'Speckled Granite', 'smooth_speckled_granite': 'Smooth Speckled Granite',
+             'inverted_lamp': 'Inverted Redstone Lamp', 'solid_lamp': 'Solid Lamp',
+             'inverted_solid_lamp': 'Inverted Solid Lamp'}
+NOT_DYED_IN_A_RING = {'inverted_lamp', 'solid_lamp', 'inverted_solid_lamp', 'foggy_glass', 'foggy_glass_pane', 'speckled_granite', 'smooth_speckled_granite', 'crafting_table', 'chest', 'piston_head', 'wall_sign', 'tulip',
                       'bed', 'banner', 'wall_banner', 'shulker_box'}
 # Kinds whose block models only name the particle texture (oak planks, which stays undyed), and so are vanilla's.
 VANILLA_MODELS = {'bed', 'banner', 'wall_banner'}
@@ -331,6 +333,8 @@ class Models:
         texture = short(texture)
         if kind.startswith('foggy_glass') and texture == 'block/glass':
             return [(MOD + ':' + FOGGY_GLASS, True)]
+        if 'solid_lamp' in kind and texture in SOLID_LAMP_TEXTURES:
+            return [(MOD + ':' + SOLID_LAMP_TEXTURES[texture], True)]
         for own, (replaced, name) in OWN_TEXTURES.items():
             if (kind == own or kind.startswith(own + '_')) and texture == replaced:
                 return [(MOD + ':' + name, True)]
@@ -529,6 +533,9 @@ def main():
             if kind == 'chest' or kind in SPECIAL_ITEMS:
                 pass  # one per color, below
             else:
+                if kind in ('inverted_lamp', 'inverted_solid_lamp'):
+                    # An inverted lamp is lit until it is powered, so its item shows it lit.
+                    item = dict(item, model='minecraft:block/redstone_lamp_on')
                 model, tints = convert(item['model'])
                 if tints is None:
                     tints = [True]
@@ -1037,6 +1044,16 @@ def recipes(jars, w, kinds, colors):
         shaped('carpet_%s' % c, b('carpet'), 3, ['WW'], {'W': b('wool')}, True)
         transmute('dyeing/shulker_box_%s' % c, '#minecraft:shulker_boxes', dye, b('shulker_box'))
         transmute('washing/shulker_box_%s' % c, b('shulker_box'), 'minecraft:water_bucket', 'minecraft:shulker_box')
+        # A dyed lamp turns into a solid lamp and back on its own. A lamp of either style with a redstone torch makes the
+        # inverted lamp, which turns back into a normal one on its own (losing the torch).
+        shapeless('solid_lamp_%s' % c, b('solid_lamp'), 1, [b('lamp')], 'redstone')
+        shapeless('lamp_%s_from_solid' % c, b('lamp'), 1, [b('solid_lamp')], 'redstone')
+        wash('solid_lamp')
+        for style in ('lamp', 'solid_lamp'):
+            shapeless('inverted_%s_%s' % (style, c), b('inverted_' + style), 1, [b(style), 'minecraft:redstone_torch'],
+                      'redstone')
+            shapeless('%s_%s_from_inverted' % (style, c), b(style), 1, [b('inverted_' + style)], 'redstone')
+            wash('inverted_' + style)
         wash('foggy_glass')
         wash('foggy_glass_pane')
         for flower, count in FLOWER_DYES.items():

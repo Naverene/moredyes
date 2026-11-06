@@ -303,6 +303,11 @@ public final class TintSources {
         block("hardenedClay", "hardened_clay");
         block("coal", "coal_block");
         block("glowstone", "glowstone");
+        block("lamp", "redstone_lamp_off");
+        block("lamp_on", "redstone_lamp_on");
+        // Solid lamps, like Project Red's: one flat color with a thin darker edge (textures/blocks/base/lamp_solid).
+        add("lamp_solid", modTexture("blocks/base/lamp_solid_off"), GREY, false);
+        add("lamp_solid_on", modTexture("blocks/base/lamp_solid"), GREY, false);
         block("lapis", "lapis_block");
         block("redstone", "redstone_block");
         block("plank", "planks_oak");

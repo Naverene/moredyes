@@ -165,6 +165,12 @@ public enum Kind {
     NETHERITE_BLOCK("netherite_block", "netherite_block", Tab.BLOCKS, simple()),
     CRYING_OBSIDIAN("crying_obsidian", "crying_obsidian", Tab.BLOCKS, (color, p) -> new CryingObsidianBlock(p)),
     CHAIN("chain", "chain", Tab.BLOCKS, (color, p) -> new ChainBlock(p)),
+    /** A redstone lamp in the dye's color, lit while powered; the inverted one is lit until it is powered. */
+    LAMP("lamp", "redstone_lamp", Tab.BLOCKS, (color, p) -> new DyedLampBlock(p, false)),
+    INVERTED_LAMP("inverted_lamp", "redstone_lamp", Tab.BLOCKS, (color, p) -> new DyedLampBlock(p, true)),
+    /** The same lamps in one solid color on every side, like Project Red's. */
+    SOLID_LAMP("solid_lamp", "redstone_lamp", Tab.BLOCKS, (color, p) -> new DyedLampBlock(p, false)),
+    INVERTED_SOLID_LAMP("inverted_solid_lamp", "redstone_lamp", Tab.BLOCKS, (color, p) -> new DyedLampBlock(p, true)),
     /** A carpet. A llama wears it in the carpet's color (see client/DyedLlamaDecorLayer). */
     CARPET("carpet", "white_carpet", Tab.BLOCKS, (color, p) -> new CarpetBlock(p)),
     /**

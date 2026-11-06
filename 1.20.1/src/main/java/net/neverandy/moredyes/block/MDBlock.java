@@ -196,6 +196,13 @@ public class MDBlock
     public static CryingObsidianBlock[] cryingObsidianArray = new CryingObsidianBlock[COLORS];
     public static ChainBlock[] chainArray = new ChainBlock[COLORS];
 
+    /** Redstone lamps that light up when powered, and inverted ones that are lit until powered (see DyedLampBlock). */
+    public static DyedLampBlock[] lampArray = new DyedLampBlock[COLORS];
+    public static DyedLampBlock[] invertedLampArray = new DyedLampBlock[COLORS];
+    /** The same lamps in one solid color on every side, like Project Red's. */
+    public static DyedLampBlock[] solidLampArray = new DyedLampBlock[COLORS];
+    public static DyedLampBlock[] invertedSolidLampArray = new DyedLampBlock[COLORS];
+
     /** Small flowers, as {registry type, vanilla flower}; each array in smallFlowerArrays matches one row. */
     public static final String[][] SMALL_FLOWERS = {
         {"allium", "allium"}, {"azurebluet", "azure_bluet"}, {"cornflower", "cornflower"}, {"dandelion", "dandelion"},
@@ -387,6 +394,10 @@ public class MDBlock
         colors("cryingobsidian", cryingObsidianArray, () -> new CryingObsidianBlock(copy(Blocks.CRYING_OBSIDIAN)), MDTabs.BLOCKS, PICKAXE);
         NEEDS_TOOL.put(cryingObsidianArray, BlockTags.NEEDS_DIAMOND_TOOL);
         colors("chain", chainArray, () -> new ChainBlock(copy(Blocks.CHAIN)), MDTabs.BLOCKS, PICKAXE);
+        colors("lamp", lampArray, () -> new DyedLampBlock(copy(Blocks.REDSTONE_LAMP), false), MDTabs.BLOCKS, null);
+        colors("invertedlamp", invertedLampArray, () -> new DyedLampBlock(copy(Blocks.REDSTONE_LAMP), true), MDTabs.BLOCKS, null);
+        colors("solidlamp", solidLampArray, () -> new DyedLampBlock(copy(Blocks.REDSTONE_LAMP), false), MDTabs.BLOCKS, null);
+        colors("invertedsolidlamp", invertedSolidLampArray, () -> new DyedLampBlock(copy(Blocks.REDSTONE_LAMP), true), MDTabs.BLOCKS, null);
     }
 
     private static void registerFlowers()

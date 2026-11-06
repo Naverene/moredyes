@@ -105,6 +105,10 @@ SOURCES = {
     "cryingObsidian": (base("cryingObsidian"), "grey"),
     "ironTrapdoor": (base("ironTrapdoor"), "grey"),
     "chain": (base("chain"), "grey"),
+    "lamp": (vanilla("redstone_lamp_off"), "grey"),
+    "lamp_on": (vanilla("redstone_lamp_on"), "grey"),
+    "lamp_solid": (base("lamp_solid_off"), "grey"),
+    "lamp_solid_on": (base("lamp_solid"), "grey"),
     "piston/side": (vanilla("piston_side"), "grey"),
     "piston/inner": (vanilla("piston_inner"), "grey"),
     "piston/bottom": (vanilla("piston_bottom"), "grey"),
@@ -162,6 +166,10 @@ CUBES = {
     "ChiseledNetherBrick": "chiseledNetherBrick", "EndStoneBrick": "endStoneBrick",
     "BoneBlock": ("boneBlock/top", "boneBlock/side", "boneBlock/bottom"), "GlazedTerracotta": "glazedTerracotta",
     "NetheriteBlock": "netheriteBlock", "CryingObsidian": "cryingObsidian",
+    # Redstone lamps: each is a dark and a lit block that swap.
+    "Lamp": "lamp", "LampLit": "lamp_on", "InvertedLamp": "lamp_on", "InvertedLampOff": "lamp",
+    "SolidLamp": "lamp_solid", "SolidLampLit": "lamp_solid_on", "InvertedSolidLamp": "lamp_solid_on",
+    "InvertedSolidLampOff": "lamp_solid",
 }
 # Plain granite, diorite and andesite, which have one fixed tint (MDBlock.initialize).
 PLAIN_STONES = {"granite": "C89680", "diorite": "FFFFFF", "andesite": "FFFFFF"}

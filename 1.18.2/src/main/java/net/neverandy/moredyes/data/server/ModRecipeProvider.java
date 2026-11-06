@@ -236,6 +236,7 @@ public class ModRecipeProvider extends RecipeProvider
             dyeable(i, MDBlock.concreteArray[i], "white_concrete");
             dyeable(i, MDBlock.concretePowderArray[i], "white_concrete_powder");
             washable(MDBlock.glassFoggyArray[i], "glass");
+            lamps(i);
 
             // Like the vanilla blocks
             smelt(MDBlock.cobbleArray[i], MDBlock.stoneArray[i], 0.1F);
@@ -477,6 +478,35 @@ public class ModRecipeProvider extends RecipeProvider
     }
 
     /** Eight vanilla blocks around a dye make eight dyed blocks, and water washes the color out again. */
+    /**
+     * Eight vanilla redstone lamps around a dye make dyed lamps, which turn into solid lamps and back on their own. A
+     * lamp of either style and a redstone torch make the inverted lamp, which goes back to a normal one on its own.
+     * They all wash back to the vanilla lamp.
+     */
+    private void lamps(int i)
+    {
+        Block lamp = MDBlock.lampArray[i];
+        Block solid = MDBlock.solidLampArray[i];
+        dyeable(i, lamp, "redstone_lamp");
+        washable(solid, "redstone_lamp");
+        ShapelessRecipeBuilder.shapeless(solid).requires(lamp)
+                .unlockedBy("has_lamp", has(lamp)).save(out, id(name(solid)));
+        ShapelessRecipeBuilder.shapeless(lamp).requires(solid)
+                .unlockedBy("has_lamp", has(solid)).save(out, id(name(lamp) + "_from_solid"));
+        lamps(lamp, MDBlock.invertedLampArray[i]);
+        lamps(solid, MDBlock.invertedSolidLampArray[i]);
+    }
+
+    /** A lamp and a redstone torch make the inverted lamp, which goes back to a normal one on its own. */
+    private void lamps(Block lamp, Block inverted)
+    {
+        ShapelessRecipeBuilder.shapeless(inverted).requires(lamp).requires(Items.REDSTONE_TORCH)
+                .unlockedBy("has_lamp", has(lamp)).save(out, id(name(inverted)));
+        ShapelessRecipeBuilder.shapeless(lamp).requires(inverted)
+                .unlockedBy("has_lamp", has(inverted)).save(out, id(name(lamp) + "_from_inverted"));
+        washable(inverted, "redstone_lamp");
+    }
+
     private void panes(Block glass, Block pane)
     {
         ShapedRecipeBuilder.shaped(pane, 16).define('G', glass).pattern("GGG").pattern("GGG")

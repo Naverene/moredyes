@@ -26,6 +26,7 @@ import info.kg6jay.moredyes.item.MDItemBlockDyedTallFlower;
 import info.kg6jay.moredyes.item.MDItemBlockTileColored;
 import info.kg6jay.moredyes.reference.ColorStrings;
 import info.kg6jay.moredyes.reference.Reference;
+import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
 public class MDBlock {
@@ -106,6 +107,14 @@ public class MDBlock {
     public static Block[] cryingObsidian;
     public static Block[] cornflower;
     public static Block[] chain;
+    public static Block[] lamp;
+    public static Block[] litLamp;
+    public static Block[] invertedLamp;
+    public static Block[] invertedLampOff;
+    public static Block[] solidLamp;
+    public static Block[] litSolidLamp;
+    public static Block[] invertedSolidLamp;
+    public static Block[] invertedSolidLampOff;
 
     // More full blocks and flowers from newer Minecraft versions, and planks of the other five woods for the fences,
     // stairs and slabs
@@ -258,6 +267,14 @@ public class MDBlock {
         cryingObsidian = new Block[l];
         cornflower = new Block[l];
         chain = new Block[l];
+        lamp = new Block[l];
+        litLamp = new Block[l];
+        invertedLamp = new Block[l];
+        invertedLampOff = new Block[l];
+        solidLamp = new Block[l];
+        litSolidLamp = new Block[l];
+        invertedSolidLamp = new Block[l];
+        invertedSolidLampOff = new Block[l];
         endStone = new Block[l];
         gravel = new Block[l];
         ice = new Block[l];
@@ -349,6 +366,34 @@ public class MDBlock {
                 .setLightLevel(10.0F / 15.0F);
             cornflower[i] = new MDBlockFlower(shades, Reference.BLOCK_INFO_CORNFLOWER, set, "cornflower");
             chain[i] = new MDBlockChain(shades, Reference.BLOCK_INFO_CHAIN, set);
+            lamps(i, shades, set, lamp, litLamp, Reference.BLOCK_INFO_LAMP, Reference.BLOCK_INFO_LAMP_LIT, false);
+            lamps(
+                i,
+                shades,
+                set,
+                invertedLampOff,
+                invertedLamp,
+                Reference.BLOCK_INFO_INVERTED_LAMP_OFF,
+                Reference.BLOCK_INFO_INVERTED_LAMP,
+                true);
+            lamps(
+                i,
+                shades,
+                set,
+                solidLamp,
+                litSolidLamp,
+                Reference.BLOCK_INFO_SOLID_LAMP,
+                Reference.BLOCK_INFO_SOLID_LAMP_LIT,
+                false);
+            lamps(
+                i,
+                shades,
+                set,
+                invertedSolidLampOff,
+                invertedSolidLamp,
+                Reference.BLOCK_INFO_INVERTED_SOLID_LAMP_OFF,
+                Reference.BLOCK_INFO_INVERTED_SOLID_LAMP,
+                true);
 
             endStone[i] = new MDBlockColored(shades, Reference.BLOCK_INFO_END_STONE, set);
             gravel[i] = new MDBlockColoredSand(shades, Reference.BLOCK_INFO_GRAVEL, set);
@@ -635,6 +680,15 @@ public class MDBlock {
         register(cryingObsidian, "CryingObsidian");
         register(cornflower, "Cornflower");
         register(chain, "Chain");
+        register(lamp, "Lamp");
+        register(invertedLamp, "InvertedLamp");
+        register(solidLamp, "SolidLamp");
+        register(invertedSolidLamp, "InvertedSolidLamp");
+        // The lamps in their other state have no item: they drop and pick as the lamp above.
+        registerWithoutItem(litLamp, "LampLit");
+        registerWithoutItem(invertedLampOff, "InvertedLampOff");
+        registerWithoutItem(litSolidLamp, "SolidLampLit");
+        registerWithoutItem(invertedSolidLampOff, "InvertedSolidLampOff");
         register(endStone, "EndStone");
         register(gravel, "Gravel");
         register(ice, "Ice");
@@ -677,6 +731,24 @@ public class MDBlock {
         GameRegistry.registerBlock(flowerPot, (Class<? extends ItemBlock>) null, registryName(flowerPot));
     }
 
+    /** The dark and lit blocks of one lamp in a color set (see MDBlockLamp). */
+    private static void lamps(int i, String[] shades, String set, Block[] darkBlocks, Block[] litBlocks,
+        BlockInfo darkInfo, BlockInfo litInfo, boolean inverted) {
+        MDBlockLamp dark = new MDBlockLamp(shades, darkInfo, set, inverted, false);
+        MDBlockLamp lit = new MDBlockLamp(shades, litInfo, set, inverted, true);
+        MDBlockLamp.pair(dark, lit);
+        darkBlocks[i] = dark;
+        litBlocks[i] = lit;
+    }
+
+    /** Like register, for blocks without an item. */
+    private static void registerWithoutItem(Block[] blocks, String suffix) {
+        for (Block block : blocks) {
+            String name = ((IBlockColored) block).getColorSet() + "Mix" + suffix;
+            GameRegistry.registerBlock(block, (Class<? extends ItemBlock>) null, name);
+        }
+    }
+
     /** The registry name of a block named "moredyes.name" is "name". */
     private static String registryName(Block block) {
         return block.getUnlocalizedName()
@@ -713,6 +785,10 @@ public class MDBlock {
             WASHED.put(hardenedClay[i], new ItemStack(Blocks.hardened_clay));
             WASHED.put(coal[i], new ItemStack(Blocks.coal_block));
             WASHED.put(glowstone[i], new ItemStack(Blocks.glowstone));
+            WASHED.put(lamp[i], new ItemStack(Blocks.redstone_lamp));
+            WASHED.put(invertedLamp[i], new ItemStack(Blocks.redstone_lamp));
+            WASHED.put(solidLamp[i], new ItemStack(Blocks.redstone_lamp));
+            WASHED.put(invertedSolidLamp[i], new ItemStack(Blocks.redstone_lamp));
             WASHED.put(lapis[i], new ItemStack(Blocks.lapis_block));
             WASHED.put(redstone[i], new ItemStack(Blocks.redstone_block));
             WASHED.put(plank[i], new ItemStack(Blocks.planks, 1, 0));

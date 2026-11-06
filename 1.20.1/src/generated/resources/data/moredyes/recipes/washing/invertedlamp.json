@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:invertedlamp_ecbf99"
+      },
+      {
+        "item": "moredyes:invertedlamp_d9a6ec"
+      },
+      {
+        "item": "moredyes:invertedlamp_b3ccec"
+      },
+      {
+        "item": "moredyes:invertedlamp_f2f299"
+      },
+      {
+        "item": "moredyes:invertedlamp_bfe68c"
+      },
+      {
+        "item": "moredyes:invertedlamp_f9bfd2"
+      },
+      {
+        "item": "moredyes:invertedlamp_cccccc"
+      },
+      {
+        "item": "moredyes:invertedlamp_a6bfcc"
+      },
+      {
+        "item": "moredyes:invertedlamp_bf9fd9"
+      },
+      {
+        "item": "moredyes:invertedlamp_99a6d9"
+      },
+      {
+        "item": "moredyes:invertedlamp_b3a699"
+      },
+      {
+        "item": "moredyes:invertedlamp_b3bf99"
+      },
+      {
+        "item": "moredyes:invertedlamp_cc9999"
+      },
+      {
+        "item": "moredyes:invertedlamp_c56685"
+      },
+      {
+        "item": "moredyes:invertedlamp_9f8c85"
+      },
+      {
+        "item": "moredyes:invertedlamp_deb233"
+      },
+      {
+        "item": "moredyes:invertedlamp_aca526"
+      },
+      {
+        "item": "moredyes:invertedlamp_e57f6c"
+      },
+      {
+        "item": "moredyes:invertedlamp_92663f"
+      },
+      {
+        "item": "moredyes:invertedlamp_b98c66"
+      },
+      {
+        "item": "moredyes:invertedlamp_927f66"
+      },
+      {
+        "item": "moredyes:invertedlamp_ac5f72"
+      },
+      {
+        "item": "moredyes:invertedlamp_866672"
+      },
+      {
+        "item": "moredyes:invertedlamp_9f6633"
+      },
+      {
+        "item": "moredyes:invertedlamp_9f7f33"
+      },
+      {
+        "item": "moredyes:invertedlamp_b95933"
+      },
+      {
+        "item": "moredyes:invertedlamp_794c26"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c72d8"
+      },
+      {
+        "item": "moredyes:invertedlamp_cb9886"
+      },
+      {
+        "item": "moredyes:invertedlamp_998c79"
+      },
+      {
+        "item": "moredyes:invertedlamp_d265bf"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f4c92"
+      },
+      {
+        "item": "moredyes:invertedlamp_a672b9"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f65b9"
+      },
+      {
+        "item": "moredyes:invertedlamp_9946c5"
+      },
+      {
+        "item": "moredyes:invertedlamp_734cc5"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c4c86"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c6586"
+      },
+      {
+        "item": "moredyes:invertedlamp_a64086"
+      },
+      {
+        "item": "moredyes:invertedlamp_663379"
+      },
+      {
+        "item": "moredyes:invertedlamp_a5bf86"
+      },
+      {
+        "item": "moredyes:invertedlamp_72b279"
+      },
+      {
+        "item": "moredyes:invertedlamp_ac8cbf"
+      },
+      {
+        "item": "moredyes:invertedlamp_597392"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f99b9"
+      },
+      {
+        "item": "moredyes:invertedlamp_598cb9"
+      },
+      {
+        "item": "moredyes:invertedlamp_726cc5"
+      },
+      {
+        "item": "moredyes:invertedlamp_4d73c5"
+      },
+      {
+        "item": "moredyes:invertedlamp_667386"
+      },
+      {
+        "item": "moredyes:invertedlamp_668c86"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f6686"
+      },
+      {
+        "item": "moredyes:invertedlamp_405979"
+      },
+      {
+        "item": "moredyes:invertedlamp_b2d926"
+      },
+      {
+        "item": "moredyes:invertedlamp_ebb26c"
+      },
+      {
+        "item": "moredyes:invertedlamp_99993f"
+      },
+      {
+        "item": "moredyes:invertedlamp_bfbf66"
+      },
+      {
+        "item": "moredyes:invertedlamp_99b266"
+      },
+      {
+        "item": "moredyes:invertedlamp_b29272"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c9972"
+      },
+      {
+        "item": "moredyes:invertedlamp_a69933"
+      },
+      {
+        "item": "moredyes:invertedlamp_a6b233"
+      },
+      {
+        "item": "moredyes:invertedlamp_bf8c33"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f7f26"
+      },
+      {
+        "item": "moredyes:invertedlamp_b8a65f"
+      },
+      {
+        "item": "moredyes:invertedlamp_668c32"
+      },
+      {
+        "item": "moredyes:invertedlamp_8cb359"
+      },
+      {
+        "item": "moredyes:invertedlamp_66a659"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f5665"
+      },
+      {
+        "item": "moredyes:invertedlamp_598c65"
+      },
+      {
+        "item": "moredyes:invertedlamp_738c26"
+      },
+      {
+        "item": "moredyes:invertedlamp_73a626"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c8026"
+      },
+      {
+        "item": "moredyes:invertedlamp_4c7319"
+      },
+      {
+        "item": "moredyes:invertedlamp_864c5f"
+      },
+      {
+        "item": "moredyes:invertedlamp_c6596c"
+      },
+      {
+        "item": "moredyes:invertedlamp_ac7f6c"
+      },
+      {
+        "item": "moredyes:invertedlamp_ac666c"
+      },
+      {
+        "item": "moredyes:invertedlamp_9366ab"
+      },
+      {
+        "item": "moredyes:invertedlamp_b95fab"
+      },
+      {
+        "item": "moredyes:invertedlamp_9f7f9f"
+      },
+      {
+        "item": "moredyes:invertedlamp_c68c9f"
+      },
+      {
+        "item": "moredyes:invertedlamp_9f6679"
+      },
+      {
+        "item": "moredyes:invertedlamp_727272"
+      },
+      {
+        "item": "moredyes:invertedlamp_4c6572"
+      },
+      {
+        "item": "moredyes:invertedlamp_65467f"
+      },
+      {
+        "item": "moredyes:invertedlamp_404c7f"
+      },
+      {
+        "item": "moredyes:invertedlamp_594c40"
+      },
+      {
+        "item": "moredyes:invertedlamp_596540"
+      },
+      {
+        "item": "moredyes:invertedlamp_724040"
+      },
+      {
+        "item": "moredyes:invertedlamp_333333"
+      },
+      {
+        "item": "moredyes:invertedlamp_738c99"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c6ca5"
+      },
+      {
+        "item": "moredyes:invertedlamp_6673a5"
+      },
+      {
+        "item": "moredyes:invertedlamp_807366"
+      },
+      {
+        "item": "moredyes:invertedlamp_808c66"
+      },
+      {
+        "item": "moredyes:invertedlamp_996666"
+      },
+      {
+        "item": "moredyes:invertedlamp_595959"
+      },
+      {
+        "item": "moredyes:invertedlamp_655fa5"
+      },
+      {
+        "item": "moredyes:invertedlamp_4066a5"
+      },
+      {
+        "item": "moredyes:invertedlamp_596666"
+      },
+      {
+        "item": "moredyes:invertedlamp_597f66"
+      },
+      {
+        "item": "moredyes:invertedlamp_725966"
+      },
+      {
+        "item": "moredyes:invertedlamp_334c59"
+      },
+      {
+        "item": "moredyes:invertedlamp_5945b2"
+      },
+      {
+        "item": "moredyes:invertedlamp_734573"
+      },
+      {
+        "item": "moredyes:invertedlamp_735f73"
+      },
+      {
+        "item": "moredyes:invertedlamp_8c3973"
+      },
+      {
+        "item": "moredyes:invertedlamp_4c2c66"
+      },
+      {
+        "item": "moredyes:invertedlamp_4c4c73"
+      },
+      {
+        "item": "moredyes:invertedlamp_4c6573"
+      },
+      {
+        "item": "moredyes:invertedlamp_664073"
+      },
+      {
+        "item": "moredyes:invertedlamp_263366"
+      },
+      {
+        "item": "moredyes:invertedlamp_403326"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f4033"
+      },
+      {
+        "item": "moredyes:invertedlamp_666533"
+      },
+      {
+        "item": "moredyes:invertedlamp_7f5933"
+      },
+      {
+        "item": "moredyes:invertedlamp_404c26"
+      },
+      {
+        "item": "moredyes:invertedlamp_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone_lamp"
+  }
+}

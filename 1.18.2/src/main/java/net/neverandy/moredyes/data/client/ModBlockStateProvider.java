@@ -24,6 +24,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.neverandy.moredyes.MoreDyes;
+import net.neverandy.moredyes.block.DyedLampBlock;
 import net.neverandy.moredyes.block.DyedShapes;
 import net.neverandy.moredyes.block.MDBlock;
 import net.neverandy.moredyes.reference.ColorStrings;
@@ -111,6 +112,10 @@ public class ModBlockStateProvider extends BlockStateProvider
             // Like vanilla, one model turned on its side for the x and z axes.
             ModelFile chainModel = tinted(chain, "chain").texture("all", tex("chain"));
             axisBlock(chain, chainModel, chainModel);
+            lamp(MDBlock.lampArray[i]);
+            lamp(MDBlock.invertedLampArray[i]);
+            lamp(MDBlock.solidLampArray[i]);
+            lamp(MDBlock.invertedSolidLampArray[i]);
             for (int f = 0; f < MDBlock.SMALL_FLOWERS.length; f++)
             {
                 Block flower = MDBlock.smallFlowerArrays[f][i];
@@ -306,6 +311,23 @@ public class ModBlockStateProvider extends BlockStateProvider
         int x = facing == Direction.DOWN ? 90 : facing == Direction.UP ? 270 : 0;
         int y = facing.getAxis().isVertical() ? 0 : ((int) facing.toYRot() + 180) % 360;
         return ConfiguredModel.builder().modelFile(model).rotationX(x).rotationY(y).build();
+    }
+
+    /**
+     * Every lamp of a style shares two models, off and on: tinted textures made from the vanilla redstone lamp's, or
+     * the solid ones (lamp_solid). The item model is named after the type: an off lamp for the normal one and a lit
+     * lamp for the inverted one.
+     */
+    private void lamp(DyedLampBlock lamp)
+    {
+        boolean solid = type(lamp).contains("solid");
+        String base = solid ? "block/solidlamp" : "block/lamp";
+        String texture = solid ? "lamp_solid" : "lamp";
+        ModelFile off = models().withExistingParent(base + "_off", modLoc("block/tinted/cube_all")).texture("all", tex(texture));
+        ModelFile on = models().withExistingParent(base + "_on", modLoc("block/tinted/cube_all")).texture("all", tex(texture + "_on"));
+        models().withExistingParent(type(lamp), modLoc(base + (lamp.isInverted() ? "_on" : "_off")));
+        getVariantBuilder(lamp).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(state.getValue(DyedLampBlock.LIT) ? on : off).build());
     }
 
     private void pane(IronBarsBlock pane, String texture)
