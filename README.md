@@ -79,6 +79,21 @@ Cats have collars from Minecraft 1.14 on, so 1.4.7 and 1.12.2 only dye wolf coll
 [Not Enough Pets](https://www.curseforge.com/minecraft/mc-mods/not-enough-pets) installed have collars too, and More
 Dyes dyes color them (and Not Enough Pets' own wolves).
 
+## Redstone lamps
+
+Redstone lamps come in every color, in two looks: the vanilla lamp's pattern, and a solid color on every side like the
+lamps of Project Red. Each also has an inverted version, which is lit unless it gets a redstone signal. A lit lamp
+shows its color brightly and gives off light level 15 (the light itself is not colored), and an unlit one shows a dark
+shade of the color.
+
+- Eight redstone lamps around a dye make eight dyed lamps.
+- A dyed lamp crafts on its own into the solid-color lamp, and back.
+- A dyed lamp and a redstone torch make the inverted lamp. An inverted lamp crafts back on its own.
+- Washing any of them in a cauldron gives back a vanilla redstone lamp.
+
+The `disabled_blocks` names are `lamp`, `invertedlamp`, `solidlamp` and `invertedsolidlamp` on 1.16.5 to 1.20.1, and
+`lamp`, `inverted_lamp`, `solid_lamp` and `inverted_solid_lamp` on 1.21.1 and newer.
+
 ## Bed frames
 
 A bed's wooden frame is made of the planks it was crafted with, on 1.7.10 and newer. Vanilla planks give a frame in

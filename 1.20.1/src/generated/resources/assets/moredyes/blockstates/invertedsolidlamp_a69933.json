@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "moredyes:block/solidlamp_off"
+    },
+    "lit=true": {
+      "model": "moredyes:block/solidlamp_on"
+    }
+  }
+}

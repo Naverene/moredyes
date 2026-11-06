@@ -96,6 +96,8 @@ def is_green(p):
 BRIGHTNESS = 200
 # Materials that are meant to stay dark whatever their dye.
 STAY_DARK = {'obsidian', 'coal', 'crying_obsidian'}
+# How bright an unlit dyed lamp is on average, where lit ones are BRIGHTNESS.
+LAMP_OFF_BRIGHTNESS = 70
 
 
 def brighten(pixels, stats=None):
@@ -115,6 +117,13 @@ def brighten(pixels, stats=None):
         out.append((lum, lum, lum, a))
     return out
 
+
+
+def scale(pixels, target):
+    """Scales grey pixels so their average is target, keeping their contrast."""
+    lums = [p[0] for p in pixels if p[3] > 0]
+    factor = target / max(1.0, sum(lums) / len(lums))
+    return [(min(255, round(r * factor)),) * 3 + (a,) for r, g, b, a in pixels]
 
 
 GREY = grey
@@ -206,6 +215,13 @@ SOURCES = {
     'crying_obsidian': ('block/crying_obsidian', GREY),
     'chain': ('block/chain', GREY),
     'chain_item': ('item/chain', GREY),
+    # Dyed redstone lamps: the lit lamp is brightened like any block, the unlit one only up to LAMP_OFF_BRIGHTNESS so
+    # it still looks dark next to a lit one.
+    'lamp': ('block/redstone_lamp', GREY),
+    'lamp_on': ('block/redstone_lamp_on', GREY),
+    # Solid lamps, like Project Red's: one flat color with a thin darker edge (tools/base/lamp_solid).
+    'lamp_solid': ('base:lamp_solid', GREY),
+    'lamp_solid_on': ('base:lamp_solid', GREY),
 }
 # Dyed flowers: the petals take the dye color and the green stem and leaves keep theirs, like the tulip.
 FLOWERS = {'allium': 'allium', 'azurebluet': 'azure_bluet', 'cornflower': 'cornflower', 'dandelion': 'dandelion',
@@ -269,7 +285,9 @@ def main():
         size = image.width
         image = image.crop((0, 0, size, min(size, image.height)))
         pixels = [transform(p) for p in image.getdata()]
-        if transform not in (KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_BOOKS) and name not in STAY_DARK:
+        if name in ('lamp', 'lamp_solid'):
+            pixels = scale(pixels, LAMP_OFF_BRIGHTNESS)
+        elif transform not in (KEEP_IF_GREEN, KEEP_IF_NOT_GREEN, KEEP_BOOKS) and name not in STAY_DARK:
             pixels = brighten(pixels)
         image.putdata(pixels)
         image.save(os.path.join(OUT, name + '.png'))

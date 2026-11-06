@@ -230,6 +230,13 @@ public class MDBlock
     public static CryingObsidianBlock[] cryingObsidianArray = new CryingObsidianBlock[totalColorCount];
     public static ChainBlock[] chainArray = new ChainBlock[totalColorCount];
 
+    /** Redstone lamps that light up when powered, and inverted ones that are lit until powered (see DyedLampBlock). */
+    public static DyedLampBlock[] lampArray = new DyedLampBlock[totalColorCount];
+    public static DyedLampBlock[] invertedLampArray = new DyedLampBlock[totalColorCount];
+    /** The same lamps in one solid color on every side, like Project Red's. */
+    public static DyedLampBlock[] solidLampArray = new DyedLampBlock[totalColorCount];
+    public static DyedLampBlock[] invertedSolidLampArray = new DyedLampBlock[totalColorCount];
+
     /** Small flowers, as {registry type, vanilla flower}; each array in smallFlowerArrays matches one row. */
     public static final String[][] SMALL_FLOWERS = {
         {"allium", "allium"}, {"azurebluet", "azure_bluet"}, {"cornflower", "cornflower"}, {"dandelion", "dandelion"},
@@ -398,6 +405,10 @@ public class MDBlock
         registerColors("netherite", netheriteArray, () -> new Block(AbstractBlock.Properties.from(Blocks.NETHERITE_BLOCK)));
         registerColors("cryingobsidian", cryingObsidianArray, () -> new CryingObsidianBlock(AbstractBlock.Properties.from(Blocks.CRYING_OBSIDIAN)), MoreDyes.tabBlocks);
         registerColors("chain", chainArray, () -> new ChainBlock(AbstractBlock.Properties.from(Blocks.CHAIN)), MoreDyes.tabBlocks);
+        registerColors("lamp", lampArray, () -> new DyedLampBlock(AbstractBlock.Properties.from(Blocks.REDSTONE_LAMP), false), MoreDyes.tabBlocks);
+        registerColors("invertedlamp", invertedLampArray, () -> new DyedLampBlock(AbstractBlock.Properties.from(Blocks.REDSTONE_LAMP), true), MoreDyes.tabBlocks);
+        registerColors("solidlamp", solidLampArray, () -> new DyedLampBlock(AbstractBlock.Properties.from(Blocks.REDSTONE_LAMP), false), MoreDyes.tabBlocks);
+        registerColors("invertedsolidlamp", invertedSolidLampArray, () -> new DyedLampBlock(AbstractBlock.Properties.from(Blocks.REDSTONE_LAMP), true), MoreDyes.tabBlocks);
     }
 
     private static void registerFlowers()

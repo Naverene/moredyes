@@ -587,6 +587,28 @@ public class CraftManager {
                     Items.iron_ingot,
                     'D',
                     dye);
+                // Redstone lamps: eight vanilla lamps around a dye. A dyed lamp turns into a solid lamp and back on its
+                // own, and a lamp of either style and a redstone torch make the inverted lamp, which turns back on its
+                // own.
+                ItemStack lamp = new ItemStack(MDBlock.lamp[a], 1, i);
+                ItemStack solidLamp = new ItemStack(MDBlock.solidLamp[a], 1, i);
+                GameRegistry.addShapedRecipe(
+                    new ItemStack(MDBlock.lamp[a], 8, i),
+                    "SSS",
+                    "SDS",
+                    "SSS",
+                    'S',
+                    Blocks.redstone_lamp,
+                    'D',
+                    dye);
+                GameRegistry.addShapelessRecipe(solidLamp, lamp);
+                GameRegistry.addShapelessRecipe(lamp, solidLamp);
+                ItemStack invertedLamp = new ItemStack(MDBlock.invertedLamp[a], 1, i);
+                ItemStack invertedSolidLamp = new ItemStack(MDBlock.invertedSolidLamp[a], 1, i);
+                GameRegistry.addShapelessRecipe(invertedLamp, lamp, Blocks.redstone_torch);
+                GameRegistry.addShapelessRecipe(lamp, invertedLamp);
+                GameRegistry.addShapelessRecipe(invertedSolidLamp, solidLamp, Blocks.redstone_torch);
+                GameRegistry.addShapelessRecipe(solidLamp, invertedSolidLamp);
             }
         }
     }

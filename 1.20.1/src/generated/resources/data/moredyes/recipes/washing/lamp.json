@@ -1,0 +1,368 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    [
+      {
+        "item": "moredyes:lamp_ecbf99"
+      },
+      {
+        "item": "moredyes:lamp_d9a6ec"
+      },
+      {
+        "item": "moredyes:lamp_b3ccec"
+      },
+      {
+        "item": "moredyes:lamp_f2f299"
+      },
+      {
+        "item": "moredyes:lamp_bfe68c"
+      },
+      {
+        "item": "moredyes:lamp_f9bfd2"
+      },
+      {
+        "item": "moredyes:lamp_cccccc"
+      },
+      {
+        "item": "moredyes:lamp_a6bfcc"
+      },
+      {
+        "item": "moredyes:lamp_bf9fd9"
+      },
+      {
+        "item": "moredyes:lamp_99a6d9"
+      },
+      {
+        "item": "moredyes:lamp_b3a699"
+      },
+      {
+        "item": "moredyes:lamp_b3bf99"
+      },
+      {
+        "item": "moredyes:lamp_cc9999"
+      },
+      {
+        "item": "moredyes:lamp_c56685"
+      },
+      {
+        "item": "moredyes:lamp_9f8c85"
+      },
+      {
+        "item": "moredyes:lamp_deb233"
+      },
+      {
+        "item": "moredyes:lamp_aca526"
+      },
+      {
+        "item": "moredyes:lamp_e57f6c"
+      },
+      {
+        "item": "moredyes:lamp_92663f"
+      },
+      {
+        "item": "moredyes:lamp_b98c66"
+      },
+      {
+        "item": "moredyes:lamp_927f66"
+      },
+      {
+        "item": "moredyes:lamp_ac5f72"
+      },
+      {
+        "item": "moredyes:lamp_866672"
+      },
+      {
+        "item": "moredyes:lamp_9f6633"
+      },
+      {
+        "item": "moredyes:lamp_9f7f33"
+      },
+      {
+        "item": "moredyes:lamp_b95933"
+      },
+      {
+        "item": "moredyes:lamp_794c26"
+      },
+      {
+        "item": "moredyes:lamp_8c72d8"
+      },
+      {
+        "item": "moredyes:lamp_cb9886"
+      },
+      {
+        "item": "moredyes:lamp_998c79"
+      },
+      {
+        "item": "moredyes:lamp_d265bf"
+      },
+      {
+        "item": "moredyes:lamp_7f4c92"
+      },
+      {
+        "item": "moredyes:lamp_a672b9"
+      },
+      {
+        "item": "moredyes:lamp_7f65b9"
+      },
+      {
+        "item": "moredyes:lamp_9946c5"
+      },
+      {
+        "item": "moredyes:lamp_734cc5"
+      },
+      {
+        "item": "moredyes:lamp_8c4c86"
+      },
+      {
+        "item": "moredyes:lamp_8c6586"
+      },
+      {
+        "item": "moredyes:lamp_a64086"
+      },
+      {
+        "item": "moredyes:lamp_663379"
+      },
+      {
+        "item": "moredyes:lamp_a5bf86"
+      },
+      {
+        "item": "moredyes:lamp_72b279"
+      },
+      {
+        "item": "moredyes:lamp_ac8cbf"
+      },
+      {
+        "item": "moredyes:lamp_597392"
+      },
+      {
+        "item": "moredyes:lamp_7f99b9"
+      },
+      {
+        "item": "moredyes:lamp_598cb9"
+      },
+      {
+        "item": "moredyes:lamp_726cc5"
+      },
+      {
+        "item": "moredyes:lamp_4d73c5"
+      },
+      {
+        "item": "moredyes:lamp_667386"
+      },
+      {
+        "item": "moredyes:lamp_668c86"
+      },
+      {
+        "item": "moredyes:lamp_7f6686"
+      },
+      {
+        "item": "moredyes:lamp_405979"
+      },
+      {
+        "item": "moredyes:lamp_b2d926"
+      },
+      {
+        "item": "moredyes:lamp_ebb26c"
+      },
+      {
+        "item": "moredyes:lamp_99993f"
+      },
+      {
+        "item": "moredyes:lamp_bfbf66"
+      },
+      {
+        "item": "moredyes:lamp_99b266"
+      },
+      {
+        "item": "moredyes:lamp_b29272"
+      },
+      {
+        "item": "moredyes:lamp_8c9972"
+      },
+      {
+        "item": "moredyes:lamp_a69933"
+      },
+      {
+        "item": "moredyes:lamp_a6b233"
+      },
+      {
+        "item": "moredyes:lamp_bf8c33"
+      },
+      {
+        "item": "moredyes:lamp_7f7f26"
+      },
+      {
+        "item": "moredyes:lamp_b8a65f"
+      },
+      {
+        "item": "moredyes:lamp_668c32"
+      },
+      {
+        "item": "moredyes:lamp_8cb359"
+      },
+      {
+        "item": "moredyes:lamp_66a659"
+      },
+      {
+        "item": "moredyes:lamp_7f5665"
+      },
+      {
+        "item": "moredyes:lamp_598c65"
+      },
+      {
+        "item": "moredyes:lamp_738c26"
+      },
+      {
+        "item": "moredyes:lamp_73a626"
+      },
+      {
+        "item": "moredyes:lamp_8c8026"
+      },
+      {
+        "item": "moredyes:lamp_4c7319"
+      },
+      {
+        "item": "moredyes:lamp_864c5f"
+      },
+      {
+        "item": "moredyes:lamp_c6596c"
+      },
+      {
+        "item": "moredyes:lamp_ac7f6c"
+      },
+      {
+        "item": "moredyes:lamp_ac666c"
+      },
+      {
+        "item": "moredyes:lamp_9366ab"
+      },
+      {
+        "item": "moredyes:lamp_b95fab"
+      },
+      {
+        "item": "moredyes:lamp_9f7f9f"
+      },
+      {
+        "item": "moredyes:lamp_c68c9f"
+      },
+      {
+        "item": "moredyes:lamp_9f6679"
+      },
+      {
+        "item": "moredyes:lamp_727272"
+      },
+      {
+        "item": "moredyes:lamp_4c6572"
+      },
+      {
+        "item": "moredyes:lamp_65467f"
+      },
+      {
+        "item": "moredyes:lamp_404c7f"
+      },
+      {
+        "item": "moredyes:lamp_594c40"
+      },
+      {
+        "item": "moredyes:lamp_596540"
+      },
+      {
+        "item": "moredyes:lamp_724040"
+      },
+      {
+        "item": "moredyes:lamp_333333"
+      },
+      {
+        "item": "moredyes:lamp_738c99"
+      },
+      {
+        "item": "moredyes:lamp_8c6ca5"
+      },
+      {
+        "item": "moredyes:lamp_6673a5"
+      },
+      {
+        "item": "moredyes:lamp_807366"
+      },
+      {
+        "item": "moredyes:lamp_808c66"
+      },
+      {
+        "item": "moredyes:lamp_996666"
+      },
+      {
+        "item": "moredyes:lamp_595959"
+      },
+      {
+        "item": "moredyes:lamp_655fa5"
+      },
+      {
+        "item": "moredyes:lamp_4066a5"
+      },
+      {
+        "item": "moredyes:lamp_596666"
+      },
+      {
+        "item": "moredyes:lamp_597f66"
+      },
+      {
+        "item": "moredyes:lamp_725966"
+      },
+      {
+        "item": "moredyes:lamp_334c59"
+      },
+      {
+        "item": "moredyes:lamp_5945b2"
+      },
+      {
+        "item": "moredyes:lamp_734573"
+      },
+      {
+        "item": "moredyes:lamp_735f73"
+      },
+      {
+        "item": "moredyes:lamp_8c3973"
+      },
+      {
+        "item": "moredyes:lamp_4c2c66"
+      },
+      {
+        "item": "moredyes:lamp_4c4c73"
+      },
+      {
+        "item": "moredyes:lamp_4c6573"
+      },
+      {
+        "item": "moredyes:lamp_664073"
+      },
+      {
+        "item": "moredyes:lamp_263366"
+      },
+      {
+        "item": "moredyes:lamp_403326"
+      },
+      {
+        "item": "moredyes:lamp_7f4033"
+      },
+      {
+        "item": "moredyes:lamp_666533"
+      },
+      {
+        "item": "moredyes:lamp_7f5933"
+      },
+      {
+        "item": "moredyes:lamp_404c26"
+      },
+      {
+        "item": "moredyes:lamp_592626"
+      }
+    ],
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone_lamp"
+  }
+}
