@@ -39,6 +39,33 @@ public class BlockDyedLamp extends BlockDyed {
         return renderId;
     }
 
+    /**
+     * The pass the world is being drawn in, for client/LampRenderer: Forge doesn't say while chunks are built, but this
+     * is asked just before the block is drawn in each pass. A lamp is drawn in both: itself first, then (when lit) a
+     * see-through halo in the second.
+     */
+    private static final ThreadLocal<int[]> RENDER_PASS = new ThreadLocal<int[]>() {
+        @Override
+        protected int[] initialValue() {
+            return new int[1];
+        }
+    };
+
+    public static int renderPass() {
+        return RENDER_PASS.get()[0];
+    }
+
+    @Override
+    public int getRenderBlockPass() {
+        return 1;
+    }
+
+    @Override
+    public boolean canRenderInPass(int pass) {
+        RENDER_PASS.get()[0] = pass;
+        return true;
+    }
+
     private boolean shouldBeLit(World world, int x, int y, int z) {
         return world.isBlockIndirectlyGettingPowered(x, y, z) != this.inverted;
     }

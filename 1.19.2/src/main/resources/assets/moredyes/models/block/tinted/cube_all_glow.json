@@ -2,7 +2,8 @@
   "parent": "block/block",
   "ambientocclusion": false,
   "textures": {
-    "particle": "#all"
+    "particle": "#all",
+    "halo": "moredyes:block/lamp_halo"
   },
   "elements": [
     {
@@ -49,6 +50,87 @@
         }
       },
       "shade": false
+    },
+    {
+      "from": [
+        -0.9375,
+        -0.9375,
+        -0.9375
+      ],
+      "to": [
+        16.9375,
+        16.9375,
+        16.9375
+      ],
+      "shade": false,
+      "faces": {
+        "down": {
+          "texture": "#halo",
+          "cullface": "down",
+          "tintindex": 1,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#halo",
+          "cullface": "up",
+          "tintindex": 1,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#halo",
+          "cullface": "north",
+          "tintindex": 1,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#halo",
+          "cullface": "south",
+          "tintindex": 1,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#halo",
+          "cullface": "west",
+          "tintindex": 1,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#halo",
+          "cullface": "east",
+          "tintindex": 1,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
     }
   ]
 }

@@ -43,6 +43,9 @@ public final class ClientSetup
                         MDBlock.darkOakLeafArray[i], MDBlock.jungleLeafArray[i], MDBlock.spruceLeafArray[i]);
                 // Foggy glass is half see-through, so it needs the translucent layer.
                 layer(RenderType.translucent(), MDBlock.glassFoggyArray[i], MDBlock.glassFoggyPaneArray[i], MDBlock.iceArray[i]);
+                // A lit lamp has a see-through halo around it (models/block/tinted/cube_all_glow).
+                layer(RenderType.translucent(), MDBlock.lampArray[i], MDBlock.invertedLampArray[i], MDBlock.solidLampArray[i],
+                        MDBlock.invertedSolidLampArray[i]);
                 for (Block[] flowers : MDBlock.smallFlowerArrays)
                 {
                     layer(RenderType.cutout(), flowers[i]);

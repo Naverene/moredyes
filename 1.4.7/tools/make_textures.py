@@ -232,6 +232,8 @@ SOURCES = [
     ("lampOn", "tinted/lamp_on", grey),
     ("lampSolid", "tinted/lamp_solid", grey),
     ("lampSolidOn", "tinted/lamp_solid_on", grey),
+    # Plain white, for the see-through halo around a lit lamp (client/LampRenderer tints it and sets its alpha).
+    ("lampHalo", "white", keep),
 ]
 
 MODELS = [
@@ -256,6 +258,8 @@ def client_jar():
 
 
 def load(jar, source):
+    if source == "white":
+        return Image.new("RGBA", (16, 16), (255, 255, 255, 255))
     if source.startswith("base/"):
         return Image.open(os.path.join(BASE, source[5:] + ".png")).convert("RGBA")
     if source.startswith("tinted/"):

@@ -71,7 +71,6 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
         renderer.enableAO = false;
         tessellator.setBrightness(FULL_BRIGHTNESS);
         int color = ColorUtil.glow(block.colorMultiplier(world, x, y, z));
-        renderer.setRenderBounds(-HALO_SIZE, -HALO_SIZE, -HALO_SIZE, 1 + HALO_SIZE, 1 + HALO_SIZE, 1 + HALO_SIZE);
         tessellator.setColorRGBA_I(color, HALO_ALPHA);
         boolean drawn = false;
         for (int side = 0; side < 6; ++side) {
@@ -79,11 +78,58 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
                 .isOpaqueCube()) {
                 continue;
             }
-            face(renderer, block, side, x, y, z, lamp.halo);
+            haloFace(tessellator, side, x, y, z, lamp.halo);
             drawn = true;
         }
-        renderer.setRenderBoundsFromBlock(block);
         return drawn;
+    }
+
+    /**
+     * One side of the halo box. Drawn by hand rather than with RenderBlocks, which works the texture coordinates out
+     * from the box and so, for a box bigger than the block, would reach past the halo texture into its neighbours.
+     */
+    private static void haloFace(Tessellator t, int side, int x, int y, int z, IIcon icon) {
+        double lo = -HALO_SIZE, hi = 1 + HALO_SIZE;
+        double x0 = x + lo, x1 = x + hi, y0 = y + lo, y1 = y + hi, z0 = z + lo, z1 = z + hi;
+        double u0 = icon.getMinU(), u1 = icon.getMaxU(), v0 = icon.getMinV(), v1 = icon.getMaxV();
+        switch (side) {
+            case 0 -> {
+                t.addVertexWithUV(x0, y0, z1, u0, v1);
+                t.addVertexWithUV(x0, y0, z0, u0, v0);
+                t.addVertexWithUV(x1, y0, z0, u1, v0);
+                t.addVertexWithUV(x1, y0, z1, u1, v1);
+            }
+            case 1 -> {
+                t.addVertexWithUV(x1, y1, z1, u1, v1);
+                t.addVertexWithUV(x1, y1, z0, u1, v0);
+                t.addVertexWithUV(x0, y1, z0, u0, v0);
+                t.addVertexWithUV(x0, y1, z1, u0, v1);
+            }
+            case 2 -> {
+                t.addVertexWithUV(x0, y1, z0, u1, v0);
+                t.addVertexWithUV(x1, y1, z0, u0, v0);
+                t.addVertexWithUV(x1, y0, z0, u0, v1);
+                t.addVertexWithUV(x0, y0, z0, u1, v1);
+            }
+            case 3 -> {
+                t.addVertexWithUV(x0, y1, z1, u0, v0);
+                t.addVertexWithUV(x0, y0, z1, u0, v1);
+                t.addVertexWithUV(x1, y0, z1, u1, v1);
+                t.addVertexWithUV(x1, y1, z1, u1, v0);
+            }
+            case 4 -> {
+                t.addVertexWithUV(x0, y1, z1, u1, v0);
+                t.addVertexWithUV(x0, y1, z0, u0, v0);
+                t.addVertexWithUV(x0, y0, z0, u0, v1);
+                t.addVertexWithUV(x0, y0, z1, u1, v1);
+            }
+            default -> {
+                t.addVertexWithUV(x1, y0, z1, u0, v1);
+                t.addVertexWithUV(x1, y0, z0, u1, v1);
+                t.addVertexWithUV(x1, y1, z0, u1, v0);
+                t.addVertexWithUV(x1, y1, z1, u0, v0);
+            }
+        }
     }
 
     @Override

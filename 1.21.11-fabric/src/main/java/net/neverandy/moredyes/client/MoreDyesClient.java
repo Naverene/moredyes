@@ -66,7 +66,9 @@ public class MoreDyesClient implements ClientModInitializer {
      */
     private static void renderLayers() {
         for (Kind kind : Kind.values()) {
-            ChunkSectionLayer layer = ItemBlockRenderTypes.getChunkRenderType(kind.vanilla().defaultBlockState());
+            // A lit lamp has a see-through halo around it, so lamps are translucent.
+            ChunkSectionLayer layer = kind.id().endsWith("lamp") ? ChunkSectionLayer.TRANSLUCENT
+                : ItemBlockRenderTypes.getChunkRenderType(kind.vanilla().defaultBlockState());
             if (layer != ChunkSectionLayer.SOLID) {
                 BlockRenderLayerMap.putBlocks(layer, ModBlocks.all(kind).toArray(Block[]::new));
             }

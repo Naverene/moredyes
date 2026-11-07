@@ -83,8 +83,9 @@ public class MoreDyesClient {
         if (id.endsWith("_leaves") || id.equals("glass_pane")) {
             return RenderType.cutoutMipped();
         }
-        // Foggy glass is half see-through, so it needs the translucent layer, like ice.
-        if (id.startsWith("foggy_glass") || id.equals("ice")) {
+        // Foggy glass is half see-through, so it needs the translucent layer, like ice. So does the see-through halo
+        // around a lit lamp.
+        if (id.startsWith("foggy_glass") || id.equals("ice") || id.endsWith("lamp")) {
             return RenderType.translucent();
         }
         return null;

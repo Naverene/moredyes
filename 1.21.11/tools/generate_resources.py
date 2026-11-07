@@ -37,6 +37,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'src/generated/resources')
 JAVA = os.path.join(ROOT, 'src/main/java/net/neverandy/moredyes')
 MOD = 'moredyes'
+# How far the halo around a lit lamp reaches past the block, in pixels (see Models.convert).
+HALO = 0.9375
 DYE_COLOR = {'type': MOD + ':dye_color'}
 DYE_GLOW = {'type': MOD + ':dye_glow'}
 VANILLA_DYES = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan',
@@ -466,6 +468,15 @@ class Models:
                 for face in element['faces'].values():
                     if face.get('tintindex') == 0:
                         face['tintindex'] = 1  # the brighter glow color (client/Tints.glow)
+            # A see-through halo a little bigger than the block (HALO pixels past each side), in the glow color, so the
+            # lamp seems to shine past its edges like Project Red's. Its texture is white at alpha 72, and lit lamps are
+            # drawn in the translucent layer for it. The UVs are set, as ones worked out from a box bigger than the
+            # block would reach past the texture into its neighbours.
+            data['textures']['halo'] = MOD + ':block/lamp_halo'
+            data['elements'].append({
+                'from': [-HALO] * 3, 'to': [16 + HALO] * 3, 'shade': False,
+                'faces': {side: {'texture': '#halo', 'uv': [0, 0, 16, 16], 'cullface': side, 'tintindex': 1}
+                          for side in ('down', 'up', 'north', 'south', 'west', 'east')}})
         ours = self.name(model_id, kind, vanilla)
         self.emit(ours, data)
         return ours, None

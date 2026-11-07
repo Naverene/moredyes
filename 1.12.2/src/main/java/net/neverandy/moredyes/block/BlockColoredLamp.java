@@ -4,6 +4,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -105,6 +106,14 @@ public class BlockColoredLamp extends BlockColored
 	public ItemStack getItem(World world,BlockPos pos,IBlockState state)
 	{
 		return new ItemStack(this.itemBlock(),1,this.getMetaFromState(state));
+	}
+
+	/** A lit lamp has a see-through halo around it (models/block/tinted_cube_all_glow), so it is drawn in the translucent layer. */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer()
+	{
+		return this.lit?BlockRenderLayer.TRANSLUCENT:super.getBlockLayer();
 	}
 
 	/** A lit lamp draws at full brightness (its model is not shaded either), so it looks like the light comes from it. */
