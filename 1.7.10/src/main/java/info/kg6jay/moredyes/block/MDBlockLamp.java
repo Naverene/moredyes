@@ -117,6 +117,12 @@ public class MDBlockLamp extends MDBlockColored {
         }
     }
 
+    /** A lit lamp is drawn at full brightness, so it looks like the light comes from it. */
+    @Override
+    public int getRenderType() {
+        return this.lit ? RenderIds.litLamp : super.getRenderType();
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
