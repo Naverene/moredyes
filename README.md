@@ -86,6 +86,8 @@ lamps of Project Red. Each also has an inverted version, which is lit unless it 
 shows its color brightly and gives off light level 15 (the light itself is not colored), and an unlit one shows a dark
 shade of the color.
 
+On 1.7.10 with [Right Proper Lighting Engine (RPLE)](https://www.curseforge.com/minecraft/mc-mods/rple) installed, the light itself is colored too: dyed lamps and glowstone shine in their color, and dyed glass tints light that passes through.
+
 - Eight redstone lamps around a dye make eight dyed lamps.
 - A dyed lamp crafts on its own into the solid-color lamp, and back.
 - A dyed lamp and a redstone torch make the inverted lamp. An inverted lamp crafts back on its own.

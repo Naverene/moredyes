@@ -69,4 +69,15 @@ dependencies {
 
     // Not Enough Pets 2.4.1 (AstroTibs) gives cats a dyeable collar; compat/notenoughpets lets More Dyes dyes color it.
     compileOnly(rfg.deobf("curse.maven:not-enough-pets-322159:${notEnoughPetsFile}"))
+
+    // Right Proper Lighting Engine: only its API, for colored light (compat/rple).
+    compileOnly("com.falsepattern:rple-mc1.7.10:${rpleVersion}:api") { transitive = false }
+    if (project.findProperty("rple") == "true") {
+        runtimeOnlyNonPublishable("com.falsepattern:rple-mc1.7.10:${rpleVersion}:dev") { transitive = false }
+        runtimeOnlyNonPublishable("com.falsepattern:lumi-mc1.7.10:1.2.2:dev") { transitive = false }
+        runtimeOnlyNonPublishable("com.falsepattern:falsetweaks-mc1.7.10:4.4.5:dev") { transitive = false }
+        runtimeOnlyNonPublishable("com.falsepattern:falsepatternlib-mc1.7.10:1.12.2:dev") { transitive = false }
+        runtimeOnlyNonPublishable("com.falsepattern:chunkapi-mc1.7.10:0.8.4:dev") { transitive = false }
+        runtimeOnlyNonPublishable("it.unimi.dsi:fastutil:8.5.18")
+    }
 }
