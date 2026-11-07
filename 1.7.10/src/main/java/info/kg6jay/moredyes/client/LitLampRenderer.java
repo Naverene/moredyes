@@ -9,6 +9,7 @@ import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import info.kg6jay.moredyes.block.MDBlockLamp;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
 /**
@@ -22,6 +23,14 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
     /** Full block light and sky light, packed as the tessellator takes it. */
     private static final int FULL_BRIGHTNESS = 15 << 20 | 15 << 4;
 
+    /**
+     * The halo's shells: how far each reaches past the block on every side, and how opaque it is (out of 255). The
+     * outer one is fainter, so the glow fades out.
+     */
+    private static final double[] HALO_SIZE = { 1.0 / 16, 2.5 / 16 };
+
+    private static final int[] HALO_ALPHA = { 80, 40 };
+
     private final int renderId;
 
     public LitLampRenderer(int renderId) {
@@ -31,6 +40,9 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId,
         RenderBlocks renderer) {
+        if (MDBlockLamp.renderPass() == 1) {
+            return this.renderHalo(world, x, y, z, block, renderer);
+        }
         Tessellator tessellator = Tessellator.instance;
         renderer.setRenderBoundsFromBlock(block);
         renderer.enableAO = false;
@@ -45,6 +57,37 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
             face(renderer, block, side, x, y, z, renderer.getBlockIcon(block, world, x, y, z, side));
             drawn = true;
         }
+        return drawn;
+    }
+
+    /**
+     * Two see-through boxes a little bigger than the block, in its glow color at full brightness, drawn in the
+     * translucent pass so the lamp seems to shine past its edges, like Project Red's lamps. Sides against a solid block
+     * are left out, as they can't be seen.
+     */
+    private boolean renderHalo(IBlockAccess world, int x, int y, int z, Block block, RenderBlocks renderer) {
+        if (!(block instanceof MDBlockLamp lamp) || lamp.halo == null) {
+            return false;
+        }
+        Tessellator tessellator = Tessellator.instance;
+        renderer.enableAO = false;
+        tessellator.setBrightness(FULL_BRIGHTNESS);
+        int color = ColorUtil.glow(block.colorMultiplier(world, x, y, z));
+        boolean drawn = false;
+        for (int shell = 0; shell < HALO_SIZE.length; ++shell) {
+            double size = HALO_SIZE[shell];
+            renderer.setRenderBounds(-size, -size, -size, 1 + size, 1 + size, 1 + size);
+            tessellator.setColorRGBA_I(color, HALO_ALPHA[shell]);
+            for (int side = 0; side < 6; ++side) {
+                if (world.getBlock(x + offsetX(side), y + offsetY(side), z + offsetZ(side))
+                    .isOpaqueCube()) {
+                    continue;
+                }
+                face(renderer, block, side, x, y, z, lamp.halo);
+                drawn = true;
+            }
+        }
+        renderer.setRenderBoundsFromBlock(block);
         return drawn;
     }
 
