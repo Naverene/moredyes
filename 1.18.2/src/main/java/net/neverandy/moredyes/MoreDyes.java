@@ -217,6 +217,11 @@ public class MoreDyes
                 // Foggy glass is half see-through, so it needs the translucent layer.
                 layer(MDBlock.glassFoggyArray[i], RenderType.translucent());
                 layer(MDBlock.glassFoggyPaneArray[i], RenderType.translucent());
+                // A lit lamp has a see-through halo around it (models/block/tinted/cube_all_glow).
+                layer(MDBlock.lampArray[i], RenderType.translucent());
+                layer(MDBlock.invertedLampArray[i], RenderType.translucent());
+                layer(MDBlock.solidLampArray[i], RenderType.translucent());
+                layer(MDBlock.invertedSolidLampArray[i], RenderType.translucent());
             }
         });
         event.enqueueWork(() ->

@@ -519,14 +519,22 @@ def make_models(jar):
     })
 
     # Lit lamps: not shaded and no ambient occlusion, so with full brightness (BlockColoredLamp) every side looks lit
-    # from inside. Tint index 1 draws the dye color brightened (ClientHandler.glow).
+    # from inside. Tint index 1 draws the dye color brightened (ClientHandler.glow). Around it a see-through halo, a
+    # little bigger than the block (HALO, in pixels), makes the lamp seem to shine past its edges like Project Red's;
+    # its texture is white at alpha 72, and lit lamps are drawn in the translucent layer for it. The UVs are set, as
+    # ones worked out from a box bigger than the block would reach past the texture into its neighbours.
+    halo = 0.9375
     write_json('models/block/tinted_cube_all_glow.json', {
         'parent': 'block/block',
         'ambientocclusion': False,
-        'textures': {'particle': '#all'},
+        'textures': {'particle': '#all', 'halo': 'moredyes:blocks/lamp_halo'},
         'elements': [{
             'from': [0, 0, 0], 'to': [16, 16, 16], 'shade': False,
             'faces': {side: {'texture': '#all', 'cullface': side, 'tintindex': 1} for side in SIDES},
+        }, {
+            'from': [-halo] * 3, 'to': [16 + halo] * 3, 'shade': False,
+            'faces': {side: {'texture': '#halo', 'uv': [0, 0, 16, 16], 'cullface': side, 'tintindex': 1}
+                      for side in SIDES},
         }],
     })
 

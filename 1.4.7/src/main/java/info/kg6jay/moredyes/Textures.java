@@ -135,6 +135,7 @@ public final class Textures {
     public static final int LAMP_ON = 125;
     public static final int LAMP_SOLID = 126;
     public static final int LAMP_SOLID_ON = 127;
+    public static final int LAMP_HALO = 128;
 
     private Textures() {}
 }

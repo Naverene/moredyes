@@ -2,7 +2,8 @@
   "parent": "minecraft:block/redstone_lamp_on",
   "textures": {
     "t0": "moredyes:block/lamp_solid_on",
-    "particle": "moredyes:block/lamp_solid_on"
+    "particle": "moredyes:block/lamp_solid_on",
+    "halo": "moredyes:block/lamp_halo"
   },
   "elements": [
     {
@@ -49,6 +50,87 @@
         }
       },
       "shade": false
+    },
+    {
+      "from": [
+        -0.9375,
+        -0.9375,
+        -0.9375
+      ],
+      "to": [
+        16.9375,
+        16.9375,
+        16.9375
+      ],
+      "shade": false,
+      "faces": {
+        "down": {
+          "texture": "#halo",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "down",
+          "tintindex": 1
+        },
+        "up": {
+          "texture": "#halo",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "up",
+          "tintindex": 1
+        },
+        "north": {
+          "texture": "#halo",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "north",
+          "tintindex": 1
+        },
+        "south": {
+          "texture": "#halo",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "south",
+          "tintindex": 1
+        },
+        "west": {
+          "texture": "#halo",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "west",
+          "tintindex": 1
+        },
+        "east": {
+          "texture": "#halo",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "cullface": "east",
+          "tintindex": 1
+        }
+      }
     }
   ],
   "ambientocclusion": false

@@ -74,7 +74,9 @@ public class MoreDyesClient {
     @SuppressWarnings("deprecation")
     private static void renderLayers(FMLClientSetupEvent event) {
         for (Kind kind : Kind.values()) {
-            ChunkSectionLayer layer = ItemBlockRenderTypes.getChunkRenderType(kind.vanilla().defaultBlockState());
+            // A lit lamp has a see-through halo around it, so lamps are translucent.
+            ChunkSectionLayer layer = kind.id().endsWith("lamp") ? ChunkSectionLayer.TRANSLUCENT
+                : ItemBlockRenderTypes.getChunkRenderType(kind.vanilla().defaultBlockState());
             if (layer != ChunkSectionLayer.SOLID) {
                 ModBlocks.all(kind).forEach(block -> ItemBlockRenderTypes.setRenderLayer(block.get(), layer));
             }
