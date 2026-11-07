@@ -288,6 +288,9 @@ LATCH_WIDTH, LATCH_HEIGHT = 6, 5
 T = 'moredyes:blocks/tinted/'
 
 # Blocks drawn as a cube with one tinted texture on every side: block type -> texture.
+# The lit blocks of the redstone lamps (see CUBE_ALL).
+LIT_LAMPS = {'lamp_lit', 'inverted_lamp', 'solid_lamp_lit', 'inverted_solid_lamp'}
+
 CUBE_ALL = {
     'wool': T + 'wool',
     'rockwool': T + 'wool',
@@ -515,8 +518,21 @@ def make_models(jar):
         'textures': dict({side: '#all' for side in SIDES}, particle='#all'),
     })
 
+    # Lit lamps: not shaded and no ambient occlusion, so with full brightness (BlockColoredLamp) every side looks lit
+    # from inside. Tint index 1 draws the dye color brightened (ClientHandler.glow).
+    write_json('models/block/tinted_cube_all_glow.json', {
+        'parent': 'block/block',
+        'ambientocclusion': False,
+        'textures': {'particle': '#all'},
+        'elements': [{
+            'from': [0, 0, 0], 'to': [16, 16, 16], 'shade': False,
+            'faces': {side: {'texture': '#all', 'cullface': side, 'tintindex': 1} for side in SIDES},
+        }],
+    })
+
     for name, texture in sorted(CUBE_ALL.items()):
-        block_and_item(name, {'parent': 'moredyes:block/tinted_cube_all', 'textures': {'all': texture}})
+        parent = 'tinted_cube_all_glow' if name in LIT_LAMPS else 'tinted_cube_all'
+        block_and_item(name, {'parent': 'moredyes:block/' + parent, 'textures': {'all': texture}})
     for name, textures in sorted(CUBE.items()):
         block_and_item(name, {'parent': 'moredyes:block/tinted_cube', 'textures': textures})
     # Only the wood of a bookshelf takes the dye: its books are drawn over it in their own colors.

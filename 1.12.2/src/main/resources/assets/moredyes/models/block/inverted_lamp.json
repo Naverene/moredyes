@@ -1,5 +1,5 @@
 {
-  "parent": "moredyes:block/tinted_cube_all",
+  "parent": "moredyes:block/tinted_cube_all_glow",
   "textures": {
     "all": "moredyes:blocks/tinted/lamp_on"
   }

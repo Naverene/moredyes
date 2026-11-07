@@ -71,13 +71,14 @@ public class MoreDyesClient {
                 // Index 0 is the bedding, index 1 a frame made of dyed planks.
                 event.register(List.of(BlockTintSources.constant(tint), new Tints.BedWood()), block);
             } else if (tint != -1) {
-                event.register(List.of(BlockTintSources.constant(tint)), block);
+                event.register(List.of(BlockTintSources.constant(tint), BlockTintSources.constant(Tints.glow(tint))), block);
             }
         }
     }
 
     private static void itemTints(RegisterColorHandlersEvent.ItemTintSources event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_color"), Tints.DyeColor.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_glow"), Tints.DyeGlow.MAP_CODEC);
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "wood"), Tints.Wood.MAP_CODEC);
     }

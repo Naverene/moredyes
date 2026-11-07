@@ -62,6 +62,20 @@ public class ClientHandler
 {
 	/** The faces and item layers that take the dye color are tint index 0. */
 	private static final int TINTED=0;
+	/** The tint index of a lit lamp's faces (see glow). */
+	private static final int GLOW=1;
+
+	/**
+	 * The color a lit lamp is drawn in: the dye color brightened, keeping its hue, until its brightest channel is full
+	 * or it is 60% brighter. Dark colors stay darker than light ones, so lamps of different shades still differ.
+	 */
+	public static int glow(int rgb)
+	{
+		int r=rgb>>16&0xFF,g=rgb>>8&0xFF,b=rgb&0xFF;
+		int max=Math.max(1,Math.max(r,Math.max(g,b)));
+		int percent=Math.min(160,255*100/max);
+		return r*percent/100<<16|g*percent/100<<8|b*percent/100;
+	}
 
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event)
@@ -170,12 +184,14 @@ public class ClientHandler
 		mc.getBlockColors().registerBlockColorHandler((state,world,pos,tintIndex)->
 		{
 			Block block=state.getBlock();
-			return tintIndex==TINTED?((IColoredBlock)block).getColor(block.getMetaFromState(state)):-1;
+			int color=((IColoredBlock)block).getColor(block.getMetaFromState(state));
+			return tintIndex==TINTED?color:tintIndex==GLOW?glow(color):-1;
 		},blocks);
 		mc.getItemColors().registerItemColorHandler((stack,tintIndex)->
 		{
 			Block block=Block.getBlockFromItem(stack.getItem());
-			return tintIndex==TINTED?((IColoredBlock)block).getColor(stack.getMetadata()):-1;
+			int color=((IColoredBlock)block).getColor(stack.getMetadata());
+			return tintIndex==TINTED?color:tintIndex==GLOW?glow(color):-1;
 		},blocks);
 		mc.getItemColors().registerItemColorHandler((stack,tintIndex)->
 		{

@@ -13,6 +13,9 @@ public class BlockDyedLamp extends BlockDyed {
 
     private static final int LIT = 1;
 
+    /** Set by the client proxy (see client/LampRenderer). */
+    public static int renderId;
+
     private final int offTexture, onTexture;
     private final boolean inverted;
 
@@ -23,8 +26,17 @@ public class BlockDyedLamp extends BlockDyed {
         this.inverted = inverted;
     }
 
-    private static boolean isLit(int meta) {
+    public static boolean isLit(int meta) {
         return (meta & LIT) != 0;
+    }
+
+    public boolean isInverted() {
+        return this.inverted;
+    }
+
+    @Override
+    public int getRenderType() {
+        return renderId;
     }
 
     private boolean shouldBeLit(World world, int x, int y, int z) {

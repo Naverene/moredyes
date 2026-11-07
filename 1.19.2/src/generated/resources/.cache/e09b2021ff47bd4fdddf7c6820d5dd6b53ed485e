@@ -1,4 +1,4 @@
-// 1.19.2	2026-11-06T16:37:15.599284827	Block States: moredyes
+// 1.19.2	2026-11-07T03:18:06.10058719	Block States: moredyes
 9f4bf662b7514b65a6c67a9ecf461490ae0b04ff assets/moredyes/blockstates/acaciafence_263366.json
 9f4bf662b7514b65a6c67a9ecf461490ae0b04ff assets/moredyes/blockstates/acaciafence_333333.json
 9f4bf662b7514b65a6c67a9ecf461490ae0b04ff assets/moredyes/blockstates/acaciafence_334c59.json
@@ -31252,7 +31252,7 @@ f85d8f295a39c0f6908e3335114e02c261e2c2f2 assets/moredyes/models/block/jungleleav
 b1cf39c9cdb95fc4199231954a38e7682da186a0 assets/moredyes/models/block/jungleplanks.json
 83455ab8847f07bbcf428d76490d2949af3ef4a2 assets/moredyes/models/block/lamp.json
 b8701f7aa43053534080da088f617723eaa21cdf assets/moredyes/models/block/lamp_off.json
-8d3b49fa4fdfa9aaa9432ecadcd7685086ec5737 assets/moredyes/models/block/lamp_on.json
+acdee2d0add8926a4420b59b56334fbb49fc6a3f assets/moredyes/models/block/lamp_on.json
 7f246d955b6c03a1487b6846e521982a28ca1f80 assets/moredyes/models/block/lapis.json
 4dad79f67610825efbf86d99ed9a89ccaff48d9f assets/moredyes/models/block/leaf.json
 e5dc35e4991bbc91c0514c52508c7b8192ebad6b assets/moredyes/models/block/lilac_bottom.json
@@ -31727,7 +31727,7 @@ e1ef91b5c641e900475b3b8b3853bbae8e52b9bd assets/moredyes/models/block/smoothspec
 d66121d74e18a7d3421b4fbc230c1c419044b729 assets/moredyes/models/block/snow.json
 5a89c8841db5bfcf4536dc4d911807ed81ed2206 assets/moredyes/models/block/solidlamp.json
 1272eec1a9d2ea878a43acc22071ecfa68f5e982 assets/moredyes/models/block/solidlamp_off.json
-f334f7b18323e9863db0a5f7461a3207aa99bfbc assets/moredyes/models/block/solidlamp_on.json
+7dfd66a29e77ab44e1aeb21f0b8bb81a9f5f7ed8 assets/moredyes/models/block/solidlamp_on.json
 9df4699c90eafaa91b302bad0005a04506866099 assets/moredyes/models/block/soulsand.json
 597de866191ff2d939886f718c6ea76a93eb0927 assets/moredyes/models/block/soulsoil.json
 c2a1b586d681f3ea8ad0fba9255e83d89c55e3fa assets/moredyes/models/block/speckledgranite.json

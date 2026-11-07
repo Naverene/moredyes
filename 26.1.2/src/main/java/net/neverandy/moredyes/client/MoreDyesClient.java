@@ -69,13 +69,14 @@ public class MoreDyesClient {
             Block block = entry.get();
             int tint = Tints.blockTint(block);
             if (tint != -1) {
-                event.register(List.of(BlockTintSources.constant(tint)), block);
+                event.register(List.of(BlockTintSources.constant(tint), BlockTintSources.constant(Tints.glow(tint))), block);
             }
         }
     }
 
     private static void itemTints(RegisterColorHandlersEvent.ItemTintSources event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_color"), Tints.DyeColor.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_glow"), Tints.DyeGlow.MAP_CODEC);
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
     }
 

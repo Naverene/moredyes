@@ -40,6 +40,7 @@ public class MoreDyesClient implements ClientModInitializer {
         // The item tints and the chest's item model have no Fabric API, so they go straight into vanilla's lists of
         // types (made accessible in moredyes.accesswidener). This runs before any resources are loaded.
         ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_color"), Tints.DyeColor.MAP_CODEC);
+        ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_glow"), Tints.DyeGlow.MAP_CODEC);
         ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
         SpecialModelRenderers.ID_MAPPER.put(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dyed_chest"),
             DyedChestSpecialRenderer.Unbaked.MAP_CODEC);
@@ -78,7 +79,7 @@ public class MoreDyesClient implements ClientModInitializer {
         for (Block block : ModBlocks.entries()) {
             int tint = Tints.blockTint(block);
             if (tint != -1) {
-                ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : -1, block);
+                ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : tintIndex == 1 ? Tints.glow(tint) : -1, block);
             }
         }
     }

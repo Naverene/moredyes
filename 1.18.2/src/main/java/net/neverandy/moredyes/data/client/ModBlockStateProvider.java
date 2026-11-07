@@ -316,7 +316,7 @@ public class ModBlockStateProvider extends BlockStateProvider
     /**
      * Every lamp of a style shares two models, off and on: tinted textures made from the vanilla redstone lamp's, or
      * the solid ones (lamp_solid). The item model is named after the type: an off lamp for the normal one and a lit
-     * lamp for the inverted one.
+     * lamp for the inverted one. The lit model is not shaded, so the lamp looks evenly bright on every side.
      */
     private void lamp(DyedLampBlock lamp)
     {
@@ -324,7 +324,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         String base = solid ? "block/solidlamp" : "block/lamp";
         String texture = solid ? "lamp_solid" : "lamp";
         ModelFile off = models().withExistingParent(base + "_off", modLoc("block/tinted/cube_all")).texture("all", tex(texture));
-        ModelFile on = models().withExistingParent(base + "_on", modLoc("block/tinted/cube_all")).texture("all", tex(texture + "_on"));
+        ModelFile on = models().withExistingParent(base + "_on", modLoc("block/tinted/cube_all_glow")).texture("all", tex(texture + "_on"));
         models().withExistingParent(type(lamp), modLoc(base + (lamp.isInverted() ? "_on" : "_off")));
         getVariantBuilder(lamp).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(state.getValue(DyedLampBlock.LIT) ? on : off).build());

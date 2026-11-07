@@ -9,9 +9,11 @@ import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import info.kg6jay.moredyes.utility.ColorUtil;
 
 /**
- * Draws a lit dyed lamp at full brightness and without the darker shading vanilla gives the sides and bottom, so it
+ * Draws a lit dyed lamp at full brightness, in its color brightened (ColorUtil.glow), and without the darker shading
+ * vanilla gives the sides and bottom, so it
  * looks like it is giving off light rather than being lit from outside. This matters most with colored light (RPLE),
  * where a lamp would otherwise be lit only by its own colored glow.
  */
@@ -33,7 +35,7 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
         renderer.setRenderBoundsFromBlock(block);
         renderer.enableAO = false;
         tessellator.setBrightness(FULL_BRIGHTNESS);
-        tessellator.setColorOpaque_I(block.colorMultiplier(world, x, y, z));
+        tessellator.setColorOpaque_I(ColorUtil.glow(block.colorMultiplier(world, x, y, z)));
         boolean drawn = false;
         for (int side = 0; side < 6; ++side) {
             if (!renderer.renderAllFaces
@@ -51,7 +53,7 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
         Tessellator tessellator = Tessellator.instance;
         block.setBlockBoundsForItemRender();
         renderer.setRenderBoundsFromBlock(block);
-        int color = block.getRenderColor(meta);
+        int color = ColorUtil.glow(block.getRenderColor(meta));
         GL11.glPushAttrib(GL11.GL_LIGHTING_BIT);
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);

@@ -11,6 +11,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import info.kg6jay.moredyes.Textures;
 import info.kg6jay.moredyes.block.BlockDyedChest;
 import info.kg6jay.moredyes.block.BlockDyedFlowerPot;
+import info.kg6jay.moredyes.block.BlockDyedLamp;
 import info.kg6jay.moredyes.block.BlockDyedLog;
 import info.kg6jay.moredyes.block.BlockDyedPlant;
 import info.kg6jay.moredyes.block.TileEntityDyedChest;
@@ -18,6 +19,7 @@ import info.kg6jay.moredyes.block.TileEntityDyedSign;
 import info.kg6jay.moredyes.client.DyedChestRenderer;
 import info.kg6jay.moredyes.client.DyedSignRenderer;
 import info.kg6jay.moredyes.client.FlowerPotRenderer;
+import info.kg6jay.moredyes.client.LampRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderDyedSheep;
 import info.kg6jay.moredyes.client.RenderDyedWolf;
@@ -40,6 +42,8 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(BlockDyedPlant.renderId, true));
         BlockDyedLog.renderId = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new LayeredBlockRenderer(BlockDyedLog.renderId, false));
+        BlockDyedLamp.renderId = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new LampRenderer());
         BlockDyedFlowerPot.renderId = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new FlowerPotRenderer());
 
