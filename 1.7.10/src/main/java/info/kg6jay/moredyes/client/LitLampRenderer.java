@@ -24,7 +24,7 @@ public class LitLampRenderer implements ISimpleBlockRenderingHandler {
     private static final int FULL_BRIGHTNESS = 15 << 20 | 15 << 4;
 
     /** How far the halo reaches past the block on each side. */
-    private static final double HALO_SIZE = 1.5 / 16;
+    private static final double HALO_SIZE = 0.375 / 16;
 
     /** How opaque the halo is, out of 255. */
     private static final int HALO_ALPHA = 72;
