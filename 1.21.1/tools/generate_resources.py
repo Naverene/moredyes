@@ -449,6 +449,15 @@ class Models:
             data['textures']['particle'] = particle
         if elements is not None:
             data['elements'] = new_elements
+        if 'lamp' in kind and model_id.endswith('redstone_lamp_on'):
+            # A lit lamp draws at full brightness (DyedLampBlock) and evenly on every side, so it looks like the
+            # light comes from it.
+            data['ambientocclusion'] = False
+            for element in data.get('elements', []):
+                element['shade'] = False
+                for face in element['faces'].values():
+                    if face.get('tintindex') == 0:
+                        face['tintindex'] = 1  # the brighter glow color (client/Tints.glow)
         ours = self.name(model_id, kind, vanilla)
         self.emit(ours, data)
         return ours, None

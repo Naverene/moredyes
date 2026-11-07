@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
@@ -117,11 +118,50 @@ public class MDBlockLamp extends MDBlockColored {
         }
     }
 
+    /** A lit lamp is drawn at full brightness, so it looks like the light comes from it. */
+    @Override
+    public int getRenderType() {
+        return this.lit ? RenderIds.litLamp : super.getRenderType();
+    }
+
+    /**
+     * A lit lamp is also drawn in the translucent pass, where client/LitLampRenderer adds a soft halo around it like
+     * Project Red's lamps.
+     */
+    @Override
+    public int getRenderBlockPass() {
+        return this.lit ? 1 : 0;
+    }
+
+    /**
+     * The pass the world is being drawn in, for the renderer. Forge's own MinecraftForgeClient.getRenderPass() is not
+     * set while chunks are built, but this is asked just before the block is drawn in each pass. Per thread, as chunks
+     * can be built on several threads at once (FalseTweaks).
+     */
+    private static final ThreadLocal<int[]> RENDER_PASS = ThreadLocal.withInitial(() -> new int[1]);
+
+    public static int renderPass() {
+        return RENDER_PASS.get()[0];
+    }
+
+    @Override
+    public boolean canRenderInPass(int pass) {
+        RENDER_PASS.get()[0] = pass;
+        return pass == 0 || this.lit && pass == 1;
+    }
+
+    /** The plain white texture of the halo, which the renderer tints and makes see-through. */
+    @SideOnly(Side.CLIENT)
+    public IIcon halo;
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         String style = this.blockName.toLowerCase()
             .contains("solid") ? "lamp_solid" : "lamp";
         this.icon = TintedTextures.register(iconRegister, this.lit ? style + "_on" : style);
+        if (this.lit) {
+            this.halo = iconRegister.registerIcon("moredyes:lamp_halo");
+        }
     }
 }

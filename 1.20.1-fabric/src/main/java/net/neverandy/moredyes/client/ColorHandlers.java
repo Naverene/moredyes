@@ -41,6 +41,19 @@ public final class ColorHandlers
     }
 
     /**
+     * The color a lit lamp is drawn in (tint index 1 of its model): the dye color brightened, keeping its hue, until
+     * its brightest channel is full or it is 60% brighter. Dark colors stay darker than light ones, so lamps of
+     * different shades still differ.
+     */
+    public static int glow(int rgb)
+    {
+        int r = rgb >> 16 & 0xFF, g = rgb >> 8 & 0xFF, b = rgb & 0xFF;
+        int max = Math.max(1, Math.max(r, Math.max(g, b)));
+        int percent = Math.min(160, 255 * 100 / max);
+        return r * percent / 100 << 16 | g * percent / 100 << 8 | b * percent / 100;
+    }
+
+    /**
      * The palette comes from the muted 1.7 colors, so it is drawn more saturated and brighter, closer to the modern dyes.
      * The registry names keep the original hex, so worlds are unaffected.
      */
@@ -54,12 +67,12 @@ public final class ColorHandlers
         for (Block block : MDBlock.BLOCKS)
         {
             int color = colorOf(BuiltInRegistries.BLOCK.getKey(block));
-            ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> tintIndex == 0 ? color : WHITE, block);
+            ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> tintIndex == 0 ? color : tintIndex == 1 ? glow(color) : WHITE, block);
         }
         for (Item item : MDBlock.ITEMS)
         {
             int color = colorOf(BuiltInRegistries.ITEM.getKey(item));
-            ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex == 0 ? color : WHITE, item);
+            ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex == 0 ? color : tintIndex == 1 ? glow(color) : WHITE, item);
         }
         for (MDItemDye dye : MDItem.dye)
         {

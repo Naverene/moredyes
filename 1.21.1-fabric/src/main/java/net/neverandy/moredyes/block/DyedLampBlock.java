@@ -24,7 +24,9 @@ public class DyedLampBlock extends Block {
     private final boolean inverted;
 
     public DyedLampBlock(Properties properties, boolean inverted) {
-        super(properties);
+        // Lit, it draws at full brightness (its models also skip the side shading), so it looks like the light
+        // comes from it.
+        super(properties.emissiveRendering((state, level, pos) -> state.getValue(LIT)));
         this.inverted = inverted;
         registerDefaultState(defaultBlockState().setValue(LIT, inverted));
     }

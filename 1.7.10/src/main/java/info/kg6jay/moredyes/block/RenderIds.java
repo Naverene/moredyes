@@ -10,6 +10,8 @@ public final class RenderIds {
     public static int flowerPot = 33;
     /** Dyed beds (see client/DyedBedRenderer). */
     public static int bed = 14;
+    /** Lit dyed lamps, drawn at full brightness (see client/LitLampRenderer). Vanilla cubes until set. */
+    public static int litLamp = 0;
     /** Dyed Iron Chests and Storage Drawers (compat), set by their client setup when the mod is installed. */
     public static int dyedIronChest = 22;
     public static int dyedDrawers = 0;

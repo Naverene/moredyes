@@ -37,6 +37,7 @@ OUT = os.path.join(ROOT, 'src/generated/resources')
 JAVA = os.path.join(ROOT, 'src/main/java/net/neverandy/moredyes')
 MOD = 'moredyes'
 DYE_COLOR = {'type': MOD + ':dye_color'}
+DYE_GLOW = {'type': MOD + ':dye_glow'}
 VANILLA_DYES = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan',
                 'purple', 'blue', 'brown', 'green', 'red', 'black']
 
@@ -472,6 +473,15 @@ class Models:
             data['textures']['particle'] = particle
         if elements is not None:
             data['elements'] = new_elements
+        if 'lamp' in kind and model_id.endswith('redstone_lamp_on'):
+            # A lit lamp draws at full brightness (DyedLampBlock) and evenly on every side, so it looks like the
+            # light comes from it.
+            data['ambientocclusion'] = False
+            for element in data.get('elements', []):
+                element['shade'] = False
+                for face in element['faces'].values():
+                    if face.get('tintindex') == 0:
+                        face['tintindex'] = 1  # the brighter glow color (client/Tints.glow)
         ours = self.name(model_id, kind, vanilla)
         self.emit(ours, data)
         return ours, None
@@ -555,6 +565,9 @@ def main():
                     # An inverted lamp is lit until it is powered, so its item shows it lit.
                     item = dict(item, model='minecraft:block/redstone_lamp_on')
                 item = dyed_item(item, convert)
+                if kind in ('inverted_lamp', 'inverted_solid_lamp'):
+                    # Its lit model is tinted with index 1, the brighter glow color.
+                    item['tints'] = [{'type': 'minecraft:constant', 'value': -1}, DYE_GLOW]
         loot = jars.json('data/minecraft/loot_table/blocks/%s.json' % vanilla, {})
         for color in colors:
             name = '%s_%s' % (kind, color)

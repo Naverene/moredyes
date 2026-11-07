@@ -95,7 +95,7 @@ public class MoreDyesClient {
             Block block = entry.get();
             int tint = Tints.blockTint(block);
             if (tint != -1) {
-                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : -1, block);
+                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : tintIndex == 1 ? Tints.glow(tint) : -1, block);
             }
         }
     }
@@ -106,7 +106,7 @@ public class MoreDyesClient {
             Item item = entry.get();
             int tint = Tints.itemTint(item);
             if (tint != -1) {
-                event.register((stack, tintIndex) -> tintIndex == 0 ? tint : -1, item);
+                event.register((stack, tintIndex) -> tintIndex == 0 ? tint : tintIndex == 1 ? Tints.glow(tint) : -1, item);
             }
         }
     }

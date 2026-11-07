@@ -20,6 +20,8 @@ public class Reference {
     public static final String STORAGE_DRAWERS = "StorageDrawers";
     public static final String NOT_ENOUGH_PETS = "notenoughpets";
     public static final String ET_FUTURUM = "etfuturum";
+    /** Right Proper Lighting Engine, for colored light (see compat/rple). */
+    public static final String RPLE = "rple";
 
     public static final String CLIENT_PROXY = "info.kg6jay.moredyes.proxy.ClientProxy";
     public static final String SERVER_PROXY = "info.kg6jay.moredyes.proxy.ServerProxy";

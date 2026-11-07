@@ -27,6 +27,7 @@ public class ConfigHandler {
     public static boolean iron_chests = true;
     public static boolean storage_drawers = true;
     public static boolean et_futurum = true;
+    public static boolean rple = true;
     public static boolean gregtech_recipes = true;
     public static boolean wood_bed_frames = true;
 
@@ -60,6 +61,14 @@ public class ConfigHandler {
      */
     public static boolean etFuturum() {
         return et_futurum && Loader.isModLoaded(Reference.ET_FUTURUM);
+    }
+
+    /**
+     * Whether dyed lamps, glowstone and glass get colored light: Right Proper Lighting Engine is installed and the
+     * config keeps it.
+     */
+    public static boolean rple() {
+        return rple && Loader.isModLoaded(Reference.RPLE);
     }
 
     private static void loadConfiguration() {
@@ -145,6 +154,11 @@ public class ConfigHandler {
             Configuration.CATEGORY_GENERAL,
             true,
             "Set to false to leave out the dyed Et Futurum Requiem shulker boxes. Only matters when Et Futurum Requiem is installed; restart the game after changing it.");
+        rple = config.getBoolean(
+            "Compat_RPLE",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Set to false to keep dyed lamps, glowstone and glass from coloring light. Only matters when Right Proper Lighting Engine (RPLE) is installed; restart the game after changing it.");
         gregtech_recipes = config.getBoolean(
             "Compat_GregTechRecipes",
             Configuration.CATEGORY_GENERAL,

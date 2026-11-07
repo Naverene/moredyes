@@ -89,7 +89,7 @@ public class MoreDyesClient implements ClientModInitializer {
         for (Block block : ModBlocks.entries()) {
             int tint = Tints.blockTint(block);
             if (tint != -1) {
-                ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : -1, block);
+                ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : tintIndex == 1 ? Tints.glow(tint) : -1, block);
             }
         }
     }
@@ -102,7 +102,7 @@ public class MoreDyesClient implements ClientModInitializer {
             }
             int tint = Tints.itemTint(item);
             if (tint != -1) {
-                ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex == 0 ? tint : -1, item);
+                ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex == 0 ? tint : tintIndex == 1 ? Tints.glow(tint) : -1, item);
             }
         }
     }

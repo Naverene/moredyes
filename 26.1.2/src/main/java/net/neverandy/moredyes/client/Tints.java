@@ -30,6 +30,18 @@ public final class Tints {
         return 0xFF000000 | MixColors.vivid(color.rgb());
     }
 
+    /**
+     * The color a lit lamp is drawn in (tint index 1 of its model): the dye color brightened, keeping its hue, until
+     * its brightest channel is full or it is 60% brighter. Dark colors stay darker than light ones, so lamps of
+     * different shades still differ.
+     */
+    public static int glow(int argb) {
+        int r = argb >> 16 & 0xFF, g = argb >> 8 & 0xFF, b = argb & 0xFF;
+        int max = Math.max(1, Math.max(r, Math.max(g, b)));
+        int percent = Math.min(160, 255 * 100 / max);
+        return 0xFF000000 | r * percent / 100 << 16 | g * percent / 100 << 8 | b * percent / 100;
+    }
+
     /** The tint for a More Dyes block, or white (no tint) for any other block. */
     public static int blockTint(Block block) {
         return MixColors.of(BuiltInRegistries.BLOCK.getKey(block)).map(Tints::argb).orElse(-1);
@@ -47,6 +59,22 @@ public final class Tints {
 
         @Override
         public MapCodec<DyeColor> type() {
+            return MAP_CODEC;
+        }
+    }
+
+    /** The item tint {@code moredyes:dye_glow}: {@link #glow} of the color in the item's registry name, for lit lamps. */
+    public record DyeGlow() implements ItemTintSource {
+
+        public static final MapCodec<DyeGlow> MAP_CODEC = MapCodec.unit(new DyeGlow());
+
+        @Override
+        public int calculate(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity owner) {
+            return MixColors.of(BuiltInRegistries.ITEM.getKey(stack.getItem())).map(c -> glow(argb(c))).orElse(-1);
+        }
+
+        @Override
+        public MapCodec<DyeGlow> type() {
             return MAP_CODEC;
         }
     }

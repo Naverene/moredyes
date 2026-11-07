@@ -88,13 +88,14 @@ public class MoreDyesClient {
             Block block = entry.get();
             int tint = Tints.blockTint(block);
             if (tint != -1) {
-                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : -1, block);
+                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? tint : tintIndex == 1 ? Tints.glow(tint) : -1, block);
             }
         }
     }
 
     private static void itemTints(RegisterColorHandlersEvent.ItemTintSources event) {
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_color"), Tints.DyeColor.MAP_CODEC);
+        event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "dye_glow"), Tints.DyeGlow.MAP_CODEC);
         event.register(Identifier.fromNamespaceAndPath(MoreDyes.MOD_ID, "state_color"), Tints.StateColor.MAP_CODEC);
     }
 

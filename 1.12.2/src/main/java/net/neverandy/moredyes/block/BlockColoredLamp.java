@@ -5,7 +5,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.neverandy.moredyes.utility.BlockInfo;
 
 import java.util.Random;
@@ -102,5 +105,13 @@ public class BlockColoredLamp extends BlockColored
 	public ItemStack getItem(World world,BlockPos pos,IBlockState state)
 	{
 		return new ItemStack(this.itemBlock(),1,this.getMetaFromState(state));
+	}
+
+	/** A lit lamp draws at full brightness (its model is not shaded either), so it looks like the light comes from it. */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getPackedLightmapCoords(IBlockState state,IBlockAccess source,BlockPos pos)
+	{
+		return this.lit?15<<20|15<<4:super.getPackedLightmapCoords(state,source,pos);
 	}
 }

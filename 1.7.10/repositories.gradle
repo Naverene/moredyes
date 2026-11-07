@@ -17,4 +17,21 @@ repositories {
             includeModule("org.scala-lang", "scala-xml_2.11")
         }
     }
+
+    // Right Proper Lighting Engine's API (compile only), and the mods it needs for a test run with -Prple=true.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "FalsePattern"
+                url = "https://mvn.falsepattern.com/releases/"
+            }
+        }
+        filter {
+            includeModule("com.falsepattern", "rple-mc1.7.10")
+            includeModule("com.falsepattern", "lumi-mc1.7.10")
+            includeModule("com.falsepattern", "falsetweaks-mc1.7.10")
+            includeModule("com.falsepattern", "falsepatternlib-mc1.7.10")
+            includeModule("com.falsepattern", "chunkapi-mc1.7.10")
+        }
+    }
 }

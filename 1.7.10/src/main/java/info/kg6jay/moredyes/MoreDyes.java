@@ -20,6 +20,7 @@ import info.kg6jay.moredyes.compat.chisel.ChiselCompat;
 import info.kg6jay.moredyes.compat.etfuturum.EtFuturumCompat;
 import info.kg6jay.moredyes.compat.gregtech.GTCompat;
 import info.kg6jay.moredyes.compat.ironchest.IronChestCompat;
+import info.kg6jay.moredyes.compat.rple.RPLECompat;
 import info.kg6jay.moredyes.compat.storagedrawers.StorageDrawersCompat;
 import info.kg6jay.moredyes.compat.thermalexpansion.TECompat;
 import info.kg6jay.moredyes.handler.CauldronWashHandler;
@@ -82,6 +83,9 @@ public class MoreDyes {
         }
         if (ConfigHandler.etFuturum()) {
             EtFuturumCompat.preInit();
+        }
+        if (ConfigHandler.rple()) {
+            RPLECompat.preInit();
         }
 
         // Register GUI handler

@@ -15,6 +15,7 @@ import info.kg6jay.moredyes.block.tileentity.TileEntityMDSign;
 import info.kg6jay.moredyes.client.DyedBedRenderer;
 import info.kg6jay.moredyes.client.FlowerPotRenderer;
 import info.kg6jay.moredyes.client.LayeredBlockRenderer;
+import info.kg6jay.moredyes.client.LitLampRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
 import info.kg6jay.moredyes.client.RenderColoredWolf;
 import info.kg6jay.moredyes.client.TintedTextures;
@@ -60,6 +61,8 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDSign.class, new TileEntityMDSignRenderer());
         RenderIds.bed = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(new DyedBedRenderer(RenderIds.bed));
+        RenderIds.litLamp = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(new LitLampRenderer(RenderIds.litLamp));
 
         if (ConfigHandler.ironChests()) {
             IronChestClient.register();
