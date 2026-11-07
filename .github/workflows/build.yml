@@ -5,6 +5,8 @@
 #   pre-release with every version's jar
 # - pushing a version tag such as v1.2.0 builds all versions as that mod version, publishes one release
 #   with every jar, and uploads each jar to CurseForge when the CURSEFORGE_TOKEN secret is set
+# - a mistyped version tag (v.1.2.0, V1.2.0, 1.2.0, v1..2.0) is renamed to the right one (v1.2.0) first,
+#   and the build runs on the renamed tag
 # Every build keeps its jar as a downloadable artifact on the run's page. Version tags (and runs started
 # by hand) also start a server with the mod to catch crashes and data errors while loading; pushes and
 # pull requests skip that check to save time.
@@ -14,14 +16,74 @@ name: Build
 on:
   push:
     branches: [ "master", "main" ]
-    tags: [ "v*" ]
+    tags: [ "v*", "V*", "[0-9]*" ]
   pull_request:
     branches: [ "master", "main" ]
   workflow_dispatch:
 
 jobs:
+  # Version tags must look like v1.2.0 (optionally with a suffix such as v1.2.0-beta1). A mistyped one is
+  # renamed: the right tag is made on the same commit, a GitHub release on the old tag moves to it, the
+  # old tag is deleted, and the build is started again on the new tag. This run then stops. A tag pushed
+  # by a workflow does not start a run on its own, so the new run is started with workflow_dispatch.
+  tag:
+    name: Check the version tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    outputs:
+      renamed: ${{ steps.fix.outputs.renamed }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+    - name: Rename a mistyped version tag
+      id: fix
+      run: |
+        renamed=false
+        old="$GITHUB_REF_NAME"
+        if [[ "$GITHUB_REF_TYPE" == tag && ! "$old" =~ ^v[0-9]+(\.[0-9]+)+(-[A-Za-z0-9.]+)?$ ]]; then
+          # Keep the numbers and single dots between them: drop anything before the first digit,
+          # turn commas into dots, squash repeated dots and drop anything trailing.
+          version=$(sed -E 's/^[^0-9]*//; s/,/./g; s/\.{2,}/./g; s/[^0-9]+$//' <<< "$old")
+          if [[ ! "$version" =~ ^[0-9]+(\.[0-9]+)+$ ]]; then
+            echo "::error::Can't read a version number from the tag $old. Name version tags like v1.2.0."
+            exit 1
+          fi
+          new="v$version"
+          if commit=$(gh api "repos/$GH_REPO/commits/refs/tags/$new" --jq .sha 2>/dev/null); then
+            # The right tag was pushed too. It has its own run, so only the mistyped one is removed.
+            if [[ "$commit" != "$GITHUB_SHA" ]]; then
+              echo "::error::Tag $old should be $new, but $new already exists on another commit ($commit)."
+              exit 1
+            fi
+            start=false
+          else
+            gh api "repos/$GH_REPO/git/refs" -f ref="refs/tags/$new" -f sha="$GITHUB_SHA" > /dev/null
+            start=true
+          fi
+          if gh release view "$old" > /dev/null 2>&1; then
+            title=$(gh release view "$old" --json name --jq .name)
+            if [[ -n "$title" ]]; then
+              gh release edit "$old" --tag "$new" --title "${title//"$old"/$new}" > /dev/null
+            else
+              gh release edit "$old" --tag "$new" > /dev/null
+            fi
+          fi
+          gh api -X DELETE "repos/$GH_REPO/git/refs/tags/$old"
+          if [[ "$start" == true ]]; then
+            gh workflow run build.yml --ref "$new"
+          fi
+          echo "::notice::Renamed the tag $old to $new. The release builds from $new."
+          renamed=true
+        fi
+        echo "renamed=$renamed" >> "$GITHUB_OUTPUT"
+
   plan:
     name: Pick the versions to build
+    needs: tag
+    if: needs.tag.outputs.renamed != 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -170,8 +232,9 @@ jobs:
   publish:
     name: Publish the jars on GitHub
     needs: build
-    # Pushes and merges to the default branch, and version tags. Never pull requests.
-    if: github.event_name == 'push' && (github.ref_name == github.event.repository.default_branch || startsWith(github.ref, 'refs/tags/v'))
+    # Pushes and merges to the default branch, and version tags (pushed, or renamed and started again by
+    # the tag job). Never pull requests.
+    if: (github.event_name == 'push' && github.ref_name == github.event.repository.default_branch) || startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     # Two quick pushes to the default branch must not replace the development build at the same time.
     concurrency:
