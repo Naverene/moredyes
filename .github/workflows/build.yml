@@ -50,7 +50,7 @@ jobs:
           { "dir": "26.3",   "java": "25", "cf_java": "25", "loader": "neoforge" }
         ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       if: github.event_name == 'pull_request'
       with:
         # Only commit history is needed to list the changed files. A sparse checkout skips old file contents.
@@ -96,7 +96,7 @@ jobs:
         working-directory: ${{ matrix.dir }}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         # Only this version's folder (and any it reads) is checked out. The 1.7.10 build also gets the
         # commit history, so it can name dev builds after the latest tag with git describe.
@@ -104,14 +104,16 @@ jobs:
         fetch-depth: ${{ matrix.dir == '1.7.10' && '0' || '1' }}
 
     - name: Set up JDK ${{ matrix.java }}
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v6
       with:
         java-version: ${{ matrix.java }}
         distribution: 'temurin'
 
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+      uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
       with:
+        # The plain GitHub Actions cache. The default "enhanced" provider is a closed-source add-on.
+        cache-provider: basic
         # The server check ends runServer by stopping the server, which Gradle reports as a failed
         # task. Show the Gradle summary only when the job fails, so green runs don't list a red X.
         add-job-summary: on-failure
@@ -143,7 +145,7 @@ jobs:
 
     - name: Upload the server log
       if: failure()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: server-log-${{ matrix.dir }}
         path: ${{ matrix.dir }}/build/server-check.log
@@ -159,7 +161,7 @@ jobs:
         ls -l dist
 
     - name: Upload the mod jar
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: MoreDyes-${{ matrix.dir }}
         path: ${{ matrix.dir }}/dist/*.jar
@@ -182,7 +184,7 @@ jobs:
 
     steps:
     - name: Download the mod jars
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         pattern: MoreDyes-*
         merge-multiple: true
@@ -249,7 +251,7 @@ jobs:
 
     steps:
     - name: Download the mod jar
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: MoreDyes-${{ matrix.dir }}
         path: dist
