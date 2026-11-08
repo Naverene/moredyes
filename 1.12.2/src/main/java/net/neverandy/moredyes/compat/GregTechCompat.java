@@ -56,6 +56,12 @@ public class GregTechCompat
 		{
 			Block dyed=entry.getKey();
 			ItemStack vanilla=entry.getValue();
+			// Only blocks with the color in their metadata. Blocks that keep it in a tile entity (tall flowers,
+			// shulker boxes, Iron Shulker Boxes) have no recipes here; the machines would also drop a box's contents.
+			if(!(dyed instanceof IColoredBlock))
+			{
+				continue;
+			}
 			IColoredBlock colored=(IColoredBlock)dyed;
 			// Logs and leaves only come from dye trees; they are never dyed from the vanilla ones.
 			boolean dyeable=!(dyed instanceof BlockDyedLog)&&!(dyed instanceof BlockDyedLeaves);

@@ -42,6 +42,11 @@ public class GTCompat {
         for (Map.Entry<Block, ItemStack> entry : MDBlock.WASHED.entrySet()) {
             Block dyed = entry.getKey();
             ItemStack vanilla = entry.getValue();
+            // Only blocks with the color in their metadata. Compat blocks that keep it in a tile entity, such as the
+            // Et Futurum shulker box, have no recipes here (the mixer and bath would also drop the box's contents).
+            if (!(dyed instanceof IBlockColored)) {
+                continue;
+            }
             int setIndex = setIndexOf(dyed);
             boolean dyeable = dyed != MDBlock.log[setIndex] && dyed != MDBlock.leaf[setIndex];
 
