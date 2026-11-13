@@ -1,5 +1,6 @@
 package info.kg6jay.moredyes;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
@@ -28,6 +29,7 @@ import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.handler.WolfCollarHandler;
 import info.kg6jay.moredyes.item.MDItems;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.network.PacketHandler;
 import info.kg6jay.moredyes.proxy.CommonProxy;
 import info.kg6jay.moredyes.recipe.Recipes;
@@ -64,22 +66,21 @@ public class MoreDyes {
 
         MDBlocks.init(config.file);
         MDItems.init(config.file);
+        SharedBlocks.init(config.file);
         config.save();
         MDBlocks.register();
+        proxy.registerItemRenderers();
         LanguageRegistry.instance().addStringLocalization("tile.moredyes.granitePlain.name", "Granite");
         LanguageRegistry.instance().addStringLocalization("tile.moredyes.dioritePlain.name", "Diorite");
         LanguageRegistry.instance().addStringLocalization("tile.moredyes.andesitePlain.name", "Andesite");
 
         // Same ore names as the vanilla blocks, so recipes that take any planks or logs take dyed ones too.
-        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.plank, 1, -1));
-        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.birchPlank, 1, -1));
-        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.sprucePlank, 1, -1));
-        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.junglePlank, 1, -1));
-        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.acaciaPlank, 1, -1));
-        OreDictionary.registerOre("plankWood", new ItemStack(MDBlocks.darkOakPlank, 1, -1));
-        OreDictionary.registerOre("logWood", new ItemStack(MDBlocks.log, 1, -1));
-        OreDictionary.registerOre("treeSapling", new ItemStack(MDBlocks.sapling, 1, -1));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(MDBlocks.leaves, 1, -1));
+        // Each color is its own entry, since the shared item's damage also says which block it is.
+        ore("plankWood", MDBlocks.plank, MDBlocks.birchPlank, MDBlocks.sprucePlank, MDBlocks.junglePlank,
+            MDBlocks.acaciaPlank, MDBlocks.darkOakPlank);
+        ore("logWood", MDBlocks.log);
+        ore("treeSapling", MDBlocks.sapling);
+        ore("treeLeaves", MDBlocks.leaves);
 
         EntityRegistry.registerModEntity(EntityFallingDyed.class, "FallingDyed", 0, this, 160, 20, true);
         NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
@@ -102,9 +103,17 @@ public class MoreDyes {
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
         tabDyes.setIcon(new ItemStack(MDItems.dye, 1, 0));
-        tabBlocks.setIcon(new ItemStack(MDBlocks.wool, 1, 0));
-        tabPlants.setIcon(new ItemStack(MDBlocks.tulip, 1, 0));
-        tabTrees.setIcon(new ItemStack(MDBlocks.sapling, 1, 0));
-        tabShapes.setIcon(new ItemStack(MDBlocks.SHAPES.get(0).block, 1, 0));
+        tabBlocks.setIcon(SharedBlocks.stack(MDBlocks.wool, 1, 0));
+        tabPlants.setIcon(SharedBlocks.stack(MDBlocks.tulip, 1, 0));
+        tabTrees.setIcon(SharedBlocks.stack(MDBlocks.sapling, 1, 0));
+        tabShapes.setIcon(SharedBlocks.stack(MDBlocks.SHAPES.get(0).block, 1, 0));
+    }
+
+    private static void ore(String name, Block... blocks) {
+        for (Block block : blocks) {
+            for (int color = 0; color < Colors.COUNT; color++) {
+                OreDictionary.registerOre(name, SharedBlocks.stack(block, 1, color));
+            }
+        }
     }
 }

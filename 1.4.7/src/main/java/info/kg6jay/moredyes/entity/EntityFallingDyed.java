@@ -14,6 +14,7 @@ import com.google.common.io.ByteArrayDataOutput;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import info.kg6jay.moredyes.block.BlockDyedSand;
 import info.kg6jay.moredyes.block.Dyed;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Falling dyed sand or concrete powder. The vanilla falling sand only carries a block ID and metadata, so it would
@@ -100,11 +101,11 @@ public class EntityFallingDyed extends Entity implements IEntityAdditionalSpawnD
                         ((BlockDyedSand) block).onLanded(this.worldObj, x, y, z);
                     }
                 } else {
-                    this.entityDropItem(new ItemStack(this.blockID, 1, this.color), 0.0F);
+                    this.entityDropItem(SharedBlocks.stack(Block.blocksList[this.blockID], 1, this.color), 0.0F);
                 }
             }
         } else if (this.fallTime > 100 && (y < 1 || y > 256) || this.fallTime > 600) {
-            this.entityDropItem(new ItemStack(this.blockID, 1, this.color), 0.0F);
+            this.entityDropItem(SharedBlocks.stack(Block.blocksList[this.blockID], 1, this.color), 0.0F);
             this.setDead();
         }
     }

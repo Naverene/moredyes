@@ -12,6 +12,7 @@ import net.minecraftforge.common.IShearable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.item.MDItems;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Dyed leaves. They drop saplings and dyes of their color, and decay once no dyed or vanilla log is near.
@@ -116,7 +117,7 @@ public class BlockDyedLeaves extends BlockDyed implements IShearable {
             chance = Math.max(10, chance - (2 << fortune));
         }
         if (world.rand.nextInt(chance) <= 1) {
-            drops.add(new ItemStack(MDBlocks.sapling, 1, color));
+            drops.add(SharedBlocks.stack(MDBlocks.sapling, 1, color));
         }
         chance = 200;
         if (fortune > 0) {
