@@ -1,9 +1,11 @@
 package info.kg6jay.moredyes.handler;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.IFuelHandler;
 import info.kg6jay.moredyes.block.MDBlocks;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Burn times for the dyed blocks that are not wooden (wooden blocks already burn for 300 ticks). A dyed coal block
@@ -13,10 +15,11 @@ public class FuelHandler implements IFuelHandler {
 
     @Override
     public int getBurnTime(ItemStack fuel) {
-        if (fuel.itemID == MDBlocks.coal.blockID) {
+        Block block = SharedBlocks.blockOf(fuel);
+        if (block == MDBlocks.coal) {
             return 8 * 1600;
         }
-        if (fuel.itemID == MDBlocks.sapling.blockID) {
+        if (block == MDBlocks.sapling) {
             return 100;
         }
         return 0;

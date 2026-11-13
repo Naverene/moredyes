@@ -24,9 +24,11 @@ import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.RenderDyedSheep;
 import info.kg6jay.moredyes.client.RenderDyedWolf;
 import info.kg6jay.moredyes.client.RenderFallingDyed;
+import info.kg6jay.moredyes.client.SharedBlockItemRenderer;
 import info.kg6jay.moredyes.entity.EntityFallingDyed;
 import info.kg6jay.moredyes.entity.SheepColors;
 import info.kg6jay.moredyes.entity.WolfCollars;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 public class ClientProxy extends CommonProxy {
 
@@ -56,6 +58,11 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityFallingDyed.class, new RenderFallingDyed());
         RenderingRegistry.registerEntityRenderingHandler(EntitySheep.class, new RenderDyedSheep());
         RenderingRegistry.registerEntityRenderingHandler(EntityWolf.class, new RenderDyedWolf());
+    }
+
+    @Override
+    public void registerItemRenderers() {
+        MinecraftForgeClient.registerItemRenderer(SharedBlocks.item.itemID, new SharedBlockItemRenderer());
     }
 
     @Override

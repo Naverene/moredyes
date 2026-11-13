@@ -1,6 +1,10 @@
 package info.kg6jay.moredyes.item;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -105,5 +109,23 @@ public class ItemBlockDyed extends ItemBlock {
             return ((ILayeredBlock) block).getLayerTexture(2, pass);
         }
         return super.getIconFromDamageForRenderPass(damage, pass);
+    }
+
+    /** Blocks with a shared item (see SharedBlocks) are listed as that item instead. */
+    @Override
+    @SideOnly(Side.CLIENT)
+    @SuppressWarnings("rawtypes")
+    public void getSubItems(int id, CreativeTabs tab, List list) {
+        if (!SharedBlocks.isOld(new ItemStack(id, 1, 0))) {
+            super.getSubItems(id, tab, list);
+        }
+    }
+
+    /** Turns into the shared item in a player's inventory, so items from before it existed keep working. */
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
+        if (!world.isRemote && entity instanceof EntityPlayer) {
+            SharedBlocks.convert(stack);
+        }
     }
 }

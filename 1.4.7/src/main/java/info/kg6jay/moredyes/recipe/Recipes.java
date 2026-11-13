@@ -13,6 +13,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.Colors;
 import info.kg6jay.moredyes.block.MDBlocks;
 import info.kg6jay.moredyes.item.MDItems;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * The crafting and smelting recipes, the same as in the 1.7.10 version where Minecraft 1.4.7 has the ingredients.
@@ -271,7 +272,8 @@ public final class Recipes {
     public static void addSmelting() {
         FurnaceRecipes furnace = FurnaceRecipes.smelting();
         for (int color = 0; color < Colors.COUNT; color++) {
-            furnace.addSmelting(MDBlocks.log.blockID, color, new ItemStack(Item.coal, 1, 1), 0.15F);
+            ItemStack log = stack(MDBlocks.log, 1, color);
+            furnace.addSmelting(log.itemID, log.getItemDamage(), new ItemStack(Item.coal, 1, 1), 0.15F);
             smelt(MDBlocks.cobble, MDBlocks.stone, color, 0.1F);
             smelt(MDBlocks.stonebrick, MDBlocks.stonebrickCracked, color, 0.1F);
             smelt(MDBlocks.sand, MDBlocks.glassClear, color, 0.1F);
@@ -290,7 +292,7 @@ public final class Recipes {
     }
 
     private static ItemStack stack(Block block, int count, int color) {
-        return new ItemStack(block, count, color);
+        return SharedBlocks.stack(block, count, color);
     }
 
     private static void invertedLamp(Block lamp, Block inverted, int color) {
@@ -313,7 +315,8 @@ public final class Recipes {
     }
 
     private static void smelt(Block input, Block output, int color, float xp) {
-        FurnaceRecipes.smelting().addSmelting(input.blockID, color, stack(output, 1, color), xp);
+        ItemStack in = stack(input, 1, color);
+        FurnaceRecipes.smelting().addSmelting(in.itemID, in.getItemDamage(), stack(output, 1, color), xp);
     }
 
     @SuppressWarnings("unchecked")

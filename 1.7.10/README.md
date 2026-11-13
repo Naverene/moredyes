@@ -70,7 +70,7 @@ Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and s
 
 Every dyed block, stair, slab, wall, fence, tall flower, trapdoor and piston is one item, `moredyes:dyedBlock`, with the block and color in its damage value (block kind × 118 + color). Storage that keeps one item id per slot, such as the Extra Utilities Filing Cabinet, holds all of them. The blocks themselves keep their own block ids, so placed blocks don't change.
 
-Worlds from before keep working: the blocks' old items are hidden, and turn into the shared item when they are in a player's inventory, dropped on the ground, or dropped by a broken block. An old item alone in a crafting grid also crafts into the shared one, for items still sitting in storage. Mods that only accept "real" block items (Chisel's chisel, AE2 formation planes, block placers) don't take the shared item.
+Worlds from before keep working: the blocks' old items are hidden, and turn into the shared item when they are in a player's inventory, dropped on the ground, or dropped by a broken block. An old item alone in a crafting grid also crafts into the shared one, for items still sitting in storage. Chisel works: while a Chisel GUI (the chisel or the Auto Chisel) is open, your dyed blocks are their old items, so Chisel takes them, and they turn back into the shared item when it closes. Other mods that only accept "real" block items (AE2 formation planes, block placers) don't take the shared item.
 
 The dyes, signs, beds and the dyed Iron Chests, drawers and shulker boxes still have their own items.
 

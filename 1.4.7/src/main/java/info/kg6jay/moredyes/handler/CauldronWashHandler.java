@@ -12,6 +12,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import info.kg6jay.moredyes.block.MDBlocks;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Right-clicking a cauldron that has water in it with a stack of dyed blocks washes the whole stack back to the
@@ -88,10 +89,11 @@ public class CauldronWashHandler {
         int water = world.getBlockMetadata(event.x, event.y, event.z);
         EntityPlayer player = event.entityPlayer;
         ItemStack held = player.getCurrentEquippedItem();
-        if (water <= 0 || held == null) {
+        Block heldBlock = SharedBlocks.blockOf(held);
+        if (water <= 0 || heldBlock == null) {
             return;
         }
-        ItemStack washed = this.washed.get(held.itemID);
+        ItemStack washed = this.washed.get(heldBlock.blockID);
         if (washed == null) {
             return;
         }

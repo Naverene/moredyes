@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import info.kg6jay.moredyes.Colors;
 import info.kg6jay.moredyes.block.Dyed;
 import info.kg6jay.moredyes.block.MDBlocks;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Right-clicking an empty vanilla flower pot with a dyed flower or sapling puts the plant in it: the pot becomes a
@@ -30,15 +31,16 @@ public class FlowerPotHandler {
         }
         EntityPlayer player = event.entityPlayer;
         ItemStack held = player.getCurrentEquippedItem();
-        if (held == null || held.itemID >= Block.blocksList.length) {
+        Block heldBlock = SharedBlocks.blockOf(held);
+        if (heldBlock == null) {
             return;
         }
-        int plant = MDBlocks.POTTABLE.indexOf(Block.blocksList[held.itemID]);
+        int plant = MDBlocks.POTTABLE.indexOf(heldBlock);
         if (plant < 0) {
             return;
         }
         event.setCanceled(true);
-        Dyed.place(world, event.x, event.y, event.z, MDBlocks.flowerPot, plant, Colors.clamp(held.getItemDamage()),
+        Dyed.place(world, event.x, event.y, event.z, MDBlocks.flowerPot, plant, SharedBlocks.isShared(held) ? SharedBlocks.sharedColor(held) : Colors.clamp(held.getItemDamage()),
             true);
         if (!player.capabilities.isCreativeMode && --held.stackSize <= 0) {
             player.inventory.setInventorySlotContents(player.inventory.currentItem, null);

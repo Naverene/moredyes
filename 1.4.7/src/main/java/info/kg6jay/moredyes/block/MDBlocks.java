@@ -426,7 +426,7 @@ public final class MDBlocks {
     }
 
     /** The registry name of a block named "moredyes.name" is "name". */
-    private static String registryName(Block block) {
+    public static String registryName(Block block) {
         return block.getBlockName().substring("tile.moredyes.".length());
     }
 

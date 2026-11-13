@@ -24,6 +24,7 @@ import info.kg6jay.moredyes.MoreDyes;
 import info.kg6jay.moredyes.block.MDBlocks;
 import info.kg6jay.moredyes.entity.SheepColors;
 import info.kg6jay.moredyes.network.PacketHandler;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Lets vanilla sheep wear More Dyes colors: gives some new sheep a More Dyes color (see WildSheepColors), drops More Dyes wool when a colored
@@ -107,7 +108,7 @@ public class SheepHandler {
         for (EntityItem drop : event.drops) {
             ItemStack stack = drop.getEntityItem();
             if (stack != null && stack.itemID == Block.cloth.blockID) {
-                drop.func_92058_a(new ItemStack(MDBlocks.wool, stack.stackSize, color));
+                drop.func_92058_a(SharedBlocks.stack(MDBlocks.wool, stack.stackSize, color));
             }
         }
     }
@@ -119,7 +120,7 @@ public class SheepHandler {
         sheep.setSheared(true);
         int count = 1 + rand.nextInt(3);
         for (int i = 0; i < count; i++) {
-            EntityItem item = sheep.entityDropItem(new ItemStack(MDBlocks.wool, 1, color), 1.0F);
+            EntityItem item = sheep.entityDropItem(SharedBlocks.stack(MDBlocks.wool, 1, color), 1.0F);
             item.motionY += rand.nextFloat() * 0.05F;
             item.motionX += (rand.nextFloat() - rand.nextFloat()) * 0.1F;
             item.motionZ += (rand.nextFloat() - rand.nextFloat()) * 0.1F;

@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 import info.kg6jay.moredyes.Colors;
 import info.kg6jay.moredyes.MoreDyes;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * The code every dyed block shares: they extend different vanilla blocks (stairs, leaves, sand...), so each calls
@@ -73,7 +74,7 @@ public final class Dyed {
     }
 
     public static ItemStack stack(Block block, IBlockAccess world, int x, int y, int z, int count) {
-        return new ItemStack(block, count, get(world, x, y, z));
+        return SharedBlocks.stack(block, count, get(world, x, y, z));
     }
 
     public static ArrayList<ItemStack> drops(Block block, World world, int x, int y, int z, int count) {

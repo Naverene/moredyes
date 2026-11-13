@@ -57,7 +57,8 @@ public class MDItemBlockTileColored extends ItemBlock {
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
         if (!world.isRemote && entity instanceof EntityPlayer player
-            && player.inventory.getStackInSlot(slot) == stack) {
+            && player.inventory.getStackInSlot(slot) == stack
+            && !SharedBlocks.inChiselGui(player)) {
             ItemStack shared = SharedBlocks.toShared(stack);
             if (shared != null) {
                 player.inventory.setInventorySlotContents(slot, shared);
