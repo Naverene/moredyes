@@ -1,7 +1,10 @@
 package info.kg6jay.moredyes.block;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -13,6 +16,7 @@ import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.utility.ColorUtil;
+import info.kg6jay.moredyes.world.feature.MisgeneratedTrees;
 
 /**
  * Dyed log: the rings on the top and bottom take the dye color, the bark keeps its natural color. Drawn in two
@@ -44,6 +48,12 @@ public class MDBlockLog extends MDBlockColored implements ILayeredBlock {
                 }
             }
         }
+    }
+
+    /** A log from a misgenerated tree drops the log it should have been (see MisgeneratedTrees). */
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        return MisgeneratedTrees.fixAll(super.getDrops(world, x, y, z, metadata, fortune));
     }
 
     @Override

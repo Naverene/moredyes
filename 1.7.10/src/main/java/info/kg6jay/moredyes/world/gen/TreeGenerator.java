@@ -38,7 +38,7 @@ public class TreeGenerator implements IWorldGenerator {
                     int xGen = random.nextInt(16) + x;
                     int zGen = random.nextInt(16) + z;
                     int yGen = world.getTopSolidOrLiquidBlock(xGen, zGen);
-                    new WorldGenTreeDye(false, 4, a, b).generate(world, random, xGen, yGen, zGen);
+                    new WorldGenTreeDye(false, 4, b, a).generate(world, random, xGen, yGen, zGen);
                 }
             }
         }

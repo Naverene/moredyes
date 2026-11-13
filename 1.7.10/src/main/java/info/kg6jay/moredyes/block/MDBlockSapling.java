@@ -2,11 +2,13 @@ package info.kg6jay.moredyes.block;
 
 import static net.minecraftforge.common.EnumPlantType.Plains;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -16,6 +18,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import info.kg6jay.moredyes.utility.BlockInfo;
+import info.kg6jay.moredyes.world.feature.MisgeneratedTrees;
 import info.kg6jay.moredyes.world.feature.WorldGenTreeDye;
 
 public class MDBlockSapling extends MDBlockColoredPlant implements IGrowable, IPlantable {
@@ -76,6 +79,12 @@ public class MDBlockSapling extends MDBlockColoredPlant implements IGrowable, IP
      * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
      * cleared to be reused)
      */
+    /** A sapling from a misgenerated tree drops the sapling it should have been (see MisgeneratedTrees). */
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        return MisgeneratedTrees.fixAll(super.getDrops(world, x, y, z, metadata, fortune));
+    }
+
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         return null;
     }
@@ -97,6 +106,12 @@ public class MDBlockSapling extends MDBlockColoredPlant implements IGrowable, IP
      */
     public void updateTick(World world, int x, int y, int z, Random rand) {
         if (!world.isRemote) {
+            int[] fixed = MisgeneratedTrees.fix(this.colorIndex, world.getBlockMetadata(x, y, z));
+            if (fixed != null) {
+                // A sapling from a misgenerated tree turns into the sapling it should have been.
+                world.setBlock(x, y, z, MDBlock.sapling[fixed[0]], fixed[1], 3);
+                return;
+            }
             super.updateTick(world, x, y, z, rand);
 
             if (world.getBlockLightValue(x, y + 1, z) >= 9 && rand.nextInt(7) == 0) {
@@ -113,7 +128,9 @@ public class MDBlockSapling extends MDBlockColoredPlant implements IGrowable, IP
     public void func_149878_d(World world, int x, int y, int z, Random rand) {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, rand, x, y, z)) return;
         int meta = world.getBlockMetadata(x, y, z);
-        WorldGenerator tree = new WorldGenTreeDye(false, 3, meta, this.colorIndex);
+        int[] fixed = MisgeneratedTrees.fix(this.colorIndex, meta);
+        WorldGenerator tree = fixed != null ? new WorldGenTreeDye(false, 3, fixed[1], fixed[0])
+            : new WorldGenTreeDye(false, 3, meta, this.colorIndex);
         world.setBlockToAir(x, y, z);
 
         if (!tree.generate(world, rand, x, y, z)) {
