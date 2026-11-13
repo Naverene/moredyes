@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +23,7 @@ import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.utility.ColorUtil;
+import info.kg6jay.moredyes.world.feature.MisgeneratedTrees;
 
 public class MDItemDye extends Item {
 
@@ -149,5 +151,19 @@ public class MDItemDye extends Item {
     @Override
     public void registerIcons(IIconRegister iconRegister) {
         this.icon = TintedTextures.register(iconRegister, "dye");
+    }
+
+    /**
+     * A misgenerated log, leaf, sapling or dye in a player's inventory turns into the right one (MisgeneratedTrees).
+     */
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
+        if (!world.isRemote && entity instanceof EntityPlayer player
+            && player.inventory.getStackInSlot(slot) == stack) {
+            ItemStack fixed = MisgeneratedTrees.fix(stack);
+            if (fixed != null) {
+                player.inventory.setInventorySlotContents(slot, fixed);
+            }
+        }
     }
 }

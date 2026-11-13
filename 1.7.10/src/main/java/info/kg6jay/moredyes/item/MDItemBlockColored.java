@@ -1,6 +1,7 @@
 package info.kg6jay.moredyes.item;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
@@ -11,6 +12,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.ILayeredBlock;
 import info.kg6jay.moredyes.block.MDBlockFlowerPot;
+import info.kg6jay.moredyes.world.feature.MisgeneratedTrees;
 
 public class MDItemBlockColored extends ItemBlockWithMetadata {
 
@@ -78,5 +80,19 @@ public class MDItemBlockColored extends ItemBlockWithMetadata {
             }
         }
         return this.getIconFromDamage(meta);
+    }
+
+    /**
+     * A misgenerated log, leaf, sapling or dye in a player's inventory turns into the right one (MisgeneratedTrees).
+     */
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
+        if (!world.isRemote && entity instanceof EntityPlayer player
+            && player.inventory.getStackInSlot(slot) == stack) {
+            ItemStack fixed = MisgeneratedTrees.fix(stack);
+            if (fixed != null) {
+                player.inventory.setInventorySlotContents(slot, fixed);
+            }
+        }
     }
 }

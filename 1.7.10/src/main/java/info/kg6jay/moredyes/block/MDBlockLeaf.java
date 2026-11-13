@@ -16,6 +16,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.item.MDItem;
 import info.kg6jay.moredyes.utility.BlockInfo;
+import info.kg6jay.moredyes.world.feature.MisgeneratedTrees;
 
 public class MDBlockLeaf extends MDBlockColored implements IShearable {
 
@@ -169,7 +170,9 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
      * and is ignored for blocks which do not support subtypes. Blocks which cannot be harvested should return null.
      */
     protected ItemStack createStackedBlock(int meta) {
-        return new ItemStack(Item.getItemFromBlock(this), 1, meta);
+        ItemStack stack = new ItemStack(Item.getItemFromBlock(this), 1, meta);
+        ItemStack fixed = MisgeneratedTrees.fix(stack);
+        return fixed != null ? fixed : stack;
     }
 
     @Override
@@ -181,7 +184,7 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
     public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
-        return ret;
+        return MisgeneratedTrees.fixAll(ret);
     }
 
     @Override
@@ -212,6 +215,6 @@ public class MDBlockLeaf extends MDBlockColored implements IShearable {
         }
         this.captureDrops(true);
         ret.addAll(this.captureDrops(false));
-        return ret;
+        return MisgeneratedTrees.fixAll(ret);
     }
 }
