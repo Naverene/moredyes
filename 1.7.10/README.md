@@ -66,6 +66,14 @@ Only the newer blocks that have a plain or vanilla version (granite, andesite, c
 Workstations from newer versions (loom, smoker, barrel and so on) are left to other mods.
 Sheep can be dyed any of the mod's colors: right-click a sheep with a dye, and shearing or killing it gives wool in that color. A vanilla dye puts it back on a vanilla color. Some new sheep also spawn in a mod color: by default 20% in a natural brown, beige or grey and 2% in burgundy. The `sheepSpawnChance` and `sheepSpawnColors` config options set the chance and the colors (0 turns it off, an empty list allows any color), and `rareSheepSpawnChance` and `rareSheepSpawnColors` do the same for the rare ones.
 
+## One item id for every dyed block
+
+Every dyed block, stair, slab, wall, fence, tall flower, trapdoor and piston is one item, `moredyes:dyedBlock`, with the block and color in its damage value (block kind × 118 + color). Storage that keeps one item id per slot, such as the Extra Utilities Filing Cabinet, holds all of them. The blocks themselves keep their own block ids, so placed blocks don't change.
+
+Worlds from before keep working: the blocks' old items are hidden, and turn into the shared item when they are in a player's inventory, dropped on the ground, or dropped by a broken block. An old item alone in a crafting grid also crafts into the shared one, for items still sitting in storage. Mods that only accept "real" block items (Chisel's chisel, AE2 formation planes, block placers) don't take the shared item.
+
+The dyes, signs, beds and the dyed Iron Chests, drawers and shulker boxes still have their own items.
+
 ## Item groups in NEI (GT New Horizons)
 
 GTNH's NotEnoughItems can fold many items into one collapsible entry, but mods cannot add groups themselves: they come only from `config/NEI/collapsibleitems.cfg`. To have NEI show one entry per kind of block (all the colors of wool as "Dyed Wool", and so on) instead of thousands of separate items, paste these lines into that file. The comment at the top says where in the file to put them; NEI puts each item in the first group that matches it.
@@ -79,439 +87,435 @@ GTNH's NotEnoughItems can fold many items into one collapsible entry, but mods c
 # Where to paste: NEI puts an item in the FIRST group that matches it.
 # - Before the first group of the GTNH file (above "# spawn egg", line 23 in GTNH 2.9's file): every kind below
 #   gets its own "Dyed ..." group. Recommended.
-# - At the end of the file: these kinds stay in GTNH's generic groups instead, and their lines below do nothing:
+# - At the end of the file: some kinds stay in GTNH's generic groups instead, and their lines below do nothing:
 #     planks (6 woods)   -> line 854  $plankWood !$plateWood   (our ore name plankWood)
 #     logs               -> line 806  $logwood ...             (our ore name logWood)
 #     saplings           -> line 356  ... $treeSapling ...     (our ore name treeSapling)
-#     the 49 stairs      -> line 794  stair !chisel:           (registry names like moredyes:stoneStairs)
-#     the 47 slabs       -> line 795  slab !double !full       (registry names like moredyes:stoneSlab)
-#     iron trapdoors     -> line 793  trapdoor                 (moredyes:ironTrapdoor)
 #     dyed drawers       -> lines 47-51 halfdrawers2 ... fulldrawers4 (these match anywhere in the name, ignoring
 #                           case, so moredyes:dyedFullDrawers1 joins Storage Drawers' own 1x1 drawers group)
-#   Every other kind matches no GTNH group (leaves are "...MixLeaf", walls are not "minecraft:..._wall", flowers are
-#   not "minecraft:..._flower" or minecraft:double_plant, fences are not minecraft:fence, the
-#   dyes are not minecraft:dye, wool, glass and chests are not the vanilla ids, and the dyed Iron Chests are
-#   moredyes:dyed<Tier>Chest, which line 528 (IronChest's upgrades) does not take), so it gets its own group either way.
+#   Every other kind matches no GTNH group, so it gets its own group either way.
+# Every dyed block is one item, moredyes:dyedBlock, and each group below is a range of its damage values (block kind
+# * 118 + color). tools/make_nei_groups.py in the source rewrites these lines when blocks are added.
 # The dyed Iron Chests, shulker box and Storage Drawers groups only fill when those mods are installed; without those mods the
 # lines match nothing and the groups never show.
 ; {"displayName":"Mixed Dyes"}
 r/^moredyes:item\.[a-z]+Dye$/
 ; {"displayName":"Dyed Wool"}
-r/^moredyes:[a-z]+MixWool$/
+r/^moredyes:dyedBlock$/ 0-117
 ; {"displayName":"Dyed Carpets"}
-r/^moredyes:[a-z]+MixCarpet$/
+r/^moredyes:dyedBlock$/ 118-235
 ; {"displayName":"Dyed Stone Bricks"}
-r/^moredyes:[a-z]+MixStonebrick$/
+r/^moredyes:dyedBlock$/ 236-353
 ; {"displayName":"Dyed Carved Stone Bricks"}
-r/^moredyes:[a-z]+MixStonebrickCarved$/
+r/^moredyes:dyedBlock$/ 354-471
 ; {"displayName":"Dyed Cracked Stone Bricks"}
-r/^moredyes:[a-z]+MixStonebrickCracked$/
+r/^moredyes:dyedBlock$/ 472-589
 ; {"displayName":"Dyed Stone"}
-r/^moredyes:[a-z]+MixStone$/
+r/^moredyes:dyedBlock$/ 590-707
 ; {"displayName":"Dyed Cobblestone"}
-r/^moredyes:[a-z]+MixCobble$/
+r/^moredyes:dyedBlock$/ 708-825
 ; {"displayName":"Dyed Obsidian"}
-r/^moredyes:[a-z]+MixObsidian$/
+r/^moredyes:dyedBlock$/ 826-943
 ; {"displayName":"Dyed Soulsand"}
-r/^moredyes:[a-z]+MixSoulsand$/
+r/^moredyes:dyedBlock$/ 944-1061
 ; {"displayName":"Dyed Quartz Blocks"}
-r/^moredyes:[a-z]+MixQuartz$/
+r/^moredyes:dyedBlock$/ 1062-1179
 ; {"displayName":"Dyed Hardened Stained Clay"}
-r/^moredyes:[a-z]+MixClay$/
+r/^moredyes:dyedBlock$/ 1180-1297
 ; {"displayName":"Dyed Coal Blocks"}
-r/^moredyes:[a-z]+MixCoal$/
+r/^moredyes:dyedBlock$/ 1298-1415
 ; {"displayName":"Dyed Glowstone"}
-r/^moredyes:[a-z]+MixGlowstone$/
+r/^moredyes:dyedBlock$/ 1416-1533
 ; {"displayName":"Dyed Lapis Blocks"}
-r/^moredyes:[a-z]+MixLapis$/
+r/^moredyes:dyedBlock$/ 1534-1651
 ; {"displayName":"Dyed Redstone Blocks"}
-r/^moredyes:[a-z]+MixRedstone$/
+r/^moredyes:dyedBlock$/ 1652-1769
 ; {"displayName":"Dyed Planks"}
-r/^moredyes:[a-z]+MixPlank$/
+r/^moredyes:dyedBlock$/ 1770-1887
 ; {"displayName":"Dyed Tulips"}
-r/^moredyes:[a-z]+MixTulip$/
+r/^moredyes:dyedBlock$/ 1888-2005
 ; {"displayName":"Dyed Logs"}
-r/^moredyes:[a-z]+MixLog$/
+r/^moredyes:dyedBlock$/ 2006-2123
 ; {"displayName":"Dyed Leaves"}
-r/^moredyes:[a-z]+MixLeaf$/
+r/^moredyes:dyedBlock$/ 2124-2241
 ; {"displayName":"Dyed Saplings"}
-r/^moredyes:[a-z]+MixSapling$/
+r/^moredyes:dyedBlock$/ 2242-2359
 ; {"displayName":"Dyed Clear Glass"}
-r/^moredyes:[a-z]+MixGlassClear$/
+r/^moredyes:dyedBlock$/ 2360-2477
 ; {"displayName":"Dyed Foggy Glass"}
-r/^moredyes:[a-z]+MixGlassFoggy$/
+r/^moredyes:dyedBlock$/ 2478-2595
 ; {"displayName":"Dyed Clear Glass Panes"}
-r/^moredyes:[a-z]+MixGlassClearPane$/
+r/^moredyes:dyedBlock$/ 2596-2713
 ; {"displayName":"Dyed Foggy Glass Panes"}
-r/^moredyes:[a-z]+MixGlassFoggyPane$/
+r/^moredyes:dyedBlock$/ 2714-2831
 ; {"displayName":"Dyed Bricks"}
-r/^moredyes:[a-z]+MixBrick$/
+r/^moredyes:dyedBlock$/ 2832-2949
 ; {"displayName":"Dyed Sand"}
-r/^moredyes:[a-z]+MixSand$/
+r/^moredyes:dyedBlock$/ 2950-3067
 ; {"displayName":"Dyed Crafting Tables"}
-r/^moredyes:[a-z]+MixWorkbench$/
+r/^moredyes:dyedBlock$/ 3068-3185
 ; {"displayName":"Dyed Hardened Clay"}
-r/^moredyes:[a-z]+MixHardenedClay$/
+r/^moredyes:dyedBlock$/ 3186-3303
 ; {"displayName":"Dyed Sandstone"}
-r/^moredyes:[a-z]+MixSandstone$/
+r/^moredyes:dyedBlock$/ 3304-3421
 ; {"displayName":"Dyed Bookshelves"}
-r/^moredyes:[a-z]+MixBookshelf$/
+r/^moredyes:dyedBlock$/ 3422-3539
 ; {"displayName":"Dyed Diorite"}
-r/^moredyes:[a-z]+MixDiorite$/
+r/^moredyes:dyedBlock$/ 3540-3657
 ; {"displayName":"Dyed Chests"}
-r/^moredyes:[a-z]+MixChest$/
+r/^moredyes:dyedBlock$/ 3658-3775
 ; {"displayName":"Dyed Granite"}
-r/^moredyes:[a-z]+MixGranite$/
+r/^moredyes:dyedBlock$/ 3776-3893
 ; {"displayName":"Dyed Andesite"}
-r/^moredyes:[a-z]+MixAndesite$/
+r/^moredyes:dyedBlock$/ 3894-4011
 ; {"displayName":"Dyed Polished Granite"}
-r/^moredyes:[a-z]+MixPolishedGranite$/
+r/^moredyes:dyedBlock$/ 4012-4129
 ; {"displayName":"Dyed Speckled Granite"}
-r/^moredyes:[a-z]+MixSpeckledGranite$/
+r/^moredyes:dyedBlock$/ 4130-4247
 ; {"displayName":"Dyed Smooth Speckled Granite"}
-r/^moredyes:[a-z]+MixSmoothSpeckledGranite$/
+r/^moredyes:dyedBlock$/ 4248-4365
 ; {"displayName":"Dyed Polished Diorite"}
-r/^moredyes:[a-z]+MixPolishedDiorite$/
+r/^moredyes:dyedBlock$/ 4366-4483
 ; {"displayName":"Dyed Polished Andesite"}
-r/^moredyes:[a-z]+MixPolishedAndesite$/
+r/^moredyes:dyedBlock$/ 4484-4601
 ; {"displayName":"Dyed Concrete"}
-r/^moredyes:[a-z]+MixConcrete$/
+r/^moredyes:dyedBlock$/ 4602-4719
 ; {"displayName":"Dyed Concrete Powder"}
-r/^moredyes:[a-z]+MixConcretePowder$/
+r/^moredyes:dyedBlock$/ 4720-4837
 ; {"displayName":"Dyed Soul Soil"}
-r/^moredyes:[a-z]+MixSoulSoil$/
+r/^moredyes:dyedBlock$/ 4838-4955
 ; {"displayName":"Dyed Basalt"}
-r/^moredyes:[a-z]+MixBasalt$/
+r/^moredyes:dyedBlock$/ 4956-5073
 ; {"displayName":"Dyed Polished Basalt"}
-r/^moredyes:[a-z]+MixPolishedBasalt$/
+r/^moredyes:dyedBlock$/ 5074-5191
 ; {"displayName":"Dyed Smooth Stone"}
-r/^moredyes:[a-z]+MixSmoothStone$/
+r/^moredyes:dyedBlock$/ 5192-5309
 ; {"displayName":"Dyed Smooth Sandstone"}
-r/^moredyes:[a-z]+MixSmoothSandstone$/
+r/^moredyes:dyedBlock$/ 5310-5427
 ; {"displayName":"Dyed Smooth Quartz"}
-r/^moredyes:[a-z]+MixSmoothQuartz$/
+r/^moredyes:dyedBlock$/ 5428-5545
 ; {"displayName":"Dyed Cut Sandstone"}
-r/^moredyes:[a-z]+MixCutSandstone$/
+r/^moredyes:dyedBlock$/ 5546-5663
 ; {"displayName":"Dyed Mossy Cobblestone"}
-r/^moredyes:[a-z]+MixMossyCobble$/
+r/^moredyes:dyedBlock$/ 5664-5781
 ; {"displayName":"Dyed Mossy Stone Bricks"}
-r/^moredyes:[a-z]+MixMossyStonebrick$/
+r/^moredyes:dyedBlock$/ 5782-5899
 ; {"displayName":"Dyed Nether Bricks"}
-r/^moredyes:[a-z]+MixNetherBrick$/
+r/^moredyes:dyedBlock$/ 5900-6017
 ; {"displayName":"Dyed Cracked Nether Bricks"}
-r/^moredyes:[a-z]+MixCrackedNetherBrick$/
+r/^moredyes:dyedBlock$/ 6018-6135
 ; {"displayName":"Dyed Chiseled Nether Bricks"}
-r/^moredyes:[a-z]+MixChiseledNetherBrick$/
+r/^moredyes:dyedBlock$/ 6136-6253
 ; {"displayName":"Dyed End Stone Bricks"}
-r/^moredyes:[a-z]+MixEndStoneBrick$/
+r/^moredyes:dyedBlock$/ 6254-6371
 ; {"displayName":"Dyed Bone Blocks"}
-r/^moredyes:[a-z]+MixBoneBlock$/
+r/^moredyes:dyedBlock$/ 6372-6489
 ; {"displayName":"Dyed Glazed Terracotta"}
-r/^moredyes:[a-z]+MixGlazedTerracotta$/
+r/^moredyes:dyedBlock$/ 6490-6607
 ; {"displayName":"Dyed Blocks of Netherite"}
-r/^moredyes:[a-z]+MixNetheriteBlock$/
+r/^moredyes:dyedBlock$/ 6608-6725
 ; {"displayName":"Dyed Crying Obsidian"}
-r/^moredyes:[a-z]+MixCryingObsidian$/
+r/^moredyes:dyedBlock$/ 6726-6843
 ; {"displayName":"Dyed Cornflowers"}
-r/^moredyes:[a-z]+MixCornflower$/
+r/^moredyes:dyedBlock$/ 6844-6961
 ; {"displayName":"Dyed Chains"}
-r/^moredyes:[a-z]+MixChain$/
+r/^moredyes:dyedBlock$/ 6962-7079
 ; {"displayName":"Dyed End Stone"}
-r/^moredyes:[a-z]+MixEndStone$/
+r/^moredyes:dyedBlock$/ 7552-7669
 ; {"displayName":"Dyed Gravel"}
-r/^moredyes:[a-z]+MixGravel$/
+r/^moredyes:dyedBlock$/ 7670-7787
 ; {"displayName":"Dyed Ice"}
-r/^moredyes:[a-z]+MixIce$/
+r/^moredyes:dyedBlock$/ 7788-7905
 ; {"displayName":"Dyed Packed Ice"}
-r/^moredyes:[a-z]+MixPackedIce$/
+r/^moredyes:dyedBlock$/ 7906-8023
 ; {"displayName":"Dyed Snow Blocks"}
-r/^moredyes:[a-z]+MixSnow$/
+r/^moredyes:dyedBlock$/ 8024-8141
 ; {"displayName":"Dyed Quartz Bricks"}
-r/^moredyes:[a-z]+MixQuartzBricks$/
+r/^moredyes:dyedBlock$/ 8142-8259
 ; {"displayName":"Dyed Chiseled Quartz Blocks"}
-r/^moredyes:[a-z]+MixChiseledQuartz$/
+r/^moredyes:dyedBlock$/ 8260-8377
 ; {"displayName":"Dyed Quartz Pillars"}
-r/^moredyes:[a-z]+MixQuartzPillar$/
+r/^moredyes:dyedBlock$/ 8378-8495
 ; {"displayName":"Dyed Chiseled Sandstone"}
-r/^moredyes:[a-z]+MixChiseledSandstone$/
+r/^moredyes:dyedBlock$/ 8496-8613
 ; {"displayName":"Dyed Spruce Planks"}
-r/^moredyes:[a-z]+MixSprucePlank$/
+r/^moredyes:dyedBlock$/ 8614-8731
 ; {"displayName":"Dyed Birch Planks"}
-r/^moredyes:[a-z]+MixBirchPlank$/
+r/^moredyes:dyedBlock$/ 8732-8849
 ; {"displayName":"Dyed Jungle Planks"}
-r/^moredyes:[a-z]+MixJunglePlank$/
+r/^moredyes:dyedBlock$/ 8850-8967
 ; {"displayName":"Dyed Acacia Planks"}
-r/^moredyes:[a-z]+MixAcaciaPlank$/
+r/^moredyes:dyedBlock$/ 8968-9085
 ; {"displayName":"Dyed Dark Oak Planks"}
-r/^moredyes:[a-z]+MixDarkOakPlank$/
+r/^moredyes:dyedBlock$/ 9086-9203
 ; {"displayName":"Dyed Alliums"}
-r/^moredyes:[a-z]+MixAllium$/
+r/^moredyes:dyedBlock$/ 9204-9321
 ; {"displayName":"Dyed Azure Bluets"}
-r/^moredyes:[a-z]+MixAzureBluet$/
+r/^moredyes:dyedBlock$/ 9322-9439
 ; {"displayName":"Dyed Blue Orchids"}
-r/^moredyes:[a-z]+MixBlueOrchid$/
+r/^moredyes:dyedBlock$/ 9440-9557
 ; {"displayName":"Dyed Dandelions"}
-r/^moredyes:[a-z]+MixDandelion$/
+r/^moredyes:dyedBlock$/ 9558-9675
 ; {"displayName":"Dyed Lilies of the Valley"}
-r/^moredyes:[a-z]+MixLilyOfTheValley$/
+r/^moredyes:dyedBlock$/ 9676-9793
 ; {"displayName":"Dyed Oxeye Daisies"}
-r/^moredyes:[a-z]+MixOxeyeDaisy$/
+r/^moredyes:dyedBlock$/ 9794-9911
 ; {"displayName":"Dyed Poppies"}
-r/^moredyes:[a-z]+MixPoppy$/
+r/^moredyes:dyedBlock$/ 9912-10029
 ; {"displayName":"Dyed Rockwool"}
-r/^moredyes:[a-z]+MixRockwool$/
+r/^moredyes:dyedBlock$/ 10030-10147
 ; {"displayName":"Dyed Stone Stairs"}
-r/^moredyes:stoneStairs$/
+r/^moredyes:dyedBlock$/ 10856-10973
 ; {"displayName":"Dyed Granite Stairs"}
-r/^moredyes:graniteStairs$/
+r/^moredyes:dyedBlock$/ 10974-11091
 ; {"displayName":"Dyed Polished Granite Stairs"}
-r/^moredyes:polishedGraniteStairs$/
+r/^moredyes:dyedBlock$/ 11092-11209
 ; {"displayName":"Dyed Speckled Granite Stairs"}
-r/^moredyes:speckledGraniteStairs$/
+r/^moredyes:dyedBlock$/ 11210-11327
 ; {"displayName":"Dyed Smooth Speckled Granite Stairs"}
-r/^moredyes:smoothSpeckledGraniteStairs$/
+r/^moredyes:dyedBlock$/ 11328-11445
 ; {"displayName":"Dyed Diorite Stairs"}
-r/^moredyes:dioriteStairs$/
+r/^moredyes:dyedBlock$/ 11446-11563
 ; {"displayName":"Dyed Polished Diorite Stairs"}
-r/^moredyes:polishedDioriteStairs$/
+r/^moredyes:dyedBlock$/ 11564-11681
 ; {"displayName":"Dyed Andesite Stairs"}
-r/^moredyes:andesiteStairs$/
+r/^moredyes:dyedBlock$/ 11682-11799
 ; {"displayName":"Dyed Polished Andesite Stairs"}
-r/^moredyes:polishedAndesiteStairs$/
+r/^moredyes:dyedBlock$/ 11800-11917
 ; {"displayName":"Dyed Mossy Cobblestone Stairs"}
-r/^moredyes:mossyCobbleStairs$/
+r/^moredyes:dyedBlock$/ 11918-12035
 ; {"displayName":"Dyed Mossy Stone Brick Stairs"}
-r/^moredyes:mossyStonebrickStairs$/
+r/^moredyes:dyedBlock$/ 12036-12153
 ; {"displayName":"Dyed End Stone Brick Stairs"}
-r/^moredyes:endStoneBrickStairs$/
+r/^moredyes:dyedBlock$/ 12154-12271
 ; {"displayName":"Dyed Smooth Sandstone Stairs"}
-r/^moredyes:smoothSandstoneStairs$/
+r/^moredyes:dyedBlock$/ 12272-12389
 ; {"displayName":"Dyed Smooth Quartz Stairs"}
-r/^moredyes:smoothQuartzStairs$/
+r/^moredyes:dyedBlock$/ 12390-12507
 ; {"displayName":"Dyed Nether Brick Stairs"}
-r/^moredyes:netherBrickStairs$/
+r/^moredyes:dyedBlock$/ 12508-12625
 ; {"displayName":"Dyed Stone Slabs"}
-r/^moredyes:stoneSlab$/
+r/^moredyes:dyedBlock$/ 12626-12743
 ; {"displayName":"Dyed Cut Sandstone Slabs"}
-r/^moredyes:cutSandstoneSlab$/
+r/^moredyes:dyedBlock$/ 12744-12861
 ; {"displayName":"Dyed Diorite Slabs"}
-r/^moredyes:dioriteSlab$/
+r/^moredyes:dyedBlock$/ 12862-12979
 ; {"displayName":"Dyed Brick Walls"}
-r/^moredyes:brickWall$/
+r/^moredyes:dyedBlock$/ 12980-13097
 ; {"displayName":"Dyed Stone Brick Walls"}
-r/^moredyes:stonebrickWall$/
+r/^moredyes:dyedBlock$/ 13098-13215
 ; {"displayName":"Dyed Mossy Stone Brick Walls"}
-r/^moredyes:mossyStonebrickWall$/
+r/^moredyes:dyedBlock$/ 13216-13333
 ; {"displayName":"Dyed Granite Walls"}
-r/^moredyes:graniteWall$/
+r/^moredyes:dyedBlock$/ 13334-13451
 ; {"displayName":"Dyed Diorite Walls"}
-r/^moredyes:dioriteWall$/
+r/^moredyes:dyedBlock$/ 13452-13569
 ; {"displayName":"Dyed Andesite Walls"}
-r/^moredyes:andesiteWall$/
+r/^moredyes:dyedBlock$/ 13570-13687
 ; {"displayName":"Dyed Nether Brick Walls"}
-r/^moredyes:netherBrickWall$/
+r/^moredyes:dyedBlock$/ 13688-13805
 ; {"displayName":"Dyed Sandstone Walls"}
-r/^moredyes:sandstoneWall$/
+r/^moredyes:dyedBlock$/ 13806-13923
 ; {"displayName":"Dyed End Stone Brick Walls"}
-r/^moredyes:endStoneBrickWall$/
+r/^moredyes:dyedBlock$/ 13924-14041
 ; {"displayName":"Dyed Cobblestone Stairs"}
-r/^moredyes:cobbleStairs$/
+r/^moredyes:dyedBlock$/ 14042-14159
 ; {"displayName":"Dyed Stone Brick Stairs"}
-r/^moredyes:stonebrickStairs$/
+r/^moredyes:dyedBlock$/ 14160-14277
 ; {"displayName":"Dyed Cracked Stone Brick Stairs"}
-r/^moredyes:stonebrickCrackedStairs$/
+r/^moredyes:dyedBlock$/ 14278-14395
 ; {"displayName":"Dyed Carved Stone Brick Stairs"}
-r/^moredyes:stonebrickCarvedStairs$/
+r/^moredyes:dyedBlock$/ 14396-14513
 ; {"displayName":"Dyed Brick Stairs"}
-r/^moredyes:brickStairs$/
+r/^moredyes:dyedBlock$/ 14514-14631
 ; {"displayName":"Dyed Hardened Stained Clay Stairs"}
-r/^moredyes:clayStairs$/
+r/^moredyes:dyedBlock$/ 14632-14749
 ; {"displayName":"Dyed Coal Stairs"}
-r/^moredyes:coalStairs$/
+r/^moredyes:dyedBlock$/ 14750-14867
 ; {"displayName":"Dyed Lapis Stairs"}
-r/^moredyes:lapisStairs$/
+r/^moredyes:dyedBlock$/ 14868-14985
 ; {"displayName":"Dyed Redstone Stairs"}
-r/^moredyes:redstoneStairs$/
+r/^moredyes:dyedBlock$/ 14986-15103
 ; {"displayName":"Dyed Quartz Stairs"}
-r/^moredyes:quartzStairs$/
+r/^moredyes:dyedBlock$/ 15104-15221
 ; {"displayName":"Dyed Quartz Brick Stairs"}
-r/^moredyes:quartzBrickStairs$/
+r/^moredyes:dyedBlock$/ 15222-15339
 ; {"displayName":"Dyed Chiseled Quartz Stairs"}
-r/^moredyes:chiseledQuartzStairs$/
+r/^moredyes:dyedBlock$/ 15340-15457
 ; {"displayName":"Dyed Quartz Pillar Stairs"}
-r/^moredyes:quartzPillarStairs$/
+r/^moredyes:dyedBlock$/ 15458-15575
 ; {"displayName":"Dyed Obsidian Stairs"}
-r/^moredyes:obsidianStairs$/
+r/^moredyes:dyedBlock$/ 15576-15693
 ; {"displayName":"Dyed Glowstone Stairs"}
-r/^moredyes:glowstoneStairs$/
+r/^moredyes:dyedBlock$/ 15694-15811
 ; {"displayName":"Dyed Soulsand Stairs"}
-r/^moredyes:soulsandStairs$/
+r/^moredyes:dyedBlock$/ 15812-15929
 ; {"displayName":"Dyed Sand Stairs"}
-r/^moredyes:sandStairs$/
+r/^moredyes:dyedBlock$/ 15930-16047
 ; {"displayName":"Dyed Sandstone Stairs"}
-r/^moredyes:sandstoneStairs$/
+r/^moredyes:dyedBlock$/ 16048-16165
 ; {"displayName":"Dyed Chiseled Sandstone Stairs"}
-r/^moredyes:chiseledSandstoneStairs$/
+r/^moredyes:dyedBlock$/ 16166-16283
 ; {"displayName":"Dyed Cut Sandstone Stairs"}
-r/^moredyes:cutSandstoneStairs$/
+r/^moredyes:dyedBlock$/ 16284-16401
 ; {"displayName":"Dyed End Stone Stairs"}
-r/^moredyes:endStoneStairs$/
+r/^moredyes:dyedBlock$/ 16402-16519
 ; {"displayName":"Dyed Ice Stairs"}
-r/^moredyes:iceStairs$/
+r/^moredyes:dyedBlock$/ 16520-16637
 ; {"displayName":"Dyed Packed Ice Stairs"}
-r/^moredyes:packedIceStairs$/
+r/^moredyes:dyedBlock$/ 16638-16755
 ; {"displayName":"Dyed Snow Stairs"}
-r/^moredyes:snowStairs$/
+r/^moredyes:dyedBlock$/ 16756-16873
 ; {"displayName":"Dyed Bone Block Stairs"}
-r/^moredyes:boneBlockStairs$/
+r/^moredyes:dyedBlock$/ 16874-16991
 ; {"displayName":"Dyed Clear Glass Stairs"}
-r/^moredyes:glassStairs$/
+r/^moredyes:dyedBlock$/ 16992-17109
 ; {"displayName":"Dyed Foggy Glass Stairs"}
-r/^moredyes:glassFoggyStairs$/
+r/^moredyes:dyedBlock$/ 17110-17227
 ; {"displayName":"Dyed Wool Stairs"}
-r/^moredyes:woolStairs$/
+r/^moredyes:dyedBlock$/ 17228-17345
 ; {"displayName":"Dyed Concrete Stairs"}
-r/^moredyes:concreteStairs$/
+r/^moredyes:dyedBlock$/ 17346-17463
 ; {"displayName":"Dyed Concrete Powder Stairs"}
-r/^moredyes:concretePowderStairs$/
+r/^moredyes:dyedBlock$/ 17464-17581
 ; {"displayName":"Dyed Oak Stairs"}
-r/^moredyes:oakStairs$/
+r/^moredyes:dyedBlock$/ 17582-17699
 ; {"displayName":"Dyed Spruce Stairs"}
-r/^moredyes:spruceStairs$/
+r/^moredyes:dyedBlock$/ 17700-17817
 ; {"displayName":"Dyed Birch Stairs"}
-r/^moredyes:birchStairs$/
+r/^moredyes:dyedBlock$/ 17818-17935
 ; {"displayName":"Dyed Jungle Stairs"}
-r/^moredyes:jungleStairs$/
+r/^moredyes:dyedBlock$/ 17936-18053
 ; {"displayName":"Dyed Acacia Stairs"}
-r/^moredyes:acaciaStairs$/
+r/^moredyes:dyedBlock$/ 18054-18171
 ; {"displayName":"Dyed Dark Oak Stairs"}
-r/^moredyes:darkOakStairs$/
+r/^moredyes:dyedBlock$/ 18172-18289
 ; {"displayName":"Dyed Cobblestone Slabs"}
-r/^moredyes:cobbleSlab$/
+r/^moredyes:dyedBlock$/ 18290-18407
 ; {"displayName":"Dyed Mossy Cobblestone Slabs"}
-r/^moredyes:mossyCobbleSlab$/
+r/^moredyes:dyedBlock$/ 18408-18525
 ; {"displayName":"Dyed Stone Brick Slabs"}
-r/^moredyes:stonebrickSlab$/
+r/^moredyes:dyedBlock$/ 18526-18643
 ; {"displayName":"Dyed Cracked Stone Brick Slabs"}
-r/^moredyes:stonebrickCrackedSlab$/
+r/^moredyes:dyedBlock$/ 18644-18761
 ; {"displayName":"Dyed Carved Stone Brick Slabs"}
-r/^moredyes:stonebrickCarvedSlab$/
+r/^moredyes:dyedBlock$/ 18762-18879
 ; {"displayName":"Dyed Mossy Stone Brick Slabs"}
-r/^moredyes:mossyStonebrickSlab$/
+r/^moredyes:dyedBlock$/ 18880-18997
 ; {"displayName":"Dyed Brick Slabs"}
-r/^moredyes:brickSlab$/
+r/^moredyes:dyedBlock$/ 18998-19115
 ; {"displayName":"Dyed Hardened Stained Clay Slabs"}
-r/^moredyes:claySlab$/
+r/^moredyes:dyedBlock$/ 19116-19233
 ; {"displayName":"Dyed Coal Slabs"}
-r/^moredyes:coalSlab$/
+r/^moredyes:dyedBlock$/ 19234-19351
 ; {"displayName":"Dyed Lapis Slabs"}
-r/^moredyes:lapisSlab$/
+r/^moredyes:dyedBlock$/ 19352-19469
 ; {"displayName":"Dyed Redstone Slabs"}
-r/^moredyes:redstoneSlab$/
+r/^moredyes:dyedBlock$/ 19470-19587
 ; {"displayName":"Dyed Quartz Slabs"}
-r/^moredyes:quartzSlab$/
+r/^moredyes:dyedBlock$/ 19588-19705
 ; {"displayName":"Dyed Quartz Brick Slabs"}
-r/^moredyes:quartzBrickSlab$/
+r/^moredyes:dyedBlock$/ 19706-19823
 ; {"displayName":"Dyed Chiseled Quartz Slabs"}
-r/^moredyes:chiseledQuartzSlab$/
+r/^moredyes:dyedBlock$/ 19824-19941
 ; {"displayName":"Dyed Quartz Pillar Slabs"}
-r/^moredyes:quartzPillarSlab$/
+r/^moredyes:dyedBlock$/ 19942-20059
 ; {"displayName":"Dyed Smooth Quartz Slabs"}
-r/^moredyes:smoothQuartzSlab$/
+r/^moredyes:dyedBlock$/ 20060-20177
 ; {"displayName":"Dyed Obsidian Slabs"}
-r/^moredyes:obsidianSlab$/
+r/^moredyes:dyedBlock$/ 20178-20295
 ; {"displayName":"Dyed Glowstone Slabs"}
-r/^moredyes:glowstoneSlab$/
+r/^moredyes:dyedBlock$/ 20296-20413
 ; {"displayName":"Dyed Soulsand Slabs"}
-r/^moredyes:soulsandSlab$/
+r/^moredyes:dyedBlock$/ 20414-20531
 ; {"displayName":"Dyed Sand Slabs"}
-r/^moredyes:sandSlab$/
+r/^moredyes:dyedBlock$/ 20532-20649
 ; {"displayName":"Dyed Sandstone Slabs"}
-r/^moredyes:sandstoneSlab$/
+r/^moredyes:dyedBlock$/ 20650-20767
 ; {"displayName":"Dyed Chiseled Sandstone Slabs"}
-r/^moredyes:chiseledSandstoneSlab$/
+r/^moredyes:dyedBlock$/ 20768-20885
 ; {"displayName":"Dyed Granite Slabs"}
-r/^moredyes:graniteSlab$/
+r/^moredyes:dyedBlock$/ 20886-21003
 ; {"displayName":"Dyed Andesite Slabs"}
-r/^moredyes:andesiteSlab$/
+r/^moredyes:dyedBlock$/ 21004-21121
 ; {"displayName":"Dyed Polished Granite Slabs"}
-r/^moredyes:polishedGraniteSlab$/
+r/^moredyes:dyedBlock$/ 21122-21239
 ; {"displayName":"Dyed Speckled Granite Slabs"}
-r/^moredyes:speckledGraniteSlab$/
+r/^moredyes:dyedBlock$/ 21240-21357
 ; {"displayName":"Dyed Smooth Speckled Granite Slabs"}
-r/^moredyes:smoothSpeckledGraniteSlab$/
+r/^moredyes:dyedBlock$/ 21358-21475
 ; {"displayName":"Dyed Polished Diorite Slabs"}
-r/^moredyes:polishedDioriteSlab$/
+r/^moredyes:dyedBlock$/ 21476-21593
 ; {"displayName":"Dyed Polished Andesite Slabs"}
-r/^moredyes:polishedAndesiteSlab$/
+r/^moredyes:dyedBlock$/ 21594-21711
 ; {"displayName":"Dyed End Stone Slabs"}
-r/^moredyes:endStoneSlab$/
+r/^moredyes:dyedBlock$/ 21712-21829
 ; {"displayName":"Dyed Ice Slabs"}
-r/^moredyes:iceSlab$/
+r/^moredyes:dyedBlock$/ 21830-21947
 ; {"displayName":"Dyed Packed Ice Slabs"}
-r/^moredyes:packedIceSlab$/
+r/^moredyes:dyedBlock$/ 21948-22065
 ; {"displayName":"Dyed Snow Slabs"}
-r/^moredyes:snowSlab$/
+r/^moredyes:dyedBlock$/ 22066-22183
 ; {"displayName":"Dyed Bone Block Slabs"}
-r/^moredyes:boneBlockSlab$/
+r/^moredyes:dyedBlock$/ 22184-22301
 ; {"displayName":"Dyed Clear Glass Slabs"}
-r/^moredyes:glassSlab$/
+r/^moredyes:dyedBlock$/ 22302-22419
 ; {"displayName":"Dyed Foggy Glass Slabs"}
-r/^moredyes:glassFoggySlab$/
+r/^moredyes:dyedBlock$/ 22420-22537
 ; {"displayName":"Dyed Wool Slabs"}
-r/^moredyes:woolSlab$/
+r/^moredyes:dyedBlock$/ 22538-22655
 ; {"displayName":"Dyed Concrete Slabs"}
-r/^moredyes:concreteSlab$/
+r/^moredyes:dyedBlock$/ 22656-22773
 ; {"displayName":"Dyed Concrete Powder Slabs"}
-r/^moredyes:concretePowderSlab$/
+r/^moredyes:dyedBlock$/ 22774-22891
 ; {"displayName":"Dyed Oak Slabs"}
-r/^moredyes:oakSlab$/
+r/^moredyes:dyedBlock$/ 22892-23009
 ; {"displayName":"Dyed Spruce Slabs"}
-r/^moredyes:spruceSlab$/
+r/^moredyes:dyedBlock$/ 23010-23127
 ; {"displayName":"Dyed Birch Slabs"}
-r/^moredyes:birchSlab$/
+r/^moredyes:dyedBlock$/ 23128-23245
 ; {"displayName":"Dyed Jungle Slabs"}
-r/^moredyes:jungleSlab$/
+r/^moredyes:dyedBlock$/ 23246-23363
 ; {"displayName":"Dyed Acacia Slabs"}
-r/^moredyes:acaciaSlab$/
+r/^moredyes:dyedBlock$/ 23364-23481
 ; {"displayName":"Dyed Dark Oak Slabs"}
-r/^moredyes:darkOakSlab$/
+r/^moredyes:dyedBlock$/ 23482-23599
 ; {"displayName":"Dyed Crafting Table Slabs"}
-r/^moredyes:workbenchSlab$/
+r/^moredyes:dyedBlock$/ 23600-23717
 ; {"displayName":"Dyed Cobblestone Walls"}
-r/^moredyes:cobbleWall$/
+r/^moredyes:dyedBlock$/ 23718-23835
 ; {"displayName":"Dyed Mossy Cobblestone Walls"}
-r/^moredyes:mossyCobbleWall$/
+r/^moredyes:dyedBlock$/ 23836-23953
 ; {"displayName":"Dyed End Stone Walls"}
-r/^moredyes:endStoneWall$/
+r/^moredyes:dyedBlock$/ 23954-24071
 ; {"displayName":"Dyed Oak Fences"}
-r/^moredyes:oakFence$/
+r/^moredyes:dyedBlock$/ 24072-24189
 ; {"displayName":"Dyed Spruce Fences"}
-r/^moredyes:spruceFence$/
+r/^moredyes:dyedBlock$/ 24190-24307
 ; {"displayName":"Dyed Birch Fences"}
-r/^moredyes:birchFence$/
+r/^moredyes:dyedBlock$/ 24308-24425
 ; {"displayName":"Dyed Jungle Fences"}
-r/^moredyes:jungleFence$/
+r/^moredyes:dyedBlock$/ 24426-24543
 ; {"displayName":"Dyed Acacia Fences"}
-r/^moredyes:acaciaFence$/
+r/^moredyes:dyedBlock$/ 24544-24661
 ; {"displayName":"Dyed Dark Oak Fences"}
-r/^moredyes:darkOakFence$/
+r/^moredyes:dyedBlock$/ 24662-24779
 ; {"displayName":"Dyed Lilacs"}
-r/^moredyes:lilac$/
+r/^moredyes:dyedBlock$/ 10502-10619
 ; {"displayName":"Dyed Peonys"}
-r/^moredyes:peony$/
+r/^moredyes:dyedBlock$/ 10620-10737
 ; {"displayName":"Dyed Rose Bushes"}
-r/^moredyes:roseBush$/
+r/^moredyes:dyedBlock$/ 10738-10855
 ; {"displayName":"Dyed Signs"}
 r/^moredyes:sign$/
 ; {"displayName":"Dyed Beds"}
 r/^moredyes:dyedBed$/
 ; {"displayName":"Dyed Iron Trapdoors"}
-r/^moredyes:ironTrapdoor$/
+r/^moredyes:dyedBlock$/ 10148-10265
 ; {"displayName":"Dyed Pistons"}
-r/^moredyes:piston$/
+r/^moredyes:dyedBlock$/ 10266-10383
 ; {"displayName":"Dyed Sticky Pistons"}
-r/^moredyes:stickyPiston$/
+r/^moredyes:dyedBlock$/ 10384-10501
 ; {"displayName":"Dyed Iron Chests"}
 r/^moredyes:dyedIronChest$/
 ; {"displayName":"Dyed Gold Chests"}

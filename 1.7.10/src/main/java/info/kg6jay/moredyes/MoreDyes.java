@@ -28,12 +28,15 @@ import info.kg6jay.moredyes.handler.ConfigHandler;
 import info.kg6jay.moredyes.handler.FuelHandler;
 import info.kg6jay.moredyes.handler.GuiHandler;
 import info.kg6jay.moredyes.handler.PetCollarHandler;
+import info.kg6jay.moredyes.handler.SharedBlockHandler;
 import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.handler.WorldGenHandler;
 import info.kg6jay.moredyes.item.MDItem;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.network.PacketHandler;
 import info.kg6jay.moredyes.proxy.CommonProxy;
 import info.kg6jay.moredyes.recipe.CraftManager;
+import info.kg6jay.moredyes.recipe.SharedBlockRecipes;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.LogHelper;
 
@@ -70,6 +73,12 @@ public class MoreDyes {
 
         MDBlock.initialize();
         MDBlock.register();
+        if (Loader.isModLoaded("ThermalExpansion")) {
+            LogHelper.info("Thermal Expansion is loaded");
+            TECompat.registerThermalExpansion();
+        }
+        // After every dyed block, before anything makes stacks of them.
+        SharedBlocks.register();
         MDBlock.registerTileEntities();
         MDBlock.registerOreDictionary();
 
@@ -93,10 +102,6 @@ public class MoreDyes {
         PacketHandler.initialize();
 
         WorldGenHandler.initializeWorldGen();
-        if (Loader.isModLoaded("ThermalExpansion")) {
-            LogHelper.info("Thermal Expansion is loaded");
-            TECompat.registerThermalExpansion();
-        }
         LogHelper.info("Pre Initialization Complete");
     }
 
@@ -106,6 +111,7 @@ public class MoreDyes {
         MDBlock.registerFlammability();
         MDBlock.registerWashing();
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
+        MinecraftForge.EVENT_BUS.register(new SharedBlockHandler());
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
         MinecraftForge.EVENT_BUS.register(new PetCollarHandler());
         GameRegistry.registerFuelHandler(new FuelHandler());
@@ -134,10 +140,12 @@ public class MoreDyes {
             GTCompat.registerRecipes();
         }
         ((Tab) tabDyes).setTabIconItem(MDItem.dye[0]);
-        ((Tab) tabBlocks).setTabIconItem(Item.getItemFromBlock(MDBlock.wool[0]));
-        ((Tab) tabPlants).setTabIconItem(Item.getItemFromBlock(MDBlock.tulip[0]));
-        ((Tab) tabTrees).setTabIconItem(Item.getItemFromBlock(MDBlock.sapling[0]));
-        ((Tab) tabShapes).setTabIconItem(Item.getItemFromBlock(MDBlock.stoneStairs));
+        ((Tab) tabBlocks).setTabIconStack(SharedBlocks.stack(MDBlock.wool[0], 0, 1));
+        ((Tab) tabPlants).setTabIconStack(SharedBlocks.stack(MDBlock.tulip[0], 0, 1));
+        ((Tab) tabTrees).setTabIconStack(SharedBlocks.stack(MDBlock.sapling[0], 0, 1));
+        ((Tab) tabShapes).setTabIconStack(SharedBlocks.stack(MDBlock.stoneStairs, 0, 1));
+        // Last, once every recipe that uses the dyed blocks is in.
+        SharedBlockRecipes.convert();
         LogHelper.info("Post Initialization Complete");
     }
 

@@ -3,7 +3,6 @@ package info.kg6jay.moredyes.compat.thermalexpansion;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -27,7 +26,6 @@ public class TECompat {
                 MDItemBlockColored.class,
                 ((MDBlockColored) MDBlock.rockwool[i]).getColorSet() + "MixRockwool");
             for (int a = 0; a <= ((MDBlockColored) MDBlock.rockwool[i]).getMaxMeta(); a++) {
-                OreDictionary.registerOre("blockClothRock", new ItemStack(MDBlock.rockwool[i], 1, a));
                 CraftingManager.getInstance()
                     .getRecipeList()
                     .add(

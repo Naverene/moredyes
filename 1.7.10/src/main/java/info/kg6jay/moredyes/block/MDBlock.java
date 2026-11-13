@@ -24,6 +24,7 @@ import info.kg6jay.moredyes.item.MDItemBlockColored;
 import info.kg6jay.moredyes.item.MDItemBlockDyedSlab;
 import info.kg6jay.moredyes.item.MDItemBlockDyedTallFlower;
 import info.kg6jay.moredyes.item.MDItemBlockTileColored;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.reference.ColorStrings;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.BlockInfo;
@@ -927,6 +928,9 @@ public class MDBlock {
                 ore(sandstone[a], i, "sandstone");
                 ore(bookshelf[a], i, "bookshelf");
                 ore(diorite[a], i, "stoneDiorite", "blockDiorite");
+                if (rockwool != null) {
+                    ore(rockwool[a], i, "blockClothRock");
+                }
             }
             for (int i = 0; i <= ((IBlockColored) granite[a]).getMaxMeta(); i++) {
                 ore(granite[a], i, "stoneGranite", "blockGranite");
@@ -951,7 +955,7 @@ public class MDBlock {
 
     private static void ore(Block block, int meta, String... names) {
         for (String name : names) {
-            OreDictionary.registerOre(name, new ItemStack(block, 1, meta));
+            OreDictionary.registerOre(name, SharedBlocks.stack(block, meta, 1));
         }
     }
 
@@ -969,7 +973,7 @@ public class MDBlock {
 
     private static boolean providedByOtherMod(String oreName, Block own) {
         for (ItemStack stack : OreDictionary.getOres(oreName)) {
-            Block block = Block.getBlockFromItem(stack.getItem());
+            Block block = SharedBlocks.blockOf(stack);
             if (block != own && !(block instanceof IBlockColored)) {
                 return true;
             }

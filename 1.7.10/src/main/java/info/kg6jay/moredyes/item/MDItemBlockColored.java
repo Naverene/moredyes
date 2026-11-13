@@ -1,8 +1,12 @@
 package info.kg6jay.moredyes.item;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -12,7 +16,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.ILayeredBlock;
 import info.kg6jay.moredyes.block.MDBlockFlowerPot;
-import info.kg6jay.moredyes.world.feature.MisgeneratedTrees;
 
 public class MDItemBlockColored extends ItemBlockWithMetadata {
 
@@ -83,15 +86,21 @@ public class MDItemBlockColored extends ItemBlockWithMetadata {
     }
 
     /**
-     * A misgenerated log, leaf, sapling or dye in a player's inventory turns into the right one (MisgeneratedTrees).
+     * This item is replaced by the shared dyed block item (see SharedBlocks): it is not listed, and turns into the
+     * shared item in a player's inventory (a misgenerated tree's item is fixed on the way).
      */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public void getSubItems(Item item, CreativeTabs tab, List list) {}
+
+    /** Turns into the shared dyed block item in a player's inventory. */
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
         if (!world.isRemote && entity instanceof EntityPlayer player
             && player.inventory.getStackInSlot(slot) == stack) {
-            ItemStack fixed = MisgeneratedTrees.fix(stack);
-            if (fixed != null) {
-                player.inventory.setInventorySlotContents(slot, fixed);
+            ItemStack shared = SharedBlocks.toShared(stack);
+            if (shared != null) {
+                player.inventory.setInventorySlotContents(slot, shared);
             }
         }
     }

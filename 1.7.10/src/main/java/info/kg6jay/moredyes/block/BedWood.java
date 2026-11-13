@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import info.kg6jay.moredyes.item.MDItem;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.utility.ColorIndex;
 
 /**
@@ -33,6 +34,7 @@ public final class BedWood {
         if (stack == null) {
             return null;
         }
+        stack = SharedBlocks.unwrap(stack);
         Block block = Block.getBlockFromItem(stack.getItem());
         int meta = stack.getItemDamage();
         if (block == Blocks.planks) {

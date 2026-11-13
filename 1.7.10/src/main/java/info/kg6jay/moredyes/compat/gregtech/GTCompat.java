@@ -18,6 +18,7 @@ import gregtech.api.recipe.RecipeMaps;
 import info.kg6jay.moredyes.block.IBlockColored;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.item.MDItem;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * GregTech (GTNH) machine recipes. Only loaded when GregTech is installed.
@@ -54,13 +55,13 @@ public class GTCompat {
                 if (dyeable) {
                     GTValues.RA.stdBuilder()
                         .itemInputs(copy(vanilla, STACK), new ItemStack(MDItem.dye[setIndex], 1, meta))
-                        .itemOutputs(new ItemStack(dyed, STACK, meta))
+                        .itemOutputs(SharedBlocks.stack(dyed, meta, STACK))
                         .duration(DYE_DURATION)
                         .eut(TierEU.RECIPE_LV)
                         .addTo(RecipeMaps.mixerRecipes);
                 }
                 GTValues.RA.stdBuilder()
-                    .itemInputs(new ItemStack(dyed, 1, meta))
+                    .itemInputs(SharedBlocks.stack(dyed, meta, 1))
                     .itemOutputs(copy(vanilla, 1))
                     .fluidInputs(Materials.Chlorine.getGas(50L))
                     .duration(BLEACH_DURATION)

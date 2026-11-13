@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.IFuelHandler;
 import info.kg6jay.moredyes.block.MDBlock;
+import info.kg6jay.moredyes.item.SharedBlocks;
 
 /**
  * Burn times for the dyed blocks that vanilla gives special values. Wooden blocks (planks, logs, crafting tables,
@@ -14,7 +15,7 @@ public class FuelHandler implements IFuelHandler {
 
     @Override
     public int getBurnTime(ItemStack fuel) {
-        Block block = Block.getBlockFromItem(fuel.getItem());
+        Block block = SharedBlocks.blockOf(fuel);
         for (int i = 0; i < MDBlock.colors.length; i++) {
             if (block == MDBlock.coal[i]) {
                 return 16000;

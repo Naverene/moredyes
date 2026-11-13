@@ -29,6 +29,7 @@ import info.kg6jay.moredyes.handler.SheepHandler;
 import info.kg6jay.moredyes.item.MDItemBlockTileColored;
 import info.kg6jay.moredyes.item.MDItemDye;
 import info.kg6jay.moredyes.item.MDItemDyedSign;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.ColorIndex;
 
@@ -100,6 +101,7 @@ public final class MoreDyesAPI {
         if (stack == null) {
             return OptionalInt.empty();
         }
+        stack = SharedBlocks.unwrap(stack);
         Item item = stack.getItem();
         int damage = stack.getItemDamage();
         if (item instanceof MDItemDye dye) {

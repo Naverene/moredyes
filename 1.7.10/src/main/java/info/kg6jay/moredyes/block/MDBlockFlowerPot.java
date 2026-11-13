@@ -2,7 +2,6 @@ package info.kg6jay.moredyes.block;
 
 import java.util.ArrayList;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -15,6 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDFlowerPot;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.reference.Reference;
 
 /**
@@ -33,7 +33,7 @@ public class MDBlockFlowerPot extends BlockFlowerPot {
 
     /** True if this stack is a dyed plant that fits in a flower pot. */
     public static boolean canPot(ItemStack stack) {
-        return stack != null && Block.getBlockFromItem(stack.getItem()) instanceof MDBlockColoredPlant;
+        return stack != null && SharedBlocks.blockOf(stack) instanceof MDBlockColoredPlant;
     }
 
     /** True if the block at this position is an empty vanilla flower pot. */

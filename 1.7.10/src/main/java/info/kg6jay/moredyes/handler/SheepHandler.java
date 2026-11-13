@@ -23,6 +23,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import info.kg6jay.moredyes.block.MDBlock;
 import info.kg6jay.moredyes.entity.SheepColor;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.network.PacketHandler;
 
 /**
@@ -140,7 +141,7 @@ public class SheepHandler {
 
     private static ItemStack woolFor(SheepColor color, int count) {
         int set = SheepColor.setOf(color.get());
-        return new ItemStack(MDBlock.wool[set], count, SheepColor.shadeOf(color.get()));
+        return SharedBlocks.stack(MDBlock.wool[set], SheepColor.shadeOf(color.get()), count);
     }
 
     /** Shears a sheep like vanilla shears do, dropping 1 to 3 More Dyes wool. */
