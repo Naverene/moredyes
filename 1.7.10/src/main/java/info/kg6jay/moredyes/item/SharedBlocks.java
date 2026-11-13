@@ -6,9 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import info.kg6jay.moredyes.block.MDBlock;
@@ -261,6 +265,49 @@ public final class SharedBlocks {
             }
         }
         return stacks;
+    }
+
+    /**
+     * True while the player has a Chisel GUI open (the chisel's own GUI or the Auto Chisel). Chisel only takes block
+     * items there, so while one is open the player's dyed blocks are the old items (see chiselInventory) and do not
+     * turn back into the shared item until it is closed.
+     */
+    public static boolean inChiselGui(EntityPlayer player) {
+        Container open = player.openContainer;
+        if (open == null || open == player.inventoryContainer) {
+            return false;
+        }
+        String name = open.getClass()
+            .getName();
+        return name.startsWith("team.chisel.") || name.startsWith("com.cricketcraft.chisel.");
+    }
+
+    /** Turns the shared dyed blocks in a player's inventory into the old items, so a Chisel GUI takes them. */
+    public static void chiselInventory(EntityPlayer player) {
+        ItemStack[] slots = player.inventory.mainInventory;
+        for (int slot = 0; slot < slots.length; slot++) {
+            if (slots[slot] != null && isShared(slots[slot].getItem())) {
+                ItemStack old = toOld(slots[slot]);
+                if (old != null) {
+                    if (old.hasTagCompound()) {
+                        old.setTagCompound(
+                            (NBTTagCompound) old.getTagCompound()
+                                .copy());
+                    }
+                    slots[slot] = old;
+                }
+            }
+        }
+        ItemStack held = player.inventory.getItemStack();
+        if (held != null && isShared(held.getItem())) {
+            ItemStack old = toOld(held);
+            if (old != null) {
+                player.inventory.setItemStack(old);
+                if (player instanceof EntityPlayerMP mp) {
+                    mp.updateHeldItem();
+                }
+            }
+        }
     }
 
     /**

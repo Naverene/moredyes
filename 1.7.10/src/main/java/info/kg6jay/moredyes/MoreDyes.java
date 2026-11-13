@@ -111,7 +111,11 @@ public class MoreDyes {
         MDBlock.registerFlammability();
         MDBlock.registerWashing();
         MinecraftForge.EVENT_BUS.register(new CauldronWashHandler());
-        MinecraftForge.EVENT_BUS.register(new SharedBlockHandler());
+        SharedBlockHandler sharedBlocks = new SharedBlockHandler();
+        MinecraftForge.EVENT_BUS.register(sharedBlocks);
+        FMLCommonHandler.instance()
+            .bus()
+            .register(sharedBlocks);
         MinecraftForge.EVENT_BUS.register(new SheepHandler());
         MinecraftForge.EVENT_BUS.register(new PetCollarHandler());
         GameRegistry.registerFuelHandler(new FuelHandler());
