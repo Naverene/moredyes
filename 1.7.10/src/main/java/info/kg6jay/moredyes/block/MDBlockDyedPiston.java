@@ -29,6 +29,7 @@ import info.kg6jay.moredyes.block.ILayeredBlock.RenderLayer;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDPiston;
 import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.reference.Reference;
 import info.kg6jay.moredyes.utility.ColorIndex;
 import info.kg6jay.moredyes.utility.ColorUtil;
@@ -313,7 +314,7 @@ public class MDBlockDyedPiston extends BlockPistonBase implements ILayeredBlock 
 
     @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
-        return new ItemStack(this, 1, colorAt(world, x, y, z));
+        return SharedBlocks.stack(this, colorAt(world, x, y, z), 1);
     }
 
     @Override

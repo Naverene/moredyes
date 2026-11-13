@@ -4,7 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -18,6 +20,7 @@ import info.kg6jay.moredyes.client.LayeredBlockRenderer;
 import info.kg6jay.moredyes.client.LitLampRenderer;
 import info.kg6jay.moredyes.client.RenderColoredSheep;
 import info.kg6jay.moredyes.client.RenderColoredWolf;
+import info.kg6jay.moredyes.client.SharedBlockItemRenderer;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.compat.etfuturum.client.EtFuturumClient;
 import info.kg6jay.moredyes.compat.ironchest.client.IronChestClient;
@@ -27,6 +30,7 @@ import info.kg6jay.moredyes.compat.storagedrawers.client.StorageDrawersClient;
 import info.kg6jay.moredyes.entity.PetCollar;
 import info.kg6jay.moredyes.entity.SheepColor;
 import info.kg6jay.moredyes.handler.ConfigHandler;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.render.TileEntityMDBlockColoredChestRenderer;
 import info.kg6jay.moredyes.render.TileEntityMDPistonRenderer;
 import info.kg6jay.moredyes.render.TileEntityMDSignRenderer;
@@ -41,6 +45,11 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerRenderThings() {
+        SharedBlockItemRenderer sharedRenderer = new SharedBlockItemRenderer();
+        for (Item item : SharedBlocks.items) {
+            MinecraftForgeClient.registerItemRenderer(item, sharedRenderer);
+        }
+        SharedBlocks.hideOldItemsInNEI();
         RenderIds.chest = RenderingRegistry.getNextAvailableRenderId();
         TileEntityMDBlockColoredChestRenderer chestRenderer = new TileEntityMDBlockColoredChestRenderer();
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMDBlockColoredChest.class, chestRenderer);

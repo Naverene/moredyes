@@ -1,7 +1,12 @@
 package info.kg6jay.moredyes.item;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -41,5 +46,22 @@ public class MDItemBlockTileColored extends ItemBlock {
             TileColor.set(world, x, y, z, stack.getItemDamage());
         }
         return true;
+    }
+
+    /** Replaced by the shared dyed block item (see SharedBlocks): not listed. */
+    @Override
+    @SuppressWarnings("rawtypes")
+    public void getSubItems(Item item, CreativeTabs tab, List list) {}
+
+    /** Turns into the shared dyed block item in a player's inventory. */
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean held) {
+        if (!world.isRemote && entity instanceof EntityPlayer player
+            && player.inventory.getStackInSlot(slot) == stack) {
+            ItemStack shared = SharedBlocks.toShared(stack);
+            if (shared != null) {
+                player.inventory.setInventorySlotContents(slot, shared);
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.block.tileentity.TileEntityMDColor;
 import info.kg6jay.moredyes.client.TintedTextures;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.utility.ColorIndex;
 
 /**
@@ -50,7 +51,7 @@ public final class TileColor {
     }
 
     public static ItemStack stack(Block block, IBlockAccess world, int x, int y, int z, int count) {
-        return new ItemStack(block, count, get(world, x, y, z));
+        return SharedBlocks.stack(block, get(world, x, y, z), count);
     }
 
     public static ArrayList<ItemStack> drops(Block block, World world, int x, int y, int z, int count) {

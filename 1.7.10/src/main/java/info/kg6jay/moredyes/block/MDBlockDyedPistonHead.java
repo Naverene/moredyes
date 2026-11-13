@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.reference.Reference;
 
 /**
@@ -96,7 +97,7 @@ public class MDBlockDyedPistonHead extends BlockPistonExtension {
     @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
         MDBlockDyedPiston piston = pistonBehind(world, x, y, z, world.getBlockMetadata(x, y, z));
-        return piston == null ? null : new ItemStack(piston, 1, MDBlockDyedPiston.colorAt(world, x, y, z));
+        return piston == null ? null : SharedBlocks.stack(piston, MDBlockDyedPiston.colorAt(world, x, y, z), 1);
     }
 
     @Override

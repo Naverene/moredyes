@@ -9,12 +9,15 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import info.kg6jay.moredyes.client.TintedTextures;
 import info.kg6jay.moredyes.handler.ConfigHandler;
+import info.kg6jay.moredyes.item.SharedBlocks;
 import info.kg6jay.moredyes.utility.BlockInfo;
 import info.kg6jay.moredyes.utility.ColorUtil;
 
@@ -96,5 +99,13 @@ public class MDBlockColored extends Block implements IBlockColored {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.icon = TintedTextures.register(iconRegister, this.blockName);
+    }
+
+    /** Picks the shared dyed block item (see SharedBlocks) rather than this block's own item. */
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
+        ItemStack pick = super.getPickBlock(target, world, x, y, z);
+        ItemStack shared = SharedBlocks.toShared(pick);
+        return shared != null ? shared : pick;
     }
 }
