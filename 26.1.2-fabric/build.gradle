@@ -1,0 +1,218 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+    // Minecraft 26.1 ships without obfuscation, so this is Loom's plain plugin (no remapping, no mappings).
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+// The jar is named moredyes-<mod version>-<Minecraft version>-fabric.jar.
+version = "${mod_version}-${minecraft_version}-fabric"
+group = mod_group_id
+
+base {
+    archivesName = 'moredyes'
+}
+
+// Minecraft 26.1 needs Java 25, so the mod targets Java 25.
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Modrinth'
+                url = 'https://api.modrinth.com/maven'
+            }
+        }
+        filter { includeGroup 'maven.modrinth' }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'shedaniel'
+                url = 'https://maven.shedaniel.me'
+            }
+        }
+        filter { includeGroup 'me.shedaniel' }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    // Optional: Storage Drawers, which More Dyes adds dyed drawers to. The compat classes only load when it is
+    // installed, so it is compile-time only. Run the game with it by passing -Pcompat_mods=true.
+    compileOnly "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    if (project.findProperty('compat_mods') == 'true') {
+        localRuntime "maven.modrinth:storagedrawers:${storage_drawers_version}"
+    }
+
+    // Optional: Iron Chests (its Fabric port), which More Dyes adds dyed iron, gold, diamond and copper chests to. Like
+    // Storage Drawers it is compile-time only, and -Pcompat_mods=true runs the game with it.
+    compileOnly "maven.modrinth:ironchest:${iron_chests_version}"
+    if (project.findProperty('compat_mods') == 'true') {
+        localRuntime "maven.modrinth:ironchest:${iron_chests_version}"
+    }
+
+    // Only compiled against, for compat/rei (collapsed item groups); the mod does not need REI to run.
+    compileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}") { transitive = false }
+    // REI in the dev game, to try the groups: ./gradlew runClient -Precipe_viewer=true
+    if (project.findProperty('recipe_viewer') == 'true') {
+        localRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    }
+}
+
+// A client game test (src/gametest) that builds a scene of dyed blocks, a chest, a sign and a dyed sheep in a creative
+// world and takes screenshots of it: ./gradlew runClientGameTest (needs a display; the screenshots land in
+// build/run/clientGameTest/screenshots). It is not part of ./gradlew build and is not in the mod jar.
+fabricApi {
+    configureTests {
+        createSourceSet = true
+        modId = 'moredyes-gametest'
+        enableGameTests = false
+        enableClientGameTests = true
+        eula = true
+    }
+}
+
+loom {
+    accessWidenerPath = file('src/main/resources/moredyes.accesswidener')
+    runs {
+        matching { it.name == 'clientGameTest' }.configureEach { run ->
+            // The test's packet synchronizer sometimes trips over the dyed sheep's synced color; the test waits
+            // for ticks instead.
+            run.vmArg '-Dfabric.client.gametest.disableNetworkSynchronizer=true'
+        }
+    }
+}
+
+// The models, textures, language file, recipes, loot tables, tags, worldgen and Rechiseled files are shared with the
+// NeoForge 26.1.2 build (../26.1.2), whose tools/generate_resources.py writes them. Only the NeoForge-specific
+// parts are left out or converted here, so new blocks only need adding (and the generator run) on the NeoForge side.
+def neoDir = file('../26.1.2')
+def neoMain = new File(neoDir, 'src/main/resources')
+def neoGenerated = new File(neoDir, 'src/generated/resources')
+// The dyed Iron Chests (compat/ironchest), for the Fabric port of Iron Chests. Their item models name NeoForge Iron
+// Chests' item models as their base, for the display transforms; the Fabric port's are flat icons, so
+// convertIronChestItems puts vanilla's chest item model in their place.
+def ironChestTiers = ['iron', 'gold', 'diamond', 'copper']
+def ironChestItems = ironChestTiers.collect { "assets/moredyes/items/${it}_chest.json".toString() }
+// The dyed Storage Drawers' recipes, and the dyed Iron Chests' recipes and loot tables, carry NeoForge's mod-loaded
+// condition; they are rewritten with Fabric's.
+def conditionalRecipes = ['data/moredyes/recipe/dyeing/*_drawers_*.json'] +
+        ironChestTiers.collect { "data/moredyes/recipe/dyeing/${it}_chest_*.json".toString() } +
+        ironChestTiers.collect { "data/moredyes/loot_table/blocks/${it}_chest.json".toString() }
+def ironChestItemsDir = layout.buildDirectory.dir('generated/ironChestItems')
+// NeoForge's data maps (furnace fuels and compost chances) and recipe priorities. Fabric has registries for the
+// first two and nothing for the last, so they are read from the jar by the mod itself (see MoreDyes and
+// mixin/RecipeManagerMixin) under moredyes/fabric/.
+def neoData = 'data/neoforge/**'
+def fabricResourcesDir = layout.buildDirectory.dir('generated/fabricResources')
+
+// Rewrites each recipe (or loot table) with NeoForge conditions as the same file with Fabric's load conditions.
+tasks.register('convertConditionalRecipes') {
+    inputs.files(fileTree(neoGenerated) { include conditionalRecipes })
+    outputs.dir(fabricResourcesDir)
+    doLast {
+        def out = fabricResourcesDir.get().asFile
+        project.delete(out)
+        def slurper = new JsonSlurper()
+        fileTree(neoGenerated) { include conditionalRecipes }.visit { FileVisitDetails details ->
+            if (details.directory) {
+                return
+            }
+            def json = slurper.parse(details.file)
+            def recipe = [:]
+            def conditions = json.remove('neoforge:conditions')
+            if (conditions != null) {
+                recipe['fabric:load_conditions'] = conditions.collect {
+                    if (it.type != 'neoforge:mod_loaded') {
+                        throw new GradleException("Unexpected condition ${it.type} in ${details.relativePath}")
+                    }
+                    [condition: 'fabric:all_mods_loaded', values: [it.modid]]
+                }
+            }
+            recipe.putAll(json)
+            def target = new File(out, details.relativePath.pathString)
+            target.parentFile.mkdirs()
+            target.text = JsonOutput.toJson(recipe)
+        }
+    }
+}
+
+tasks.register('convertIronChestItems') {
+    inputs.files(fileTree(neoGenerated) { include ironChestItems })
+    outputs.dir(ironChestItemsDir)
+    doLast {
+        def out = ironChestItemsDir.get().asFile
+        project.delete(out)
+        def slurper = new JsonSlurper()
+        fileTree(neoGenerated) { include ironChestItems }.visit { FileVisitDetails details ->
+            if (details.directory) {
+                return
+            }
+            def json = slurper.parse(details.file)
+            if (json.model?.type != 'minecraft:special' || !json.model.base?.startsWith('ironchest:item/')) {
+                throw new GradleException("Unexpected item model ${details.relativePath}")
+            }
+            json.model.base = 'minecraft:item/chest'
+            def target = new File(out, details.relativePath.pathString)
+            target.parentFile.mkdirs()
+            target.text = JsonOutput.toJson(json)
+        }
+    }
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    dependsOn 'convertConditionalRecipes', 'convertIronChestItems'
+    var replaceProperties = [
+            minecraft_version: minecraft_version, loader_version: loader_version,
+            mod_id: mod_id, mod_name: mod_name, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+    filesMatching('fabric.mod.json') {
+        expand replaceProperties
+    }
+
+    from(neoMain) {
+        // NeoForge's metadata and mixin configs; this folder has its own.
+        exclude 'META-INF/**'
+        exclude '*.mixins.json'
+    }
+    from(neoGenerated) {
+        exclude '.cache'
+        // The dye trees and tulips are added to biomes in code (world/ModWorldGen), and the dyed sheep's wool is
+        // swapped by mixin/EntityMixin, in place of NeoForge's biome modifier and global loot modifier.
+        exclude 'data/moredyes/neoforge/**'
+        exclude 'data/moredyes/loot_modifiers/**'
+        exclude neoData
+        exclude ironChestItems
+        exclude conditionalRecipes
+    }
+    from(new File(neoGenerated, 'data/neoforge')) {
+        include 'data_maps/item/compostables.json', 'data_maps/item/furnace_fuels.json', 'recipe_priorities.json'
+        eachFile { it.path = 'moredyes/fabric/' + it.name }
+        includeEmptyDirs = false
+    }
+    from(fabricResourcesDir)
+    from(ironChestItemsDir)
+}
+
+tasks.named('jar', Jar).configure {
+    // With its slabs, stairs and walls the mod has well over 65,535 files, more than a plain zip can hold.
+    zip64 = true
+}
+

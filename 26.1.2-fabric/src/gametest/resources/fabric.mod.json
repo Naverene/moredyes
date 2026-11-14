@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "moredyes-gametest",
+  "version": "1.0.0",
+  "name": "More Dyes client game test",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-client-gametest": ["net.neverandy.moredyes.gametest.MoreDyesClientGameTest"]
+  },
+  "depends": {
+    "moredyes": "*"
+  }
+}
