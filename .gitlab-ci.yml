@@ -145,6 +145,17 @@ variables:
   variables: { MC_DIR: "26.1.2", JAVA: "25" }
   rules: *rules
 
+"26.1.2-fabric":
+  extends: .build
+  variables: { MC_DIR: "26.1.2-fabric", JAVA: "25" }
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        paths: &p2612f [ "26.1.2-fabric/**/*", "26.1.2/**/*", ".gitlab-ci.yml" ]
+        compare_to: $CI_MERGE_REQUEST_DIFF_BASE_SHA
+    - changes: *p2612f
+
 "26.3":
   extends: .build
   variables: { MC_DIR: "26.3", JAVA: "25" }

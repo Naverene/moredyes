@@ -1,0 +1,31 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.neverandy.moredyes.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BeaconBlockEntityMixin",
+    "DiodeBlockMixin",
+    "EndCrystalItemMixin",
+    "MultiPackResourceManagerMixin",
+    "PistonBaseBlockMixin",
+    "PistonHeadBlockMixin",
+    "PortalShapeMixin",
+    "RecipeManagerMixin",
+    "SheepMixin",
+    "WolfAccessor",
+    "CatAccessor"
+  ],
+  "client": [
+    "SheepRendererMixin",
+    "SheepRenderStateMixin",
+    "CollarRenderStateMixin",
+    "WolfRendererMixin",
+    "CatRendererMixin",
+    "WolfCollarLayerMixin",
+    "CatCollarLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
