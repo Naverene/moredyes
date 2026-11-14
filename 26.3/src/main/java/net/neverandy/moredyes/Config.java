@@ -8,7 +8,7 @@ import net.neverandy.moredyes.entity.WildSheepColors;
 import net.neverandy.moredyes.toggle.Toggles;
 
 /**
- * The settings. The server config is saved per world in {@code serverconfig/moredyes-server.toml}; the startup config,
+ * The settings. The synced config (sent from the server to clients) is saved in {@code config/moredyes-synced.toml}; the startup config,
  * {@code config/moredyes-startup.toml}, chooses which blocks the mod adds and is read before they are registered.
  */
 public final class Config {

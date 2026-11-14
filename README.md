@@ -63,8 +63,10 @@ These are server settings, so a server's own config decides them for everyone wh
 
 Where the settings live:
 
-- Forge 1.16.5 to 1.20.1 and NeoForge 1.21.1 and newer: the per-world server config, `saves/<world>/serverconfig/moredyes-server.toml`
+- Forge 1.16.5 to 1.20.1 and NeoForge 1.21.1 to 26.1.2: the per-world server config, `saves/<world>/serverconfig/moredyes-server.toml`
   (copy it to `defaultconfigs/` to use it for new worlds).
+- NeoForge 26.3: `config/moredyes-synced.toml`, shared by all worlds (newer NeoForge 26.3 builds dropped per-world server
+  configs).
 - Fabric: `config/moredyes.properties`, with lists written as `sheep_spawn_colors=7f5933,403326`.
 - 1.4.7, 1.7.10 and 1.12.2: the mod's `.cfg` file, as `sheepSpawnChance`, `sheepSpawnColors`, `rareSheepSpawnChance`
   and `rareSheepSpawnColors`.
