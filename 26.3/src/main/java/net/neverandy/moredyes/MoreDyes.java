@@ -61,7 +61,7 @@ public class MoreDyes {
         modBus.addListener(CauldronWashing::register);
         modBus.addListener(MoreDyes::commonSetup);
         modBus.addListener(MoreDyes::bedsAsHomes);
-        container.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
+        container.registerConfig(ModConfig.Type.SYNCED, Config.SPEC);
         // Optional compat. Its classes refer to the other mod's classes, so they are only touched when it's installed.
         if (ModList.get().isLoaded(StorageDrawersCompat.MOD_ID) && Toggles.storageDrawers) {
             StorageDrawersCompat.register(modBus);

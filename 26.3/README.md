@@ -23,7 +23,7 @@ This is the NeoForge port for Minecraft 26.3, made from the 1.16.5 version.
 * Dyed blocks turn into each other like the vanilla ones: cobblestone smelts to stone, logs make planks, dyed planks
   make crafting tables, chests, signs, bookshelves and pistons of their color, and so on.
 * A dye used on a sheep dyes its wool, and some sheep spawn already dyed: by default 20% in natural browns,
-  beiges and greys and 2% in burgundy, set in the server config, `serverconfig/moredyes-server.toml` (see "Wild sheep
+  beiges and greys and 2% in burgundy, set in the synced config, `config/moredyes-synced.toml` (see "Wild sheep
   colors" in the [main README](../README.md)). Lambs take a color from a parent.
 * Dye trees grow in the overworld about every four chunks, and patches of dyed tulips about every other chunk.
 * `config/moredyes-startup.toml` can turn off shapes, block types, world gen and mod compat; see "Turning parts of
